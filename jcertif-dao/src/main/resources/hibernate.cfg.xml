@@ -9,6 +9,7 @@
 
 		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
 		<mapping class="com.jcertif.bo.article.Article" />
+		<mapping class="com.jcertif.bo.Sujet" />
 		
 	</session-factory>
 </hibernate-configuration>
