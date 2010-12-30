@@ -12,5 +12,7 @@
 		<mapping class="com.jcertif.bo.Sujet" />
 		<mapping class="com.jcertif.bo.MotCle" />
 		<mapping class="com.jcertif.bo.StatutApprobation" />
+		<mapping class="com.jcertif.bo.CentreConference" />
+	
 	</session-factory>
 </hibernate-configuration>
