@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<statut_approbation id="1" code_statut="code_statut statut_approbation 1" description="description statut_approbation 1"/>
+	<statut_approbation id="2" code_statut="code_statut statut_approbation 2" description="description statut_approbation 2"/>
+	<statut_approbation id="3" code_statut="code_statut statut_approbation 3" description="description statut_approbation 3"/>
+	<statut_approbation id="4" code_statut="code_statut statut_approbation 4" description="description statut_approbation 4"/>
+	<statut_approbation id="5" code_statut="code_statut statut_approbation 5" description="description statut_approbation 5"/>
+	<statut_approbation id="6" code_statut="code_statut statut_approbation 6" description="description statut_approbation 6"/>
+	<statut_approbation id="7" code_statut="code_statut statut_approbation 7" description="description statut_approbation 7"/>
+	<statut_approbation id="8" code_statut="code_statut statut_approbation 8" description="description statut_approbation 8"/>
+	
+	
+</dataset>

@@ -11,5 +11,6 @@
 		<mapping class="com.jcertif.bo.article.Article" />
 		<mapping class="com.jcertif.bo.Sujet" />
 		<mapping class="com.jcertif.bo.MotCle" />
+		<mapping class="com.jcertif.bo.StatutApprobation" />
 	</session-factory>
 </hibernate-configuration>
