@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<mot_cle id="1" mot_cle="mot_cle  1" description="description  1"/>
+	<mot_cle id="2" mot_cle="mot_cle  2" description="description  2"/>
+	<mot_cle id="3" mot_cle="mot_cle  3" description="description  3"/>
+	<mot_cle id="4" mot_cle="mot_cle  4" description="description  4"/>
+	<mot_cle id="5" mot_cle="mot_cle  5" description="description  5"/>
+	<mot_cle id="6" mot_cle="mot_cle  6" description="description  6"/>
+	<mot_cle id="7" mot_cle="mot_cle  7" description="description  7"/>
+	<mot_cle id="8" mot_cle="mot_cle  8" description="description  8"/>
+	
+	
+</dataset>
