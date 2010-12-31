@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -54,7 +55,7 @@ public class Presentation {
 	/**
 	 * Mot clé de la présentation.
 	 */
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "mot_cle_id")
 	private MotCle motCle;
 
@@ -64,7 +65,7 @@ public class Presentation {
 	/**
 	 * Statut de l'approbation de la présentation.
 	 */
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "statut_approbation_id")
 	private StatutApprobation statutApprobation;
 
