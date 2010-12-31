@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<statut_cedule id="1" code="code_statut statut_cedule 1" description="description statut_cedule 1"/>
+	<statut_cedule id="2" code="code_statut statut_cedule 2" description="description statut_cedule 2"/>
+	<statut_cedule id="3" code="code_statut statut_cedule 3" description="description statut_cedule 3"/>
+	<statut_cedule id="4" code="code_statut statut_cedule 4" description="description statut_cedule 4"/>
+	<statut_cedule id="5" code="code_statut statut_cedule 5" description="description statut_cedule 5"/>
+	<statut_cedule id="6" code="code_statut statut_cedule 6" description="description statut_cedule 6"/>
+	<statut_cedule id="7" code="code_statut statut_cedule 7" description="description statut_cedule 7"/>
+	<statut_cedule id="8" code="code_statut statut_cedule 8" description="description statut_cedule 8"/>
+	
+	
+</dataset>
