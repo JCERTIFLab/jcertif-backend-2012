@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<statut_approbation id="1" code_statut="code_statut statut_approbation 1" description="description statut_approbation 1"/>
+	<statut_approbation id="2" code_statut="code_statut statut_approbation 2" description="description statut_approbation 2"/>
+	<statut_approbation id="3" code_statut="code_statut statut_approbation 3" description="description statut_approbation 3"/>
+
+	<mot_cle id="4" mot_cle="mot_cle 4" description="description 4"/>
+	<mot_cle id="5" mot_cle="mot_cle 5" description="description 5"/>
+	<mot_cle id="6" mot_cle="mot_cle 6" description="description 6"/>
+	
+	<sujet id="1" libelle="libelle sujet 1" description="description sujet 1"/>
+	<sujet id="2" libelle="libelle sujet 2" description="description sujet 2"/>
+	<sujet id="3" libelle="libelle sujet 3" description="description sujet 3"/>
+	
+	
+	
+	
+	<presentation id="1" titre="titre 1" description="description 1" details="details 1" mot_cle_id="4" statut_approbation_id="1"/>
+	<presentation id="2" titre="titre 2" description="description 2" details="details 2" mot_cle_id="5" statut_approbation_id="2"/>
+	<presentation id="3" titre="titre 3" description="description 3" details="details 3" mot_cle_id="6" statut_approbation_id="3"/>
+
+	<presentation_sujet presentation_id="1" sujet_id="1"/>
+	<presentation_sujet presentation_id="1" sujet_id="2"/>
+	<presentation_sujet presentation_id="1" sujet_id="3"/>
+
+</dataset>
