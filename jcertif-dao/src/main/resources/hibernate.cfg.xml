@@ -6,8 +6,6 @@
 
 <hibernate-configuration>
 	<session-factory>
-
-		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
 		<mapping class="com.jcertif.bo.article.Article" />
 		<mapping class="com.jcertif.bo.Sujet" />
 		<mapping class="com.jcertif.bo.MotCle" />
@@ -17,5 +15,6 @@
 		<mapping class="com.jcertif.bo.Appreciation" />
 		<mapping class="com.jcertif.bo.StatutCedule" />
 		<mapping class="com.jcertif.bo.Salle" />
+		<mapping class="com.jcertif.bo.CeduleSalle" />
 	</session-factory>
 </hibernate-configuration>

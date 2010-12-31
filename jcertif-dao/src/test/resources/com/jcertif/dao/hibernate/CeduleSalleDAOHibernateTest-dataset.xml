@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2002/XMLSchema-instance">
+	
+	<salle id="2" libelle="libelle salle 2" description="description salle 2" nombre_place="2" details="details 2"/>
+	<statut_cedule id="8" code="code_statut statut_cedule 8" description="description statut_cedule 8"/>
+	<cedule_salle id="1" date_cedule="2011-02-01" details="details 1" salle_id="2" statut_cedule_id="8"/>
+	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="2" statut_cedule_id="8"/>
+	<cedule_salle id="3" date_cedule="2011-02-03"  details="details 3"/>
+	<cedule_salle id="4" date_cedule="2011-02-04"  details="details 4"/>
+	<cedule_salle id="5" date_cedule="2011-02-05"  details="details 5"/>
+	<cedule_salle id="6" date_cedule="2011-02-06"  details="details 6"/>
+	<cedule_salle id="7" date_cedule="2011-02-07"  details="details 7"/>
+	<cedule_salle id="8" date_cedule="2011-02-08"  details="details 8"/>
+	
+</dataset>
