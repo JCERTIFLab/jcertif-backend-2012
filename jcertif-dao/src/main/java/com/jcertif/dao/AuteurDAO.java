@@ -3,7 +3,7 @@ package com.jcertif.dao;
 import com.jcertif.bo.Auteur;
 
 /**
- * DAO Interface for Article.
+ * DAO Interface for Auteur.
  * 
  * @author Douneg
  * 

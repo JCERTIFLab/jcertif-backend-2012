@@ -4,7 +4,7 @@ import com.jcertif.bo.PresentationAuteur;
 import com.jcertif.bo.PresentationAuteurPK;
 
 /**
- * DAO Interface for Article.
+ * DAO Interface for PresentationAuteur.
  * 
  * @author Douneg
  * 
