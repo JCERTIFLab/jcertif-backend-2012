@@ -16,5 +16,6 @@
 		<mapping class="com.jcertif.bo.CentreConference" />
 		<mapping class="com.jcertif.bo.Appreciation" />
 		<mapping class="com.jcertif.bo.StatutCedule" />
+		<mapping class="com.jcertif.bo.Salle" />
 	</session-factory>
 </hibernate-configuration>

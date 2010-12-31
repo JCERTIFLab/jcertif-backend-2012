@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<centre_conference id="10"/>
+
+	<salle id="1" libelle="libelle salle 1" description="description salle 1" nombre_place="1" details="details 1" centre_conference_id="10"/>
+	<salle id="2" libelle="libelle salle 2" description="description salle 2" nombre_place="2" details="details 2"/>
+	<salle id="3" libelle="libelle salle 3" description="description salle 3" nombre_place="3" details="details 3"/>
+	<salle id="4" libelle="libelle salle 4" description="description salle 4" nombre_place="4" details="details 4"/>
+	<salle id="5" libelle="libelle salle 5" description="description salle 5" nombre_place="5" details="details 5"/>
+	<salle id="6" libelle="libelle salle 6" description="description salle 6" nombre_place="6" details="details 6"/>
+	<salle id="7" libelle="libelle salle 7" description="description salle 7" nombre_place="7" details="details 7"/>
+	<salle id="8" libelle="libelle salle 8" description="description salle 8" nombre_place="8" details="details 8"/>
+	
+	
+	
+</dataset>
