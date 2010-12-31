@@ -1,7 +1,6 @@
 package com.jcertif.dao;
 
 import com.jcertif.bo.article.Article;
-import com.jcertif.dao.GenericDAO;
 
 /**
  * DAO Interface for Article.
