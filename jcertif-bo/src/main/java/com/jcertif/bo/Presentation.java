@@ -71,9 +71,16 @@ public class Presentation {
 	/**
 	 * Liste des sujets de la présentation.
 	 */
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "presentation_sujet", joinColumns = @JoinColumn(name = "presentation_id"), inverseJoinColumns = @JoinColumn(name = "sujet_id"))
 	private List<Sujet> sujetsInternal;
+
+	/**
+	 * 
+	 */
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "appreciation_presentation", joinColumns = @JoinColumn(name = "presentation_id"), inverseJoinColumns = @JoinColumn(name = "appreciation_id"))
+	private List<Appreciation> appreciationsInternal;
 
 	/**
 	 * @return l'identifiant d'une présentation
@@ -225,7 +232,57 @@ public class Presentation {
 	public boolean removeSujet(final Sujet sujet) {
 		return this.getSujetsInternal().remove(sujet);
 	}
-	
+
+	/**
+	 * @return la liste d'appréciation
+	 */
+	protected List<Appreciation> getAppreciationsInternal() {
+		if (appreciationsInternal == null) {
+			appreciationsInternal = new ArrayList<Appreciation>();
+		}
+		return appreciationsInternal;
+	}
+
+	/**
+	 * Définit la liste d'appréciation.
+	 * 
+	 * @param appreciationsInternal
+	 *            une liste d'appréciation
+	 */
+	protected void setAppreciationsInternal(
+			List<Appreciation> appreciationsInternal) {
+		this.appreciationsInternal = appreciationsInternal;
+	}
+
+	/**
+	 * @return la liste d'appréciation non modifiable
+	 */
+	public List<Appreciation> getAppreciations() {
+		return Collections.unmodifiableList(getAppreciationsInternal());
+	}
+
+	/**
+	 * Ajoute une appréciation.
+	 * 
+	 * @param appreciation
+	 *            une appréciation
+	 * @return le résultat de l'ajout d'une appréciation.
+	 */
+	public boolean addAppreciation(final Appreciation appreciation) {
+		return getAppreciationsInternal().add(appreciation);
+	}
+
+	/**
+	 * Supprime une appréciation.
+	 * 
+	 * @param appreciation
+	 *            une appréciation
+	 * @return le résultat de la suppression d'une appréciation.
+	 */
+	public boolean removeAppreciation(final Appreciation appreciation) {
+		return getAppreciationsInternal().remove(appreciation);
+	}
+
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */
