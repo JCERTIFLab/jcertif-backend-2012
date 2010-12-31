@@ -1,9 +1,16 @@
 package com.jcertif.bo;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -35,6 +42,10 @@ public class Sujet {
 	 */
 	@Column
 	private String description;
+
+	@ManyToMany
+	@JoinTable(name = "presentation_sujet", joinColumns = @JoinColumn(name = "sujet_id"), inverseJoinColumns = @JoinColumn(name = "presentation_id"))
+	private List<Presentation> presentationsInternal;
 
 	/**
 	 * @return l'identifiant du sujet.
@@ -79,6 +90,56 @@ public class Sujet {
 	 */
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	/**
+	 * @return la liste des présentations du sujet
+	 */
+	protected List<Presentation> getPresentationsInternal() {
+		if (presentationsInternal == null) {
+			presentationsInternal = new ArrayList<Presentation>();
+		}
+		return presentationsInternal;
+	}
+
+	/**
+	 * Définit une liste de présentation.
+	 * 
+	 * @param presentationsInternal
+	 *            une liste de présentation
+	 */
+	protected void setPresentationsInternal(
+			List<Presentation> presentationsInternal) {
+		this.presentationsInternal = presentationsInternal;
+	}
+
+	/**
+	 * @return une liste non modifiable de présentation.
+	 */
+	public List<Presentation> getPresentations() {
+		return Collections.unmodifiableList(this.getPresentationsInternal());
+	}
+
+	/**
+	 * Ajoute une présentation à un sujet.
+	 * 
+	 * @param presentation
+	 *            une présentation
+	 * @return le résultat de l'ajout
+	 */
+	public boolean addPresentation(Presentation presentation) {
+		return this.getPresentationsInternal().add(presentation);
+	}
+
+	/**
+	 * Supprimes une présentation.
+	 * 
+	 * @param presentation
+	 *            une présentation
+	 * @return le résultat de la suppression
+	 */
+	public boolean removePresentation(Presentation presentation) {
+		return this.getPresentationsInternal().remove(presentation);
 	}
 
 	/**
