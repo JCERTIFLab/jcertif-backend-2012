@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 /**
  * BO Statut approbation.
  * 
@@ -83,5 +86,35 @@ public class StatutApprobation {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(codeStatut).append(description)
+				.toHashCode();
+	}
+
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+
+		if (this == obj) {
+			return true;
+		}
+
+		if (!(obj instanceof StatutApprobation)) {
+			return false;
+		}
+
+		final StatutApprobation other = (StatutApprobation) obj;
+
+		return new EqualsBuilder().append(codeStatut, other.getCodeStatut())
+				.append(description, other.getDescription()).isEquals();
+	}
+
 
 }
