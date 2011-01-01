@@ -1,6 +1,6 @@
 package com.jcertif.bo;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -34,7 +34,7 @@ public class CeduleSalle {
 	 * Date cedule.
 	 */
 	@Column
-	private Date dateCedule;
+	private Calendar dateCedule;
 
 	/**
 	 * Détails cedule salle.
@@ -83,7 +83,7 @@ public class CeduleSalle {
 	/**
 	 * @return the dateCedule
 	 */
-	public Date getDateCedule() {
+	public Calendar getDateCedule() {
 		return dateCedule;
 	}
 
@@ -91,7 +91,7 @@ public class CeduleSalle {
 	 * @param dateCedule
 	 *            the dateCedule to set
 	 */
-	public void setDateCedule(Date dateCedule) {
+	public void setDateCedule(Calendar dateCedule) {
 		this.dateCedule = dateCedule;
 	}
 
