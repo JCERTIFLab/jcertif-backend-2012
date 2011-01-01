@@ -18,13 +18,98 @@
 	<name>JCERTIF - DAO</name>
 	<description>JCERTIF Data Access Object</description>
 
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>hibernate3-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>generate-sql</id>
+								<phase>process-classes</phase>
+								<goals>
+									<goal>hbm2ddl</goal>
+									<goal>hbm2doc</goal>
+								</goals>
+								<configuration>
+									<components>
+										<component>
+											<name>hbm2ddl</name>
+											<implementation>annotationconfiguration</implementation>
+										</component>
+										<component>
+											<name>hbm2doc</name>
+											<implementation>annotationconfiguration</implementation>
+										</component>
+									</components>
+									<componentProperties>
+										<outputfilename>create_schema.sql</outputfilename>
+										<create>true</create>
+										<drop>false</drop>
+										<update>false</update>
+										<export>false</export>
+										<format>true</format>
+										<namingstrategy>org.hibernate.cfg.ImprovedNamingStrategy</namingstrategy>
+									</componentProperties>
+								</configuration>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>${project.groupId}</groupId>
+								<artifactId>jcertif-bo</artifactId>
+							</dependency>
+							<dependency>
+								<groupId>mysql</groupId>
+								<artifactId>mysql-connector-java</artifactId>
+								<scope>compile</scope>
+							</dependency>
+						</dependencies>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>create-package</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<configuration>
+									<appendAssemblyId>true</appendAssemblyId>
+									<descriptors>
+										<descriptor>src/main/assembly/bdd-assembly.xml</descriptor>
+										<descriptor>src/main/assembly/bdd-doc-assembly.xml</descriptor>
+									</descriptors>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+
+			</build>
+
+		</profile>
+
+	</profiles>
+	<build>
+
+
+	</build>
+
 	<!-- JCERTIF DAO HIBERNATE DEPENDENCIES -->
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>jcertif-bo</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate</artifactId>
@@ -71,7 +156,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -82,7 +167,7 @@
 			<artifactId>spring-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
@@ -93,7 +178,7 @@
 			<artifactId>dbunit</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
