@@ -392,6 +392,12 @@
 				<artifactId>jersey-client</artifactId>
 				<version>1.4</version>
 			</dependency>
+			
+			<dependency>
+				<groupId>com.evasion</groupId>
+				<artifactId>framework-test</artifactId>
+				<version>1.0.0.5</version>
+			</dependency>
 
 
 
