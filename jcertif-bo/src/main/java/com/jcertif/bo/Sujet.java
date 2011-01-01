@@ -43,6 +43,30 @@ public class Sujet {
 	@Column
 	private String description;
 
+	/**
+	 * Contructeur par défaut.
+	 */
+	public Sujet() {
+		super();
+	}
+
+	/**
+	 * Un constructeur.
+	 * 
+	 * @param libelle
+	 *            un libellé
+	 * @param description
+	 *            une description
+	 */
+	public Sujet(String libelle, String description) {
+		super();
+		this.libelle = libelle;
+		this.description = description;
+	}
+
+	/**
+	 * Liste de présentations.
+	 */
 	@ManyToMany
 	@JoinTable(name = "presentation_sujet", joinColumns = @JoinColumn(name = "sujet_id"), inverseJoinColumns = @JoinColumn(name = "presentation_id"))
 	private List<Presentation> presentationsInternal;

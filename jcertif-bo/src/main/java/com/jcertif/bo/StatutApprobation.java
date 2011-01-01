@@ -37,6 +37,27 @@ public class StatutApprobation {
 	private String description;
 
 	/**
+	 * Un constructeur.
+	 */
+	public StatutApprobation() {
+		super();
+	}
+
+	/**
+	 * Un constructeur.
+	 * 
+	 * @param codeStatut
+	 *            un code statut
+	 * @param description
+	 *            une description
+	 */
+	public StatutApprobation(String codeStatut, String description) {
+		super();
+		this.codeStatut = codeStatut;
+		this.description = description;
+	}
+
+	/**
 	 * @return l'identifiant d'un statut d'approbation
 	 */
 	public Long getId() {
@@ -86,14 +107,13 @@ public class StatutApprobation {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(codeStatut).append(description)
-				.toHashCode();
+		return new HashCodeBuilder().append(codeStatut).toHashCode();
 	}
 
 	/**
@@ -113,8 +133,7 @@ public class StatutApprobation {
 		final StatutApprobation other = (StatutApprobation) obj;
 
 		return new EqualsBuilder().append(codeStatut, other.getCodeStatut())
-				.append(description, other.getDescription()).isEquals();
+				.isEquals();
 	}
-
 
 }

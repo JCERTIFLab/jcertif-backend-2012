@@ -45,11 +45,32 @@ public class Appreciation {
 	private String description;
 
 	/**
-	 * 
+	 * Liste de présentations.
 	 */
-	@ManyToMany(cascade=CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "appreciation_presentation", joinColumns = @JoinColumn(name = "appreciation_id"), inverseJoinColumns = @JoinColumn(name = "presentation_id"))
 	private List<Presentation> presentationsInternal;
+
+	/**
+	 * Constructeur par défaut.
+	 */
+	public Appreciation() {
+		super();
+	}
+
+	/**
+	 * Un constructeur.
+	 * 
+	 * @param codeAppreciation
+	 *            un code appréciation
+	 * @param description
+	 *            une description
+	 */
+	public Appreciation(String codeAppreciation, String description) {
+		super();
+		this.codeAppreciation = codeAppreciation;
+		this.description = description;
+	}
 
 	/**
 	 * @return l'identifiant de l'appréciation.
@@ -170,7 +191,7 @@ public class Appreciation {
 			return true;
 		}
 
-		if (!(obj instanceof Sujet)) {
+		if (!(obj instanceof Appreciation)) {
 			return false;
 		}
 

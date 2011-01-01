@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 /**
  * BO Mot clé.
  * 
@@ -34,6 +37,30 @@ public class MotCle {
 	@Column
 	private String description;
 
+	/**
+	 * Le constructeur par défaut.
+	 */
+	public MotCle() {
+		super();
+	}
+
+	/**
+	 * Un constructeur.
+	 * 
+	 * @param motCle
+	 *            un mot clé
+	 * @param description
+	 *            une description
+	 */
+	public MotCle(final String motCle, final String description) {
+		super();
+		this.motCle = motCle;
+		this.description = description;
+	}
+
+	/**
+	 * @return l'identifiant d'un mot clé.
+	 */
 	public Long getId() {
 		return id;
 	}
@@ -80,6 +107,33 @@ public class MotCle {
 	 */
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(motCle).toHashCode();
+	}
+
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+
+		if (this == obj) {
+			return true;
+		}
+
+		if (!(obj instanceof MotCle)) {
+			return false;
+		}
+
+		final MotCle other = (MotCle) obj;
+
+		return new EqualsBuilder().append(motCle, other.getMotCle()).isEquals();
 	}
 
 }

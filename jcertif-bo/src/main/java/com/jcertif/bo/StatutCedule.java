@@ -37,6 +37,27 @@ public class StatutCedule {
 	private String description;
 
 	/**
+	 * Un constructeur.
+	 */
+	public StatutCedule() {
+		super();
+	}
+
+	/**
+	 * Un constructeur.
+	 * 
+	 * @param code
+	 *            un code
+	 * @param description
+	 *            une description
+	 */
+	public StatutCedule(String code, String description) {
+		super();
+		this.code = code;
+		this.description = description;
+	}
+
+	/**
 	 * @return l'identifiant du statut cedule.
 	 */
 	public Long getId() {

@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 /**
  * BO CeduleSalle.
  * 
@@ -46,16 +49,21 @@ public class CeduleSalle {
 	@JoinColumn(name = "salle_id")
 	private Salle salle;
 
-	
 	/**
 	 * Staut cedulle salle.
 	 */
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "statut_cedule_id")
 	private StatutCedule statutCedule;
-	
-	//TODO Ajouter le BO conférence quand il sera prêt.
 
+	// TODO Ajouter le BO conférence quand il sera prêt.
+
+	/**
+	 * Un constructeur.
+	 */
+	public CeduleSalle() {
+		super();
+	}
 
 	/**
 	 * @return the id
@@ -64,14 +72,13 @@ public class CeduleSalle {
 		return id;
 	}
 
-
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	/**
 	 * @return the dateCedule
@@ -80,14 +87,13 @@ public class CeduleSalle {
 		return dateCedule;
 	}
 
-
 	/**
-	 * @param dateCedule the dateCedule to set
+	 * @param dateCedule
+	 *            the dateCedule to set
 	 */
 	public void setDateCedule(Date dateCedule) {
 		this.dateCedule = dateCedule;
 	}
-
 
 	/**
 	 * @return the details
@@ -96,14 +102,13 @@ public class CeduleSalle {
 		return details;
 	}
 
-
 	/**
-	 * @param details the details to set
+	 * @param details
+	 *            the details to set
 	 */
 	public void setDetails(String details) {
 		this.details = details;
 	}
-
 
 	/**
 	 * @return the salle
@@ -112,14 +117,13 @@ public class CeduleSalle {
 		return salle;
 	}
 
-
 	/**
-	 * @param salle the salle to set
+	 * @param salle
+	 *            the salle to set
 	 */
 	public void setSalle(Salle salle) {
 		this.salle = salle;
 	}
-
 
 	/**
 	 * @return the statutCedule
@@ -128,16 +132,39 @@ public class CeduleSalle {
 		return statutCedule;
 	}
 
-
 	/**
-	 * @param statutCedule the statutCedule to set
+	 * @param statutCedule
+	 *            the statutCedule to set
 	 */
 	public void setStatutCedule(StatutCedule statutCedule) {
 		this.statutCedule = statutCedule;
 	}
-	
-	
-	
-	
+
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(id).toHashCode();
+	}
+
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+
+		if (this == obj) {
+			return true;
+		}
+
+		if (!(obj instanceof CeduleSalle)) {
+			return false;
+		}
+
+		final CeduleSalle other = (CeduleSalle) obj;
+
+		return new EqualsBuilder().append(id, other.getId()).isEquals();
+	}
 
 }

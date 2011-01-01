@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 /**
  * BO Salle.
  * 
@@ -55,6 +58,29 @@ public class Salle {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "centre_conference_id")
 	private CentreConference centreConference;
+
+	
+	
+	/**
+	 * Contructeur par défaut.
+	 */
+	public Salle() {
+		super();
+	}
+
+	/**
+	 * Un constructeur.
+	 * 
+	 * @param libelle
+	 *            un libellé
+	 * @param description
+	 *            une description
+	 */
+	public Salle(String libelle, String description) {
+		super();
+		this.libelle = libelle;
+		this.description = description;
+	}
 
 	/**
 	 * @return the id
@@ -144,6 +170,35 @@ public class Salle {
 	 */
 	public void setCentreConference(CentreConference centreConference) {
 		this.centreConference = centreConference;
+	}
+
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(libelle).append(description)
+				.toHashCode();
+	}
+
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+
+		if (this == obj) {
+			return true;
+		}
+
+		if (!(obj instanceof Salle)) {
+			return false;
+		}
+
+		final Salle other = (Salle) obj;
+
+		return new EqualsBuilder().append(libelle, other.getLibelle())
+				.append(description, other.getDescription()).isEquals();
 	}
 
 }
