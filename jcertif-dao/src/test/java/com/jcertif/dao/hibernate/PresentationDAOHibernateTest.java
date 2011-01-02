@@ -39,6 +39,7 @@ public class PresentationDAOHibernateTest extends AbstractDAOTestCase {
 		assertEquals("mot_cle 4", presentation1.getMotCle().getMotCle());
 		assertEquals("description 4", presentation1.getMotCle().getDescription());
 		assertEquals(3, presentation1.getSujets().size());
+		assertEquals("JCertif 2011", presentation1.getConference().getNom());
 	}
 
 	/**

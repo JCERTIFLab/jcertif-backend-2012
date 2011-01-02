@@ -4,9 +4,12 @@
 	<statut_approbation/>
 	<mot_cle/>
 	<sujet/>
+	<conference/>
 	<presentation/>
+	
 	<presentation_sujet/>
 	<appreciation_presentation/>
+	
 <statut_cedule/>
 	<centre_conference/>
 	
