@@ -12,13 +12,14 @@ import com.evasion.framework.test.EqualsTester;
 /**
  * @author chrisbel
  */
-public class ParticulariteSalleTest {
+public class OrganisateurTest {
+	
 	/**
 	 * Test de tous les accesseurs du Bo {@link CentreConference}.
 	 */
 	@Test
 	public void testAllAccessors() {
-		final ParticulariteSalle cc =new ParticulariteSalle(new Long(1), "centreConferenceParis","description");
+		final Organisateur cc =new Organisateur(new Long(1), "Chrisbel","Malonga",null,null,null,null,null);
 		final JCertifAccessorTesterImpl accessorTester = new JCertifAccessorTesterImpl(cc);
 		accessorTester.testAllAccessors();
 	}
@@ -28,19 +29,17 @@ public class ParticulariteSalleTest {
 	 */
 	@Test
 	public void testEqualsAndHashCode() {
-		final ParticulariteSalle a= new ParticulariteSalle(new Long(1), "centreConferenceParis","description");
+		final Organisateur a= new Organisateur(new Long(1), "Chrisbel","Malonga",null,null,null,null,null);
 		
-		final ParticulariteSalle b =  new ParticulariteSalle(new Long(1), "centreConferenceParis","description");
+		final Organisateur b = new Organisateur(new Long(1), "Chrisbel","Malonga",null,null,null,null,null);
 		
-		final ParticulariteSalle c =  new ParticulariteSalle(new Long(1), "centreConferenceAfrique","descriptionafrique");
+		final Organisateur c = new Organisateur(new Long(2), "La Reine","Silya",null,null,null,null,null);
 		
-		final ParticulariteSalle d = new ParticulariteSalle(new Long(1), "centreConferenceParis","description"){
+		final Organisateur d =new Organisateur(new Long(1), "Chrisbel","Malonga",null,null,null,null,null){
 		};
 
 		final EqualsTester equalsTester = new EqualsTester();
         equalsTester.testEqualsAndHashCode(a, b, c,d);
-		
-
-	}
+	}		
 
 }

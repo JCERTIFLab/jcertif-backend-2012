@@ -19,7 +19,7 @@ public class SalleTest {
 	@Test
 	public void testAllAccessors() {
 		final Salle motCle = new Salle();
-		final AccessorTesterImpl accessorTester = new AccessorTesterImpl(motCle);
+		final JCertifAccessorTesterImpl accessorTester = new JCertifAccessorTesterImpl(motCle);
 		accessorTester.testAllAccessors();
 	}
 

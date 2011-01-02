@@ -44,7 +44,7 @@ public class Organisateur {
 	@Column
 	private String nom;
 	@Column
-	private Character sexe_MF;
+	private Character sexeMF;
 	@Column
 	private String email;
 	@Column
@@ -55,6 +55,32 @@ public class Organisateur {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "organisateur_conference", joinColumns = @JoinColumn(name = "organisateur_id"), inverseJoinColumns = @JoinColumn(name = "conference_id"))
 	private Set<Conference> conferences=new HashSet<Conference>();
+	
+	/**
+	 * Constructor
+	 */
+	public Organisateur() {
+		// TODO Auto-generated constructor stub
+	}
+	
+
+	/**
+	 * Constructor
+	 */
+	public Organisateur(Long id, String prenom, String nom, Character sexeMF,
+			String email, String telephone, String details,
+			Set<Conference> conferences) {
+		super();
+		this.id = id;
+		this.prenom = prenom;
+		this.nom = nom;
+		this.sexeMF = sexeMF;
+		this.email = email;
+		this.telephone = telephone;
+		this.details = details;
+		this.conferences = conferences;
+	}
+
 
 	public Long getId() {
 		return id;
@@ -79,13 +105,18 @@ public class Organisateur {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
-	public Character getSexe_MF() {
-		return sexe_MF;
+	/**
+	 * @return the sexeMFTODO
+	 */
+	public Character getSexeMF() {
+		return sexeMF;
 	}
 
-	public void setSexe_MF(Character sexe_MF) {
-		this.sexe_MF = sexe_MF;
+	/**
+	 * @param sexeMF the sexeMF to setTODOsexeMF
+	 */
+	public void setSexeMF(Character sexeMF) {
+		this.sexeMF = sexeMF;
 	}
 
 	public String getEmail() {
@@ -126,7 +157,7 @@ public class Organisateur {
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(nom).append(prenom)
+		return new HashCodeBuilder().append(id).append(prenom)
 				.toHashCode();
 	}
 
@@ -146,7 +177,7 @@ public class Organisateur {
 
 		final Organisateur other = (Organisateur) obj;
 
-		return new EqualsBuilder().append(nom, other.getNom()).append(prenom, other.getPrenom()).isEquals();
+		return new EqualsBuilder().append(id, other.getId()).append(prenom, other.getPrenom()).isEquals();
 	}
 
 
