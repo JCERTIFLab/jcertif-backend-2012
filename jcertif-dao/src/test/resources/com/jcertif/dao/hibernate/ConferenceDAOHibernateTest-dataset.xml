@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	
-	<organisateur id="1" nom="malonga" prenom="chrisbel" sexe_mf="m" email="roland.amour@chrisbel.net" telephone="00000000" details="detailsorganisateurs 1"/>
-	<organisateur id="2" nom="Oddet" prenom="rossi" sexe_mf="m" email="rossi.oddet@chrisbel.net" telephone="00000000" details="details"/>
-	<organisateur id="3" nom="mamadou" prenom="diouf" sexe_mf="m" email="mamadou.diouf@chrisbel.net" telephone="00000000" details="details" />
-	<organisateur id="4" nom="mamadou" prenom="diouf" sexe_mf="m" email="mamadou.diouf@chrisbel.net" telephone="00000000" details="details" />
+	<organisateur id="1" nom="malonga" prenom="chrisbel" sexe="m" email="roland.amour@chrisbel.net" telephone="00000000" details="detailsorganisateurs 1"/>
+	<organisateur id="2" nom="Oddet" prenom="rossi" sexe="m" email="rossi.oddet@chrisbel.net" telephone="00000000" details="details"/>
+	<organisateur id="3" nom="mamadou" prenom="diouf" sexe="m" email="mamadou.diouf@chrisbel.net" telephone="00000000" details="details" />
+	<organisateur id="4" nom="mamadou" prenom="diouf" sexe="m" email="mamadou.diouf@chrisbel.net" telephone="00000000" details="details" />
 	
 	
 	<conference id="7" nom="JCertif 2011" datedebut="2011-02-12" date_fin="2011-12-02" website="www.jcertif.com" />

@@ -44,7 +44,7 @@ public class Organisateur {
 	@Column
 	private String nom;
 	@Column
-	private Character sexeMF;
+	private Character sexe;
 	@Column
 	private String email;
 	@Column
@@ -67,14 +67,14 @@ public class Organisateur {
 	/**
 	 * Constructor
 	 */
-	public Organisateur(Long id, String prenom, String nom, Character sexeMF,
+	public Organisateur(Long id, String prenom, String nom, Character sexe,
 			String email, String telephone, String details,
 			Set<Conference> conferences) {
 		super();
 		this.id = id;
 		this.prenom = prenom;
 		this.nom = nom;
-		this.sexeMF = sexeMF;
+		this.sexe = sexe;
 		this.email = email;
 		this.telephone = telephone;
 		this.details = details;
@@ -109,14 +109,14 @@ public class Organisateur {
 	 * @return the sexeMFTODO
 	 */
 	public Character getSexeMF() {
-		return sexeMF;
+		return sexe;
 	}
 
 	/**
 	 * @param sexeMF the sexeMF to setTODOsexeMF
 	 */
 	public void setSexeMF(Character sexeMF) {
-		this.sexeMF = sexeMF;
+		this.sexe = sexeMF;
 	}
 
 	public String getEmail() {
