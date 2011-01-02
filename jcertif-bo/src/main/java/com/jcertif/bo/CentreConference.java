@@ -41,6 +41,42 @@ public class CentreConference {
 	String telephoneContact;
 	@Column
 	String Details;
+
+	/**
+	 * 
+	 * @param id
+	 * @param nom1
+	 * @param description
+	 * @param adresse
+	 * @param email
+	 * @param website
+	 * @param nomContact
+	 * @param prenomContact
+	 * @param telephoneContact
+	 * @param details
+	 */
+	public CentreConference(Long id, String nom1, String description,
+			String adresse, String email, String website, String nomContact,
+			String prenomContact, String telephoneContact, String details) {
+		super();
+		this.id = id;
+		this.nom1 = nom1;
+		this.description = description;
+		this.adresse = adresse;
+		this.email = email;
+		this.website = website;
+		this.nomContact = nomContact;
+		this.prenomContact = prenomContact;
+		this.telephoneContact = telephoneContact;
+		Details = details;
+	}
+
+
+	public CentreConference() {
+		super();
+	}
+
+
 	/**
 	 * @return the id
 	 */
