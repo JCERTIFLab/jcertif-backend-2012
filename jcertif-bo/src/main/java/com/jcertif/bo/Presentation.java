@@ -55,17 +55,21 @@ public class Presentation {
 	/**
 	 * Mot clé de la présentation.
 	 */
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "mot_cle_id")
 	private MotCle motCle;
 
-	// TODO Conférence à ajouter lorsque le BO Conference sera fait
-	private Long conferenceId;
+	/**
+	 * Conférence d'une présentation.
+	 */
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	@JoinColumn(name = "conference_id")
+	private Conference conference;
 
 	/**
 	 * Statut de l'approbation de la présentation.
 	 */
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "statut_approbation_id")
 	private StatutApprobation statutApprobation;
 
@@ -173,6 +177,23 @@ public class Presentation {
 	 */
 	public StatutApprobation getStatutApprobation() {
 		return statutApprobation;
+	}
+
+	/**
+	 * @return la conférence de la présentation
+	 */
+	public Conference getConference() {
+		return conference;
+	}
+
+	/**
+	 * Définit la conférence de la présentation.
+	 * 
+	 * @param conference
+	 *            une conférence
+	 */
+	public void setConference(Conference conference) {
+		this.conference = conference;
 	}
 
 	/**
@@ -303,7 +324,7 @@ public class Presentation {
 			return true;
 		}
 
-		if (!(obj instanceof Sujet)) {
+		if (!(obj instanceof Presentation)) {
 			return false;
 		}
 
