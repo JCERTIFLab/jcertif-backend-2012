@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
 /**
  * 
@@ -24,7 +25,7 @@ public class CentreConference {
 	private Long id;
 
 	@Column
-	String nom1;
+	String nom;
 	@Column
 	String description;
 	@Column
@@ -55,12 +56,12 @@ public class CentreConference {
 	 * @param telephoneContact
 	 * @param details
 	 */
-	public CentreConference(Long id, String nom1, String description,
+	public CentreConference(Long id, String nom, String description,
 			String adresse, String email, String website, String nomContact,
 			String prenomContact, String telephoneContact, String details) {
 		super();
 		this.id = id;
-		this.nom1 = nom1;
+		this.nom = nom;
 		this.description = description;
 		this.adresse = adresse;
 		this.email = email;
@@ -94,15 +95,15 @@ public class CentreConference {
 	/**
 	 * @return the nom1
 	 */
-	public String getNom1() {
-		return nom1;
+	public String getNom() {
+		return nom;
 	}
 
 	/**
 	 * @param nom1 the nom1 to set
 	 */
-	public void setNom1(String nom1) {
-		this.nom1 = nom1;
+	public void setNom(String nom1) {
+		this.nom = nom1;
 	}
 
 	/**
@@ -216,7 +217,14 @@ public class CentreConference {
 	public void setDetails(String details) {
 		Details = details;
 	}
-
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(id).append(nom)
+				.toHashCode();
+	}
 	/**
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -227,14 +235,13 @@ public class CentreConference {
 			return true;
 		}
 
-		if (!(obj instanceof Sujet)) {
+		if (!(obj instanceof CentreConference)) {
 			return false;
 		}
 
-		final CentreConference other = (CentreConference) obj;
+		final CentreConference other = (CentreConference)obj;
 
-		return new EqualsBuilder().append(nom1, other.getNom1())
-		.append(email, other.getEmail()).isEquals();
+		return new EqualsBuilder().append(id, other.getId()).append(nom, other.getNom()).isEquals();
 	}
 
 }

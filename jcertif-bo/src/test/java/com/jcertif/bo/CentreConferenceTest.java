@@ -19,7 +19,7 @@ public class CentreConferenceTest {
 	 */
 	@Test
 	public void testAllAccessors() {
-		final CentreConference cc = new CentreConference();
+		final CentreConference cc =new CentreConference(new Long(1), "centreConferenceParis","description",null,null,null,null,null,null, null);
 		final AccessorTesterImpl accessorTester = new AccessorTesterImpl(cc);
 		accessorTester.testAllAccessors();
 	}
@@ -29,25 +29,18 @@ public class CentreConferenceTest {
 	 */
 	@Test
 	public void testtestEqualsAndHashCode() {
-		final CentreConference centreConference1 = new CentreConference(
-				new Long(1000), "nom1", "description", "adresse", "email",
-				"website", "nomContact", "prenomContact", "telephoneContact",
-				"details");
-		final CentreConference equivalentCentreConference1 = new CentreConference(
-				new Long(1000), "nom1", "description", "adresse", "email",
-				"website", "nomContact", "prenomContact", "telephoneContact",
-				"details");
-		final CentreConference differentCentreConference1 = new CentreConference(new Long(
-				1010), "nom2", "description", "adresse", "email", "website",
-				"nomContact", "prenomContact", "telephoneContact", "details");
-		final CentreConference deriveCentreConference1 = new CentreConference(new Long(
-				1000), "nom1", "description", "adresse", "email", "website",
-				"nomContact", "prenomContact", "telephoneContact", "details") {
-		};
+		final CentreConference a= new CentreConference(new Long(1), "centreConferenceParis","description",null,null,null,null,null,null, null);
 		
-		final EqualsTester vEqualTester = new EqualsTester();
-		vEqualTester.testEqualsAndHashCode(centreConference1,
-				equivalentCentreConference1, differentCentreConference1,
-				deriveCentreConference1);
+		final CentreConference b =  new CentreConference(new Long(1), "centreConferenceParis","description",null,null,null,null,null,null, null);
+		
+		final CentreConference c =  new CentreConference(new Long(1), "centreConferenceAfrique","descriptionafrique",null,null,null,null,null,null, null);
+		
+		final CentreConference d = new CentreConference(new Long(1), "centreConferenceParis","description",null,null,null,null,null,null, null){
+		};
+
+		final EqualsTester equalsTester = new EqualsTester();
+        equalsTester.testEqualsAndHashCode(a, b, c,d);
+		
+
 	}
 }
