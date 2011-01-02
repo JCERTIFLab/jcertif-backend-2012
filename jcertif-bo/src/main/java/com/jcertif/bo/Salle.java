@@ -1,5 +1,8 @@
 package com.jcertif.bo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -58,8 +63,10 @@ public class Salle {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "centre_conference_id")
 	private CentreConference centreConference;
-
 	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name ="salle_paritularite_salle", joinColumns = @JoinColumn(name = "salle_id"), inverseJoinColumns = @JoinColumn(name = "particularite_salle_id"))
+	private Set<ParticulariteSalle> particularitesalles=new HashSet<ParticulariteSalle>();
 	
 	/**
 	 * Contructeur par défaut.
@@ -199,6 +206,20 @@ public class Salle {
 
 		return new EqualsBuilder().append(libelle, other.getLibelle())
 				.append(description, other.getDescription()).isEquals();
+	}
+
+	/**
+	 * @return the particularitesallesTODO
+	 */
+	public Set<ParticulariteSalle> getParticularitesalles() {
+		return particularitesalles;
+	}
+
+	/**
+	 * @param particularitesalles the particularitesalles to setTODOparticularitesalles
+	 */
+	public void setParticularitesalles(Set<ParticulariteSalle> particularitesalles) {
+		this.particularitesalles = particularitesalles;
 	}
 
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<salle id="5" libelle="salle jcertif" description="grande" nombre_place="2000" details="climatisation" />
+	<salle id="6" libelle="palais de congrès" description="grande" nombre_place="900" details="pas de tables" />
+	<salle id="7" libelle="commune" description="petite" nombre_place="500" details="pas de chaises" />
+	
+	<particularite_salle id="1" code="ABCD" description="petite" />
+	<particularite_salle id="2" code="DEFG" description="grande"/>
+	<particularite_salle id="3" code="HIJK" description="moyen"/>
+	<particularite_salle id="4" code="LMNO" description="jolie" />
+
+	<salle_particularite_salle  particularite_salle_id="1" salle_id="7"/>
+	<salle_particularite_salle  particularite_salle_id="1" salle_id="5"/>
+	<salle_particularite_salle  particularite_salle_id="1" salle_id="6"/>
+	<salle_particularite_salle  particularite_salle_id="3" salle_id="6"/>
+	<salle_particularite_salle  particularite_salle_id="4" salle_id="5"/>
+	
+</dataset>
