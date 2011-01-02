@@ -1,5 +1,10 @@
 package com.jcertif.bo;
 
+import org.junit.Test;
+
+import com.evasion.framework.test.AccessorTesterImpl;
+import com.evasion.framework.test.EqualsTester;
+
 
 /**
  * Test du Bo CentreConference.
@@ -39,6 +44,7 @@ public class CentreConferenceTest {
 				1000), "nom1", "description", "adresse", "email", "website",
 				"nomContact", "prenomContact", "telephoneContact", "details") {
 		};
+		
 		final EqualsTester vEqualTester = new EqualsTester();
 		vEqualTester.testEqualsAndHashCode(centreConference1,
 				equivalentCentreConference1, differentCentreConference1,
