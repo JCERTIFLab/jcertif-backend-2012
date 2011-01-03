@@ -40,6 +40,8 @@ public class CeduleSalleDAOHibernateTest extends AbstractDAOTestCase {
 		assertEquals("2011-02-01",
 				DateFormatUtils.format(ceduleSalle1.getDateCedule().getTime(),DATE_FORMAT));
 		assertEquals("details 1", ceduleSalle1.getDetails());
+		assertEquals("JCertif 2011", ceduleSalle1.getConference().getNom());
+		
 	}
 
 	/**
