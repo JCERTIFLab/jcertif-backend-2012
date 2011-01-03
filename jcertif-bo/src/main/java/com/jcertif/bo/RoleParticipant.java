@@ -4,8 +4,16 @@
  */
 package com.jcertif.bo;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -13,6 +21,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 /**
  * @author chrisbel
  */
+@Entity
 public class RoleParticipant {
 
 	@Id
@@ -21,6 +30,12 @@ public class RoleParticipant {
 	private String codeRole;
 	@Column
 	private String description;
+	/**
+	 * Mot clé de la présentation.
+	 */
+	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	@JoinColumn(name = "particpant_id")
+	private Set<Participant> participants=new HashSet<Participant>();
 	
 	
 	/**
@@ -114,6 +129,22 @@ public class RoleParticipant {
 		final RoleParticipant other = (RoleParticipant) obj;
 
 		return new EqualsBuilder().append(id, other.getId()).append(codeRole, other.getCodeRole()).isEquals();
+	}
+
+
+	/**
+	 * @return the participantsTODO
+	 */
+	public Set<Participant> getParticipants() {
+		return participants;
+	}
+
+
+	/**
+	 * @param participants the participants to setTODOparticipants
+	 */
+	public void setParticipants(Set<Participant> participants) {
+		this.participants = participants;
 	}
 	
 }

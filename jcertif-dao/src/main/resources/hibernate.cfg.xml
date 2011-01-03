@@ -20,6 +20,7 @@
 		<mapping class="com.jcertif.bo.Conference" />
 		<mapping class="com.jcertif.bo.Organisateur" />
 		<mapping class="com.jcertif.bo.ParticulariteSalle"/>
+		<mapping class="com.jcertif.dao.hibernate.RoleParticipant"/>
 
 	</session-factory>
 </hibernate-configuration>
