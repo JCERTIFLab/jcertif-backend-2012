@@ -17,7 +17,7 @@ public class ParticipantTest {
 	 */
 	@Test
 	public void testAllAccessors() {
-		final Participant cc =new Participant(new Long(1), "2011-01-03",null, null,"Malonga",null,null,null,null,null,null,null,null,null);
+		final Participant cc =new Participant(new Long(1), "2011-01-03",null, null,"Malonga",null,null,null,null,null,null,null,null,null,null);
 		final JCertifAccessorTesterImpl accessorTester = new JCertifAccessorTesterImpl(cc);
 		accessorTester.testAllAccessors();
 	}
@@ -27,13 +27,13 @@ public class ParticipantTest {
 	 */
 	@Test
 	public void testEqualsAndHashCode() {
-		final Participant a= new Participant(new Long(1), "2011-01-03",null, null,"Malonga",null,null,null,null,null,null,null,null,null);
+		final Participant a= new Participant(new Long(1), "2011-01-03",null, null,"Malonga",null,null,null,null,null,null,null,null,null,null);
 		
-		final Participant b =  new Participant(new Long(1), "2011-01-03",null, null,"Malonga",null,null,null,null,null,null,null,null,null);
+		final Participant b =  new Participant(new Long(1), "2011-01-03",null, null,"Malonga",null,null,null,null,null,null,null,null,null,null);
 		
-		final Participant c =  new Participant(new Long(2), "2011-01-03",null, null,"Silya",null,null,null,null,null,null,null,null,null);
+		final Participant c =  new Participant(new Long(2), "2011-01-03",null, null,"Silya",null,null,null,null,null,null,null,null,null,null);
 		
-		final Participant d = new Participant(new Long(1), "2011-01-03",null, null,"Malonga",null,null,null,null,null,null,null,null,null){
+		final Participant d = new Participant(new Long(1), "2011-01-03",null, null,"Malonga",null,null,null,null,null,null,null,null,null,null){
 		};
 
 		final EqualsTester equalsTester = new EqualsTester();

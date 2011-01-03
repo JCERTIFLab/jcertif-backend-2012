@@ -11,6 +11,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -27,11 +28,15 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 public class Participant {
 
 	@Id
+	@GeneratedValue
+	@Column
 	private Long id;
 	@Column
 	private String dateinscription;
 	@Column
 	private String salutation;
+	@Column
+	private String specialite;
 	@Column
 	private String prenom;
 	@Column
@@ -48,6 +53,7 @@ public class Participant {
 	private String cvsoumis;
 	@Column
 	private String details;
+	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "role_participant_id")
 	private RoleParticipant roleparticipant;
@@ -55,6 +61,7 @@ public class Participant {
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "conference_id")
 	private Conference conference;
+	
 	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "cedule_particpant_id")
 	private Set<CeduleParticipant> ceduleparticipants = new HashSet<CeduleParticipant>();
@@ -69,7 +76,7 @@ public class Participant {
 	/**
 	 * Constructor
 	 */
-	public Participant(Long id,String dateinscription, String salutation, String prenom, String nom,
+	public Participant(Long id,String dateinscription, String salutation,String specialite, String prenom, String nom,
 			Character sexe, String email, String telephone,
 			String presentationsoumise, String cvsoumis, String details,
 			RoleParticipant roleparticipant, Conference conference,
@@ -78,6 +85,7 @@ public class Participant {
 		this.id = id;
 		this.dateinscription=dateinscription;
 		this.salutation = salutation;
+		this.specialite=specialite;
 		this.prenom = prenom;
 		this.nom = nom;
 		this.sexe = sexe;

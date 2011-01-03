@@ -11,6 +11,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -24,8 +25,13 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 @Entity
 public class RoleParticipant {
 
+	/**
+	 * Identifiant du mot clé.
+	 */
 	@Id
+	@GeneratedValue
 	private Long id;
+	
 	@Column
 	private String codeRole;
 	@Column
@@ -33,8 +39,8 @@ public class RoleParticipant {
 	/**
 	 * Mot clé de la présentation.
 	 */
-	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-	@JoinColumn(name = "particpant_id")
+	@OneToMany
+	@JoinColumn(name ="particpant_id")
 	private Set<Participant> participants=new HashSet<Participant>();
 	
 	
