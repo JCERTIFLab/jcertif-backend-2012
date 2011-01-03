@@ -56,7 +56,13 @@ public class CeduleSalle {
 	@JoinColumn(name = "statut_cedule_id")
 	private StatutCedule statutCedule;
 
-	// TODO Ajouter le BO conférence quand il sera prêt.
+	/**
+	 * Conférence d'une cedule Salle.
+	 */
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	@JoinColumn(name = "conference_id")
+	private Conference conference;
+
 
 	/**
 	 * Un constructeur.
@@ -138,6 +144,20 @@ public class CeduleSalle {
 	 */
 	public void setStatutCedule(StatutCedule statutCedule) {
 		this.statutCedule = statutCedule;
+	}
+
+	/**
+	 * @return the conference
+	 */
+	public Conference getConference() {
+		return conference;
+	}
+
+	/**
+	 * @param conference the conference to set
+	 */
+	public void setConference(Conference conference) {
+		this.conference = conference;
 	}
 
 	/**
