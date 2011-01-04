@@ -37,7 +37,7 @@ public class CeduleParticipant {
 	private Conference conference;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "partcipant_id")
+	@JoinColumn(name = "participant_id")
 	private Participant participant;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
