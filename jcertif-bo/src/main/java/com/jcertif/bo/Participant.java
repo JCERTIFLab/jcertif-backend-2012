@@ -307,6 +307,22 @@ public class Participant {
 	public void setDateinscription(String dateinscription) {
 		this.dateinscription = dateinscription;
 	}
+	
+	
+	/**
+	 * @return the specialiteTODO
+	 */
+	public String getSpecialite() {
+		return specialite;
+	}
+
+	/**
+	 * @param specialite the specialite to setTODOspecialite
+	 */
+	public void setSpecialite(String specialite) {
+		this.specialite = specialite;
+	}
+
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */
