@@ -20,7 +20,7 @@ public class CentreConferenceTest {
 	@Test
 	public void testAllAccessors() {
 		final CentreConference cc =new CentreConference(new Long(1), "centreConferenceParis","description",null,null,null,null,null,null, null);
-		final AccessorTesterImpl accessorTester = new AccessorTesterImpl(cc);
+		final JCertifAccessorTesterImpl accessorTester = new JCertifAccessorTesterImpl(cc);
 		accessorTester.testAllAccessors();
 	}
 
