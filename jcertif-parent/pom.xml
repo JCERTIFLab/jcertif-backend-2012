@@ -168,6 +168,11 @@
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
+				<artifactId>jcertif-facade</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>jcertif-services</artifactId>
 				<version>${project.version}</version>
 			</dependency>
@@ -404,6 +409,12 @@
 			<dependency>
 				<groupId>com.sun.jersey</groupId>
 				<artifactId>jersey-client</artifactId>
+				<version>1.4</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-server</artifactId>
 				<version>1.4</version>
 			</dependency>
 
