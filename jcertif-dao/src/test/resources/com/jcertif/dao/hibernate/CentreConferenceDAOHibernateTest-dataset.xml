@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ 
+	<centre_conference id="1" nom="nom" nom_contact="Nom Contact" prenom_contact="Prenom Contact" email="ccf@jcertif.com"	website="website" 	adresse="adresse" telephone_contact="" details=""/>
+	<centre_conference id="2" nom="nom" nom_contact="Nom Contact 1" prenom_contact="Prenom Contact 1" email="ccf1@jcertif.com"	website="website 1" 	adresse="adresse 1" telephone_contact="" details=""/>
+
+ 	<salle id="1" libelle="libelle salle 1" description="description salle 1" nombre_place="1" details="details 1" centre_conference_id="1"/>
+	<salle id="2" libelle="libelle salle 2" description="description salle 2" nombre_place="2" details="details 2" centre_conference_id="1"/>
+	<salle id="3" libelle="libelle salle 3" description="description salle 3" nombre_place="3" details="details 3" centre_conference_id="2"/>
+	<salle id="4" libelle="libelle salle 4" description="description salle 4" nombre_place="4" details="details 4" centre_conference_id="2"/>
+</dataset>
