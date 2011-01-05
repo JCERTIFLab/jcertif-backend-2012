@@ -1,9 +1,16 @@
 package com.jcertif.bo;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -217,6 +224,23 @@ public class CentreConference {
 	public void setDetails(String details) {
 		Details = details;
 	}
+	
+	
+	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	@JoinColumn(name = "salle_id")
+	private Set<Salle> centreConferenceSalle = new HashSet<Salle>();
+
+	
+	public Set<Salle> getCentreConferenceSalle() {
+		return centreConferenceSalle;
+	}
+
+
+	public void setCentreConferenceSalle(Set<Salle> centreConferenceSalle) {
+		this.centreConferenceSalle = centreConferenceSalle;
+	}
+
+
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */
