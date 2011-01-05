@@ -7,10 +7,8 @@ package com.jcertif.bo;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -26,7 +24,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 public class RoleParticipant {
 
 	/**
-	 * Identifiant du mot clé.
+	 * Identifiant du mot clï¿½.
 	 */
 	@Id
 	@GeneratedValue
@@ -37,7 +35,7 @@ public class RoleParticipant {
 	@Column
 	private String description;
 	/**
-	 * Mot clé de la présentation.
+	 * Mot clï¿½ de la prï¿½sentation.
 	 */
 	@OneToMany
 	@JoinColumn(name ="particpant_id")
@@ -151,6 +149,34 @@ public class RoleParticipant {
 	 */
 	public void setParticipants(Set<Participant> participants) {
 		this.participants = participants;
+	}
+	
+	public String toXML(){
+		StringBuilder xml = new StringBuilder();
+		xml.append("<roleparticipant>");
+		xml.append("<id>").append(id).append("</id>");
+		xml.append("<codeRole>").append(codeRole).append("</codeRole>");
+		xml.append("<description>").append(description).append("</description>");
+		xml.append("<link>").append(getLink()).append("</link>");
+		xml.append("</roleparticipant>");
+		
+		return xml.toString();
+	}
+	
+	private String getLink() {
+		return "/roleparticipant/" + codeRole;
+	}
+	
+	public String toJSON() {
+		StringBuilder json = new StringBuilder();
+		json.append("{\"participant\":{\"id\":\"").append(id)
+		.append("\", \"codeRole\":\"").append(codeRole)
+		.append("\", \"description\":\"").append(description)
+		.append("\", \"participants\":\"")
+		
+		.append("\", \"link\":\"").append(getLink()).append("\"}}");
+		
+		return json.toString();
 	}
 	
 }

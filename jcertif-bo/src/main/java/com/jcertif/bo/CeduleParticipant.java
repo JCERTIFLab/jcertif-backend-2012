@@ -156,6 +156,30 @@ public class CeduleParticipant {
 	public void setParticipant(Participant participant) {
 		this.participant = participant;
 	}
+	
+	public String toXML(){
+		StringBuilder xml = new StringBuilder();
+		xml.append("<ceduleparticipant>");
+		xml.append("<id>").append(id).append("</id>");
+		//TODO to be completed
+		xml.append("<link>").append(getLink()).append("</link>");
+		xml.append("</ceduleparticipant>");
+		
+		return xml.toString();
+	}
+	
+	private String getLink() {
+		return "/ceduleparticipant/" + id;
+	}
+	
+	public String toJSON() {
+		StringBuilder json = new StringBuilder();
+		json.append("{\"ceduleparticipant\":{\"id\":\"").append(id);
+		//TODO to be completed
+		json.append("\", \"link\":\"").append(getLink()).append("\"}}");
+		
+		return json.toString();
+	}
 
 	/**
 	 * @see java.lang.Object#hashCode()

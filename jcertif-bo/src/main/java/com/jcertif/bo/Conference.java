@@ -6,6 +6,7 @@ package com.jcertif.bo;
 
 import java.util.Calendar;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -105,7 +106,50 @@ public class Conference {
 	public void setDatedebut(Calendar datedebut) {
 		this.datedebut = datedebut;
 	}
-
 	
+	public String toXML(){
+		StringBuilder xml = new StringBuilder();
+		xml.append("<conference>");
+		xml.append("<id>").append(id).append("</id>");
+		xml.append("<nom>").append(nom).append("</nom>");
+		xml.append("<datedebut>").append(datedebut).append("</datedebut>");
+		xml.append("<datefin>").append(date_fin).append("</datefin>");
+		xml.append("<website>").append(website).append("</website>");
+		xml.append("<details>").append(details).append("</details>");
+		xml.append("<organisateurs>");
+		Iterator<Organisateur> iter = organisateurs.iterator();
+		while(iter.hasNext()){
+			Organisateur organisateur = iter.next();
+			xml.append(organisateur.toXML());
+		}
+		xml.append("</organisateurs>");
+		xml.append("<link>").append(getLink()).append("</link>");
+		xml.append("</conference>");
+		
+		return xml.toString();
+	}
+	
+	public String toJSON() {
+		StringBuilder json = new StringBuilder();
+		json.append("{\"conference\":{\"id\":\"").append(id)
+		.append("\", \"nom\":\"").append(nom)
+		.append("\", \"datedebut\":\"").append(datedebut)
+		.append("\", \"date_fin\":\"").append(date_fin)
+		.append("\", \"website\":\"").append(website)
+		.append("\", \"details\":\"").append(details)
+		.append("\", \"organisateurs\":\"");
+		Iterator<Organisateur> iter = organisateurs.iterator();
+		while(iter.hasNext()){
+			Organisateur organisateur = iter.next();
+			json.append(organisateur.toJSON());
+		}
+		json.append("\", \"link\":\"").append(getLink()).append("\"}}");
+		
+		return json.toString();
+	}
+
+	private String getLink() {
+		return "/conférence/" + nom;
+	}
 
 }

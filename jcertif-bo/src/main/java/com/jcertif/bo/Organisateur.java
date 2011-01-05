@@ -5,6 +5,7 @@
 package com.jcertif.bo;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -150,6 +151,53 @@ public class Organisateur {
 
 	public void setConferences(Set<Conference> conferences) {
 		this.conferences = conferences;
+	}
+	
+	public String toXML(){
+		StringBuilder xml = new StringBuilder();
+		xml.append("<organisateur>");
+		xml.append("<id>").append(id).append("</id>");
+		xml.append("<prenom>").append(prenom).append("</prenom>");
+		xml.append("<nom>").append(nom).append("</nom>");
+		xml.append("<sexe>").append(sexe).append("</sexe>");
+		xml.append("<email>").append(email).append("</email>");
+		xml.append("<telephone>").append(telephone).append("</telephone>");
+		xml.append("<details>").append(details).append("</details>");
+		xml.append("<conferences>");
+		Iterator<Conference> iter = conferences.iterator();
+		while(iter.hasNext()){
+			Conference conference = iter.next();
+			xml.append(conference.toXML());
+		}
+		xml.append("</conferences>");
+		xml.append("<link>").append(getLink()).append("</link>");
+		xml.append("</organisateur>");
+		
+		return xml.toString();
+	}
+	
+	private String getLink() {
+		return "/organisateur/" + nom;
+	}
+	
+	public String toJSON() {
+		StringBuilder json = new StringBuilder();
+		json.append("{\"conference\":{\"id\":\"").append(id)
+		.append("\", \"prenom\":\"").append(prenom)
+		.append("\", \"nom\":\"").append(nom)
+		.append("\", \"sexe\":\"").append(sexe)
+		.append("\", \"email\":\"").append(email)
+		.append("\", \"telephone\":\"").append(telephone)
+		.append("\", \"details\":\"").append(details)
+		.append("\", \"conferences\":\"");
+		Iterator<Conference> iter = conferences.iterator();
+		while(iter.hasNext()){
+			Conference conference = iter.next();
+			json.append(conference.toJSON());
+		}
+		json.append("\", \"link\":\"").append(getLink()).append("\"}}");
+		
+		return json.toString();
 	}
 	
 	/**

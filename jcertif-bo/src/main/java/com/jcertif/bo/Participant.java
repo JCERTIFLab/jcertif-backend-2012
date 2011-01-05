@@ -5,6 +5,7 @@
 package com.jcertif.bo;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -97,6 +98,37 @@ public class Participant {
 		this.roleparticipant = roleparticipant;
 		this.conference = conference;
 		this.ceduleparticipants = ceduleparticipants;
+	}
+	
+	/**
+	 * Creates this.
+	 * @param id
+	 * @param dateinscription
+	 * @param salutation
+	 * @param prenom
+	 * @param nom
+	 * @param sexe
+	 * @param email
+	 * @param telephone
+	 * @param presentationsoumise
+	 * @param cvsoumis
+	 * @param details
+	 */
+	public Participant(Long id,String dateinscription, String salutation, String prenom, String nom,
+			Character sexe, String email, String telephone,
+			String presentationsoumise, String cvsoumis, String details) {
+		super();
+		this.id = id;
+		this.dateinscription=dateinscription;
+		this.salutation = salutation;
+		this.prenom = prenom;
+		this.nom = nom;
+		this.sexe = sexe;
+		this.email = email;
+		this.telephone = telephone;
+		this.presentationsoumise = presentationsoumise;
+		this.cvsoumis = cvsoumis;
+		this.details = details;
 	}
 
 	/**
@@ -321,6 +353,64 @@ public class Participant {
 	 */
 	public void setSpecialite(String specialite) {
 		this.specialite = specialite;
+	}
+	
+	public String toXML(){
+		StringBuilder xml = new StringBuilder();
+		xml.append("<participant>");
+		xml.append("<id>").append(id).append("</id>");
+		xml.append("<dateinscription>").append(dateinscription).append("</dateinscription>");
+		xml.append("<salutation>").append(salutation).append("</salutation>");
+		xml.append("<prenom>").append(id).append("</prenom>");
+		xml.append("<nom>").append(nom).append("</nom>");
+		xml.append("<sexe>").append(sexe).append("</sexe>");
+		xml.append("<email>").append(email).append("</email>");
+		xml.append("<telephone>").append(telephone).append("</telephone>");
+		xml.append("<presentationsoumise>").append(presentationsoumise).append("</presentationsoumise>");
+		xml.append("<cvsoumis>").append(cvsoumis).append("</cvsoumis>");
+		xml.append("<details>").append(details).append("</details>");
+		
+		xml.append("<rolesParticipants>").append(roleparticipant.toXML()).append("</rolesParticipants>");
+		xml.append("<conferences>").append(conference.toXML()).append("</conference>");
+		xml.append("<ceduleparticipants>");
+		Iterator<CeduleParticipant> iter = ceduleparticipants.iterator();
+		while (iter.hasNext()){
+			CeduleParticipant cedule = iter.next();
+			xml.append(cedule.toXML());
+		}
+		xml.append("</ceduleparticipants>");
+		xml.append("<link>").append(getLink()).append("</link>");
+		xml.append("</participant>");
+
+		return xml.toString();
+	}
+	
+	private String getLink() {
+		return "/participant/" + nom;
+	}
+	
+	public String toJSON() {
+		StringBuilder json = new StringBuilder();
+		json.append("{\"participant\":{\"id\":\"").append(id)
+		.append("\", \"dateinscription\":\"").append(dateinscription)
+		.append("\", \"salutation\":\"").append(salutation)
+		.append("\", \"prenom\":\"").append(prenom)
+		.append("\", \"nom\":\"").append(nom)
+		.append("\", \"sexe\":\"").append(sexe)
+		.append("\", \"email\":\"").append(email)
+		.append("\", \"presentationsoumise\":\"").append(presentationsoumise)
+		.append("\", \"cvsoumis\":\"").append(cvsoumis)
+		.append("\", \"details\":\"").append(details)
+		.append(roleparticipant.toJSON())
+		.append(conference.toJSON());
+		Iterator<CeduleParticipant> iter = ceduleparticipants.iterator();
+		while(iter.hasNext()){
+			CeduleParticipant cedule = iter.next();
+			json.append(cedule.toJSON());
+		}		
+		json.append("\", \"link\":\"").append(getLink()).append("\"}}");
+		
+		return json.toString();
 	}
 
 	/**
