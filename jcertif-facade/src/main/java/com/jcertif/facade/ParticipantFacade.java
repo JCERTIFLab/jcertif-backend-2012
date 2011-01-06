@@ -10,7 +10,7 @@ import com.jcertif.bo.Participant;
 import com.jcertif.dao.ParticipantDAO;
 import com.jcertif.facade.exception.ItemAlreadyExistsException;
 import com.jcertif.facade.exception.ItemNotFoundException;
-import com.jcertif.ws.participant.ParticipantService;
+import com.jcertif.services.participant.ParticipantService;
 import com.jcertif.util.XMLUtil;
 import com.sun.jersey.api.core.InjectParam;
 
