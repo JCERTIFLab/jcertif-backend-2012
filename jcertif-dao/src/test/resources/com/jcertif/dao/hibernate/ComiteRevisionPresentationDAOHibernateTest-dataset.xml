@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<comite_organisation id="1" nom="nom 1" prenom="prenom 1"
+		sexe_mf="M" email="1@jcertif.com" details="details 1" telephone="111111" />
+	<comite_organisation id="2" nom="nom 2" prenom="prenom 2"
+		sexe_mf="F" email="2@jcertif.com" details="details 2" telephone="222222" />
+	<presentation id="1" titre="titre 1" description="description 1"
+		details="details 1" />
+	<presentation id="2" titre="titre 2" description="description 2"
+		details="details 2" />
+	<presentation id="3" titre="titre 3" description="description 3"
+		details="details 3" />
+		<presentation id="4" titre="titre 4" description="description 4"
+		details="details 4" />
+
+	<commite_revision_presentation
+		commite_organisation_id="1" presentation_id="1" date_revision="2011-02-11" />
+	<commite_revision_presentation
+		commite_organisation_id="1" presentation_id="2" date_revision="2011-02-12" />
+	<commite_revision_presentation
+		commite_organisation_id="1" presentation_id="3" date_revision="2011-02-13" />
+	<commite_revision_presentation
+		commite_organisation_id="1" presentation_id="4" date_revision="2011-02-14" />
+
+
+</dataset>

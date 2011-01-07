@@ -24,6 +24,7 @@
 		<mapping class="com.jcertif.bo.Participant"/>
 		<mapping class="com.jcertif.bo.CeduleParticipant"/>
 		<mapping class="com.jcertif.bo.ComiteOrganisation"/>
+		<mapping class="com.jcertif.bo.ComiteRevisionPresentation"/>
 		<mapping class="com.jcertif.bo.Auteur"/>
 	</session-factory>
 </hibernate-configuration>
