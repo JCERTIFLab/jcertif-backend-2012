@@ -2,7 +2,6 @@ package com.jcertif.bo;
 
 import org.junit.Test;
 
-import com.evasion.framework.test.AccessorTesterImpl;
 import com.evasion.framework.test.EqualsTester;
 
 /**
@@ -19,7 +18,7 @@ public class ComiteOrganisationTest {
 	@Test
 	public void testAllAccessors() {
 		final ComiteOrganisation comite = new ComiteOrganisation();
-		final AccessorTesterImpl accessorTester = new AccessorTesterImpl(comite);
+		final JCertifAccessorTesterImpl accessorTester = new JCertifAccessorTesterImpl(comite);
 		accessorTester.testAllAccessors();
 	}
 

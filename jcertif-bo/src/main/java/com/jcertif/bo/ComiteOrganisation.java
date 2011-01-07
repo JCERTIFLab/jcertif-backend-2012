@@ -1,9 +1,15 @@
 package com.jcertif.bo;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -59,6 +65,10 @@ public class ComiteOrganisation {
 	 */
 	@Column
 	private String details;
+
+	@OneToMany(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "commite_organisation_id")
+	private Set<ComiteRevisionPresentation> comiteRevisionPresentationsInternal;
 
 	/**
 	 * @return the id
@@ -163,6 +173,55 @@ public class ComiteOrganisation {
 	 */
 	public void setDetails(String details) {
 		this.details = details;
+	}
+
+	/**
+	 * @return the comiteRevisionPresentationsInternal
+	 */
+	protected Set<ComiteRevisionPresentation> getComiteRevisionPresentationsInternal() {
+		if (comiteRevisionPresentationsInternal == null) {
+			comiteRevisionPresentationsInternal = new HashSet<ComiteRevisionPresentation>();
+		}
+		return comiteRevisionPresentationsInternal;
+	}
+
+	/**
+	 * @param comiteRevisionPresentationsInternal
+	 *            the comiteRevisionPresentationsInternal to set
+	 */
+	protected void setComiteRevisionPresentationsInternal(
+			Set<ComiteRevisionPresentation> comiteRevisionPresentationsInternal) {
+		this.comiteRevisionPresentationsInternal = comiteRevisionPresentationsInternal;
+	}
+
+	/**
+	 * @return la liste des comités révision.
+	 */
+	public Set<ComiteRevisionPresentation> getComiteRevisionPresentations() {
+		return comiteRevisionPresentationsInternal;
+	}
+
+	/**
+	 * Ajoute un comité de révision.
+	 * 
+	 * @param comite
+	 *            un comité de révision
+	 * @return le résultat de la suppression.
+	 */
+	public boolean addComiteRevisionPresentation(
+			ComiteRevisionPresentation comite) {
+		return getComiteRevisionPresentationsInternal().add(comite);
+	}
+
+	/**
+	 * Supprime un comité de révision.
+	 * 
+	 * @param comite
+	 * @return le résultat de la suppression
+	 */
+	public boolean removeComiteRevisionPresentation(
+			ComiteRevisionPresentation comite) {
+		return getComiteRevisionPresentationsInternal().remove(comite);
 	}
 
 	/**
