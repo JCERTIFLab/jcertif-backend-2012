@@ -13,9 +13,9 @@
 	<sujet id="2" libelle="libelle sujet 2" description="description sujet 2"/>
 	<sujet id="3" libelle="libelle sujet 3" description="description sujet 3"/>
 	
-	<conference id="7" nom="JCertif 2011" datedebut="2011-02-12" date_fin="2011-12-02" website="www.jcertif.com" />
-	<conference id="5" nom="JCertif 2012" datedebut="2011-02-12" date_fin="2011-11-08" website="www.jcertif.com"/>
-	<conference id="6" nom="JCertif 2013" datedebut="2011-02-12" date_fin="2011-02-12" website="www.jcertif.com"/>
+	<conference id="7" name="JCertif 2011" datedebut="2011-02-12" date_fin="2011-12-02" website="www.jcertif.com" />
+	<conference id="5" name="JCertif 2012" datedebut="2011-02-12" date_fin="2011-11-08" website="www.jcertif.com"/>
+	<conference id="6" name="JCertif 2013" datedebut="2011-02-12" date_fin="2011-02-12" website="www.jcertif.com"/>
 	
 	
 	<presentation id="1" titre="titre 1" description="description 1" details="details 1" mot_cle_id="4" statut_approbation_id="1" conference_id="7"/>

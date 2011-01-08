@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.jcertif.bo.Organisateur;
-import com.jcertif.bo.Presentation;
 import com.jcertif.dao.OrganisateurDAO;
 
 /**

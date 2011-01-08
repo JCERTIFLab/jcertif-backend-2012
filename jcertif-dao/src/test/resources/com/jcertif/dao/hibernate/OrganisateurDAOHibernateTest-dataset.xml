@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<conference id="7" nom="JCertif 2011" datedebut="2011-02-12" date_fin="2011-12-02" website="www.jcertif.com" />
-	<conference id="5" nom="JCertif 2012" datedebut="2011-02-12" date_fin="2011-11-08" website="www.jcertif.com"/>
-	<conference id="6" nom="JCertif 2013" datedebut="2011-02-12" date_fin="2011-02-12" website="www.jcertif.com"/>
+	<conference id="7" name="JCertif 2011" datedebut="2011-02-12" date_fin="2011-12-02" website="www.jcertif.com" />
+	<conference id="5" name="JCertif 2012" datedebut="2011-02-12" date_fin="2011-11-08" website="www.jcertif.com"/>
+	<conference id="6" name="JCertif 2013" datedebut="2011-02-12" date_fin="2011-02-12" website="www.jcertif.com"/>
 	
 	<organisateur id="1" nom="malonga" prenom="chrisbel" sexe="m" email="roland.amour@chrisbel.net" telephone="00000000" details="detailsorganisateurs 1"/>
 	<organisateur id="2" nom="Oddet" prenom="rossi" sexe="m" email="rossi.oddet@chrisbel.net" telephone="00000000" details="details"/>
