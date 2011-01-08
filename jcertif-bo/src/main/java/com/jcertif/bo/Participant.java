@@ -24,11 +24,11 @@ public class Participant extends Person {
 
 	private static final long serialVersionUID = 1L;
 	@Column
-	private String dateinscription;
+	private String dateInscription;
 	@Column
-	private String presentationsoumise;
+	private String presentationSoumise;
 	@Column
-	private String cvsoumis;
+	private String cvSoumis;
 
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "role_participant_id")
@@ -46,7 +46,7 @@ public class Participant extends Person {
 	 * Constructor
 	 */
 	public Participant() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class Participant extends Person {
 			Conference conference, Set<CeduleParticipant> ceduleparticipants) {
 		super();
 		this.setId(id);
-		this.dateinscription = dateinscription;
+		this.dateInscription = dateinscription;
 		this.setSalutation(salutation);
 		this.setSpecialite(specialite);
 		this.setPrenom(prenom);
@@ -67,14 +67,14 @@ public class Participant extends Person {
 		this.setSexe(sexe);
 		this.setEmail(email);
 		this.setTelephone(telephone);
-		this.presentationsoumise = presentationsoumise;
-		this.cvsoumis = cvsoumis;
+		this.presentationSoumise = presentationsoumise;
+		this.cvSoumis = cvsoumis;
 		this.setDetails(details);
 		this.roleparticipant = roleparticipant;
 		this.conference = conference;
 		this.ceduleparticipants = ceduleparticipants;
 	}
-
+	
 	/**
 	 * Creates this.
 	 * 
@@ -96,47 +96,58 @@ public class Participant extends Person {
 			String details) {
 		super();
 		this.setId(id);
-		this.dateinscription = dateinscription;
+		this.dateInscription = dateinscription;
 		this.setSalutation(salutation);
 		this.setPrenom(prenom);
 		this.setNom(nom);
 		this.setSexe(sexe_MF);
 		this.setEmail(email);
 		this.setTelephone(telephone);
-		this.presentationsoumise = presentationsoumise;
-		this.cvsoumis = cvsoumis;
+		this.presentationSoumise = presentationsoumise;
+		this.cvSoumis = cvsoumis;
 		this.setDetails(details);
 	}
 
-	
 	/**
-	 * @return the presentationsoumiseTODO
+	 * @return the dateInscription
 	 */
-	public String getPresentationsoumise() {
-		return presentationsoumise;
+	public String getDateInscription() {
+		return dateInscription;
 	}
 
 	/**
-	 * @param presentationsoumise
-	 *            the presentationsoumise to setTODOpresentationsoumise
+	 * @param dateInscription the dateInscription to set
 	 */
-	public void setPresentationsoumise(String presentationsoumise) {
-		this.presentationsoumise = presentationsoumise;
+	public void setDateInscription(String dateInscription) {
+		this.dateInscription = dateInscription;
 	}
 
 	/**
-	 * @return the cvsoumisTODO
+	 * @return the presentationSoumise
 	 */
-	public String getCvsoumis() {
-		return cvsoumis;
+	public String getPresentationSoumise() {
+		return presentationSoumise;
 	}
 
 	/**
-	 * @param cvsoumis
-	 *            the cvsoumis to setTODOcvsoumis
+	 * @param presentationSoumise the presentationSoumise to set
 	 */
-	public void setCvsoumis(String cvsoumis) {
-		this.cvsoumis = cvsoumis;
+	public void setPresentationSoumise(String presentationSoumise) {
+		this.presentationSoumise = presentationSoumise;
+	}
+
+	/**
+	 * @return the cvSoumis
+	 */
+	public String getCvSoumis() {
+		return cvSoumis;
+	}
+
+	/**
+	 * @param cvSoumis the cvSoumis to set
+	 */
+	public void setCvSoumis(String cvSoumis) {
+		this.cvSoumis = cvSoumis;
 	}
 
 	/**
@@ -184,20 +195,7 @@ public class Participant extends Person {
 		this.ceduleparticipants = ceduleparticipants;
 	}
 
-	/**
-	 * @return the dateinscriptionTODO
-	 */
-	public String getDateinscription() {
-		return dateinscription;
-	}
-
-	/**
-	 * @param dateinscription
-	 *            the dateinscription to setTODOdateinscription
-	 */
-	public void setDateinscription(String dateinscription) {
-		this.dateinscription = dateinscription;
-	}
+	
 
 	/**
 	 * @see java.lang.Object#hashCode()
@@ -232,7 +230,7 @@ public class Participant extends Person {
          StringBuilder xml = new StringBuilder();
          xml.append("<participant>");
          xml.append("<id>").append(getId()).append("</id>");
-         xml.append("<dateinscription>").append(dateinscription)
+         xml.append("<dateinscription>").append(dateInscription)
                          .append("</dateinscription>");
          xml.append("<salutation>").append(getSalutation()).append("</salutation>");
          xml.append("<prenom>").append(getPrenom()).append("</prenom>");
@@ -240,9 +238,9 @@ public class Participant extends Person {
          xml.append("<sexe>").append(getSexe()).append("</sexe>");
          xml.append("<email>").append(getEmail()).append("</email>");
          xml.append("<telephone>").append(getTelephone()).append("</telephone>");
-         xml.append("<presentationsoumise>").append(presentationsoumise)
+         xml.append("<presentationsoumise>").append(presentationSoumise)
                          .append("</presentationsoumise>");
-         xml.append("<cvsoumis>").append(cvsoumis).append("</cvsoumis>");
+         xml.append("<cvsoumis>").append(cvSoumis).append("</cvsoumis>");
          xml.append("<details>").append(getDetails()).append("</details>");
 
          xml.append("<rolesParticipants>").append(roleparticipant.toXML())
@@ -269,14 +267,14 @@ public class Participant extends Person {
  public String toJSON() {
          StringBuilder json = new StringBuilder();
          json.append("{\"participant\":{\"id\":\"").append(getId())
-                         .append("\", \"dateinscription\":\"").append(dateinscription)
+                         .append("\", \"dateinscription\":\"").append(dateInscription)
                          .append("\", \"salutation\":\"").append(getSalutation())
                          .append("\", \"prenom\":\"").append(getPrenom())
                          .append("\", \"nom\":\"").append(getNom())
                          .append("\", \"sexe\":\"").append(getSexe())
                          .append("\", \"email\":\"").append(getEmail())
-                         .append("\", \"presentationsoumise\":\"").append(presentationsoumise)
-                         .append("\", \"cvsoumis\":\"").append(cvsoumis)
+                         .append("\", \"presentationsoumise\":\"").append(presentationSoumise)
+                         .append("\", \"cvsoumis\":\"").append(cvSoumis)
                          .append("\", \"details\":\"").append(getDetails())
                          .append(roleparticipant.toJSON()).append(conference.toJSON());
          Iterator<CeduleParticipant> iter = ceduleparticipants.iterator();
