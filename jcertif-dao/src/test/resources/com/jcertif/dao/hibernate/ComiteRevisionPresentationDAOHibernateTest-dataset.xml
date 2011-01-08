@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<comite_organisation id="1" nom="nom 1" prenom="prenom 1"
-		sexe_mf="M" email="1@jcertif.com" details="details 1" telephone="111111" />
+		sexe_MF="M" email="1@jcertif.com" details="details 1" telephone="111111" />
 	<comite_organisation id="2" nom="nom 2" prenom="prenom 2"
-		sexe_mf="F" email="2@jcertif.com" details="details 2" telephone="222222" />
+		sexe_MF="F" email="2@jcertif.com" details="details 2" telephone="222222" />
 	<presentation id="1" titre="titre 1" description="description 1"
 		details="details 1" />
 	<presentation id="2" titre="titre 2" description="description 2"

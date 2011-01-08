@@ -27,5 +27,6 @@
 		<mapping class="com.jcertif.bo.ComiteRevisionPresentation"/>
 		<mapping class="com.jcertif.bo.Auteur"/>
 		<mapping class="com.jcertif.bo.RappelEnvoye"/>	
+		<mapping class="com.jcertif.bo.OrganisateurCentreConf"/>	
 	</session-factory>
 </hibernate-configuration>

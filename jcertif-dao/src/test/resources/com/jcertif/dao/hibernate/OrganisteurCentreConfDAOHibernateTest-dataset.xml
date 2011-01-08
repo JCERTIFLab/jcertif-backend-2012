@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<organisateur_centre_conf id="1" nom="malonga" prenom="chrisbel" sexe_MF="m" email="roland.amour@chrisbel.net" website="chrisbel.net" telephone="00000000" details="detailsorganisateurs 1"/>
+	<organisateur_centre_conf id="2" nom="Oddet" prenom="rossi" sexe_MF="m" email="rossi.oddet@chrisbel.net" telephone="00000000" details="details"/>
+	<organisateur_centre_conf id="3" nom="mamadou" prenom="diouf" sexe_MF="m" email="mamadou.diouf@chrisbel.net" telephone="00000000" details="details" />
+	<organisateur_centre_conf id="4" nom="mamadou" prenom="diouf" sexe_MF="m" email="mamadou.diouf@chrisbel.net" telephone="00000000" details="details" />
+	
+</dataset>
