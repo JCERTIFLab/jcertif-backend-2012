@@ -32,9 +32,9 @@ public class Conference {
 	@Column(name="name")
 	private String nom;
 	@Column
-	private Calendar datedebut;
+	private Calendar dateDebut;
 	@Column
-	private Calendar date_fin;
+	private Calendar dateFin;
 	@Column
 	private String website;
 	@Column
@@ -59,13 +59,7 @@ public class Conference {
 		this.nom = nom;
 	}
 
-	public Calendar getDate_fin() {
-		return date_fin;
-	}
-
-	public void setDate_fin(Calendar date_fin) {
-		this.date_fin = date_fin;
-	}
+	
 
 	public String getWebsite() {
 		return website;
@@ -93,27 +87,43 @@ public class Conference {
 		this.organisateurs = organisateurs;
 	}
 
+	
+	
 	/**
-	 * @return the datedebutTODO
+	 * @return the dateDebut
 	 */
-	public Calendar getDatedebut() {
-		return datedebut;
+	public Calendar getDateDebut() {
+		return dateDebut;
 	}
 
 	/**
-	 * @param datedebut the datedebut to setTODOdatedebut
+	 * @param dateDebut the dateDebut to set
 	 */
-	public void setDatedebut(Calendar datedebut) {
-		this.datedebut = datedebut;
+	public void setDateDebut(Calendar dateDebut) {
+		this.dateDebut = dateDebut;
 	}
-	
+
+	/**
+	 * @return the dateFin
+	 */
+	public Calendar getDateFin() {
+		return dateFin;
+	}
+
+	/**
+	 * @param dateFin the dateFin to set
+	 */
+	public void setDateFin(Calendar dateFin) {
+		this.dateFin = dateFin;
+	}
+
 	public String toXML(){
 		StringBuilder xml = new StringBuilder();
 		xml.append("<conference>");
 		xml.append("<id>").append(id).append("</id>");
 		xml.append("<nom>").append(nom).append("</nom>");
-		xml.append("<datedebut>").append(datedebut).append("</datedebut>");
-		xml.append("<datefin>").append(date_fin).append("</datefin>");
+		xml.append("<datedebut>").append(dateDebut).append("</datedebut>");
+		xml.append("<datefin>").append(dateFin).append("</datefin>");
 		xml.append("<website>").append(website).append("</website>");
 		xml.append("<details>").append(details).append("</details>");
 		xml.append("<organisateurs>");
@@ -133,8 +143,8 @@ public class Conference {
 		StringBuilder json = new StringBuilder();
 		json.append("{\"conference\":{\"id\":\"").append(id)
 		.append("\", \"nom\":\"").append(nom)
-		.append("\", \"datedebut\":\"").append(datedebut)
-		.append("\", \"date_fin\":\"").append(date_fin)
+		.append("\", \"datedebut\":\"").append(dateDebut)
+		.append("\", \"date_fin\":\"").append(dateFin)
 		.append("\", \"website\":\"").append(website)
 		.append("\", \"details\":\"").append(details)
 		.append("\", \"organisateurs\":\"");
