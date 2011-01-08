@@ -31,24 +31,74 @@ public class CentreConference {
 	@Column
 	private Long id;
 
+	/**
+	 * Nom du centre conférence.
+	 */
+	@Column(name="nom1")
+	private String nom;
+	
+	/**
+	 * Description.
+	 */
 	@Column
-	String nom;
+	private String description;
+	
+	/**
+	 * Adresse.
+	 */
 	@Column
-	String description;
+	private String adresse;
+	
+	/**
+	 * Téléphone.
+	 */
 	@Column
-	String adresse;
+	private String telephone;
+	
+	/**
+	 * Email.
+	 */
 	@Column
-	String email;
+	private String email;
+	
+	/**
+	 * Site web.
+	 */
 	@Column
-	String website;
+	private String website;
+	
+	/**
+	 * Nom contact.
+	 */
 	@Column
-	String nomContact;
+	private String nomContact;
+	
+	
+	/**
+	 * Prénom contact.
+	 */
 	@Column
-	String prenomContact;
+	private String prenomContact;
+	
+	/**
+	 * Téléphone contact.
+	 */
 	@Column
-	String telephoneContact;
+	private String telephoneContact;
+	
+	
+	/**
+	 * Email contact.
+	 */
 	@Column
-	String Details;
+	private String emailContact;
+	
+	
+	/**
+	 * Détails.
+	 */
+	@Column
+	private String Details;
 
 	/**
 	 * 
@@ -140,6 +190,24 @@ public class CentreConference {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
+	
+	
+
+	/**
+	 * @return the telephone
+	 */
+	public String getTelephone() {
+		return telephone;
+	}
+
+
+	/**
+	 * @param telephone the telephone to set
+	 */
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+
 
 	/**
 	 * @return the email
@@ -210,6 +278,24 @@ public class CentreConference {
 	public void setTelephoneContact(String telephoneContact) {
 		this.telephoneContact = telephoneContact;
 	}
+	
+	
+
+	/**
+	 * @return the emailContact
+	 */
+	public String getEmailContact() {
+		return emailContact;
+	}
+
+
+	/**
+	 * @param emailContact the emailContact to set
+	 */
+	public void setEmailContact(String emailContact) {
+		this.emailContact = emailContact;
+	}
+
 
 	/**
 	 * @return the details

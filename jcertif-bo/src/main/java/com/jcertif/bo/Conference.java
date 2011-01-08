@@ -29,7 +29,7 @@ public class Conference {
 	@GeneratedValue
 	private Long id;
 
-	@Column
+	@Column(name="name")
 	private String nom;
 	@Column
 	private Calendar datedebut;
