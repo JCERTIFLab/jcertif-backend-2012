@@ -20,7 +20,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * @author rossi.oddet
  * 
  */
-@Entity
+@Entity(name="Commite_organisation")
 public class ComiteOrganisation {
 
 	/**
