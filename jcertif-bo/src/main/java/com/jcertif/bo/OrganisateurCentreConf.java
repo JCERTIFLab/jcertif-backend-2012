@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -31,6 +32,7 @@ public class OrganisateurCentreConf extends Person {
 	 * Liste comité révision présentation.
 	 */
 	@OneToMany(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "organisateur_centre_conf_id")
 	private Set<Conference> conferencesInternal;
 
 	/**
