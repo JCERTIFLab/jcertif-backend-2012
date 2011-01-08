@@ -6,7 +6,6 @@ package com.jcertif.bo;
 
 import org.junit.Test;
 
-import com.evasion.framework.test.AccessorTesterImpl;
 import com.evasion.framework.test.EqualsTester;
 
 /**

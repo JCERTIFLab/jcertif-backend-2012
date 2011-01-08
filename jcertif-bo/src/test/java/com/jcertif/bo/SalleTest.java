@@ -2,7 +2,6 @@ package com.jcertif.bo;
 
 import org.junit.Test;
 
-import com.evasion.framework.test.AccessorTesterImpl;
 import com.evasion.framework.test.EqualsTester;
 
 /**
@@ -27,7 +26,7 @@ public class SalleTest {
 	 * Test des méhodes Equals et Hashcode du Bo {@link Salle}.
 	 */
 	@Test
-	public void testtestEqualsAndHashCode() {
+	public void testEqualsAndHashCode() {
 		final Salle motCle1 = new Salle("salle 1", "desc 1");
 		final Salle equivalentSalle1 = new Salle("salle 1", "desc 1");
 		final Salle differentSalle1 = new Salle("salle 3", "desc 1");
