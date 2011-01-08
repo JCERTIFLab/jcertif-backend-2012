@@ -49,18 +49,18 @@ public class Organisateur extends Person{
 	/**
 	 * Constructor
 	 */
-	public Organisateur(Long id, String prenom, String nom, Character sexe_MF,
+	public Organisateur(Long id, String prenom, String nom, Character sexe,
 			String email, String telephone, String details,
 			Set<Conference> conferences) {
 		super();
-		this.id = id;
-		this.prenom = prenom;
-		this.nom = nom;
-		this.sexe = sexe_MF;
-		this.email = email;
-		this.telephone = telephone;
-		this.details = details;
-		this.conferences = conferences;
+		this.setId(id);
+		this.setPrenom(prenom);
+		this.setNom(nom);
+		this.setSexe(sexe);
+		this.setEmail(email);
+		this.setTelephone(telephone);
+		this.setDetails(details);
+		this.setConferences(conferences);
 	}
 
 
@@ -76,13 +76,13 @@ public class Organisateur extends Person{
 	public String toXML(){
 		StringBuilder xml = new StringBuilder();
 		xml.append("<organisateur>");
-		xml.append("<id>").append(id).append("</id>");
-		xml.append("<prenom>").append(prenom).append("</prenom>");
-		xml.append("<nom>").append(nom).append("</nom>");
-		xml.append("<sexe>").append(sexe).append("</sexe>");
-		xml.append("<email>").append(email).append("</email>");
-		xml.append("<telephone>").append(telephone).append("</telephone>");
-		xml.append("<details>").append(details).append("</details>");
+		xml.append("<id>").append(getId()).append("</id>");
+		xml.append("<prenom>").append(getPrenom()).append("</prenom>");
+		xml.append("<nom>").append(getNom()).append("</nom>");
+		xml.append("<sexe>").append(getSexe()).append("</sexe>");
+		xml.append("<email>").append(getEmail()).append("</email>");
+		xml.append("<telephone>").append(getTelephone()).append("</telephone>");
+		xml.append("<details>").append(getDetails()).append("</details>");
 		xml.append("<conferences>");
 		Iterator<Conference> iter = conferences.iterator();
 		while(iter.hasNext()){
@@ -97,18 +97,18 @@ public class Organisateur extends Person{
 	}
 	
 	private String getLink() {
-		return "/organisateur/" + nom;
+		return "/organisateur/" + getNom();
 	}
 	
 	public String toJSON() {
 		StringBuilder json = new StringBuilder();
-		json.append("{\"conference\":{\"id\":\"").append(id)
-		.append("\", \"prenom\":\"").append(prenom)
-		.append("\", \"nom\":\"").append(nom)
-		.append("\", \"sexe\":\"").append(sexe)
-		.append("\", \"email\":\"").append(email)
-		.append("\", \"telephone\":\"").append(telephone)
-		.append("\", \"details\":\"").append(details)
+		json.append("{\"conference\":{\"id\":\"").append(getId())
+		.append("\", \"prenom\":\"").append(getPrenom())
+		.append("\", \"nom\":\"").append(getNom())
+		.append("\", \"sexe\":\"").append(getSexe())
+		.append("\", \"email\":\"").append(getEmail())
+		.append("\", \"telephone\":\"").append(getTelephone())
+		.append("\", \"details\":\"").append(getDetails())
 		.append("\", \"conferences\":\"");
 		Iterator<Conference> iter = conferences.iterator();
 		while(iter.hasNext()){
@@ -125,7 +125,7 @@ public class Organisateur extends Person{
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(id).append(prenom)
+		return new HashCodeBuilder().append(this.getId()).append(this.getPrenom())
 				.toHashCode();
 	}
 
@@ -145,7 +145,7 @@ public class Organisateur extends Person{
 
 		final Organisateur other = (Organisateur) obj;
 
-		return new EqualsBuilder().append(id, other.getId()).append(prenom, other.getPrenom()).isEquals();
+		return new EqualsBuilder().append(this.getId(), other.getId()).append(this.getPrenom(), other.getPrenom()).isEquals();
 	}
 
 
