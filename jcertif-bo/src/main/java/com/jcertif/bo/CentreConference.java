@@ -98,7 +98,7 @@ public class CentreConference {
 	 * Détails.
 	 */
 	@Column
-	private String Details;
+	private String details;
 
 	/**
 	 * 
@@ -126,7 +126,7 @@ public class CentreConference {
 		this.nomContact = nomContact;
 		this.prenomContact = prenomContact;
 		this.telephoneContact = telephoneContact;
-		Details = details;
+		this.details = details;
 	}
 
 
@@ -301,14 +301,14 @@ public class CentreConference {
 	 * @return the details
 	 */
 	public String getDetails() {
-		return Details;
+		return details;
 	}
 
 	/**
 	 * @param details the details to set
 	 */
 	public void setDetails(String details) {
-		Details = details;
+		this.details = details;
 	}
 	
 	

@@ -26,68 +26,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * @author rossi.oddet
  */
 @Entity
-public class Auteur {
+public class Auteur extends Person {
 
-	/**
-	 * Identifiant d'un auteur.
-	 */
-	@Id
-	@GeneratedValue
-	private Long id;
-
-	/**
-	 * Salutation.
-	 */
-	@Column
-	private String salutation;
-
-	/**
-	 * Prénom de l'auteur.
-	 */
-	@Column
-	private String prenom;
-
-	/**
-	 * Nom de l'auteur.
-	 */
-	@Column
-	private String nom;
-
-	/**
-	 * Sexe de l'auteur.
-	 */
-	@Column(name = "sexe_MF")
-	private Character sexe;
-
-	/**
-	 * Email.
-	 */
-	@Column
-	private String email;
-
-	/**
-	 * Téléphone de l'auteur.
-	 */
-	@Column
-	private String telephone;
-
-	/**
-	 * Spécialité de l'auteur.
-	 */
-	@Column
-	private String specialite;
-
-	/**
-	 * Adresse de l'auteur.
-	 */
-	@Column
-	private String adresse;
-
-	/**
-	 * Détails de l'auteur.
-	 */
-	@Column
-	private String details;
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Liste de présentations.
@@ -96,155 +37,7 @@ public class Auteur {
 	@JoinTable(name = "presentation_auteur", joinColumns = @JoinColumn(name = "auteur_id"), inverseJoinColumns = @JoinColumn(name = "presentation_id"))
 	private Set<Presentation> presentationsInternal;
 
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	/**
-	 * @return the salutation
-	 */
-	public String getSalutation() {
-		return salutation;
-	}
-
-	/**
-	 * @param salutation
-	 *            the salutation to set
-	 */
-	public void setSalutation(String salutation) {
-		this.salutation = salutation;
-	}
-
-	/**
-	 * @return the prenom
-	 */
-	public String getPrenom() {
-		return prenom;
-	}
-
-	/**
-	 * @param prenom
-	 *            the prenom to set
-	 */
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
-	/**
-	 * @return the nom
-	 */
-	public String getNom() {
-		return nom;
-	}
-
-	/**
-	 * @param nom
-	 *            the nom to set
-	 */
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	/**
-	 * @return the sexe
-	 */
-	public Character getSexe() {
-		return sexe;
-	}
-
-	/**
-	 * @param sexe
-	 *            the sexe to set
-	 */
-	public void setSexe(Character sexe) {
-		this.sexe = sexe;
-	}
-
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-	/**
-	 * @param email
-	 *            the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	/**
-	 * @return the telephone
-	 */
-	public String getTelephone() {
-		return telephone;
-	}
-
-	/**
-	 * @param telephone
-	 *            the telephone to set
-	 */
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
-
-	/**
-	 * @return the specialite
-	 */
-	public String getSpecialite() {
-		return specialite;
-	}
-
-	/**
-	 * @param specialite
-	 *            the specialite to set
-	 */
-	public void setSpecialite(String specialite) {
-		this.specialite = specialite;
-	}
-
-	/**
-	 * @return the adresse
-	 */
-	public String getAdresse() {
-		return adresse;
-	}
-
-	/**
-	 * @param adresse
-	 *            the adresse to set
-	 */
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
-
-	/**
-	 * @return the details
-	 */
-	public String getDetails() {
-		return details;
-	}
-
-	/**
-	 * @param details
-	 *            the details to set
-	 */
-	public void setDetails(String details) {
-		this.details = details;
-	}
+	
 
 	/**
 	 * @return the presentationsInternal
@@ -297,7 +90,7 @@ public class Auteur {
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(email).toHashCode();
+		return new HashCodeBuilder().append(this.getEmail()).toHashCode();
 	}
 
 	/**
@@ -316,9 +109,9 @@ public class Auteur {
 
 		final Auteur other = (Auteur) obj;
 
-		return new EqualsBuilder().append(nom, other.getNom())
-				.append(prenom, other.getPrenom())
-				.append(email, other.getEmail()).isEquals();
+		return new EqualsBuilder().append(this.getNom(), other.getNom())
+				.append(this.getPrenom(), other.getPrenom())
+				.append(this.getEmail(), other.getEmail()).isEquals();
 	}
 
 }
