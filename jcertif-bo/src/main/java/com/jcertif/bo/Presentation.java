@@ -2,6 +2,7 @@ package com.jcertif.bo;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -88,13 +89,20 @@ public class Presentation {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "appreciation_presentation", joinColumns = @JoinColumn(name = "presentation_id"), inverseJoinColumns = @JoinColumn(name = "appreciation_id"))
 	private List<Appreciation> appreciationsInternal;
-	
+
 	/**
 	 * Liste comité révision présentation.
 	 */
 	@OneToMany(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "presentation_id")
 	private Set<ComiteRevisionPresentation> comiteRevisionPresentationsInternal;
+
+	/**
+	 * Liste des auteurs.
+	 */
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "presentation_auteur", joinColumns = @JoinColumn(name = "presentation_id"), inverseJoinColumns = @JoinColumn(name = "auteur_id"))
+	private Set<Auteur> auteursInternal;
 
 	/**
 	 * @return l'identifiant d'une présentation
@@ -313,8 +321,6 @@ public class Presentation {
 	public boolean removeAppreciation(final Appreciation appreciation) {
 		return getAppreciationsInternal().remove(appreciation);
 	}
-	
-	
 
 	/**
 	 * @return the comiteRevisionPresentationsInternal
@@ -324,13 +330,14 @@ public class Presentation {
 	}
 
 	/**
-	 * @param comiteRevisionPresentationsInternal the comiteRevisionPresentationsInternal to set
+	 * @param comiteRevisionPresentationsInternal
+	 *            the comiteRevisionPresentationsInternal to set
 	 */
 	protected void setComiteRevisionPresentationsInternal(
 			Set<ComiteRevisionPresentation> comiteRevisionPresentationsInternal) {
 		this.comiteRevisionPresentationsInternal = comiteRevisionPresentationsInternal;
 	}
-	
+
 	/**
 	 * Ajoute un comité de révision.
 	 * 
@@ -352,6 +359,53 @@ public class Presentation {
 	public boolean removeComiteRevisionPresentation(
 			ComiteRevisionPresentation comite) {
 		return getComiteRevisionPresentationsInternal().remove(comite);
+	}
+
+	/**
+	 * @return the auteursInternal
+	 */
+	protected Set<Auteur> getAuteursInternal() {
+		if (auteursInternal == null) {
+			auteursInternal = new HashSet<Auteur>();
+		}
+		return auteursInternal;
+	}
+
+	/**
+	 * @param auteursInternal
+	 *            the auteursInternal to set
+	 */
+	protected void setAuteursInternal(Set<Auteur> auteursInternal) {
+		this.auteursInternal = auteursInternal;
+	}
+
+	/**
+	 * @return the auteursInternal
+	 */
+	public Set<Auteur> getAuteurs() {
+		return auteursInternal;
+	}
+
+	/**
+	 * Ajout d'un auteur.
+	 * 
+	 * @param auteur
+	 *            un auteur
+	 * @return le résultat de l'ajout
+	 */
+	public boolean addAuteur(final Auteur auteur) {
+		return getAuteursInternal().add(auteur);
+	}
+
+	/**
+	 * Suppression d'un auteur.
+	 * 
+	 * @param auteur
+	 *            un auteur
+	 * @return le résultat de la suppression
+	 */
+	public boolean removeAuteur(final Auteur auteur) {
+		return getAuteursInternal().remove(auteur);
 	}
 
 	/**
