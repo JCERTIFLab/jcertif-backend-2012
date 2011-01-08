@@ -18,18 +18,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 /**
  * @author chrisbel
  */
 @Entity
 public class Conference {
 
-	
 	@Id
 	@GeneratedValue
 	private Long id;
 
-	@Column(name="name")
+	@Column(name = "name")
 	private String nom;
 	@Column
 	private Calendar dateDebut;
@@ -59,8 +61,6 @@ public class Conference {
 		this.nom = nom;
 	}
 
-	
-
 	public String getWebsite() {
 		return website;
 	}
@@ -77,8 +77,6 @@ public class Conference {
 		this.details = details;
 	}
 
-	
-	
 	public Set<Organisateur> getOrganisateurs() {
 		return organisateurs;
 	}
@@ -87,8 +85,6 @@ public class Conference {
 		this.organisateurs = organisateurs;
 	}
 
-	
-	
 	/**
 	 * @return the dateDebut
 	 */
@@ -97,7 +93,8 @@ public class Conference {
 	}
 
 	/**
-	 * @param dateDebut the dateDebut to set
+	 * @param dateDebut
+	 *            the dateDebut to set
 	 */
 	public void setDateDebut(Calendar dateDebut) {
 		this.dateDebut = dateDebut;
@@ -111,13 +108,42 @@ public class Conference {
 	}
 
 	/**
-	 * @param dateFin the dateFin to set
+	 * @param dateFin
+	 *            the dateFin to set
 	 */
 	public void setDateFin(Calendar dateFin) {
 		this.dateFin = dateFin;
 	}
 
-	public String toXML(){
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(nom).toHashCode();
+	}
+
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+
+		if (this == obj) {
+			return true;
+		}
+
+		if (!(obj instanceof Conference)) {
+			return false;
+		}
+
+		final Conference other = (Conference) obj;
+
+		return new EqualsBuilder().append(nom, other.getNom())
+				.append(details, other.getDetails()).isEquals();
+	}
+
+	public String toXML() {
 		StringBuilder xml = new StringBuilder();
 		xml.append("<conference>");
 		xml.append("<id>").append(id).append("</id>");
@@ -128,33 +154,33 @@ public class Conference {
 		xml.append("<details>").append(details).append("</details>");
 		xml.append("<organisateurs>");
 		Iterator<Organisateur> iter = organisateurs.iterator();
-		while(iter.hasNext()){
+		while (iter.hasNext()) {
 			Organisateur organisateur = iter.next();
 			xml.append(organisateur.toXML());
 		}
 		xml.append("</organisateurs>");
 		xml.append("<link>").append(getLink()).append("</link>");
 		xml.append("</conference>");
-		
+
 		return xml.toString();
 	}
-	
+
 	public String toJSON() {
 		StringBuilder json = new StringBuilder();
 		json.append("{\"conference\":{\"id\":\"").append(id)
-		.append("\", \"nom\":\"").append(nom)
-		.append("\", \"datedebut\":\"").append(dateDebut)
-		.append("\", \"date_fin\":\"").append(dateFin)
-		.append("\", \"website\":\"").append(website)
-		.append("\", \"details\":\"").append(details)
-		.append("\", \"organisateurs\":\"");
+				.append("\", \"nom\":\"").append(nom)
+				.append("\", \"datedebut\":\"").append(dateDebut)
+				.append("\", \"date_fin\":\"").append(dateFin)
+				.append("\", \"website\":\"").append(website)
+				.append("\", \"details\":\"").append(details)
+				.append("\", \"organisateurs\":\"");
 		Iterator<Organisateur> iter = organisateurs.iterator();
-		while(iter.hasNext()){
+		while (iter.hasNext()) {
 			Organisateur organisateur = iter.next();
 			json.append(organisateur.toJSON());
 		}
 		json.append("\", \"link\":\"").append(getLink()).append("\"}}");
-		
+
 		return json.toString();
 	}
 
