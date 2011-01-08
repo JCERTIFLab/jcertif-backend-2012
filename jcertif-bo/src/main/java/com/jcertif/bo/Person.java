@@ -31,7 +31,7 @@ public class Person implements Serializable {
     @Column
     protected String prenom;
     @Column
-    protected Character sexe_MF;
+    protected Character sexe;
     @Column
     protected String telephone;
     @Column
@@ -91,15 +91,15 @@ public class Person implements Serializable {
 	 * founrit le sexe de l'individu
 	 * @return the sexe_MF
 	 */
-	public Character getSexe_MF() {
-		return sexe_MF;
+	public Character getSexe() {
+		return sexe;
 	}
 	/**
 	 * modifie le sexe de l'individue
-	 * @param sexe_MF the sexe_MF to set
+	 * @param sexe the sexe_MF to set
 	 */
-	public void setSexe_MF(Character sexe_MF) {
-		this.sexe_MF = sexe_MF;
+	public void setSexe(Character sexe) {
+		this.sexe = sexe;
 	}
 	/**
 	 * @return the telephone

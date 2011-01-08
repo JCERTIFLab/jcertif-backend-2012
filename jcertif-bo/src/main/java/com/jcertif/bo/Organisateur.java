@@ -56,7 +56,7 @@ public class Organisateur extends Person{
 		this.id = id;
 		this.prenom = prenom;
 		this.nom = nom;
-		this.sexe_MF = sexe_MF;
+		this.sexe = sexe_MF;
 		this.email = email;
 		this.telephone = telephone;
 		this.details = details;
@@ -79,7 +79,7 @@ public class Organisateur extends Person{
 		xml.append("<id>").append(id).append("</id>");
 		xml.append("<prenom>").append(prenom).append("</prenom>");
 		xml.append("<nom>").append(nom).append("</nom>");
-		xml.append("<sexe>").append(sexe_MF).append("</sexe>");
+		xml.append("<sexe>").append(sexe).append("</sexe>");
 		xml.append("<email>").append(email).append("</email>");
 		xml.append("<telephone>").append(telephone).append("</telephone>");
 		xml.append("<details>").append(details).append("</details>");
@@ -105,7 +105,7 @@ public class Organisateur extends Person{
 		json.append("{\"conference\":{\"id\":\"").append(id)
 		.append("\", \"prenom\":\"").append(prenom)
 		.append("\", \"nom\":\"").append(nom)
-		.append("\", \"sexe\":\"").append(sexe_MF)
+		.append("\", \"sexe\":\"").append(sexe)
 		.append("\", \"email\":\"").append(email)
 		.append("\", \"telephone\":\"").append(telephone)
 		.append("\", \"details\":\"").append(details)

@@ -56,7 +56,7 @@ public class Participant extends Person {
 	 * Constructor
 	 */
 	public Participant(Long id, String dateinscription, String salutation,
-			String specialite, String prenom, String nom, Character sexe_MF,
+			String specialite, String prenom, String nom, Character sexe,
 			String email, String telephone, String presentationsoumise,
 			String cvsoumis, String details, RoleParticipant roleparticipant,
 			Conference conference, Set<CeduleParticipant> ceduleparticipants) {
@@ -67,7 +67,7 @@ public class Participant extends Person {
 		this.specialite = specialite;
 		this.prenom = prenom;
 		this.nom = nom;
-		this.sexe_MF = sexe_MF;
+		this.sexe = sexe;
 		this.email = email;
 		this.telephone = telephone;
 		this.presentationsoumise = presentationsoumise;
@@ -94,7 +94,7 @@ public class Participant extends Person {
 	 * @param details
 	 */
 	public Participant(Long id, String dateinscription, String salutation,
-			String prenom, String nom, Character sexe_MF, String email,
+			String prenom, String nom, Character sexe, String email,
 			String telephone, String presentationsoumise, String cvsoumis,
 			String details) {
 		super();
@@ -103,7 +103,7 @@ public class Participant extends Person {
 		this.salutation = salutation;
 		this.prenom = prenom;
 		this.nom = nom;
-		this.sexe_MF = sexe_MF;
+		this.sexe = sexe;
 		this.email = email;
 		this.telephone = telephone;
 		this.presentationsoumise = presentationsoumise;
@@ -240,7 +240,7 @@ public class Participant extends Person {
 		xml.append("<salutation>").append(salutation).append("</salutation>");
 		xml.append("<prenom>").append(id).append("</prenom>");
 		xml.append("<nom>").append(nom).append("</nom>");
-		xml.append("<sexe>").append(sexe_MF).append("</sexe>");
+		xml.append("<sexe>").append(sexe).append("</sexe>");
 		xml.append("<email>").append(email).append("</email>");
 		xml.append("<telephone>").append(telephone).append("</telephone>");
 		xml.append("<presentationsoumise>").append(presentationsoumise)
@@ -275,11 +275,12 @@ public class Participant extends Person {
 				.append("\", \"dateinscription\":\"").append(dateinscription)
 				.append("\", \"salutation\":\"").append(salutation)
 				.append("\", \"prenom\":\"").append(prenom)
-				.append("\", \"nom\":\"").append(nom).append("\", \"sexe\":\"")
-				.append(sexe_MF).append("\", \"email\":\"").append(email)
-				.append("\", \"presentationsoumise\":\"")
-				.append(presentationsoumise).append("\", \"cvsoumis\":\"")
-				.append(cvsoumis).append("\", \"details\":\"").append(details)
+				.append("\", \"nom\":\"").append(nom)
+				.append("\", \"sexe\":\"").append(sexe)
+				.append("\", \"email\":\"").append(email)
+				.append("\", \"presentationsoumise\":\"").append(presentationsoumise)
+				.append("\", \"cvsoumis\":\"").append(cvsoumis)
+				.append("\", \"details\":\"").append(details)
 				.append(roleparticipant.toJSON()).append(conference.toJSON());
 		Iterator<CeduleParticipant> iter = ceduleparticipants.iterator();
 		while (iter.hasNext()) {
