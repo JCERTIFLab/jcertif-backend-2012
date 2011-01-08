@@ -52,7 +52,7 @@ public class CeduleSalle {
 	/**
 	 * Staut cedulle salle.
 	 */
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "statut_cedule_id")
 	private StatutCedule statutCedule;
 
