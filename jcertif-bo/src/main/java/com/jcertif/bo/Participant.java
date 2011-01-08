@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.jcertif.bo;
 
 import java.util.HashSet;
@@ -12,8 +9,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -26,12 +21,12 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * @author Douneg
  */
 @Entity
-public class Participant {
+public class Participant extends Person{
 
-	@Id
-	@GeneratedValue
-	@Column
-	private Long id;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Column
 	private String dateinscription;
 	@Column
@@ -39,21 +34,10 @@ public class Participant {
 	@Column
 	private String specialite;
 	@Column
-	private String prenom;
-	@Column
-	private String nom;
-	@Column
-	private Character sexe;
-	@Column
-	private String email;
-	@Column
-	private String telephone;
-	@Column
 	private String presentationsoumise;
 	@Column
 	private String cvsoumis;
-	@Column
-	private String details;
+
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "role_participant_id")
@@ -78,7 +62,7 @@ public class Participant {
 	 * Constructor
 	 */
 	public Participant(Long id,String dateinscription, String salutation,String specialite, String prenom, String nom,
-			Character sexe, String email, String telephone,
+			Character sexe_MF, String email, String telephone,
 			String presentationsoumise, String cvsoumis, String details,
 			RoleParticipant roleparticipant, Conference conference,
 			Set<CeduleParticipant> ceduleparticipants) {
@@ -89,7 +73,7 @@ public class Participant {
 		this.specialite=specialite;
 		this.prenom = prenom;
 		this.nom = nom;
-		this.sexe = sexe;
+		this.sexe_MF = sexe_MF;
 		this.email = email;
 		this.telephone = telephone;
 		this.presentationsoumise = presentationsoumise;
@@ -115,7 +99,7 @@ public class Participant {
 	 * @param details
 	 */
 	public Participant(Long id,String dateinscription, String salutation, String prenom, String nom,
-			Character sexe, String email, String telephone,
+			Character sexe_MF, String email, String telephone,
 			String presentationsoumise, String cvsoumis, String details) {
 		super();
 		this.id = id;
@@ -123,7 +107,7 @@ public class Participant {
 		this.salutation = salutation;
 		this.prenom = prenom;
 		this.nom = nom;
-		this.sexe = sexe;
+		this.sexe_MF = sexe_MF;
 		this.email = email;
 		this.telephone = telephone;
 		this.presentationsoumise = presentationsoumise;
@@ -131,20 +115,6 @@ public class Participant {
 		this.details = details;
 	}
 
-	/**
-	 * @return the idTODO
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * @param id
-	 *            the id to setTODOid
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	/**
 	 * @return the salutationTODO
@@ -159,81 +129,6 @@ public class Participant {
 	 */
 	public void setSalutation(String salutation) {
 		this.salutation = salutation;
-	}
-
-	/**
-	 * @return the prenomTODO
-	 */
-	public String getPrenom() {
-		return prenom;
-	}
-
-	/**
-	 * @param prenom
-	 *            the prenom to setTODOprenom
-	 */
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
-	/**
-	 * @return the nomTODO
-	 */
-	public String getNom() {
-		return nom;
-	}
-
-	/**
-	 * @param nom
-	 *            the nom to setTODOnom
-	 */
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	/**
-	 * @return the sexeTODO
-	 */
-	public Character getSexe() {
-		return sexe;
-	}
-
-	/**
-	 * @param sexe
-	 *            the sexe to setTODOsexe
-	 */
-	public void setSexe(Character sexe) {
-		this.sexe = sexe;
-	}
-
-	/**
-	 * @return the emailTODO
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-	/**
-	 * @param email
-	 *            the email to setTODOemail
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	/**
-	 * @return the telephoneTODO
-	 */
-	public String getTelephone() {
-		return telephone;
-	}
-
-	/**
-	 * @param telephone
-	 *            the telephone to setTODOtelephone
-	 */
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
 	}
 
 	/**
@@ -264,21 +159,6 @@ public class Participant {
 	 */
 	public void setCvsoumis(String cvsoumis) {
 		this.cvsoumis = cvsoumis;
-	}
-
-	/**
-	 * @return the detailsTODO
-	 */
-	public String getDetails() {
-		return details;
-	}
-
-	/**
-	 * @param details
-	 *            the details to setTODOdetails
-	 */
-	public void setDetails(String details) {
-		this.details = details;
 	}
 
 	/**
@@ -363,7 +243,7 @@ public class Participant {
 		xml.append("<salutation>").append(salutation).append("</salutation>");
 		xml.append("<prenom>").append(id).append("</prenom>");
 		xml.append("<nom>").append(nom).append("</nom>");
-		xml.append("<sexe>").append(sexe).append("</sexe>");
+		xml.append("<sexe>").append(sexe_MF).append("</sexe>");
 		xml.append("<email>").append(email).append("</email>");
 		xml.append("<telephone>").append(telephone).append("</telephone>");
 		xml.append("<presentationsoumise>").append(presentationsoumise).append("</presentationsoumise>");
@@ -396,7 +276,7 @@ public class Participant {
 		.append("\", \"salutation\":\"").append(salutation)
 		.append("\", \"prenom\":\"").append(prenom)
 		.append("\", \"nom\":\"").append(nom)
-		.append("\", \"sexe\":\"").append(sexe)
+		.append("\", \"sexe\":\"").append(sexe_MF)
 		.append("\", \"email\":\"").append(email)
 		.append("\", \"presentationsoumise\":\"").append(presentationsoumise)
 		.append("\", \"cvsoumis\":\"").append(cvsoumis)
