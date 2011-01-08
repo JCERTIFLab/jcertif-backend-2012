@@ -99,6 +99,12 @@ public class CentreConference {
 	 */
 	@Column
 	private String details;
+	
+	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	@JoinColumn(name = "centre_conference_id")
+	private Set<Salle> centreConferenceSalle = new HashSet<Salle>();
+
+	
 
 	/**
 	 * 
@@ -312,11 +318,7 @@ public class CentreConference {
 	}
 	
 	
-	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-	@JoinColumn(name = "salle_id")
-	private Set<Salle> centreConferenceSalle = new HashSet<Salle>();
 
-	
 	public Set<Salle> getCentreConferenceSalle() {
 		return centreConferenceSalle;
 	}
