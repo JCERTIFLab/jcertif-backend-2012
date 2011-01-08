@@ -38,7 +38,7 @@ public class RoleParticipant {
 	 * Mot cl� de la pr�sentation.
 	 */
 	@OneToMany
-	@JoinColumn(name ="particpant_id")
+	@JoinColumn(name ="role_participant_id")
 	private Set<Participant> participants=new HashSet<Participant>();
 	
 	
