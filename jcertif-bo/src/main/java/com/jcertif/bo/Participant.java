@@ -39,7 +39,7 @@ public class Participant extends Person {
 	private Conference conference;
 
 	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-	@JoinColumn(name = "cedule_particpant_id")
+	@JoinColumn(name = "participant_id")
 	private Set<CeduleParticipant> ceduleparticipants = new HashSet<CeduleParticipant>();
 
 	/**
