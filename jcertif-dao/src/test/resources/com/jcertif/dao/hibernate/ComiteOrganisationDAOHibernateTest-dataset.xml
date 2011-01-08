@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-	<comite_organisation id="1" nom="nom 1" prenom="prenom 1"  sexe_MF="M" email="1@jcertif.com" details="details 1" telephone="111111"/>
-	<comite_organisation id="2" nom="nom 2" prenom="prenom 2"  sexe_MF="F" email="2@jcertif.com" details="details 2" telephone="222222"/>
-	<comite_organisation id="3" nom="nom 3" prenom="prenom 3"  sexe_MF="M" email="a@jcertif.com" details="details 3"/>
-	<comite_organisation id="4" nom="nom 4" prenom="prenom 4"  sexe_MF="M" email="a@jcertif.com" details="details 4"/>
+	<Commite_organisation id="1" nom="nom 1" prenom="prenom 1"  sexe_MF="M" email="1@jcertif.com" details="details 1" telephone="111111"/>
+	<Commite_organisation id="2" nom="nom 2" prenom="prenom 2"  sexe_MF="F" email="2@jcertif.com" details="details 2" telephone="222222"/>
+	<Commite_organisation id="3" nom="nom 3" prenom="prenom 3"  sexe_MF="M" email="a@jcertif.com" details="details 3"/>
+	<Commite_organisation id="4" nom="nom 4" prenom="prenom 4"  sexe_MF="M" email="a@jcertif.com" details="details 4"/>
 	
 	
 </dataset>
