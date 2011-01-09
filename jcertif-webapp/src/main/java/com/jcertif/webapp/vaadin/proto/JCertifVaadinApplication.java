@@ -1,4 +1,4 @@
-package com.jcertif.webapp.vaadin;
+package com.jcertif.webapp.vaadin.proto;
 
 import com.vaadin.Application;
 import com.vaadin.ui.Button;
@@ -26,31 +26,32 @@ public class JCertifVaadinApplication extends Application {
 		setMainWindow(window);
 		final TextField titleField = new TextField("Title");
 		window.addComponent(titleField);
-		final Button addTitle = new Button("Add title (Call a web service ArticleWS/AddTitle/XXX)");
+		final Button addTitle = new Button("Add title (Call a web service api/article/addarticle/{title})");
 		addTitle.addListener(new ClickListener() {
 
 			public void buttonClick(ClickEvent event) {
 				// Calling web service ArticleWS/AddTitle
 				JCertifWS.getInstance().addTitle(
 						titleField.getValue().toString());
+				titleField.setValue("");
 
 			}
 		});
 		window.addComponent(addTitle);
-		final Table titleList = new Table("title List");
-		titleList.addContainerProperty("index", Integer.class, null);
+		final Table titleList = new Table("Article List");
+		titleList.addContainerProperty("id", Long.class, null);
 		titleList.addContainerProperty("title", String.class, null);
 		window.addComponent(titleList);
 		final Button refreshBut = new Button("Refresh title (Call a web service ArticleWS/AllTitles)");
 		refreshBut.addListener(new ClickListener() {
 
 			public void buttonClick(ClickEvent event) {
-				// Calling web service ArticleWS/AllTitles
-				String allTitles = JCertifWS.getInstance().findAllTitles();
+				// Calling web service api/article/allarticles
+				Articles articles = JCertifWS.getInstance().findAllTitles();
 				titleList.removeAllItems();
 				int index = 0;
-				for (String title : allTitles.split(";")) {
-					titleList.addItem(new Object[] { index, title }, index++);
+				for (Article article : articles.getList()) {
+					titleList.addItem(new Object[] { article.getId(), article.getTitle() }, index++);
 				}
 
 			}

@@ -1,4 +1,4 @@
-package com.jcertif.webapp.vaadin;
+package com.jcertif.webapp.vaadin.proto;
 
 import java.util.ResourceBundle;
 
@@ -53,16 +53,16 @@ public class JCertifWS {
 	 *            a title
 	 */
 	public void addTitle(String title) {
-		getWebResource().path("ArticleWS").path("AddTitle").path(title)
-				.accept(MediaType.TEXT_PLAIN).get(String.class);
+		getWebResource().path("api").path("article").path("addarticle").path(title)
+				.accept(MediaType.APPLICATION_XML).get(String.class);
 	}
 
 	/**
 	 * @return all titles by calling ArticleWS/Alltitles web service.
 	 */
-	public String findAllTitles() {
-		return getWebResource().path("ArticleWS").path("AllTitles")
-				.accept(MediaType.TEXT_PLAIN).get(String.class);
+	public Articles findAllTitles() {
+		return getWebResource().path("api").path("article").path("allarticles")
+				.accept(MediaType.APPLICATION_XML).get(Articles.class);
 
 	}
 
