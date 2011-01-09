@@ -34,6 +34,11 @@ public class ParticipantTest {
 		final Participant c =  new Participant(new Long(2), "2011-01-03",null, null,"Silya",null,null,null,null,null,null,null,null,null,null);
 		
 		final Participant d = new Participant(new Long(1), "2011-01-03",null, null,"Malonga",null,null,null,null,null,null,null,null,null,null){
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 		};
 
 		final EqualsTester equalsTester = new EqualsTester();

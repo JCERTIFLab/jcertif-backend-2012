@@ -26,11 +26,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity
 public class Conference {
-
 	@Id
 	@GeneratedValue
 	private Long id;
-
 	@Column(name = "name")
 	private String nom;
 	@Column
@@ -49,38 +47,72 @@ public class Conference {
 		return id;
 	}
 
+	/**
+	 * 
+	 * @param id
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String getNom() {
 		return nom;
 	}
 
+	/**
+	 * 
+	 * @param nom
+	 */
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
+	/**
+	 * 
+	 * @return website
+	 */
 	public String getWebsite() {
 		return website;
 	}
 
+	/**
+	 * 
+	 * @param website
+	 */
 	public void setWebsite(String website) {
 		this.website = website;
 	}
 
+	/**
+	 * @return details
+	 */
 	public String getDetails() {
 		return details;
 	}
 
+	/**
+	 * @param details
+	 */
 	public void setDetails(String details) {
 		this.details = details;
 	}
 
+	/**
+	 * 
+	 * @return liste des organisateurs
+	 */
 	public Set<Organisateur> getOrganisateurs() {
 		return organisateurs;
 	}
 
+	/**
+	 * 
+	 * @param organisateurs
+	 */
 	public void setOrganisateurs(Set<Organisateur> organisateurs) {
 		this.organisateurs = organisateurs;
 	}
@@ -143,6 +175,10 @@ public class Conference {
 				.append(details, other.getDetails()).isEquals();
 	}
 
+	
+	/**
+	 * @return String 
+	 */
 	public String toXML() {
 		StringBuilder xml = new StringBuilder();
 		xml.append("<conference>");
@@ -165,6 +201,9 @@ public class Conference {
 		return xml.toString();
 	}
 
+	/**
+	 * @return String
+	 */
 	public String toJSON() {
 		StringBuilder json = new StringBuilder();
 		json.append("{\"conference\":{\"id\":\"").append(id)

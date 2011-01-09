@@ -115,9 +115,9 @@ public class JCertifAccessorTesterImpl implements AccessorTester {
 				} else if (Calendar.class.isAssignableFrom(propertyType)) {
 					result = Calendar.getInstance();
 				} else if (List.class.isAssignableFrom(propertyType)) {
-					result = new ArrayList();
+					result = new ArrayList<Object>();
 				} else if (Set.class.isAssignableFrom(propertyType)) {
-					result = new HashSet();
+					result = new HashSet<Object>();
 				} else if (propertyType.isEnum()) {
 					result = (propertyType.getEnumConstants())[0];
 				} else {

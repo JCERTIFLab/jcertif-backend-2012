@@ -35,6 +35,11 @@ public class OrganisateurTest {
 		final Organisateur c = new Organisateur(new Long(2), "La Reine","Silya",null,null,null,null,null);
 		
 		final Organisateur d =new Organisateur(new Long(1), "Chrisbel","Malonga",null,null,null,null,null){
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 		};
 
 		final EqualsTester equalsTester = new EqualsTester();

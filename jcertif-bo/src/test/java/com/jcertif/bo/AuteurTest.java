@@ -31,6 +31,11 @@ public class AuteurTest {
 		final Auteur equivalentAuteur1 = getAuteur("a@jcertif.com", "a", "a");
 		final Auteur differentAuteur1 = getAuteur("b@jcertif.com", "a", "a");
 		final Auteur deriveAuteur1 = new Auteur() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 		};
 		deriveAuteur1.setEmail("a@jcertif.com");
 		deriveAuteur1.setNom("a");
