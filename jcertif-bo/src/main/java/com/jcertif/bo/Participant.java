@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -20,6 +21,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * @author Douneg
  */
 @Entity
+@XmlRootElement
 public class Participant extends Person {
 
 	private static final long serialVersionUID = 1L;

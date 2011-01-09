@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -22,6 +23,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * 
  */
 @Entity(name = "commite_revision_presentation")
+@XmlRootElement
 public class ComiteRevisionPresentation {
 
 	/**

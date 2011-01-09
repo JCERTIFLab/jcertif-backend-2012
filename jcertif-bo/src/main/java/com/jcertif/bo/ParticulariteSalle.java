@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -23,6 +24,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * @author chrisbel
  */
 @Entity
+@XmlRootElement
 public class ParticulariteSalle {
 
 	@Id
