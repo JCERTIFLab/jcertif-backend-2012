@@ -22,7 +22,7 @@ import com.sun.jersey.spi.inject.Inject;
  * @author rossi.oddet
  * 
  */
-@Path("ArticleWS")
+@Path("article")
 @Service
 public class ArticleWS {
 	
@@ -51,17 +51,12 @@ public class ArticleWS {
 	 * @return all the titles in String with
 	 */
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	@Path("AllTitles")
-	public String findAllTitle() {
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Path("allarticles")
+	public List<Article> findAllArticles() {
 		LOGGER.debug("Calling Web Service ArticleWS.findAllTitle()");
 		final List<Article> articleList = articleService.findAll();
-		final StringBuilder sb = new StringBuilder();
-		for (Article article : articleList) {
-			sb.append(article.getTitle());
-			sb.append(TITLE_SEPARATOR);
-		}
-		return sb.toString();
+		return articleList;
 	}
 
 	/**
@@ -70,14 +65,22 @@ public class ArticleWS {
 	 * @return the success string
 	 */
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	@Path("AddTitle/{title}/")
-	public String addTitle(@PathParam("title") String title) {
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Path("addarticle/{title}/")
+	public Article addArticle(@PathParam("title") String title) {
 		LOGGER.debug("Calling Web Service ArticleWS.attTitle() with de title {}",title);
 		Article article = new Article();
 		article.setTitle(title);
 		articleService.save(article);
-		return ADD_TITLE_SUCCESS_STRING;
+		return article;
+	}
+
+	public ArticleService getArticleService() {
+		return articleService;
+	}
+
+	public void setArticleService(ArticleService articleService) {
+		this.articleService = articleService;
 	}
 
 }

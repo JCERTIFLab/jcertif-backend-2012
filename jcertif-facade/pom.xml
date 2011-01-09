@@ -26,7 +26,7 @@
 			<groupId>com.jcertif</groupId>
 			<artifactId>jcertif-services</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.jcertif</groupId>
 			<artifactId>jcertif-bo</artifactId>
@@ -37,11 +37,23 @@
 			<artifactId>jsr311-api</artifactId>
 		</dependency>
 
+
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey.contribs</groupId>
 			<artifactId>jersey-spring</artifactId>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>1.1.4.1</version>
+		</dependency>
+
+
 		<!-- LOGGER -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -70,21 +82,31 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
 		
-		<!-- DERBY just for demonstration -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 		
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- DERBY just for demonstration -->
+
 		<dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derby</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
-
 	</dependencies>
 
 

@@ -12,7 +12,7 @@ import com.jcertif.facade.exception.ItemAlreadyExistsException;
 import com.jcertif.facade.exception.ItemNotFoundException;
 import com.jcertif.services.participant.ParticipantService;
 import com.jcertif.util.XMLUtil;
-import com.sun.jersey.api.core.InjectParam;
+//import com.sun.jersey.api.core.InjectParam;
 
 /**
  * Facade for the {@link ParticipantDAO}.
@@ -22,7 +22,7 @@ import com.sun.jersey.api.core.InjectParam;
  */
 public class ParticipantFacade {
 	
-	@InjectParam
+	//@InjectParam
 	private static ParticipantService service;
 	
 	public static String create(String xml) throws ItemAlreadyExistsException {

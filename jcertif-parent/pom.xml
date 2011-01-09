@@ -363,6 +363,14 @@
 			</dependency>
 
 			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>1.8.5</version>
+				<type>jar</type>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
 				<groupId>org.dbunit</groupId>
 				<artifactId>dbunit</artifactId>
 				<version>2.4.7</version>
@@ -395,9 +403,9 @@
 			</dependency>
 
 			<dependency>
-				<groupId>com.sun.jersey</groupId>
+				<groupId>com.sun.jersey.contribs</groupId>
 				<artifactId>jersey-spring</artifactId>
-				<version>1.0</version>
+				<version>1.1.4.1</version>
 				<exclusions>
 					<exclusion>
 						<groupId>org.springframework</groupId>
@@ -411,11 +419,17 @@
 				<artifactId>jersey-client</artifactId>
 				<version>1.4</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>com.sun.jersey</groupId>
 				<artifactId>jersey-server</artifactId>
-				<version>1.4</version>
+				<version>1.1.4.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-json</artifactId>
+				<version>1.1.4.1</version>
 			</dependency>
 
 			<dependency>

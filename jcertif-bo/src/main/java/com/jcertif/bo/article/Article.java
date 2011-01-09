@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Article Business Object.
@@ -12,6 +13,7 @@ import javax.persistence.Id;
  * 
  */
 @Entity
+@XmlRootElement
 public class Article {
 
 	/**
