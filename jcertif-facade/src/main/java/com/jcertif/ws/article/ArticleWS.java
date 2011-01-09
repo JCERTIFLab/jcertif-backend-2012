@@ -25,21 +25,11 @@ import com.sun.jersey.spi.inject.Inject;
 @Path("article")
 @Service
 public class ArticleWS {
-	
+
 	/**
 	 * The Logger.
 	 */
 	private Logger LOGGER = LoggerFactory.getLogger(ArticleWS.class);
-
-	/**
-	 * Success String result for addtitle service.
-	 */
-	private static final String ADD_TITLE_SUCCESS_STRING = "OK";
-
-	/**
-	 * A title string separator.
-	 */
-	private static final String TITLE_SEPARATOR = ";";
 
 	/**
 	 * Article service.
@@ -51,10 +41,10 @@ public class ArticleWS {
 	 * @return all the titles in String with
 	 */
 	@GET
-	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Path("allarticles")
 	public List<Article> findAllArticles() {
-		LOGGER.debug("Calling Web Service ArticleWS.findAllTitle()");
+		LOGGER.debug("Calling Web Service /api/article/allarticles");
 		final List<Article> articleList = articleService.findAll();
 		return articleList;
 	}
@@ -65,10 +55,11 @@ public class ArticleWS {
 	 * @return the success string
 	 */
 	@GET
-	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Path("addarticle/{title}/")
 	public Article addArticle(@PathParam("title") String title) {
-		LOGGER.debug("Calling Web Service ArticleWS.attTitle() with de title {}",title);
+		LOGGER.debug("Calling Web Service /api/article/addarticle/{title}/",
+				title);
 		Article article = new Article();
 		article.setTitle(title);
 		articleService.save(article);
