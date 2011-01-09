@@ -4,25 +4,20 @@
   <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
   <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
   <classpathentry kind="output" path="target/classes"/>
-  <classpathentry kind="var" path="M2_REPO/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar" sourcepath="M2_REPO/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1-sources.jar">
-    <attributes>
-      <attribute value="jar:file:/Users/mouhamed_diouf/.m2/repository/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1-javadoc.jar!/" name="javadoc_location"/>
-    </attributes>
-  </classpathentry>
   <classpathentry kind="var" path="M2_REPO/javax/persistence/persistence-api/1.0/persistence-api-1.0.jar" sourcepath="M2_REPO/javax/persistence/persistence-api/1.0/persistence-api-1.0-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/commons-lang/commons-lang/2.4/commons-lang-2.4.jar" sourcepath="M2_REPO/commons-lang/commons-lang/2.4/commons-lang-2.4-sources.jar">
     <attributes>
-      <attribute value="jar:file:/Users/mouhamed_diouf/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/C:/Users/Utilisateur/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/com/evasion/framework-test/1.0.0.5/framework-test-1.0.0.5.jar" sourcepath="M2_REPO/com/evasion/framework-test/1.0.0.5/framework-test-1.0.0.5-sources.jar">
     <attributes>
-      <attribute value="jar:file:/Users/mouhamed_diouf/.m2/repository/com/evasion/framework-test/1.0.0.5/framework-test-1.0.0.5-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/C:/Users/Utilisateur/.m2/repository/com/evasion/framework-test/1.0.0.5/framework-test-1.0.0.5-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/junit/junit/4.8.2/junit-4.8.2.jar" sourcepath="M2_REPO/junit/junit/4.8.2/junit-4.8.2-sources.jar">
     <attributes>
-      <attribute value="jar:file:/Users/mouhamed_diouf/.m2/repository/junit/junit/4.8.2/junit-4.8.2-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/C:/Users/Utilisateur/.m2/repository/junit/junit/4.8.2/junit-4.8.2-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
