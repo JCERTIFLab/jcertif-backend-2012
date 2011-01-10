@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -48,8 +49,9 @@ public class CentreConference {
 	/**
 	 * Adresse.
 	 */
-	@Column
-	private String adresse;
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "Adresse_id")
+	private Adresse adresse;
 	
 	/**
 	 * Téléphone.
@@ -122,7 +124,7 @@ public class CentreConference {
 	 * @param details
 	 */
 	public CentreConference(Long id, String nom, String description,
-			String adresse, String email, String website, String nomContact,
+			Adresse adresse, String email, String website, String nomContact,
 			String prenomContact, String telephoneContact, String details) {
 		super();
 		this.id = id;
@@ -188,14 +190,14 @@ public class CentreConference {
 	/**
 	 * @return the adresse
 	 */
-	public String getAdresse() {
+	public Adresse getAdresse() {
 		return adresse;
 	}
 
 	/**
 	 * @param adresse the adresse to set
 	 */
-	public void setAdresse(String adresse) {
+	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
 	

@@ -36,6 +36,8 @@ public class OrganisateurCentreConf extends Person {
 	@OneToMany(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "organisateur_centre_conf_id")
 	private Set<Conference> conferencesInternal;
+	
+	
 
 	/**
 	 * @return the website

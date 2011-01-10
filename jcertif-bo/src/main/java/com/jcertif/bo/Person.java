@@ -2,9 +2,13 @@ package com.jcertif.bo;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
 /**
@@ -70,8 +74,9 @@ public class Person implements Serializable {
 	/**
 	 * Adresse de la personne.
 	 */
-	@Column
-	private String adresse;
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "Adresse_id")
+	private Adresse adresse;
 
 	/**
 	 * Détails de la personne.
@@ -202,18 +207,19 @@ public class Person implements Serializable {
 		this.specialite = specialite;
 	}
 
+	
+
 	/**
 	 * @return the adresse
 	 */
-	public String getAdresse() {
+	public Adresse getAdresse() {
 		return adresse;
 	}
 
 	/**
-	 * @param adresse
-	 *            the adresse to set
+	 * @param adresse the adresse to set
 	 */
-	public void setAdresse(String adresse) {
+	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
 
