@@ -10,31 +10,31 @@ import com.evasion.framework.test.EqualsTester;
  * @author rossi.oddet
  * 
  */
-public class PresentationTest {
+public class PropositionPresentationTest {
 
 	/**
-	 * Test de tous les accesseurs du Bo {@link Presentation}.
+	 * Test de tous les accesseurs du Bo {@link PropositionPresentation}.
 	 */
 	@Test
 	public void testAllAccessors() {
-		final Presentation presentation = new Presentation();
+		final PropositionPresentation presentation = new PropositionPresentation();
 		final JCertifAccessorTesterImpl accessorTester = new JCertifAccessorTesterImpl(
 				presentation);
 		accessorTester.testAllAccessors();
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link Presentation}.
+	 * Test des méhodes Equals et Hashcode du Bo {@link PropositionPresentation}.
 	 */
 	@Test
 	public void testtestEqualsAndHashCode() {
-		final Presentation presentation1 = getPresentation("titre 1", "desc 1",
+		final PropositionPresentation presentation1 = getPresentation("titre 1", "desc 1",
 				"details 1");
-		final Presentation equivalentPresentation1 = getPresentation("titre 1",
+		final PropositionPresentation equivalentPresentation1 = getPresentation("titre 1",
 				"desc 1", "details 1");
-		final Presentation differentPresentation1 = getPresentation("titre 2",
+		final PropositionPresentation differentPresentation1 = getPresentation("titre 2",
 				"desc 1", "details 1");
-		final Presentation derivePresentation1 = new Presentation() {
+		final PropositionPresentation derivePresentation1 = new PropositionPresentation() {
 		};
 		derivePresentation1.setTitre("titre 1");
 		derivePresentation1.setDescription("desc 1");
@@ -54,9 +54,9 @@ public class PresentationTest {
 	 *            les détails
 	 * @return un objet présentation.
 	 */
-	private Presentation getPresentation(final String titre, final String desc,
+	private PropositionPresentation getPresentation(final String titre, final String desc,
 			final String details) {
-		Presentation pres = new Presentation();
+		PropositionPresentation pres = new PropositionPresentation();
 		pres.setTitre(titre);
 		pres.setDescription(desc);
 		pres.setDetails(details);

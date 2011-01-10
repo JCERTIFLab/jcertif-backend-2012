@@ -30,7 +30,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity
 @XmlRootElement
-public class Presentation {
+public class PropositionPresentation {
 
 	/**
 	 * Identifiant d'une présentation.
@@ -82,14 +82,14 @@ public class Presentation {
 	 * Liste des sujets de la présentation.
 	 */
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "presentation_sujet", joinColumns = @JoinColumn(name = "presentation_id"), inverseJoinColumns = @JoinColumn(name = "sujet_id"))
+	@JoinTable(name = "proposition_presentation_sujet", joinColumns = @JoinColumn(name = "proposition_presentation_id"), inverseJoinColumns = @JoinColumn(name = "sujet_id"))
 	private List<Sujet> sujetsInternal;
 
 	/**
 	 * Liste appréciations.
 	 */
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "appreciation_presentation", joinColumns = @JoinColumn(name = "presentation_id"), inverseJoinColumns = @JoinColumn(name = "appreciation_id"))
+	@JoinTable(name = "appreciation_presentation", joinColumns = @JoinColumn(name = "proposition_presentation_id"), inverseJoinColumns = @JoinColumn(name = "appreciation_id"))
 	private List<Appreciation> appreciationsInternal;
 
 	/**
@@ -103,7 +103,7 @@ public class Presentation {
 	 * Liste des auteurs.
 	 */
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "presentation_auteur", joinColumns = @JoinColumn(name = "presentation_id"), inverseJoinColumns = @JoinColumn(name = "auteur_id"))
+	@JoinTable(name = "propos_presentation_auteur", joinColumns = @JoinColumn(name = "presentation_id"), inverseJoinColumns = @JoinColumn(name = "auteur_id"))
 	private Set<Auteur> auteursInternal;
 
 	/**
@@ -429,11 +429,11 @@ public class Presentation {
 			return true;
 		}
 
-		if (!(obj instanceof Presentation)) {
+		if (!(obj instanceof PropositionPresentation)) {
 			return false;
 		}
 
-		final Presentation other = (Presentation) obj;
+		final PropositionPresentation other = (PropositionPresentation) obj;
 
 		return new EqualsBuilder().append(titre, other.getTitre())
 				.append(description, other.getDescription()).isEquals();

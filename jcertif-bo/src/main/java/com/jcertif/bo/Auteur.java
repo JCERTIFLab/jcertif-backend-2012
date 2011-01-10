@@ -33,17 +33,17 @@ public class Auteur extends Person {
 	 * Liste de présentations.
 	 */
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "presentation_auteur", joinColumns = @JoinColumn(name = "auteur_id"), inverseJoinColumns = @JoinColumn(name = "presentation_id"))
-	private Set<Presentation> presentationsInternal;
+	@JoinTable(name = "propos_presentation_auteur", joinColumns = @JoinColumn(name = "auteur_id"), inverseJoinColumns = @JoinColumn(name = "presentation_id"))
+	private Set<PropositionPresentation> presentationsInternal;
 
 	
 
 	/**
 	 * @return the presentationsInternal
 	 */
-	protected Set<Presentation> getPresentationsInternal() {
+	protected Set<PropositionPresentation> getPresentationsInternal() {
 		if (presentationsInternal == null) {
-			presentationsInternal = new HashSet<Presentation>();
+			presentationsInternal = new HashSet<PropositionPresentation>();
 		}
 		return presentationsInternal;
 	}
@@ -53,14 +53,14 @@ public class Auteur extends Person {
 	 *            the presentationsInternal to set
 	 */
 	protected void setPresentationsInternal(
-			Set<Presentation> presentationsInternal) {
+			Set<PropositionPresentation> presentationsInternal) {
 		this.presentationsInternal = presentationsInternal;
 	}
 
 	/**
 	 * @return la liste des présentations de l'auteur.
 	 */
-	public Set<Presentation> getPresentations() {
+	public Set<PropositionPresentation> getPresentations() {
 		return Collections.unmodifiableSet(getPresentationsInternal());
 	}
 
@@ -71,7 +71,7 @@ public class Auteur extends Person {
 	 *            une présentation
 	 * @return le résultat de l'ajout
 	 */
-	public boolean addPresentation(final Presentation presentation) {
+	public boolean addPresentation(final PropositionPresentation presentation) {
 		return getPresentationsInternal().add(presentation);
 	}
 
@@ -80,7 +80,7 @@ public class Auteur extends Person {
 	 *            une présentation
 	 * @return
 	 */
-	public boolean removePresentation(final Presentation presentation) {
+	public boolean removePresentation(final PropositionPresentation presentation) {
 		return getPresentationsInternal().remove(presentation);
 	}
 

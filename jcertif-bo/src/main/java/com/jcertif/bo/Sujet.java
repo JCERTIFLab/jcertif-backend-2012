@@ -70,8 +70,8 @@ public class Sujet {
 	 * Liste de présentations.
 	 */
 	@ManyToMany
-	@JoinTable(name = "presentation_sujet", joinColumns = @JoinColumn(name = "sujet_id"), inverseJoinColumns = @JoinColumn(name = "presentation_id"))
-	private List<Presentation> presentationsInternal;
+	@JoinTable(name = "proposition_presentation_sujet", joinColumns = @JoinColumn(name = "sujet_id"), inverseJoinColumns = @JoinColumn(name = "proposition_presentation_id"))
+	private List<PropositionPresentation> presentationsInternal;
 
 	/**
 	 * @return l'identifiant du sujet.
@@ -121,9 +121,9 @@ public class Sujet {
 	/**
 	 * @return la liste des présentations du sujet
 	 */
-	protected List<Presentation> getPresentationsInternal() {
+	protected List<PropositionPresentation> getPresentationsInternal() {
 		if (presentationsInternal == null) {
-			presentationsInternal = new ArrayList<Presentation>();
+			presentationsInternal = new ArrayList<PropositionPresentation>();
 		}
 		return presentationsInternal;
 	}
@@ -135,14 +135,14 @@ public class Sujet {
 	 *            une liste de présentation
 	 */
 	protected void setPresentationsInternal(
-			List<Presentation> presentationsInternal) {
+			List<PropositionPresentation> presentationsInternal) {
 		this.presentationsInternal = presentationsInternal;
 	}
 
 	/**
 	 * @return une liste non modifiable de présentation.
 	 */
-	public List<Presentation> getPresentations() {
+	public List<PropositionPresentation> getPresentations() {
 		return Collections.unmodifiableList(this.getPresentationsInternal());
 	}
 
@@ -153,7 +153,7 @@ public class Sujet {
 	 *            une présentation
 	 * @return le résultat de l'ajout
 	 */
-	public boolean addPresentation(Presentation presentation) {
+	public boolean addPresentation(PropositionPresentation presentation) {
 		return this.getPresentationsInternal().add(presentation);
 	}
 
@@ -164,7 +164,7 @@ public class Sujet {
 	 *            une présentation
 	 * @return le résultat de la suppression
 	 */
-	public boolean removePresentation(Presentation presentation) {
+	public boolean removePresentation(PropositionPresentation presentation) {
 		return this.getPresentationsInternal().remove(presentation);
 	}
 

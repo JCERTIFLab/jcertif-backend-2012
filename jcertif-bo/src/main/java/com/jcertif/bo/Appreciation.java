@@ -50,8 +50,8 @@ public class Appreciation {
 	 * Liste de présentations.
 	 */
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "appreciation_presentation", joinColumns = @JoinColumn(name = "appreciation_id"), inverseJoinColumns = @JoinColumn(name = "presentation_id"))
-	private List<Presentation> presentationsInternal;
+	@JoinTable(name = "appreciation_presentation", joinColumns = @JoinColumn(name = "appreciation_id"), inverseJoinColumns = @JoinColumn(name = "proposition_presentation_id"))
+	private List<PropositionPresentation> presentationsInternal;
 
 	/**
 	 * Constructeur par défaut.
@@ -128,9 +128,9 @@ public class Appreciation {
 	/**
 	 * @return la liste des présentations.
 	 */
-	protected List<Presentation> getPresentationsInternal() {
+	protected List<PropositionPresentation> getPresentationsInternal() {
 		if (this.presentationsInternal == null) {
-			presentationsInternal = new ArrayList<Presentation>();
+			presentationsInternal = new ArrayList<PropositionPresentation>();
 		}
 		return presentationsInternal;
 	}
@@ -142,14 +142,14 @@ public class Appreciation {
 	 *            une liste de présentations.
 	 */
 	protected void setPresentationsInternal(
-			List<Presentation> presentationsInternal) {
+			List<PropositionPresentation> presentationsInternal) {
 		this.presentationsInternal = presentationsInternal;
 	}
 
 	/**
 	 * @return la liste des présentations.
 	 */
-	public List<Presentation> getPresentations() {
+	public List<PropositionPresentation> getPresentations() {
 		return Collections.unmodifiableList(getPresentationsInternal());
 	}
 
@@ -160,7 +160,7 @@ public class Appreciation {
 	 *            une présentation
 	 * @return le résultat de l'ajout
 	 */
-	public boolean addPresentation(final Presentation presentation) {
+	public boolean addPresentation(final PropositionPresentation presentation) {
 		return this.getPresentationsInternal().add(presentation);
 	}
 
@@ -171,7 +171,7 @@ public class Appreciation {
 	 *            une présentation
 	 * @return le résultat de la suppression d'une présentation
 	 */
-	public boolean removePresentation(final Presentation presentation) {
+	public boolean removePresentation(final PropositionPresentation presentation) {
 		return this.getPresentationsInternal().remove(presentation);
 	}
 
