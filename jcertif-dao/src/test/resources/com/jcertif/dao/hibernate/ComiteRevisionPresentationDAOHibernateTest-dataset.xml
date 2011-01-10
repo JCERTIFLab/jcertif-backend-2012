@@ -4,14 +4,14 @@
 		sexe_MF="M" email="1@jcertif.com" details="details 1" telephone="111111" />
 	<Commite_organisation id="2" nom="nom 2" prenom="prenom 2"
 		sexe_MF="F" email="2@jcertif.com" details="details 2" telephone="222222" />
-	<presentation id="1" titre="titre 1" description="description 1"
-		details="details 1" />
-	<presentation id="2" titre="titre 2" description="description 2"
-		details="details 2" />
-	<presentation id="3" titre="titre 3" description="description 3"
-		details="details 3" />
-		<presentation id="4" titre="titre 4" description="description 4"
-		details="details 4" />
+	<proposition_presentation id="1" titre="titre 1"
+		description="description 1" details="details 1" />
+	<proposition_presentation id="2" titre="titre 2"
+		description="description 2" details="details 2" />
+	<proposition_presentation id="3" titre="titre 3"
+		description="description 3" details="details 3" />
+	<proposition_presentation id="4" titre="titre 4"
+		description="description 4" details="details 4" />
 
 	<commite_revision_presentation
 		commite_organisation_id="1" presentation_id="1" date_revision="2011-02-11" />

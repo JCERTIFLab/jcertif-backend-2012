@@ -8,10 +8,10 @@
 	<appreciation id="5" code_appreciation="code_appreciation 5" description="description 5"/>
 	<appreciation id="6" code_appreciation="code_appreciation 6" description="description 6"/>
 	
-	<presentation id="1" titre="titre 1" description="description 1" details="details 1" />
-	<presentation id="2" titre="titre 2" description="description 2" details="details 2" />
-	<presentation id="3" titre="titre 3" description="description 3" details="details 3" />
+	<proposition_presentation id="1" titre="titre 1" description="description 1" details="details 1" />
+	<proposition_presentation id="2" titre="titre 2" description="description 2" details="details 2" />
+	<proposition_presentation id="3" titre="titre 3" description="description 3" details="details 3" />
 	
-	<appreciation_presentation presentation_id="1" appreciation_id="1" />
+	<appreciation_presentation proposition_presentation_id="1" appreciation_id="1" />
 	
 </dataset>

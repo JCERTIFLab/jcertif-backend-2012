@@ -2,9 +2,9 @@
 <dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 
-	<presentation id="1" titre="titre 1" description="description 1" details="details 1" />
-	<presentation id="2" titre="titre 2" description="description 2" details="details 2" />
-	<presentation id="3" titre="titre 3" description="description 3" details="details 3" />
+	<proposition_presentation id="1" titre="titre 1" description="description 1" details="details 1" />
+	<proposition_presentation id="2" titre="titre 2" description="description 2" details="details 2" />
+	<proposition_presentation id="3" titre="titre 3" description="description 3" details="details 3" />
 	
 	<auteur id="1" nom="nom 1" prenom="prenom 1" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202" details="details 1" adresse="adresse 1"/>
 	<auteur id="2" nom="nom 2" prenom="prenom 2" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202"/>
@@ -12,7 +12,7 @@
 	<auteur id="4" nom="nom 4" prenom="prenom 4" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202"/>
 	<auteur id="5" nom="nom 5" prenom="prenom 5" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202"/>
 	
-	<presentation_auteur presentation_id="1" auteur_id="1" />
-	<presentation_auteur presentation_id="2" auteur_id="1" />
+	<propos_presentation_auteur presentation_id="1" auteur_id="1" />
+	<propos_presentation_auteur presentation_id="2" auteur_id="1" />
 	
 </dataset>

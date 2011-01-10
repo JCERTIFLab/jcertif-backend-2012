@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.jcertif.bo.MotCle;
-import com.jcertif.bo.Presentation;
+import com.jcertif.bo.PropositionPresentation;
 import com.jcertif.bo.StatutApprobation;
-import com.jcertif.dao.PresentationDAO;
+import com.jcertif.dao.PropostionPresentationDAO;
 
 /**
  * Test de l'implémentation Hibernate de l'accès aux données Presentation.
@@ -18,20 +18,20 @@ import com.jcertif.dao.PresentationDAO;
  * 
  */
 @ContextConfiguration(locations = { "classpath:jcertif-dao-test-beans.xml" })
-public class PresentationDAOHibernateTest extends AbstractDAOTestCase {
+public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase {
 
 	/**
 	 * DAO Presentation.
 	 */
 	@Autowired
-	private PresentationDAO presentationDAO;
+	private PropostionPresentationDAO presentationDAO;
 
 	/**
 	 * Test de la méthode getReference().
 	 */
 	@Test
 	public void testGetReference() {
-		Presentation presentation1 = presentationDAO.getReference(Long.valueOf(1));
+		PropositionPresentation presentation1 = presentationDAO.getReference(Long.valueOf(1));
 		assertEquals("titre 1", presentation1.getTitre());
 		assertEquals("description 1", presentation1.getDescription());
 		assertEquals("details 1", presentation1.getDetails());
@@ -47,7 +47,7 @@ public class PresentationDAOHibernateTest extends AbstractDAOTestCase {
 	 */
 	@Test
 	public void testFindById() {
-		Presentation presentation1 = presentationDAO.findById(Long.valueOf(2));
+		PropositionPresentation presentation1 = presentationDAO.findById(Long.valueOf(2));
 		assertEquals("titre 2", presentation1.getTitre());
 		assertEquals("description 2", presentation1.getDescription());
 		assertEquals("details 2", presentation1.getDetails());
@@ -80,7 +80,7 @@ public class PresentationDAOHibernateTest extends AbstractDAOTestCase {
 	@Test
 	public void testPersist() {
 		// Persistence
-		Presentation presentation = new Presentation();
+		PropositionPresentation presentation = new PropositionPresentation();
 		presentation.setTitre("titre 100");
 		presentation.setDescription("description 100");
 		presentation.setDetails("details 100");
@@ -95,7 +95,7 @@ public class PresentationDAOHibernateTest extends AbstractDAOTestCase {
 		presentationDAO.persist(presentation);
 
 		// Vérification
-		Presentation presentation1 = presentationDAO.findById(presentation.getId());
+		PropositionPresentation presentation1 = presentationDAO.findById(presentation.getId());
 		assertEquals("titre 100", presentation1.getTitre());
 		assertEquals("description 100", presentation1.getDescription());
 		assertEquals("details 100", presentation1.getDetails());
@@ -111,7 +111,7 @@ public class PresentationDAOHibernateTest extends AbstractDAOTestCase {
 	@Test
 	public void testMerge() {
 		// Persistence
-		Presentation presentation = new Presentation();
+		PropositionPresentation presentation = new PropositionPresentation();
 		presentation.setTitre("titre 1000");
 		presentation.setDescription("description 1000");
 		presentation.setDetails("details 1000");
@@ -123,10 +123,10 @@ public class PresentationDAOHibernateTest extends AbstractDAOTestCase {
 		statut.setCodeStatut("code_statut 1000");
 		statut.setDescription("description 1000");
 		presentation.setStatutApprobation(statut);
-		Presentation savedPresentation = presentationDAO.merge(presentation);
+		PropositionPresentation savedPresentation = presentationDAO.merge(presentation);
 
 		// Vérification
-		Presentation presentation1 = presentationDAO.findById(savedPresentation.getId());
+		PropositionPresentation presentation1 = presentationDAO.findById(savedPresentation.getId());
 		assertEquals("titre 1000", presentation1.getTitre());
 		assertEquals("description 1000", presentation1.getDescription());
 		assertEquals("details 1000", presentation1.getDetails());
@@ -141,7 +141,7 @@ public class PresentationDAOHibernateTest extends AbstractDAOTestCase {
 	 */
 	@Test
 	public void testRemove() {
-		Presentation entity = presentationDAO.findById(Long.valueOf(1l));
+		PropositionPresentation entity = presentationDAO.findById(Long.valueOf(1l));
 		presentationDAO.remove(entity);
 		assertEquals(2, presentationDAO.findAll().size());
 	}

@@ -5,10 +5,10 @@
 	<mot_cle />
 	<sujet />
 	<conference />
-	<presentation />
+	<proposition_presentation />
 	<auteur />
-	<presentation_auteur />
-	<presentation_sujet />
+	<propos_presentation_auteur />
+	<proposition_presentation_sujet />
 	<appreciation_presentation />
 	<statut_cedule />
 	<centre_conference />
