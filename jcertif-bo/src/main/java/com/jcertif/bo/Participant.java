@@ -35,6 +35,10 @@ public class Participant extends Person {
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "role_participant_id")
 	private RoleParticipant roleparticipant;
+	
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "type_participant_id")
+	private TypeParticipant typeParticipant;
 
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "conference_id")
@@ -165,6 +169,20 @@ public class Participant extends Person {
 	 */
 	public void setRoleparticipant(RoleParticipant roleparticipant) {
 		this.roleparticipant = roleparticipant;
+	}
+
+	/**
+	 * @return the typeParticipant
+	 */
+	public TypeParticipant getTypeParticipant() {
+		return typeParticipant;
+	}
+
+	/**
+	 * @param typeParticipant the typeParticipant to set
+	 */
+	public void setTypeParticipant(TypeParticipant typeParticipant) {
+		this.typeParticipant = typeParticipant;
 	}
 
 	/**
