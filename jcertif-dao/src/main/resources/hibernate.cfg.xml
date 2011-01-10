@@ -8,6 +8,7 @@
 	<session-factory>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
 		<mapping class="com.jcertif.bo.article.Article" />
+		<mapping class="com.jcertif.bo.Adresse" />
 		<mapping class="com.jcertif.bo.Sujet" />
 		<mapping class="com.jcertif.bo.MotCle" />
 		<mapping class="com.jcertif.bo.StatutApprobation" />
