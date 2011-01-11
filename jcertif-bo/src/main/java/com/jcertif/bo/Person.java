@@ -54,12 +54,6 @@ public class Person implements Serializable {
 	private Character sexe;
 
 	/**
-	 * Téléphone de la personne.
-	 */
-	@Column
-	private String telephone;
-
-	/**
 	 * Salutation de la personne.
 	 */
 	@Column
@@ -89,6 +83,12 @@ public class Person implements Serializable {
 	 */
 	@Column
 	private String email;
+	
+	/**
+	 * Site web d'une personne.
+	 */
+	@Column
+	private String website;
 
 	/**
 	 * fournit l'ID de l'individu
@@ -160,21 +160,6 @@ public class Person implements Serializable {
 	 */
 	public void setSexe(Character sexe) {
 		this.sexe = sexe;
-	}
-
-	/**
-	 * @return the telephone
-	 */
-	public String getTelephone() {
-		return telephone;
-	}
-
-	/**
-	 * @param telephone
-	 *            the telephone to set
-	 */
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
 	}
 
 	/**
@@ -252,5 +237,21 @@ public class Person implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	/**
+	 * @return the website
+	 */
+	public String getWebsite() {
+		return website;
+	}
+
+	/**
+	 * @param website the website to set
+	 */
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+	
+	
 
 }

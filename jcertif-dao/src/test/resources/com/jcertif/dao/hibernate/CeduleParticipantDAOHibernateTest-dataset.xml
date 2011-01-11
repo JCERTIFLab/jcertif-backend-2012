@@ -6,10 +6,10 @@
 	<role_participant id="3" code_role="JCertif 2011" description="conferencier" />
 	<role_participant id="4" code_role="JCertif 2012" description="speaker" />
 	
-	<participant id="5" salutation="malonga" specialite="chrisbel" prenom="diouf" nom="mamadou" sexe_MF="m" email="roland.amour@chrisbel.net" telephone="00000000" presentation_soumise= "oui" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="3"/>
-	<participant id="6" salutation="malonga" specialite="chrisbel" prenom="diouf" nom="mamadou" sexe_MF="m" email="roland.amour@chrisbel.net" telephone="00000000" presentation_soumise= "oui" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="3"/>
-	<participant id="7" salutation="malonga" specialite="chrisbel" prenom="diouf" nom="mamadou" sexe_MF="F" email="roland.amour@chrisbel.net" telephone="00000000" presentation_soumise= "non" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="2"/>
-	<participant id="8" salutation="malonga" specialite="chrisbel" prenom="diouf" nom="mamadou" sexe_MF="F" email="roland.amour@chrisbel.net" telephone="00000000" presentation_soumise= "non" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="1"/>
+	<participant id="5" salutation="malonga" specialite="chrisbel" prenom="diouf" nom="mamadou" sexe_MF="m" email="roland.amour@chrisbel.net" presentation_soumise= "oui" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="3"/>
+	<participant id="6" salutation="malonga" specialite="chrisbel" prenom="diouf" nom="mamadou" sexe_MF="m" email="roland.amour@chrisbel.net" presentation_soumise= "oui" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="3"/>
+	<participant id="7" salutation="malonga" specialite="chrisbel" prenom="diouf" nom="mamadou" sexe_MF="F" email="roland.amour@chrisbel.net" presentation_soumise= "non" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="2"/>
+	<participant id="8" salutation="malonga" specialite="chrisbel" prenom="diouf" nom="mamadou" sexe_MF="F" email="roland.amour@chrisbel.net" presentation_soumise= "non" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="1"/>
 		
 	
 	<statut_cedule id="1" code="code_statut statut_cedule 1" description="description statut_cedule 1"/>

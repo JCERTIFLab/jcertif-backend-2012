@@ -32,10 +32,8 @@ public class Organisateur extends Person{
 
 
 	/**
-	 * 
+	 * Liste de conférences.
 	 */
-	
-	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "organisateur_conference", joinColumns = @JoinColumn(name = "organisateur_id"), inverseJoinColumns = @JoinColumn(name = "conference_id"))
 	private Set<Conference> conferences=new HashSet<Conference>();
@@ -52,7 +50,7 @@ public class Organisateur extends Person{
 	 * Constructor
 	 */
 	public Organisateur(Long id, String prenom, String nom, Character sexe,
-			String email, String telephone, String details,
+			String email, String details,
 			Set<Conference> conferences) {
 		super();
 		this.setId(id);
@@ -60,7 +58,6 @@ public class Organisateur extends Person{
 		this.setNom(nom);
 		this.setSexe(sexe);
 		this.setEmail(email);
-		this.setTelephone(telephone);
 		this.setDetails(details);
 		this.setConferences(conferences);
 	}
@@ -83,7 +80,6 @@ public class Organisateur extends Person{
 		xml.append("<nom>").append(getNom()).append("</nom>");
 		xml.append("<sexe>").append(getSexe()).append("</sexe>");
 		xml.append("<email>").append(getEmail()).append("</email>");
-		xml.append("<telephone>").append(getTelephone()).append("</telephone>");
 		xml.append("<details>").append(getDetails()).append("</details>");
 		xml.append("<conferences>");
 		Iterator<Conference> iter = conferences.iterator();
@@ -109,7 +105,6 @@ public class Organisateur extends Person{
 		.append("\", \"nom\":\"").append(getNom())
 		.append("\", \"sexe\":\"").append(getSexe())
 		.append("\", \"email\":\"").append(getEmail())
-		.append("\", \"telephone\":\"").append(getTelephone())
 		.append("\", \"details\":\"").append(getDetails())
 		.append("\", \"conferences\":\"");
 		Iterator<Conference> iter = conferences.iterator();

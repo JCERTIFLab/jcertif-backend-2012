@@ -24,9 +24,6 @@ public class OrganisateurCentreConf extends Person {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column
-	private String website;
-
 	/**
 	 * Mot clé de la présentation.
 	 */
@@ -37,22 +34,6 @@ public class OrganisateurCentreConf extends Person {
 	@JoinColumn(name = "organisateur_centre_conf_id")
 	private Set<Conference> conferencesInternal;
 	
-	
-
-	/**
-	 * @return the website
-	 */
-	public String getWebsite() {
-		return website;
-	}
-
-	/**
-	 * @param website
-	 *            the website to set
-	 */
-	public void setWebsite(String website) {
-		this.website = website;
-	}
 
 	/**
 	 * @return the conferencesInternal

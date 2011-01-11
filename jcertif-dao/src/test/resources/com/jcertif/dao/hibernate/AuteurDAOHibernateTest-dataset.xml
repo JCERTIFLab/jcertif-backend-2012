@@ -11,11 +11,11 @@
 	<adresse id="3" ligne1="ligne1 3" ligne2="description 3" code_postal="code_postal 3" ville="Kinshasa 3" province="Kinshasa 3" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
 	
 	
-	<auteur id="1" nom="nom 1" prenom="prenom 1" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202" details="details 1" adresse_id="1"/>
-	<auteur id="2" nom="nom 2" prenom="prenom 2" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202"/>
-	<auteur id="3" nom="nom 3" prenom="prenom 3" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202"/>
-	<auteur id="4" nom="nom 4" prenom="prenom 4" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202"/>
-	<auteur id="5" nom="nom 5" prenom="prenom 5" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202"/>
+	<auteur id="1" nom="nom 1" prenom="prenom 1" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" details="details 1" adresse_id="1"/>
+	<auteur id="2" nom="nom 2" prenom="prenom 2" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite"/>
+	<auteur id="3" nom="nom 3" prenom="prenom 3" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite"/>
+	<auteur id="4" nom="nom 4" prenom="prenom 4" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite"/>
+	<auteur id="5" nom="nom 5" prenom="prenom 5" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite"/>
 	
 	<propos_presentation_auteur presentation_id="1" auteur_id="1" />
 	<propos_presentation_auteur presentation_id="2" auteur_id="1" />

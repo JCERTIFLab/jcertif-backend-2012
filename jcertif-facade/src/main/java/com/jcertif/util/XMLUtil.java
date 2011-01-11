@@ -160,8 +160,7 @@ public class XMLUtil {
 						getValue((Element) doc.getElementsByTagName("participant").item(0), "email"),
 						getValue((Element) doc.getElementsByTagName("participant").item(0), "presentationsoumise"),
 						getValue((Element) doc.getElementsByTagName("participant").item(0), "cvsoumis"),
-						getValue((Element) doc.getElementsByTagName("participant").item(0), "details"),
-						getValue((Element) doc.getElementsByTagName("participant").item(0), "roleparticipant"));
+						getValue((Element) doc.getElementsByTagName("participant").item(0), "details"));
 				
 				
 			}

@@ -60,7 +60,7 @@ public class Participant extends Person {
 	 */
 	public Participant(Long id, String dateinscription, String salutation,
 			String specialite, String prenom, String nom, Character sexe,
-			String email, String telephone, String presentationsoumise,
+			String email, String presentationsoumise,
 			String cvsoumis, String details, RoleParticipant roleparticipant,
 			Conference conference, Set<CeduleParticipant> ceduleparticipants) {
 		super();
@@ -72,7 +72,6 @@ public class Participant extends Person {
 		this.setNom(nom);
 		this.setSexe(sexe);
 		this.setEmail(email);
-		this.setTelephone(telephone);
 		this.presentationSoumise = presentationsoumise;
 		this.cvSoumis = cvsoumis;
 		this.setDetails(details);
@@ -97,8 +96,7 @@ public class Participant extends Person {
 	 * @param details
 	 */
 	public Participant(Long id, String dateinscription, String salutation,
-			String prenom, String nom, Character sexe_MF, String email,
-			String telephone, String presentationsoumise, String cvsoumis,
+			String prenom, String nom, Character sexe_MF, String email, String presentationsoumise, String cvsoumis,
 			String details) {
 		super();
 		this.setId(id);
@@ -108,7 +106,6 @@ public class Participant extends Person {
 		this.setNom(nom);
 		this.setSexe(sexe_MF);
 		this.setEmail(email);
-		this.setTelephone(telephone);
 		this.presentationSoumise = presentationsoumise;
 		this.cvSoumis = cvsoumis;
 		this.setDetails(details);
@@ -257,7 +254,6 @@ public class Participant extends Person {
          xml.append("<nom>").append(getNom()).append("</nom>");
          xml.append("<sexe>").append(getSexe()).append("</sexe>");
          xml.append("<email>").append(getEmail()).append("</email>");
-         xml.append("<telephone>").append(getTelephone()).append("</telephone>");
          xml.append("<presentationsoumise>").append(presentationSoumise)
                          .append("</presentationsoumise>");
          xml.append("<cvsoumis>").append(cvSoumis).append("</cvsoumis>");

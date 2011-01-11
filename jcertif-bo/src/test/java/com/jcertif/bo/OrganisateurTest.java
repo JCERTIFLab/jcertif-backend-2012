@@ -18,7 +18,7 @@ public class OrganisateurTest {
 	 */
 	@Test
 	public void testAllAccessors() {
-		final Organisateur cc =new Organisateur(new Long(1), "Chrisbel","Malonga",null,null,null,null,null);
+		final Organisateur cc =new Organisateur(new Long(1), "Chrisbel","Malonga",null,null,null,null);
 		final JCertifAccessorTesterImpl accessorTester = new JCertifAccessorTesterImpl(cc);
 		accessorTester.testAllAccessors();
 	}
@@ -28,13 +28,13 @@ public class OrganisateurTest {
 	 */
 	@Test
 	public void testEqualsAndHashCode() {
-		final Organisateur a= new Organisateur(new Long(1), "Chrisbel","Malonga",null,null,null,null,null);
+		final Organisateur a= new Organisateur(new Long(1), "Chrisbel","Malonga",null,null,null,null);
 		
-		final Organisateur b = new Organisateur(new Long(1), "Chrisbel","Malonga",null,null,null,null,null);
+		final Organisateur b = new Organisateur(new Long(1), "Chrisbel","Malonga",null,null,null,null);
 		
-		final Organisateur c = new Organisateur(new Long(2), "La Reine","Silya",null,null,null,null,null);
+		final Organisateur c = new Organisateur(new Long(2), "La Reine","Silya",null,null,null,null);
 		
-		final Organisateur d =new Organisateur(new Long(1), "Chrisbel","Malonga",null,null,null,null,null){
+		final Organisateur d =new Organisateur(new Long(1), "Chrisbel","Malonga",null,null,null,null){
 
 			/**
 			 * 
