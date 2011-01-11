@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -28,6 +29,38 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 public class Auteur extends Person {
 
 	private static final long serialVersionUID = 1L;
+	@Column
+	private String biographie_sommaire;
+	@Column
+	private String photo;
+
+	/**
+	 * @return the biographie_sommaire
+	 */
+	public String getBiographie_sommaire() {
+		return biographie_sommaire;
+	}
+
+	/**
+	 * @param biographie_sommaire the biographie_sommaire to set
+	 */
+	public void setBiographie_sommaire(String biographie_sommaire) {
+		this.biographie_sommaire = biographie_sommaire;
+	}
+
+	/**
+	 * @return the photo
+	 */
+	public String getPhoto() {
+		return photo;
+	}
+
+	/**
+	 * @param photo the photo to set
+	 */
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 
 	/**
 	 * Liste de présentations.
