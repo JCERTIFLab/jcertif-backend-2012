@@ -31,6 +31,9 @@ public class Participant extends Person {
 	private String presentationSoumise;
 	@Column
 	private String cvSoumis;
+	
+	@Column
+	private String compagnie;
 
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "role_participant_id")
@@ -213,6 +216,20 @@ public class Participant extends Person {
 	}
 
 	
+
+	/**
+	 * @return the compagnie
+	 */
+	public String getCompagnie() {
+		return compagnie;
+	}
+
+	/**
+	 * @param compagnie the compagnie to set
+	 */
+	public void setCompagnie(String compagnie) {
+		this.compagnie = compagnie;
+	}
 
 	/**
 	 * @see java.lang.Object#hashCode()
