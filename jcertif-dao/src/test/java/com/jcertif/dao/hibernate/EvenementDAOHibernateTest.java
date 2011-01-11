@@ -68,7 +68,7 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
 
 	/**
 	 * Test de la méthode persist().
-	 */
+	 *//*
 	@Test
 	public void testPersist() {
 		// Persistence
@@ -85,9 +85,9 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
 
 	}
 
-	/**
+	*//**
 	 * Test de la méthode merge().
-	 */
+	 *//*
 	@Test
 	public void testMerge() {
 		// Persistence
@@ -104,13 +104,13 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
 		assertEquals("details 1000", evenement1.getDetails());
 	}
 
-	/**
+	*//**
 	 * Test de la méthode remove().
-	 */
+	 *//*
 	@Test
 	public void testRemove() {
 		Evenement entity = evenementDAO.findById(Long.valueOf(1));
 		evenementDAO.remove(entity);
 		assertEquals(7, evenementDAO.findAll().size());
-	}
+	}*/
 }
