@@ -75,7 +75,7 @@ public class Person implements Serializable {
 	 * Adresse de la personne.
 	 */
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "Adresse_id")
+	@JoinColumn(name = "adresse_id")
 	private Adresse adresse;
 
 	/**
