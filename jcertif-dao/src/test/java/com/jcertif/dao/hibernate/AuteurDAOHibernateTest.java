@@ -34,7 +34,7 @@ public class AuteurDAOHibernateTest extends AbstractDAOTestCase {
 		assertEquals("prenom 1", auteur1.getPrenom());
 		assertEquals("details 1", auteur1.getDetails());
 		assertEquals(2, auteur1.getPresentations().size());
-		assertEquals("adresse 1", auteur1.getAdresse());
+		assertEquals(Long.valueOf(1), auteur1.getAdresse().getId());
 		assertEquals("1@jcertif.com", auteur1.getEmail());
 		assertEquals(Character.valueOf('M'), auteur1.getSexe());
 	}
@@ -49,7 +49,7 @@ public class AuteurDAOHibernateTest extends AbstractDAOTestCase {
 		assertEquals("prenom 1", auteur1.getPrenom());
 		assertEquals("details 1", auteur1.getDetails());
 		assertEquals(2, auteur1.getPresentations().size());
-		assertEquals("adresse 1", auteur1.getAdresse());
+		assertEquals(Long.valueOf(1), auteur1.getAdresse().getId());
 		assertEquals("1@jcertif.com", auteur1.getEmail());
 		assertEquals(Character.valueOf('M'), auteur1.getSexe());
 	}

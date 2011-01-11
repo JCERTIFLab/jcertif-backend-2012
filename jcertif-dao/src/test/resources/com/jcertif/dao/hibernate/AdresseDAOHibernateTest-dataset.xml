@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<adresse id="1" ligne1="ligne1 1" ligne2="ligne2 1" code_postal="code_postal 1" ville="Kinshasa 1" province="Kinshasa 1" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
+	<adresse id="2" ligne1="ligne1 2" ligne2="ligne2 2" code_postal="code_postal 2" ville="Kinshasa 2" province="Kinshasa 2" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
+	<adresse id="3" ligne1="ligne1 3" ligne2="ligne2 3" code_postal="code_postal 3" ville="Kinshasa 3" province="Kinshasa 3" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
+	<adresse id="4" ligne1="ligne1 4" ligne2="ligne2 4" code_postal="code_postal 4" ville="Kinshasa 4" province="Kinshasa 4" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
+	<adresse id="5" ligne1="ligne1 5" ligne2="ligne2 5" code_postal="code_postal 5" ville="Kinshasa 5" province="Kinshasa 5" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
+	<adresse id="6" ligne1="ligne1 6" ligne2="ligne2 6" code_postal="code_postal 6" ville="Kinshasa 6" province="Kinshasa 6" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
+	<adresse id="7" ligne1="ligne1 7" ligne2="ligne2 7" code_postal="code_postal 7" ville="Kinshasa 7" province="Kinshasa 7" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
+	<adresse id="8" ligne1="ligne1 8" ligne2="ligne2 8" code_postal="code_postal 8" ville="Kinshasa 8" province="Kinshasa 8" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
+	
+</dataset>

@@ -6,7 +6,12 @@
 	<proposition_presentation id="2" titre="titre 2" description="description 2" details="details 2" />
 	<proposition_presentation id="3" titre="titre 3" description="description 3" details="details 3" />
 	
-	<auteur id="1" nom="nom 1" prenom="prenom 1" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202" details="details 1" adresse="adresse 1"/>
+	<adresse id="1" ligne1="ligne1 1" ligne2="description 1" code_postal="code_postal 1" ville="Kinshasa 1" province="Kinshasa 1" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
+	<adresse id="2" ligne1="ligne1 2" ligne2="description 2" code_postal="code_postal 2" ville="Kinshasa 2" province="Kinshasa 2" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
+	<adresse id="3" ligne1="ligne1 3" ligne2="description 3" code_postal="code_postal 3" ville="Kinshasa 3" province="Kinshasa 3" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
+	
+	
+	<auteur id="1" nom="nom 1" prenom="prenom 1" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202" details="details 1" adresse_id="1"/>
 	<auteur id="2" nom="nom 2" prenom="prenom 2" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202"/>
 	<auteur id="3" nom="nom 3" prenom="prenom 3" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202"/>
 	<auteur id="4" nom="nom 4" prenom="prenom 4" sexe_MF="M" email="1@jcertif.com" salutation="Sir" specialite="specialite" telephone="0202020202"/>

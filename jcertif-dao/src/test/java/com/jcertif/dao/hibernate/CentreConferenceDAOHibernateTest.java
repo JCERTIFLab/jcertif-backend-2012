@@ -31,7 +31,7 @@ public class CentreConferenceDAOHibernateTest extends AbstractDAOTestCase {
 	public void testGetReference() {
 		CentreConference centreConference = centreConferenceDAO.getReference(Long.valueOf(1));
 		assertEquals("nom", centreConference.getNom());
-		assertEquals("adresse", centreConference.getAdresse());
+		assertEquals(Long.valueOf(1), centreConference.getAdresse().getId());
 		assertEquals("ccf@jcertif.com", centreConference.getEmail());
 		assertEquals("website", centreConference.getWebsite());
 		assertEquals("Nom Contact", centreConference.getNomContact());
@@ -45,7 +45,7 @@ public class CentreConferenceDAOHibernateTest extends AbstractDAOTestCase {
 	public void testFindById() {
 		CentreConference centreConference = centreConferenceDAO.findById(Long.valueOf(1));
 		assertEquals("nom", centreConference.getNom());
-		assertEquals("adresse", centreConference.getAdresse());
+		assertEquals(Long.valueOf(1), centreConference.getAdresse().getId());
 		assertEquals("ccf@jcertif.com", centreConference.getEmail());
 		assertEquals("website", centreConference.getWebsite());
 		assertEquals("Nom Contact", centreConference.getNomContact());
