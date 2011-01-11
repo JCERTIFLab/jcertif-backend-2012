@@ -12,7 +12,7 @@ import com.jcertif.bo.StatutApprobation;
 import com.jcertif.dao.PropostionPresentationDAO;
 
 /**
- * Test de l'implémentation Hibernate de l'accès aux données Presentation.
+ * Test de l'implémentation Hibernate de l'accès aux données {@link PropositionPresentation}.
  * 
  * @author rossi.oddet
  * 
@@ -35,6 +35,8 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 		assertEquals("titre 1", presentation1.getTitre());
 		assertEquals("description 1", presentation1.getDescription());
 		assertEquals("details 1", presentation1.getDetails());
+		assertEquals("sommaire 1", presentation1.getSommaire());
+		assertEquals("besoins 1", presentation1.getBesoinsSpecifiques());
 		assertEquals(Long.valueOf(4), presentation1.getMotCle().getId());
 		assertEquals("mot_cle 4", presentation1.getMotCle().getMotCle());
 		assertEquals("description 4", presentation1.getMotCle().getDescription());
@@ -51,6 +53,8 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 		assertEquals("titre 2", presentation1.getTitre());
 		assertEquals("description 2", presentation1.getDescription());
 		assertEquals("details 2", presentation1.getDetails());
+		assertEquals("sommaire 2", presentation1.getSommaire());
+		assertEquals("besoins 2", presentation1.getBesoinsSpecifiques());
 		assertEquals(Long.valueOf(5), presentation1.getMotCle().getId());
 		assertEquals("mot_cle 5", presentation1.getMotCle().getMotCle());
 		assertEquals("description 5", presentation1.getMotCle().getDescription());
