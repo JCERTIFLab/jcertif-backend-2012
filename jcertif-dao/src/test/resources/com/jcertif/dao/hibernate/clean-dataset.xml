@@ -5,6 +5,8 @@
 	<mot_cle />
 	<sujet />
 	<conference />
+	<type_evenement/>
+	<evenement/>
 	<proposition_presentation />
 	<auteur />
 	<propos_presentation_auteur />
