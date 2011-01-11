@@ -25,7 +25,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity
 @XmlRootElement
-public class ParticulariteSalle {
+public class ParticulariteSalle extends AbstractBO {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue

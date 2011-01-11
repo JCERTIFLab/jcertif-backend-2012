@@ -18,7 +18,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity
 @XmlRootElement
-public class RappelEnvoye {
+public class RappelEnvoye extends AbstractBO {
+
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Clé composite de rappel envoyé.

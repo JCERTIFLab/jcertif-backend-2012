@@ -30,7 +30,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity
 @XmlRootElement
-public class PropositionPresentation {
+public class PropositionPresentation extends AbstractBO {
+
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Identifiant d'une présentation.

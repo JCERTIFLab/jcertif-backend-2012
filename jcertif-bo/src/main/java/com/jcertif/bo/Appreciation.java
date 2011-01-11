@@ -25,7 +25,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity
 @XmlRootElement
-public class Appreciation {
+public class Appreciation extends AbstractBO {
+
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Identifiant d'une appreciation.

@@ -21,7 +21,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity
 @XmlRootElement
-public class CeduleParticipant {
+public class CeduleParticipant extends AbstractBO {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue

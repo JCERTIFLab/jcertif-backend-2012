@@ -1,7 +1,5 @@
 package com.jcertif.bo;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,7 +14,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity
 @XmlRootElement
-public class Adresse implements Serializable {
+public class Adresse extends AbstractBO {
 
 	private static final long serialVersionUID = 1L;
 	@Id

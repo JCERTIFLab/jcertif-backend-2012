@@ -24,7 +24,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity(name = "commite_revision_presentation")
 @XmlRootElement
-public class ComiteRevisionPresentation {
+public class ComiteRevisionPresentation  extends AbstractBO {
+
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Clé composite.

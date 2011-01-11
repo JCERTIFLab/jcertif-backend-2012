@@ -15,7 +15,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * 
  */
 @MappedSuperclass
-public abstract class CodeDescription {
+public abstract class CodeDescription extends AbstractBO {
+
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Identifiant du statut cedule.

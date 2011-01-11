@@ -17,7 +17,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity
 @XmlRootElement
-public class StatutApprobation {
+public class StatutApprobation extends AbstractBO {
+
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Identifiant d'un statut d'approbation.

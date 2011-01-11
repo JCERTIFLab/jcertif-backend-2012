@@ -26,7 +26,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity
 @XmlRootElement
-public class Salle {
+public class Salle extends AbstractBO {
+
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Identifiant d'une salle.

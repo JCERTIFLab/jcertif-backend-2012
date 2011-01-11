@@ -1,7 +1,5 @@
 package com.jcertif.bo;
 
-import java.io.Serializable;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
@@ -17,7 +15,7 @@ import javax.persistence.MappedSuperclass;
  * @author Douneg
  */
 @MappedSuperclass
-public class Person implements Serializable {
+public abstract class Person extends AbstractBO {
 
 	private static final long serialVersionUID = 1L;
 

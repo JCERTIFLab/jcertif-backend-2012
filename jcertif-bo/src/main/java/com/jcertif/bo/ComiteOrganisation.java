@@ -23,7 +23,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity(name="Commite_organisation")
 @XmlRootElement
-public class ComiteOrganisation {
+public class ComiteOrganisation  extends AbstractBO {
+
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Identifiant d'un comité d'organisation.

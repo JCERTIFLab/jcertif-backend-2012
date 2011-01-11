@@ -10,7 +10,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @XmlRootElement
 public class TypeParticipant extends CodeDescription {
-	
+
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Un constructeur.
 	 */

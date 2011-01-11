@@ -1,6 +1,5 @@
 package com.jcertif.bo;
 
-import java.io.Serializable;
 import java.util.Calendar;
 
 import javax.persistence.CascadeType;
@@ -23,9 +22,10 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity
 @XmlRootElement
-public class Evenement implements Serializable {
+public class Evenement  extends AbstractBO {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
+	
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
