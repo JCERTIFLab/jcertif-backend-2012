@@ -23,7 +23,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 /**
- * Bo Présentation.
+ * Bo {@link PropositionPresentation}.
  * 
  * @author rossi.oddet
  * 
@@ -56,6 +56,18 @@ public class PropositionPresentation {
 	 */
 	@Column
 	private String details;
+	
+	/**
+	 * Un sommaire.
+	 */
+	@Column
+	private String sommaire;
+	
+	/**
+	 * Les besoins spécifiques.
+	 */
+	@Column
+	private String besoinsSpecifiques;
 
 	/**
 	 * Mot clé de la présentation.
@@ -172,6 +184,36 @@ public class PropositionPresentation {
 	 */
 	public void setDetails(String details) {
 		this.details = details;
+	}
+	
+	
+
+	/**
+	 * @return the sommaire
+	 */
+	public String getSommaire() {
+		return sommaire;
+	}
+
+	/**
+	 * @param sommaire the sommaire to set
+	 */
+	public void setSommaire(String sommaire) {
+		this.sommaire = sommaire;
+	}
+
+	/**
+	 * @return the besoinsSpecifiques
+	 */
+	public String getBesoinsSpecifiques() {
+		return besoinsSpecifiques;
+	}
+
+	/**
+	 * @param besoinsSpecifiques the besoinsSpecifiques to set
+	 */
+	public void setBesoinsSpecifiques(String besoinsSpecifiques) {
+		this.besoinsSpecifiques = besoinsSpecifiques;
 	}
 
 	/**
