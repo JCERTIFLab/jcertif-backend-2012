@@ -26,6 +26,14 @@
 			<artifactId>vaadin</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+		</dependency>
+		<dependency>
+			  <groupId>org.vaadin.addons</groupId>
+			  <artifactId>vaadin-calendar</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-client</artifactId>
 		</dependency>
