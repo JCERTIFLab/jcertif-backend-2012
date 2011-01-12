@@ -41,4 +41,13 @@ public class ArticleServiceImpl implements ArticleService {
 		articleDAO.merge(article);
 	}
 
+	/**
+	 * @param articleDAO the articleDAO to set
+	 */
+	public void setArticleDAO(ArticleDAO articleDAO) {
+		this.articleDAO = articleDAO;
+	}
+	
+	
+
 }
