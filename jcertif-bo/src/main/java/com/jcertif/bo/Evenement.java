@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -32,50 +33,54 @@ public class Evenement  extends AbstractBO {
     @Column
     protected String nom_evenement;
     @Column
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar date_debut_prevue;
     @Column
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar date_fin_prevue;
     @Column
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar date_debut_effective;
     @Column
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar date_fin_effective;
     @Column
     private String details;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "type_evenement_id")
     private TypeEvenement typeEvenement;
 
     /**
-	 * @param id
-	 * @param nom_evenement
-	 * @param date_debut_prevue
-	 * @param date_fin_prevue
-	 * @param date_debut_effective
-	 * @param date_fin_effective
-	 * @param details
-	 * @param typeEvenement
-	 */
-	public Evenement(Long id, String nom_evenement, Calendar date_debut_prevue,
-			Calendar date_fin_prevue, Calendar date_debut_effective,
-			Calendar date_fin_effective, String details) {
-		super();
-		this.id = id;
-		this.nom_evenement = nom_evenement;
-		this.date_debut_prevue = date_debut_prevue;
-		this.date_fin_prevue = date_fin_prevue;
-		this.date_debut_effective = date_debut_effective;
-		this.date_fin_effective = date_fin_effective;
-		this.details = details;
-	}
+     * @param id
+     * @param nom_evenement
+     * @param date_debut_prevue
+     * @param date_fin_prevue
+     * @param date_debut_effective
+     * @param date_fin_effective
+     * @param details
+     *
+     */
+    public Evenement(Long id, String nom_evenement, Calendar date_debut_prevue,
+            Calendar date_fin_prevue, Calendar date_debut_effective,
+            Calendar date_fin_effective, String details) {
+        super();
+        this.id = id;
+        this.nom_evenement = nom_evenement;
+        this.date_debut_prevue = date_debut_prevue;
+        this.date_fin_prevue = date_fin_prevue;
+        this.date_debut_effective = date_debut_effective;
+        this.date_fin_effective = date_fin_effective;
+        this.details = details;
+    }
 
-	/**
-	 * 
-	 */
-	public Evenement() {
-		super();
-	}
+    /**
+     *
+     */
+    public Evenement() {
+        super();
+    }
 
-	/**
+    /**
      * Get the value of typeEvenement
      *
      * @return the value of typeEvenement
@@ -110,7 +115,7 @@ public class Evenement  extends AbstractBO {
     public void setDetails(String details) {
         this.details = details;
     }
-    
+
     /**
      * Get the value of date_fin_prevue
      *
@@ -209,34 +214,30 @@ public class Evenement  extends AbstractBO {
         this.id = id;
     }
 
-	/**
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		return new HashCodeBuilder().append(this.getId()).append(this.getDetails()).append(this.getNom_evenement())
-				.toHashCode();
-	}
-
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-
-		if (this == obj) {
-			return true;
-		}
-
-		if (!(obj instanceof Evenement)) {
-			return false;
-		}
-
-		final Evenement other = (Evenement) obj;
-
-		return new EqualsBuilder().append(this.getId(), other.getId()).append(this.getDetails(), other.getDetails()).append(this.getNom_evenement(), other.getNom_evenement()).isEquals();
-	}
-
-
-
+    /**
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(this.getId()).append(this.getDetails()).append(this.getNom_evenement()).toHashCode();
     }
+
+    /**
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Evenement)) {
+            return false;
+        }
+
+        final Evenement other = (Evenement) obj;
+
+        return new EqualsBuilder().append(this.getId(), other.getId()).append(this.getDetails(), other.getDetails()).append(this.getNom_evenement(), other.getNom_evenement()).isEquals();
+    }
+}

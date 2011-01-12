@@ -47,6 +47,10 @@ public class Participant extends Person {
 	@JoinColumn(name = "conference_id")
 	private Conference conference;
 
+        @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	@JoinColumn(name = "profil_utilisateur_id")
+	private ProfilUtilisateur profilUtilisateur;
+
 	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "participant_id")
 	private Set<CeduleParticipant> ceduleparticipants = new HashSet<CeduleParticipant>();
@@ -113,6 +117,18 @@ public class Participant extends Person {
 		this.cvSoumis = cvsoumis;
 		this.setDetails(details);
 	}
+/**
+	 * @return the profilUtilisateur
+	 */
+    public ProfilUtilisateur getProfilUtilisateur() {
+        return profilUtilisateur;
+    }
+/**
+	 * @param profilUtilisateur the profilUtilisateur to set
+	 */
+    public void setProfilUtilisateur(ProfilUtilisateur profilUtilisateur) {
+        this.profilUtilisateur = profilUtilisateur;
+    }
 
 	/**
 	 * @return the dateInscription
