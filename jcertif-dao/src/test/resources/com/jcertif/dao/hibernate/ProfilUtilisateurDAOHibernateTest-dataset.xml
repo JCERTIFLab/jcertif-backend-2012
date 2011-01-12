@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2002/XMLSchema-instance">	
+    <profil_utilisateur id="5" nom_profil="malonga" email="malonga@JCertif2011.kin" photo="diouf" langue_correspondance="mamadou" code_confirmation="m" />
+    <profil_utilisateur id="6" nom_profil="bilonda" email="bilonda@JCertif2011.kin" photo="diouf" langue_correspondance="mamadou" code_confirmation="m" />
+    <profil_utilisateur id="7" nom_profil="matayo" email="Matayo@JCertif2011.kin" photo="diouf" langue_correspondance="mamadou" code_confirmation="F" />
+    <profil_utilisateur id="8" nom_profil="pitBaccardi" email="PitBaccardi@JCertif2011.kin" photo="diouf" langue_correspondance="mamadou" code_confirmation="F" />
+</dataset>

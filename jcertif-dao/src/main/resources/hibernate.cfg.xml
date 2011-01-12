@@ -31,6 +31,7 @@
 		<mapping class="com.jcertif.bo.OrganisateurCentreConf"/>
 		<mapping class="com.jcertif.bo.TypeEvenement"/>	
 		<mapping class="com.jcertif.bo.TypeParticipant"/>
-		<mapping class="com.jcertif.bo.Evenement" />	
+		<mapping class="com.jcertif.bo.Evenement" />
+                <mapping class="com.jcertif.bo.ProfilUtilisateur" />	
 	</session-factory>
 </hibernate-configuration>
