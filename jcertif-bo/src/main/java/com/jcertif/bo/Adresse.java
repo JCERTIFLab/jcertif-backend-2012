@@ -2,6 +2,7 @@ package com.jcertif.bo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -17,17 +18,32 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 public class Adresse extends AbstractBO {
 
 	private static final long serialVersionUID = 1L;
+	
 	@Id
+	@GeneratedValue
 	private Long id;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+	@Column
+	private String ligne1;
+	@Column
+	private String ligne2;
+	@Column
+	private String codePostal;
+	@Column
+	private String ville;
+	@Column
+	private String province;
+	@Column
+	private String pays;
+	@Column
+	private String details;
+	@Column
+	private String telephoneFixe;
+	@Column
+	private String telephoneMobile;
+	@Column
+	private String fax;
+	
 	/**
 	 * 
 	 */
@@ -39,54 +55,41 @@ public class Adresse extends AbstractBO {
 	 * @param id
 	 * @param ligne1
 	 * @param ligne2
-	 * @param code_postal
+	 * @param codePostal
 	 * @param ville
 	 * @param province
 	 * @param pays
 	 * @param details
-	 * @param telephone_fixe
-	 * @param telephone_mobile
+	 * @param telephoneFixe
+	 * @param telephoneMobile
 	 * @param fax
 	 */
-	public Adresse(Long id, String ligne1, String ligne2, String code_postal,
+	public Adresse(Long id, String ligne1, String ligne2, String codePostal,
 			String ville, String province, String pays, String details,
-			String telephone_fixe, String telephone_mobile, String fax) {
+			String telephoneFixe, String telephoneMobile, String fax) {
 		super();
 		this.id = id;
 		this.ligne1 = ligne1;
 		this.ligne2 = ligne2;
-		this.code_postal = code_postal;
+		this.codePostal = codePostal;
 		this.ville = ville;
 		this.province = province;
 		this.pays = pays;
 		this.details = details;
-		this.telephone_fixe = telephone_fixe;
-		this.telephone_mobile = telephone_mobile;
+		this.telephoneFixe = telephoneFixe;
+		this.telephoneMobile = telephoneMobile;
 		this.fax = fax;
 	}
+	
 
-	@Column
-	private String ligne1;
-	@Column
-	private String ligne2;
-	@Column
-	private String code_postal;
-	@Column
-	private String ville;
-	@Column
-	private String province;
-	@Column
-	private String pays;
-	@Column
-	private String details;
-	@Column
-	private String telephone_fixe;
-	@Column
-	private String telephone_mobile;
-	@Column
-	private String fax;
-	
-	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	
 	/**
 	 * Get the value of fax
@@ -107,43 +110,7 @@ public class Adresse extends AbstractBO {
 		this.fax = fax;
 	}
 
-	/**
-	 * Get the value of telephone_mobile
-	 * 
-	 * @return the value of telephone_mobile
-	 */
-	public String getTelephone_mobile() {
-		return telephone_mobile;
-	}
-
-	/**
-	 * Set the value of telephone_mobile
-	 * 
-	 * @param telephone_mobile
-	 *            new value of telephone_mobile
-	 */
-	public void setTelephone_mobile(String telephone_mobile) {
-		this.telephone_mobile = telephone_mobile;
-	}
-
-	/**
-	 * Get the value of telephone_fixe
-	 * 
-	 * @return the value of telephone_fixe
-	 */
-	public String getTelephone_fixe() {
-		return telephone_fixe;
-	}
-
-	/**
-	 * Set the value of telephone_fixe
-	 * 
-	 * @param telephone_fixe
-	 *            new value of telephone_fixe
-	 */
-	public void setTelephone_fixe(String telephone_fixe) {
-		this.telephone_fixe = telephone_fixe;
-	}
+	
 
 	/**
 	 * Get the value of details
@@ -221,24 +188,7 @@ public class Adresse extends AbstractBO {
 		this.ville = ville;
 	}
 
-	/**
-	 * Get the value of code_postal
-	 * 
-	 * @return the value of code_postal
-	 */
-	public String getCode_postal() {
-		return code_postal;
-	}
-
-	/**
-	 * Set the value of code_postal
-	 * 
-	 * @param code_postal
-	 *            new value of code_postal
-	 */
-	public void setCode_postal(String code_postal) {
-		this.code_postal = code_postal;
-	}
+	
 
 	/**
 	 * Get the value of ligne2
@@ -276,6 +226,51 @@ public class Adresse extends AbstractBO {
 	 */
 	public void setLigne1(String ligne1) {
 		this.ligne1 = ligne1;
+	}
+	
+	
+	
+
+	/**
+	 * @return the codePostal
+	 */
+	public String getCodePostal() {
+		return codePostal;
+	}
+
+	/**
+	 * @param codePostal the codePostal to set
+	 */
+	public void setCodePostal(String codePostal) {
+		this.codePostal = codePostal;
+	}
+
+	/**
+	 * @return the telephoneFixe
+	 */
+	public String getTelephoneFixe() {
+		return telephoneFixe;
+	}
+
+	/**
+	 * @param telephoneFixe the telephoneFixe to set
+	 */
+	public void setTelephoneFixe(String telephoneFixe) {
+		this.telephoneFixe = telephoneFixe;
+	}
+
+	/**
+	 * @return the telephoneMobile
+	 */
+	public String getTelephoneMobile() {
+		return telephoneMobile;
+	}
+
+	/**
+	 * @param telephoneMobile the telephoneMobile to set
+	 */
+	public void setTelephoneMobile(String telephoneMobile) {
+		this.telephoneMobile = telephoneMobile;
 	}
 
 	/**

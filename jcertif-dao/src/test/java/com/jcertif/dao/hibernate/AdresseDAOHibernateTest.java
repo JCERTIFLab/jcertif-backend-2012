@@ -35,10 +35,10 @@ public class AdresseDAOHibernateTest extends AbstractDAOTestCase {
 		assertEquals("Kinshasa 1", adresse1.getVille());
 		assertEquals("ligne1 1", adresse1.getLigne1());
 		assertEquals("ligne2 1", adresse1.getLigne2());
-		assertEquals("code_postal 1", adresse1.getCode_postal());
+		assertEquals("code_postal 1", adresse1.getCodePostal());
 		assertEquals("fax", adresse1.getFax());
-		assertEquals("telephone_fixe 1", adresse1.getTelephone_fixe());
-		assertEquals("telephone_mobile 1", adresse1.getTelephone_mobile());
+		assertEquals("telephone_fixe 1", adresse1.getTelephoneFixe());
+		assertEquals("telephone_mobile 1", adresse1.getTelephoneMobile());
 		
 	}
 
@@ -53,10 +53,10 @@ public class AdresseDAOHibernateTest extends AbstractDAOTestCase {
 		assertEquals("Kinshasa 1", adresse1.getVille());
 		assertEquals("ligne1 1", adresse1.getLigne1());
 		assertEquals("ligne2 1", adresse1.getLigne2());
-		assertEquals("code_postal 1", adresse1.getCode_postal());
+		assertEquals("code_postal 1", adresse1.getCodePostal());
 		assertEquals("fax", adresse1.getFax());
-		assertEquals("telephone_fixe 1", adresse1.getTelephone_fixe());
-		assertEquals("telephone_mobile 1", adresse1.getTelephone_mobile());
+		assertEquals("telephone_fixe 1", adresse1.getTelephoneFixe());
+		assertEquals("telephone_mobile 1", adresse1.getTelephoneMobile());
 	}
 
 	/**
@@ -83,7 +83,6 @@ public class AdresseDAOHibernateTest extends AbstractDAOTestCase {
 	public void testPersist() {
 		// Persistence
 		Adresse adresse1 = new Adresse();
-		adresse1.setId(Long.valueOf(345));
 		adresse1.setLigne1("ligne 345");
 		adresse1.setDetails("details 345");
 		adresseDAO.persist(adresse1);
@@ -102,7 +101,6 @@ public class AdresseDAOHibernateTest extends AbstractDAOTestCase {
 	public void testMerge() {
 		// Persistence
 		Adresse adresse = new Adresse();
-		adresse.setId(Long.valueOf(1000));
 		adresse.setLigne1("ligne1 1000");
 		adresse.setLigne2("ligne2 1000");
 		adresse.setDetails("details 1000");
