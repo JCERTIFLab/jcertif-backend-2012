@@ -32,7 +32,7 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
     public void testGetReference() {
         Evenement evenement1 = evenementDAO.getReference(Long.valueOf(1));
         assertEquals("Aucun detail pertinant", evenement1.getDetails());
-        assertEquals("nom_evenement 1", evenement1.getNom_evenement());
+        assertEquals("nom_evenement 1", evenement1.getNomEvenement());
         assertEquals(Long.valueOf(13), evenement1.getTypeEvenement().getId());
 
     }
@@ -44,7 +44,7 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
     public void testFindById() {
         Evenement evenement1 = evenementDAO.findById((Long.valueOf(1)));
         assertEquals("Aucun detail pertinant", evenement1.getDetails());
-        assertEquals("nom_evenement 1", evenement1.getNom_evenement());
+        assertEquals("nom_evenement 1", evenement1.getNomEvenement());
         assertEquals(Long.valueOf(13), evenement1.getTypeEvenement().getId());
 
     }
@@ -63,7 +63,7 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
     @Test
     public void testFindAllWithSort() {
         assertEquals("nom_evenement 8",
-                evenementDAO.findAllWithSort("nom_evenement", false).iterator().next().getNom_evenement());
+                evenementDAO.findAllWithSort("nomEvenement", false).iterator().next().getNomEvenement());
     }
 
     /**
@@ -73,13 +73,13 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
     public void testPersist() {
         // Persistence
         Evenement evenement1 = new Evenement();
-        evenement1.setNom_evenement("evenement 345");
+        evenement1.setNomEvenement("evenement 345");
         evenement1.setDetails("details 345");
         evenementDAO.persist(evenement1);
 
         // Vérification
         Evenement evenementV = evenementDAO.findById(evenement1.getId());
-        assertEquals("evenement 345", evenementV.getNom_evenement());
+        assertEquals("evenement 345", evenementV.getNomEvenement());
         assertEquals("details 345", evenementV.getDetails());
 
     }
@@ -91,14 +91,14 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
     public void testMerge() {
         // Persistence
         Evenement evenement = new Evenement();
-        evenement.setNom_evenement("evenement 1000");
+        evenement.setNomEvenement("evenement 1000");
         evenement.setDetails("details 1000");
         evenementDAO.persist(evenement);
         Evenement savedEvenement = evenementDAO.merge(evenement);
 
         // Vérification
         Evenement evenement1 = evenementDAO.findById(savedEvenement.getId());
-        assertEquals("evenement 1000", evenement1.getNom_evenement());
+        assertEquals("evenement 1000", evenement1.getNomEvenement());
         assertEquals("details 1000", evenement1.getDetails());
     }
 

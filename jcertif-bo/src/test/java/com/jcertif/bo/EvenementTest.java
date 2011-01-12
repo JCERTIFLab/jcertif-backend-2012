@@ -47,7 +47,7 @@ public class EvenementTest {
 		};
 		d.setId(new Long(1));
 		d.setDetails("Rien a dire");
-		d.setNom_evenement("vision de loin");
+		d.setNomEvenement("vision de loin");
 		final EqualsTester equalsTester = new EqualsTester();
 		equalsTester.testEqualsAndHashCode(a, b, c, d);
 
