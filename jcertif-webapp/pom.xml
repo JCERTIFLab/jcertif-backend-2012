@@ -18,7 +18,58 @@
 
 	<name>JCERTIF - WEBAPP</name>
 	<description>JCERTIF Web Application (Vaadin Implementation)</description>
+	<build>
+	<plugins>
 
+				<!-- Compiles your custom GWT components with the GWT compiler -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>gwt-maven-plugin</artifactId>
+					<version>1.3.1.google</version>
+
+					<executions>
+						<execution>
+							<configuration>
+								<webappDirectory>${vaadin-widgets-dir}</webappDirectory>
+								<extraJvmArgs> -Dgwt.style=PRETTY -Xmx512M -Xss1024k</extraJvmArgs>
+							</configuration>
+							<goals>
+								<goal>resources</goal>
+								<goal>compile</goal>
+							</goals>
+						</execution>
+					</executions>
+
+				</plugin>
+
+				<plugin>
+					<groupId>com.vaadin</groupId>
+					<artifactId>vaadin-maven-plugin</artifactId>
+					<version>1.0.1</version>
+
+					<executions>
+						<execution>
+
+							<goals>
+								<goal>update-widgetset</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<configuration>
+						<filesets>
+							<fileset>
+								<!-- also delete the generated vaadin web content -->
+								<directory>${vaadin-widgets-dir}</directory>
+							</fileset>
+						</filesets>
+					</configuration>
+				</plugin>
+</plugins>
+		</build>
 	<!-- JCERTIF WEBAPP DEPENDENCIES -->
 	<dependencies>
 		<dependency>
