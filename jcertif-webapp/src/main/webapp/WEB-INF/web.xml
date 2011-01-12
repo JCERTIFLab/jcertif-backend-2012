@@ -10,9 +10,13 @@
         <servlet-name>Vaadin Application Servlet</servlet-name>
         <servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
         <init-param>
+		<param-name>widgetset</param-name>
+		<param-value>com.jcertif.webapp.vaadin.proto.gwt.JCertifWidgetSet</param-value>
+		</init-param>
+        <init-param>
             <description>Vaadin application class to start</description>
             <param-name>application</param-name>
-            <param-value>com.jcertif.webapp.vaadin.proto.JCertifVaadinApplication</param-value>
+            <param-value>com.jcertif.webapp.vaadin.proto.clendar.demo.JCertifCalendarTest</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
