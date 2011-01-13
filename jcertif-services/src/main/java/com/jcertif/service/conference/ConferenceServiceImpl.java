@@ -3,6 +3,8 @@ package com.jcertif.service.conference;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.jcertif.bo.Conference;
 import com.jcertif.dao.ConferenceDAO;
@@ -14,6 +16,7 @@ import com.jcertif.dao.ConferenceDAO;
 /**
  * @ Chrisbel
  */
+@Service
 public class ConferenceServiceImpl implements ConferenceService {
 
 	@Autowired
@@ -26,26 +29,25 @@ public class ConferenceServiceImpl implements ConferenceService {
 
 	@Override
 	public Conference findById(Long key) {
-
 		return conferenceDAO.findById(key);
 	}
 
 	@Override
+	@Transactional
 	public Conference save(Conference conference) {
-		// TODO Auto-generated method stub
 		return conferenceDAO.merge(conference);
 	}
 
 	@Override
+	@Transactional
 	public Conference update(Conference conference) {
-		// TODO Auto-generated method stub
-		return null;
+		return conferenceDAO.merge(conference);
 	}
 
 	@Override
+	@Transactional
 	public void remove(Conference conference) {
-		// TODO Auto-generated method stub
-
+		conferenceDAO.remove(conference);
 	}
 
 	/**
