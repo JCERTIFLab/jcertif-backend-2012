@@ -52,17 +52,6 @@
 				</executions>
 			</plugin>
 
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<configuration>
-					<filesets>
-						<fileset>
-							<!-- also delete the generated vaadin web content -->
-							<directory>${vaadin-widgets-dir}</directory>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 	<!-- JCERTIF WEBAPP DEPENDENCIES -->
