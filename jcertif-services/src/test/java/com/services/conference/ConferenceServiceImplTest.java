@@ -52,8 +52,11 @@ public class ConferenceServiceImplTest {
         conf.setNom("Jcertif");
         conf.setDateFin(Calendar.getInstance());
 
-		// Spécification du comportement du DAO. Lorsque le DAO sera appelé avec
-		// la méthode merge(article1), il retournera article2
+        /**
+         * Spécification du comportement du DAO. Lorsque le DAO sera appelé avec
+         * la méthode merge(article1), il retournera article2
+         */
+	
 		Mockito.when(conferenceDAO.merge(conf)).thenReturn(conf2);
 
 		// Vérification de la méthode save
