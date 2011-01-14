@@ -35,10 +35,10 @@ public class CeduleParticipant extends AbstractBO {
 	@Column
 	private String details;
 	
-
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "conference_id")
-	private Conference conference;
+	@JoinColumn(name = "evenement_id")
+	private Evenement evenement;
+
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "participant_id")
@@ -60,12 +60,12 @@ public class CeduleParticipant extends AbstractBO {
 	 * Constructor
 	 */
 	public CeduleParticipant(Long id, Calendar dateCedule, String details,
-			 Participant participant,Conference conference,
+			 Participant participant,Evenement event,
 			StatutCedule statutCedule) {
 		this.id = id;
 		this.dateCedule = dateCedule;
 		this.details = details;
-		this.conference = conference;
+		this.evenement = event;
 		this.participant = participant;
 		this.statutCedule = statutCedule;
 	}
@@ -133,19 +133,23 @@ public class CeduleParticipant extends AbstractBO {
 
 	
 	
-	/**
-	 * @return the conferenceTODO
-	 */
-	public Conference getConference() {
-		return conference;
-	}
+	
 
 	/**
-	 * @param conference the conference to setTODOconference
+	 * @return the evenement
 	 */
-	public void setConference(Conference conference) {
-		this.conference = conference;
+	public Evenement getEvenement() {
+		return evenement;
 	}
+
+
+	/**
+	 * @param evenement the evenement to set
+	 */
+	public void setEvenement(Evenement evenement) {
+		this.evenement = evenement;
+	}
+
 
 	/**
 	 * @return the participantTODO

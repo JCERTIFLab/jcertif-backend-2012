@@ -16,16 +16,11 @@
 	<statut_cedule id="2" code="code_statut statut_cedule 2" description="description statut_cedule 2"/>
 	<statut_cedule id="3" code="code_statut statut_cedule 3" description="description statut_cedule 3"/>
 	<statut_cedule id="4" code="code_statut statut_cedule 4" description="description statut_cedule 4"/>
-	
-	<conference id="7" name="JCertif 2011" date_debut="2011-02-12" date_fin="2011-12-02" website="www.jcertif.com" />
-	<conference id="6" name="JCertif 2013" date_debut="2011-02-12" date_fin="2011-02-12" website="www.jcertif.com"/>
-	<conference id="8" name="JCertif 2011" date_debut="2011-02-12" date_fin="2011-12-02" website="www.jcertif.com" />
-	<conference id="5" name="JCertif 2012" date_debut="2011-02-12" date_fin="2011-11-08" website="www.jcertif.com"/>
-	
 
-	<cedule_participant  id="1"  date_cedule="2011-02-01"  details="ceduleparticipant"  conference_id="7" statut_cedule_id="1" participant_id="5"/>
-	<cedule_participant  id="2"  date_cedule="2011-04-06"  details="ceduleparticipant2" conference_id="5" statut_cedule_id="2" participant_id="6"/>
-	<cedule_participant  id="3"  date_cedule="2011-06-07"  details="ceduleparticipant"  conference_id="6" statut_cedule_id="3" participant_id="7"/>
-	<cedule_participant  id="4"  date_cedule="2011-08-12"  details="ceduleparticipant"  conference_id="7" statut_cedule_id="4" participant_id="7"/>
+
+	<cedule_participant  id="1"  date_cedule="2011-02-01"  details="ceduleparticipant"   statut_cedule_id="1" participant_id="5"/>
+	<cedule_participant  id="2"  date_cedule="2011-04-06"  details="ceduleparticipant2" statut_cedule_id="2" participant_id="6"/>
+	<cedule_participant  id="3"  date_cedule="2011-06-07"  details="ceduleparticipant"   statut_cedule_id="3" participant_id="7"/>
+	<cedule_participant  id="4"  date_cedule="2011-08-12"  details="ceduleparticipant"  statut_cedule_id="4" participant_id="7"/>
 	
 	</dataset>

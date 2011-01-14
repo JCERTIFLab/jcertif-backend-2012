@@ -1,11 +1,22 @@
 package com.jcertif.dao;
 
-import javax.persistence.Entity;
+import java.util.List;
 
 import com.jcertif.bo.CeduleParticipant;
 
+/**
+ * @author rossi.oddet
+ * 
+ */
+public interface CeduleParticipantDAO extends
+		GenericDAO<CeduleParticipant, Long> {
 
-@Entity
-public interface CeduleParticipantDAO extends GenericDAO<CeduleParticipant, Long> {
+	/**
+	 * Recherche les cedules d'un participant.
+	 * 
+	 * @param idParticipant
+	 * @return un cedule participant
+	 */
+	List<CeduleParticipant> findByParticipant(Long idParticipant);
 
 }

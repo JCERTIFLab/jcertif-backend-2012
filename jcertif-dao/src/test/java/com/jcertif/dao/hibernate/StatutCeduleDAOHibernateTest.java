@@ -102,4 +102,13 @@ public class StatutCeduleDAOHibernateTest extends AbstractDAOTestCase {
 		statutCeduleDAO.remove(statut);
 		assertEquals(7, statutCeduleDAO.findAll().size());
 	}
+	
+	/**
+	 * Test de la méthode findByCode();
+	 */
+	@Test
+	public void testFindByCode(){
+		StatutCedule statut1 = statutCeduleDAO.findByCode("code_statut statut_cedule 1");
+		assertEquals("description statut_cedule 1", statut1.getDescription());
+	}
 }
