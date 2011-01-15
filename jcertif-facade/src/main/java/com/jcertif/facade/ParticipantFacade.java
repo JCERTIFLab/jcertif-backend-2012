@@ -3,127 +3,128 @@
  */
 package com.jcertif.facade;
 
-import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import com.jcertif.bo.CeduleParticipant;
+import com.jcertif.bo.Conference;
 import com.jcertif.bo.Participant;
+import com.jcertif.bo.RoleParticipant;
 import com.jcertif.dao.ParticipantDAO;
-import com.jcertif.facade.exception.ItemAlreadyExistsException;
-import com.jcertif.facade.exception.ItemNotFoundException;
-import com.jcertif.services.participant.ParticipantService;
-import com.jcertif.util.XMLUtil;
-//import com.sun.jersey.api.core.InjectParam;
+import com.jcertif.service.participant.ParticipantService;
+import com.sun.jersey.spi.inject.Inject;
 
 /**
  * Facade for the {@link ParticipantDAO}.
  * 
  * @author Bernard Adanlessossi
- *
  */
+@Path("/participants")
+@Service
 public class ParticipantFacade {
 	
-	//@InjectParam
-	private static ParticipantService service;
+	private static final Logger LOG = LoggerFactory.getLogger(ParticipantFacade.class);
 	
-	public static String create(String xml) throws ItemAlreadyExistsException {
-		Participant participant = XMLUtil.getParticipantVOFromXML(xml);
-        if (participant != null) {
-        	// Check if participant exists in our DB: if not, create; else, throw
-        	// exception
-        	if (service.findById(participant.getId()) == null){
-        		service.save(participant);
-        	}
-
-        		return participant.toXML();
-        	} else {
-        		throw new ItemAlreadyExistsException();
-        	}
-	}
+	@Inject
+	private ParticipantService participantService;
 
 	/**
-	 * Gets all participant as an xml file.
-	 * <p>Note: this method should be moved to the DAO
-	 * @return the xml
+	 * Creates a new {@link Participant} in the database.
+	 * 
+	 * @param id
+	 *            the id
+	 * @param dateinscription
+	 *            the registration date
+	 * @param salutation
+	 *            the salutation
+	 * @param specialite
+	 *            the speciality
+	 * @param prenom
+	 *            the first name
+	 * @param nom
+	 *            the last name
+	 * @param sexe
+	 *            the sex
+	 * @param email
+	 *            the email
+	 * @param presentationsoumise
+	 *            the submitted paper
+	 * @param cvsoumis
+	 *            the submitted curriculum
+	 * @param details
+	 *            the details
+	 * @param roleparticipant
+	 *            the role
+	 * @param conference
+	 *            the conference
+	 * @param ceduleparticipants
+	 *            the schedule
+	 * @return the newly created {@link Participant}
 	 */
-	public static String getAllXML() {
-		// Retrieve the participants list
-		List<Participant> result = service.findAll();
-		StringBuilder participants = new StringBuilder();
-		participants.append("<participants>");
-		participants.append("<count>").append(result.size()).append("</count>");
-		while (result.iterator().hasNext()) {
-			participants.append(result.iterator().next().toXML());
-		}
-		participants.append("</participants>");
-		return participants.toString();
-	}
-	
-	public static String getAllJSON() {
-		StringBuilder participants = new StringBuilder();
-		
-		List<Participant> result = service.findAll();
+	@PUT
+	@Path("/participant/{id}")
+	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public Participant createParticipant(Long id, String dateinscription,
+	        String salutation, String specialite, String prenom, String nom,
+	        Character sexe, String email, String presentationsoumise,
+	        String cvsoumis, String details, RoleParticipant roleparticipant,
+	        Conference conference, Set<CeduleParticipant> ceduleparticipants) {
 
-		participants.append("{\"participants-result\":{\"count\":\"").append(result.size()).append("\", \"participants\":[");
-		
-		Iterator<Participant> iter = result.iterator();
-		while (iter.hasNext()) {
-			participants.append(iter.next().toJSON());
-
-			if (iter.hasNext()) {
-				participants.append(",");
-			}
-		}
-
-		participants.append("]}}");
-
-		return participants.toString();
+		LOG.debug("Creating a new Participant with Name: {}", prenom + " " + nom);
+		return participantService.createParticipant(id, dateinscription, salutation, specialite, prenom, nom, sexe, email, presentationsoumise, cvsoumis, details, roleparticipant, conference, ceduleparticipants);
 	}
-	
-	public static String update(String xml) throws ItemNotFoundException {
-		Participant tmpParticipant = null;
-		
-		Participant participant = XMLUtil.getParticipantVOFromXML(xml);
-		if (participant != null) {
-			// Check that user exists in our DB: if so, update; else, throw
-			// exception
-			tmpParticipant = query(participant.getId());
-			
-			if (tmpParticipant != null) {
-				// We only let the user update the email
-				tmpParticipant.setEmail(participant.getEmail());
-				service.update(tmpParticipant);
-				
-			} else {
-				throw new ItemNotFoundException();
-			}
-		}
-		return tmpParticipant.toXML();
-	}
-	
-	public static void delete(Long id) throws ItemNotFoundException {
-		
-		Participant participant = query(id);
-		
-		if (participant != null){
-			service.remove(participant);
-		}else{
-			throw new ItemNotFoundException();
-		}
-	}
-	
-	public static String getXML(Long key) {
-		Participant participant = query(key);
 
-		return (participant != null) ? participant.toXML() : null;
+	@GET
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Path("/participant/{id}")
+	/**
+	 * Searches for a participant by its key.
+	 */
+	public Participant getParticipant(Long key) {
+		LOG.debug("Retrieving the participant with key: {}", key);
+		return participantService.findById(key);
 	}
-	
-	public static String getJSON(Long key) {
-		Participant participant = query(key);
 
-		return (participant != null) ? participant.toJSON() : null;
+	@GET
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Path("/list")
+	/**
+	 * Retrieves the list of all participants.
+	 */
+	public List<Participant> findAllParticipants() {
+		LOG.debug("Retrieving the list of all participants");
+		return participantService.findAll();
 	}
-	
-	private static Participant query (Long key){
-		return service.findById(key);		
+
+	@PUT
+	@Path("/participant/{id}")
+	/**
+	 * Updates the given participant.
+	 */
+	public Participant updateParticipant(Participant participant) {
+		LOG.debug("Updating the participant with key: {}", participant.getId());
+		return participantService.update(participant);
+	}
+
+	@DELETE
+	@Path("/ids/{printerid}")
+	/**
+	 * Deletes the participant.
+	 */
+	public void deleteParticipant(Participant participant) {
+		LOG.debug("Deleting the participant with key: {}", participant.getId());
+		participantService.remove(participant);
 	}
 }
