@@ -1,5 +1,7 @@
 package com.jcertif.ws.article;
 
+import static org.mockito.Matchers.any;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,15 +15,14 @@ import org.mockito.MockitoAnnotations;
 
 import com.jcertif.bo.article.Article;
 import com.jcertif.bo.article.Articles;
-import com.jcertif.services.article.ArticleService;
-
-import static org.mockito.Matchers.any;
+import com.jcertif.service.article.ArticleService;
+import com.jcertif.service.article.ArticleServiceImpl;
 
 
 public class ArticleWSTest {
 	//articleService is used is ArticleWS, but here it's a unit test, so we should not use the DB so lets mock it
 	@Mock
-	private ArticleService articleService;
+	private ArticleServiceImpl articleService;
 	
 	private ArticleWS articleWebService;
 	
