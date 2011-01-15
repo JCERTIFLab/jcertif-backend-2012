@@ -10,6 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 
 import com.jcertif.facade.ParticipantFacade;
+import com.jcertif.facade.ParticipantFacadeOld;
 import com.jcertif.facade.exception.ItemNotFoundException;
 
 @Path("/users/{id}")
@@ -18,7 +19,7 @@ public class ParticipantResource {
 	@GET
 	@Produces("application/xml")
 	public String getXML(@PathParam("id") Long id) {
-		String xml = ParticipantFacade.getXML(id);
+		String xml = ParticipantFacadeOld.getXML(id);
 		if (xml != null) {
 			return xml;
 		} else {
@@ -29,7 +30,7 @@ public class ParticipantResource {
 	@GET
 	@Produces("application/json")
 	public String getJSON(@PathParam("id") Long id) {
-		String json = ParticipantFacade.getJSON(id);
+		String json = ParticipantFacadeOld.getJSON(id);
 		if (json != null) {
 			return json;
 		} else {
@@ -42,7 +43,7 @@ public class ParticipantResource {
 	@Produces("application/xml")
 	public String updateUser(@PathParam("username") String username, String representation) {
 		try {
-			return ParticipantFacade.update(representation);		
+			return ParticipantFacadeOld.update(representation);		
 		} catch (ItemNotFoundException e) {
 			throw new WebApplicationException(404);
 		}
@@ -51,7 +52,7 @@ public class ParticipantResource {
 	@DELETE
 	public void deleteUser(@PathParam("id") Long id) {
 		try {
-			ParticipantFacade.delete(id);
+			ParticipantFacadeOld.delete(id);
 		} catch (ItemNotFoundException e) {
 			throw new WebApplicationException(404);
 		}
