@@ -31,14 +31,9 @@ public class ParticipantServiceImpl implements ParticipantService {
      * @see com.jcertif.service.participant.ParticipantService#createParticipant(java.lang.Long, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Character, java.lang.String, java.lang.String, java.lang.String, java.lang.String, com.jcertif.bo.RoleParticipant, com.jcertif.bo.Conference, java.util.Set)
      */
     @Override
-    public Participant createParticipant(Long id, String dateinscription,
-            String salutation, String specialite, String prenom, String nom,
-            Character sexe, String email, String presentationsoumise,
-            String cvsoumis, String details, RoleParticipant roleparticipant,
-            Conference conference, Set<CeduleParticipant> ceduleparticipants) {
+    public Participant createParticipant(Participant participant) {
 	    
-    	Participant participant = new Participant(id, dateinscription, salutation, prenom, nom, sexe, email, presentationsoumise, cvsoumis, details);
-	    return participantDao.merge(participant);
+    	return participantDao.merge(participant);
     }
 
 	/* (non-Javadoc)

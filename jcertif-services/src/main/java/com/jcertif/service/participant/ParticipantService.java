@@ -20,27 +20,10 @@ public interface ParticipantService {
 	
 	/**
 	 * Creates a new {@link Participant}.
-	 * @param id the id
-	 * @param dateinscription the registration date
-	 * @param salutation the salutation
-	 * @param specialite the speciality
-	 * @param prenom the first name
-	 * @param nom the last name
-	 * @param sexe the sex
-	 * @param email the email
-	 * @param presentationsoumise the submitted paper
-	 * @param cvsoumis the submitted curriculum
-	 * @param details the details
-	 * @param roleparticipant the role
-	 * @param conference the conference
-	 * @param ceduleparticipants the schedule
+	 * @param participant the participant
 	 * @return the newly created {@link Participant}
 	 */
-	public Participant createParticipant(Long id, String dateinscription, String salutation,
-			String specialite, String prenom, String nom, Character sexe,
-			String email, String presentationsoumise,
-			String cvsoumis, String details, RoleParticipant roleparticipant,
-			Conference conference, Set<CeduleParticipant> ceduleparticipants);
+	public Participant createParticipant(Participant participant);
 
 	/**
 	 * Find all {@link Participant}s.
