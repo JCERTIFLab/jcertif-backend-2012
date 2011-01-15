@@ -60,7 +60,6 @@
 		</repository>
 
 
-
 	</repositories>
 
 	<pluginRepositories>
@@ -73,6 +72,12 @@
 			</snapshots>
 			<id>gwt-dev-release</id>
 			<url>http://google-web-toolkit.googlecode.com/svn/2.1.0.M2/gwt/maven/</url>
+		</pluginRepository>
+		
+		<pluginRepository>
+			<id>glassfish-repository</id>
+			<name>Java.net Repository for Glassfish</name>
+			<url>http://download.java.net/maven/glassfish</url>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -180,7 +185,17 @@
 					</execution>
 				</executions>
 			</plugin>
-
+			<!-- for tests integration exlusion -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4.2</version>
+				<configuration>
+					<excludes>
+						<exclude>**/*IntegrationTest.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
 
 
 
@@ -466,7 +481,7 @@
 			<dependency>
 				<groupId>com.sun.jersey.contribs</groupId>
 				<artifactId>jersey-spring</artifactId>
-				<version>1.1.4.1</version>
+				<version>1.4</version>
 				<exclusions>
 					<exclusion>
 						<groupId>org.springframework</groupId>
@@ -484,13 +499,13 @@
 			<dependency>
 				<groupId>com.sun.jersey</groupId>
 				<artifactId>jersey-server</artifactId>
-				<version>1.1.4.1</version>
+				<version>1.4</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.sun.jersey</groupId>
 				<artifactId>jersey-json</artifactId>
-				<version>1.1.4.1</version>
+				<version>1.4</version>
 			</dependency>
 
 			<dependency>
@@ -508,5 +523,42 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<profiles>
+		<profile>
+			<id>integration-tests</id>
+			<activation>
+				<property>
+					<name>run-integration-tests</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>integration-tests</id>
+								<phase>integration-test</phase>
+								<goals>
+									<goal>test</goal>
+								</goals>
+								<configuration>
+									<skip>false</skip>
+									<excludes>
+										<exclude>none</exclude>
+									</excludes>
+									<includes>
+										<include>**/*IntegrationTest.java</include>
+									</includes>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
