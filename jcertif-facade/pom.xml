@@ -43,6 +43,11 @@
 			<artifactId>jersey-server</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
 			<artifactId>jersey-spring</artifactId>
 		</dependency>
@@ -50,7 +55,6 @@
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-json</artifactId>
-			<version>1.1.4.1</version>
 		</dependency>
 
 
@@ -87,13 +91,13 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
@@ -109,6 +113,71 @@
 		</dependency>
 	</dependencies>
 
+	<profiles>
+
+		<!-- Profiles for running functional tests -->
+
+		<profile>
+			<id>integration-tests</id>
+			<activation>
+				<property>
+					<name>integration-tests</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.glassfish</groupId>
+						<artifactId>maven-embedded-glassfish-plugin</artifactId>
+						<version>3.0.1</version>
+						<configuration>
+							<goalPrefix>glassfish</goalPrefix>
+							<app>${basedir}/target/jcertif-facade-${version}.war</app>
+							<autoDelete>true</autoDelete>
+							<port>9999</port>
+							<contextRoot>jcertif-facade</contextRoot>
+						</configuration>
+						<executions>
+							<execution>
+								<id>start-container</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>start</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>deploy-container</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>undeploy-container</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>undeploy</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>stop-container</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+
+
+
+			</build>
+
+		</profile>
+
+	</profiles>
 
 
 </project>

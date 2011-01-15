@@ -12,6 +12,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import com.jcertif.bo.article.Article;
+import com.jcertif.bo.article.Articles;
 import com.jcertif.services.article.ArticleService;
 
 import static org.mockito.Matchers.any;
@@ -53,10 +54,10 @@ public class ArticleWSTest {
 		articleList.add(anArticle);
 		articleList.add(anOtherArticle);
 		Mockito.when(articleService.findAll()).thenReturn(articleList);
-		List<Article> returnedList = articleWebService.findAllArticles();
+		Articles returnedList = articleWebService.findAllArticles();
 		Assert.assertNotNull(returnedList);
-		Assert.assertEquals(returnedList.size(), 2);
-		Assert.assertEquals(returnedList, articleList);
+		Assert.assertEquals(returnedList.getArticles().size(), 2);
+		Assert.assertEquals(returnedList.getArticles(), articleList);
 	}
 
 }

@@ -10,11 +10,13 @@ import javax.ws.rs.core.MediaType;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.article.Article;
+import com.jcertif.bo.article.Articles;
 import com.jcertif.services.article.ArticleService;
-import com.sun.jersey.spi.inject.Inject;
+import com.sun.jersey.api.spring.Autowire;
 
 /**
  * Web service Article.
@@ -24,6 +26,7 @@ import com.sun.jersey.spi.inject.Inject;
  */
 @Path("article")
 @Service
+@Autowire
 public class ArticleWS {
 
 	/**
@@ -34,7 +37,7 @@ public class ArticleWS {
 	/**
 	 * Article service.
 	 */
-	@Inject
+	@Autowired
 	private ArticleService articleService;
 
 	/**
@@ -43,10 +46,10 @@ public class ArticleWS {
 	@GET
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Path("allarticles")
-	public List<Article> findAllArticles() {
+	public Articles findAllArticles() {
 		LOGGER.debug("Calling Web Service /api/article/allarticles");
 		final List<Article> articleList = articleService.findAll();
-		return articleList;
+		return new Articles(articleList);
 	}
 
 	/**
