@@ -77,14 +77,10 @@ public class ParticipantFacade {
 	@PUT
 	@Path("/participant/{id}")
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	public Participant createParticipant(@PathParam("id") Long id, String dateinscription,
-	        String salutation, String specialite, String prenom, String nom,
-	        Character sexe, String email, String presentationsoumise,
-	        String cvsoumis, String details, RoleParticipant roleparticipant,
-	        Conference conference, Set<CeduleParticipant> ceduleparticipants) {
+	public Participant createParticipant(Participant participant) {
 
-		LOG.debug("Creating a new Participant with Name: {}", prenom + " " + nom);
-		return participantService.createParticipant(id, dateinscription, salutation, specialite, prenom, nom, sexe, email, presentationsoumise, cvsoumis, details, roleparticipant, conference, ceduleparticipants);
+		LOG.debug("Creating a new Participant with Name: {}", participant.getPrenom() + " " + participant.getNom());
+		return participantService.createParticipant(participant);
 	}
 
 	@GET
