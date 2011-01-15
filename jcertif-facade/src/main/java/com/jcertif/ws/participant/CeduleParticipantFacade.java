@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.CeduleParticipant;
-import com.jcertif.services.participant.CeduleParticipantService;
+import com.jcertif.service.participant.CeduleParticipantService;
 import com.sun.jersey.spi.inject.Inject;
 
 /**
@@ -102,7 +102,7 @@ public class CeduleParticipantFacade {
 	}
 
 	/**
-	 * Mise à jour d'une cedule.
+	 * Mise ï¿½ jour d'une cedule.
 	 * 
 	 * @param idCedule
 	 * @param idParticipant
