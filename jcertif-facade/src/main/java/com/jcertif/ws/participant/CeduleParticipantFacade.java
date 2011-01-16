@@ -13,10 +13,12 @@ import javax.ws.rs.core.MediaType;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.CeduleParticipant;
 import com.jcertif.service.participant.CeduleParticipantService;
+import com.sun.jersey.api.spring.Autowire;
 import com.sun.jersey.spi.inject.Inject;
 
 /**
@@ -27,6 +29,7 @@ import com.sun.jersey.spi.inject.Inject;
  */
 @Path("cedule/participant")
 @Service
+@Autowire
 public class CeduleParticipantFacade {
 
 	/**
@@ -38,7 +41,7 @@ public class CeduleParticipantFacade {
 	/**
 	 * Service CeduleParticipant.
 	 */
-	@Inject
+	@Autowired
 	private CeduleParticipantService ceduleParticipantService;
 
 	/**

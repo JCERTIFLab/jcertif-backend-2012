@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.article.Article;
 import com.jcertif.bo.article.Articles;
-import com.jcertif.service.article.ArticleServiceImpl;
+import com.jcertif.service.article.ArticleService;
 import com.sun.jersey.api.spring.Autowire;
 
 /**
@@ -38,7 +38,7 @@ public class ArticleWS {
 	 * Article service.
 	 */
 	@Autowired
-	private ArticleServiceImpl articleService;
+	private ArticleService articleService;
 
 	/**
 	 * @return all the titles in String with
@@ -69,11 +69,11 @@ public class ArticleWS {
 		return article;
 	}
 
-	public ArticleServiceImpl getArticleService() {
+	public ArticleService getArticleService() {
 		return articleService;
 	}
 
-	public void setArticleService(ArticleServiceImpl articleService) {
+	public void setArticleService(ArticleService articleService) {
 		this.articleService = articleService;
 	}
 

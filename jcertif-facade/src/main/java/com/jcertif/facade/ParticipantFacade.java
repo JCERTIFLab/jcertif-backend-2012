@@ -17,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.CeduleParticipant;
@@ -25,6 +26,7 @@ import com.jcertif.bo.Participant;
 import com.jcertif.bo.RoleParticipant;
 import com.jcertif.dao.ParticipantDAO;
 import com.jcertif.service.participant.ParticipantService;
+import com.sun.jersey.api.spring.Autowire;
 import com.sun.jersey.spi.inject.Inject;
 
 /**
@@ -34,11 +36,12 @@ import com.sun.jersey.spi.inject.Inject;
  */
 @Path("/participants")
 @Service
+@Autowire
 public class ParticipantFacade {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(ParticipantFacade.class);
 	
-	@Inject
+	@Autowired
 	private ParticipantService participantService;
 
 	/**
