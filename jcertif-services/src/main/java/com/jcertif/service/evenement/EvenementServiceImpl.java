@@ -52,4 +52,10 @@ public class EvenementServiceImpl implements EvenementService {
 	public void remove(Evenement evenement) {
 		evenementDAO.remove(evenement);		
 	}
+
+	@Override
+	public Evenement createEvenement(Evenement evenement) {
+		
+		return evenementDAO.merge(evenement);
+	}
 }

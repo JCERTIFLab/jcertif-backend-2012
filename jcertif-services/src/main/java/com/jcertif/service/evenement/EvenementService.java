@@ -11,6 +11,7 @@ import com.jcertif.bo.Evenement;
  * 
  */
 public interface EvenementService {
+	public Evenement createEvenement(Evenement evenement);
 
 	public List<Evenement> findAll();
 	
