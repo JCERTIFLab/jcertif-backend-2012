@@ -11,16 +11,17 @@ import com.jcertif.bo.Evenement;
  * 
  */
 public interface EvenementService {
+
 	public Evenement createEvenement(Evenement evenement);
 
 	public List<Evenement> findAll();
-	
+
 	public Evenement findById(Long key);
-	
+
 	public Evenement save(Evenement evenement);
-	
+
 	public Evenement update(Evenement evenement);
-	
+
 	public void remove(Evenement evenement);
 
 }
