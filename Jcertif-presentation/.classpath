@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" output="target/test-classes" path="src/test/java"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="var" path="M2_REPO/com/google/gwt/gwt-user/2.0.4/gwt-user-2.0.4.jar" sourcepath="M2_REPO/com/google/gwt/gwt-user/2.0.4/gwt-user-2.0.4-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Documents%20and%20Settings/bonbhejf/.m2/repository/com/google/gwt/gwt-user/2.0.4/gwt-user-2.0.4-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/com/vaadin/vaadin/6.4.4/vaadin-6.4.4.jar" sourcepath="M2_REPO/com/vaadin/vaadin/6.4.4/vaadin-6.4.4-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Documents%20and%20Settings/bonbhejf/.m2/repository/com/vaadin/vaadin/6.4.4/vaadin-6.4.4-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/bonbhejf/.m2/repository/org/vaadin/addons/vaadin-calendar/1.0.0/vaadin-calendar-1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/bonbhejf/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/bonbhejf/.m2/repository/org/json/json/1.1/org.json.jar"/>
+	<classpathentry kind="lib" path="D:/JUGs/CongoJUG/Conference/JCertif2011/Dev/projet-jcertif-2011/lib/vaadin-6.5.0.nightly-20101022-c15648.jar"/>
+	<classpathentry kind="lib" path="D:/JUGs/CongoJUG/Conference/JCertif2011/Dev/projet-jcertif-2011/lib/addthis-1.0.2.jar"/>
+	<classpathentry kind="lib" path="D:/JUGs/CongoJUG/Conference/JCertif2011/Dev/projet-jcertif-2011/lib/browsercookies-1.0.3.jar"/>
+	<classpathentry kind="lib" path="D:/JUGs/CongoJUG/Conference/JCertif2011/Dev/projet-jcertif-2011/lib/customfield-0.7.3.jar"/>
+	<classpathentry kind="lib" path="D:/JUGs/CongoJUG/Conference/JCertif2011/Dev/projet-jcertif-2011/lib/googleanalyticstracker-1.1.1.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
