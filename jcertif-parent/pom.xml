@@ -35,7 +35,6 @@
         <module>../jcertif-services</module>
         <module>../jcertif-facade</module>
         <module>../jcertif-webapp</module>
-        <module>../jcertif-presentation</module>
     </modules>
 
     <repositories>
