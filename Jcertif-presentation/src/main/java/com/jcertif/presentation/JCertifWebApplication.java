@@ -75,7 +75,8 @@ public class JCertifWebApplication extends Application implements TransactionLis
         backendFacade = new CachingRestApiFacade();
 
         setMainWindow(createMainWindow());
-        setTheme("JCertif");
+       // setTheme("JCertif");
+        //TO DO: Use this theme only when the final is ready. For now it'll crash, since not the theming is not yet there
     }
 
     
