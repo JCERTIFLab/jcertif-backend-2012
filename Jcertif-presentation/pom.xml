@@ -227,6 +227,11 @@
 		<artifactId>customfield</artifactId>
 		<version>0.8.0</version>
 	</dependency>
+	<dependency>
+		<groupId>org.vaadin.addons</groupId>
+		<artifactId>googleanalyticstracker</artifactId>
+		<version>1.1.1</version>
+	</dependency>
   </dependencies>
 
 </project>
