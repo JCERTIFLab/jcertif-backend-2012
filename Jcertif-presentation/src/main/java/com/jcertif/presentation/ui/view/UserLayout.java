@@ -55,7 +55,7 @@ public class UserLayout extends CssLayout implements ClickListener, UserChangeLi
         handleUserChange();
     }
 
-    @Override
+
     public void buttonClick(final ClickEvent event) {
         if (event.getButton() == signInButton) {
             getWindow().addWindow(new LoginWindow());
@@ -97,7 +97,7 @@ public class UserLayout extends CssLayout implements ClickListener, UserChangeLi
         signOutButton.setVisible(userLoggedIn);
     }
 
-    @Override
+  
     public void applicationUserChanged(final UserChangeEvent event) {
         handleUserChange();
     }
@@ -118,7 +118,7 @@ public class UserLayout extends CssLayout implements ClickListener, UserChangeLi
         updateFavouriteCount();
     }
 
-    @Override
+
     public void favouritesChanged(final MyScheduleUser user) {
         updateFavouriteCount();
     }

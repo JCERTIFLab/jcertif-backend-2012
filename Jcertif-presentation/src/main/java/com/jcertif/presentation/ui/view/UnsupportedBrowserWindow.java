@@ -43,7 +43,6 @@ public class UnsupportedBrowserWindow extends Window implements ClickListener {
 
     }
 
-    @Override
     public void buttonClick(final ClickEvent event) {
         if (event.getButton() == ok) {
             // simply close this window and let the application run

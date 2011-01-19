@@ -120,7 +120,7 @@ public class MainView extends HorizontalLayout implements EventClickHandler, Val
         return false;
     }
 
-    @Override
+ 
     public void eventClick(final EventClick eventClick) {
         if (!eventClick.getCalendarEvent().equals(currentEvent)) {
             final CalendarEvent calEvent = eventClick.getCalendarEvent();
@@ -152,7 +152,7 @@ public class MainView extends HorizontalLayout implements EventClickHandler, Val
         }
     }
 
-    @Override
+ 
     public void valueChange(final ValueChangeEvent event) {
         calendar.setDate((Date) daySelector.getValue());
         dayLabel.setValue(getLabelForDate((Date) daySelector.getValue()));
@@ -188,7 +188,6 @@ public class MainView extends HorizontalLayout implements EventClickHandler, Val
         }
     }
 
-    @Override
     public DownloadStream handleURI(final URL context, final String relativeUri) {
         if (relativeUri.startsWith("presentation/")) {
             try {

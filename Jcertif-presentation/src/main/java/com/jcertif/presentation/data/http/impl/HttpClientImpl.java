@@ -28,7 +28,7 @@ public class HttpClientImpl implements HttpClient {
      * @return
      * @throws IOException
      */
-    @Override
+
     public HttpResponse get(final String urlString) throws IOException {
         if (logger.isDebugEnabled()) {
             logger.debug("HTTP GET: " + urlString);
@@ -68,7 +68,6 @@ public class HttpClientImpl implements HttpClient {
      * @return response code
      * @throws IOException
      */
-    @Override
     public int post(final String urlString, final String postData) throws IOException {
         if (logger.isDebugEnabled()) {
             logger.debug("HTTP POST: " + urlString);

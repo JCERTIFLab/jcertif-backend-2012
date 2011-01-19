@@ -119,13 +119,13 @@ public class DaySelectorField extends CustomField implements Button.ClickListene
         return Date.class;
     }
 
-    @Override
+  
     public void buttonClick(final ClickEvent event) {
         final Date clickedValue = (Date) event.getButton().getData();
         setValue(clickedValue);
     }
 
-    @Override
+   
     public void fragmentChanged(final FragmentChangedEvent source) {
         // URI fragment changed -> see if there is a corresponding Button and
         // select that Button's value.

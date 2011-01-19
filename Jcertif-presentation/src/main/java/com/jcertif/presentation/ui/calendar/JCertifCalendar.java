@@ -101,7 +101,7 @@ public class JCertifCalendar extends Calendar implements UserChangeListener, Use
         }
     }
 
-    @Override
+ 
     public void applicationUserChanged(final UserChangeEvent event) {
         if (logger.isDebugEnabled()) {
             logger.debug("User has changed, requesting refresh of the Calendar styles.");
@@ -113,7 +113,7 @@ public class JCertifCalendar extends Calendar implements UserChangeListener, Use
         }
     }
 
-    @Override
+  
     public void favouritesChanged(final MyScheduleUser user) {
         refreshCalendarStyles();
     }

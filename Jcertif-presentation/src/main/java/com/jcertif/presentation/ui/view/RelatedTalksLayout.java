@@ -55,7 +55,7 @@ public class RelatedTalksLayout extends CssLayout implements Button.ClickListene
         }
     }
 
-    @Override
+ 
     public void buttonClick(final ClickEvent event) {
         mainView.selectPresentationWithId((Integer) event.getButton().getData());
     }
