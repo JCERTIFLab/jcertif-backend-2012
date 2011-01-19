@@ -74,8 +74,11 @@ public class JCertifEventProvider extends BasicEventProvider {
         }
     }
 
-    private void loadEventsFromBackendIfNeeded() {
-        if (eventsLoaded) {
+    @SuppressWarnings("unused")
+	private void loadEventsFromBackendIfNeeded() {
+        if(true){return;}//FIXME: Juste to avoid crash due to call to facade
+    	
+    	if (eventsLoaded) {
             // already loaded -> do nothing
             return;
         }
