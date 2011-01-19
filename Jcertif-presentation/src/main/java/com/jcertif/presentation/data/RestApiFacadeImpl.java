@@ -74,7 +74,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
     /**
      * {@inheritDoc}
      */
-    @Override
+   
     public void activateMySchedule(final String firstName, final String lastName, final String email)
             throws RestApiException {
         try {
@@ -100,7 +100,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
     /**
      * {@inheritDoc}
      */
-    @Override
+   
     public void saveMySchedule(final MyScheduleUser user) throws RestApiException {
         if (user.getActivationCode() == null || user.getEmail() == null) {
             throw new IllegalArgumentException("Activation code and e-mail must be set for the user.");
@@ -138,7 +138,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
     /**
      * {@inheritDoc}
      */
-    @Override
+   
     public boolean isValidUser(final MyScheduleUser user) throws RestApiException {
         try {
             final StringBuilder params = new StringBuilder(100);
@@ -163,7 +163,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
     /**
      * {@inheritDoc}
      */
-    @Override
+   
     public void getScheduleForUser(final MyScheduleUser user) {
         if (user != null && user.getEmail() != null) {
             try {
@@ -191,7 +191,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
     /**
      * {@inheritDoc}
      */
-    @Override
+  
     public List<JCertifPresentation> getFullSchedule() {
         try {
             return getScheduleData(httpClient.get(SCHEDULE_URL).getResponse());
@@ -203,7 +203,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
     /**
      * {@inheritDoc}
      */
-    @Override
+    
     public List<JCertifPresentation> search(final String tag) {
         String searchJson;
         try {
@@ -329,7 +329,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
     /**
      * {@inheritDoc}
      */
-    @Override
+  
     public void lazyLoadFields(final LazyLoadable lazy) {
         if (lazy.getLazyLoadingUri() == null) {
             return;
