@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<Commite_organisation id="1" nom="nom 1" prenom="prenom 1"
+	<commite_organisation id="1" nom="nom 1" prenom="prenom 1"
 		sexe_MF="M" email="1@jcertif.com" details="details 1" telephone="111111" />
-	<Commite_organisation id="2" nom="nom 2" prenom="prenom 2"
+	<commite_organisation id="2" nom="nom 2" prenom="prenom 2"
 		sexe_MF="F" email="2@jcertif.com" details="details 2" telephone="222222" />
 	<proposition_presentation id="1" titre="titre 1"
 		description="description 1" details="details 1" />
