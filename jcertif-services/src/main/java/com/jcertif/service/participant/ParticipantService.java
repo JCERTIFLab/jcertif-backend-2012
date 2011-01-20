@@ -5,7 +5,7 @@ package com.jcertif.service.participant;
 
 
 import com.jcertif.bo.participant.Participant;
-import com.jcertif.dao.api.participant.ParticipantDAO;
+import com.jcertif.dao.hibernate.participant.ParticipantDAOHibernate;
 import com.jcertif.service.GenericService;
 
 /**
@@ -13,7 +13,7 @@ import com.jcertif.service.GenericService;
  * @author Bernard Adanlessossi
  *
  */
-public interface ParticipantService extends GenericService<Participant, Long, ParticipantDAO>{
+public interface ParticipantService extends GenericService<Participant, Long, ParticipantDAOHibernate>{
 
    
 	

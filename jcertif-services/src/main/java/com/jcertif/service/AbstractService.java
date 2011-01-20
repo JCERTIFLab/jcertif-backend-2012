@@ -22,10 +22,12 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
     @Autowired
     S service;
 
+    @Override
     public List<T> findAll() {
         return service.findAll();
     }
 
+    @Override
     public void setService(S service) {
         this.service = service;
     }
@@ -35,6 +37,7 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
      * @param key
      * @return une Conférence
      */
+    @Override
     public T findById(PK key) {
         return service.findById(key);
     }
@@ -44,6 +47,7 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
      * @param entite
      * @return
      */
+    @Override
     public T save(T entite) {
         return service.merge(entite);
     }
@@ -53,6 +57,7 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
      * @param entite
      * @return
      */
+    @Override
     public T update(T entite) {
         return service.merge(entite);
     }
@@ -60,6 +65,7 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
     /**
      * @param entite
      */
+    @Override
     public void remove(T entite) {
         service.remove(entite);
     }
