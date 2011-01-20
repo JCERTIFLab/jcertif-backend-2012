@@ -152,7 +152,6 @@ public class XMLUtil {
 			if(validateParticipantXML(doc)) {
 				// XML is valid, just get the values from the DOM
 				return new Participant(Long.valueOf(getValue((Element) doc.getElementsByTagName("participant").item(0), "id")),
-						getValue((Element) doc.getElementsByTagName("participant").item(0), "dateinscription"),
 						getValue((Element) doc.getElementsByTagName("participant").item(0), "salutation"),
 						getValue((Element) doc.getElementsByTagName("participant").item(0), "prenom"),
 						getValue((Element) doc.getElementsByTagName("participant").item(0), "nom"),

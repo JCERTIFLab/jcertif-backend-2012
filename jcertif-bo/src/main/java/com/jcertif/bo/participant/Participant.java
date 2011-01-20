@@ -1,5 +1,6 @@
 package com.jcertif.bo.participant;
 
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -30,7 +31,7 @@ public class Participant extends Person {
 
 	private static final long serialVersionUID = 1L;
 	@Column
-	private String dateInscription;
+	private Calendar dateInscription;
 	@Column
 	private String presentationSoumise;
 	@Column
@@ -69,7 +70,7 @@ public class Participant extends Person {
 	/**
 	 * Constructor
 	 */
-	public Participant(Long id, String dateinscription, String salutation,
+	public Participant(Long id, Calendar dateinscription, String salutation,
 			String specialite, String prenom, String nom, Character sexe,
 			String email, String presentationsoumise,
 			String cvsoumis, String details, RoleParticipant roleparticipant,
@@ -106,12 +107,11 @@ public class Participant extends Person {
 	 * @param cvsoumis
 	 * @param details
 	 */
-	public Participant(Long id, String dateinscription, String salutation,
+	public Participant(Long id, String salutation,
 			String prenom, String nom, Character sexe_MF, String email, String presentationsoumise, String cvsoumis,
 			String details) {
 		super();
 		this.setId(id);
-		this.dateInscription = dateinscription;
 		this.setSalutation(salutation);
 		this.setPrenom(prenom);
 		this.setNom(nom);
@@ -137,14 +137,14 @@ public class Participant extends Person {
 	/**
 	 * @return the dateInscription
 	 */
-	public String getDateInscription() {
+	public Calendar getDateInscription() {
 		return dateInscription;
 	}
 
 	/**
 	 * @param dateInscription the dateInscription to set
 	 */
-	public void setDateInscription(String dateInscription) {
+	public void setDateInscription(Calendar dateInscription) {
 		this.dateInscription = dateInscription;
 	}
 
