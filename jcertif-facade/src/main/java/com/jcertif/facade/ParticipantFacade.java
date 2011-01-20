@@ -4,7 +4,6 @@
 package com.jcertif.facade;
 
 import java.util.List;
-import java.util.Set;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -20,14 +19,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jcertif.bo.cedule.CeduleParticipant;
-import com.jcertif.bo.conference.Conference;
 import com.jcertif.bo.participant.Participant;
-import com.jcertif.bo.participant.RoleParticipant;
 import com.jcertif.dao.api.participant.ParticipantDAO;
 import com.jcertif.service.participant.ParticipantService;
 import com.sun.jersey.api.spring.Autowire;
-import com.sun.jersey.spi.inject.Inject;
 
 /**
  * Facade for the {@link ParticipantDAO}.
@@ -83,7 +78,7 @@ public class ParticipantFacade {
 	public Participant createParticipant(Participant participant) {
 
 		LOG.debug("Creating a new Participant with Name: {}", participant.getPrenom() + " " + participant.getNom());
-		return participantService.createParticipant(participant);
+		return participantService.save(participant);
 	}
 
 	@GET
