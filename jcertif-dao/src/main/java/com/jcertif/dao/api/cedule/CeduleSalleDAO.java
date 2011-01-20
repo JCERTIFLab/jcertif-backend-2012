@@ -1,7 +1,7 @@
 package com.jcertif.dao.api.cedule;
 
 import com.jcertif.bo.cedule.CeduleSalle;
-import com.jcertif.dao.GenericDAO;
+import com.jcertif.dao.api.GenericDAO;
 
 /**
  * Interface d'accès aux données cedule salle.

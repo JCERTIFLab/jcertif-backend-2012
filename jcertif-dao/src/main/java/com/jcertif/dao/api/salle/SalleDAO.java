@@ -1,7 +1,7 @@
 package com.jcertif.dao.api.salle;
 
 import com.jcertif.bo.salle.Salle;
-import com.jcertif.dao.GenericDAO;
+import com.jcertif.dao.api.GenericDAO;
 
 /**
  * Interface DAO pour salle.

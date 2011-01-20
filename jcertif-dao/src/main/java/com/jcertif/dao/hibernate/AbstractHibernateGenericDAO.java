@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;
 
-import com.jcertif.dao.GenericDAO;
+import com.jcertif.dao.api.GenericDAO;
 
 /**
  * Implementation of GenericDAO with Hibernate.

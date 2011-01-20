@@ -1,7 +1,7 @@
 package com.jcertif.dao.api.participant;
 
 import com.jcertif.bo.participant.TypeParticipant;
-import com.jcertif.dao.GenericDAO;
+import com.jcertif.dao.api.GenericDAO;
 
 /**
  * Interface DAO pour {@link TypeParticipant}.

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.jcertif.bo.article.Article;
-import com.jcertif.dao.ArticleDAO;
+import com.jcertif.dao.api.ArticleDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
 import static org.junit.Assert.*;

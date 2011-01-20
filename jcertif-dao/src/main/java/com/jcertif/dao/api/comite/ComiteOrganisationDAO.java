@@ -1,7 +1,7 @@
 package com.jcertif.dao.api.comite;
 
 import com.jcertif.bo.comite.ComiteOrganisation;
-import com.jcertif.dao.GenericDAO;
+import com.jcertif.dao.api.GenericDAO;
 
 /**
  * Interface d'accès aux données ComiteOrganisation.

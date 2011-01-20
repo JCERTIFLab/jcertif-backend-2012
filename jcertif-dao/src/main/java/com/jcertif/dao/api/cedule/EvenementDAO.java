@@ -1,7 +1,7 @@
 package com.jcertif.dao.api.cedule;
 
 import com.jcertif.bo.cedule.Evenement;
-import com.jcertif.dao.GenericDAO;
+import com.jcertif.dao.api.GenericDAO;
 
 /**
  * DAO Interface for Evenement.

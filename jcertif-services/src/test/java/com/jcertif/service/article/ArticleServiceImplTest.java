@@ -12,7 +12,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import com.jcertif.bo.article.Article;
-import com.jcertif.dao.ArticleDAO;
+import com.jcertif.dao.api.ArticleDAO;
 
 /**
  * Test unitaire de la classe {@link ArticleServiceImpl}.

@@ -3,7 +3,7 @@ package com.jcertif.dao.api.cedule;
 import java.util.List;
 
 import com.jcertif.bo.cedule.CeduleParticipant;
-import com.jcertif.dao.GenericDAO;
+import com.jcertif.dao.api.GenericDAO;
 
 /**
  * @author rossi.oddet

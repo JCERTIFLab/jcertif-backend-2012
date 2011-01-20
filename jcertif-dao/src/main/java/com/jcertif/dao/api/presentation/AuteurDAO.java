@@ -1,7 +1,7 @@
 package com.jcertif.dao.api.presentation;
 
 import com.jcertif.bo.presentation.Auteur;
-import com.jcertif.dao.GenericDAO;
+import com.jcertif.dao.api.GenericDAO;
 
 /**
  * DAO Interface for Auteur.

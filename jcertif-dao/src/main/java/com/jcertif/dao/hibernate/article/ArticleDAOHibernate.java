@@ -3,7 +3,7 @@ package com.jcertif.dao.hibernate.article;
 import org.springframework.stereotype.Repository;
 
 import com.jcertif.bo.article.Article;
-import com.jcertif.dao.ArticleDAO;
+import com.jcertif.dao.api.ArticleDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**

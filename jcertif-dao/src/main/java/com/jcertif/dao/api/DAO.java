@@ -1,4 +1,4 @@
-package com.jcertif.dao;
+package com.jcertif.dao.api;
 
 /**
  * Super Interface for Data Access Object.

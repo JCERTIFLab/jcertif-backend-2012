@@ -1,4 +1,4 @@
-package com.jcertif.dao;
+package com.jcertif.dao.api;
 
 import java.io.Serializable;
 import java.util.List;

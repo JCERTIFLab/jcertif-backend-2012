@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jcertif.bo.article.Article;
-import com.jcertif.dao.ArticleDAO;
+import com.jcertif.dao.api.ArticleDAO;
 
 /**
  * Service implementation for Article. It contains the reusable business code.

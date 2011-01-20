@@ -1,7 +1,7 @@
 package com.jcertif.dao.api.cedule;
 
 import com.jcertif.bo.cedule.StatutCedule;
-import com.jcertif.dao.GenericDAO;
+import com.jcertif.dao.api.GenericDAO;
 
 /**
  * Interface d'accès au statut cedule.

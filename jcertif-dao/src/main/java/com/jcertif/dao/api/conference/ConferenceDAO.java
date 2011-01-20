@@ -5,7 +5,7 @@
 package com.jcertif.dao.api.conference;
 
 import com.jcertif.bo.conference.Conference;
-import com.jcertif.dao.GenericDAO;
+import com.jcertif.dao.api.GenericDAO;
 
 /**
  * @author chrisbel

@@ -7,7 +7,7 @@ package com.jcertif.dao.api.salle;
 import org.springframework.stereotype.Repository;
 
 import com.jcertif.bo.salle.ParticulariteSalle;
-import com.jcertif.dao.GenericDAO;
+import com.jcertif.dao.api.GenericDAO;
 
 /**
  * @author chrisbel

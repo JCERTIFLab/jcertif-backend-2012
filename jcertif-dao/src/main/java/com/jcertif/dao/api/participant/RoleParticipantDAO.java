@@ -5,7 +5,7 @@
 package com.jcertif.dao.api.participant;
 
 import com.jcertif.bo.participant.RoleParticipant;
-import com.jcertif.dao.GenericDAO;
+import com.jcertif.dao.api.GenericDAO;
 
 /**
  * @author chrisbel

@@ -1,7 +1,7 @@
 package com.jcertif.dao.api.presentation;
 
 import com.jcertif.bo.presentation.StatutApprobation;
-import com.jcertif.dao.GenericDAO;
+import com.jcertif.dao.api.GenericDAO;
 
 /**
  * Interface d'accès aux données Statut d'approbation.

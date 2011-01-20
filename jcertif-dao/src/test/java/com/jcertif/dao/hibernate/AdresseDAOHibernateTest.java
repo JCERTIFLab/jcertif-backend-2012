@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.jcertif.bo.Adresse;
-import com.jcertif.dao.AdresseDAO;
+import com.jcertif.dao.api.AdresseDAO;
 
 /**
  * Test de l'implémentation Hibernate de l'accès aux données Adresse.
