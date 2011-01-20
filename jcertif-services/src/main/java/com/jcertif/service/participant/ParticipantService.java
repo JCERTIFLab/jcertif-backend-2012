@@ -3,16 +3,19 @@
  */
 package com.jcertif.service.participant;
 
-import java.util.List;
 
 import com.jcertif.bo.participant.Participant;
+import com.jcertif.dao.api.participant.ParticipantDAO;
+import com.jcertif.service.GenericService;
 
 /**
  * Service Layer for the {@link Participant}.
  * @author Bernard Adanlessossi
  *
  */
-public interface ParticipantService {
+public interface ParticipantService extends GenericService<Participant, Long, ParticipantDAO>{
+
+   
 	
 
 }

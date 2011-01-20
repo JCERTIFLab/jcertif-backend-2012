@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  * @author Douneg
  */
-public abstract class AbstractService<T, PK extends Serializable, S extends GenericDAO<T, PK>> {
+public abstract class AbstractService<T, PK extends Serializable, S extends GenericDAO<T, PK>> implements GenericService<T, PK, S> {
 
     /**
      *

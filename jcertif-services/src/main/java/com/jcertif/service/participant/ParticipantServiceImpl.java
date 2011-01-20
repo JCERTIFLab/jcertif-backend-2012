@@ -19,4 +19,6 @@ import com.jcertif.service.AbstractService;
 public class ParticipantServiceImpl extends AbstractService<Participant, Long, ParticipantDAO> implements ParticipantService {
 
 
+
+
 }
