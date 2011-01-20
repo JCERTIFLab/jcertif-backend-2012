@@ -32,22 +32,23 @@ public class Auteur extends Person {
 
 	private static final long serialVersionUID = 1L;
 	@Column
-	private String biographie_sommaire;
+	private String biographieSommaire;
 	@Column
 	private String photo;
 
+	
 	/**
-	 * @return the biographie_sommaire
+	 * @return the biographieSommaire
 	 */
-	public String getBiographie_sommaire() {
-		return biographie_sommaire;
+	public String getBiographieSommaire() {
+		return biographieSommaire;
 	}
 
 	/**
-	 * @param biographie_sommaire the biographie_sommaire to set
+	 * @param biographieSommaire the biographieSommaire to set
 	 */
-	public void setBiographie_sommaire(String biographie_sommaire) {
-		this.biographie_sommaire = biographie_sommaire;
+	public void setBiographieSommaire(String biographieSommaire) {
+		this.biographieSommaire = biographieSommaire;
 	}
 
 	/**
