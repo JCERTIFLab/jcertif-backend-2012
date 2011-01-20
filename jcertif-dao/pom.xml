@@ -99,6 +99,39 @@
 
 		</profile>
 
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<testResources>
+					<testResource>
+						<directory>src/test/config/dev</directory>
+					</testResource>
+					<testResource>
+						<directory>src/test/resources</directory>
+					</testResource>
+				</testResources>
+			</build>
+
+		</profile>
+		
+		<profile>
+			<id>integration-tests</id>
+			<build>
+				<testResources>
+					<testResource>
+						<directory>src/test/config/integration</directory>
+					</testResource>
+					<testResource>
+						<directory>src/test/resources</directory>
+					</testResource>
+				</testResources>
+			</build>
+
+		</profile>
+
 	</profiles>
 	<build>
 
@@ -201,6 +234,12 @@
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib-nodep</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
