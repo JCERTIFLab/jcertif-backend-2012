@@ -32,6 +32,8 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
         this.service = service;
     }
 
+    
+
     /**
      *
      * @param key

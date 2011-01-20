@@ -7,7 +7,7 @@ package com.jcertif.service.participant;
 import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.participant.Participant;
-import com.jcertif.dao.hibernate.participant.ParticipantDAOHibernate;
+import com.jcertif.dao.api.participant.ParticipantDAO;
 import com.jcertif.service.AbstractService;
 
 /**
@@ -16,9 +16,7 @@ import com.jcertif.service.AbstractService;
  *
  */
 @Service
-public class ParticipantServiceImpl extends AbstractService<Participant, Long, ParticipantDAOHibernate> implements ParticipantService {
-
-
+public class ParticipantServiceImpl extends AbstractService<Participant, Long, ParticipantDAO> implements ParticipantService {
 
 
 }
