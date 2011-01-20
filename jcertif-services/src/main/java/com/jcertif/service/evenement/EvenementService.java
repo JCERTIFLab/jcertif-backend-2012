@@ -2,7 +2,7 @@ package com.jcertif.service.evenement;
 
 import java.util.List;
 
-import com.jcertif.bo.Evenement;
+import com.jcertif.bo.cedule.Evenement;
 
 /**
  * Business layer interface for Evenement.

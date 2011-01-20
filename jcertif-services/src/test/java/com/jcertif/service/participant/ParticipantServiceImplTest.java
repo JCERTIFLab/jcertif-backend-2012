@@ -11,8 +11,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.jcertif.bo.Participant;
-import com.jcertif.dao.ParticipantDAO;
+import com.jcertif.bo.participant.Participant;
+import com.jcertif.dao.api.participant.ParticipantDAO;
 
 /**
  * Tests the {@link ParticipantServiceImpl}.

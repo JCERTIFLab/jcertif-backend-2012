@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jcertif.bo.Evenement;
+import com.jcertif.bo.cedule.Evenement;
 import com.jcertif.service.evenement.EvenementService;
 import com.sun.jersey.api.spring.Autowire;
 

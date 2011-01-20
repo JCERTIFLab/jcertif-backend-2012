@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jcertif.bo.Conference;
-import com.jcertif.dao.ConferenceDAO;
+import com.jcertif.bo.conference.Conference;
+import com.jcertif.dao.api.conference.ConferenceDAO;
 
 /**
  * roland.amour@chrisbel.net

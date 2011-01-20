@@ -3,7 +3,7 @@ package com.jcertif.service.participant;
 import java.util.Calendar;
 import java.util.List;
 
-import com.jcertif.bo.CeduleParticipant;
+import com.jcertif.bo.cedule.CeduleParticipant;
 
 /**
  * Service CeduleParticipant

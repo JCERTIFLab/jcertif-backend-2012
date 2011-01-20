@@ -2,7 +2,7 @@ package com.jcertif.service.conference;
 
 import java.util.List;
 
-import com.jcertif.bo.Conference;
+import com.jcertif.bo.conference.Conference;
 /**
  * 
  * @author Chrisbel

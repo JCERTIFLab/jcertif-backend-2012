@@ -8,8 +8,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.jcertif.bo.Conference;
-import com.jcertif.dao.ConferenceDAO;
+import com.jcertif.bo.conference.Conference;
+import com.jcertif.dao.api.conference.ConferenceDAO;
 import com.jcertif.service.conference.ConferenceServiceImpl;
 
 /**

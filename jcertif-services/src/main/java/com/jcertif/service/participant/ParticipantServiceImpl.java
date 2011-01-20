@@ -10,11 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jcertif.bo.CeduleParticipant;
-import com.jcertif.bo.Conference;
-import com.jcertif.bo.Participant;
-import com.jcertif.bo.RoleParticipant;
-import com.jcertif.dao.ParticipantDAO;
+import com.jcertif.bo.cedule.CeduleParticipant;
+import com.jcertif.bo.conference.Conference;
+import com.jcertif.bo.participant.Participant;
+import com.jcertif.bo.participant.RoleParticipant;
+import com.jcertif.dao.api.participant.ParticipantDAO;
 
 /**
  * Implementation of the {@link ParticipantService}.

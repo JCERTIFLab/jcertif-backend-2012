@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jcertif.bo.CeduleParticipant;
-import com.jcertif.bo.Evenement;
-import com.jcertif.bo.Participant;
-import com.jcertif.bo.StatutCedule;
-import com.jcertif.dao.CeduleParticipantDAO;
-import com.jcertif.dao.EvenementDAO;
-import com.jcertif.dao.ParticipantDAO;
-import com.jcertif.dao.StatutCeduleDAO;
+import com.jcertif.bo.cedule.CeduleParticipant;
+import com.jcertif.bo.cedule.Evenement;
+import com.jcertif.bo.cedule.StatutCedule;
+import com.jcertif.bo.participant.Participant;
+import com.jcertif.dao.api.cedule.CeduleParticipantDAO;
+import com.jcertif.dao.api.cedule.EvenementDAO;
+import com.jcertif.dao.api.cedule.StatutCeduleDAO;
+import com.jcertif.dao.api.participant.ParticipantDAO;
 
 /**
  * Service CeduleParticipant.
@@ -77,7 +77,7 @@ public class CeduleParticipantServiceImpl implements CeduleParticipantService {
 	}
 
 	/**
-	 * @see com.jcertif.services.participant.CeduleParticipantService#createCedule(com.jcertif.bo.CeduleParticipant,
+	 * @see com.jcertif.services.participant.CeduleParticipantService#createCedule(com.jcertif.bo.cedule.CeduleParticipant,
 	 *      java.lang.Long, java.lang.Long, java.lang.String)
 	 */
 	@Override

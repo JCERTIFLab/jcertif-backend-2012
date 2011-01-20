@@ -6,10 +6,10 @@ package com.jcertif.service.participant;
 import java.util.List;
 import java.util.Set;
 
-import com.jcertif.bo.CeduleParticipant;
-import com.jcertif.bo.Conference;
-import com.jcertif.bo.Participant;
-import com.jcertif.bo.RoleParticipant;
+import com.jcertif.bo.cedule.CeduleParticipant;
+import com.jcertif.bo.conference.Conference;
+import com.jcertif.bo.participant.Participant;
+import com.jcertif.bo.participant.RoleParticipant;
 
 /**
  * Service Layer for the {@link Participant}.

@@ -11,8 +11,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.jcertif.bo.CeduleParticipant;
-import com.jcertif.dao.CeduleParticipantDAO;
+import com.jcertif.bo.cedule.CeduleParticipant;
+import com.jcertif.dao.api.cedule.CeduleParticipantDAO;
 
 /**
  * @author rossi.oddet
@@ -65,7 +65,7 @@ public class CeduleParticipantServiceImplTest {
 
 	/**
 	 * Test method for
-	 * {@link com.jcertif.services.participant.CeduleParticipantServiceImpl#saveOrUpdate(com.jcertif.bo.CeduleParticipant)}
+	 * {@link com.jcertif.services.participant.CeduleParticipantServiceImpl#saveOrUpdate(com.jcertif.bo.cedule.CeduleParticipant)}
 	 * .
 	 */
 	@Test
@@ -85,7 +85,7 @@ public class CeduleParticipantServiceImplTest {
 
 	/**
 	 * Test method for
-	 * {@link com.jcertif.services.participant.CeduleParticipantServiceImpl#remove(com.jcertif.bo.CeduleParticipant)}
+	 * {@link com.jcertif.services.participant.CeduleParticipantServiceImpl#remove(com.jcertif.bo.cedule.CeduleParticipant)}
 	 * .
 	 */
 	@Test

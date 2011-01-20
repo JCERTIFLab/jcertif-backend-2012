@@ -11,8 +11,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.jcertif.bo.Evenement;
-import com.jcertif.dao.EvenementDAO;
+import com.jcertif.bo.cedule.Evenement;
+import com.jcertif.dao.api.cedule.EvenementDAO;
 import com.jcertif.service.article.ArticleServiceImpl;
 
 /**
