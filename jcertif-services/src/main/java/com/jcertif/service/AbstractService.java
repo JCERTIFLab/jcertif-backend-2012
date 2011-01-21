@@ -32,8 +32,6 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
         this.service = service;
     }
 
-    
-
     /**
      *
      * @param key
@@ -51,7 +49,8 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
      */
     @Override
     public T save(T entite) {
-        return service.merge(entite);
+        service.persist(entite);
+        return entite;
     }
 
     /**

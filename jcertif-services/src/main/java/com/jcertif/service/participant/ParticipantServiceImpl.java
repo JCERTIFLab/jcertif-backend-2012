@@ -3,12 +3,18 @@
  */
 package com.jcertif.service.participant;
 
-
+import com.jcertif.bo.conference.Conference;
 import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.participant.Participant;
+import com.jcertif.bo.participant.RoleParticipant;
+import com.jcertif.bo.participant.TypeParticipant;
+import com.jcertif.dao.api.conference.ConferenceDAO;
 import com.jcertif.dao.api.participant.ParticipantDAO;
+import com.jcertif.dao.api.participant.RoleParticipantDAO;
+import com.jcertif.dao.api.participant.TypeParticipantDAO;
 import com.jcertif.service.AbstractService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Implementation of the {@link ParticipantService}.
@@ -18,5 +24,25 @@ import com.jcertif.service.AbstractService;
 @Service
 public class ParticipantServiceImpl extends AbstractService<Participant, Long, ParticipantDAO> implements ParticipantService {
 
+    @Autowired
+    private ConferenceDAO conferenceDAO;
+    @Autowired
+    private RoleParticipantDAO roleParticipantDAO;
+    @Autowired
+    private TypeParticipantDAO typeParticipantDAO;
 
+    @Override
+    public Participant save(Participant participant) {
+        if (participant.getConference() != null) {
+            Conference conference = conferenceDAO.getReference(participant.getConference().getId());
+            participant.setConference(conference);
+        } else if (participant.getRoleparticipant() != null) {
+            RoleParticipant roleParticipant = roleParticipantDAO.getReference(participant.getRoleparticipant().getId());
+            participant.setRoleparticipant(roleParticipant);
+        } else if (participant.getTypeParticipant() != null) {
+            TypeParticipant typeParticipant = typeParticipantDAO.getReference(participant.getTypeParticipant().getId());
+            participant.setTypeParticipant(typeParticipant);
+        }
+        return super.save(participant);
+    }
 }
