@@ -34,7 +34,7 @@ public class ParticipantServiceImplTest {
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 		service = new ParticipantServiceImpl();
-		service.setService(participantDAO);
+		service.setDAO(participantDAO);
 	}
 
 	/**

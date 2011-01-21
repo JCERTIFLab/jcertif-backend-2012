@@ -19,24 +19,24 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
      *
      * @return list des entites
      */
-    public abstract S getService();
+    public abstract S getDAO();
 
     @Override
-    public abstract void setService(S service);
+    public abstract void setDAO(S dao);
 
     @Override
     public List<T> findAll() {
-        return getService().findAll();
+        return getDAO().findAll();
     }
 
     /**
      *
      * @param key
-     * @return une Conférence
+     * @return une entite
      */
     @Override
     public T findById(PK key) {
-        return getService().findById(key);
+        return getDAO().findById(key);
     }
 
     /**
@@ -47,7 +47,7 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
     @Override
     @Transactional
     public T save(T entite) {
-        getService().persist(entite);
+        getDAO().persist(entite);
         return entite;
     }
 
@@ -59,7 +59,7 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
     @Override
     @Transactional
     public T update(T entite) {
-        return getService().merge(entite);
+        return getDAO().merge(entite);
     }
 
     /**
@@ -68,6 +68,6 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
     @Override
     @Transactional
     public void remove(T entite) {
-        getService().remove(entite);
+        getDAO().remove(entite);
     }
 }

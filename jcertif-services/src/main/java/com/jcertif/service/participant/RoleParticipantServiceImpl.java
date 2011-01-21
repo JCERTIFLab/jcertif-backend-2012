@@ -19,15 +19,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class RoleParticipantServiceImpl extends AbstractService<RoleParticipant, Long, RoleParticipantDAO> implements RoleParticipantService {
 
     @Autowired
-    RoleParticipantDAO service;
+    RoleParticipantDAO roleParticipantDAO;
 
     @Override
-    public RoleParticipantDAO getService() {
-        return service;
+    public RoleParticipantDAO getDAO() {
+        return roleParticipantDAO;
     }
 
     @Override
-    public void setService(RoleParticipantDAO service) {
-        this.service = service;
+    public void setDAO(RoleParticipantDAO roleParticipantDAO) {
+        this.roleParticipantDAO = roleParticipantDAO;
     }
 }

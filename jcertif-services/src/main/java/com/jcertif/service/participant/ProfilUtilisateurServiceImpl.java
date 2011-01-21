@@ -19,15 +19,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class ProfilUtilisateurServiceImpl extends AbstractService<ProfilUtilisateur, Long, ProfilUtilisateurDAO> implements ProfilUtilisateurService {
 
     @Autowired
-    private ProfilUtilisateurDAO service;
+    private ProfilUtilisateurDAO profilUtilisateurDAO;
 
     @Override
-    public ProfilUtilisateurDAO getService() {
-        return service;
+    public ProfilUtilisateurDAO getDAO() {
+        return profilUtilisateurDAO;
     }
 
     @Override
-    public void setService(ProfilUtilisateurDAO service) {
-        this.service = service;
+    public void setDAO(ProfilUtilisateurDAO profilUtilisateurDAO) {
+        this.profilUtilisateurDAO = profilUtilisateurDAO;
     }
 }

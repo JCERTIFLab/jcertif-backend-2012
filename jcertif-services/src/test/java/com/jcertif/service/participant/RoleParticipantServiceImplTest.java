@@ -32,7 +32,7 @@ public class RoleParticipantServiceImplTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         service = new RoleParticipantServiceImpl();
-        service.setService(roleParticipantDAO);
+        service.setDAO(roleParticipantDAO);
     }
 
     /**

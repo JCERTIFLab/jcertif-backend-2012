@@ -26,7 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class ParticipantServiceImpl extends AbstractService<Participant, Long, ParticipantDAO> implements ParticipantService {
 
     @Autowired
-    ParticipantDAO service;
+    ParticipantDAO participantDAO;
     @Autowired
     private ConferenceDAO conferenceDAO;
     @Autowired
@@ -56,12 +56,12 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
     }
 
     @Override
-    public ParticipantDAO getService() {
-        return service;
+    public ParticipantDAO getDAO() {
+        return participantDAO;
     }
 
     @Override
-    public void setService(ParticipantDAO service) {
-        this.service = service;
+    public void setDAO(ParticipantDAO participantDAO) {
+        this.participantDAO = participantDAO;
     }
 }

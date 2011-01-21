@@ -34,7 +34,7 @@ public class ProfilUtilisateurtServiceImplTest {
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 		service = new ProfilUtilisateurServiceImpl();
-		service.setService(participantDAO);
+		service.setDAO(participantDAO);
 	}
 
 	/**

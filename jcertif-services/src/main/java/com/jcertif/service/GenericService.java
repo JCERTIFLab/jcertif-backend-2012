@@ -36,7 +36,7 @@ public interface GenericService<T, PK extends Serializable, S extends GenericDAO
      */
     T save(T entite);
 
-    void setService(S service);
+    void setDAO(S service);
 
     /**
      *
