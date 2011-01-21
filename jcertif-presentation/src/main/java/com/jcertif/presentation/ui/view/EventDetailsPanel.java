@@ -3,6 +3,8 @@ package com.jcertif.presentation.ui.view;
 import java.text.SimpleDateFormat;
 
 import org.vaadin.addthis.AddThis;
+
+
 import com.jcertif.presentation.JCertifWebApplication;
 import com.jcertif.presentation.data.RestApiException;
 import com.jcertif.presentation.data.RestApiFacade;
@@ -16,6 +18,7 @@ import com.vaadin.Application.UserChangeEvent;
 import com.vaadin.Application.UserChangeListener;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.CustomLayout;
 import com.vaadin.ui.Label;
@@ -32,13 +35,61 @@ import com.vaadin.ui.themes.BaseTheme;
  * also functionality for adding and removing the given
  * {@link JCertifPresentation} as a MySchedule favourite.
  */
-public class EventDetailsPanel extends Panel implements Button.ClickListener, UserChangeListener {
+//TODO add implements Button.ClickListener, UserChangeListener 
+public class EventDetailsPanel extends Panel {
 
     private static final long serialVersionUID = -671137262550574991L;
 
     private JCertifCalendarEvent event;
 
-    private CustomLayout layout;
+    public EventDetailsPanel(JCertifCalendarEvent event) {
+        this.event = event;
+        setWidth("100%");
+        initUi();
+    }
+
+    private void initUi() {
+        if (event != null) {
+            addComponent(new Label("<h1>" + event.getJcertifEvent().getTitle() + "</h1>",
+                    Label.CONTENT_XHTML));
+            
+            addComponent(new Label("<b>" + getEventTimeLabel(event.getJcertifEvent()) + "</b>",
+                    Label.CONTENT_XHTML));
+
+            addComponent(new Label("<b>Salle: </b>" + event.getJcertifEvent().getRoom(),
+                    Label.CONTENT_XHTML));
+            addComponent(new Label("<b>Type: </b>" + event.getJcertifEvent().getType(),
+                    Label.CONTENT_XHTML));
+           
+            addComponent(new Label("<b>Code: </b>" + event.getJcertifEvent().getCode(),
+                    Label.CONTENT_XHTML));
+            addComponent(new Label("<br/>",Label.CONTENT_XHTML));
+            final Button attendButton = new Button("S'abonner à l'événement");
+            
+            attendButton.addListener(
+            new ClickListener() {
+
+				private static final long serialVersionUID = 1L;
+
+				public void buttonClick(ClickEvent e) {
+                    //persist event_participant
+					attendButton.setCaption("Vous vous êtes abonné à cette événement !");
+					attendButton.setEnabled(false);
+					
+			
+                }
+            });
+    		
+            addComponent(attendButton);
+        } else {
+            addComponent(new Label("<i>Aucun événement séléctionné !!!</i>",
+                    Label.CONTENT_XHTML));
+        }
+    }
+    
+    
+    //TODO
+    /*private CustomLayout layout;
     private Label roomLabel;
     private Label timeLabel;
     private Label titleLabel;
@@ -110,6 +161,7 @@ public class EventDetailsPanel extends Panel implements Button.ClickListener, Us
      * 
      * @param jcertifEvent
      */
+    /*
     public void setEvent(final JCertifCalendarEvent jcertifEvent) {
         if (jcertifEvent == null) {
             return;
@@ -127,6 +179,7 @@ public class EventDetailsPanel extends Panel implements Button.ClickListener, Us
      * 
      * @see #updateFavouriteButtons()
      */
+    /*
     private void updateEventDetails() {
         final JCertifPresentation presentation = event.getJcertifEvent();
 
@@ -188,6 +241,7 @@ public class EventDetailsPanel extends Panel implements Button.ClickListener, Us
      * @param presentation
      * @return
      */
+    
     private String getEventTimeLabel(final JCertifPresentation presentation) {
         final SimpleDateFormat dateFormatFrom = new SimpleDateFormat("EEEEE, HH:mm");
         final SimpleDateFormat dateFormatTo = new SimpleDateFormat("HH:mm");
@@ -203,6 +257,8 @@ public class EventDetailsPanel extends Panel implements Button.ClickListener, Us
      * 
      * @see #updateEventDetails()
      */
+  //TODO
+    /*
     private void updateFavouriteButtons() {
         final JCertifPresentation presentation = event.getJcertifEvent();
 
@@ -290,6 +346,8 @@ public class EventDetailsPanel extends Panel implements Button.ClickListener, Us
 
                 final RestApiFacade facade = JCertifWebApplication.getCurrentInstance().getBackendFacade();
                 facade.saveMySchedule(user);
+                
+                //TODO Add style for attending
 
                 if (addToFavourites) {
                     event.addStyleName("attending");
@@ -309,6 +367,6 @@ public class EventDetailsPanel extends Panel implements Button.ClickListener, Us
         if (this.event != null) {
             updateFavouriteButtons();
         }
-    }
+    }*/
 
 }

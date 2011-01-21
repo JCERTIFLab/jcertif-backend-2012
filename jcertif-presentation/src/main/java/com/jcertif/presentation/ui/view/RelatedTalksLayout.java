@@ -55,9 +55,11 @@ public class RelatedTalksLayout extends CssLayout implements Button.ClickListene
         }
     }
 
- 
+
+    
     public void buttonClick(final ClickEvent event) {
-        mainView.selectPresentationWithId((Integer) event.getButton().getData());
+    	 //TODO
+    //    mainView.selectPresentationWithId((Integer) event.getButton().getData());
     }
 
 }

@@ -16,8 +16,8 @@ public class JCertifCalendarEvent extends BasicEvent {
     private JCertifPresentation jcertifEvent;
     private Set<String> additionalStyles = new HashSet<String>();
     private String speakers;
-
-    @Override
+    //TODO
+    /*@Override
     public Date getStart() {
         return jcertifEvent.getFromTime();
     }
@@ -33,7 +33,7 @@ public class JCertifCalendarEvent extends BasicEvent {
             speakers = StringUtil.getSpeakersString(jcertifEvent);
         }
         return jcertifEvent.getTitle() + " " + speakers;
-    }
+    }*/
 
     public JCertifPresentation getJcertifEvent() {
         return jcertifEvent;
@@ -46,7 +46,8 @@ public class JCertifCalendarEvent extends BasicEvent {
     /**
      * Overridden to allow multiple CSS class names.
      */
-    @Override
+    //TODO
+   /* @Override
     public String getStyleName() {
         final  StringBuilder sb = new StringBuilder(100);
         sb.append(super.getStyleName());
@@ -69,5 +70,5 @@ public class JCertifCalendarEvent extends BasicEvent {
         if (removed) {
             fireEventChange();
         }
-    }
+    }*/
 }

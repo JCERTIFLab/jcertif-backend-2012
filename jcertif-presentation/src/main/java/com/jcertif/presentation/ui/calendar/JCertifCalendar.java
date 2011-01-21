@@ -1,10 +1,13 @@
 package com.jcertif.presentation.ui.calendar;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 
 import com.jcertif.presentation.JCertifWebApplication;
 import com.jcertif.presentation.data.domain.JCertifPresentation;
@@ -14,6 +17,7 @@ import com.jcertif.presentation.data.domain.MyScheduleUser.UserFavouritesChanged
 import com.vaadin.Application.UserChangeEvent;
 import com.vaadin.Application.UserChangeListener;
 import com.vaadin.addon.calendar.ui.Calendar;
+import com.vaadin.addon.calendar.ui.Calendar.TimeFormat;
 
 /**
  * JCertifCalendar is a Calendar UI component for displaying the JCertif
@@ -25,18 +29,18 @@ public class JCertifCalendar extends Calendar implements UserChangeListener, Use
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    /** First day of JCertif 2010 */
-    public static final Date JCERTIF_FIRST_DAY;
-
-    /** Last day of JCertif 2010 */
-    public static final Date JCERTIF_LAST_DAY;
+    public static final Date JCERTIF_DATE;
 
     static {
-        final java.util.Calendar cal = java.util.Calendar.getInstance();
-        cal.set(2010, 10, 15, 0, 0);
-        JCERTIF_FIRST_DAY = cal.getTime();
-        cal.set(2010, 10, 19, 23, 59);
-        JCERTIF_LAST_DAY = cal.getTime();
+    	GregorianCalendar date = new GregorianCalendar();
+        date.set(GregorianCalendar.YEAR, 2011);
+        date.set(GregorianCalendar.MONTH, 7);
+        date.set(GregorianCalendar.DATE, 27);
+        date.set(GregorianCalendar.HOUR_OF_DAY, 0);
+        date.set(GregorianCalendar.MINUTE, 0);
+        date.set(GregorianCalendar.SECOND, 0);
+        date.set(GregorianCalendar.MILLISECOND, 0);
+        JCERTIF_DATE = date.getTime();
     }
 
     public JCertifCalendar() {
@@ -46,20 +50,40 @@ public class JCertifCalendar extends Calendar implements UserChangeListener, Use
         setTimeFormat(TimeFormat.Format24H);
         setVisibleHoursOfDay(8, 21);
         setWidth("100%");
-        setHeight("1700px");
+        setHeight("1500px");
+        setLocale(Locale.getDefault());
         setReadOnly(true);
-
+        setStartDate(JCERTIF_DATE);
+        
+        java.util.Calendar cal=
+			java.util.Calendar.getInstance();
+        cal.setTime(JCERTIF_DATE);
+        cal.add(java.util.Calendar.DATE, 1);
+        
+        setEndDate(cal.getTime());
+        
         // set up the event provider
         setEventProvider(new JCertifEventProvider());
-
         // Attach this Calendar as a UserChangeListener and
         // UserFavouritesChangedListener if there already is a signed in user.
-        final JCertifWebApplication app = JCertifWebApplication.getCurrentInstance();
+        /*final JCertifWebApplication app = JCertifWebApplication.getCurrentInstance();
         app.addListener(this);
         if (app.getUser() instanceof MyScheduleUser) {
             ((MyScheduleUser) app.getUser()).addListener(this);
-        }
+        }*/
     }
+
+	@Override
+	public void favouritesChanged(MyScheduleUser user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void applicationUserChanged(UserChangeEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
 
     /**
      * Sets the displayed date to the given date if it's during JCertif,
@@ -67,12 +91,14 @@ public class JCertifCalendar extends Calendar implements UserChangeListener, Use
      * 
      * @param date
      */
+    //TODO
+    /*
     public void setDate(final Date date) {
         if (isDuringJCertif(date)) {
             setStartDate(date);
             setEndDate(date);
         }
-    }
+    }*/
 
     /**
      * Returns the default date, which is the first day of JCertif or the current
@@ -80,6 +106,8 @@ public class JCertifCalendar extends Calendar implements UserChangeListener, Use
      * 
      * @return the first day of JCertif or the current date.
      */
+    //TODO
+    /*
     public static Date getDefaultDate() {
         Date defaultDate = new Date();
         if (!isDuringJCertif(defaultDate)) {
@@ -119,5 +147,5 @@ public class JCertifCalendar extends Calendar implements UserChangeListener, Use
   
     public void favouritesChanged(final MyScheduleUser user) {
         refreshCalendarStyles();
-    }
+    }*/
 }

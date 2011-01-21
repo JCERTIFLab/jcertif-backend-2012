@@ -4,7 +4,9 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 
+
 import com.jcertif.presentation.JCertifWebApplication;
+import com.jcertif.presentation.data.domain.JCertifPresentation;
 import com.jcertif.presentation.ui.FullScreenButton;
 import com.jcertif.presentation.ui.calendar.JCertifCalendar;
 import com.jcertif.presentation.ui.calendar.JCertifCalendarEvent;
@@ -37,20 +39,76 @@ public class MainView extends HorizontalLayout implements EventClickHandler, Val
 
     private static final long serialVersionUID = 7622207451668068454L;
 
-    private JCertifCalendarEvent currentEvent;
+    //private JCertifCalendarEvent currentEvent;
 
     private JCertifCalendar calendar;
     private EventDetailsPanel detailsPanel;
     private HorizontalLayout toolbar;
-    private DaySelectorField daySelector;
+    private Panel detailsPanelWrapper;
+    /*private DaySelectorField daySelector;
     private FullScreenButton fullScreenButton;
     private Label dayLabel;
-    private UriFragmentUtility uriFragment;
+    private UriFragmentUtility uriFragment;*/
 
     public MainView() {
         initUi();
     }
+    private void initUi() {
+        setWidth("100%");
+        setHeight("100%");
+        setMargin(true);
+        setSpacing(true);
+        
+        calendar = new JCertifCalendar();
+        calendar.setHandler(this);
+        detailsPanel = new EventDetailsPanel(null);
+        
+        toolbar = new HorizontalLayout();
+        toolbar.setSizeFull();
 
+        Panel calendarPanel = new Panel();
+        calendarPanel.setSizeFull();
+        calendarPanel.addComponent(calendar);
+
+        detailsPanelWrapper = new Panel();
+        detailsPanelWrapper.setSizeFull();
+        detailsPanelWrapper.addComponent(detailsPanel);
+
+        toolbar.addComponent(calendarPanel);
+        toolbar.addComponent(detailsPanelWrapper);
+        addComponent(toolbar);
+
+        setExpandRatio(toolbar, 1.0f);
+        toolbar.setExpandRatio(calendarPanel, 0.70f);
+        toolbar.setExpandRatio(detailsPanelWrapper, 0.30f);    
+        
+    }
+   
+    @Override
+    public void eventClick(EventClick event) {
+        CalendarEvent calEvent = event.getCalendarEvent();
+        if (calEvent instanceof JCertifCalendarEvent) {
+        	JCertifCalendarEvent jCertifcalEvent = (JCertifCalendarEvent) calEvent;
+            // Replace the current detailsPanel with a new one.
+            EventDetailsPanel newDetailsPanel = new EventDetailsPanel(
+            		jCertifcalEvent);
+            detailsPanelWrapper.replaceComponent(detailsPanel, newDetailsPanel);
+            detailsPanel = newDetailsPanel;
+        }
+    }
+	@Override
+	public DownloadStream handleURI(URL context, String relativeUri) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void valueChange(ValueChangeEvent event) {
+		// TODO Auto-generated method stub
+		
+	}   
+    
+  //TODO
+/*
     private void initUi() {
         setWidth("100%");
         setHeight("100%");
@@ -106,6 +164,8 @@ public class MainView extends HorizontalLayout implements EventClickHandler, Val
         // make the calendar expand to use all available space
         setExpandRatio(calendarPanel, 1f);
     }
+    
+    
 
     private boolean iOSUserAgent() {
         if (JCertifWebApplication.getCurrentInstance().getContext() instanceof WebApplicationContext) {
@@ -198,5 +258,5 @@ public class MainView extends HorizontalLayout implements EventClickHandler, Val
             }
         }
         return null;
-    }
+    }*/
 }

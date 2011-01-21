@@ -74,14 +74,21 @@ public class JCertifWebApplication extends Application implements TransactionLis
  
     @Override
     public void init() {
-        currentApplication.set(this);
+    	Window mainWindow = new Window("JCertif 2011 Schedule");
+        setMainWindow(mainWindow);
+        //setTheme("devoxx2k10");
+
+        MainView mainView = new MainView();
+        mainWindow.setContent(mainView);
+    	
+        /*currentApplication.set(this);
         getContext().addTransactionListener(this);
 
         backendFacade = new CachingRestApiFacade();
 
         setMainWindow(createMainWindow());
        // setTheme("JCertif");
-        //TO DO: Use this theme only when the final is ready. For now it'll crash, since not the theming is not yet there
+        //TO DO: Use this theme only when the final is ready. For now it'll crash, since not the theming is not yet there*/
     }
     
     private Window createMainWindow() {
