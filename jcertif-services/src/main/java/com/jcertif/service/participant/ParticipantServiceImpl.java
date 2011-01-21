@@ -11,6 +11,7 @@ import com.jcertif.bo.participant.RoleParticipant;
 import com.jcertif.bo.participant.TypeParticipant;
 import com.jcertif.dao.api.conference.ConferenceDAO;
 import com.jcertif.dao.api.participant.ParticipantDAO;
+import com.jcertif.dao.api.participant.ProfilUtilisateurDAO;
 import com.jcertif.dao.api.participant.RoleParticipantDAO;
 import com.jcertif.dao.api.participant.TypeParticipantDAO;
 import com.jcertif.service.AbstractService;
@@ -30,6 +31,8 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
     private RoleParticipantDAO roleParticipantDAO;
     @Autowired
     private TypeParticipantDAO typeParticipantDAO;
+    @Autowired
+    private ProfilUtilisateurDAO profilUtilisateurDAO;
 
     @Override
     public Participant save(Participant participant) {
@@ -42,6 +45,10 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
         } else if (participant.getTypeParticipant() != null) {
             TypeParticipant typeParticipant = typeParticipantDAO.getReference(participant.getTypeParticipant().getId());
             participant.setTypeParticipant(typeParticipant);
+        }
+        if (participant.getProfilUtilisateur() != null) {
+            profilUtilisateurDAO.persist(participant.getProfilUtilisateur());
+        } else {
         }
         return super.save(participant);
     }

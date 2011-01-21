@@ -8,6 +8,7 @@ import com.jcertif.dao.api.GenericDAO;
 import java.io.Serializable;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -20,11 +21,15 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
      * @return list des entites
      */
     @Autowired
-    S service;
+   private S service;
+
+    public S getService() {
+        return service;
+    }
 
     @Override
     public List<T> findAll() {
-        return service.findAll();
+        return getService().findAll();
     }
 
     @Override
@@ -39,7 +44,7 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
      */
     @Override
     public T findById(PK key) {
-        return service.findById(key);
+        return getService().findById(key);
     }
 
     /**
@@ -48,8 +53,9 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
      * @return
      */
     @Override
+    @Transactional
     public T save(T entite) {
-        service.persist(entite);
+        getService().persist(entite);
         return entite;
     }
 
@@ -59,15 +65,17 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
      * @return
      */
     @Override
+    @Transactional
     public T update(T entite) {
-        return service.merge(entite);
+        return getService().merge(entite);
     }
 
     /**
      * @param entite
      */
     @Override
+    @Transactional
     public void remove(T entite) {
-        service.remove(entite);
+        getService().remove(entite);
     }
 }
