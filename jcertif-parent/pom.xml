@@ -15,7 +15,7 @@
 
 	<properties>
 		<!-- Eclipse Properties -->
-		<eclipse.workspace.directory>C:\dev\web\jcertif\jcertif-workspace</eclipse.workspace.directory>
+		<eclipse.workspace.directory>E:\JCertif2011\Workspace</eclipse.workspace.directory>
 
 		<!-- SOURCES PROPERTIES -->
 		<file.encoding>ISO-8859-1</file.encoding>
@@ -307,7 +307,6 @@
 				<groupId>log4j</groupId>
 				<artifactId>log4j</artifactId>
 				<version>1.2.16</version>
-				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
