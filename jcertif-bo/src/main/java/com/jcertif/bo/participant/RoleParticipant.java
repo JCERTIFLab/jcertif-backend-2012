@@ -156,33 +156,4 @@ public class RoleParticipant extends AbstractBO {
 	public void setParticipants(Set<Participant> participants) {
 		this.participants = participants;
 	}
-	
-	public String toXML(){
-		StringBuilder xml = new StringBuilder();
-		xml.append("<roleparticipant>");
-		xml.append("<id>").append(id).append("</id>");
-		xml.append("<codeRole>").append(codeRole).append("</codeRole>");
-		xml.append("<description>").append(description).append("</description>");
-		xml.append("<link>").append(getLink()).append("</link>");
-		xml.append("</roleparticipant>");
-		
-		return xml.toString();
-	}
-	
-	private String getLink() {
-		return "/roleparticipant/" + codeRole;
-	}
-	
-	public String toJSON() {
-		StringBuilder json = new StringBuilder();
-		json.append("{\"participant\":{\"id\":\"").append(id)
-		.append("\", \"codeRole\":\"").append(codeRole)
-		.append("\", \"description\":\"").append(description)
-		.append("\", \"participants\":\"")
-		
-		.append("\", \"link\":\"").append(getLink()).append("\"}}");
-		
-		return json.toString();
-	}
-	
 }

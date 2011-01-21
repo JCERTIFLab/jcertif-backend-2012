@@ -67,51 +67,6 @@ public class Organisateur extends Person {
 		this.conferences = conferences;
 	}
 
-	public String toXML() {
-		StringBuilder xml = new StringBuilder();
-		xml.append("<organisateur>");
-		xml.append("<id>").append(getId()).append("</id>");
-		xml.append("<prenom>").append(getPrenom()).append("</prenom>");
-		xml.append("<nom>").append(getNom()).append("</nom>");
-		xml.append("<sexe>").append(getSexe()).append("</sexe>");
-		xml.append("<email>").append(getEmail()).append("</email>");
-		xml.append("<details>").append(getDetails()).append("</details>");
-		xml.append("<conferences>");
-		Iterator<Conference> iter = conferences.iterator();
-		while (iter.hasNext()) {
-			Conference conference = iter.next();
-			xml.append(conference.toXML());
-		}
-		xml.append("</conferences>");
-		xml.append("<link>").append(getLink()).append("</link>");
-		xml.append("</organisateur>");
-
-		return xml.toString();
-	}
-
-	private String getLink() {
-		return "/organisateur/" + getNom();
-	}
-
-	public String toJSON() {
-		StringBuilder json = new StringBuilder();
-		json.append("{\"conference\":{\"id\":\"").append(getId())
-				.append("\", \"prenom\":\"").append(getPrenom())
-				.append("\", \"nom\":\"").append(getNom())
-				.append("\", \"sexe\":\"").append(getSexe())
-				.append("\", \"email\":\"").append(getEmail())
-				.append("\", \"details\":\"").append(getDetails())
-				.append("\", \"conferences\":\"");
-		Iterator<Conference> iter = conferences.iterator();
-		while (iter.hasNext()) {
-			Conference conference = iter.next();
-			json.append(conference.toJSON());
-		}
-		json.append("\", \"link\":\"").append(getLink()).append("\"}}");
-
-		return json.toString();
-	}
-
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */
