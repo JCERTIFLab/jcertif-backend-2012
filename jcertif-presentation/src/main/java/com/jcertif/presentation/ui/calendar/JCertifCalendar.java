@@ -2,7 +2,10 @@ package com.jcertif.presentation.ui.calendar;
 
 import java.util.Date;
 
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.jcertif.presentation.JCertifWebApplication;
 import com.jcertif.presentation.data.domain.JCertifPresentation;
 import com.jcertif.presentation.data.domain.MyScheduleUser;
@@ -20,7 +23,7 @@ public class JCertifCalendar extends Calendar implements UserChangeListener, Use
 
     private static final long serialVersionUID = -3068684747425348483L;
 
-    private final Logger logger = Logger.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     /** First day of JCertif 2010 */
     public static final Date JCERTIF_FIRST_DAY;

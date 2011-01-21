@@ -7,7 +7,9 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.jcertif.presentation.data.http.HttpClient;
 import com.jcertif.presentation.data.http.HttpResponse;
 
@@ -19,7 +21,7 @@ public class HttpClientImpl implements HttpClient {
     private static final String USER_AGENT = "VaadinJCertifApp";
     private static final String POST_CONTENT_TYPE = "application/x-www-form-urlencoded; charset=UTF-8";
 
-    private final Logger logger = Logger.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * Does an HTTP GET from the given URL and returns the response as a String.

@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Date;
 
-import org.apache.log4j.Logger;
+
 import com.jcertif.presentation.JCertifWebApplication;
 import com.jcertif.presentation.data.RestApiException;
 import com.jcertif.presentation.data.domain.MyScheduleUser;
@@ -20,19 +20,24 @@ import com.vaadin.service.ApplicationContext.TransactionListener;
 import com.vaadin.terminal.gwt.server.WebApplicationContext;
 import com.vaadin.terminal.gwt.server.WebBrowser;
 import com.vaadin.ui.Window;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.vaadin.googleanalytics.tracking.GoogleAnalyticsTracker;
 import org.vaadin.browsercookies.BrowserCookies;
 
 /**
  * The Application's "main" class
  */
+
 @SuppressWarnings("serial")
+
 public class JCertifWebApplication extends Application implements TransactionListener, BrowserCookies.UpdateListener
 {
     private static final String COOKIE_FIELD_SEPARATOR = ",";
     private static final long COOKIE_EXPIRATION_IN_MILLIS = 365 * 24 * 60 * 60 * 1000L;
 
-    private static final Logger logger = Logger.getLogger(JCertifWebApplication.class);
+    private static final Logger logger = LoggerFactory.getLogger(JCertifWebApplication.class);
     public static final String MY_SCHEDULE_USER_COOKIE = "MyScheduleUser";
 
     private static final long serialVersionUID = 1167695727109405960L;
@@ -78,7 +83,6 @@ public class JCertifWebApplication extends Application implements TransactionLis
        // setTheme("JCertif");
         //TO DO: Use this theme only when the final is ready. For now it'll crash, since not the theming is not yet there
     }
-
     
     private Window createMainWindow() {
         final Window mainWindow = new Window("JCertif 2011 App");

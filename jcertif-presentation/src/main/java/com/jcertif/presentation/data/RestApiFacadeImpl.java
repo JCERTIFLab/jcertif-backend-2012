@@ -15,10 +15,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.jcertif.presentation.data.domain.JCertifPresentation;
 import com.jcertif.presentation.data.domain.JCertifPresentationKind;
 import com.jcertif.presentation.data.domain.JCertifSpeaker;
@@ -39,7 +41,7 @@ import com.jcertif.presentation.data.http.impl.HttpClientImpl;
  */
 public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
 
-    private final Logger logger = Logger.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private final HttpClient httpClient;
 

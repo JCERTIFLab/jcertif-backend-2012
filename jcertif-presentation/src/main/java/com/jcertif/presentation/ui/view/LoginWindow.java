@@ -1,6 +1,9 @@
 package com.jcertif.presentation.ui.view;
 
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.jcertif.presentation.JCertifWebApplication;
 import com.jcertif.presentation.data.RestApiException;
 
@@ -20,7 +23,7 @@ public class LoginWindow extends Window implements Button.ClickListener {
 
     private static final long serialVersionUID = 5020323273015528048L;
 
-    private final Logger logger = Logger.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private TextField activateFirstName;
     private TextField activateLastName;

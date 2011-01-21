@@ -6,12 +6,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.jcertif.presentation.data.CachingRestApiFacade;
 import com.jcertif.presentation.data.RestApiFacadeImpl;
 import com.jcertif.presentation.data.domain.JCertifPresentation;
 
-import com.jcertif.presentation.data.domain.JCertifPresentation;
 import com.jcertif.presentation.data.http.HttpClient;
 
 public class CachingRestApiFacade extends RestApiFacadeImpl {
@@ -20,7 +21,7 @@ public class CachingRestApiFacade extends RestApiFacadeImpl {
 
     private static long CACHE_EXPIRATION_IN_MS = 1000 * 60 * 60;
 
-    private static Logger logger = Logger.getLogger(CachingRestApiFacade.class);
+    private static Logger logger = LoggerFactory.getLogger(CachingRestApiFacade.class);
 
     static {
         // Start a timer for clearing the cache periodically.

@@ -28,4 +28,10 @@
     
 
     <inherits name="com.vaadin.addon.calendar.gwt.CalendarWidgetset" />
+
+    <inherits name="org.vaadin.addthis.AddthisWidgetset" />
+
+    <inherits name="org.vaadin.browsercookies.widgetset.BrowserCookiesApplicationWidgetset" />
+
+    <inherits name="org.vaadin.googleanalytics.tracking.GoogleAnalyticsWidgetset" />
 </module>

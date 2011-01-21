@@ -3,7 +3,10 @@ package com.jcertif.presentation.ui.calendar;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 import com.jcertif.presentation.JCertifWebApplication;
 import com.jcertif.presentation.data.RestApiFacade;
 import com.jcertif.presentation.data.domain.JCertifPresentation;
@@ -16,7 +19,7 @@ public class JCertifEventProvider extends BasicEventProvider {
 
     private static final long serialVersionUID = -6066313242075569496L;
 
-    private transient final Logger logger = Logger.getLogger(getClass());
+    private transient final Logger logger = LoggerFactory.getLogger(getClass());
     private boolean eventsLoaded;
     private JCertifPresentation selectedEvent;
 
