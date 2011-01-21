@@ -1,7 +1,6 @@
-
 package com.jcertif.bo.participant;
 
-import java.io.Serializable;
+import com.jcertif.bo.AbstractBO;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +16,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 @Entity
 @XmlRootElement
-public class ProfilUtilisateur implements Serializable {
+public class ProfilUtilisateur extends AbstractBO {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -214,8 +213,7 @@ public class ProfilUtilisateur implements Serializable {
 
         final ProfilUtilisateur other = (ProfilUtilisateur) obj;
 
-        return new EqualsBuilder().
-                append(this.getId(), other.getId()).
+        return new EqualsBuilder().append(this.getId(), other.getId()).
                 append(this.getEmail(), other.getEmail()).
                 append(this.getLangueCorrespondance(), other.getLangueCorrespondance()).
                 append(this.getCodeConfirmation(), other.getCodeConfirmation()).
