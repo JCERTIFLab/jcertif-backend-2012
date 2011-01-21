@@ -20,6 +20,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import com.jcertif.bo.Person;
 import com.jcertif.bo.cedule.CeduleParticipant;
 import com.jcertif.bo.conference.Conference;
+import com.jcertif.bo.presentation.PropositionPresentation;
 
 /**
  * 
@@ -32,8 +33,11 @@ public class Participant extends Person {
 	private static final long serialVersionUID = 1L;
 	@Column
 	private Calendar dateInscription;
-	@Column
-	private String presentationSoumise;
+	
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	@JoinColumn(name = "proposition_presentation_id")
+	private PropositionPresentation presentationSoumise;
+	
 	@Column
 	private String cvSoumis;
 	
@@ -52,7 +56,7 @@ public class Participant extends Person {
 	@JoinColumn(name = "conference_id")
 	private Conference conference;
 
-        @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "profil_utilisateur_id")
 	private ProfilUtilisateur profilUtilisateur;
 
@@ -72,7 +76,7 @@ public class Participant extends Person {
 	 */
 	public Participant(Long id, Calendar dateinscription, String salutation,
 			String specialite, String prenom, String nom, Character sexe,
-			String email, String presentationsoumise,
+			String email, PropositionPresentation presentationsoumise,
 			String cvsoumis, String details, RoleParticipant roleparticipant,
 			Conference conference, Set<CeduleParticipant> ceduleparticipants) {
 		super();
@@ -108,7 +112,7 @@ public class Participant extends Person {
 	 * @param details
 	 */
 	public Participant(Long id, String salutation,
-			String prenom, String nom, Character sexe_MF, String email, String presentationsoumise, String cvsoumis,
+			String prenom, String nom, Character sexe_MF, String email, PropositionPresentation presentationsoumise, String cvsoumis,
 			String details) {
 		super();
 		this.setId(id);
@@ -151,14 +155,14 @@ public class Participant extends Person {
 	/**
 	 * @return the presentationSoumise
 	 */
-	public String getPresentationSoumise() {
+	public PropositionPresentation getPresentationSoumise() {
 		return presentationSoumise;
 	}
 
 	/**
 	 * @param presentationSoumise the presentationSoumise to set
 	 */
-	public void setPresentationSoumise(String presentationSoumise) {
+	public void setPresentationSoumise(PropositionPresentation presentationSoumise) {
 		this.presentationSoumise = presentationSoumise;
 	}
 

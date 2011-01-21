@@ -13,9 +13,11 @@
 	<type_participant id="3" code="etudiant" description="etudiant"/>
 	
 	<profil_utilisateur id="1" nom_profil="maxb" email="max@bon.com" photo="max.png" langue_correspondance="fr" code_confirmation="F" />
+
+	<proposition_presentation id="1" titre="titre 1" sommaire="sommaire 1" besoins_specifiques="besoins 1" description="description 1" details="details 1"/>	
 	
-	<participant id="3" salutation="Monsieur" specialite="specialite1" prenom="Max" nom="Bonbhel" sexe_MF="m" email="max@bon.com" compagnie="Max and co" presentation_soumise= "" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="2" type_participant_id="1" profil_utilisateur_id="1" adresse_id="1"/>
-	<participant id="1" salutation="Monsieur" specialite="specialite1" prenom="Larry" nom="Ellison" sexe_MF="m" email="larry@orcl.com" compagnie="Oracle" presentation_soumise= "" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="4" type_participant_id="2"/>
-	<participant id="2" salutation="Monsieur" specialite="specialite1" prenom="Eric" nom="Schmidt" sexe_MF="m" email="larry@orcl.com" compagnie="Google" presentation_soumise= "" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="4" type_participant_id="2"/>
+	<participant id="3" salutation="Monsieur" specialite="specialite1" prenom="Max" nom="Bonbhel" sexe_MF="m" email="max@bon.com" compagnie="Max and co"  cv_soumis="" details="detailsorganisateurs 1" role_participant_id="2" type_participant_id="1" profil_utilisateur_id="1" adresse_id="1" proposition_presentation_id="1"/>
+	<participant id="1" salutation="Monsieur" specialite="specialite1" prenom="Larry" nom="Ellison" sexe_MF="m" email="larry@orcl.com" compagnie="Oracle"  cv_soumis="" details="detailsorganisateurs 1" role_participant_id="4" type_participant_id="2"/>
+	<participant id="2" salutation="Monsieur" specialite="specialite1" prenom="Eric" nom="Schmidt" sexe_MF="m" email="larry@orcl.com" compagnie="Google"  cv_soumis="" details="detailsorganisateurs 1" role_participant_id="4" type_participant_id="2"/>
 
 </dataset>

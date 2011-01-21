@@ -157,7 +157,8 @@ public class XMLUtil {
 						getValue((Element) doc.getElementsByTagName("participant").item(0), "nom"),
 						Character.valueOf(getValue((Element) doc.getElementsByTagName("participant").item(0), "sexe").charAt(0)),
 						getValue((Element) doc.getElementsByTagName("participant").item(0), "email"),
-						getValue((Element) doc.getElementsByTagName("participant").item(0), "presentationsoumise"),
+						// getValue((Element) doc.getElementsByTagName("participant").item(0), "presentationsoumise"),
+						null,
 						getValue((Element) doc.getElementsByTagName("participant").item(0), "cvsoumis"),
 						getValue((Element) doc.getElementsByTagName("participant").item(0), "details"));
 				

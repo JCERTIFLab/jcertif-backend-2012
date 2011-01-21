@@ -42,7 +42,7 @@ public class ParticipantServiceImplTest {
 	 */
 	@Test
 	public void testCreateParticipant() {
-		Participant participant = new Participant(Long.valueOf(1), null, "Mr", "Java", "Bernard", "Adanlessossi", 'M', "adalessossi@gmail.com", "Présentation", "cv", "detail", null, null, null);
+		Participant participant = new Participant(Long.valueOf(1), null, "Mr", "Java", "Bernard", "Adanlessossi", 'M', "adalessossi@gmail.com", null, "cv", "detail", null, null, null);
 		Mockito.when(participantDAO.merge(participant))
 		.thenReturn(participant);
 	}
@@ -54,9 +54,9 @@ public class ParticipantServiceImplTest {
 	public void testFindById() {
 		Long idParticipant = Long.valueOf(1);
 		List<Participant> participantList = new ArrayList<Participant>();
-		Participant participant1 = new Participant(Long.valueOf(1), null, "Mr", "Java", "Bernard", "Adanlessossi", 'M', "adalessossi@gmail.com", "Présentation Bernard", "cv ben", "detail ben", null, null, null);
-		Participant participant2 = new Participant(Long.valueOf(2), null, "Mr", "Vaadin", "Max", "Bonbhel", 'M', "max@gmail.com", "Présentation Max", "cv max", "detail max", null, null, null);
-		Participant participant3 = new Participant(Long.valueOf(3), null, "Mr", "JPA", "Rossi", "Odet", 'M', "rossi@gmail.com", "Présentation Rossi", "cv rossi", "detail max", null, null, null);
+		Participant participant1 = new Participant(Long.valueOf(1), null, "Mr", "Java", "Bernard", "Adanlessossi", 'M', "adalessossi@gmail.com", null, "cv ben", "detail ben", null, null, null);
+		Participant participant2 = new Participant(Long.valueOf(2), null, "Mr", "Vaadin", "Max", "Bonbhel", 'M', "max@gmail.com", null, "cv max", "detail max", null, null, null);
+		Participant participant3 = new Participant(Long.valueOf(3), null, "Mr", "JPA", "Rossi", "Odet", 'M', "rossi@gmail.com", null, "cv rossi", "detail max", null, null, null);
 		participantList.add(participant1);
 		participantList.add(participant2);
 		participantList.add(participant3);
@@ -71,7 +71,7 @@ public class ParticipantServiceImplTest {
 	 */
 	@Test
 	public void testSave() {
-		Participant participant = new Participant(Long.valueOf(1), null, "Mr", "Java", "Bernard", "Adanlessossi", 'M', "adalessossi@gmail.com", "Présentation", "cv", "detail", null, null, null);
+		Participant participant = new Participant(Long.valueOf(1), null, "Mr", "Java", "Bernard", "Adanlessossi", 'M', "adalessossi@gmail.com", null, "cv", "detail", null, null, null);
 		Mockito.when(participantDAO.merge(participant))
 		.thenReturn(participant);
 		assertEquals(participant, service.save(participant));
@@ -82,7 +82,7 @@ public class ParticipantServiceImplTest {
 	 */
 	@Test
 	public void testUpdate() {
-		Participant participant = new Participant(Long.valueOf(1), null, "Mr", "Java, JEE, ZK", "Bernard", "Adanlessossi", 'M', "adalessossi@gmail.com", "Présentation", "cv", "detail", null, null, null);
+		Participant participant = new Participant(Long.valueOf(1), null, "Mr", "Java, JEE, ZK", "Bernard", "Adanlessossi", 'M', "adalessossi@gmail.com", null, "cv", "detail", null, null, null);
 		Mockito.when(participantDAO.merge(participant))
 		.thenReturn(participant);
 	}
@@ -92,7 +92,7 @@ public class ParticipantServiceImplTest {
 	 */
 	@Test
 	public void testRemove() {
-		Participant participant = new Participant(Long.valueOf(1), null, "Mr", "Java", "Bernard", "Adanlessossi", 'M', "adalessossi@gmail.com", "Présentation", "cv", "detail", null, null, null);
+		Participant participant = new Participant(Long.valueOf(1), null, "Mr", "Java", "Bernard", "Adanlessossi", 'M', "adalessossi@gmail.com", null, "cv", "detail", null, null, null);
 		
 		service.remove(participant);
 		Mockito.verify(participantDAO).remove(participant);
