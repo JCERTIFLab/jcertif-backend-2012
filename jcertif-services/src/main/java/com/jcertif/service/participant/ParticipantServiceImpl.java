@@ -26,6 +26,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class ParticipantServiceImpl extends AbstractService<Participant, Long, ParticipantDAO> implements ParticipantService {
 
     @Autowired
+    ParticipantDAO service;
+    @Autowired
     private ConferenceDAO conferenceDAO;
     @Autowired
     private RoleParticipantDAO roleParticipantDAO;
@@ -51,5 +53,15 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
         } else {
         }
         return super.save(participant);
+    }
+
+    @Override
+    public ParticipantDAO getService() {
+        return service;
+    }
+
+    @Override
+    public void setService(ParticipantDAO service) {
+        this.service = service;
     }
 }

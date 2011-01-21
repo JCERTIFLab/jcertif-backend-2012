@@ -7,7 +7,6 @@ package com.jcertif.service;
 import com.jcertif.dao.api.GenericDAO;
 import java.io.Serializable;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -20,21 +19,14 @@ public abstract class AbstractService<T, PK extends Serializable, S extends Gene
      *
      * @return list des entites
      */
-    @Autowired
-   private S service;
+    public abstract S getService();
 
-    public S getService() {
-        return service;
-    }
+    @Override
+    public abstract void setService(S service);
 
     @Override
     public List<T> findAll() {
         return getService().findAll();
-    }
-
-    @Override
-    public void setService(S service) {
-        this.service = service;
     }
 
     /**
