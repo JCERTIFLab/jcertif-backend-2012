@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<adresse id="1" ligne1="ligne1 1" ligne2="ligne2 1" code_postal="code_postal 1" ville="Kinshasa 1" province="Kinshasa 1" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
+	
+	<role_participant id="1" code_role="speaker" description="speaker" />	
+	<role_participant id="2" code_role="organisateur" description="organisateur" />
+	<role_participant id="3" code_role="visiteur" description="visiteur" />
+	<role_participant id="4" code_role="partenaire" description="partenaire" />
+	
+	<type_participant id="1" code="particulier" description="particulier"/>
+	<type_participant id="2" code="entreprise" description="entreprise"/>
+	<type_participant id="3" code="etudiant" description="etudiant"/>
+	
+	<profil_utilisateur id="1" nom_profil="maxb" email="max@bon.com" photo="max.png" langue_correspondance="fr" code_confirmation="F" />
+	
+	<participant id="3" salutation="Monsieur" specialite="specialite1" prenom="Max" nom="Bonbhel" sexe_MF="m" email="max@bon.com" compagnie="Max and co" presentation_soumise= "" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="2" type_participant_id="1" profil_utilisateur_id="1" adresse_id="1"/>
+	<participant id="1" salutation="Monsieur" specialite="specialite1" prenom="Larry" nom="Ellison" sexe_MF="m" email="larry@orcl.com" compagnie="Oracle" presentation_soumise= "" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="4" type_participant_id="2"/>
+	<participant id="2" salutation="Monsieur" specialite="specialite1" prenom="Eric" nom="Schmidt" sexe_MF="m" email="larry@orcl.com" compagnie="Google" presentation_soumise= "" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="4" type_participant_id="2"/>
+
+</dataset>

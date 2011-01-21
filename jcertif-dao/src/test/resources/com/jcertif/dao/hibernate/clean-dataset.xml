@@ -8,6 +8,7 @@
 	<type_evenement/>
 	<evenement/>
 	<proposition_presentation />
+	<participant />
 	<auteur />
 	<propos_presentation_auteur />
 	<proposition_presentation_sujet />
