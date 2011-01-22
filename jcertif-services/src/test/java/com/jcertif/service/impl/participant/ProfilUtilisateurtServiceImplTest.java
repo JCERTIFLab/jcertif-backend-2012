@@ -1,4 +1,4 @@
-package com.jcertif.service.participant;
+package com.jcertif.service.impl.participant;
 
 import static org.junit.Assert.*;
 
