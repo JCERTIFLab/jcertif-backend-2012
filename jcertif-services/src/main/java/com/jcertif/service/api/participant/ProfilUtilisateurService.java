@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.jcertif.service.participant;
+package com.jcertif.service.api.participant;
 
 import com.jcertif.bo.participant.ProfilUtilisateur;
 import com.jcertif.dao.api.participant.ProfilUtilisateurDAO;

@@ -13,6 +13,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.jcertif.bo.participant.ProfilUtilisateur;
 import com.jcertif.dao.api.participant.ProfilUtilisateurDAO;
+import com.jcertif.service.impl.participant.ProfilUtilisateurServiceImpl;
 
 /**
  * Tests the {@link ProfilUtilisateurServiceImpl}.
