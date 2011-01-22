@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.jcertif.facade;
+package com.jcertif.facade.participant;
 
 import java.util.List;
 
