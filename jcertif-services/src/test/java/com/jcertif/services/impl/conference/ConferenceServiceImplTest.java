@@ -1,4 +1,4 @@
-package com.services.conference;
+package com.jcertif.services.impl.conference;
 
 import java.util.Calendar;
 
@@ -10,7 +10,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.jcertif.bo.conference.Conference;
 import com.jcertif.dao.api.conference.ConferenceDAO;
-import com.jcertif.service.conference.ConferenceServiceImpl;
+import com.jcertif.service.impl.conference.ConferenceServiceImpl;
 
 /**
  * roland.amour@chrisbel.net

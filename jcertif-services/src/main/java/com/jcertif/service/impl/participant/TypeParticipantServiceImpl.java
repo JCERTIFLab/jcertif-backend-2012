@@ -1,13 +1,16 @@
 /**
  * 
  */
-package com.jcertif.service.participant;
+package com.jcertif.service.impl.participant;
 
 import com.jcertif.bo.participant.TypeParticipant;
 import com.jcertif.dao.api.participant.TypeParticipantDAO;
 import org.springframework.stereotype.Service;
 
 import com.jcertif.service.AbstractService;
+import com.jcertif.service.api.participant.ParticipantService;
+import com.jcertif.service.api.participant.TypeParticipantService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

@@ -1,9 +1,6 @@
-package com.jcertif.service.participant;
+package com.jcertif.service.impl.participant;
 
-import com.jcertif.bo.participant.TypeParticipant;
-import com.jcertif.dao.api.participant.TypeParticipantDAO;
-import com.jcertif.service.participant.TypeParticipantServiceImpl;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +10,9 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+
+import com.jcertif.bo.participant.TypeParticipant;
+import com.jcertif.dao.api.participant.TypeParticipantDAO;
 
 
 

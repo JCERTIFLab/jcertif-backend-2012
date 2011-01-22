@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.cedule.Evenement;
-import com.jcertif.service.evenement.EvenementService;
+import com.jcertif.service.api.cedule.EvenementService;
 import com.sun.jersey.api.spring.Autowire;
 
 /**

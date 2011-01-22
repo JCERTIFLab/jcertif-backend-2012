@@ -1,4 +1,4 @@
-package com.jcertif.service.conference;
+package com.jcertif.service.impl.conference;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.jcertif.bo.conference.Conference;
 import com.jcertif.dao.api.conference.ConferenceDAO;
+import com.jcertif.service.api.conference.ConferenceService;
 
 /**
  * roland.amour@chrisbel.net

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.jcertif.service.participant;
+package com.jcertif.service.api.participant;
 
 
 import com.jcertif.bo.participant.Participant;

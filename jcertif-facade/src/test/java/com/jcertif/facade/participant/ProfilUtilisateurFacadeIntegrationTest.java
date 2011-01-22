@@ -56,6 +56,7 @@ public class ProfilUtilisateurFacadeIntegrationTest extends
 	}
 
 	// TODO Voir pourquoi ça ne marche pas
+	@Test
 	public void testFindAll() {
 		List<ProfilUtilisateur> profilList = getWebResource().path("api")
 				.path("profilutilisateur").path("/list")

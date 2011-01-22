@@ -1,4 +1,4 @@
-package com.jcertif.service.conference;
+package com.jcertif.service.api.conference;
 
 import java.util.List;
 

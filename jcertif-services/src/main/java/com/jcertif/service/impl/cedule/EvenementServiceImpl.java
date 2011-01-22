@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.jcertif.service.evenement;
+package com.jcertif.service.impl.cedule;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.cedule.Evenement;
 import com.jcertif.dao.api.cedule.EvenementDAO;
+import com.jcertif.service.api.cedule.EvenementService;
 
 /**
  * service de gestion des évènements

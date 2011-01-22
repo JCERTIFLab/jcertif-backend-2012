@@ -1,4 +1,4 @@
-package com.jcertif.service.evenement;
+package com.jcertif.service.api.cedule;
 
 import java.util.List;
 

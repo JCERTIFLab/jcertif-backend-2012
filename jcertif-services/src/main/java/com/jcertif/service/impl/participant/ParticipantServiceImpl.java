@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.jcertif.service.participant;
+package com.jcertif.service.impl.participant;
 
 import com.jcertif.bo.conference.Conference;
 import org.springframework.stereotype.Service;
@@ -15,6 +15,8 @@ import com.jcertif.dao.api.participant.ProfilUtilisateurDAO;
 import com.jcertif.dao.api.participant.RoleParticipantDAO;
 import com.jcertif.dao.api.participant.TypeParticipantDAO;
 import com.jcertif.service.AbstractService;
+import com.jcertif.service.api.participant.ParticipantService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

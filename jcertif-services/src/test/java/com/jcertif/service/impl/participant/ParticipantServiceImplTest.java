@@ -1,4 +1,4 @@
-package com.jcertif.service.participant;
+package com.jcertif.service.impl.participant;
 
 import static org.junit.Assert.*;
 
@@ -13,6 +13,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.jcertif.bo.participant.Participant;
 import com.jcertif.dao.api.participant.ParticipantDAO;
+import com.jcertif.service.impl.participant.ParticipantServiceImpl;
 
 /**
  * Tests the {@link ParticipantServiceImpl}.

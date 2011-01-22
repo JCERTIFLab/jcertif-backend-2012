@@ -1,23 +1,13 @@
 package com.jcertif.facade.participant;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.List;
-
-import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.cedule.CeduleParticipant;
-import com.jcertif.service.participant.CeduleParticipantService;
+import com.jcertif.facade.AbstractFacade;
+import com.jcertif.service.api.cedule.CeduleParticipantService;
 import com.sun.jersey.api.spring.Autowire;
 
 /**
@@ -26,116 +16,23 @@ import com.sun.jersey.api.spring.Autowire;
  * @author rossi.oddet
  * 
  */
-@Path("cedule/participant")
+@Path("ceduleparticipant")
 @Service
 @Autowire
-public class CeduleParticipantFacade {
+public class CeduleParticipantFacade extends
+		AbstractFacade<CeduleParticipantService, CeduleParticipant, Long> {
 
-	/**
-	 * The Logger.
-	 */
-	private Logger LOGGER = LoggerFactory
-			.getLogger(CeduleParticipantFacade.class);
-
-	/**
-	 * Service CeduleParticipant.
-	 */
 	@Autowired
-	private CeduleParticipantService ceduleParticipantService;
+	private CeduleParticipantService service;
 
-	/**
-	 * @return all ceduleParticipant
-	 */
-	@GET
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Path("find/all/")
-	public List<CeduleParticipant> findAll() {
-		LOGGER.debug("Calling Web Service /api/cedule/participant/find/all/");
-		return ceduleParticipantService.findAll();
+	@Override
+	public CeduleParticipantService getService() {
+		return service;
 	}
 
-	/**
-	 * @return la liste des cedules d'un participant
-	 */
-	@GET
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Path("find/by/participant/{idParticipant}/")
-	public List<CeduleParticipant> findByParticipant(
-			@PathParam("idParticipant") Long idParticipant) {
-		LOGGER.debug(
-				"Calling Web Service /api/cedule/participant/find/by/participant/{}/",
-				idParticipant);
-		return ceduleParticipantService.findByParticipant(idParticipant);
-	}
-
-	/**
-	 * Sauvegarde d'une cedule participant.
-	 * 
-	 * @param idParticipant
-	 * @param dateCedule
-	 * @param details
-	 * @param codeStatut
-	 * @param idConference
-	 * @return
-	 */
-	@GET
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Path("create/{idParticipant}/{dateCedule}/{details}/{codeStatut}/{idEvent}")
-	public CeduleParticipant saveNewCedule(
-			@PathParam("idParticipant") Long idParticipant,
-			@PathParam("dateCedule") String dateCedule,
-			@PathParam("details") String details,
-			@PathParam("codeStatut") String codeStatut,
-			@PathParam("idEvent") Long idEvent) {
-		LOGGER.debug(
-				"Calling Web Service /api/cedule/participant/save/{}/{}/{}/{}/{}/{}",
-				new Object[] { idParticipant, dateCedule, details, codeStatut,
-						idEvent });
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd:MM:yyyy");
-		Calendar ceduleCalendar = Calendar.getInstance();
-		try {
-			ceduleCalendar.setTime(dateFormat.parse(dateCedule));
-		} catch (ParseException e) {
-			LOGGER.error(
-					"Impossible de parser la date avec le format dd:MM:yyy", e);
-		}
-		return ceduleParticipantService.createCedule(ceduleCalendar, details,
-				idParticipant, idEvent, codeStatut);
-	}
-
-	/**
-	 * Mise � jour d'une cedule.
-	 * 
-	 * @param idCedule
-	 * @param idParticipant
-	 * @param dateCedule
-	 * @param details
-	 * @param codeStatut
-	 * @param idEvent
-	 */
-	@GET
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Path("update/{idCedule}/{idParticipant}/{dateCedule}/{details}/{codeStatut}/{idEvent}")
-	public CeduleParticipant updateCedule(@PathParam("idCedule") Long idCedule,
-			@PathParam("idParticipant") Long idParticipant,
-			@PathParam("dateCedule") String dateCedule,
-			@PathParam("details") String details,
-			@PathParam("codeStatut") String codeStatut,
-			@PathParam("idEvent") Long idEvent) {
-		LOGGER.debug(
-				"Calling Web Service /api/cedule/participant/save/{}/{}/{}/{}/{}/{}/{}",
-				new Object[] { idCedule, idParticipant, dateCedule, details,
-						codeStatut, idEvent });
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd:MM:yyyy");
-		Calendar ceduleCalendar = Calendar.getInstance();
-		try {
-			ceduleCalendar.setTime(dateFormat.parse(dateCedule));
-		} catch (ParseException e) {
-			LOGGER.error(
-					"Impossible de parser la date avec le format dd:MM:yyy", e);
-		}
-		return ceduleParticipantService.updateCedule(idCedule, ceduleCalendar,
-				details, idParticipant, idEvent, codeStatut);
+	@Override
+	public void setService(CeduleParticipantService service) {
+		this.service = service;
 	}
 
 }

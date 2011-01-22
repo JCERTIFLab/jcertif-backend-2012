@@ -1,7 +1,9 @@
-package com.jcertif.service.participant;
+package com.jcertif.service.impl.participant;
 
 import com.jcertif.bo.participant.RoleParticipant;
 import com.jcertif.dao.api.participant.RoleParticipantDAO;
+import com.jcertif.service.impl.participant.RoleParticipantServiceImpl;
+
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
