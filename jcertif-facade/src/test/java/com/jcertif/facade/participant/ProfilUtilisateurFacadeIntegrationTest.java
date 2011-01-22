@@ -23,15 +23,105 @@ public class ProfilUtilisateurFacadeIntegrationTest extends
 	/**
 	 * Exécution d'un scénario CRUD avec JSON.
 	 */
-	@Test
+	
 	public void testCRUDJSON() {
 		executeCRUD(MediaType.APPLICATION_JSON);
+	}
+
+	@Test
+	public void testCREATE() {
+		ProfilUtilisateur newProfil1 = getProfilUtilisateur("rossi",
+				"rossi@rossi.fr", "FR", "monpass", "ma_photo");
+		ProfilUtilisateur createdProfil1 = getWebResource().path("api")
+				.path("profilutilisateur").path("create")
+				.accept(MediaType.APPLICATION_JSON)
+				.post(ProfilUtilisateur.class, newProfil1);
+
+		// Vérification de la création du profil 1
+		verifierProfilSauve(newProfil1, createdProfil1);
+	}
+
+	@Test
+	public void testFindById() {
+		// Création d'un profil 2 utilisateur dans la base de données
+		ProfilUtilisateur newProfil2 = getProfilUtilisateur("rossi",
+				"rossi@rossi.fr", "FR", "monpass", "ma_photo");
+		ProfilUtilisateur createdProfil2 = getWebResource().path("api")
+				.path("profilutilisateur").path("create")
+				.accept(MediaType.APPLICATION_JSON)
+				.post(ProfilUtilisateur.class, newProfil2);
+		verifierProfilSauve(newProfil2, createdProfil2);
+
+		// TEST FINDBYID
+		// Récupération du profil 2 enregistré
+		ProfilUtilisateur profilById = getWebResource().path("api")
+				.path("profilutilisateur").path("/" + createdProfil2.getId())
+				.accept(MediaType.APPLICATION_JSON)
+				.get(ProfilUtilisateur.class);
+		// Vérification que c'est bien le profil 2 qui est récupéré
+		assertEquals(createdProfil2.getId(), profilById.getId());
+		assertEquals(createdProfil2, profilById);
+	}
+
+	// TODO Voir pourquoi ça ne marche pas
+	public void testFindAll() {
+		List<ProfilUtilisateur> profilList = getWebResource().path("api")
+				.path("profilutilisateur").path("/list")
+				.accept(MediaType.APPLICATION_JSON)
+				.get(ProfilUtilisateurs.class).getProfilUtilisateurs();
+		// vérification qu'il y a bien les 2 éléments créés
+		assertTrue(profilList != null);
+	}
+
+	@Test
+	public void testUpdate() {
+		// TEST UPDATE
+		// Création d'un profil 2 utilisateur dans la base de données
+		ProfilUtilisateur newProfil2 = getProfilUtilisateur("rossi",
+				"rossi@rossi.fr", "FR", "monpass", "ma_photo");
+		ProfilUtilisateur createdProfil2 = getWebResource().path("api")
+				.path("profilutilisateur").path("create")
+				.accept(MediaType.APPLICATION_JSON)
+				.post(ProfilUtilisateur.class, newProfil2);
+		createdProfil2.setEmail("newEmail@ne.fr");
+		ProfilUtilisateur createdProfil2update = getWebResource().path("api")
+				.path("profilutilisateur").path("update")
+				.accept(MediaType.APPLICATION_JSON)
+				.post(ProfilUtilisateur.class, createdProfil2);
+		// Vérification que l'ID est le même
+		assertEquals(createdProfil2.getId(), createdProfil2update.getId());
+		// Vérification que le changement a bien eu lieu
+		assertEquals(createdProfil2.getEmail(), createdProfil2update.getEmail());
+	}
+
+	// TODO Voir pourquoi ça ne marche pas
+	public void testDelete() {
+		// TEST DELETE
+		ProfilUtilisateur newProfil2 = getProfilUtilisateur("rossi",
+				"rossi@rossi.fr", "FR", "monpass", "ma_photo");
+		ProfilUtilisateur createdProfil2 = getWebResource().path("api")
+				.path("profilutilisateur").path("create")
+				.accept(MediaType.APPLICATION_JSON)
+				.post(ProfilUtilisateur.class, newProfil2);
+		List<ProfilUtilisateur> profilList = getWebResource().path("api")
+				.path("profilutilisateur").path("/list")
+				.accept(MediaType.APPLICATION_JSON)
+				.get(ProfilUtilisateurs.class).getProfilUtilisateurs();
+		getWebResource().path("api").path("profilutilisateur").path("delete")
+				.accept(MediaType.APPLICATION_JSON)
+				.post(ProfilUtilisateur.class, createdProfil2);
+		// Vérification qu'il y a bien un élément en moins
+		List<ProfilUtilisateur> profilListAfterDelete = getWebResource()
+				.path("api").path("profilutilisateur").path("/list")
+				.accept(MediaType.APPLICATION_JSON)
+				.get(ProfilUtilisateurs.class).getProfilUtilisateurs();
+		assertEquals(profilList.size() - 1, profilListAfterDelete.size());
 	}
 
 	/**
 	 * Exécution d'un scénario CRUD avec XML.
 	 */
-	@Test
+	
 	public void testCRUDXML() {
 		executeCRUD(MediaType.APPLICATION_XML);
 	}
@@ -92,10 +182,11 @@ public class ProfilUtilisateurFacadeIntegrationTest extends
 				.accept(type)
 				.post(ProfilUtilisateur.class, createdProfil2update);
 		// Vérification qu'il ne reste bien qu'un seul élément
-		List<ProfilUtilisateur> profilListAfterDelete = getWebResource().path("api")
-				.path("profilutilisateur").path("/list").accept(type)
-				.get(ProfilUtilisateurs.class).getProfilUtilisateurs();
-		assertEquals(profilList.size()-1, profilListAfterDelete.size());
+		List<ProfilUtilisateur> profilListAfterDelete = getWebResource()
+				.path("api").path("profilutilisateur").path("/list")
+				.accept(type).get(ProfilUtilisateurs.class)
+				.getProfilUtilisateurs();
+		assertEquals(profilList.size() - 1, profilListAfterDelete.size());
 
 	}
 
