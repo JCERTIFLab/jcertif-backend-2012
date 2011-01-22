@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.participant.Participant;
 import com.jcertif.dao.api.participant.ParticipantDAO;
+import com.jcertif.facade.AbstractFacade;
 import com.jcertif.service.participant.ParticipantService;
 import com.sun.jersey.api.spring.Autowire;
 
@@ -32,52 +33,28 @@ import com.sun.jersey.api.spring.Autowire;
 @Path("/participants")
 @Service
 @Autowire
-public class ParticipantFacade {
-	
-	private static final Logger LOG = LoggerFactory.getLogger(ParticipantFacade.class);
-	
+public class ParticipantFacade extends AbstractFacade<ParticipantService, Participant, Long> {
+
+	private static final Logger LOG = LoggerFactory
+	        .getLogger(ParticipantFacade.class);
+
 	@Autowired
 	private ParticipantService participantService;
 
 	/**
 	 * Creates a new {@link Participant} in the database.
 	 * 
-	 * @param id
-	 *            the id
-	 * @param dateinscription
-	 *            the registration date
-	 * @param salutation
-	 *            the salutation
-	 * @param specialite
-	 *            the speciality
-	 * @param prenom
-	 *            the first name
-	 * @param nom
-	 *            the last name
-	 * @param sexe
-	 *            the sex
-	 * @param email
-	 *            the email
-	 * @param presentationsoumise
-	 *            the submitted paper
-	 * @param cvsoumis
-	 *            the submitted curriculum
-	 * @param details
-	 *            the details
-	 * @param roleparticipant
-	 *            the role
-	 * @param conference
-	 *            the conference
-	 * @param ceduleparticipants
-	 *            the schedule
+	 * @param participant
+	 *            the participant
 	 * @return the newly created {@link Participant}
 	 */
 	@PUT
-	@Path("/participant/{id}")
+	@Path("/participant")
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Participant createParticipant(Participant participant) {
 
-		LOG.debug("Creating a new Participant with Name: {}", participant.getPrenom() + " " + participant.getNom());
+		LOG.debug("Creating a new Participant with Name: {}",
+		        participant.getPrenom() + " " + participant.getNom());
 		return participantService.save(participant);
 	}
 
@@ -94,7 +71,7 @@ public class ParticipantFacade {
 
 	@GET
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Path("/list")
+	@Path("/allparticipants")
 	/**
 	 * Retrieves the list of all participants.
 	 */
@@ -104,7 +81,7 @@ public class ParticipantFacade {
 	}
 
 	@PUT
-	@Path("/participant/update")
+	@Path("/updateparticipant")
 	/**
 	 * Updates the given participant.
 	 */
@@ -116,7 +93,7 @@ public class ParticipantFacade {
 	}
 
 	@DELETE
-	@Path("/participant/delete")
+	@Path("/deleteparticipant")
 	/**
 	 * Deletes the participant.
 	 */
@@ -124,4 +101,14 @@ public class ParticipantFacade {
 		LOG.debug("Deleting the participant with key: {}", participant.getId());
 		participantService.remove(participant);
 	}
+
+	@Override
+    public ParticipantService getService() {
+	    return participantService;
+    }
+
+	@Override
+    public void setService(ParticipantService service) {
+	    this.participantService = service;	    
+    }
 }
