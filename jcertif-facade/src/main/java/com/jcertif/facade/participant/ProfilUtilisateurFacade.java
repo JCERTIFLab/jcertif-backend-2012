@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.participant.ProfilUtilisateur;
-import com.jcertif.dao.api.participant.ProfilUtilisateurDAO;
 import com.jcertif.facade.AbstractFacade;
 import com.jcertif.service.api.participant.ProfilUtilisateurService;
 import com.sun.jersey.api.spring.Autowire;
@@ -20,9 +19,8 @@ import com.sun.jersey.api.spring.Autowire;
 @Path("profilutilisateur")
 @Service
 @Autowire
-public class ProfilUtilisateurFacade
-		extends
-		AbstractFacade<ProfilUtilisateurService, ProfilUtilisateur, Long, ProfilUtilisateurDAO> {
+public class ProfilUtilisateurFacade extends
+		AbstractFacade<ProfilUtilisateurService, ProfilUtilisateur, Long> {
 
 	@Autowired
 	private ProfilUtilisateurService service;

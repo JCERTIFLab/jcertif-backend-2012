@@ -11,7 +11,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.jcertif.dao.api.GenericDAO;
 import com.jcertif.service.GenericService;
 
 /**
@@ -21,7 +20,7 @@ import com.jcertif.service.GenericService;
  * @param <T>
  * 
  */
-public abstract class AbstractFacade<S extends GenericService<T, PK, D>, T, PK extends Serializable, D extends GenericDAO<T, PK>> {
+public abstract class AbstractFacade<S extends GenericService<T, PK, ?>, T, PK extends Serializable> {
 	protected static final String CREATE_SUFFIX = "/create";
 	protected static final String FINDBYID_SUFFIX = "/{id}";
 	protected static final String FINDALL_SUFFIX = "/list";
