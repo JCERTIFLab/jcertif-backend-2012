@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import com.jcertif.bo.participant.Participant;
 import com.jcertif.bo.participant.Participants;
-import com.jcertif.facade.AbstractIntegrationFacadeTest;
+import com.jcertif.facade.AbstractFacadeIntegrationTest;
 
 /**
  * Integration test for the {@link ParticipantFacade}.
@@ -19,7 +19,7 @@ import com.jcertif.facade.AbstractIntegrationFacadeTest;
  * @author Bernard Adanlessossi
  */
 public class ParticipantFacadeIntegrationTest extends
-        AbstractIntegrationFacadeTest {
+        AbstractFacadeIntegrationTest {
 
 	@Test
 	public void testGetAllParticipants() {
