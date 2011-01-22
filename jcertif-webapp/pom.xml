@@ -137,8 +137,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.vaadin.addons</groupId>
+            <artifactId>customfield</artifactId>
+            <version>0.8.0</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
-
-
-
 </project>

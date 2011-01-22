@@ -16,7 +16,7 @@
         <init-param>
             <description>Vaadin application class to start</description>
             <param-name>application</param-name>
-            <param-value>com.jcertif.webapp.vaadin.proto.clendar.demo.JCertifCalendarTest</param-value>
+            <param-value>com.jcertif.webapp.ui.principal.JCertifVaadinApplication</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
