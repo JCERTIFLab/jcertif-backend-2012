@@ -1,4 +1,4 @@
-package com.jcertif.facade.participant;
+package com.jcertif.facade.cedule;
 
 import javax.ws.rs.Path;
 
