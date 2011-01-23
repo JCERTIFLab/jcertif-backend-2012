@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.jcertif.bo.participant.Participant;
 import com.jcertif.dao.api.participant.ParticipantDAO;
 import com.jcertif.facade.AbstractFacade;
-import com.jcertif.service.participant.ParticipantService;
+import com.jcertif.service.api.participant.ParticipantService;
 import com.sun.jersey.api.spring.Autowire;
 
 /**

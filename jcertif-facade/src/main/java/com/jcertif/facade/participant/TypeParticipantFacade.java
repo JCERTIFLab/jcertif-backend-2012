@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.participant.TypeParticipant;
 import com.jcertif.facade.AbstractFacade;
-import com.jcertif.service.participant.TypeParticipantService;
+import com.jcertif.service.api.participant.TypeParticipantService;
 import com.sun.jersey.api.spring.Autowire;
 
 /**
