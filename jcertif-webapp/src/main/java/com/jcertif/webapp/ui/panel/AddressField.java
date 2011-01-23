@@ -33,6 +33,8 @@ public class AddressField extends CustomField {
             addressForm.setItemDataSource(new BeanItem<Adresse>(address));
         }
         setCompositionRoot(addressForm);
+        setSizeFull();
+        
     }
 
     /**
