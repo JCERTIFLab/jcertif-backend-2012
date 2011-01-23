@@ -1,8 +1,8 @@
 package com.jcertif.service.api.cedule;
 
-import java.util.List;
-
 import com.jcertif.bo.cedule.Evenement;
+import com.jcertif.dao.api.cedule.EvenementDAO;
+import com.jcertif.service.GenericService;
 
 /**
  * Business layer interface for Evenement.
@@ -10,18 +10,6 @@ import com.jcertif.bo.cedule.Evenement;
  * @author thierry.balla
  * 
  */
-public interface EvenementService {
-
-	public Evenement createEvenement(Evenement evenement);
-
-	public List<Evenement> findAll();
-
-	public Evenement findById(Long key);
-
-	public Evenement save(Evenement evenement);
-
-	public Evenement update(Evenement evenement);
-
-	public void remove(Evenement evenement);
-
+public interface EvenementService extends
+		GenericService<Evenement, Long, EvenementDAO> {
 }

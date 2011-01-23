@@ -43,7 +43,7 @@ public class EvenementServiceImplTest {
 		// Let mockito create nice objet for us
 		MockitoAnnotations.initMocks(this);
 		evenementService = new EvenementServiceImpl();
-		evenementService.setEvenementDAO(evenementDAO);
+		evenementService.setDAO(evenementDAO);
 	}
 
 	/**
