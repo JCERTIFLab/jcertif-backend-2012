@@ -79,7 +79,7 @@ public class ParticipantForm extends Form implements ClickListener {
                     field.addValidator(new EmailValidator(
                             "L'addresse electronique doit contenir '@' et un nom de domaine complet."));
                     field.setRequired(true);
-                } else if ("address".equals(propertyId)) {
+                } else if ("adresse".equals(propertyId)) {
                     // create a custom field for the Address object
                     field = new AddressField(beanItem.getBean().getAdresse());
                 }
