@@ -5,10 +5,8 @@ import javax.ws.rs.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jcertif.bo.cedule.CeduleParticipant;
 import com.jcertif.bo.cedule.Evenement;
 import com.jcertif.facade.AbstractFacade;
-import com.jcertif.service.api.cedule.CeduleParticipantService;
 import com.jcertif.service.api.cedule.EvenementService;
 import com.sun.jersey.api.spring.Autowire;
 
