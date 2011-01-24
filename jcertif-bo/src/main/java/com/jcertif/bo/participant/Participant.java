@@ -2,7 +2,6 @@ package com.jcertif.bo.participant;
 
 import java.util.Calendar;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -21,6 +20,7 @@ import com.jcertif.bo.Person;
 import com.jcertif.bo.cedule.CeduleParticipant;
 import com.jcertif.bo.conference.Conference;
 import com.jcertif.bo.presentation.PropositionPresentation;
+import java.util.Date;
 
 /**
  * 
@@ -32,7 +32,7 @@ public class Participant extends Person {
 
 	private static final long serialVersionUID = 1L;
 	@Column
-	private Calendar dateInscription;
+	private Date dateInscription;
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "proposition_presentation_id")
@@ -74,7 +74,7 @@ public class Participant extends Person {
 	/**
 	 * Constructor
 	 */
-	public Participant(Long id, Calendar dateinscription, String salutation,
+	public Participant(Long id, Date dateinscription, String salutation,
 			String specialite, String prenom, String nom, Character sexe,
 			String email, PropositionPresentation presentationsoumise,
 			String cvsoumis, String details, RoleParticipant roleparticipant,
@@ -141,14 +141,14 @@ public class Participant extends Person {
 	/**
 	 * @return the dateInscription
 	 */
-	public Calendar getDateInscription() {
+	public Date getDateInscription() {
 		return dateInscription;
 	}
 
 	/**
 	 * @param dateInscription the dateInscription to set
 	 */
-	public void setDateInscription(Calendar dateInscription) {
+	public void setDateInscription(Date dateInscription) {
 		this.dateInscription = dateInscription;
 	}
 

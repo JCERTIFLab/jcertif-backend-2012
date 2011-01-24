@@ -34,7 +34,7 @@
         <module>../jcertif-dao</module>
         <module>../jcertif-services</module>
         <module>../jcertif-facade</module>
-        <module>../jcertif-webapp</module>
+  <!--      <module>../jcertif-webapp</module> -->
         <module>../jcertif-presentation</module>
 		
 		
