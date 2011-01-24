@@ -72,7 +72,7 @@ public class Salle extends AbstractBO {
 	private CentreConference centreConference;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name ="salle_paritularite_salle", joinColumns = @JoinColumn(name = "salle_id"), inverseJoinColumns = @JoinColumn(name = "particularite_salle_id"))
+	@JoinTable(name ="salle_particularite_salle", joinColumns = @JoinColumn(name = "salle_id"), inverseJoinColumns = @JoinColumn(name = "particularite_salle_id"))
 	private Set<ParticulariteSalle> particularitesalles=new HashSet<ParticulariteSalle>();
 	
 	/**
