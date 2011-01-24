@@ -20,7 +20,6 @@ import com.jcertif.bo.Person;
 import com.jcertif.bo.cedule.CeduleParticipant;
 import com.jcertif.bo.conference.Conference;
 import com.jcertif.bo.presentation.PropositionPresentation;
-import java.util.Date;
 
 /**
  * 
@@ -32,7 +31,7 @@ public class Participant extends Person {
 
 	private static final long serialVersionUID = 1L;
 	@Column
-	private Date dateInscription;
+	private Calendar dateInscription;
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "proposition_presentation_id")
@@ -74,7 +73,7 @@ public class Participant extends Person {
 	/**
 	 * Constructor
 	 */
-	public Participant(Long id, Date dateinscription, String salutation,
+	public Participant(Long id, Calendar dateinscription, String salutation,
 			String specialite, String prenom, String nom, Character sexe,
 			String email, PropositionPresentation presentationsoumise,
 			String cvsoumis, String details, RoleParticipant roleparticipant,
@@ -141,14 +140,14 @@ public class Participant extends Person {
 	/**
 	 * @return the dateInscription
 	 */
-	public Date getDateInscription() {
+	public Calendar getDateInscription() {
 		return dateInscription;
 	}
 
 	/**
 	 * @param dateInscription the dateInscription to set
 	 */
-	public void setDateInscription(Date dateInscription) {
+	public void setDateInscription(Calendar dateInscription) {
 		this.dateInscription = dateInscription;
 	}
 
