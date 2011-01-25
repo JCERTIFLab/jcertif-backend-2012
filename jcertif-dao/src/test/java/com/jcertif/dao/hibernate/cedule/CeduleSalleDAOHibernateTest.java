@@ -23,7 +23,7 @@ import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 @ContextConfiguration(locations = { "classpath:jcertif-dao-test-beans.xml" })
 public class CeduleSalleDAOHibernateTest extends AbstractDAOTestCase {
 
-	private static final String DATE_FORMAT = "yyyy-MM-dd";
+	private static final String DATE_FORMAT = "yyyy-MM-dd hh:mm";
 	/**
 	 * DAO CeduleSalle.
 	 */
@@ -38,11 +38,11 @@ public class CeduleSalleDAOHibernateTest extends AbstractDAOTestCase {
 	@Test
 	public void testGetReference() throws ParseException {
 		CeduleSalle ceduleSalle1 = ceduleSalleDAO.getReference(Long.valueOf(1));
-		assertEquals("2011-02-01",
+		assertEquals("2011-02-01 12:00",
 				DateFormatUtils.format(ceduleSalle1.getDateCedule().getTime(),DATE_FORMAT));
 		assertEquals("details 1", ceduleSalle1.getDetails());
-		assertEquals("JCertif 2011", ceduleSalle1.getConference().getNom());
-		
+		assertEquals("What's new in Vaadin", ceduleSalle1.getEvenement().getNomEvenement());
+		assertEquals("2011-02-12 10:00", DateFormatUtils.format(ceduleSalle1.getEvenement().getDateDebutPrevue(), DATE_FORMAT));
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class CeduleSalleDAOHibernateTest extends AbstractDAOTestCase {
 	@Test
 	public void testFindById() {
 		CeduleSalle ceduleSalle2 = ceduleSalleDAO.findById(Long.valueOf(2));
-		assertEquals("2011-02-02",
+		assertEquals("2011-02-02 12:00",
 				DateFormatUtils.format(ceduleSalle2.getDateCedule().getTime(),DATE_FORMAT));
 		assertEquals("details 2", ceduleSalle2.getDetails());
 		assertEquals("libelle salle 2", ceduleSalle2.getSalle().getLibelle());

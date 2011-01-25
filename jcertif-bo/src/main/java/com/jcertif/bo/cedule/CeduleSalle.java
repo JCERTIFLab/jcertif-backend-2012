@@ -16,7 +16,6 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import com.jcertif.bo.AbstractBO;
-import com.jcertif.bo.conference.Conference;
 import com.jcertif.bo.salle.Salle;
 
 /**
@@ -53,7 +52,7 @@ public class CeduleSalle extends AbstractBO {
 	/**
 	 * Salle cedulle salle.
 	 */
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "salle_id")
 	private Salle salle;
 
@@ -65,11 +64,11 @@ public class CeduleSalle extends AbstractBO {
 	private StatutCedule statutCedule;
 
 	/**
-	 * Conférence d'une cedule Salle.
+	 * Evenement d'une cedule Salle.
 	 */
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-	@JoinColumn(name = "conference_id")
-	private Conference conference;
+	@JoinColumn(name = "evenement_id")
+	private Evenement evenement;
 
 
 	/**
@@ -155,17 +154,17 @@ public class CeduleSalle extends AbstractBO {
 	}
 
 	/**
-	 * @return the conference
+	 * @return the evenement
 	 */
-	public Conference getConference() {
-		return conference;
+	public Evenement getEvenement() {
+		return evenement;
 	}
 
 	/**
-	 * @param conference the conference to set
+	 * @param evenement the evenement to set
 	 */
-	public void setConference(Conference conference) {
-		this.conference = conference;
+	public void setEvenement(Evenement evenement) {
+		this.evenement = evenement;
 	}
 
 	/**

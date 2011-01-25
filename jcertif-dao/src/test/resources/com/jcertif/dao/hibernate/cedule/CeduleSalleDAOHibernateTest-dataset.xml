@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset xmlns:xsi="http://www.w3.org/2002/XMLSchema-instance">
-	<conference id="7" name="JCertif 2011" date_debut="2011-02-12" date_fin="2011-12-02" website="www.jcertif.com" />
+	<type_evenement id="1" code="speak" description="normal speak"/>
+	<evenement id="7" nom_evenement="What's new in Vaadin" date_debut_prevue="2011-02-12 10:00:00" date_fin_prevue="2011-12-02 11:00:00" date_debut_effective="2011-02-12 10:05:00" date_fin_effective="2011-12-02 11:03:00" details="what's new in vaadin details" type_evenement_id="1"/>
+	<evenement id="8" nom_evenement="What's new in GWT" date_debut_prevue="2011-02-12 11:00:00" date_fin_prevue="2011-12-02 12:15:00" date_debut_effective="2011-02-12 11:00:00" date_fin_effective="2011-12-02 12:18:00" details="what's new in GWT details" type_evenement_id="1"/>
 	<salle id="2" libelle="libelle salle 2" description="description salle 2" nombre_place="2" details="details 2"/>
 	<statut_cedule id="8" code="code_statut statut_cedule 8" description="description statut_cedule 8"/>
-	<cedule_salle id="1" date_cedule="2011-02-01" details="details 1" salle_id="2" statut_cedule_id="8" conference_id="7"/>
-	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="2" statut_cedule_id="8"/>
+	<cedule_salle id="1" date_cedule="2011-02-01" details="details 1" salle_id="2" statut_cedule_id="8" evenement_id="7"/>
+	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="2" statut_cedule_id="8" evenement_id="8"/>
 	<cedule_salle id="3" date_cedule="2011-02-03"  details="details 3"/>
 	<cedule_salle id="4" date_cedule="2011-02-04"  details="details 4"/>
 	<cedule_salle id="5" date_cedule="2011-02-05"  details="details 5"/>

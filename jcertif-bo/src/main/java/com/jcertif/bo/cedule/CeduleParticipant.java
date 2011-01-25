@@ -8,6 +8,7 @@ import java.util.Calendar;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -47,7 +48,7 @@ public class CeduleParticipant extends AbstractBO {
 	@JoinColumn(name = "participant_id")
 	private Participant participant;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "statut_cedule_id")
 	private StatutCedule statutCedule;
 
