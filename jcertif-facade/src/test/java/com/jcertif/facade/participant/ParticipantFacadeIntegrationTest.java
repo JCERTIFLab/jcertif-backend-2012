@@ -3,6 +3,10 @@
  */
 package com.jcertif.facade.participant;
 
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
 import com.jcertif.facade.AbstractFacadeIntegrationTest;
 
 /**
@@ -12,6 +16,11 @@ import com.jcertif.facade.AbstractFacadeIntegrationTest;
  */
 public class ParticipantFacadeIntegrationTest extends
         AbstractFacadeIntegrationTest {
+
+	@Test
+	public void testTrue(){
+		assertTrue(true);
+	}
 
 //	@Test
 //	public void testGetAllParticipants() {
