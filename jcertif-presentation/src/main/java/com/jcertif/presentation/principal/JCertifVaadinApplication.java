@@ -310,88 +310,7 @@ public class JCertifVaadinApplication extends Application {
         texts.setMargin(false, false, true, false);
         margin.addComponent(texts);
 
-        Label text = new Label(
-                "<h4>A Complete Theme</h4>"
-                + "<p>The Reindeer theme is a complete, general purpose theme suitable for almost all types of applications."
-                + "<p>While a general purpose theme should not try to cater for every possible need, the Reindeer theme provides a set of useful styles that you can use to make the interface a bit more lively and interesing, emphasizing different parts of the application.</p>",
-                Label.CONTENT_XHTML);
-        texts.addComponent(text);
-        texts.setExpandRatio(text, 1);
-
-        // Spacer
-        text = new Label("");
-        text.setWidth("20px");
-        texts.addComponent(text);
-
-        text = new Label(
-                "<h4>Everything You Need Is Here</h4>"
-                + "<p>Everything you see inside this application, all the different styles, are provided by the Reindeer theme, out-of-the-box. That means you don't necessarily need to create any custom CSS for your application: you can build a cohesive result writing plain Java code.</p>"
-                + "<p>A little creativity, good organization and careful typography carries a long way.",
-                Label.CONTENT_XHTML);
-        texts.addComponent(text);
-        texts.setExpandRatio(text, 1);
-
-        // Spacer
-        text = new Label("");
-        text.setWidth("20px");
-        texts.addComponent(text);
-
-        text = new Label(
-                "<h4>The Names of The Styles</h4><p>Look for a class named <code>Reindeer</code> inside the Vaadin JAR (<code>com.vaadin.ui.themes.Reindeer</code>). All the available style names are documented and available there as constants, prefixed by component names, e.g. <code>Reindeer.BUTTON_SMALL</code>.",
-                Label.CONTENT_XHTML);
-        texts.addComponent(text);
-        texts.setExpandRatio(text, 1);
-
-        text = new H2("One Theme &ndash; Three Styles");
-        text.setContentMode(Label.CONTENT_XHTML);
-        margin.addComponent(text);
-
-        margin.addComponent(new Ruler());
-
-        text = new Label(
-                "<p>You can easily change the feel of some parts of your application by using the three layout styles provided by Reindeer: white, blue and black. The colored area contains the margins of the layout. All contained components will switch their style if an alternative style is available for that color.</p>",
-                Label.CONTENT_XHTML);
-        margin.addComponent(text);
-
-        HorizontalLayout colors = new HorizontalLayout();
-        colors.setWidth("100%");
-        colors.setHeight("250px");
-        margin.addComponent(colors);
-
-        CssLayout color = new CssLayout();
-        color.setSizeFull();
-        color.setStyleName(Reindeer.LAYOUT_WHITE);
-        color.setMargin(true);
-        color.addComponent(new H1("White"));
-        color.addComponent(new Label(
-                "<p><strong><code>Reindeer.LAYOUT_WHITE</code></strong></p><p>Changes the background to white. Has no other effect on contained components, they all behave like on the default gray background.",
-                Label.CONTENT_XHTML));
-        colors.addComponent(color);
-
-        color = new CssLayout();
-        color.setSizeFull();
-        color.setStyleName(Reindeer.LAYOUT_BLUE);
-        color.setMargin(true);
-        color.addComponent(new H1("Blue"));
-        color.addComponent(new Label(
-                "<p><strong><code>Reindeer.LAYOUT_BLUE</code></strong></p><p>Changes the background to a shade of blue. A very few components have any difference here compared to the white style.",
-                Label.CONTENT_XHTML));
-        colors.addComponent(color);
-
-        color = new CssLayout();
-        color.setSizeFull();
-        color.setStyleName(Reindeer.LAYOUT_BLACK);
-        color.setMargin(true);
-        color.addComponent(new H1("Black"));
-        color.addComponent(new Label(
-                "<p><strong><code>Reindeer.LAYOUT_BLACK</code></strong></p><p>Reserved for small parts of the application. Or alternatively, use for the whole application.</p><p><strong>This style is non-overridable</strong>, meaning that everything you place inside it will transform to their corresponding black styles when available, excluding Labels.</p>",
-                Label.CONTENT_XHTML));
-        colors.addComponent(color);
-
-        text = new Label(
-                "<p>Note, that you cannot nest the layout styles infinitely inside each other. After a couple levels, the result will be undefined, due to limitations in CSS (which are in fact caused by Internet Explorer 6).</p>",
-                Label.CONTENT_XHTML);
-        margin.addComponent(text);
+      
 
         return l;
     }
@@ -490,88 +409,7 @@ public class JCertifVaadinApplication extends Application {
         texts.setMargin(false, false, true, false);
         margin.addComponent(texts);
 
-        Label text = new Label(
-                "<h4>A Complete Theme</h4>"
-                + "<p>The Reindeer theme is a complete, general purpose theme suitable for almost all types of applications."
-                + "<p>While a general purpose theme should not try to cater for every possible need, the Reindeer theme provides a set of useful styles that you can use to make the interface a bit more lively and interesing, emphasizing different parts of the application.</p>",
-                Label.CONTENT_XHTML);
-        texts.addComponent(text);
-        texts.setExpandRatio(text, 1);
 
-        // Spacer
-        text = new Label("");
-        text.setWidth("20px");
-        texts.addComponent(text);
-
-        text = new Label(
-                "<h4>Everything You Need Is Here</h4>"
-                + "<p>Everything you see inside this application, all the different styles, are provided by the Reindeer theme, out-of-the-box. That means you don't necessarily need to create any custom CSS for your application: you can build a cohesive result writing plain Java code.</p>"
-                + "<p>A little creativity, good organization and careful typography carries a long way.",
-                Label.CONTENT_XHTML);
-        texts.addComponent(text);
-        texts.setExpandRatio(text, 1);
-
-        // Spacer
-        text = new Label("");
-        text.setWidth("20px");
-        texts.addComponent(text);
-
-        text = new Label(
-                "<h4>The Names of The Styles</h4><p>Look for a class named <code>Reindeer</code> inside the Vaadin JAR (<code>com.vaadin.ui.themes.Reindeer</code>). All the available style names are documented and available there as constants, prefixed by component names, e.g. <code>Reindeer.BUTTON_SMALL</code>.",
-                Label.CONTENT_XHTML);
-        texts.addComponent(text);
-        texts.setExpandRatio(text, 1);
-
-        text = new H2("One Theme &ndash; Three Styles");
-        text.setContentMode(Label.CONTENT_XHTML);
-        margin.addComponent(text);
-
-        margin.addComponent(new Ruler());
-
-        text = new Label(
-                "<p>You can easily change the feel of some parts of your application by using the three layout styles provided by Reindeer: white, blue and black. The colored area contains the margins of the layout. All contained components will switch their style if an alternative style is available for that color.</p>",
-                Label.CONTENT_XHTML);
-        margin.addComponent(text);
-
-        HorizontalLayout colors = new HorizontalLayout();
-        colors.setWidth("100%");
-        colors.setHeight("250px");
-        margin.addComponent(colors);
-
-        CssLayout color = new CssLayout();
-        color.setSizeFull();
-        color.setStyleName(Reindeer.LAYOUT_WHITE);
-        color.setMargin(true);
-        color.addComponent(new H1("White"));
-        color.addComponent(new Label(
-                "<p><strong><code>Reindeer.LAYOUT_WHITE</code></strong></p><p>Changes the background to white. Has no other effect on contained components, they all behave like on the default gray background.",
-                Label.CONTENT_XHTML));
-        colors.addComponent(color);
-
-        color = new CssLayout();
-        color.setSizeFull();
-        color.setStyleName(Reindeer.LAYOUT_BLUE);
-        color.setMargin(true);
-        color.addComponent(new H1("Blue"));
-        color.addComponent(new Label(
-                "<p><strong><code>Reindeer.LAYOUT_BLUE</code></strong></p><p>Changes the background to a shade of blue. A very few components have any difference here compared to the white style.",
-                Label.CONTENT_XHTML));
-        colors.addComponent(color);
-
-        color = new CssLayout();
-        color.setSizeFull();
-        color.setStyleName(Reindeer.LAYOUT_BLACK);
-        color.setMargin(true);
-        color.addComponent(new H1("Black"));
-        color.addComponent(new Label(
-                "<p><strong><code>Reindeer.LAYOUT_BLACK</code></strong></p><p>Reserved for small parts of the application. Or alternatively, use for the whole application.</p><p><strong>This style is non-overridable</strong>, meaning that everything you place inside it will transform to their corresponding black styles when available, excluding Labels.</p>",
-                Label.CONTENT_XHTML));
-        colors.addComponent(color);
-
-        text = new Label(
-                "<p>Note, that you cannot nest the layout styles infinitely inside each other. After a couple levels, the result will be undefined, due to limitations in CSS (which are in fact caused by Internet Explorer 6).</p>",
-                Label.CONTENT_XHTML);
-        margin.addComponent(text);
 
         return l;
     }
@@ -599,88 +437,6 @@ public class JCertifVaadinApplication extends Application {
         texts.setMargin(false, false, true, false);
         margin.addComponent(texts);
 
-        Label text = new Label(
-                "<h4>A Complete Theme</h4>"
-                + "<p>The Reindeer theme is a complete, general purpose theme suitable for almost all types of applications."
-                + "<p>While a general purpose theme should not try to cater for every possible need, the Reindeer theme provides a set of useful styles that you can use to make the interface a bit more lively and interesing, emphasizing different parts of the application.</p>",
-                Label.CONTENT_XHTML);
-        texts.addComponent(text);
-        texts.setExpandRatio(text, 1);
-
-        // Spacer
-        text = new Label("");
-        text.setWidth("20px");
-        texts.addComponent(text);
-
-        text = new Label(
-                "<h4>Everything You Need Is Here</h4>"
-                + "<p>Everything you see inside this application, all the different styles, are provided by the Reindeer theme, out-of-the-box. That means you don't necessarily need to create any custom CSS for your application: you can build a cohesive result writing plain Java code.</p>"
-                + "<p>A little creativity, good organization and careful typography carries a long way.",
-                Label.CONTENT_XHTML);
-        texts.addComponent(text);
-        texts.setExpandRatio(text, 1);
-
-        // Spacer
-        text = new Label("");
-        text.setWidth("20px");
-        texts.addComponent(text);
-
-        text = new Label(
-                "<h4>The Names of The Styles</h4><p>Look for a class named <code>Reindeer</code> inside the Vaadin JAR (<code>com.vaadin.ui.themes.Reindeer</code>). All the available style names are documented and available there as constants, prefixed by component names, e.g. <code>Reindeer.BUTTON_SMALL</code>.",
-                Label.CONTENT_XHTML);
-        texts.addComponent(text);
-        texts.setExpandRatio(text, 1);
-
-        text = new H2("One Theme &ndash; Three Styles");
-        text.setContentMode(Label.CONTENT_XHTML);
-        margin.addComponent(text);
-
-        margin.addComponent(new Ruler());
-
-        text = new Label(
-                "<p>You can easily change the feel of some parts of your application by using the three layout styles provided by Reindeer: white, blue and black. The colored area contains the margins of the layout. All contained components will switch their style if an alternative style is available for that color.</p>",
-                Label.CONTENT_XHTML);
-        margin.addComponent(text);
-
-        HorizontalLayout colors = new HorizontalLayout();
-        colors.setWidth("100%");
-        colors.setHeight("250px");
-        margin.addComponent(colors);
-
-        CssLayout color = new CssLayout();
-        color.setSizeFull();
-        color.setStyleName(Reindeer.LAYOUT_WHITE);
-        color.setMargin(true);
-        color.addComponent(new H1("White"));
-        color.addComponent(new Label(
-                "<p><strong><code>Reindeer.LAYOUT_WHITE</code></strong></p><p>Changes the background to white. Has no other effect on contained components, they all behave like on the default gray background.",
-                Label.CONTENT_XHTML));
-        colors.addComponent(color);
-
-        color = new CssLayout();
-        color.setSizeFull();
-        color.setStyleName(Reindeer.LAYOUT_BLUE);
-        color.setMargin(true);
-        color.addComponent(new H1("Blue"));
-        color.addComponent(new Label(
-                "<p><strong><code>Reindeer.LAYOUT_BLUE</code></strong></p><p>Changes the background to a shade of blue. A very few components have any difference here compared to the white style.",
-                Label.CONTENT_XHTML));
-        colors.addComponent(color);
-
-        color = new CssLayout();
-        color.setSizeFull();
-        color.setStyleName(Reindeer.LAYOUT_BLACK);
-        color.setMargin(true);
-        color.addComponent(new H1("Black"));
-        color.addComponent(new Label(
-                "<p><strong><code>Reindeer.LAYOUT_BLACK</code></strong></p><p>Reserved for small parts of the application. Or alternatively, use for the whole application.</p><p><strong>This style is non-overridable</strong>, meaning that everything you place inside it will transform to their corresponding black styles when available, excluding Labels.</p>",
-                Label.CONTENT_XHTML));
-        colors.addComponent(color);
-
-        text = new Label(
-                "<p>Note, that you cannot nest the layout styles infinitely inside each other. After a couple levels, the result will be undefined, due to limitations in CSS (which are in fact caused by Internet Explorer 6).</p>",
-                Label.CONTENT_XHTML);
-        margin.addComponent(text);
 
         return l;
     }
@@ -696,7 +452,6 @@ public class JCertifVaadinApplication extends Application {
         tabProgramme.setSizeFull();
 
         l.addComponent(buildCalendar());
-
         return l;
     }
 
@@ -724,88 +479,7 @@ public class JCertifVaadinApplication extends Application {
         texts.setMargin(false, false, true, false);
         margin.addComponent(texts);
 
-        Label text = new Label(
-                "<h4>A Complete Theme</h4>"
-                + "<p>The Reindeer theme is a complete, general purpose theme suitable for almost all types of applications."
-                + "<p>While a general purpose theme should not try to cater for every possible need, the Reindeer theme provides a set of useful styles that you can use to make the interface a bit more lively and interesing, emphasizing different parts of the application.</p>",
-                Label.CONTENT_XHTML);
-        texts.addComponent(text);
-        texts.setExpandRatio(text, 1);
-
-        // Spacer
-        text = new Label("");
-        text.setWidth("20px");
-        texts.addComponent(text);
-
-        text = new Label(
-                "<h4>Everything You Need Is Here</h4>"
-                + "<p>Everything you see inside this application, all the different styles, are provided by the Reindeer theme, out-of-the-box. That means you don't necessarily need to create any custom CSS for your application: you can build a cohesive result writing plain Java code.</p>"
-                + "<p>A little creativity, good organization and careful typography carries a long way.",
-                Label.CONTENT_XHTML);
-        texts.addComponent(text);
-        texts.setExpandRatio(text, 1);
-
-        // Spacer
-        text = new Label("");
-        text.setWidth("20px");
-        texts.addComponent(text);
-
-        text = new Label(
-                "<h4>The Names of The Styles</h4><p>Look for a class named <code>Reindeer</code> inside the Vaadin JAR (<code>com.vaadin.ui.themes.Reindeer</code>). All the available style names are documented and available there as constants, prefixed by component names, e.g. <code>Reindeer.BUTTON_SMALL</code>.",
-                Label.CONTENT_XHTML);
-        texts.addComponent(text);
-        texts.setExpandRatio(text, 1);
-
-        text = new H2("One Theme &ndash; Three Styles");
-        text.setContentMode(Label.CONTENT_XHTML);
-        margin.addComponent(text);
-
-        margin.addComponent(new Ruler());
-
-        text = new Label(
-                "<p>You can easily change the feel of some parts of your application by using the three layout styles provided by Reindeer: white, blue and black. The colored area contains the margins of the layout. All contained components will switch their style if an alternative style is available for that color.</p>",
-                Label.CONTENT_XHTML);
-        margin.addComponent(text);
-
-        HorizontalLayout colors = new HorizontalLayout();
-        colors.setWidth("100%");
-        colors.setHeight("250px");
-        margin.addComponent(colors);
-
-        CssLayout color = new CssLayout();
-        color.setSizeFull();
-        color.setStyleName(Reindeer.LAYOUT_WHITE);
-        color.setMargin(true);
-        color.addComponent(new H1("White"));
-        color.addComponent(new Label(
-                "<p><strong><code>Reindeer.LAYOUT_WHITE</code></strong></p><p>Changes the background to white. Has no other effect on contained components, they all behave like on the default gray background.",
-                Label.CONTENT_XHTML));
-        colors.addComponent(color);
-
-        color = new CssLayout();
-        color.setSizeFull();
-        color.setStyleName(Reindeer.LAYOUT_BLUE);
-        color.setMargin(true);
-        color.addComponent(new H1("Blue"));
-        color.addComponent(new Label(
-                "<p><strong><code>Reindeer.LAYOUT_BLUE</code></strong></p><p>Changes the background to a shade of blue. A very few components have any difference here compared to the white style.",
-                Label.CONTENT_XHTML));
-        colors.addComponent(color);
-
-        color = new CssLayout();
-        color.setSizeFull();
-        color.setStyleName(Reindeer.LAYOUT_BLACK);
-        color.setMargin(true);
-        color.addComponent(new H1("Black"));
-        color.addComponent(new Label(
-                "<p><strong><code>Reindeer.LAYOUT_BLACK</code></strong></p><p>Reserved for small parts of the application. Or alternatively, use for the whole application.</p><p><strong>This style is non-overridable</strong>, meaning that everything you place inside it will transform to their corresponding black styles when available, excluding Labels.</p>",
-                Label.CONTENT_XHTML));
-        colors.addComponent(color);
-
-        text = new Label(
-                "<p>Note, that you cannot nest the layout styles infinitely inside each other. After a couple levels, the result will be undefined, due to limitations in CSS (which are in fact caused by Internet Explorer 6).</p>",
-                Label.CONTENT_XHTML);
-        margin.addComponent(text);
+      
 
         return l;
     }
