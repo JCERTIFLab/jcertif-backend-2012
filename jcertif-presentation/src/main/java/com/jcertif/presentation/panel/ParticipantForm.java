@@ -4,7 +4,6 @@ import com.jcertif.bo.participant.Participant;
 import com.jcertif.presentation.action.ParticipantAction;
 import com.jcertif.presentation.container.ParticipantContainer;
 import com.jcertif.presentation.util.CalendarField;
-
 import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.data.validator.EmailValidator;
@@ -50,7 +49,8 @@ public class ParticipantForm extends Form implements ClickListener {
         // Use top-left margin and spacing
         ourLayout.setMargin(true, false, false, true);
         ourLayout.setSpacing(true);
-
+        ourLayout.setSizeFull();
+        setSizeFull();
         setLayout(ourLayout);
         /*
          * Enable buffering so that commit() must be called for the form before
@@ -108,7 +108,9 @@ public class ParticipantForm extends Form implements ClickListener {
                     f.setWidth("100%");
                     return f;
                 } else if (propertyId.equals("compagnie")) {
-                    field.setRequired(true);
+                    TextField f = new TextField("Compagnie");
+                    f.setWidth("100%");
+                    return f;
                 } else if (propertyId.equals("email")) {
                     /* Add a validator for email and make it required */
                     field.addValidator(new EmailValidator(

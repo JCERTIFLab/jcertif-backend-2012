@@ -1,6 +1,5 @@
 package com.jcertif.presentation.principal;
 
-
 import com.jcertif.presentation.action.ParticipantAction;
 import com.jcertif.presentation.action.ProfilUtilisateurAction;
 import com.jcertif.presentation.panel.ParticipantForm;
@@ -310,7 +309,7 @@ public class JCertifVaadinApplication extends Application {
         texts.setMargin(false, false, true, false);
         margin.addComponent(texts);
 
-      
+
 
         return l;
     }
@@ -479,7 +478,7 @@ public class JCertifVaadinApplication extends Application {
         texts.setMargin(false, false, true, false);
         margin.addComponent(texts);
 
-      
+
 
         return l;
     }
@@ -493,6 +492,7 @@ public class JCertifVaadinApplication extends Application {
             public void menuSelected(MenuItem selectedItem) {
                 PartenaireWindow partenaireWindow = new PartenaireWindow("Creation Participant");
                 participantForm.addNewParticipant();
+                partenaireWindow.getContent().setSizeFull();
                 mainWindow.addWindow(partenaireWindow);
 
             }
@@ -502,6 +502,8 @@ public class JCertifVaadinApplication extends Application {
             @Override
             public void menuSelected(MenuItem selectedItem) {
                 ProfilUtilisateurWindow profilUtilisateurWindow = new ProfilUtilisateurWindow("Creation Profil Utilisateur");
+
+                profilUtilisateurWindow.getContent().setSizeFull();
                 profilUtilisateurtForm.addNewProfilUtilisateur();
                 mainWindow.addWindow(profilUtilisateurWindow);
 

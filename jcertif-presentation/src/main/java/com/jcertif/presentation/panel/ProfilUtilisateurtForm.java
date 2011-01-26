@@ -4,6 +4,7 @@ import com.jcertif.bo.participant.ProfilUtilisateur;
 import com.jcertif.presentation.action.ProfilUtilisateurAction;
 import com.jcertif.presentation.container.ProfilUtilisateurContainer;
 import com.jcertif.presentation.util.JCertifUploader;
+
 import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.data.validator.EmailValidator;
@@ -17,7 +18,6 @@ import com.vaadin.ui.DefaultFieldFactory;
 import com.vaadin.ui.Field;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.Upload;
 import com.vaadin.ui.Upload.FailedEvent;
 import com.vaadin.ui.Upload.SucceededEvent;
 import java.util.Arrays;
@@ -32,9 +32,7 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
     private boolean newContactMode = false;
     private ProfilUtilisateur profilUtilisateur = null;
     private BeanItem<ProfilUtilisateur> beanItem;
-    private TextField confirmPassword = new TextField("Confirmez le mot de passe");
     private GridLayout ourLayout;
-    private Upload upload = JCertifUploader.createUplaod("Photo", "Chargez la photo", new PhotoLoader());
 
     public ProfilUtilisateurtForm(ProfilUtilisateurAction action) {
         this.action = action;
@@ -46,7 +44,8 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
         // Use top-left margin and spacing
         ourLayout.setMargin(true, false, false, true);
         ourLayout.setSpacing(true);
-
+        ourLayout.setSizeFull();
+        setSizeFull();
         setLayout(ourLayout);
         /*
          * Enable buffering so that commit() must be called for the form before
@@ -72,17 +71,20 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
                 if (propertyId.equals("id")) {
                     TextField f = (TextField) field;
                     f.setCaption("ID");
+                    f.setWidth("100%");
                     return f;
                 } else if (propertyId.equals("nomProfil")) {
                     TextField f = (TextField) field;
                     f.setCaption("Nom Profil");
                     f.setNullRepresentation("");
+                    f.setWidth("100%");
                     f.setRequired(true);
                     return f;
                 } else if (propertyId.equals("password")) {
                     TextField f = (TextField) field;
                     f.setCaption("Mot de passe");
                     f.setNullRepresentation("");
+                    f.setWidth("100%");
                     f.setSecret(true);
                     if (newContactMode) {
                         f.setRequired(true);
@@ -92,6 +94,7 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
                     TextField f = (TextField) field;
                     f.setCaption("Code Confirmation");
                     f.setNullRepresentation("");
+                    f.setWidth("100%");
                     if (newContactMode) {
                         f.setRequired(true);
                     }
@@ -100,6 +103,7 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
                     TextField f = (TextField) field;
                     f.setCaption("Langue Correspondance");
                     f.setNullRepresentation("");
+                    f.setWidth("100%");
                     if (newContactMode) {
                         f.setRequired(true);
                     }
@@ -113,6 +117,7 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
                     f.addValidator(new EmailValidator(
                             "L'addresse electronique doit contenir '@' et un nom de domaine complet."));
                     f.setRequired(true);
+                    f.setWidth("100%");
                 } else if (propertyId.equals("details")) {
                     field.setWidth("100%");
                 }
@@ -130,14 +135,14 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
             ourLayout.addComponent(field, 1, 0);
         } else if (propertyId.equals("password")) {
             ourLayout.addComponent(field, 0, 1);
-            ourLayout.addComponent(confirmPassword, 1, 1);
+//            ourLayout.addComponent(confirmPassword, 1, 1);
         } else if (propertyId.equals("email")) {
             ourLayout.addComponent(field, 0, 2);
         } else if (propertyId.equals("langueCorrespondance")) {
             ourLayout.addComponent(field, 1, 2);
         } else if (propertyId.equals("codeConfirmation")) {
             ourLayout.addComponent(field, 0, 3, 1, 3);
-            ourLayout.addComponent(upload, 0, 4, 1, 4);
+
         }
     }
 
