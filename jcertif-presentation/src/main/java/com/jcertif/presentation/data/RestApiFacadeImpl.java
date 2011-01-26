@@ -13,7 +13,10 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.Set;
+
+import javax.ws.rs.core.MediaType;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +34,14 @@ import com.jcertif.presentation.data.domain.impl.JCertifSpeakerImpl;
 import com.jcertif.presentation.data.http.HttpClient;
 import com.jcertif.presentation.data.http.HttpResponse;
 import com.jcertif.presentation.data.http.impl.HttpClientImpl;
+import com.jcertif.presentation.data.bo.cedule.Evenement;
+import com.jcertif.presentation.data.bo.cedule.list.Evenements;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.config.ClientConfig;
+import com.sun.jersey.api.client.config.DefaultClientConfig;
+
+
 
 /**
  * Facade for the JCertif REST API.
@@ -42,8 +53,6 @@ import com.jcertif.presentation.data.http.impl.HttpClientImpl;
 public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
-
-    private final HttpClient httpClient;
 
     private static final int JCERTIF_EVENT_ID = 1;
 
@@ -60,17 +69,39 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
     public static final String SEARCH_URL = REST_API_BASE_URL + "/events/" + JCERTIF_EVENT_ID + "/presentations/search";
 
     private static final String UTF_8 = "utf-8";
+    
+    /**
+	 * Facade URL property.
+	 */
+	private static final String FACADE_URL_PROP = "facade.url";
+
+	/**
+	 * WEBAPP properties file name.
+	 */
+	private static final String WEBAPP_PROPERTIES_FILE = "jcertif-presentation";
+	
+	private final WebResource webResource;
+
+	
+	
+	/**
+	 * @return the unique instance of RestApiFacadeImpl.
+	 
+	public static RestApiFacadeImpl getInstance() {
+		if (instance == null) {
+			instance = new RestApiFacadeImpl();
+		}
+		return instance;
+	}*/
+
+
 
     public RestApiFacadeImpl() {
-        // this(new OfflineHttpClientMock("20101112110640"));
-        this(new HttpClientImpl());
-    }
-
-    public RestApiFacadeImpl(final HttpClient httpClient) {
         if (logger.isDebugEnabled()) {
-            logger.debug("Initializing RestApiFacade with HttpClient " + httpClient.getClass().getName());
+            logger.debug("Initializing RestApiFacade with WebResource " );
         }
-        this.httpClient = httpClient;
+        this.webResource = getWebResource();
+        
     }
 
     /**
@@ -79,7 +110,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
    
     public void activateMySchedule(final String firstName, final String lastName, final String email)
             throws RestApiException {
-        try {
+       /* try {
             final StringBuilder params = new StringBuilder(100);
             params.append("firstName=").append(URLEncoder.encode(firstName, UTF_8));
             params.append('&');
@@ -96,7 +127,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
         } catch (final IOException e) {
             logger.error(e.getMessage());
             throw new RestApiException("MySchedule activation failed. Please try again later.");
-        }
+        }*/
     }
 
     /**
@@ -111,7 +142,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
             throw new IllegalArgumentException("User must have favourites to save.");
         }
 
-        try {
+        /*try {
             final StringBuilder params = new StringBuilder(100);
             params.append("code=").append(URLEncoder.encode(user.getActivationCode(), UTF_8));
             for (final Integer favouriteId : user.getFavourites()) {
@@ -134,7 +165,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
             }
         } catch (final IOException e) {
             throw new RuntimeException(e);
-        }
+        }*/
     }
 
     /**
@@ -142,7 +173,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
      */
    
     public boolean isValidUser(final MyScheduleUser user) throws RestApiException {
-        try {
+        /*try {
             final StringBuilder params = new StringBuilder(100);
             params.append("email=").append(URLEncoder.encode(user.getEmail(), UTF_8));
             params.append('&');
@@ -159,7 +190,8 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
             }
         } catch (final IOException e) {
             throw new RuntimeException(e);
-        }
+        }*/
+    	return true;
     }
 
     /**
@@ -167,7 +199,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
      */
    
     public void getScheduleForUser(final MyScheduleUser user) {
-        if (user != null && user.getEmail() != null) {
+        /*if (user != null && user.getEmail() != null) {
             try {
                 final HttpResponse response = httpClient.get(SCHEDULE_URL + "/" + user.getEmail());
 
@@ -187,7 +219,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
             } catch (final IOException e) {
                 throw new RuntimeException(e);
             }
-        }
+        }*/
     }
 
     /**
@@ -195,11 +227,13 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
      */
   
     public List<JCertifPresentation> getFullSchedule() {
-        try {
+        /*try {
             return getScheduleData(httpClient.get(SCHEDULE_URL).getResponse());
         } catch (final IOException e) {
             throw new RuntimeException(e);
-        }
+        }*/
+    	
+    	return new ArrayList<JCertifPresentation>();
     }
 
     /**
@@ -207,7 +241,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
      */
     
     public List<JCertifPresentation> search(final String tag) {
-        String searchJson;
+        /*String searchJson;
         try {
             searchJson = httpClient.get(SEARCH_URL + "?tags=" + tag).getResponse();
             final Set<Integer> ids = getScheduleIds(searchJson);
@@ -223,11 +257,12 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
             return result;
         } catch (final IOException e) {
             throw new RuntimeException(e);
-        }
+        }*/
+    	return new ArrayList<JCertifPresentation>();
     }
 
     protected Set<Integer> getScheduleIds(final String scheduleJson) {
-        final Set<Integer> result = new HashSet<Integer>();
+        /*final Set<Integer> result = new HashSet<Integer>();
         try {
             if (scheduleJson != null && scheduleJson.length() > 0) {
                 final JSONArray jsonArray = new JSONArray(scheduleJson);
@@ -242,12 +277,13 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
             throw new RuntimeException(e);
         }
 
-        return result;
+        return result;*/
+    	return new HashSet<Integer>();
     }
 
     protected List<JCertifPresentation> getScheduleData(final String scheduleJson) {
         final List<JCertifPresentation> result = new ArrayList<JCertifPresentation>();
-        try {
+        /*try {
             if (scheduleJson != null && scheduleJson.length() > 0) {
                 final JSONArray jsonArray = new JSONArray(scheduleJson);
                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -260,7 +296,9 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
         }
 
         // sort the schedule
-        Collections.sort(result, new JCertifPresentationComparator());
+        Collections.sort(result, new JCertifPresentationComparator());*/
+        
+       
 
         return result;
     }
@@ -273,7 +311,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
      * @throws JSONException
      */
     private JCertifPresentation parsePresentation(final JSONObject json) throws JSONException {
-        final DateFormat df = new SimpleDateFormat(JCERTIF_JSON_DATE_PATTERN);
+        /*final DateFormat df = new SimpleDateFormat(JCERTIF_JSON_DATE_PATTERN);
 
         try {
             final JCertifPresentationKind kind = JCertifPresentationKind.valueOf(json.getString("kind").toUpperCase()
@@ -325,7 +363,8 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
             return LazyLoadProxyFactory.getProxy(event, this);
         } catch (final ParseException e) {
             throw new JSONException(e);
-        }
+        }*/
+    	return null;
     }
 
     /**
@@ -333,7 +372,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
      */
   
     public void lazyLoadFields(final LazyLoadable lazy) {
-        if (lazy.getLazyLoadingUri() == null) {
+        /*if (lazy.getLazyLoadingUri() == null) {
             return;
         }
 
@@ -400,6 +439,46 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
             throw new RuntimeException(e);
         } catch (final IOException e) {
             throw new RuntimeException(e);
+        }*/
+    }
+    
+    /**
+	 * @return a web resource jersey.
+	 */
+	public WebResource getWebResource() {
+		ClientConfig config = new DefaultClientConfig();
+		Client client = Client.create(config);
+		return client.resource(getBaseURI());
+	}
+
+	/**
+	 * @return the base URI
+	 */
+	public String getBaseURI() {
+		ResourceBundle bundle = ResourceBundle
+				.getBundle(WEBAPP_PROPERTIES_FILE);
+		return bundle.getString(FACADE_URL_PROP);
+	}
+    
+    public List <Evenement> findAllEvenement(){
+    	if (logger.isDebugEnabled()) {
+            logger.debug("Call findAllEvenement " );
         }
+    	List<Evenement> events = webResource.path("api")
+		.path("evenement").path("/list")
+		.accept(MediaType.APPLICATION_JSON)
+		.get(Evenements.class).getEvenements();
+    	
+    	return events;
+    	
+	}   
+    
+    public Evenement saveEvenement (Evenement evenement){
+    	Evenement evenementSaved = webResource.path("api")
+		.path("evenement").path("create")
+		.accept(MediaType.APPLICATION_JSON)
+		.post(Evenement.class, evenement);
+    	
+    	return evenementSaved;
     }
 }

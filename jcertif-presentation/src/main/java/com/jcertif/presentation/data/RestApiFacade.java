@@ -2,8 +2,10 @@ package com.jcertif.presentation.data;
 
 import java.util.List;
 
+import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.domain.JCertifPresentation;
 import com.jcertif.presentation.data.domain.MyScheduleUser;
+import com.sun.jersey.api.client.WebResource;
 
 /**
  * Facade interface for the JCERTIF REST API. All calls from the UI to the REST
@@ -12,6 +14,8 @@ import com.jcertif.presentation.data.domain.MyScheduleUser;
  * @link http://www.jcertif.com/display/Jcertif/Schedule+REST+interface
  */
 public interface RestApiFacade {
+	
+	
 
     /**
      * 
@@ -57,4 +61,7 @@ public interface RestApiFacade {
      * @return List of JCertifPresentations containing the given tag.
      */
     List<JCertifPresentation> search(String tag);
+    
+    List <Evenement> findAllEvenement();
+    Evenement saveEvenement (Evenement evenement);
 }

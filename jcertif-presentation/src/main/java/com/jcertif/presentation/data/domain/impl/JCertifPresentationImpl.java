@@ -12,26 +12,26 @@ import com.jcertif.presentation.data.domain.JCertifSpeaker;
 
 public class JCertifPresentationImpl implements JCertifPresentation, LazyLoadable {
 
-    private final int id;
-    private final Date fromTime;
-    private final Date toTime;
-    private final String code;
-    private final String type;
-    private final JCertifPresentationKind kind;
-    private final String title;
-    private final List<JCertifSpeaker> speakers;
-    private final String room;
-    private final boolean partnerSlot;
-    private final String presentationUri;
+    private  Long id;
+    private  Date fromTime;
+    private  Date toTime;
+    private  String code;
+    private  String type;
+    private  JCertifPresentationKind kind;
+    private  String title;
+    private  List<JCertifSpeaker> speakers;
+    private  String room;
+    private  boolean partnerSlot;
+    private  String presentationUri;
 
     private volatile String summary;
     private volatile String track;
     private volatile String experience;
     private volatile Set<String> tags;
 
-    public JCertifPresentationImpl(final int id, final Date fromTime, final Date toTime, final String code,
-            final String type, final JCertifPresentationKind kind, final String title, final List<JCertifSpeaker> speakers,
-            final String room, final boolean partnerSlot, final String presentationUri) {
+    public JCertifPresentationImpl( Long id,  Date fromTime,  Date toTime, final String code,
+             String type,  JCertifPresentationKind kind,  String title,  List<JCertifSpeaker> speakers,
+             String room,  boolean partnerSlot,  String presentationUri) {
         this.id = id;
         this.fromTime = fromTime;
         this.toTime = toTime;
@@ -44,8 +44,21 @@ public class JCertifPresentationImpl implements JCertifPresentation, LazyLoadabl
         this.partnerSlot = partnerSlot;
         this.presentationUri = presentationUri;
     }
+    
+    
 
-    public String getType() {
+    public JCertifPresentationImpl(Long id, Date fromTime, Date toTime,
+			String title) {
+		super();
+		this.id = id;
+		this.fromTime = fromTime;
+		this.toTime = toTime;
+		this.title = title;
+	}
+
+
+
+	public String getType() {
         return type;
     }
 
@@ -58,7 +71,7 @@ public class JCertifPresentationImpl implements JCertifPresentation, LazyLoadabl
     }
 
     public int getId() {
-        return id;
+        return id.intValue();
     }
 
     public Date getToTime() {
@@ -138,7 +151,7 @@ public class JCertifPresentationImpl implements JCertifPresentation, LazyLoadabl
         int result = 1;
         result = prime * result + ((code == null) ? 0 : code.hashCode());
         result = prime * result + ((fromTime == null) ? 0 : fromTime.hashCode());
-        result = prime * result + id;
+        result = prime * result + id.intValue();
         result = prime * result + ((kind == null) ? 0 : kind.hashCode());
         result = prime * result + (partnerSlot ? 1231 : 1237);
         result = prime * result + ((presentationUri == null) ? 0 : presentationUri.hashCode());

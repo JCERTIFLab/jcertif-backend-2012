@@ -42,9 +42,9 @@ public class CachingRestApiFacade extends RestApiFacadeImpl {
         super();
     }
 
-    public CachingRestApiFacade(final HttpClient jsonProvider) {
+    /*public CachingRestApiFacade(final HttpClient jsonProvider) {
         super(jsonProvider);
-    }
+    }*/
 
     /**
      * {@inheritDoc}

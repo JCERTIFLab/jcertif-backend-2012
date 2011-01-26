@@ -12,9 +12,12 @@ import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.JCertifWebApplication;
 import com.jcertif.presentation.data.RestApiFacade;
+import com.jcertif.presentation.data.RestApiFacadeImpl;
+import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.domain.JCertifPresentation;
 import com.jcertif.presentation.data.domain.MyScheduleUser;
 import com.jcertif.presentation.data.domain.impl.JCertifPresentationEventImpl;
+import com.jcertif.presentation.data.domain.impl.JCertifPresentationImpl;
 
 import com.vaadin.addon.calendar.event.BasicEventProvider;
 import com.vaadin.addon.calendar.event.CalendarEvent;
@@ -53,34 +56,48 @@ public class JCertifEventProvider extends BasicEventProvider {
         }
 
         return result;*/
-    	
-    	List<CalendarEvent> events = new ArrayList<CalendarEvent>();
-		GregorianCalendar calendar = new GregorianCalendar();
+    	GregorianCalendar calendar = new GregorianCalendar();
 		calendar = new GregorianCalendar(Locale.getDefault());
         calendar.setTime(JCertifCalendar.JCERTIF_DATE);
         calendar.add(GregorianCalendar.DATE, 0);
         calendar.set(GregorianCalendar.HOUR_OF_DAY, 8);
         calendar.set(GregorianCalendar.MINUTE, 0);
+        GregorianCalendar startCal= calendar;
         Date start = calendar.getTime();
         calendar.add(GregorianCalendar.HOUR_OF_DAY, 2);
         Date end = calendar.getTime();
-        JCertifPresentationEventImpl event = new JCertifPresentationEventImpl();
-        event.setCode("ev1");
-        event.setType("Acceuil");
-        event.setFromTime(start);
-        event.setToTime(end);
-        event.setRoom("Grande Salle");
-        event.setTitle("Inscription et acceuil");
-        JCertifCalendarEvent jCertifEvent = new JCertifCalendarEvent();
-        jCertifEvent.setStart(start);
-        jCertifEvent.setEnd(end);
-        jCertifEvent.setCaption(event.getTitle() + "( "+ event.getRoom() + ")" );
+        GregorianCalendar endCal= calendar;
+    	
+    	Evenement ev = new Evenement(new Long(2),"Evenement test service",startCal, endCal, startCal, endCal, "detail blabla bla");
+    	
+    	final RestApiFacade facade = JCertifWebApplication.getCurrentInstance().getBackendFacade();
+    	
+    	ev = facade.saveEvenement(ev);
+    	
+    	List <Evenement> dataEvents = facade.findAllEvenement();
+    	
+    	
+    	
+    	List<CalendarEvent> events = new ArrayList<CalendarEvent>();
+    	
+    	
+		
+        for (Evenement dataEvent : dataEvents){
+        	JCertifPresentationImpl event = new JCertifPresentationImpl(dataEvent.getId(),start,end, dataEvent.getDetails());
+            
+            JCertifCalendarEvent jCertifEvent = new JCertifCalendarEvent();
+            jCertifEvent.setStart(start);
+            jCertifEvent.setEnd(end);
+            jCertifEvent.setCaption(dataEvent.getDetails() );
+            
+            jCertifEvent.setJcertifEvent(event);
+            events.add(jCertifEvent);
+    	}
         
-        jCertifEvent.setJcertifEvent(event);
-        events.add(jCertifEvent);
         
         
-        calendar.add(GregorianCalendar.DATE, 0);
+        
+        /*calendar.add(GregorianCalendar.DATE, 0);
         calendar.set(GregorianCalendar.HOUR_OF_DAY, 10);
         calendar.set(GregorianCalendar.MINUTE, 0);
         start = calendar.getTime();
@@ -166,7 +183,7 @@ public class JCertifEventProvider extends BasicEventProvider {
         jCertifEvent4.setCaption(event4.getTitle() + "( "+ event4.getRoom() + ")" );
         
         jCertifEvent4.setJcertifEvent(event4);
-        events.add(jCertifEvent4);
+        events.add(jCertifEvent4);*/
         
     	return events;
     	
