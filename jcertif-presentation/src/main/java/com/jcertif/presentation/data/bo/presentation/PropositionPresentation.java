@@ -14,6 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import com.jcertif.presentation.data.bo.AbstractBO;
 import com.jcertif.presentation.data.bo.comite.ComiteRevisionPresentation;
 import com.jcertif.presentation.data.bo.conference.Conference;
 
@@ -27,7 +28,7 @@ import com.jcertif.presentation.data.bo.conference.Conference;
  */
 
 @XmlRootElement
-public class PropositionPresentation {
+public class PropositionPresentation extends AbstractBO{
 
 	private static final long serialVersionUID = 1L;
 
