@@ -58,11 +58,7 @@
     </build>
 	<!-- JCERTIF PRESENTATION DEPENDENCIES -->
     <dependencies>
-        <dependency>
 
-                <groupId>${project.groupId}</groupId>
-                <artifactId>jcertif-bo</artifactId>
-            </dependency>
             <dependency>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin</artifactId>
