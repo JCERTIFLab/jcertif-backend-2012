@@ -10,7 +10,7 @@ import com.vaadin.ui.TextField;
 
 /**
  *
- * @author UNHCRUser
+ * @author Douneg
  */
 public class FieldConfigurator {
 

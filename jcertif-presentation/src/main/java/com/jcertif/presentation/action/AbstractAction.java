@@ -7,7 +7,7 @@ package com.jcertif.presentation.action;
 
 /**
  *
- * @author UNHCRUser
+ * @author Douneg
  */
 public class AbstractAction {
 
