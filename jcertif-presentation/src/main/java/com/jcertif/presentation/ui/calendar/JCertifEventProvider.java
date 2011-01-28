@@ -68,7 +68,7 @@ public class JCertifEventProvider extends BasicEventProvider {
         Date end = calendar.getTime();
         GregorianCalendar endCal= calendar;
     	
-    	Evenement ev = new Evenement(new Long(2),"Evenement test service",startCal, endCal, startCal, endCal, "detail blabla bla");
+    	Evenement ev = new Evenement(null,"Evenement test service",startCal, endCal, startCal, endCal, "detail blabla bla");
     	
     	final RestApiFacade facade = JCertifWebApplication.getCurrentInstance().getBackendFacade();
     	
