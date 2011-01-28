@@ -1,16 +1,6 @@
 package com.jcertif.presentation.data;
 
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.net.HttpURLConnection;
-import java.net.URLEncoder;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -18,22 +8,13 @@ import java.util.Set;
 
 import javax.ws.rs.core.MediaType;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.domain.JCertifPresentation;
-import com.jcertif.presentation.data.domain.JCertifPresentationKind;
-import com.jcertif.presentation.data.domain.JCertifSpeaker;
 import com.jcertif.presentation.data.domain.MyScheduleUser;
-import com.jcertif.presentation.data.domain.impl.JCertifPresentationComparator;
-import com.jcertif.presentation.data.domain.impl.JCertifPresentationImpl;
-import com.jcertif.presentation.data.domain.impl.JCertifSpeakerImpl;
-import com.jcertif.presentation.data.http.HttpClient;
-import com.jcertif.presentation.data.http.HttpResponse;
-import com.jcertif.presentation.data.http.impl.HttpClientImpl;
 import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.bo.cedule.list.Evenements;
 import com.sun.jersey.api.client.Client;

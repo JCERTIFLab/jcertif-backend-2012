@@ -2,9 +2,9 @@ package com.jcertif.presentation.wsClient;
 
 import com.jcertif.presentation.data.bo.conference.Conference;
 
-/** Jersey REST client generated for REST resource:ParticipantFacade [/participants]<br>
+/** Jersey REST client generated for REST resource:ConferenceFacade [/participants]<br>
  *  USAGE:<pre>
- *        ParticipantClient client = new ParticipantClient();
+ *        ConferenceClient client = new ConferenceClient();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();

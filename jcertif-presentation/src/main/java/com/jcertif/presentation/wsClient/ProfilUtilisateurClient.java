@@ -4,9 +4,9 @@ import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
 
 
 
-/** Jersey REST client generated for REST resource:ParticipantFacade [/profilUtilisateurs]<br>
+/** Jersey REST client generated for REST resource:ProfilUtilisateurFacade [/profilUtilisateurs]<br>
  *  USAGE:<pre>
- *        ParticipantClient client = new ParticipantClient();
+ *        ProfilUtilisateurClient client = new ProfilUtilisateurClient();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();
