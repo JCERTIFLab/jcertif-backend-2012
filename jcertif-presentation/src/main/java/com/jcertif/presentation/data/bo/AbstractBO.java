@@ -2,6 +2,7 @@ package com.jcertif.presentation.data.bo;
 
 import java.io.Serializable;
 
+
 /**
  * Classe mère de tous les BO. Le but est de créer des contraintes sur les BO.
  * 
@@ -26,3 +27,5 @@ public abstract class AbstractBO implements Serializable {
 	public abstract int hashCode();
 
 }
+
+

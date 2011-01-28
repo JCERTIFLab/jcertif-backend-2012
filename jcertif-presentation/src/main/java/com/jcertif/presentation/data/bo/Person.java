@@ -1,218 +1,246 @@
 package com.jcertif.presentation.data.bo;
 
+
+
 /**
  * Classe de base Personne.
  * 
  * @author Douneg
  */
-public abstract class Person extends AbstractBO {
 
-    private static final long serialVersionUID = 1L;
+public abstract class Person extends AbstractBO{
 
-    /**
-     * Un constructeur.
-     */
-    public Person() {
-        super();
-    }
-    /**
-     * Identifiant d'une personne.
-     */
-    private Long id;
-    /**
-     * Prénom d'une personne.
-     */
-    private String prenom;
-    /**
-     * Nom d'une personne.
-     */
-    private String nom;
-    /**
-     * Sexe de la personne.
-     */
-    private Character sexe;
-    /**
-     * Salutation de la personne.
-     */
-    private String salutation;
-    /**
-     * Specialité de la personne.
-     */
-    private String specialite;
-    /**
-     * Adresse de la personne.
-     */
-    private Adresse adresse;
-    /**
-     * Détails de la personne.
-     */
-    private String details;
-    /**
-     * Email de la personne.
-     */
-    private String email;
-    /**
-     * Site web d'une personne.
-     */
-    private String website;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * fournit l'ID de l'individu
-     *
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
+	/**
+	 * Un constructeur.
+	 */
+	public Person() {
+		super();
+	}
 
-    /**
-     * modifie l'ID de l'individu
-     *
-     * @param id
-     *            the id to set
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
+	/**
+	 * Identifiant d'une personne.
+	 */
+	
+	private Long id;
 
-    /**
-     * fournit le nom
-     *
-     * @return the nom
-     */
-    public String getNom() {
-        return nom;
-    }
+	/**
+	 * Prénom d'une personne.
+	 */
+	
+	private String prenom;
 
-    /**
-     * modifie le nom
-     *
-     * @param nom
-     *            the nom to set
-     */
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+	/**
+	 * Nom d'une personne.
+	 */
 
-    /**
-     * fournit le prenom
-     *
-     * @return the prenom
-     */
-    public String getPrenom() {
-        return prenom;
-    }
+	private String nom;
 
-    /**
-     * modifie le prenom
-     *
-     * @param prenom
-     *            the prenom to set
-     */
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
+	/**
+	 * Sexe de la personne.
+	 */
 
-    /**
-     * @return the sexe
-     */
-    public Character getSexe() {
-        return sexe;
-    }
+	private Character sexe;
 
-    /**
-     * @param sexe
-     *            the sexe to set
-     */
-    public void setSexe(Character sexe) {
-        this.sexe = sexe;
-    }
+	/**
+	 * Salutation de la personne.
+	 */
 
-    /**
-     * @return the salutation
-     */
-    public String getSalutation() {
-        return salutation;
-    }
+	private String salutation;
 
-    /**
-     * @param salutation
-     *            the salutation to set
-     */
-    public void setSalutation(String salutation) {
-        this.salutation = salutation;
-    }
+	/**
+	 * Specialité de la personne.
+	 */
 
-    /**
-     * @return the specialite
-     */
-    public String getSpecialite() {
-        return specialite;
-    }
+	private String specialite;
 
-    /**
-     * @param specialite
-     *            the specialite to set
-     */
-    public void setSpecialite(String specialite) {
-        this.specialite = specialite;
-    }
+	/**
+	 * Adresse de la personne.
+	 */
 
-    /**
-     * @return the adresse
-     */
-    public Adresse getAdresse() {
-        return adresse;
-    }
+	private Adresse adresse;
 
-    /**
-     * @param adresse the adresse to set
-     */
-    public void setAdresse(Adresse adresse) {
-        this.adresse = adresse;
-    }
+	/**
+	 * Détails de la personne.
+	 */
 
-    /**
-     * @return the details
-     */
-    public String getDetails() {
-        return details;
-    }
+	private String details;
 
-    /**
-     * @param details
-     *            the details to set
-     */
-    public void setDetails(String details) {
-        this.details = details;
-    }
+	/**
+	 * Email de la personne.
+	 */
+	
+	private String email;
+	
+	/**
+	 * Site web d'une personne.
+	 */
+	
+	private String website;
 
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
+	/**
+	 * fournit l'ID de l'individu
+	 * 
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
 
-    /**
-     * @param email
-     *            the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	/**
+	 * modifie l'ID de l'individu
+	 * 
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    /**
-     * @return the website
-     */
-    public String getWebsite() {
-        return website;
-    }
+	/**
+	 * fournit le nom
+	 * 
+	 * @return the nom
+	 */
+	public String getNom() {
+		return nom;
+	}
 
-    /**
-     * @param website the website to set
-     */
-    public void setWebsite(String website) {
-        this.website = website;
-    }
+	/**
+	 * modifie le nom
+	 * 
+	 * @param nom
+	 *            the nom to set
+	 */
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	/**
+	 * fournit le prenom
+	 * 
+	 * @return the prenom
+	 */
+	public String getPrenom() {
+		return prenom;
+	}
+
+	/**
+	 * modifie le prenom
+	 * 
+	 * @param prenom
+	 *            the prenom to set
+	 */
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	/**
+	 * @return the sexe
+	 */
+	public Character getSexe() {
+		return sexe;
+	}
+
+	/**
+	 * @param sexe
+	 *            the sexe to set
+	 */
+	public void setSexe(Character sexe) {
+		this.sexe = sexe;
+	}
+
+	/**
+	 * @return the salutation
+	 */
+	public String getSalutation() {
+		return salutation;
+	}
+
+	/**
+	 * @param salutation
+	 *            the salutation to set
+	 */
+	public void setSalutation(String salutation) {
+		this.salutation = salutation;
+	}
+
+	/**
+	 * @return the specialite
+	 */
+	public String getSpecialite() {
+		return specialite;
+	}
+
+	/**
+	 * @param specialite
+	 *            the specialite to set
+	 */
+	public void setSpecialite(String specialite) {
+		this.specialite = specialite;
+	}
+
+	
+
+	/**
+	 * @return the adresse
+	 */
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	/**
+	 * @param adresse the adresse to set
+	 */
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
+	/**
+	 * @return the details
+	 */
+	public String getDetails() {
+		return details;
+	}
+
+	/**
+	 * @param details
+	 *            the details to set
+	 */
+	public void setDetails(String details) {
+		this.details = details;
+	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email
+	 *            the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * @return the website
+	 */
+	public String getWebsite() {
+		return website;
+	}
+
+	/**
+	 * @param website the website to set
+	 */
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+	
+	
+
 }

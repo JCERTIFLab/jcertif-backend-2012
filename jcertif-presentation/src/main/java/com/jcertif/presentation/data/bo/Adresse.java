@@ -5,272 +5,301 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+
+
 /**
  * BO Adresse
  *
  * @author Douneg
  */
+
 @XmlRootElement
 public class Adresse extends AbstractBO {
 
-    private static final long serialVersionUID = 1L;
-    private Long id;
-    private String ligne1;
-    private String ligne2;
-    private String codePostal;
-    private String ville;
-    private String province;
-    private String pays;
-    private String details;
-    private String telephoneFixe;
-    private String telephoneMobile;
-    private String fax;
+	private static final long serialVersionUID = 1L;
+	
+	
+	private Long id;
 
-    /**
-     *
-     */
-    public Adresse() {
-        super();
-    }
 
-    /**
-     * @param id
-     * @param ligne1
-     * @param ligne2
-     * @param codePostal
-     * @param ville
-     * @param province
-     * @param pays
-     * @param details
-     * @param telephoneFixe
-     * @param telephoneMobile
-     * @param fax
-     */
-    public Adresse(Long id, String ligne1, String ligne2, String codePostal,
-            String ville, String province, String pays, String details,
-            String telephoneFixe, String telephoneMobile, String fax) {
-        super();
-        this.id = id;
-        this.ligne1 = ligne1;
-        this.ligne2 = ligne2;
-        this.codePostal = codePostal;
-        this.ville = ville;
-        this.province = province;
-        this.pays = pays;
-        this.details = details;
-        this.telephoneFixe = telephoneFixe;
-        this.telephoneMobile = telephoneMobile;
-        this.fax = fax;
-    }
+	private String ligne1;
 
-    public Long getId() {
-        return id;
-    }
+	private String ligne2;
+	
+	private String codePostal;
+	
+	private String ville;
+	
+	private String province;
+	
+	private String pays;
+	
+	private String details;
+	
+	private String telephoneFixe;
+	
+	private String telephoneMobile;
+	
+	private String fax;
+	
+	/**
+	 * 
+	 */
+	public Adresse() {
+		super();
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	/**
+	 * @param id
+	 * @param ligne1
+	 * @param ligne2
+	 * @param codePostal
+	 * @param ville
+	 * @param province
+	 * @param pays
+	 * @param details
+	 * @param telephoneFixe
+	 * @param telephoneMobile
+	 * @param fax
+	 */
+	public Adresse(Long id, String ligne1, String ligne2, String codePostal,
+			String ville, String province, String pays, String details,
+			String telephoneFixe, String telephoneMobile, String fax) {
+		super();
+		this.id = id;
+		this.ligne1 = ligne1;
+		this.ligne2 = ligne2;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.province = province;
+		this.pays = pays;
+		this.details = details;
+		this.telephoneFixe = telephoneFixe;
+		this.telephoneMobile = telephoneMobile;
+		this.fax = fax;
+	}
+	
 
-    /**
-     * Get the value of fax
-     *
-     * @return the value of fax
-     */
-    public String getFax() {
-        return fax;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    /**
-     * Set the value of fax
-     *
-     * @param fax
-     *            new value of fax
-     */
-    public void setFax(String fax) {
-        this.fax = fax;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    /**
-     * Get the value of details
-     *
-     * @return the value of details
-     */
-    public String getDetails() {
-        return details;
-    }
+	
+	/**
+	 * Get the value of fax
+	 * 
+	 * @return the value of fax
+	 */
+	public String getFax() {
+		return fax;
+	}
 
-    /**
-     * Set the value of details
-     *
-     * @param details
-     *            new value of details
-     */
-    public void setDetails(String details) {
-        this.details = details;
-    }
+	/**
+	 * Set the value of fax
+	 * 
+	 * @param fax
+	 *            new value of fax
+	 */
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
 
-    /**
-     * Get the value of pays
-     *
-     * @return the value of pays
-     */
-    public String getPays() {
-        return pays;
-    }
+	
 
-    /**
-     * Set the value of pays
-     *
-     * @param pays
-     *            new value of pays
-     */
-    public void setPays(String pays) {
-        this.pays = pays;
-    }
+	/**
+	 * Get the value of details
+	 * 
+	 * @return the value of details
+	 */
+	public String getDetails() {
+		return details;
+	}
 
-    /**
-     * Get the value of province
-     *
-     * @return the value of province
-     */
-    public String getProvince() {
-        return province;
-    }
+	/**
+	 * Set the value of details
+	 * 
+	 * @param details
+	 *            new value of details
+	 */
+	public void setDetails(String details) {
+		this.details = details;
+	}
 
-    /**
-     * Set the value of province
-     *
-     * @param province
-     *            new value of province
-     */
-    public void setProvince(String province) {
-        this.province = province;
-    }
+	/**
+	 * Get the value of pays
+	 * 
+	 * @return the value of pays
+	 */
+	public String getPays() {
+		return pays;
+	}
 
-    /**
-     * Get the value of ville
-     *
-     * @return the value of ville
-     */
-    public String getVille() {
-        return ville;
-    }
+	/**
+	 * Set the value of pays
+	 * 
+	 * @param pays
+	 *            new value of pays
+	 */
+	public void setPays(String pays) {
+		this.pays = pays;
+	}
 
-    /**
-     * Set the value of ville
-     *
-     * @param ville
-     *            new value of ville
-     */
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
+	/**
+	 * Get the value of province
+	 * 
+	 * @return the value of province
+	 */
+	public String getProvince() {
+		return province;
+	}
 
-    /**
-     * Get the value of ligne2
-     *
-     * @return the value of ligne2
-     */
-    public String getLigne2() {
-        return ligne2;
-    }
+	/**
+	 * Set the value of province
+	 * 
+	 * @param province
+	 *            new value of province
+	 */
+	public void setProvince(String province) {
+		this.province = province;
+	}
 
-    /**
-     * Set the value of ligne2
-     *
-     * @param ligne2
-     *            new value of ligne2
-     */
-    public void setLigne2(String ligne2) {
-        this.ligne2 = ligne2;
-    }
+	/**
+	 * Get the value of ville
+	 * 
+	 * @return the value of ville
+	 */
+	public String getVille() {
+		return ville;
+	}
 
-    /**
-     * Get the value of ligne1
-     *
-     * @return the value of ligne1
-     */
-    public String getLigne1() {
-        return ligne1;
-    }
+	/**
+	 * Set the value of ville
+	 * 
+	 * @param ville
+	 *            new value of ville
+	 */
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
 
-    /**
-     * Set the value of ligne1
-     *
-     * @param ligne1
-     *            new value of ligne1
-     */
-    public void setLigne1(String ligne1) {
-        this.ligne1 = ligne1;
-    }
+	
 
-    /**
-     * @return the codePostal
-     */
-    public String getCodePostal() {
-        return codePostal;
-    }
+	/**
+	 * Get the value of ligne2
+	 * 
+	 * @return the value of ligne2
+	 */
+	public String getLigne2() {
+		return ligne2;
+	}
 
-    /**
-     * @param codePostal the codePostal to set
-     */
-    public void setCodePostal(String codePostal) {
-        this.codePostal = codePostal;
-    }
+	/**
+	 * Set the value of ligne2
+	 * 
+	 * @param ligne2
+	 *            new value of ligne2
+	 */
+	public void setLigne2(String ligne2) {
+		this.ligne2 = ligne2;
+	}
 
-    /**
-     * @return the telephoneFixe
-     */
-    public String getTelephoneFixe() {
-        return telephoneFixe;
-    }
+	/**
+	 * Get the value of ligne1
+	 * 
+	 * @return the value of ligne1
+	 */
+	public String getLigne1() {
+		return ligne1;
+	}
 
-    /**
-     * @param telephoneFixe the telephoneFixe to set
-     */
-    public void setTelephoneFixe(String telephoneFixe) {
-        this.telephoneFixe = telephoneFixe;
-    }
+	/**
+	 * Set the value of ligne1
+	 * 
+	 * @param ligne1
+	 *            new value of ligne1
+	 */
+	public void setLigne1(String ligne1) {
+		this.ligne1 = ligne1;
+	}
+	
+	
+	
 
-    /**
-     * @return the telephoneMobile
-     */
-    public String getTelephoneMobile() {
-        return telephoneMobile;
-    }
+	/**
+	 * @return the codePostal
+	 */
+	public String getCodePostal() {
+		return codePostal;
+	}
 
-    /**
-     * @param telephoneMobile the telephoneMobile to set
-     */
-    public void setTelephoneMobile(String telephoneMobile) {
-        this.telephoneMobile = telephoneMobile;
-    }
+	/**
+	 * @param codePostal the codePostal to set
+	 */
+	public void setCodePostal(String codePostal) {
+		this.codePostal = codePostal;
+	}
 
-    /**
-     * @see java.lang.Object#hashCode()
-     */
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder().append(id).toHashCode();
-    }
+	/**
+	 * @return the telephoneFixe
+	 */
+	public String getTelephoneFixe() {
+		return telephoneFixe;
+	}
 
-    /**
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    @Override
-    public boolean equals(Object obj) {
+	/**
+	 * @param telephoneFixe the telephoneFixe to set
+	 */
+	public void setTelephoneFixe(String telephoneFixe) {
+		this.telephoneFixe = telephoneFixe;
+	}
 
-        if (this == obj) {
-            return true;
-        }
+	/**
+	 * @return the telephoneMobile
+	 */
+	public String getTelephoneMobile() {
+		return telephoneMobile;
+	}
 
-        if (!(obj instanceof Adresse)) {
-            return false;
-        }
+	/**
+	 * @param telephoneMobile the telephoneMobile to set
+	 */
+	public void setTelephoneMobile(String telephoneMobile) {
+		this.telephoneMobile = telephoneMobile;
+	}
 
-        final Adresse other = (Adresse) obj;
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(id).toHashCode();
+	}
 
-        return new EqualsBuilder().append(id,
-                other.getId()).isEquals();
-    }
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	
+	@Override
+	public boolean equals(Object obj) {
+
+		if (this == obj) {
+			return true;
+		}
+
+		if (!(obj instanceof Adresse)) {
+			return false;
+		}
+
+		final Adresse other = (Adresse) obj;
+
+		return new EqualsBuilder().append(id,
+				other.getId()).isEquals();
+	} 
+
+
 }

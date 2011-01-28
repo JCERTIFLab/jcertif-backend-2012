@@ -1,11 +1,12 @@
 package com.jcertif.presentation.data.bo.participant;
 
 
-import com.jcertif.presentation.data.bo.AbstractBO;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+
+import com.jcertif.presentation.data.bo.AbstractBO;
 
 
 /**

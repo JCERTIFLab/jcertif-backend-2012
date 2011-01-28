@@ -1,105 +1,108 @@
 package com.jcertif.presentation.data.bo;
 
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-/**
- * Code & description.
- * 
- * @author rossi.oddet
- * 
- */
+
 public abstract class CodeDescription extends AbstractBO {
+	private static final long serialVersionUID = 1L;
 
-    private static final long serialVersionUID = 1L;
-    /**
-     * Identifiant du statut cedule.
-     */
-    private Long id;
-    /**
-     * Code du statut cedule.
-     */
-    private String code;
-    /**
-     * Description du statut cedule.
-     */
-    private String description;
+	/**
+	 * Identifiant du statut cedule.
+	 */
+	private Long id;
 
-    /**
-     * @return l'identifiant du statut cedule.
-     */
-    public Long getId() {
-        return id;
-    }
+	/**
+	 * Code du statut cedule.
+	 */
+	private String code;
 
-    /**
-     * Définit un identifiant du statut cedule.
-     *
-     * @param id
-     *            un identifiant
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
+	/**
+	 * Description du statut cedule.
+	 */
+	private String description;
 
-    /**
-     * @return le code du statut cedule.
-     */
-    public String getCode() {
-        return code;
-    }
+	/**
+	 * @return l'identifiant du statut cedule.
+	 */
+	
+	public Long getId() {
+		return id;
+	}
 
-    /**
-     * Définit le code de statut cedule.
-     *
-     * @param code
-     *            un code de statut cedule
-     */
-    public void setCode(String code) {
-        this.code = code;
-    }
+	/**
+	 * Définit un identifiant du statut cedule.
+	 * 
+	 * @param id
+	 *            un identifiant
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    /**
-     * @return la description du statut cedule
-     */
-    public String getDescription() {
-        return description;
-    }
+	/**
+	 * @return le code du statut cedule.
+	 */
+	
+	public String getCode() {
+		return code;
+	}
 
-    /**
-     * Définit la description du statut cedule.
-     *
-     * @param description
-     *            une description du statut cedule.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	/**
+	 * Définit le code de statut cedule.
+	 * 
+	 * @param code
+	 *            un code de statut cedule
+	 */
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-    /**
-     * @see java.lang.Object#hashCode()
-     */
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder().append(getCode()).toHashCode();
-    }
+	/**
+	 * @return la description du statut cedule
+	 */
+	
+	public String getDescription() {
+		return description;
+	}
 
-    /**
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    @Override
-    public boolean equals(Object obj) {
+	/**
+	 * Définit la description du statut cedule.
+	 * 
+	 * @param description
+	 *            une description du statut cedule.
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-        if (this == obj) {
-            return true;
-        }
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(getCode()).toHashCode();
+	}
 
-        if (!(obj instanceof CodeDescription)) {
-            return false;
-        }
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
 
-        final CodeDescription other = (CodeDescription) obj;
+		if (this == obj) {
+			return true;
+		}
 
-        return new EqualsBuilder().append(getCode(), other.getCode()).isEquals();
-    }
+		if (!(obj instanceof CodeDescription)) {
+			return false;
+		}
+
+		final CodeDescription other = (CodeDescription) obj;
+
+		return new EqualsBuilder().append(getCode(), other.getCode())
+				.isEquals();
+	}
+
 }
