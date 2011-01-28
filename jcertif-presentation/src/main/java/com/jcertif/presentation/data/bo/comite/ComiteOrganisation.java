@@ -11,6 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import com.jcertif.presentation.data.bo.AbstractBO;
+
 
 
 /**
@@ -20,7 +22,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * 
  */
 @XmlRootElement
-public class ComiteOrganisation{
+public class ComiteOrganisation extends AbstractBO{
 
 	private static final long serialVersionUID = 1L;
 
