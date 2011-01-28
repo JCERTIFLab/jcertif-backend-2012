@@ -466,7 +466,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
         }
     	List<Evenement> events = webResource.path("api")
 		.path("evenement").path("/list")
-		.accept(MediaType.APPLICATION_JSON)
+		.accept(MediaType.APPLICATION_XML)
 		.get(Evenements.class).getEvenements();
     	
     	return events;
@@ -476,7 +476,7 @@ public class RestApiFacadeImpl implements RestApiFacade, LazyLoadProvider {
     public Evenement saveEvenement (Evenement evenement){
     	Evenement evenementSaved = webResource.path("api")
 		.path("evenement").path("create")
-		.accept(MediaType.APPLICATION_JSON)
+		.accept(MediaType.APPLICATION_XML)
 		.post(Evenement.class, evenement);
     	
     	return evenementSaved;
