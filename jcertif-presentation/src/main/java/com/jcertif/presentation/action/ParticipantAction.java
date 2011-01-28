@@ -1,19 +1,17 @@
-
 package com.jcertif.presentation.action;
 
-
-import com.jcertif.bo.AbstractBO;
-import com.jcertif.bo.participant.Participant;
 import com.jcertif.presentation.container.ParticipantContainer;
+import com.jcertif.presentation.data.bo.AbstractBO;
+import com.jcertif.presentation.data.bo.participant.Participant;
 import com.vaadin.data.util.BeanItem;
 
 /**
  *
  * @author Douneg
  */
-public class ParticipantAction {
+public class ParticipantAction extends AbstractAction {
 
-   private ParticipantContainer participantContainer;
+    private ParticipantContainer participantContainer;
 //    @Autowired
 //   private ParticipantClient participantClient;
 
@@ -22,7 +20,8 @@ public class ParticipantAction {
     }
 
     public BeanItem<AbstractBO> addItem(Participant participant) throws UnsupportedOperationException {
-      //  participant = participantClient.create_XML(participant);
+        //  participant = participantClient.create_XML(participant);
+
         return participantContainer.addItem(participant);
     }
 

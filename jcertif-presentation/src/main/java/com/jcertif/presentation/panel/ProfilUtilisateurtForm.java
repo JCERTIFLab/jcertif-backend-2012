@@ -1,8 +1,8 @@
 package com.jcertif.presentation.panel;
 
-import com.jcertif.bo.participant.ProfilUtilisateur;
 import com.jcertif.presentation.action.ProfilUtilisateurAction;
 import com.jcertif.presentation.container.ProfilUtilisateurContainer;
+import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
 import com.jcertif.presentation.util.JCertifUploader;
 
 import com.vaadin.data.Item;
@@ -42,7 +42,7 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
         ourLayout = new GridLayout(2, 5);
 
         // Use top-left margin and spacing
-        ourLayout.setMargin(true, false, false, true);
+        ourLayout.setMargin(true, true, true, true);
         ourLayout.setSpacing(true);
         ourLayout.setSizeFull();
         setSizeFull();
@@ -142,7 +142,6 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
             ourLayout.addComponent(field, 1, 2);
         } else if (propertyId.equals("codeConfirmation")) {
             ourLayout.addComponent(field, 0, 3, 1, 3);
-
         }
     }
 

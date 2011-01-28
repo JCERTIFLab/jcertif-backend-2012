@@ -1,19 +1,17 @@
 package com.jcertif.presentation.container;
 
-import com.jcertif.bo.participant.Participant;
+import com.jcertif.presentation.data.bo.participant.Participant;
+import java.util.List;
 
-public class ParticipantContainer extends AbstractJCertifBeanItemContainer {
+public class ParticipantContainer extends AbstractJCertifBeanItemContainer<Participant> {
 
-    static {
-        NATURAL_COL_ORDER = new Object[]{"id", "prenom", "nom", "sexe", "salutation", "specialite", "details", "email", "website", "conference",
-                    "dateInscription", "cvSoumis", "compagnie", "roleparticipant", "typeParticipant", "adresse"};
-        COL_HEADERS_ENGLISH = new String[]{"ID", "Prenom", "Nom", "Sexe", "Salutation", "Specialite", "Details", "Adresse Electronique", "Site Web", "Conference",
-                    "Date Inscription", "CV Soumis", "Compagnie", "Role", "Type", "Adresse"};
-    }
+    public static Object[] NATURAL_COL_ORDER = new Object[]{"id", "prenom", "nom", "sexe", "salutation", "specialite", "details", "email", "website", "conference",
+        "dateInscription", "cvSoumis", "compagnie", "roleparticipant", "typeParticipant", "adresse"};
+    public static String[] COL_HEADERS_ENGLISH = new String[]{"ID", "Prenom", "Nom", "Sexe", "Salutation", "Specialite", "Details", "Adresse Electronique", "Site Web", "Conference",
+        "Date Inscription", "CV Soumis", "Compagnie", "Role", "Type", "Adresse"};
 
     public ParticipantContainer() throws InstantiationException, IllegalAccessException {
         super(Participant.class);
-
     }
 
     /**
@@ -24,5 +22,9 @@ public class ParticipantContainer extends AbstractJCertifBeanItemContainer {
         ParticipantContainer c = null;
 
         return c;
+    }
+
+    @Override
+    public void loadData(List<Participant> datas) {
     }
 }

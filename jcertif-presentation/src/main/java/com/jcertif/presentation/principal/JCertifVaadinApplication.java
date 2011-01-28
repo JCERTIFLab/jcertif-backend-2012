@@ -300,7 +300,6 @@ public class JCertifVaadinApplication extends Application {
         l.addComponent(margin);
         H1 title = new H1("Participants a JCertif 2011");
         margin.addComponent(title);
-
         margin.addComponent(new Ruler());
 
         HorizontalLayout texts = new HorizontalLayout();
@@ -321,8 +320,11 @@ public class JCertifVaadinApplication extends Application {
              * Make the window modal, which will disable all other components while
              * it is visible
              */
+            VerticalLayout layout = new VerticalLayout();
+            layout.setSizeFull();
+            setContent(layout);
             setModal(true);
-            /* Make the sub window 50% the size of the browser window */
+            /* Make the sub window 70% the size of the browser window */
             setWidth("70%");
             /*
              * Center the window both horizontally and vertically in the browser
@@ -332,7 +334,7 @@ public class JCertifVaadinApplication extends Application {
             setCaption(caption);
             participantForm = new ParticipantForm(participantAction);
             participantForm.addNewParticipant();
-            addComponent(participantForm);
+            layout.addComponent(participantForm);
         }
     }
 
@@ -343,6 +345,9 @@ public class JCertifVaadinApplication extends Application {
              * Make the window modal, which will disable all other components while
              * it is visible
              */
+            VerticalLayout layout = new VerticalLayout();
+            layout.setSizeFull();
+            setContent(layout);
             setModal(true);
             /* Make the sub window 50% the size of the browser window */
             setWidth("50%");
@@ -354,7 +359,7 @@ public class JCertifVaadinApplication extends Application {
             setCaption(caption);
             profilUtilisateurtForm = new ProfilUtilisateurtForm(profilUtilisateurAction);
             profilUtilisateurtForm.addNewProfilUtilisateur();
-            addComponent(profilUtilisateurtForm);
+            layout.addComponent(profilUtilisateurtForm);
 
         }
     }
@@ -407,9 +412,6 @@ public class JCertifVaadinApplication extends Application {
         texts.setWidth("100%");
         texts.setMargin(false, false, true, false);
         margin.addComponent(texts);
-
-
-
         return l;
     }
 

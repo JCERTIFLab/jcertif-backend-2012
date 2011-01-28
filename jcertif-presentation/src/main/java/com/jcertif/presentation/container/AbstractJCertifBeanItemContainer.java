@@ -4,21 +4,21 @@
  */
 package com.jcertif.presentation.container;
 
-import com.jcertif.bo.AbstractBO;
+import com.jcertif.presentation.action.AbstractAction;
+import com.jcertif.presentation.data.bo.AbstractBO;
 import com.vaadin.data.util.BeanItemContainer;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
  * @author Douneg
  */
-public abstract class AbstractJCertifBeanItemContainer extends BeanItemContainer<AbstractBO> implements Serializable {
-
-    public static String[] COL_HEADERS_ENGLISH;
-    public static Object[] NATURAL_COL_ORDER;
+public abstract class AbstractJCertifBeanItemContainer<T extends AbstractBO> extends BeanItemContainer<AbstractBO> implements Serializable {
 
     public AbstractJCertifBeanItemContainer(Class<? extends AbstractBO> type) {
         super(type);
     }
 
+    public abstract void loadData(List<T> datas);
 }

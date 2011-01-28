@@ -4,7 +4,7 @@
  */
 package com.jcertif.presentation.panel;
 
-import com.jcertif.bo.Adresse;
+import com.jcertif.presentation.data.bo.Adresse;
 import com.vaadin.data.Buffered;
 import com.vaadin.data.Item;
 import com.vaadin.data.Validator.InvalidValueException;

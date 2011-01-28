@@ -1,18 +1,17 @@
-
 package com.jcertif.presentation.action;
 
-import com.jcertif.bo.AbstractBO;
-import com.jcertif.bo.participant.ProfilUtilisateur;
 import com.jcertif.presentation.container.ProfilUtilisateurContainer;
+import com.jcertif.presentation.data.bo.AbstractBO;
+import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
 import com.vaadin.data.util.BeanItem;
 
 /**
  *
  * @author Douneg
  */
-public class ProfilUtilisateurAction {
+public class ProfilUtilisateurAction extends AbstractAction {
 
-   private ProfilUtilisateurContainer profilUtilisateurContainer;
+    private ProfilUtilisateurContainer profilUtilisateurContainer;
 //    @Autowired
 //   private ProfilUtilisateurClient profilUtilisateurClient;
 
@@ -21,7 +20,7 @@ public class ProfilUtilisateurAction {
     }
 
     public BeanItem<AbstractBO> addItem(ProfilUtilisateur profilUtilisateur) throws UnsupportedOperationException {
-      //  profilUtilisateur = profilUtilisateurClient.create_XML(profilUtilisateur);
+        //  profilUtilisateur = profilUtilisateurClient.create_XML(profilUtilisateur);
         return profilUtilisateurContainer.addItem(profilUtilisateur);
     }
 

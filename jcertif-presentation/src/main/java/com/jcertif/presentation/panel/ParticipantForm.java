@@ -1,8 +1,8 @@
 package com.jcertif.presentation.panel;
 
-import com.jcertif.bo.participant.Participant;
 import com.jcertif.presentation.action.ParticipantAction;
 import com.jcertif.presentation.container.ParticipantContainer;
+import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.util.CalendarField;
 import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItem;
@@ -19,6 +19,7 @@ import com.vaadin.ui.Field;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.TextField;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 public class ParticipantForm extends Form implements ClickListener {
@@ -44,13 +45,11 @@ public class ParticipantForm extends Form implements ClickListener {
         setCaption("Participant");
 
         // Create our layout (3x3 GridLayout)
-        ourLayout = new GridLayout(4, 8);
+        ourLayout = new GridLayout(4, 7);
 
         // Use top-left margin and spacing
         ourLayout.setMargin(true, false, false, true);
         ourLayout.setSpacing(true);
-        ourLayout.setSizeFull();
-        setSizeFull();
         setLayout(ourLayout);
         /*
          * Enable buffering so that commit() must be called for the form before
@@ -101,26 +100,30 @@ public class ParticipantForm extends Form implements ClickListener {
                     salutation.setRequiredError("Veuillez choisir une salutation");
                     return salutation;
                 }
+
                 Field field = super.createField(item, propertyId, uiContext);
                 if (propertyId.equals("cvSoumis")) {
-                    TextField f = new TextField("CV Soumis");
+                    TextField f = (TextField) field;
+                    f.setCaption("CV Soumis");
                     f.setRows(5);
                     f.setWidth("100%");
-                    return f;
                 } else if (propertyId.equals("compagnie")) {
-                    TextField f = new TextField("Compagnie");
-                    f.setWidth("100%");
+                    TextField f = (TextField) field;
+                    f.setCaption("Compagnie");
                     return f;
                 } else if (propertyId.equals("email")) {
+                    TextField f = (TextField) field;
+                    f.setCaption("Email");
                     /* Add a validator for email and make it required */
-                    field.addValidator(new EmailValidator(
+                    f.addValidator(new EmailValidator(
                             "L'addresse electronique doit contenir '@' et un nom de domaine complet."));
-                    field.setRequired(true);
+                    f.setRequired(true);
                 } else if ("adresse".equals(propertyId)) {
                     // create a custom field for the Address object
-                    field.setCaption("Adresse");
                     field = new AdresseField(beanItem.getBean().getAdresse());
+                    field.setCaption("Adresse");
                 } else if (propertyId.equals("details")) {
+                    field.setCaption("Details");
                     field.setWidth("100%");
                 }
                 return field;
@@ -164,6 +167,7 @@ public class ParticipantForm extends Form implements ClickListener {
         } else if (propertyId.equals("adresse")) {
             ourLayout.addComponent(field, 3, 0, 3, 6);
         }
+
     }
 
     @Override
@@ -207,6 +211,11 @@ public class ParticipantForm extends Form implements ClickListener {
         newContactMode = false;
         if (newDataSource != null) {
             List<Object> orderedProperties = Arrays.asList(ParticipantContainer.NATURAL_COL_ORDER);
+            for (Iterator<Object> it = orderedProperties.iterator(); it.hasNext();) {
+                Object object = it.next();
+                System.out.println("Field = " + object);
+            }
+
             super.setItemDataSource(newDataSource, orderedProperties);
             getFooter().setVisible(true);
         } else {
