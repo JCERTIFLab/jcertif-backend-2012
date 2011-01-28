@@ -6,9 +6,9 @@ import java.util.List;
 public class CeduleParticipantContainer extends AbstractJCertifBeanItemContainer<CeduleParticipant> {
 
     public static Object[] NATURAL_COL_ORDER = new Object[]{"id", "statutCedule",
-        "dateCedule", "details"};
+        "dateCedule", "details", "evenement"};
     public static String[] COL_HEADERS_ENGLISH = new String[]{"ID",
-        "Statut", "Date", "Details"};
+        "Statut", "Date", "Details","Evenement"};
 
     public CeduleParticipantContainer() throws InstantiationException, IllegalAccessException {
         super(CeduleParticipant.class);
