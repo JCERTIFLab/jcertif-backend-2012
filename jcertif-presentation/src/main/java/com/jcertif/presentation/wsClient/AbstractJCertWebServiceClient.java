@@ -24,7 +24,7 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
     public static String FACADE_URL_PROP = "facade.url";
     public static String WEBAPP_PROPERTIES_FILE = "jcertif-presentation";
     protected static final String CREATE_SUFFIX = "create";
-    protected static final String FINDBYID_SUFFIX = "{id}";
+    protected static final String FINDBYID_SUFFIX = "{0}";
     protected static final String FINDALL_SUFFIX = "list";
     protected static final String UPDATE_SUFFIX = "update";
     protected static final String DELETE_SUFFIX = "delete";
