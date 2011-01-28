@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import com.jcertif.presentation.data.bo.AbstractBO;
 import com.jcertif.presentation.data.bo.Adresse;
 import com.jcertif.presentation.data.bo.salle.Salle;
 
@@ -22,7 +23,7 @@ import com.jcertif.presentation.data.bo.salle.Salle;
  * 
  */
 @XmlRootElement
-public class CentreConference {
+public class CentreConference extends AbstractBO {
 
 	private static final long serialVersionUID = 1L;
 
