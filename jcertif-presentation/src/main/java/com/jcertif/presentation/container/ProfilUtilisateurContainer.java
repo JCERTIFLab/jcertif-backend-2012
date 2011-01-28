@@ -1,7 +1,6 @@
 package com.jcertif.presentation.container;
 
 import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
-import java.util.List;
 
 public class ProfilUtilisateurContainer extends AbstractJCertifBeanItemContainer<ProfilUtilisateur> {
 
@@ -12,16 +11,7 @@ public class ProfilUtilisateurContainer extends AbstractJCertifBeanItemContainer
 
     public ProfilUtilisateurContainer() throws InstantiationException, IllegalAccessException {
         super(ProfilUtilisateur.class);
-
     }
 
-    public static ProfilUtilisateurContainer createWithTestData() {
-        ProfilUtilisateurContainer c = null;
 
-        return c;
-    }
-
-    @Override
-    public void loadData(List<ProfilUtilisateur> datas) {
-    }
 }

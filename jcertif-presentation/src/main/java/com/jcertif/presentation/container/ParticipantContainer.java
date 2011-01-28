@@ -1,7 +1,6 @@
 package com.jcertif.presentation.container;
 
 import com.jcertif.presentation.data.bo.participant.Participant;
-import java.util.List;
 
 public class ParticipantContainer extends AbstractJCertifBeanItemContainer<Participant> {
 
@@ -14,17 +13,5 @@ public class ParticipantContainer extends AbstractJCertifBeanItemContainer<Parti
         super(Participant.class);
     }
 
-    /**
-     * "Human readable" captions for properties in same order as in
-     * NATURAL_COL_ORDER.
-     */
-    public static ParticipantContainer createWithTestData() {
-        ParticipantContainer c = null;
 
-        return c;
-    }
-
-    @Override
-    public void loadData(List<Participant> datas) {
-    }
 }

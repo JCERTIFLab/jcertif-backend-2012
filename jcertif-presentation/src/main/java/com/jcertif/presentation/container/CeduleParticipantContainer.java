@@ -1,7 +1,6 @@
 package com.jcertif.presentation.container;
 
 import com.jcertif.presentation.data.bo.cedule.CeduleParticipant;
-import java.util.List;
 
 public class CeduleParticipantContainer extends AbstractJCertifBeanItemContainer<CeduleParticipant> {
 
@@ -15,13 +14,4 @@ public class CeduleParticipantContainer extends AbstractJCertifBeanItemContainer
 
     }
 
-    public static CeduleParticipantContainer createWithTestData() {
-        CeduleParticipantContainer c = null;
-
-        return c;
-    }
-
-    @Override
-    public void loadData(List<CeduleParticipant> datas) {
-    }
 }
