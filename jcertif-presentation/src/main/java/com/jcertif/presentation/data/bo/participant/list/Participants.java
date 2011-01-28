@@ -1,4 +1,4 @@
-package com.jcertif.presentation.data.bo.participant;
+package com.jcertif.presentation.data.bo.participant.list;
 
 
 
@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import com.jcertif.presentation.data.bo.participant.Participant;
 
 /**
  * The collection of all {@link Participant}'s.

@@ -3,6 +3,8 @@ package com.jcertif.presentation.data.bo.participant;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.jcertif.presentation.data.bo.CodeDescription;
+
 
 /**
  * @author rossi.oddet
@@ -10,48 +12,20 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @XmlRootElement
-public class TypeParticipant {
+public class TypeParticipant extends CodeDescription {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long id;
+	
 
-	private String code;
-
-	private String description;
-
-
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
-	public String getCode() {
-		return code;
+	public TypeParticipant() {
+		super();
+		
 	}
 
 
 
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-
-
-	public String getDescription() {
-		return description;
-	}
-
-
-
-	public void setDescription(String description) {
-		this.description = description;
-	}	public TypeParticipant(String code, String desc) {
+	public TypeParticipant(String code, String desc) {
 		this.setCode(code);
 		this.setDescription(desc);
 	}
