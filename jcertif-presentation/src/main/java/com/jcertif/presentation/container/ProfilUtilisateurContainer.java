@@ -6,7 +6,7 @@ public class ProfilUtilisateurContainer extends AbstractJCertifBeanItemContainer
 
     public static Object[] NATURAL_COL_ORDER = new Object[]{"id", "nomProfil",
         "email", "password", "langueCorrespondance", "codeConfirmation"};
-    public static String[] COL_HEADERS_ENGLISH = new String[]{"ID",
+    public static String[] COL_HEADERS_FRENCH = new String[]{"ID",
         "Nom Profil", "Email", "Password", "Langue Correspondance", "Code Confirmation"};
 
     public ProfilUtilisateurContainer() throws InstantiationException, IllegalAccessException {

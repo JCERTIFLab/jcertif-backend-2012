@@ -2,8 +2,11 @@ package com.jcertif.presentation.principal;
 
 import com.jcertif.presentation.action.ParticipantAction;
 import com.jcertif.presentation.action.ProfilUtilisateurAction;
+import com.jcertif.presentation.action.PropositionPresentationAction;
+import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
 import com.jcertif.presentation.panel.ParticipantForm;
 import com.jcertif.presentation.panel.ProfilUtilisateurtForm;
+import com.jcertif.presentation.panel.PropositionPresentationForm;
 import com.jcertif.presentation.util.H1;
 import com.jcertif.presentation.util.H2;
 import com.jcertif.presentation.util.JCertifCalendarTest;
@@ -46,6 +49,8 @@ public class JCertifVaadinApplication extends Application {
     private ParticipantForm participantForm;
     private ProfilUtilisateurtForm profilUtilisateurtForm;
     private ProfilUtilisateurAction profilUtilisateurAction;
+    private PropositionPresentationForm propositionPresentationForm;
+    private PropositionPresentationAction propositionPresentationAction;
 
     public void setMainLayout(VerticalLayout mainLayout) {
         this.mainLayout = mainLayout;
@@ -332,6 +337,7 @@ public class JCertifVaadinApplication extends Application {
              */
             center();
             setCaption(caption);
+            setScrollable(true);
             participantForm = new ParticipantForm(participantAction);
             participantForm.addNewParticipant();
             layout.addComponent(participantForm);
@@ -355,11 +361,39 @@ public class JCertifVaadinApplication extends Application {
              * Center the window both horizontally and vertically in the browser
              * window
              */
+            setScrollable(true);
             center();
             setCaption(caption);
             profilUtilisateurtForm = new ProfilUtilisateurtForm(profilUtilisateurAction);
             profilUtilisateurtForm.addNewProfilUtilisateur();
             layout.addComponent(profilUtilisateurtForm);
+
+        }
+    }
+
+    public class PropositionPresentationWindow extends Window {
+
+        public PropositionPresentationWindow(String caption) {
+            /*
+             * Make the window modal, which will disable all other components while
+             * it is visible
+             */
+            VerticalLayout layout = new VerticalLayout();
+            layout.setSizeFull();
+            setContent(layout);
+            setModal(true);
+            setScrollable(true);
+            /* Make the sub window 50% the size of the browser window */
+            setWidth("50%");
+            /*
+             * Center the window both horizontally and vertically in the browser
+             * window
+             */
+            center();
+            setCaption(caption);
+            propositionPresentationForm = new PropositionPresentationForm(propositionPresentationAction);
+            propositionPresentationForm.setBOForEdit(new PropositionPresentation(), true);
+            layout.addComponent(propositionPresentationForm);
 
         }
     }
@@ -508,6 +542,18 @@ public class JCertifVaadinApplication extends Application {
                 profilUtilisateurWindow.getContent().setSizeFull();
                 profilUtilisateurtForm.addNewProfilUtilisateur();
                 mainWindow.addWindow(profilUtilisateurWindow);
+
+            }
+        });
+
+        final MenuBar.MenuItem propositionPresentation = menubar.addItem("Nouvelle Proposition Presentation", new Command() {
+
+            @Override
+            public void menuSelected(MenuItem selectedItem) {
+                PropositionPresentationWindow propositionPresentationWindow = new PropositionPresentationWindow("Creation Proposition Presentation");
+                propositionPresentationWindow.getContent().setSizeFull();
+
+                mainWindow.addWindow(propositionPresentationWindow);
 
             }
         });

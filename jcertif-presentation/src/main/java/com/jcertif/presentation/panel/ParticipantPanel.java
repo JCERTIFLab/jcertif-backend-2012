@@ -4,6 +4,7 @@
  */
 package com.jcertif.presentation.panel;
 
+import com.jcertif.presentation.action.ParticipantAction;
 import com.vaadin.ui.Panel;
 
 /**
@@ -12,4 +13,5 @@ import com.vaadin.ui.Panel;
  */
 public class ParticipantPanel extends Panel {
 
+    private ParticipantAction participantAction;
 }

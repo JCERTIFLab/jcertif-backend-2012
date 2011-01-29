@@ -41,7 +41,7 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
     private void init() {
         com.sun.jersey.api.client.config.ClientConfig config = new com.sun.jersey.api.client.config.DefaultClientConfig();
         client = Client.create(config);
-        webResource = client.resource(getBaseURI()).path(this.ressourceBasePath);
+        webResource = client.resource(getBaseURI()).path("api").path(this.ressourceBasePath);
         final ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
         this.responseType = (Class<T>) type.getActualTypeArguments()[0];
     }
