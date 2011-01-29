@@ -1,6 +1,5 @@
 package com.jcertif.presentation.data.bo.participant;
 
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -8,29 +7,21 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import com.jcertif.presentation.data.bo.AbstractBO;
 
-
 /**
  *
  * @author Douneg
  */
-
 @XmlRootElement
-public class ProfilUtilisateur extends AbstractBO{
+public class ProfilUtilisateur extends AbstractBO {
 
     private static final long serialVersionUID = 1L;
-
     private Long id;
-
     private String nomProfil;
-   
     private String email;
-    
     private String password;
-   
+    protected String confirmPassword;
     private String photo;
-   
     private String langueCorrespondance;
-   
     protected String codeConfirmation;
 
     public ProfilUtilisateur() {
@@ -121,6 +112,24 @@ public class ProfilUtilisateur extends AbstractBO{
     }
 
     /**
+     * Get the value of confirmPassword
+     *
+     * @return the value of confirmPassword
+     */
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    /**
+     * Set the value of confirmPassword
+     *
+     * @param confirmPassword new value of confirmPassword
+     */
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    /**
      * Get the value of password
      *
      * @return the value of password
@@ -185,7 +194,6 @@ public class ProfilUtilisateur extends AbstractBO{
     /**
      * @see java.lang.Object#hashCode()
      */
-     
     @Override
     public int hashCode() {
         return new HashCodeBuilder().append(this.getId()).
@@ -199,7 +207,6 @@ public class ProfilUtilisateur extends AbstractBO{
     /**
      * @see java.lang.Object#equals(java.lang.Object)
      */
-     
     @Override
     public boolean equals(Object obj) {
 

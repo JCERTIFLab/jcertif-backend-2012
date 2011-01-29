@@ -2,8 +2,10 @@ package com.jcertif.presentation.panel;
 
 import com.jcertif.presentation.action.PropositionPresentationAction;
 import com.jcertif.presentation.container.PropositionPresentationContainer;
+import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
 import com.vaadin.data.Item;
+import com.vaadin.data.validator.AbstractValidator;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.DefaultFieldFactory;
@@ -30,14 +32,33 @@ public class PropositionPresentationForm extends AbstractForm<PropositionPresent
         setSizeFull();
         setLayout(ourLayout);
 
+
+
         setFormFieldFactory(new DefaultFieldFactory() {
 
             @Override
             public Field createField(Item item, Object propertyId,
                     Component uiContext) {
-                if (propertyId.equals("motCle")) {
+
+                if (propertyId.equals("participant")) {
+                    participants.addValidator(new AbstractValidator("Ce participant possede deja une Proposition Presentation") {
+
+                        @Override
+                        public boolean isValid(Object value) {
+                            Object valueSelected = participants.getValue();
+                            if (valueSelected instanceof Participant) {
+                                Participant participant = (Participant) valueSelected;
+                                return (participant.getPresentationSoumise() == null);
+                            }
+                            return false;
+                        }
+                    });
+                    participants.setRequired(true);
+                    participants.setRequiredError("Veuillez choisir un participant");
+                    participants.setWidth("100%");
                     return participants;
                 }
+
                 Field field = super.createField(item, propertyId, uiContext);
                 if (propertyId.equals("id")) {
                     TextField f = (TextField) field;
@@ -55,7 +76,7 @@ public class PropositionPresentationForm extends AbstractForm<PropositionPresent
                     TextField f = (TextField) field;
                     f.setCaption("Sommaire");
                     f.setNullRepresentation("");
-                    f.setRows(2);
+                    f.setRows(3);
                     f.setWidth("100%");
                     f.setRequired(true);
                     return f;
@@ -70,7 +91,7 @@ public class PropositionPresentationForm extends AbstractForm<PropositionPresent
                     TextField f = (TextField) field;
                     f.setCaption("Description");
                     f.setNullRepresentation("");
-                    f.setRows(2);
+                    f.setRows(3);
                     f.setWidth("100%");
                     return f;
                 } else if (propertyId.equals("besoinsSpecifiques")) {
@@ -91,6 +112,7 @@ public class PropositionPresentationForm extends AbstractForm<PropositionPresent
                 return field;
             }
         });
+
     }
 
     @Override

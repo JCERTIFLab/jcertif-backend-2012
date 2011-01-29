@@ -90,6 +90,16 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
                         f.setRequired(true);
                     }
                     return f;
+                } else if (propertyId.equals("confirmPassword")) {
+                    TextField f = (TextField) field;
+                    f.setCaption("Confirmer Mot de passe");
+                    f.setNullRepresentation("");
+                    f.setWidth("100%");
+                    f.setSecret(true);
+                    if (newContactMode) {
+                        f.setRequired(true);
+                    }
+                    return f;
                 } else if (propertyId.equals("codeConfirmation")) {
                     TextField f = (TextField) field;
                     f.setCaption("Code Confirmation");
@@ -135,7 +145,8 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
             ourLayout.addComponent(field, 1, 0);
         } else if (propertyId.equals("password")) {
             ourLayout.addComponent(field, 0, 1);
-//            ourLayout.addComponent(confirmPassword, 1, 1);
+        } else if (propertyId.equals("confirmPassword")) {
+            ourLayout.addComponent(field, 1, 1);
         } else if (propertyId.equals("email")) {
             ourLayout.addComponent(field, 0, 2);
         } else if (propertyId.equals("langueCorrespondance")) {

@@ -392,6 +392,7 @@ public class JCertifVaadinApplication extends Application {
             center();
             setCaption(caption);
             propositionPresentationForm = new PropositionPresentationForm(propositionPresentationAction);
+            
             propositionPresentationForm.setBOForEdit(new PropositionPresentation(), true);
             layout.addComponent(propositionPresentationForm);
 

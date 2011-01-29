@@ -11,6 +11,7 @@ import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.Field;
 import com.vaadin.ui.Form;
 import com.vaadin.ui.HorizontalLayout;
 import java.util.List;
@@ -30,7 +31,7 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
     private BeanItem<BO> beanItem;
 
     public AbstractForm(AbstractAction action) {
-        
+
         this.action = action;
         // Create our layout (2x5 GridLayout)
 
@@ -102,6 +103,7 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
         if (source == getSaveButton()) {
             /* If the given input is not valid there is no point in continuing */
             if (!isValid()) {
+                commit();
                 return;
             }
             commit();
@@ -116,6 +118,7 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
                 setNewContactMode(false);
             }
             setReadOnly(true);
+            getApplication().getMainWindow().removeWindow(this.getWindow());
         } else if (source == getCancelButton()) {
             if (isNewContactMode()) {
                 setNewContactMode(false);
@@ -125,6 +128,7 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
                 discard();
             }
             setReadOnly(true);
+            getApplication().getMainWindow().removeWindow(this.getWindow());
         } else if (source == getEditButton()) {
             setReadOnly(false);
         }
@@ -169,5 +173,9 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
         getSaveButton().setVisible(!readOnly);
         getCancelButton().setVisible(!readOnly);
         getEditButton().setVisible(readOnly);
+        Field field = getField("id");
+        if (field != null) {
+            field.setReadOnly(true);
+        }
     }
 }
