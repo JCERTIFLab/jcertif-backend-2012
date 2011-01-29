@@ -13,4 +13,33 @@
     <tx:annotation-driven />
 	<context:annotation-config />	
 	<context:component-scan base-package="com.jcertif.service" />
+
+            <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com"/>
+        <property name="port" value="587"/>
+        <property name="username" value="JCertif2011Test@gmail.com"/>
+        <property name="password" value="JCertif2011Test@1"/>
+        <property name="javaMailProperties">
+            <props>
+            <!-- Use SMTP-AUTH to authenticate to SMTP server -->
+                <prop key="mail.smtp.auth">true</prop>
+            <!-- Use TLS to encrypt communication with SMTP server -->
+                <prop key="mail.smtp.starttls.enable">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="cSenderService" class="com.jcertif.service.mail.CSenderServiceImpl">
+        <property name="mailSender" ref="mailSender"/>
+        <property name="velocityEngine" ref="velocityEngine"/>
+    </bean>
+
+    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <value>
+            resource.loader=class
+            class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+            </value>
+        </property>
+    </bean>
 </beans>
