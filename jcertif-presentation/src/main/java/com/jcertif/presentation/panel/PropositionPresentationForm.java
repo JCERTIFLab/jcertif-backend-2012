@@ -4,6 +4,7 @@ import com.jcertif.presentation.action.PropositionPresentationAction;
 import com.jcertif.presentation.container.PropositionPresentationContainer;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
 import com.vaadin.data.Item;
+import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.DefaultFieldFactory;
 import com.vaadin.ui.Field;
@@ -15,8 +16,10 @@ import java.util.List;
 public class PropositionPresentationForm extends AbstractForm<PropositionPresentation, PropositionPresentationAction> {
 
     private GridLayout ourLayout;
+    private ComboBox participants = new ComboBox("Participant");
 
     public PropositionPresentationForm(PropositionPresentationAction action) {
+        super(action);
         setCaption("Proposition Presentation");
         // Create our layout (2x5 GridLayout)
         ourLayout = new GridLayout(2, 5);
@@ -32,7 +35,9 @@ public class PropositionPresentationForm extends AbstractForm<PropositionPresent
             @Override
             public Field createField(Item item, Object propertyId,
                     Component uiContext) {
-
+                if (propertyId.equals("motCle")) {
+                    return participants;
+                }
                 Field field = super.createField(item, propertyId, uiContext);
                 if (propertyId.equals("id")) {
                     TextField f = (TextField) field;
@@ -86,13 +91,14 @@ public class PropositionPresentationForm extends AbstractForm<PropositionPresent
                 return field;
             }
         });
-
     }
 
     @Override
     protected void attachField(Object propertyId, Field field) {
         if (propertyId.equals("id")) {
             ourLayout.addComponent(field, 0, 0);
+        } else if (propertyId.equals("participant")) {
+            ourLayout.addComponent(field, 1, 0);
         } else if (propertyId.equals("titre")) {
             ourLayout.addComponent(field, 0, 1, 1, 1);
         } else if (propertyId.equals("sommaire")) {

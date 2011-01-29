@@ -30,6 +30,7 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
     private BeanItem<BO> beanItem;
 
     public AbstractForm(AbstractAction action) {
+        
         this.action = action;
         // Create our layout (2x5 GridLayout)
 

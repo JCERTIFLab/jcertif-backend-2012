@@ -617,7 +617,7 @@ public class JCertifVaadinApplication extends Application {
         // header.setStyleName(Reindeer.LAYOUT_BLACK);
 
         CssLayout titleLayout = new CssLayout();
-        H2 title = new H2("JCertif Application 2010");
+        H2 title = new H2("JCertif Application 2011");
         titleLayout.addComponent(title);
         SmallText description = new SmallText(
                 "Le plus grand evenement de la communaute Java en l'Afrique Centrale!");
