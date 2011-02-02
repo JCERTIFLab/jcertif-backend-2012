@@ -26,7 +26,7 @@ public class PropositionPresentationForm extends AbstractForm<PropositionPresent
         // Create our layout (2x5 GridLayout)
         ourLayout = new GridLayout(2, 5);
         // Use top-left margin and spacing
-        ourLayout.setMargin(false, true, false, true);
+        ourLayout.setMargin(false, true, true, true);
         ourLayout.setSpacing(true);
         ourLayout.setSizeFull();
         setSizeFull();

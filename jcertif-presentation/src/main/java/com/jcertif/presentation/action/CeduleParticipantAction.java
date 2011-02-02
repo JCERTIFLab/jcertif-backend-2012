@@ -10,7 +10,7 @@ import com.jcertif.presentation.wsClient.CeduleParticipantClient;
  */
 public class CeduleParticipantAction extends AbstractAction<CeduleParticipantContainer, CeduleParticipant, CeduleParticipantClient> {
 
-    public CeduleParticipantAction() throws InstantiationException, IllegalAccessException {
+    public CeduleParticipantAction() {
         setPrincipalContainer(new CeduleParticipantContainer());
     }
 }

@@ -13,6 +13,7 @@ public class ParticipantAction extends AbstractAction<ParticipantContainer, Part
 //    @Autowired
 //   private ParticipantClient participantClient;
     public ParticipantAction() throws InstantiationException, IllegalAccessException {
+        setPrincipalContainer(new ParticipantContainer());
     }
 
 

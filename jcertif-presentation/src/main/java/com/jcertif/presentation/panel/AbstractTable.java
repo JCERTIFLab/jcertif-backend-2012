@@ -5,6 +5,7 @@
 package com.jcertif.presentation.panel;
 
 import com.vaadin.ui.Table;
+import com.vaadin.ui.themes.Runo;
 import java.beans.PropertyChangeListener;
 
 /**
@@ -19,9 +20,11 @@ public abstract class AbstractTable extends Table implements PropertyChangeListe
     public void init() {
         // selectable
         setSelectable(true);
-        setMultiSelect(true);
+        setMultiSelect(false);
         setImmediate(true); // react at once when something is selected
         // turn on column reordering and collapsing
+        setSizeFull();
+        setStyleName(Runo.TABLE_SMALL);
         setColumnReorderingAllowed(true);
         setColumnCollapsingAllowed(true);
     }

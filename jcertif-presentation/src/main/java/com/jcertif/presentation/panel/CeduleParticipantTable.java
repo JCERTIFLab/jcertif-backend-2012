@@ -23,8 +23,9 @@ public class CeduleParticipantTable extends AbstractTable {
         setContainerDataSource(this.ceduleParticipantAction.getPrincipalContainer());
         ceduleParticipantAction.addPropertyChangeListener(this);
         // set column headers
-        setColumnHeaders(CeduleParticipantContainer.COL_HEADERS_FRENCH);
         setVisibleColumns(CeduleParticipantContainer.NATURAL_COL_ORDER);
+        setColumnHeaders(CeduleParticipantContainer.COL_HEADERS_FRENCH);
+        
     }
 
     @Override

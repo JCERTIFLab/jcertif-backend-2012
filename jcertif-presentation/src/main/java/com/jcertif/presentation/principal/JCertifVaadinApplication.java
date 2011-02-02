@@ -5,6 +5,7 @@ import com.jcertif.presentation.action.ProfilUtilisateurAction;
 import com.jcertif.presentation.action.PropositionPresentationAction;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
 import com.jcertif.presentation.panel.ParticipantForm;
+import com.jcertif.presentation.panel.ParticipantPanel;
 import com.jcertif.presentation.panel.ProfilUtilisateurtForm;
 import com.jcertif.presentation.panel.PropositionPresentationForm;
 import com.jcertif.presentation.util.H1;
@@ -30,7 +31,7 @@ import com.vaadin.ui.NativeSelect;
 import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
-import com.vaadin.ui.themes.Reindeer;
+import com.vaadin.ui.themes.Runo;
 import org.vaadin.googleanalytics.tracking.GoogleAnalyticsTracker;
 
 /**
@@ -60,7 +61,7 @@ public class JCertifVaadinApplication extends Application {
     @Override
     public void init() {
         try {
-            setTheme("reindeer");
+            setTheme("runo");
             mainWindow = new Window("JCertif Application 2011");
             mainLayout = (VerticalLayout) mainWindow.getContent();
             mainLayout.setMargin(false);
@@ -298,23 +299,23 @@ public class JCertifVaadinApplication extends Application {
         l.setMargin(true);
         l.setSpacing(true);
         l.setCaption("Participants");
-        l.setStyleName(Reindeer.LAYOUT_WHITE);
+        l.setStyleName(Runo.LAYOUT_DARKER);
+        l.setSizeFull();
         CssLayout margin = new CssLayout();
-        margin.setMargin(true);
+        margin.setMargin(false);
         margin.setWidth("100%");
         l.addComponent(margin);
         H1 title = new H1("Participants a JCertif 2011");
         margin.addComponent(title);
         margin.addComponent(new Ruler());
 
-        HorizontalLayout texts = new HorizontalLayout();
-        texts.setSpacing(true);
-        texts.setWidth("100%");
-        texts.setMargin(false, false, true, false);
-        margin.addComponent(texts);
-
-
-
+//        HorizontalLayout texts = new HorizontalLayout();
+//        texts.setSpacing(true);
+//        texts.setWidth("100%");
+//        texts.setMargin(false, false, true, false);
+        ParticipantPanel participantPanel = new ParticipantPanel(participantAction);
+        l.addComponent(participantPanel);
+        l.setExpandRatio(participantPanel, 1);
         return l;
     }
 
@@ -392,7 +393,7 @@ public class JCertifVaadinApplication extends Application {
             center();
             setCaption(caption);
             propositionPresentationForm = new PropositionPresentationForm(propositionPresentationAction);
-            
+
             propositionPresentationForm.setBOForEdit(new PropositionPresentation(), true);
             layout.addComponent(propositionPresentationForm);
 
@@ -407,6 +408,8 @@ public class JCertifVaadinApplication extends Application {
         margin.setMargin(false, true, true, true);
         margin.setSizeFull();
         tabs = new TabSheet();
+        tabs.setStyleName(Runo.TABSHEET_SMALL);
+
         tabs.setSizeFull();
         margin.addComponent(tabs);
         mainLayout.addComponent(margin);
@@ -431,7 +434,7 @@ public class JCertifVaadinApplication extends Application {
         l.setMargin(true);
         l.setSpacing(true);
         l.setCaption("Bienvenue");
-        l.setStyleName(Reindeer.LAYOUT_WHITE);
+        l.setStyleName(Runo.LAYOUT_DARKER);
         CssLayout margin = new CssLayout();
         margin.setMargin(true);
         margin.setWidth("100%");
@@ -455,7 +458,7 @@ public class JCertifVaadinApplication extends Application {
         l.setMargin(true);
         l.setSpacing(true);
         l.setCaption("Auteurs");
-        l.setStyleName(Reindeer.LAYOUT_WHITE);
+        l.setStyleName(Runo.LAYOUT_DARKER);
 
         CssLayout margin = new CssLayout();
         margin.setMargin(true);
@@ -482,11 +485,11 @@ public class JCertifVaadinApplication extends Application {
         l.setMargin(true);
         l.setSpacing(true);
         l.setCaption("Progamme");
-        l.setStyleName(Reindeer.LAYOUT_WHITE);
+        l.setStyleName(Runo.LAYOUT_DARKER);
 
         TabSheet tabProgramme = new TabSheet();
         tabProgramme.setSizeFull();
-
+        tabs.setStyleName(Runo.TABSHEET_SMALL);
         l.addComponent(buildCalendar());
         return l;
     }
@@ -496,11 +499,11 @@ public class JCertifVaadinApplication extends Application {
         l.setMargin(true);
         l.setSpacing(true);
         l.setCaption("Partenaires");
-        l.setStyleName(Reindeer.LAYOUT_WHITE);
+        l.setStyleName(Runo.LAYOUT_DARKER);
 
         CssLayout margin = new CssLayout();
         margin.setSizeFull();
-        margin.setStyleName(Reindeer.LAYOUT_WHITE);
+        margin.setStyleName(Runo.PANEL_LIGHT);
         margin.setMargin(true);
         l.addComponent(margin);
 
@@ -615,7 +618,7 @@ public class JCertifVaadinApplication extends Application {
         header.setWidth("100%");
         header.setMargin(true);
         header.setSpacing(true);
-        // header.setStyleName(Reindeer.LAYOUT_BLACK);
+        // header.setStyleName(Runo.LAYOUT_BLACK);
 
         CssLayout titleLayout = new CssLayout();
         H2 title = new H2("JCertif Application 2011");
@@ -629,11 +632,11 @@ public class JCertifVaadinApplication extends Application {
         HorizontalLayout toggles = new HorizontalLayout();
         toggles.setSpacing(true);
         Label bgColor = new Label("Couleur de fond");
-        bgColor.setDescription("Changer la principale couleur du layout de notre fenetre principale:<ul><li>Default - no style</li><li>White - Reindeer.LAYOUT_WHITE</li><li>Blue - Reindeer.LAYOUT_BLUE</li><li>Black - Reindeer.LAYOUT_BLACK</li></ul>");
+        bgColor.setDescription("Changer la principale couleur du layout de notre fenetre principale:<ul><li>Default - no style</li><li>White - Runo.LAYOUT_WHITE</li><li>Blue - Runo.LAYOUT_BLUE</li><li>Black - Runo.LAYOUT_BLACK</li></ul>");
         toggles.addComponent(bgColor);
         NativeSelect colors = new NativeSelect();
         colors.setNullSelectionAllowed(false);
-        colors.setDescription("Set the style name for the main layout of this window:<ul><li>Default - no style</li><li>White - Reindeer.LAYOUT_WHITE</li><li>Blue - Reindeer.LAYOUT_BLUE</li><li>Black - Reindeer.LAYOUT_BLACK</li></ul>");
+        colors.setDescription("Set the style name for the main layout of this window:<ul><li>Default - no style</li><li>White - Runo.LAYOUT_WHITE</li><li>Blue - Runo.LAYOUT_BLUE</li><li>Black - Runo.LAYOUT_BLACK</li></ul>");
         colors.addItem("Default");
         colors.addItem("White");
         colors.addItem("Blue");
@@ -667,7 +670,7 @@ public class JCertifVaadinApplication extends Application {
                 //    openHelpWindow();
             }
         });
-        help.setStyleName(Reindeer.BUTTON_SMALL);
+        help.setStyleName(Runo.BUTTON_SMALL);
         buttons.addComponent(help);
         buttons.setComponentAlignment(help, "middle");
 
@@ -677,7 +680,7 @@ public class JCertifVaadinApplication extends Application {
                 //  openLogoutWindow();
             }
         });
-        logout.setStyleName(Reindeer.BUTTON_SMALL);
+        logout.setStyleName(Runo.BUTTON_SMALL);
         buttons.addComponent(logout);
         titleLayout.addComponent(buttons);
 
@@ -692,7 +695,7 @@ public class JCertifVaadinApplication extends Application {
         content.setSizeFull();
         content.setMargin(true);
         content.setCaption("Calendrier");
-        content.setStyleName(Reindeer.LAYOUT_BLUE);
+        content.setStyleName(Runo.LAYOUT_DARKER);
         JCertifCalendarTest calendarTest = new JCertifCalendarTest(this);
 
         content.addComponent(calendarTest);

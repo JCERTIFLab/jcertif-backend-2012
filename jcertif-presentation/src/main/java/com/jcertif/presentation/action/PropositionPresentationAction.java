@@ -12,7 +12,7 @@ public class PropositionPresentationAction extends AbstractAction<PropositionPre
 
 //    @Autowired
 //   private PropositionPresentationClient propositionPresentationClient;
-    public PropositionPresentationAction() throws InstantiationException, IllegalAccessException {
+    public PropositionPresentationAction() {
         setPrincipalContainer(new PropositionPresentationContainer());
     }
 }

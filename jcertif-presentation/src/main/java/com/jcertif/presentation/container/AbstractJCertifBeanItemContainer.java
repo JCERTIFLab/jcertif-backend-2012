@@ -7,6 +7,7 @@ package com.jcertif.presentation.container;
 import com.jcertif.presentation.data.bo.AbstractBO;
 import com.vaadin.data.util.BeanItemContainer;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,11 +21,11 @@ public abstract class AbstractJCertifBeanItemContainer<T extends AbstractBO> ext
         super(type);
     }
 
-    public void loadData(List<T> datas) {
+    public void loadData(Collection<T> datas) {
+        removeAllItems();
         for (Iterator<T> it = datas.iterator(); it.hasNext();) {
             AbstractBO abstractBO = it.next();
             addBean(abstractBO);
         }
     }
-
 }

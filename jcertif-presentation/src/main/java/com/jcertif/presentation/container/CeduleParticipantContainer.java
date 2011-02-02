@@ -7,11 +7,10 @@ public class CeduleParticipantContainer extends AbstractJCertifBeanItemContainer
     public static Object[] NATURAL_COL_ORDER = new Object[]{"id", "statutCedule",
         "dateCedule", "details", "evenement"};
     public static String[] COL_HEADERS_FRENCH = new String[]{"ID",
-        "Statut", "Date", "Details","Evenement"};
+        "Statut", "Date", "Details", "Evenement"};
 
-    public CeduleParticipantContainer() throws InstantiationException, IllegalAccessException {
+    public CeduleParticipantContainer() {
         super(CeduleParticipant.class);
 
     }
-
 }

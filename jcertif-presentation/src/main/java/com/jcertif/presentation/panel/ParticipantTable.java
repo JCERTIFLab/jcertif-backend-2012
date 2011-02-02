@@ -23,8 +23,9 @@ public class ParticipantTable extends AbstractTable {
         setContainerDataSource(this.participantAction.getPrincipalContainer());
         participantAction.addPropertyChangeListener(this);
         // set column headers
-        setColumnHeaders(ParticipantContainer.COL_HEADERS_FRENCH);
         setVisibleColumns(ParticipantContainer.NATURAL_COL_ORDER);
+        setColumnHeaders(ParticipantContainer.COL_HEADERS_FRENCH);
+       
     }
 
     @Override
