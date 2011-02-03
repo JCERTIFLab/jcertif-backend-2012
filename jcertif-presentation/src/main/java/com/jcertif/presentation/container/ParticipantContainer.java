@@ -9,9 +9,7 @@ public class ParticipantContainer extends AbstractJCertifBeanItemContainer<Parti
     public static String[] COL_HEADERS_FRENCH = new String[]{"ID", "Prenom", "Nom", "Sexe", "Salutation", "Specialite", "Details", "Adresse Electronique", "Site Web", "Conference",
         "Date Inscription", "CV Soumis", "Compagnie", "Role", "Type", "Adresse"};
 
-    public ParticipantContainer() throws InstantiationException, IllegalAccessException {
+    public ParticipantContainer() {
         super(Participant.class);
     }
-
-
 }
