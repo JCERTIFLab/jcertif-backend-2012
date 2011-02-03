@@ -5,13 +5,14 @@
 package com.jcertif.presentation.panel.window;
 
 import com.jcertif.presentation.action.ProfilUtilisateurAction;
+import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
 import com.jcertif.presentation.panel.form.ProfilUtilisateurtForm;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 /**
  *
- * @author UNHCRUser
+ * @author Douneg
  */
 public class ProfilUtilisateurWindow extends Window {
 
@@ -35,7 +36,7 @@ public class ProfilUtilisateurWindow extends Window {
         center();
         setCaption(caption);
         profilUtilisateurtForm = new ProfilUtilisateurtForm(profilUtilisateurAction);
-        profilUtilisateurtForm.addNewProfilUtilisateur();
+        profilUtilisateurtForm.setBOForEdit(new ProfilUtilisateur(), true);
         layout.addComponent(profilUtilisateurtForm);
 
     }

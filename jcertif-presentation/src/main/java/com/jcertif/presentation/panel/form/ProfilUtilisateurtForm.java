@@ -1,7 +1,9 @@
 package com.jcertif.presentation.panel.form;
 
+import com.jcertif.presentation.action.AbstractAction;
 import com.jcertif.presentation.action.ProfilUtilisateurAction;
 import com.jcertif.presentation.container.ProfilUtilisateurContainer;
+import com.jcertif.presentation.data.bo.AbstractBO;
 import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
 import com.jcertif.presentation.util.JCertifUploader;
 
@@ -23,19 +25,12 @@ import com.vaadin.ui.Upload.SucceededEvent;
 import java.util.Arrays;
 import java.util.List;
 
-public class ProfilUtilisateurtForm extends Form implements ClickListener {
+public class ProfilUtilisateurtForm extends AbstractForm<ProfilUtilisateur, ProfilUtilisateurAction> {
 
-    private Button save = new Button("Sauver", (ClickListener) this);
-    private Button cancel = new Button("Annuler", (ClickListener) this);
-    private Button edit = new Button("Modifier", (ClickListener) this);
-    private ProfilUtilisateurAction action;
-    private boolean newContactMode = false;
-    private ProfilUtilisateur profilUtilisateur = null;
-    private BeanItem<ProfilUtilisateur> beanItem;
     private GridLayout ourLayout;
 
     public ProfilUtilisateurtForm(ProfilUtilisateurAction action) {
-        this.action = action;
+        super(action);
         setCaption("Profil Utilisateur");
 
         // Create our layout (3x3 GridLayout)
@@ -53,13 +48,6 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
          * through to the underlying object.)
          */
         setWriteThrough(false);
-        HorizontalLayout footer = new HorizontalLayout();
-        footer.setSpacing(true);
-        footer.addComponent(save);
-        footer.addComponent(cancel);
-        footer.addComponent(edit);
-        footer.setVisible(false);
-        setFooter(footer);
 
         setFormFieldFactory(new DefaultFieldFactory() {
 
@@ -86,7 +74,7 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
                     f.setNullRepresentation("");
                     f.setWidth("100%");
                     f.setSecret(true);
-                    if (newContactMode) {
+                    if (isNewContactMode()) {
                         f.setRequired(true);
                     }
                     return f;
@@ -96,7 +84,7 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
                     f.setNullRepresentation("");
                     f.setWidth("100%");
                     f.setSecret(true);
-                    if (newContactMode) {
+                    if (isNewContactMode()) {
                         f.setRequired(true);
                     }
                     return f;
@@ -105,7 +93,7 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
                     f.setCaption("Code Confirmation");
                     f.setNullRepresentation("");
                     f.setWidth("100%");
-                    if (newContactMode) {
+                    if (isNewContactMode()) {
                         f.setRequired(true);
                     }
                     return f;
@@ -114,7 +102,7 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
                     f.setCaption("Langue Correspondance");
                     f.setNullRepresentation("");
                     f.setWidth("100%");
-                    if (newContactMode) {
+                    if (isNewContactMode()) {
                         f.setRequired(true);
                     }
                     return f;
@@ -157,104 +145,7 @@ public class ProfilUtilisateurtForm extends Form implements ClickListener {
     }
 
     @Override
-    public void buttonClick(ClickEvent event) {
-        Button source = event.getButton();
-        if (source == save) {
-            /* If the given input is not valid there is no point in continuing */
-            if (!isValid()) {
-                return;
-            }
-
-            commit();
-            if (newContactMode) {
-                /* We need to add the new profilUtilisateur to the container */
-                Item addedItem = action.addItem(profilUtilisateur);
-                /*
-                 * We must update the form to use the Item from our datasource
-                 * as we are now in edit mode (no longer in add mode)
-                 */
-                setItemDataSource(addedItem);
-                newContactMode = false;
-            }
-            setReadOnly(true);
-        } else if (source == cancel) {
-            if (newContactMode) {
-                newContactMode = false;
-                /* Clear the form and make it invisible */
-                setItemDataSource(null);
-            } else {
-                discard();
-            }
-            setReadOnly(true);
-        } else if (source == edit) {
-            setReadOnly(false);
-        }
-    }
-
-    @Override
-    public void setItemDataSource(Item newDataSource) {
-        newContactMode = false;
-        if (newDataSource != null) {
-            List<Object> orderedProperties = Arrays.asList(ProfilUtilisateurContainer.NATURAL_COL_ORDER);
-            super.setItemDataSource(newDataSource, orderedProperties);
-            getFooter().setVisible(true);
-        } else {
-            super.setItemDataSource(null);
-            getFooter().setVisible(false);
-        }
-    }
-
-    @Override
-    public void setReadOnly(boolean readOnly) {
-        super.setReadOnly(readOnly);
-        save.setVisible(!readOnly);
-        cancel.setVisible(!readOnly);
-        edit.setVisible(readOnly);
-        Field field = getField("id");
-        if (field != null) {
-            field.setReadOnly(true);
-        }
-        field = getField("nomProfil");
-        if (field != null && !newContactMode) {
-            field.setReadOnly(true);
-        }
-    }
-
-    public final void setProfilUtilisateurForEdit(ProfilUtilisateur profilUtilisateur) {
-        this.profilUtilisateur = profilUtilisateur;
-        beanItem = new BeanItem(profilUtilisateur);
-        setItemDataSource(beanItem);
-        newContactMode = true;
-        setReadOnly(false);
-    }
-
-    public final void setProfilUtilisateurForRead(ProfilUtilisateur profilUtilisateur) {
-        this.profilUtilisateur = profilUtilisateur;
-        beanItem = new BeanItem(profilUtilisateur);
-        setItemDataSource(beanItem);
-        newContactMode = true;
-        setReadOnly(true);
-
-    }
-
-    public void addNewProfilUtilisateur() {
-        // Create a temporary item for the form
-        profilUtilisateur = new ProfilUtilisateur();
-        beanItem = new BeanItem(profilUtilisateur);
-        setItemDataSource(beanItem);
-        newContactMode = true;
-        setReadOnly(false);
-    }
-
-    private class PhotoLoader extends JCertifUploader {
-
-        @Override
-        public void uploadSucceeded(SucceededEvent event) {
-            beanItem.getBean().setPhoto(event.getFilename());
-        }
-
-        @Override
-        public void uploadFailed(FailedEvent event) {
-        }
+    public List<Object> getColumnOrder() {
+        return Arrays.asList(ProfilUtilisateurContainer.NATURAL_COL_ORDER);
     }
 }

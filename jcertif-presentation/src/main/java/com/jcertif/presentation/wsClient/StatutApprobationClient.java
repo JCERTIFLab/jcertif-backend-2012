@@ -9,7 +9,7 @@ import com.jcertif.presentation.data.bo.presentation.StatutApprobation;
 
 /**
  *
- * @author UNHCRUser
+ * @author Douneg
  */
 public class StatutApprobationClient extends AbstractJCertWebServiceClient<StatutApprobation, Long>{
  /**

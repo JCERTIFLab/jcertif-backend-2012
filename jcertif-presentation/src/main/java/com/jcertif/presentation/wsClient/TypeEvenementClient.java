@@ -9,7 +9,7 @@ import com.jcertif.presentation.data.bo.cedule.TypeEvenement;
 
 /**
  *
- * @author UNHCRUser
+ * @author Douneg
  */
 public class TypeEvenementClient extends AbstractJCertWebServiceClient<TypeEvenement, Long> {
 

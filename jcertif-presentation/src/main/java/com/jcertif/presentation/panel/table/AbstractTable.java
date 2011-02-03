@@ -10,7 +10,7 @@ import java.beans.PropertyChangeListener;
 
 /**
  *
- * @author UNHCRUser
+ * @author Douneg
  */
 public abstract class AbstractTable extends Table implements PropertyChangeListener {
 

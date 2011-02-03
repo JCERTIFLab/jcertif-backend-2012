@@ -15,6 +15,7 @@ import java.beans.PropertyChangeSupport;
  *
  * @author Douneg
  * Classe permettant de faire la liaison entre une interface et un container
+ * Elle permet aussi de faire la liaison entre ces deux dernieres entites et
  */
 public class AbstractAction<PC extends Container, BO extends AbstractBO, WS extends AbstractJCertWebServiceClient> {
 

@@ -5,13 +5,14 @@
 package com.jcertif.presentation.panel.window;
 
 import com.jcertif.presentation.action.ParticipantAction;
+import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.panel.form.ParticipantForm;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 /**
  *
- * @author UNHCRUser
+ * @author Douneg
  */
 public class PartenaireWindow extends Window {
 
@@ -34,7 +35,8 @@ public class PartenaireWindow extends Window {
         setCaption(caption);
         setScrollable(true);
         ParticipantForm participantForm = new ParticipantForm(participantAction);
-        participantForm.addNewParticipant();
+        participantForm.setBOForEdit(new Participant(), true);
         layout.addComponent(participantForm);
+
     }
 }

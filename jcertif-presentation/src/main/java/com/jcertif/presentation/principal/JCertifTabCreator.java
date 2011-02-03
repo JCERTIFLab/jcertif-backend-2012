@@ -14,7 +14,7 @@ import com.vaadin.ui.themes.Runo;
 
 /**
  *
- * @author UNHCRUser
+ * @author Douneg
  */
 public class JCertifTabCreator {
 

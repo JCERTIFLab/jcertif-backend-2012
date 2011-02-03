@@ -10,7 +10,7 @@ import com.sun.jersey.api.client.WebResource;
 
 /**
  *
- * @author UNHCRUser
+ * @author Douneg
  */
 public class MailSenderClient {
 

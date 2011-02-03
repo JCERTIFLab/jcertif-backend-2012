@@ -1,7 +1,9 @@
 package com.jcertif.presentation.panel.form;
 
+import com.jcertif.presentation.action.AbstractAction;
 import com.jcertif.presentation.action.ParticipantAction;
 import com.jcertif.presentation.container.ParticipantContainer;
+import com.jcertif.presentation.data.bo.AbstractBO;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.panel.field.AdresseField;
 import com.jcertif.presentation.util.CalendarField;
@@ -23,11 +25,8 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class ParticipantForm extends Form implements ClickListener {
+public class ParticipantForm extends AbstractForm<Participant, ParticipantAction> {
 
-    private Button save = new Button("Sauver", (ClickListener) this);
-    private Button cancel = new Button("Annuler", (ClickListener) this);
-    private Button edit = new Button("Modifier", (ClickListener) this);
     private ParticipantAction action;
     private boolean newContactMode = false;
     private Participant participant = null;
@@ -41,7 +40,7 @@ public class ParticipantForm extends Form implements ClickListener {
     private GridLayout ourLayout;
 
     public ParticipantForm(ParticipantAction action) {
-        this.action = action;
+        super(action);
 
         setCaption("Participant");
 
@@ -58,13 +57,6 @@ public class ParticipantForm extends Form implements ClickListener {
          * through to the underlying object.)
          */
         setWriteThrough(false);
-        HorizontalLayout footer = new HorizontalLayout();
-        footer.setSpacing(true);
-        footer.addComponent(save);
-        footer.addComponent(cancel);
-        footer.addComponent(edit);
-        footer.setVisible(false);
-        setFooter(footer);
 
         setFormFieldFactory(new DefaultFieldFactory() {
 
@@ -172,89 +164,7 @@ public class ParticipantForm extends Form implements ClickListener {
     }
 
     @Override
-    public void buttonClick(ClickEvent event) {
-        Button source = event.getButton();
-
-        if (source == save) {
-            /* If the given input is not valid there is no point in continuing */
-            if (!isValid()) {
-                return;
-            }
-
-            commit();
-            if (newContactMode) {
-                /* We need to add the new participant to the container */
-                Item addedItem = action.addItem(participant);
-                /*
-                 * We must update the form to use the Item from our datasource
-                 * as we are now in edit mode (no longer in add mode)
-                 */
-                setItemDataSource(addedItem);
-                newContactMode = false;
-            }
-            setReadOnly(true);
-        } else if (source == cancel) {
-            if (newContactMode) {
-                newContactMode = false;
-                /* Clear the form and make it invisible */
-                setItemDataSource(null);
-            } else {
-                discard();
-            }
-            setReadOnly(true);
-        } else if (source == edit) {
-            setReadOnly(false);
-        }
-    }
-
-    @Override
-    public void setItemDataSource(Item newDataSource) {
-        newContactMode = false;
-        if (newDataSource != null) {
-            List<Object> orderedProperties = Arrays.asList(ParticipantContainer.NATURAL_COL_ORDER);
-            for (Iterator<Object> it = orderedProperties.iterator(); it.hasNext();) {
-                Object object = it.next();
-                System.out.println("Field = " + object);
-            }
-
-            super.setItemDataSource(newDataSource, orderedProperties);
-            getFooter().setVisible(true);
-        } else {
-            super.setItemDataSource(null);
-            getFooter().setVisible(false);
-        }
-    }
-
-    @Override
-    public void setReadOnly(boolean readOnly) {
-        super.setReadOnly(readOnly);
-        save.setVisible(!readOnly);
-        cancel.setVisible(!readOnly);
-        edit.setVisible(readOnly);
-    }
-
-    public final void setParticipantForEdit(Participant participant) {
-        this.participant = participant;
-        beanItem = new BeanItem(participant);
-        setItemDataSource(beanItem);
-        newContactMode = true;
-        setReadOnly(false);
-    }
-
-    public final void setParticipantForRead(Participant participant) {
-        this.participant = participant;
-        beanItem = new BeanItem(participant);
-        setItemDataSource(beanItem);
-        newContactMode = true;
-        setReadOnly(true);
-    }
-
-    public void addNewParticipant() {
-        // Create a temporary item for the form
-        participant = new Participant();
-        beanItem = new BeanItem(participant);
-        setItemDataSource(beanItem);
-        newContactMode = true;
-        setReadOnly(false);
+    public List<Object> getColumnOrder() {
+        return Arrays.asList(ParticipantContainer.NATURAL_COL_ORDER);
     }
 }

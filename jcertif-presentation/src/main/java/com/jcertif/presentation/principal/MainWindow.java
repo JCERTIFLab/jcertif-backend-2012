@@ -51,7 +51,7 @@ import org.vaadin.googleanalytics.tracking.GoogleAnalyticsTracker;
 
 /**
  *
- * @author UNHCRUser
+ * @author Douneg
  */
 public class MainWindow extends Window {
 
@@ -652,16 +652,16 @@ public class MainWindow extends Window {
         H2 title = new H2("JCertif Application 2011");
         titleLayout.addComponent(title);
         SmallText description = new SmallText(
-                "Le plus grand evenement de la communaute Java en l'Afrique Centrale!");
+                "Le plus grand événement de la communauté Java en l'Afrique Centrale!");
         description.setSizeUndefined();
         titleLayout.addComponent(description);
 
         header.addComponent(titleLayout);
         HorizontalLayout toggles = new HorizontalLayout();
         toggles.setSpacing(true);
-        Label bgColor = new Label("Couleur de fond");
-        bgColor.setDescription("Changer la principale couleur du layout de notre fenetre principale:<ul><li>Default - no style</li><li>White - Runo.LAYOUT_WHITE</li><li>Blue - Runo.LAYOUT_BLUE</li><li>Black - Runo.LAYOUT_BLACK</li></ul>");
-        toggles.addComponent(bgColor);
+//        Label bgColor = new Label("Couleur de fond");
+//        bgColor.setDescription("Changer la principale couleur du layout de notre fenetre principale:<ul><li>Default - no style</li><li>White - Runo.LAYOUT_WHITE</li><li>Blue - Runo.LAYOUT_BLUE</li><li>Black - Runo.LAYOUT_BLACK</li></ul>");
+//        toggles.addComponent(bgColor);
         NativeSelect colors = new NativeSelect();
         colors.setNullSelectionAllowed(false);
         colors.setDescription("Set the style name for the main layout of this window:<ul><li>Default - no style</li><li>White - Runo.LAYOUT_WHITE</li><li>Blue - Runo.LAYOUT_BLUE</li><li>Black - Runo.LAYOUT_BLACK</li></ul>");

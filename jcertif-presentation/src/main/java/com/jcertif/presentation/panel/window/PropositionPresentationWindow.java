@@ -12,7 +12,7 @@ import com.vaadin.ui.Window;
 
 /**
  *
- * @author UNHCRUser
+ * @author Douneg
  */
 public class PropositionPresentationWindow extends Window {
 

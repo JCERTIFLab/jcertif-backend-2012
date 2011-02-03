@@ -12,7 +12,7 @@ import com.vaadin.ui.Window;
 
 /**
  *
- * @author UNHCRUser
+ * @author Douneg
  */
 public class StatutApprobationWindow extends Window {
 
