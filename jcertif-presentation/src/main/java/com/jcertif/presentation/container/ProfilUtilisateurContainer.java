@@ -9,7 +9,7 @@ public class ProfilUtilisateurContainer extends AbstractJCertifBeanItemContainer
     public static String[] COL_HEADERS_FRENCH = new String[]{"ID",
         "Nom Profil", "Email", "Password", "Langue Correspondance", "Code Confirmation","Confirme Mot de Passe"};
 
-    public ProfilUtilisateurContainer() throws InstantiationException, IllegalAccessException {
+    public ProfilUtilisateurContainer() {
         super(ProfilUtilisateur.class);
     }
 

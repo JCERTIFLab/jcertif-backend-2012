@@ -1,8 +1,9 @@
-package com.jcertif.presentation.panel;
+package com.jcertif.presentation.panel.form;
 
 import com.jcertif.presentation.action.ParticipantAction;
 import com.jcertif.presentation.container.ParticipantContainer;
 import com.jcertif.presentation.data.bo.participant.Participant;
+import com.jcertif.presentation.panel.field.AdresseField;
 import com.jcertif.presentation.util.CalendarField;
 import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItem;

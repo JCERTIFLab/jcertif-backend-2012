@@ -46,7 +46,7 @@ public class AbstractAction<PC extends Container, BO extends AbstractBO, WS exte
     }
 
     public void updateItem(BO bo) throws UnsupportedOperationException {
-      //  bo = (BO) webServiceClient.update_XML(bo);
+        //  bo = (BO) webServiceClient.update_XML(bo);
     }
 
     /**

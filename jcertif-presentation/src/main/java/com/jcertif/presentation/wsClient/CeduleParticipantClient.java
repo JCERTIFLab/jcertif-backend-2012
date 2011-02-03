@@ -1,11 +1,10 @@
 package com.jcertif.presentation.wsClient;
 
 import com.jcertif.presentation.data.bo.cedule.CeduleParticipant;
-import com.jcertif.presentation.data.bo.conference.Conference;
 
-/** Jersey REST client generated for REST resource:ConferenceFacade [/participants]<br>
+/** Jersey REST client generated for REST resource:CeduleParticipantFacade [/participants]<br>
  *  USAGE:<pre>
- *        ConferenceClient client = new ConferenceClient();
+ *        CeduleParticipantClient client = new CeduleParticipantClient();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jcertif.presentation.panel;
+package com.jcertif.presentation.panel.table;
 
 import com.vaadin.ui.Table;
 import com.vaadin.ui.themes.Runo;

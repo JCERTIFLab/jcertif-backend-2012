@@ -4,6 +4,9 @@
  */
 package com.jcertif.presentation.panel;
 
+import com.jcertif.presentation.panel.table.CeduleParticipantTable;
+import com.jcertif.presentation.panel.table.ParticipantTable;
+import com.jcertif.presentation.panel.table.PropositionPresentationTable;
 import com.jcertif.presentation.action.CeduleParticipantAction;
 import com.jcertif.presentation.action.ParticipantAction;
 import com.jcertif.presentation.action.PropositionPresentationAction;

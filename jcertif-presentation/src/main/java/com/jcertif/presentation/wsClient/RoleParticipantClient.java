@@ -27,6 +27,4 @@ public class RoleParticipantClient extends AbstractJCertWebServiceClient<RolePar
         }
         return instance;
     }
-    
-
 }

@@ -1,4 +1,4 @@
-package com.jcertif.presentation.panel;
+package com.jcertif.presentation.panel.form;
 
 import com.jcertif.presentation.action.CeduleParticipantAction;
 import com.jcertif.presentation.container.CeduleParticipantContainer;

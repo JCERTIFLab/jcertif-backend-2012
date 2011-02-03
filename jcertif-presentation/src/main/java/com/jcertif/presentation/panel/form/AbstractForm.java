@@ -2,12 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jcertif.presentation.panel;
+package com.jcertif.presentation.panel.form;
 
 import com.jcertif.presentation.action.AbstractAction;
 import com.jcertif.presentation.data.bo.AbstractBO;
 import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItem;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -54,10 +55,14 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
 
     public HorizontalLayout getInitialFooter() {
         HorizontalLayout footer = new HorizontalLayout();
+
         footer.setSpacing(true);
         footer.addComponent(getSaveButton());
+        
         footer.addComponent(getCancelButton());
+        
         footer.addComponent(getEditButton());
+        
         footer.setVisible(false);
         return footer;
     }

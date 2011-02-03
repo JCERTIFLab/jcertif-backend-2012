@@ -1,11 +1,10 @@
 package com.jcertif.presentation.wsClient;
 
-import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
 
-/** Jersey REST client generated for REST resource:ProfilUtilisateurFacade [/profilUtilisateurs]<br>
+/** Jersey REST client generated for REST resource:PropositionPresentationFacade [/profilUtilisateurs]<br>
  *  USAGE:<pre>
- *        ProfilUtilisateurClient client = new ProfilUtilisateurClient();
+ *        PropositionPresentationClient client = new PropositionPresentationClient();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();

@@ -1,13 +1,31 @@
 package com.jcertif.presentation.principal;
 
 import com.jcertif.presentation.action.ParticipantAction;
+import com.jcertif.presentation.action.ParticulariteSalleAction;
 import com.jcertif.presentation.action.ProfilUtilisateurAction;
 import com.jcertif.presentation.action.PropositionPresentationAction;
+import com.jcertif.presentation.action.RoleParticipantAction;
+import com.jcertif.presentation.action.StatutApprobationAction;
+import com.jcertif.presentation.action.StatutCeduleAction;
+import com.jcertif.presentation.action.TypeEvenementAction;
+import com.jcertif.presentation.action.TypeParticipantAction;
+import com.jcertif.presentation.data.bo.cedule.StatutCedule;
+import com.jcertif.presentation.data.bo.cedule.TypeEvenement;
+import com.jcertif.presentation.data.bo.participant.RoleParticipant;
+import com.jcertif.presentation.data.bo.participant.TypeParticipant;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
-import com.jcertif.presentation.panel.ParticipantForm;
+import com.jcertif.presentation.data.bo.presentation.StatutApprobation;
+import com.jcertif.presentation.data.bo.salle.ParticulariteSalle;
+import com.jcertif.presentation.panel.form.ParticipantForm;
 import com.jcertif.presentation.panel.ParticipantPanel;
-import com.jcertif.presentation.panel.ProfilUtilisateurtForm;
-import com.jcertif.presentation.panel.PropositionPresentationForm;
+import com.jcertif.presentation.panel.form.ParticulariteSalleForm;
+import com.jcertif.presentation.panel.form.ProfilUtilisateurtForm;
+import com.jcertif.presentation.panel.form.PropositionPresentationForm;
+import com.jcertif.presentation.panel.form.RoleParticipantForm;
+import com.jcertif.presentation.panel.form.StatutApprobationForm;
+import com.jcertif.presentation.panel.form.StatutCeduleForm;
+import com.jcertif.presentation.panel.form.TypeEvenementForm;
+import com.jcertif.presentation.panel.form.TypeParticipantForm;
 import com.jcertif.presentation.util.H1;
 import com.jcertif.presentation.util.H2;
 import com.jcertif.presentation.util.JCertifCalendarTest;
@@ -345,6 +363,162 @@ public class JCertifVaadinApplication extends Application {
         }
     }
 
+    public class StatutCeduleWindow extends Window {
+
+        public StatutCeduleWindow(String caption) {
+            /*
+             * Make the window modal, which will disable all other components while
+             * it is visible
+             */
+            VerticalLayout layout = new VerticalLayout();
+            layout.setSizeFull();
+            setContent(layout);
+            setModal(true);
+            /* Make the sub window 40% the size of the browser window */
+            setWidth("40%");
+            /*
+             * Center the window both horizontally and vertically in the browser
+             * window
+             */
+            center();
+            setCaption(caption);
+            setScrollable(true);
+            StatutCeduleForm statutCeduleForm = new StatutCeduleForm(new StatutCeduleAction());
+            statutCeduleForm.setBOForEdit(new StatutCedule(), true);
+            layout.addComponent(statutCeduleForm);
+        }
+    }
+
+    public class TypeEvenementWindow extends Window {
+
+        public TypeEvenementWindow(String caption) {
+            /*
+             * Make the window modal, which will disable all other components while
+             * it is visible
+             */
+            VerticalLayout layout = new VerticalLayout();
+            layout.setSizeFull();
+            setContent(layout);
+            setModal(true);
+            /* Make the sub window 40% the size of the browser window */
+            setWidth("40%");
+            /*
+             * Center the window both horizontally and vertically in the browser
+             * window
+             */
+            center();
+            setCaption(caption);
+            setScrollable(true);
+            TypeEvenementForm typeEvenementForm = new TypeEvenementForm(new TypeEvenementAction());
+            typeEvenementForm.setBOForEdit(new TypeEvenement(), true);
+            layout.addComponent(typeEvenementForm);
+        }
+    }
+
+    public class RoleParticipantWindow extends Window {
+
+        public RoleParticipantWindow(String caption) {
+            /*
+             * Make the window modal, which will disable all other components while
+             * it is visible
+             */
+            VerticalLayout layout = new VerticalLayout();
+            layout.setSizeFull();
+            setContent(layout);
+            setModal(true);
+            /* Make the sub window 40% the size of the browser window */
+            setWidth("40%");
+            /*
+             * Center the window both horizontally and vertically in the browser
+             * window
+             */
+            center();
+            setCaption(caption);
+            setScrollable(true);
+            RoleParticipantForm roleParticipantForm = new RoleParticipantForm(new RoleParticipantAction());
+            roleParticipantForm.setBOForEdit(new RoleParticipant(), true);
+            layout.addComponent(roleParticipantForm);
+        }
+    }
+
+    public class TypeParticipantWindow extends Window {
+
+        public TypeParticipantWindow(String caption) {
+            /*
+             * Make the window modal, which will disable all other components while
+             * it is visible
+             */
+            VerticalLayout layout = new VerticalLayout();
+            layout.setSizeFull();
+            setContent(layout);
+            setModal(true);
+            /* Make the sub window 40% the size of the browser window */
+            setWidth("40%");
+            /*
+             * Center the window both horizontally and vertically in the browser
+             * window
+             */
+            center();
+            setCaption(caption);
+            setScrollable(true);
+            TypeParticipantForm typeParticipantForm = new TypeParticipantForm(new TypeParticipantAction());
+            typeParticipantForm.setBOForEdit(new TypeParticipant(), true);
+            layout.addComponent(typeParticipantForm);
+        }
+    }
+
+    public class StatutApprobationWindow extends Window {
+
+        public StatutApprobationWindow(String caption) {
+            /*
+             * Make the window modal, which will disable all other components while
+             * it is visible
+             */
+            VerticalLayout layout = new VerticalLayout();
+            layout.setSizeFull();
+            setContent(layout);
+            setModal(true);
+            /* Make the sub window 40% the size of the browser window */
+            setWidth("40%");
+            /*
+             * Center the window both horizontally and vertically in the browser
+             * window
+             */
+            center();
+            setCaption(caption);
+            setScrollable(true);
+            StatutApprobationForm statutApprobationForm = new StatutApprobationForm(new StatutApprobationAction());
+            statutApprobationForm.setBOForEdit(new StatutApprobation(), true);
+            layout.addComponent(statutApprobationForm);
+        }
+    }
+
+    public class ParticulariteSalleWindow extends Window {
+
+        public ParticulariteSalleWindow(String caption) {
+            /*
+             * Make the window modal, which will disable all other components while
+             * it is visible
+             */
+            VerticalLayout layout = new VerticalLayout();
+            layout.setSizeFull();
+            setContent(layout);
+            setModal(true);
+            /* Make the sub window 40% the size of the browser window */
+            setWidth("40%");
+            /*
+             * Center the window both horizontally and vertically in the browser
+             * window
+             */
+            center();
+            setCaption(caption);
+            setScrollable(true);
+            ParticulariteSalleForm particulariteSalleForm = new ParticulariteSalleForm(new ParticulariteSalleAction());
+            particulariteSalleForm.setBOForEdit(new ParticulariteSalle(), true);
+            layout.addComponent(particulariteSalleForm);
+        }
+    }
+
     public class ProfilUtilisateurWindow extends Window {
 
         public ProfilUtilisateurWindow(String caption) {
@@ -526,22 +700,73 @@ public class JCertifVaadinApplication extends Application {
     MenuBar getTopMenu() {
         MenuBar menubar = new MenuBar();
         menubar.setWidth("100%");
-        final MenuBar.MenuItem file = menubar.addItem("Nouveau Partenaire", new Command() {
+        final MenuBar.MenuItem file = menubar.addItem("Nouveau...", null);
+
+        final MenuBar.MenuItem addStatutCedule = file.addItem("Statut Cedule", new Command() {
 
             @Override
             public void menuSelected(MenuItem selectedItem) {
-                PartenaireWindow partenaireWindow = new PartenaireWindow("Creation Participant");
-                participantForm.addNewParticipant();
-                partenaireWindow.getContent().setSizeFull();
-                mainWindow.addWindow(partenaireWindow);
-
+                StatutCeduleWindow statutCeduleWindow = new StatutCeduleWindow("Création Statut Cedule");
+                statutCeduleWindow.getContent().setSizeFull();
+                mainWindow.addWindow(statutCeduleWindow);
             }
         });
+
+        final MenuBar.MenuItem addTypeEvenement = file.addItem("Type Evénement ", new Command() {
+
+            @Override
+            public void menuSelected(MenuItem selectedItem) {
+                TypeEvenementWindow typeEvenementWindow = new TypeEvenementWindow("Création Type Evénement ");
+                typeEvenementWindow.getContent().setSizeFull();
+                mainWindow.addWindow(typeEvenementWindow);
+            }
+        });
+
+        final MenuBar.MenuItem addRoleParticipant = file.addItem("Rôle Participant", new Command() {
+
+            @Override
+            public void menuSelected(MenuItem selectedItem) {
+                RoleParticipantWindow roleParticipantWindow = new RoleParticipantWindow("Création Rôle Participant");
+                roleParticipantWindow.getContent().setSizeFull();
+                mainWindow.addWindow(roleParticipantWindow);
+            }
+        });
+
+        final MenuBar.MenuItem addTypeParticipant = file.addItem("Type Participant", new Command() {
+
+            @Override
+            public void menuSelected(MenuItem selectedItem) {
+                TypeParticipantWindow typeParticipantWindow = new TypeParticipantWindow("Création Type Participant");
+                typeParticipantWindow.getContent().setSizeFull();
+                mainWindow.addWindow(typeParticipantWindow);
+            }
+        });
+
+        final MenuBar.MenuItem addStatutApprobation = file.addItem("Statut Approbation", new Command() {
+
+            @Override
+            public void menuSelected(MenuItem selectedItem) {
+                StatutApprobationWindow statutApprobationWindow = new StatutApprobationWindow("Création Statut Approbation");
+                statutApprobationWindow.getContent().setSizeFull();
+                mainWindow.addWindow(statutApprobationWindow);
+            }
+        });
+
+        final MenuBar.MenuItem addParticulariteSalle = file.addItem("Particularité Salle", new Command() {
+
+            @Override
+            public void menuSelected(MenuItem selectedItem) {
+                ParticulariteSalleWindow particulariteSalleWindow = new ParticulariteSalleWindow("Création Particularité Salle");
+                particulariteSalleWindow.getContent().setSizeFull();
+                mainWindow.addWindow(particulariteSalleWindow);
+            }
+        });
+
         final MenuBar.MenuItem profilUtilisateur = menubar.addItem("Nouveau Profil Utilisateur", new Command() {
 
             @Override
             public void menuSelected(MenuItem selectedItem) {
-                ProfilUtilisateurWindow profilUtilisateurWindow = new ProfilUtilisateurWindow("Creation Profil Utilisateur");
+                ProfilUtilisateurWindow profilUtilisateurWindow = new ProfilUtilisateurWindow("Création Profil Utilisateur");
 
                 profilUtilisateurWindow.getContent().setSizeFull();
                 profilUtilisateurtForm.addNewProfilUtilisateur();
@@ -554,7 +779,7 @@ public class JCertifVaadinApplication extends Application {
 
             @Override
             public void menuSelected(MenuItem selectedItem) {
-                PropositionPresentationWindow propositionPresentationWindow = new PropositionPresentationWindow("Creation Proposition Presentation");
+                PropositionPresentationWindow propositionPresentationWindow = new PropositionPresentationWindow("Création Proposition Presentation");
                 propositionPresentationWindow.getContent().setSizeFull();
 
                 mainWindow.addWindow(propositionPresentationWindow);

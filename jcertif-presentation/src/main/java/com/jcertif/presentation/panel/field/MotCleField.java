@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jcertif.presentation.panel;
+package com.jcertif.presentation.panel.field;
 
 import com.jcertif.presentation.data.bo.presentation.MotCle;
 import com.jcertif.presentation.util.H2;
