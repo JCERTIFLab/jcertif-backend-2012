@@ -23,7 +23,7 @@ public class JCertifVaadinApplication extends Application {
     @SuppressWarnings("serial")
     @Override
     public void init() {
-        setTheme("jcertifruno");
+        setTheme("runo");
         setMainWindow(getMain());
     }
 }
