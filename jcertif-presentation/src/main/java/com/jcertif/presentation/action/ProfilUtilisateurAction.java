@@ -12,7 +12,7 @@ public class ProfilUtilisateurAction extends AbstractAction<ProfilUtilisateurCon
 
 //    @Autowired
 //   private ProfilUtilisateurClient profilUtilisateurClient;
-    public ProfilUtilisateurAction() throws InstantiationException, IllegalAccessException {
+    public ProfilUtilisateurAction() {
         setPrincipalContainer(new ProfilUtilisateurContainer());
     }
 }
