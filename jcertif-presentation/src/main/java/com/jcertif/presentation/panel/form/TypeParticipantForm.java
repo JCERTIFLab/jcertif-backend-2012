@@ -39,6 +39,7 @@ public class TypeParticipantForm extends AbstractForm<TypeParticipant, TypeParti
                 Field field = super.createField(item, propertyId, uiContext);
                 if (propertyId.equals("id")) {
                     TextField f = (TextField) field;
+                     f.setNullRepresentation("");
                     f.setCaption("ID");
                     f.setWidth("100%");
                     return f;

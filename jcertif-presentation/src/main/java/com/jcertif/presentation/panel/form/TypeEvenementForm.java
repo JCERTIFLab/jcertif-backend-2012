@@ -41,6 +41,7 @@ public class TypeEvenementForm extends AbstractForm<TypeEvenement, TypeEvenement
                 if (propertyId.equals("id")) {
                     TextField f = (TextField) field;
                     f.setCaption("ID");
+                     f.setNullRepresentation("");
                     f.setWidth("100%");
                     return f;
                 } else if (propertyId.equals("code")) {
