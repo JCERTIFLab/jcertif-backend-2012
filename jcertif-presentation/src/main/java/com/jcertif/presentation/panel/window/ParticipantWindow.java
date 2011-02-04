@@ -14,9 +14,9 @@ import com.vaadin.ui.Window;
  *
  * @author Douneg
  */
-public class PartenaireWindow extends Window {
+public class ParticipantWindow extends Window {
 
-    public PartenaireWindow(String caption, ParticipantAction participantAction) {
+    public ParticipantWindow(String caption, ParticipantAction participantAction) {
         /*
          * Make the window modal, which will disable all other components while
          * it is visible

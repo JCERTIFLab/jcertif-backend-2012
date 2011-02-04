@@ -25,6 +25,7 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
     private Button saveButton = null;
     private Button cancelButton = null;
     private Button editButton = null;
+    private Button sendMailButton = null;
     private AbstractAction action;
     private boolean newContactMode = false;
     private BO abstractBO;

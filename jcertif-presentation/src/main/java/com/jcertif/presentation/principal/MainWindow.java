@@ -13,10 +13,9 @@ import com.jcertif.presentation.action.StatutApprobationAction;
 import com.jcertif.presentation.action.StatutCeduleAction;
 import com.jcertif.presentation.action.TypeEvenementAction;
 import com.jcertif.presentation.action.TypeParticipantAction;
+import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.panel.ParticipantPanel;
-import com.jcertif.presentation.panel.form.ParticipantForm;
-import com.jcertif.presentation.panel.form.ProfilUtilisateurtForm;
-import com.jcertif.presentation.panel.form.PropositionPresentationForm;
+import com.jcertif.presentation.panel.window.ParticipantWindow;
 import com.jcertif.presentation.panel.window.ParticulariteSalleWindow;
 import com.jcertif.presentation.panel.window.ProfilUtilisateurWindow;
 import com.jcertif.presentation.panel.window.PropositionPresentationWindow;
@@ -261,7 +260,7 @@ public class MainWindow extends Window {
     MenuBar getTopMenu() {
         MenuBar menubar = new MenuBar();
         menubar.setWidth("100%");
-        final MenuBar.MenuItem file = menubar.addItem("Nouveau...", null);
+        final MenuBar.MenuItem file = menubar.addItem("Nouveau Code...", null);
 
         final MenuBar.MenuItem addStatutCedule = file.addItem("Statut Cedule", new Command() {
 
@@ -325,6 +324,17 @@ public class MainWindow extends Window {
             }
         });
 
+        final MenuBar.MenuItem participant = menubar.addItem("Nouveau Participant", new Command() {
+
+            @Override
+            public void menuSelected(MenuItem selectedItem) {
+                ParticipantWindow participantWindow = new ParticipantWindow("Création Participant", getParticipantAction());
+                participantWindow.getContent().setSizeFull();
+                getApplication().getMainWindow().addWindow(participantWindow);
+
+            }
+        });
+
         final MenuBar.MenuItem profilUtilisateur = menubar.addItem("Nouveau Profil Utilisateur", new Command() {
 
             @Override
@@ -335,6 +345,8 @@ public class MainWindow extends Window {
 
             }
         });
+
+
 
         final MenuBar.MenuItem propositionPresentation = menubar.addItem("Nouvelle Proposition Presentation", new Command() {
 

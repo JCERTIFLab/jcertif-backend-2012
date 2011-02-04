@@ -4,6 +4,7 @@
  */
 package com.jcertif.presentation.panel.table;
 
+import com.jcertif.presentation.action.AbstractAction;
 import com.jcertif.presentation.action.CeduleParticipantAction;
 import com.jcertif.presentation.container.CeduleParticipantContainer;
 import java.beans.PropertyChangeEvent;
@@ -12,26 +13,16 @@ import java.beans.PropertyChangeEvent;
  *
  * @author Douneg
  */
-public class CeduleParticipantTable extends AbstractTable {
-
-    private CeduleParticipantAction ceduleParticipantAction;
+public class CeduleParticipantTable extends AbstractTable<CeduleParticipantAction, CeduleParticipantContainer> {
 
     public CeduleParticipantTable(CeduleParticipantAction ceduleParticipantAction) {
-        init();
-        this.ceduleParticipantAction = ceduleParticipantAction;
-        // connect data source
-        setContainerDataSource(this.ceduleParticipantAction.getPrincipalContainer());
-        ceduleParticipantAction.addPropertyChangeListener(this);
+        super(ceduleParticipantAction);
+        
         // set column headers
         setVisibleColumns(CeduleParticipantContainer.NATURAL_COL_ORDER);
         setColumnHeaders(CeduleParticipantContainer.COL_HEADERS_FRENCH);
-        
+
     }
 
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-        if (evt.getPropertyName().equals(CeduleParticipantAction.PROP_PRINCIPALCONTAINER)) {
-            setContainerDataSource(ceduleParticipantAction.getPrincipalContainer());
-        }
-    }
+   
 }

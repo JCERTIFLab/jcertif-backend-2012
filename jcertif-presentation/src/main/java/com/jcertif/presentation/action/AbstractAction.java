@@ -26,7 +26,7 @@ public class AbstractAction<PC extends Container, BO extends AbstractBO, WS exte
     public WS getWebServiceClient() {
         return webServiceClient;
     }
-    public static final String PROP_PRINCIPALCONTAINER = "principalContainec";
+    public static final String PROP_PRINCIPALCONTAINER = "principalContainer";
 
     public PropertyChangeSupport getPropertyChangeSupport() {
         return propertyChangeSupport;

@@ -6,32 +6,19 @@ package com.jcertif.presentation.panel.table;
 
 import com.jcertif.presentation.action.ParticipantAction;
 import com.jcertif.presentation.container.ParticipantContainer;
-import java.beans.PropertyChangeEvent;
 
 /**
  *
  * @author Douneg
  */
-public class ParticipantTable extends AbstractTable {
-
-    private ParticipantAction participantAction;
+public class ParticipantTable extends AbstractTable<ParticipantAction, ParticipantContainer> {
 
     public ParticipantTable(ParticipantAction participantAction) {
-        init();
-        this.participantAction = participantAction;
-        // connect data source
-        setContainerDataSource(this.participantAction.getPrincipalContainer());
-        participantAction.addPropertyChangeListener(this);
+        super(participantAction);
         // set column headers
         setVisibleColumns(ParticipantContainer.NATURAL_COL_ORDER);
         setColumnHeaders(ParticipantContainer.COL_HEADERS_FRENCH);
        
     }
 
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-        if (evt.getPropertyName().equals(ParticipantAction.PROP_PRINCIPALCONTAINER)) {
-            setContainerDataSource(participantAction.getPrincipalContainer());
-        }
-    }
 }
