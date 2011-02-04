@@ -35,6 +35,7 @@ public class ParticulariteSalleWindow extends Window {
         setCaption(caption);
         setScrollable(true);
         ParticulariteSalleForm particulariteSalleForm = new ParticulariteSalleForm(particulariteSalleAction);
+         particulariteSalleForm.addInitialFooter();
         particulariteSalleForm.setBOForEdit(new ParticulariteSalle(), true);
         layout.addComponent(particulariteSalleForm);
     }

@@ -35,6 +35,7 @@ public class StatutApprobationWindow extends Window {
         setCaption(caption);
         setScrollable(true);
         StatutApprobationForm statutApprobationForm = new StatutApprobationForm(statutApprobationAction);
+        statutApprobationForm.addInitialFooter();
         statutApprobationForm.setBOForEdit(new StatutApprobation(), true);
         layout.addComponent(statutApprobationForm);
     }

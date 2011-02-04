@@ -35,6 +35,7 @@ public class TypeEvenementWindow extends Window {
         setCaption(caption);
         setScrollable(true);
         TypeEvenementForm typeEvenementForm = new TypeEvenementForm(typeEvenementAction);
+        typeEvenementForm.addInitialFooter();
         typeEvenementForm.setBOForEdit(new TypeEvenement(), true);
         layout.addComponent(typeEvenementForm);
     }

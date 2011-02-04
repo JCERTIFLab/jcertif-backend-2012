@@ -36,6 +36,7 @@ public class ProfilUtilisateurWindow extends Window {
         center();
         setCaption(caption);
         profilUtilisateurtForm = new ProfilUtilisateurtForm(profilUtilisateurAction);
+        profilUtilisateurtForm.addInitialFooter();
         profilUtilisateurtForm.setBOForEdit(new ProfilUtilisateur(), true);
         layout.addComponent(profilUtilisateurtForm);
 

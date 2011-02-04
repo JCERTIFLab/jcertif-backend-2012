@@ -1,20 +1,13 @@
 package com.jcertif.presentation.panel.form;
 
-import com.jcertif.presentation.action.AbstractAction;
 import com.jcertif.presentation.action.ParticipantAction;
 import com.jcertif.presentation.container.ParticipantContainer;
-import com.jcertif.presentation.data.bo.AbstractBO;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.panel.field.AdresseField;
 import com.jcertif.presentation.util.CalendarField;
 import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.data.validator.EmailValidator;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Form;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.DefaultFieldFactory;
@@ -22,15 +15,10 @@ import com.vaadin.ui.Field;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.TextField;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 public class ParticipantForm extends AbstractForm<Participant, ParticipantAction> {
-
-    private ParticipantAction action;
-    private boolean newContactMode = false;
-    private Participant participant = null;
-    private BeanItem<Participant> beanItem;
+    
     private ComboBox conference = new ComboBox();
     private ComboBox role = new ComboBox();
     private ComboBox sexe = new ComboBox();
@@ -113,7 +101,7 @@ public class ParticipantForm extends AbstractForm<Participant, ParticipantAction
                     f.setRequired(true);
                 } else if ("adresse".equals(propertyId)) {
                     // create a custom field for the Address object
-                    field = new AdresseField(beanItem.getBean().getAdresse());
+                    field = new AdresseField(((Participant) ((BeanItem) getItemDataSource()).getBean()).getAdresse());
                     field.setCaption("Adresse");
                 } else if (propertyId.equals("details")) {
                     field.setCaption("Details");

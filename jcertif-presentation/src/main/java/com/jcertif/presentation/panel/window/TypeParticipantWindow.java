@@ -35,6 +35,7 @@ public class TypeParticipantWindow extends Window {
         setCaption(caption);
         setScrollable(true);
         TypeParticipantForm typeParticipantForm = new TypeParticipantForm(new TypeParticipantAction());
+        typeParticipantForm.addInitialFooter();
         typeParticipantForm.setBOForEdit(new TypeParticipant(), true);
         layout.addComponent(typeParticipantForm);
     }

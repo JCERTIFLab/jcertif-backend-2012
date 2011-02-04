@@ -37,7 +37,7 @@ public class PropositionPresentationWindow extends Window {
         center();
         setCaption(caption);
         propositionPresentationForm = new PropositionPresentationForm(propositionPresentationAction);
-
+        propositionPresentationForm.addInitialFooter();
         propositionPresentationForm.setBOForEdit(new PropositionPresentation(), true);
         layout.addComponent(propositionPresentationForm);
 

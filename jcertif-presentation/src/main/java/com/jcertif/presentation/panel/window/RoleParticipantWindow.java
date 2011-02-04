@@ -35,6 +35,7 @@ public class RoleParticipantWindow extends Window {
         setCaption(caption);
         setScrollable(true);
         RoleParticipantForm roleParticipantForm = new RoleParticipantForm(roleParticipantAction);
+        roleParticipantForm.addInitialFooter();
         roleParticipantForm.setBOForEdit(new RoleParticipant(), true);
         layout.addComponent(roleParticipantForm);
     }

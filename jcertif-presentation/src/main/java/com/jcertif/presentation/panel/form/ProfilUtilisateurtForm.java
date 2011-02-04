@@ -1,27 +1,16 @@
 package com.jcertif.presentation.panel.form;
 
-import com.jcertif.presentation.action.AbstractAction;
 import com.jcertif.presentation.action.ProfilUtilisateurAction;
 import com.jcertif.presentation.container.ProfilUtilisateurContainer;
-import com.jcertif.presentation.data.bo.AbstractBO;
 import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
-import com.jcertif.presentation.util.JCertifUploader;
 
 import com.vaadin.data.Item;
-import com.vaadin.data.util.BeanItem;
 import com.vaadin.data.validator.EmailValidator;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Form;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.DefaultFieldFactory;
 import com.vaadin.ui.Field;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.Upload.FailedEvent;
-import com.vaadin.ui.Upload.SucceededEvent;
 import java.util.Arrays;
 import java.util.List;
 

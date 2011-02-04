@@ -35,6 +35,7 @@ public class StatutCeduleWindow extends Window {
         setCaption(caption);
         setScrollable(true);
         StatutCeduleForm statutCeduleForm = new StatutCeduleForm(statutCeduleAction);
+        statutCeduleForm.addInitialFooter();
         statutCeduleForm.setBOForEdit(new StatutCedule(), true);
         layout.addComponent(statutCeduleForm);
     }
