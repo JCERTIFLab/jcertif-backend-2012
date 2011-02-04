@@ -8,7 +8,6 @@ import com.jcertif.presentation.action.AbstractAction;
 import com.jcertif.presentation.data.bo.AbstractBO;
 import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItem;
-import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -23,16 +22,15 @@ import java.util.List;
  */
 public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractAction> extends Form implements ClickListener {
 
-    private Button saveButton = new Button("Sauver", (ClickListener) this);
-    private Button cancelButton = new Button("Annuler", (ClickListener) this);
-    private Button editButton = new Button("Modifier", (ClickListener) this);
+    private Button saveButton = null;
+    private Button cancelButton = null;
+    private Button editButton = null;
     private AbstractAction action;
     private boolean newContactMode = false;
     private BO abstractBO;
     private BeanItem<BO> beanItem;
 
     public AbstractForm(AbstractAction action) {
-
         this.action = action;
         // Create our layout (2x5 GridLayout)
 
@@ -42,7 +40,7 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
          * through to the underlying object.)
          */
         setWriteThrough(false);
-        addInitialFooter();
+        //  addInitialFooter();
     }
 
     public void addInitialFooter() {
@@ -55,15 +53,11 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
 
     public HorizontalLayout getInitialFooter() {
         HorizontalLayout footer = new HorizontalLayout();
-
         footer.setSpacing(true);
         footer.addComponent(getSaveButton());
-        
         footer.addComponent(getCancelButton());
-        
         footer.addComponent(getEditButton());
-        
-        footer.setVisible(false);
+        footer.setVisible(true);
         return footer;
     }
 
@@ -160,7 +154,10 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
         setItemDataSource(beanItem);
         setNewContactMode(newBO);
         setReadOnly(false);
-        getFooter().setVisible(true);
+        if (getFooter() == null) {
+            getFooter().setVisible(true);
+        }
+
     }
 
     public final void setBOForRead(BO abstractBO) {
@@ -169,15 +166,23 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
         setItemDataSource(beanItem);
         setNewContactMode(false);
         setReadOnly(true);
-        getFooter().setVisible(false);
+        if (getFooter() == null) {
+            getFooter().setVisible(true);
+        }
     }
 
     @Override
     public void setReadOnly(boolean readOnly) {
         super.setReadOnly(readOnly);
-        getSaveButton().setVisible(!readOnly);
-        getCancelButton().setVisible(!readOnly);
-        getEditButton().setVisible(readOnly);
+        if (getSaveButton() != null) {
+            getSaveButton().setVisible(!readOnly);
+        }
+        if (getCancelButton() != null) {
+            getCancelButton().setVisible(!readOnly);
+        }
+        if (getEditButton() != null) {
+            getEditButton().setVisible(readOnly);
+        }
         Field field = getField("id");
         if (field != null) {
             field.setReadOnly(true);

@@ -35,8 +35,8 @@ public class PartenaireWindow extends Window {
         setCaption(caption);
         setScrollable(true);
         ParticipantForm participantForm = new ParticipantForm(participantAction);
+        participantForm.addInitialFooter();
         participantForm.setBOForEdit(new Participant(), true);
         layout.addComponent(participantForm);
-
     }
 }

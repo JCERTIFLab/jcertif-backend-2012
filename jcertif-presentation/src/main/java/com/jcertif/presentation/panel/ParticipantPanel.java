@@ -65,10 +65,8 @@ public class ParticipantPanel extends MasterDetailsPanel<ParticipantAction> impl
         allButtons.add(addPropositionPresentation);
         allButtons.add(addCeduleParticipant);
         allButtons.add(manageProfilU);
-        Layout all=buildMainPanel("Participants", "Liste des participants", participantTable, allButtons, allDetails);
+        Layout all = buildMainPanel("Participants", "Liste des participants", participantTable, allButtons, allDetails);
         getContent().addComponent(all);
-
-
     }
 
     @Override
