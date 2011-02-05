@@ -12,5 +12,5 @@ import com.jcertif.bo.participant.ProfilUtilisateur;
  */
 public interface CSenderService {
 
-    void sendConfirmation(ProfilUtilisateur profilUtilisateur, String from);
+    boolean sendConfirmation(ProfilUtilisateur profilUtilisateur, String from);
 }

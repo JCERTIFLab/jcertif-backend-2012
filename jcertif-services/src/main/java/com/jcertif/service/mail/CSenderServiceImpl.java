@@ -13,6 +13,7 @@ import org.springframework.ui.velocity.VelocityEngineUtils;
 import javax.mail.internet.MimeMessage;
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -34,7 +35,7 @@ public class CSenderServiceImpl implements CSenderService {
     }
 
     @Override
-    public void sendConfirmation(final ProfilUtilisateur profilUtilisateur, final String from) {
+    public boolean sendConfirmation(final ProfilUtilisateur profilUtilisateur, final String from) {
         MimeMessagePreparator preparator = new MimeMessagePreparator() {
 
             @Override
@@ -45,10 +46,17 @@ public class CSenderServiceImpl implements CSenderService {
                 Map model = new HashMap();
                 model.put("profilUtilisateur", profilUtilisateur);
                 String text = VelocityEngineUtils.mergeTemplateIntoString(
-                        velocityEngine, "senConfirmationTemplate.vm", model);
+                        velocityEngine, "sendConfirmationTemplate.vm", model);
                 message.setText(text, true);
             }
         };
-        this.mailSender.send(preparator);
+
+        try {
+            this.mailSender.send(preparator);
+        } catch (MailException mailException) {
+            System.out.println("SendMail Error " + mailException);
+            return false;
+        }
+        return true;
     }
 }
