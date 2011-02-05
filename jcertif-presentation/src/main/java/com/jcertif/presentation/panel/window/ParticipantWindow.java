@@ -7,6 +7,8 @@ package com.jcertif.presentation.panel.window;
 import com.jcertif.presentation.action.ParticipantAction;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.panel.form.ParticipantForm;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
@@ -35,8 +37,10 @@ public class ParticipantWindow extends Window {
         setCaption(caption);
         setScrollable(true);
         ParticipantForm participantForm = new ParticipantForm(participantAction);
-        participantForm.addInitialFooter();
+        HorizontalLayout footer = participantForm.getInitialFooter();
         participantForm.setBOForEdit(new Participant(), true);
         layout.addComponent(participantForm);
+        layout.addComponent(footer);
+        layout.setComponentAlignment(footer, Alignment.MIDDLE_RIGHT);
     }
 }

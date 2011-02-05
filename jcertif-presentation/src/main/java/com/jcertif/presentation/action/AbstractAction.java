@@ -8,8 +8,10 @@ import com.jcertif.presentation.data.bo.AbstractBO;
 import com.jcertif.presentation.wsClient.AbstractJCertWebServiceClient;
 import com.vaadin.data.Container;
 import com.vaadin.data.Item;
+import com.vaadin.data.util.BeanItem;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.List;
 
 /**
  *
@@ -49,6 +51,8 @@ public class AbstractAction<PC extends Container, BO extends AbstractBO, WS exte
     public void updateItem(BO bo) throws UnsupportedOperationException {
         //  bo = (BO) webServiceClient.update_XML(bo);
     }
+
+    
 
     /**
      * Set the value of principalContainec

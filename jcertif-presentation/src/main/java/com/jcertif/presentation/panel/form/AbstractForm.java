@@ -45,9 +45,6 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
     }
 
     public void addInitialFooter() {
-        saveButton = new Button("Sauver", (ClickListener) this);
-        cancelButton = new Button("Annuler", (ClickListener) this);
-        editButton = new Button("Modifier", (ClickListener) this);
         HorizontalLayout footer = getInitialFooter();
         setFooter(footer);
     }
@@ -55,6 +52,22 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
     public HorizontalLayout getInitialFooter() {
         HorizontalLayout footer = new HorizontalLayout();
         footer.setSpacing(true);
+        saveButton = new Button("Sauver", (ClickListener) this);
+        cancelButton = new Button("Annuler", (ClickListener) this);
+        editButton = new Button("Modifier", (ClickListener) this);
+        footer.addComponent(getSaveButton());
+        footer.addComponent(getCancelButton());
+        footer.addComponent(getEditButton());
+        footer.setVisible(true);
+        return footer;
+    }
+
+        public HorizontalLayout getInitialFooter(ClickListener listener) {
+        HorizontalLayout footer = new HorizontalLayout();
+        footer.setSpacing(true);
+        saveButton = new Button("Sauver", listener);
+        cancelButton = new Button("Annuler", listener);
+        editButton = new Button("Modifier", listener);
         footer.addComponent(getSaveButton());
         footer.addComponent(getCancelButton());
         footer.addComponent(getEditButton());
@@ -116,6 +129,9 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
                  */
                 setItemDataSource(addedItem);
                 setNewContactMode(false);
+            }else{
+
+
             }
             setReadOnly(true);
             getApplication().getMainWindow().removeWindow(this.getWindow());

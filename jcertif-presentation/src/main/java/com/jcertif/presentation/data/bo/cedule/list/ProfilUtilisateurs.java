@@ -13,20 +13,20 @@ import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
  * @author Badr
  *
  */
-
 @XmlRootElement
 public class ProfilUtilisateurs {
-	protected List<ProfilUtilisateur> profils = new ArrayList<ProfilUtilisateur>();
 
-	public ProfilUtilisateurs() {
-	}
+    protected List<ProfilUtilisateur> profils = new ArrayList<ProfilUtilisateur>();
 
-	public ProfilUtilisateurs(List<ProfilUtilisateur> profils) {
-		this.profils = profils;
-	}
+    public ProfilUtilisateurs() {
+    }
 
-	@XmlElement(name = "profilUtilisateur")
-	public List<ProfilUtilisateur> getProfilUtilisateurs() {
-		return profils;
-	}
+    public ProfilUtilisateurs(List<ProfilUtilisateur> profils) {
+        this.profils = profils;
+    }
+
+    @XmlElement(name = "profilUtilisateur")
+    public List<ProfilUtilisateur> getProfilUtilisateurs() {
+        return profils;
+    }
 }
