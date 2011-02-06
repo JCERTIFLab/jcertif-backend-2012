@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -9,7 +9,6 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../jcertif-parent</relativePath>
     </parent>
-
 
 
     <groupId>com.jcertif</groupId>
@@ -23,13 +22,13 @@
     <build>
         <plugins>
 
-			<!-- Compiles your custom GWT components with the GWT compiler -->
+            <!-- Compiles your custom GWT components with the GWT compiler -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
                 <configuration>
                     <webappDirectory>${vaadin-widgets-dir}</webappDirectory>
-                    <extraJvmArgs> -Dgwt.style=PRETTY -Xmx512M -Xss1024k</extraJvmArgs>
+                    <extraJvmArgs>-Dgwt.style=PRETTY -Xmx512M -Xss1024k</extraJvmArgs>
                 </configuration>
                 <executions>
                     <execution>
@@ -41,6 +40,28 @@
                 </executions>
 
             </plugin>
+
+            <plugin>
+                <groupId>org.glassfish</groupId>
+                <artifactId>maven-embedded-glassfish-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <app>${basedir}/target/jcertif-presentation-${version}.war</app>
+                    <autoDelete>true</autoDelete>
+                    <port>8081</port>
+                    <contextRoot>jcertif-presentation</contextRoot>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>tomcat-maven-plugin</artifactId>
+                <configuration>
+                    <warFile>${basedir}/target/jcertif-facade-${version}.war</warFile>
+                    <port>8081</port>
+                </configuration>
+            </plugin>
+
 
             <plugin>
                 <groupId>com.vaadin</groupId>
@@ -56,71 +77,71 @@
 
         </plugins>
     </build>
-	<!-- JCERTIF PRESENTATION DEPENDENCIES -->
+    <!-- JCERTIF PRESENTATION DEPENDENCIES -->
     <dependencies>
 
-            <dependency>
-                <groupId>com.vaadin</groupId>
-                <artifactId>vaadin</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>com.google.gwt</groupId>
-                <artifactId>gwt-user</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.vaadin.addons</groupId>
-                <artifactId>vaadin-calendar</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.vaadin.addons</groupId>
-                <artifactId>customfield</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.vaadin.addons</groupId>
-                <artifactId>addthis</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.vaadin.addons</groupId>
-                <artifactId>browsercookies</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.vaadin.addons</groupId>
-                <artifactId>googleanalyticstracker</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>com.sun.jersey</groupId>
-                <artifactId>jersey-client</artifactId>
-            </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.vaadin.addons</groupId>
+            <artifactId>vaadin-calendar</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.vaadin.addons</groupId>
+            <artifactId>customfield</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.vaadin.addons</groupId>
+            <artifactId>addthis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.vaadin.addons</groupId>
+            <artifactId>browsercookies</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.vaadin.addons</groupId>
+            <artifactId>googleanalyticstracker</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-client</artifactId>
+        </dependency>
 
-		<!-- LOGGER -->
-            <dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-            </dependency>
+        <!-- LOGGER -->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
 
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jcl-over-slf4j</artifactId>
-                <scope>runtime</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
-                <scope>runtime</scope>
-            </dependency>
-		
-            <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-            </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
     </dependencies>
 
-    </project>
+</project>
