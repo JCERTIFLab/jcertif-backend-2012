@@ -14,6 +14,7 @@ import com.jcertif.presentation.data.bo.Person;
 import com.jcertif.presentation.data.bo.cedule.CeduleParticipant;
 import com.jcertif.presentation.data.bo.conference.Conference;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
+import java.util.Collections;
 
 /**
  * 
@@ -24,7 +25,6 @@ public class Participant extends Person {
 
     private static final long serialVersionUID = 1L;
     private Calendar dateInscription;
-    private PropositionPresentation presentationSoumise;
     private String cvSoumis;
     private String compagnie;
     private RoleParticipant roleparticipant;
@@ -51,7 +51,7 @@ public class Participant extends Person {
      */
     public Participant(Long id, Calendar dateinscription, String salutation,
             String specialite, String prenom, String nom, Character sexe,
-            String email, PropositionPresentation presentationsoumise,
+            String email,
             String cvsoumis, String details, RoleParticipant roleparticipant,
             Conference conference, Set<CeduleParticipant> ceduleparticipants) {
         super();
@@ -63,7 +63,7 @@ public class Participant extends Person {
         this.setNom(nom);
         this.setSexe(sexe);
         this.setEmail(email);
-        this.presentationSoumise = presentationsoumise;
+       
         this.cvSoumis = cvsoumis;
         this.setDetails(details);
         this.roleparticipant = roleparticipant;
@@ -87,7 +87,7 @@ public class Participant extends Person {
      * @param details
      */
     public Participant(Long id, String salutation,
-            String prenom, String nom, Character sexe_MF, String email, PropositionPresentation presentationsoumise, String cvsoumis,
+            String prenom, String nom, Character sexe_MF, String email, String cvsoumis,
             String details) {
         super();
         this.setId(id);
@@ -96,9 +96,59 @@ public class Participant extends Person {
         this.setNom(nom);
         this.setSexe(sexe_MF);
         this.setEmail(email);
-        this.presentationSoumise = presentationsoumise;
         this.cvSoumis = cvsoumis;
         this.setDetails(details);
+    }
+    
+    /**
+     * Liste de présentations.
+     */
+    private Set<PropositionPresentation> presentationsInternal;
+
+    /**
+     * @return the presentationsInternal
+     */
+    protected Set<PropositionPresentation> getPresentationsInternal() {
+        if (presentationsInternal == null) {
+            presentationsInternal = new HashSet<PropositionPresentation>();
+        }
+        return presentationsInternal;
+    }
+
+    /**
+     * @param presentationsInternal
+     *            the presentationsInternal to set
+     */
+    protected void setPresentationsInternal(
+            Set<PropositionPresentation> presentationsInternal) {
+        this.presentationsInternal = presentationsInternal;
+    }
+
+    /**
+     * @return la liste des présentations de l'auteur.
+     */
+    public Set<PropositionPresentation> getPresentations() {
+        return Collections.unmodifiableSet(getPresentationsInternal());
+    }
+
+    /**
+     * Ajoute une présentation.
+     *
+     * @param presentation
+     *            une présentation
+     * @return le résultat de l'ajout
+     */
+    public boolean addPresentation(final PropositionPresentation presentation) {
+        return getPresentationsInternal().add(presentation);
+    }
+
+    /**
+     * @param presentation
+     *            une présentation
+     * @return
+     */
+    public boolean removePresentation(final PropositionPresentation presentation) {
+        return getPresentationsInternal().remove(presentation);
     }
 
     /**
@@ -129,19 +179,6 @@ public class Participant extends Person {
         this.dateInscription = dateInscription;
     }
 
-    /**
-     * @return the presentationSoumise
-     */
-    public PropositionPresentation getPresentationSoumise() {
-        return presentationSoumise;
-    }
-
-    /**
-     * @param presentationSoumise the presentationSoumise to set
-     */
-    public void setPresentationSoumise(PropositionPresentation presentationSoumise) {
-        this.presentationSoumise = presentationSoumise;
-    }
 
     /**
      * @return the cvSoumis
