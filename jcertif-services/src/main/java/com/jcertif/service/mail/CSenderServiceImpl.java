@@ -5,15 +5,14 @@
 package com.jcertif.service.mail;
 
 import com.jcertif.bo.participant.ProfilUtilisateur;
-import org.apache.velocity.app.VelocityEngine;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.mail.javamail.MimeMessagePreparator;
-import org.springframework.ui.velocity.VelocityEngineUtils;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.util.HashMap;
-import java.util.Map;
-import org.springframework.mail.MailException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,42 +20,38 @@ import org.springframework.stereotype.Service;
  * @author Douneg
  */
 @Service
-public class CSenderServiceImpl implements CSenderService {
-
-    private JavaMailSender mailSender;
-    private VelocityEngine velocityEngine;
-
-    public void setMailSender(JavaMailSender mailSender) {
-        this.mailSender = mailSender;
-    }
-
-    public void setVelocityEngine(VelocityEngine velocityEngine) {
-        this.velocityEngine = velocityEngine;
-    }
+public class CSenderServiceImpl extends CSenderService {
 
     @Override
-    public boolean sendConfirmation(final ProfilUtilisateur profilUtilisateur, final String from) {
-        MimeMessagePreparator preparator = new MimeMessagePreparator() {
+    public Boolean sendConfirmation(final ProfilUtilisateur profilUtilisateur, final String from) {
+        Properties props = new Properties();
+        props.put("mail.smtp.host", getHost());
+        props.put("mail.smtp.socketFactory.port", getSocketFactoryPort());
+        props.put("mail.smtp.socketFactory.class", getSocketFactoryClass());
+        props.put("mail.smtp.auth", getAuth());
+        props.put("mail.smtp.port", getSmtpPort());
 
-            @Override
-            public void prepare(MimeMessage mimeMessage) throws Exception {
-                MimeMessageHelper message = new MimeMessageHelper(mimeMessage);
-                message.setTo(profilUtilisateur.getEmail());
-                message.setFrom(from); // could be parameterized...
-                Map model = new HashMap();
-                model.put("profilUtilisateur", profilUtilisateur);
-                String text = VelocityEngineUtils.mergeTemplateIntoString(
-                        velocityEngine, "sendConfirmationTemplate.vm", model);
-                message.setText(text, true);
-            }
-        };
+        Session session = Session.getDefaultInstance(props,
+                new javax.mail.Authenticator() {
+
+                    @Override
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(getUserName(), getPassword());
+                    }
+                });
 
         try {
-            this.mailSender.send(preparator);
-        } catch (MailException mailException) {
-            System.out.println("SendMail Error " + mailException);
-            return false;
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(getUserName()));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(profilUtilisateur.getEmail()));
+            message.setSubject("Confirmation JCertif");
+            message.setText("Cher Participant " + profilUtilisateur.getNomProfil() + ",\n\nMerci de vous être enregistré a JCertif 2011\n\nAdministrateur JCertif");
+
+            Transport.send(message);
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
         }
-        return true;
+        return Boolean.TRUE;
     }
 }
