@@ -9,8 +9,6 @@ import com.jcertif.presentation.data.bo.participant.Participant;
 import com.vaadin.data.util.BeanItem;
 import java.util.Arrays;
 import com.jcertif.presentation.action.ParticipantAction;
-import com.jcertif.presentation.data.bo.cedule.StatutCedule;
-import java.util.Calendar;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
@@ -66,8 +64,7 @@ public class ParticipantFormTest {
     @org.junit.Test
     public void testSetItemDataSource() {
         System.out.println("setItemDataSource");
-        Calendar calendar = Calendar.getInstance();
-        BeanItem newDataSource = new BeanItem(new Participant(Long.valueOf(34), "Mr", "Makambo", "Minene", Character.valueOf('M'), "matayo@unhcr.org", null, null, null));
+        BeanItem newDataSource = new BeanItem(new Participant(Long.valueOf(34), "Mr", "Makambo", "Minene", Character.valueOf('M'), "matayo@unhcr.org",  null, null));
         ParticipantForm instance = new ParticipantForm(new ParticipantAction());
         instance.setItemDataSource(newDataSource);
         // TODO review the generated test code and remove the default call to fail.
@@ -85,7 +82,7 @@ public class ParticipantFormTest {
     @org.junit.Test
     public void testSetBOForEdit() {
         System.out.println("setBOForEdit");
-        Participant abstractBO = new Participant(Long.valueOf(34), "Mr", "Makambo", "Minene", Character.valueOf('M'), "matayo@unhcr.org", null, null, null);
+        Participant abstractBO = new Participant(Long.valueOf(34), "Mr", "Makambo", "Minene", Character.valueOf('M'), "matayo@unhcr.org",  null, null);
         boolean newBO = false;
         ParticipantForm instance = new ParticipantForm(new ParticipantAction());
         instance.setBOForEdit(abstractBO, newBO);
@@ -105,7 +102,7 @@ public class ParticipantFormTest {
     @org.junit.Test
     public void testSetBOForRead() {
         System.out.println("setBOForRead");
-        Participant abstractBO = new Participant(Long.valueOf(34), "Mr", "Makambo", "Minene", Character.valueOf('M'), "matayo@unhcr.org", null, null, null);
+        Participant abstractBO = new Participant(Long.valueOf(34), "Mr", "Makambo", "Minene", Character.valueOf('M'), "matayo@unhcr.org", null, null);
         ParticipantForm instance = new ParticipantForm(new ParticipantAction());
         instance.setBOForRead(abstractBO);
         // TODO review the generated test code and remove the default call to fail.
@@ -116,6 +113,5 @@ public class ParticipantFormTest {
         assertEquals(abstractBO.getSalutation(), instance.getAbstractBO().getSalutation());
         assertEquals(abstractBO.getSexe(), instance.getAbstractBO().getSexe());
         assertNotNull(instance.getBeanItem());
-
     }
 }
