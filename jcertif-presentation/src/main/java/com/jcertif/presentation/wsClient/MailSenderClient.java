@@ -6,6 +6,7 @@ package com.jcertif.presentation.wsClient;
 
 import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
 import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
 import java.text.MessageFormat;
@@ -44,12 +45,12 @@ public class MailSenderClient {
         return webResource;
     }
 
-    public Boolean sendConfirmation_XML(ProfilUtilisateur profilUtilisateur, String from) throws UniformInterfaceException {
-        return getWebResource().path(MessageFormat.format("{0}", new Object[]{from})).type(MediaType.APPLICATION_XML).post(Boolean.class, profilUtilisateur);
+    public String sendConfirmation_XML(ProfilUtilisateur profilUtilisateur, String from) throws UniformInterfaceException {
+        return getWebResource().path(MessageFormat.format("{0}", new Object[]{from})).type(MediaType.APPLICATION_XML).post(String.class, profilUtilisateur);
     }
 
-    public Boolean sendConfirmation_JSON(ProfilUtilisateur profilUtilisateur, String from) throws UniformInterfaceException {
-        return getWebResource().path(MessageFormat.format("{0}", new Object[]{from})).type(MediaType.APPLICATION_JSON).post(Boolean.class, profilUtilisateur);
+    public String sendConfirmation_JSON(ProfilUtilisateur profilUtilisateur, String from) throws UniformInterfaceException {
+        return getWebResource().path(MessageFormat.format("{0}", new Object[]{from})).type(MediaType.APPLICATION_JSON).post(String.class, profilUtilisateur);
     }
 
     public void close() {

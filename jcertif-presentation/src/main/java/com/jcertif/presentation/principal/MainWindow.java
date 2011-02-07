@@ -13,7 +13,7 @@ import com.jcertif.presentation.action.StatutApprobationAction;
 import com.jcertif.presentation.action.StatutCeduleAction;
 import com.jcertif.presentation.action.TypeEvenementAction;
 import com.jcertif.presentation.action.TypeParticipantAction;
-import com.jcertif.presentation.data.bo.participant.Participant;
+import com.jcertif.presentation.panel.CreationParticipantPanel;
 import com.jcertif.presentation.panel.ParticipantPanel;
 import com.jcertif.presentation.panel.window.ParticipantWindow;
 import com.jcertif.presentation.panel.window.ParticulariteSalleWindow;
@@ -26,6 +26,7 @@ import com.jcertif.presentation.panel.window.TypeEvenementWindow;
 import com.jcertif.presentation.panel.window.TypeParticipantWindow;
 import com.jcertif.presentation.util.H1;
 import com.jcertif.presentation.util.H2;
+import com.jcertif.presentation.util.JCertifCalendarTest;
 import com.jcertif.presentation.util.Ruler;
 import com.jcertif.presentation.util.ScheduleGATracker;
 import com.jcertif.presentation.util.SmallText;
@@ -150,11 +151,13 @@ public class MainWindow extends Window {
         mainLayout.addComponent(margin);
         mainLayout.setExpandRatio(margin, 1);
         tabs.addComponent(buildWelcomeScreen());
-        tabs.addComponent(buildParticipants());
-        tabs.addComponent(buildAuteurs());
-        tabs.addComponent(buildProgramme());
+        tabs.addComponent(buildCalendrier());
+        tabs.addComponent(JCertifTabCreator.createPrincipalTab("Inscrivez-vous", "Inscription a JCertif 2011", new CreationParticipantPanel(getParticipantAction())));
+//        tabs.addComponent(buildParticipants());
+//        tabs.addComponent(buildAuteurs());
+
         tabs.addComponent(buildPartenaires());
-//        tabs.addComponent(buildSelects());
+
 //        tabs.addComponent(buildDateFields());
 //        tabs.addComponent(buildTabSheets());
 //        tabs.addComponent(buildPanels());
@@ -214,16 +217,12 @@ public class MainWindow extends Window {
         return l;
     }
 
-    Layout buildProgramme() {
+    Layout buildCalendrier() {
         VerticalLayout l = new VerticalLayout();
         l.setMargin(true);
         l.setSpacing(true);
-        l.setCaption("Progamme");
+        l.setCaption("Calendrier");
         l.setStyleName(Runo.LAYOUT_DARKER);
-
-        TabSheet tabProgramme = new TabSheet();
-        tabProgramme.setSizeFull();
-        tabProgramme.setStyleName(Runo.TABSHEET_SMALL);
         l.addComponent(buildCalendar());
         return l;
     }
@@ -738,9 +737,8 @@ public class MainWindow extends Window {
         content.setMargin(true);
         content.setCaption("Calendrier");
         content.setStyleName(Runo.LAYOUT_DARKER);
-        //  JCertifCalendarTest calendarTest = new JCertifCalendarTest(this);
-
-        //  content.addComponent(calendarTest);
+        JCertifCalendarTest calendarTest = new JCertifCalendarTest(this.getApplication());
+        content.addComponent(calendarTest);
         return content;
     }
 }

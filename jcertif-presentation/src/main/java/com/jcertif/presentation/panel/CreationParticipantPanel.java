@@ -5,12 +5,12 @@
 package com.jcertif.presentation.panel;
 
 import com.jcertif.presentation.panel.table.CeduleParticipantTable;
-import com.jcertif.presentation.panel.table.ParticipantTable;
 import com.jcertif.presentation.panel.table.PropositionPresentationTable;
 import com.jcertif.presentation.action.CeduleParticipantAction;
 import com.jcertif.presentation.action.ParticipantAction;
 import com.jcertif.presentation.action.PropositionPresentationAction;
 import com.jcertif.presentation.data.bo.participant.Participant;
+import com.jcertif.presentation.panel.form.ParticipantForm;
 import com.vaadin.data.Property;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.ui.Button;
@@ -24,24 +24,27 @@ import java.util.Set;
  *
  * @author Douneg
  */
-public class ParticipantPanel extends MasterDetailsPanel<ParticipantAction> implements Button.ClickListener, Property.ValueChangeListener {
+public class CreationParticipantPanel extends MasterDetailsPanel<ParticipantAction> implements Button.ClickListener, Property.ValueChangeListener {
 
-    private ParticipantTable participantTable;
+    private ParticipantForm participantForm;
     private CeduleParticipantAction ceduleParticipantAction;
     private CeduleParticipantTable ceduleParticipantTable;
     private PropositionPresentationAction propositionPresentationAction;
     private PropositionPresentationTable propositionPresentationTable;
     private Button addPropositionPresentation = new Button("+ Proposition Presentation", (Button.ClickListener) this);
     private Button addCeduleParticipant = new Button("+ Cedule Participant", (Button.ClickListener) this);
-    private Button manageProfilU = new Button("Editer Profil Utilisateur", (Button.ClickListener) this);
+    private Button manageProfilU = new Button("Ajouter Profil Utilisateur", (Button.ClickListener) this);
     private Button detailsCedule = new Button("Details", (Button.ClickListener) this);
     private Button detailsPropositionPresentation = new Button("Details", (Button.ClickListener) this);
     private Set<Component> allDetails;
     private Set<Button> allButtons;
 
-    public ParticipantPanel(ParticipantAction participantAction) {
+    public CreationParticipantPanel(ParticipantAction participantAction) {
         super(participantAction);
-        participantTable = new ParticipantTable(participantAction);
+        participantForm = new ParticipantForm(participantAction);
+        participantForm.setBOForEdit(new Participant(), true);
+        participantForm.initDefaultButton(participantForm);
+        addPropositionPresentation.setEnabled(false);
         ceduleParticipantAction = new CeduleParticipantAction();
         ceduleParticipantTable = new CeduleParticipantTable(ceduleParticipantAction);
         propositionPresentationAction = new PropositionPresentationAction();
@@ -60,10 +63,11 @@ public class ParticipantPanel extends MasterDetailsPanel<ParticipantAction> impl
         allDetails.add(detail);
 
         allButtons = new HashSet<Button>();
+        allButtons.add(participantForm.getSaveButton());
         allButtons.add(addPropositionPresentation);
         allButtons.add(addCeduleParticipant);
         allButtons.add(manageProfilU);
-        Layout all = buildMainPanel("Participants", "Liste des participants", participantTable, allButtons, allDetails);
+        Layout all = buildMainPanel("Participants", "Creation d'un participant", participantForm, allButtons, allDetails);
         getContent().addComponent(all);
     }
 
@@ -80,8 +84,8 @@ public class ParticipantPanel extends MasterDetailsPanel<ParticipantAction> impl
     @Override
     public void valueChange(ValueChangeEvent event) {
         Property property = event.getProperty();
-        if (property == participantTable) {
-            Participant participant = (Participant) participantTable.getValue();
+        if (property == participantForm) {
+            Participant participant = (Participant) participantForm.getValue();
             // Item item = participantTable.getItem(participant);
             ceduleParticipantAction.getPrincipalContainer().loadData(participant.getCeduleparticipants());
             propositionPresentationAction.getPrincipalContainer().loadData(participant.getPresentations());

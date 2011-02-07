@@ -6,6 +6,8 @@ package com.jcertif.presentation.panel.form;
 
 import com.jcertif.presentation.action.AbstractAction;
 import com.jcertif.presentation.data.bo.AbstractBO;
+import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
+import com.jcertif.presentation.wsClient.MailSenderClient;
 import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.Button;
@@ -52,9 +54,7 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
     public HorizontalLayout getInitialFooter() {
         HorizontalLayout footer = new HorizontalLayout();
         footer.setSpacing(true);
-        saveButton = new Button("Sauver", (ClickListener) this);
-        cancelButton = new Button("Annuler", (ClickListener) this);
-        editButton = new Button("Modifier", (ClickListener) this);
+        initDefaultButton((ClickListener) this);
         footer.addComponent(getSaveButton());
         footer.addComponent(getCancelButton());
         footer.addComponent(getEditButton());
@@ -62,17 +62,21 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
         return footer;
     }
 
-        public HorizontalLayout getInitialFooter(ClickListener listener) {
+    public HorizontalLayout getInitialFooter(ClickListener listener) {
         HorizontalLayout footer = new HorizontalLayout();
         footer.setSpacing(true);
-        saveButton = new Button("Sauver", listener);
-        cancelButton = new Button("Annuler", listener);
-        editButton = new Button("Modifier", listener);
+        initDefaultButton(listener);
         footer.addComponent(getSaveButton());
         footer.addComponent(getCancelButton());
         footer.addComponent(getEditButton());
         footer.setVisible(true);
         return footer;
+    }
+
+    public void initDefaultButton(ClickListener listener) {
+        saveButton = new Button("Sauver", listener);
+        cancelButton = new Button("Annuler", listener);
+        editButton = new Button("Modifier", listener);
     }
 
     public BO getAbstractBO() {
@@ -123,15 +127,15 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
             if (isNewContactMode()) {
                 /* We need to add the new abstractBO to the container */
                 Item addedItem = getAction().addItem(abstractBO);
+                MailSenderClient client = new MailSenderClient();
+                String sendConfirmation_XML = client.sendConfirmation_XML(new ProfilUtilisateur(Long.MIN_VALUE, "Matayo", "MatayoBweta@gmail.com", null, null, null, null), "JCertif2011");
                 /*
                  * We must update the form to use the Item from our datasource
                  * as we are now in edit mode (no longer in add mode)
                  */
                 setItemDataSource(addedItem);
                 setNewContactMode(false);
-            }else{
-
-
+            } else {
             }
             setReadOnly(true);
             getApplication().getMainWindow().removeWindow(this.getWindow());

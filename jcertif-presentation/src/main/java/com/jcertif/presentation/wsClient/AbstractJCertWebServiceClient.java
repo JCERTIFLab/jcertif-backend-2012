@@ -23,7 +23,6 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
     private Client client;
     private WebResource webResource;
     private Class<T> responseType;
-    private Class<T> responseListType;
     private final String ressourceBasePath;
     public static String FACADE_URL_PROP = "facade.url";
     public static String WEBAPP_PROPERTIES_FILE = "jcertif-presentation";
@@ -48,7 +47,6 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
         webResource = client.resource(getBaseURI()).path("api").path(this.ressourceBasePath);
         final ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
         this.responseType = (Class<T>) type.getActualTypeArguments()[0];
-        this.responseListType = (Class<T>) type.getActualTypeArguments()[1];
     }
 
     public static String getBaseURI() {

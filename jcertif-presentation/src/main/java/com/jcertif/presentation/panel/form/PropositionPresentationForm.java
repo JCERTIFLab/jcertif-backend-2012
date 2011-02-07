@@ -18,7 +18,6 @@ import java.util.List;
 public class PropositionPresentationForm extends AbstractForm<PropositionPresentation, PropositionPresentationAction> {
 
     private GridLayout ourLayout;
-    private ComboBox participants = new ComboBox("Participant");
 
     public PropositionPresentationForm(PropositionPresentationAction action) {
         super(action);
@@ -39,25 +38,6 @@ public class PropositionPresentationForm extends AbstractForm<PropositionPresent
             @Override
             public Field createField(Item item, Object propertyId,
                     Component uiContext) {
-
-                if (propertyId.equals("participant")) {
-                    participants.addValidator(new AbstractValidator("Ce participant possede deja une Proposition Presentation") {
-
-                        @Override
-                        public boolean isValid(Object value) {
-                            Object valueSelected = participants.getValue();
-                            if (valueSelected instanceof Participant) {
-                                Participant participant = (Participant) valueSelected;
-                                return (participant.getPresentationSoumise() == null);
-                            }
-                            return false;
-                        }
-                    });
-                    participants.setRequired(true);
-                    participants.setRequiredError("Veuillez choisir un participant");
-                    participants.setWidth("100%");
-                    return participants;
-                }
 
                 Field field = super.createField(item, propertyId, uiContext);
                 if (propertyId.equals("id")) {
@@ -119,8 +99,6 @@ public class PropositionPresentationForm extends AbstractForm<PropositionPresent
     protected void attachField(Object propertyId, Field field) {
         if (propertyId.equals("id")) {
             ourLayout.addComponent(field, 0, 0);
-        } else if (propertyId.equals("participant")) {
-            ourLayout.addComponent(field, 1, 0);
         } else if (propertyId.equals("titre")) {
             ourLayout.addComponent(field, 0, 1, 1, 1);
         } else if (propertyId.equals("sommaire")) {
