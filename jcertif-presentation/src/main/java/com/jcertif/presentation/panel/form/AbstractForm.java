@@ -6,6 +6,7 @@ package com.jcertif.presentation.panel.form;
 
 import com.jcertif.presentation.action.AbstractAction;
 import com.jcertif.presentation.data.bo.AbstractBO;
+import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
 import com.jcertif.presentation.wsClient.MailSenderClient;
 import com.vaadin.data.Item;
@@ -17,6 +18,7 @@ import com.vaadin.ui.Field;
 import com.vaadin.ui.Form;
 import com.vaadin.ui.HorizontalLayout;
 import java.util.List;
+import java.util.UUID;
 
 /**
  *
@@ -128,7 +130,11 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
                 /* We need to add the new abstractBO to the container */
                 Item addedItem = getAction().addItem(abstractBO);
                 MailSenderClient client = new MailSenderClient();
-                String sendConfirmation_XML = client.sendConfirmation_XML(new ProfilUtilisateur(Long.MIN_VALUE, "Matayo", "MatayoBweta@gmail.com", null, null, null, null), "JCertif2011");
+                //    String sendConfirmation_XML = client.sendConfirmation_XML(new ProfilUtilisateur(Long.MIN_VALUE, "Matayo", "MatayoBweta@gmail.com", null, null, null, null), "JCertif2011");
+                Participant participant = new Participant(Long.MIN_VALUE, "Mr", "Stanyslas", "Matayo", Character.valueOf('M'), "MatayoBweta@gmail.com", null, null);
+                participant.setCodeParticipant(UUID.randomUUID().toString().toUpperCase());
+                client.sendAddParticipantConfirmation_XML(participant);
+
                 /*
                  * We must update the form to use the Item from our datasource
                  * as we are now in edit mode (no longer in add mode)
