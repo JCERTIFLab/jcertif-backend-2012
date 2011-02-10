@@ -27,6 +27,7 @@
         <property name="socketFactoryClass" value="javax.net.ssl.SSLSocketFactory"/>
         <property name="auth" value="true"/>
         <property name="smtpPort" value="465"/>
+        <property name="photoURI" value="/com/jcertif/service/mail/JCertifCarte_100x69.png"/>
     </bean>
 
 </beans>

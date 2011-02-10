@@ -4,6 +4,7 @@
  */
 package com.jcertif.service.mail;
 
+import com.jcertif.bo.participant.Participant;
 import com.jcertif.bo.participant.ProfilUtilisateur;
 
 /**
@@ -19,6 +20,15 @@ public abstract class CSenderService {
     private String socketFactoryClass;
     private String auth;
     private String smtpPort;
+    private String photoURI;
+
+    public String getPhotoURI() {
+        return photoURI;
+    }
+
+    public void setPhotoURI(String photoURI) {
+        this.photoURI = photoURI;
+    }
 
     public String getAuth() {
         return auth;
@@ -77,4 +87,5 @@ public abstract class CSenderService {
     }
 
     public abstract Boolean sendConfirmation(ProfilUtilisateur profilUtilisateur, String from);
+    public abstract Boolean sendAddParticipantConfirmation(final Participant participant);
 }
