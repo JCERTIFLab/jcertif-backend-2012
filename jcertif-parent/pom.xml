@@ -34,7 +34,7 @@
         <module>../jcertif-dao</module>
         <module>../jcertif-services</module>
         <module>../jcertif-facade</module>
-  <!--      <module>../jcertif-webapp</module> -->
+   <!--     <module>../jcertif-webapp</module> -->
         <module>../jcertif-presentation</module>
 		
 		
@@ -553,9 +553,9 @@
                 <version>1.4.3</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity</artifactId>
-                <version>1.7</version>
+                <groupId>org.antlr</groupId>
+                <artifactId>stringtemplate</artifactId>
+                <version>3.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
