@@ -12,4 +12,9 @@ public class StatutApprobationContainer extends AbstractJCertifBeanItemContainer
     public StatutApprobationContainer() {
         super(StatutApprobation.class);
     }
+
+    @Override
+    public String getCaptionField() {
+        return "description";
+    }
 }

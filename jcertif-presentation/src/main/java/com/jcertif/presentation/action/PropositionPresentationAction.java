@@ -13,6 +13,6 @@ public class PropositionPresentationAction extends AbstractAction<PropositionPre
 //    @Autowired
 //   private PropositionPresentationClient propositionPresentationClient;
     public PropositionPresentationAction() {
-        setPrincipalContainer(new PropositionPresentationContainer());
+        super(new PropositionPresentationContainer(), PropositionPresentationClient.getInstance());
     }
 }

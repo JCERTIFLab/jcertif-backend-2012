@@ -12,4 +12,9 @@ public class RoleParticipantContainer extends AbstractJCertifBeanItemContainer<R
     public RoleParticipantContainer() {
         super(RoleParticipant.class);
     }
+
+    @Override
+    public String getCaptionField() {
+        return "description";
+    }
 }

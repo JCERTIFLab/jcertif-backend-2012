@@ -12,6 +12,6 @@ import com.jcertif.presentation.wsClient.RoleParticipantClient;
 public class RoleParticipantAction extends AbstractAction<RoleParticipantContainer, RoleParticipant, RoleParticipantClient> {
 
     public RoleParticipantAction() {
-        setPrincipalContainer(new RoleParticipantContainer());
+        super(new RoleParticipantContainer(), RoleParticipantClient.getInstance());
     }
 }

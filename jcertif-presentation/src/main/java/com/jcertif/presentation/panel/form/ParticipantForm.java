@@ -1,6 +1,9 @@
 package com.jcertif.presentation.panel.form;
 
+import com.jcertif.presentation.action.ConferenceAction;
 import com.jcertif.presentation.action.ParticipantAction;
+import com.jcertif.presentation.action.RoleParticipantAction;
+import com.jcertif.presentation.action.TypeParticipantAction;
 import com.jcertif.presentation.container.ParticipantContainer;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.panel.field.AdresseField;
@@ -18,21 +21,26 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ParticipantForm extends AbstractForm<Participant, ParticipantAction> {
-    
-    private ComboBox conference = new ComboBox();
-    private ComboBox role = new ComboBox();
+
+    private static RoleParticipantAction roleParticipantAction = new RoleParticipantAction();
+    private static TypeParticipantAction typeParticipantAction = new TypeParticipantAction();
+    private static ConferenceAction conferenceAction = new ConferenceAction();
+    private ComboBox conference = conferenceAction.createCombobox("Selectionner une conference");
+    private ComboBox role = roleParticipantAction.createCombobox("Selectionner un role");
     private ComboBox sexe = new ComboBox();
     private ComboBox salutation = new ComboBox();
-    private ComboBox type = new ComboBox();
+    private ComboBox type = typeParticipantAction.createCombobox("Selectionner un type");
     private CalendarField dateInscription = new CalendarField();
     private GridLayout ourLayout;
 
     public ParticipantForm(ParticipantAction action) {
         super(action);
-
-        setCaption("Participant");
-
-        // Create our layout (3x3 GridLayout)
+        sexe.addItem(Character.valueOf('M'));
+        sexe.addItem(Character.valueOf('F'));
+        salutation.addItem("M.");
+        salutation.addItem("Mme");
+        salutation.addItem("Mlle");
+        // Create our layout (4x7 GridLayout)
         ourLayout = new GridLayout(4, 7);
 
         // Use top-left margin and spacing
@@ -91,22 +99,30 @@ public class ParticipantForm extends AbstractForm<Participant, ParticipantAction
                 } else if (propertyId.equals("compagnie")) {
                     TextField f = (TextField) field;
                     f.setCaption("Compagnie");
+                    f.setColumns(12);
                     return f;
                 } else if (propertyId.equals("email")) {
                     TextField f = (TextField) field;
                     f.setCaption("Email");
+                    f.setColumns(12);
                     /* Add a validator for email and make it required */
                     f.addValidator(new EmailValidator(
                             "L'addresse electronique doit contenir '@' et un nom de domaine complet."));
                     f.setRequired(true);
                 } else if ("adresse".equals(propertyId)) {
+
                     // create a custom field for the Address object
                     field = new AdresseField(((Participant) ((BeanItem) getItemDataSource()).getBean()).getAdresse());
                     field.setCaption("Adresse");
+
                 } else if (propertyId.equals("details")) {
-                    field.setCaption("Details");
-                    field.setWidth("100%");
+                    TextField f = (TextField) field;
+                    f.setCaption("Details");
+                    f.setWidth("100%");
+                    f.setColumns(12);
+
                 }
+                field.setWidth("100%");
                 return field;
             }
         });

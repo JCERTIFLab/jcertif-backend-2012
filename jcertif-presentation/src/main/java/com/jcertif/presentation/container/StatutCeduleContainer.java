@@ -12,4 +12,9 @@ public class StatutCeduleContainer extends AbstractJCertifBeanItemContainer<Stat
     public StatutCeduleContainer() {
         super(StatutCedule.class);
     }
+
+    @Override
+    public String getCaptionField() {
+        return "description";
+    }
 }

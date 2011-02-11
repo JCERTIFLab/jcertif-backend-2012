@@ -13,6 +13,6 @@ public class ProfilUtilisateurAction extends AbstractAction<ProfilUtilisateurCon
 //    @Autowired
 //   private ProfilUtilisateurClient profilUtilisateurClient;
     public ProfilUtilisateurAction() {
-        setPrincipalContainer(new ProfilUtilisateurContainer());
+        super(new ProfilUtilisateurContainer(), ProfilUtilisateurClient.getInstance());
     }
 }

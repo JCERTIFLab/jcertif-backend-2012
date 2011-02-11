@@ -12,4 +12,9 @@ public class PropositionPresentationContainer extends AbstractJCertifBeanItemCon
     public PropositionPresentationContainer() {
         super(PropositionPresentation.class);
     }
+
+    @Override
+    public String getCaptionField() {
+        return "titre";
+    }
 }

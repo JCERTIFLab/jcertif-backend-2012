@@ -4,14 +4,19 @@
  */
 package com.jcertif.presentation.action;
 
+import com.jcertif.presentation.container.AbstractJCertifBeanItemContainer;
 import com.jcertif.presentation.data.bo.AbstractBO;
 import com.jcertif.presentation.wsClient.AbstractJCertWebServiceClient;
-import com.vaadin.data.Container;
+import com.sun.jersey.api.client.UniformInterfaceException;
 import com.vaadin.data.Item;
-import com.vaadin.data.util.BeanItem;
+import com.vaadin.ui.AbstractSelect;
+import com.vaadin.ui.AbstractSelect.Filtering;
+import com.vaadin.ui.ComboBox;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.List;
+import java.util.AbstractCollection;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  *
@@ -19,11 +24,21 @@ import java.util.List;
  * Classe permettant de faire la liaison entre une interface et un container
  * Elle permet aussi de faire la liaison entre ces deux dernieres entites et
  */
-public class AbstractAction<PC extends Container, BO extends AbstractBO, WS extends AbstractJCertWebServiceClient> {
+public class AbstractAction<PC extends AbstractJCertifBeanItemContainer, BO extends AbstractBO, WS extends AbstractJCertWebServiceClient> {
 
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
     private PC principalContainer;
     private WS webServiceClient;
+    private boolean alreadyMakeFirstLoad = false;
+
+    public AbstractAction(PC principalContainer, WS webServiceClient) {
+        this.principalContainer = principalContainer;
+        this.webServiceClient = webServiceClient;
+    }
+
+    public boolean isAlreadyMakeFirstLoad() {
+        return alreadyMakeFirstLoad;
+    }
 
     public WS getWebServiceClient() {
         return webServiceClient;
@@ -44,15 +59,54 @@ public class AbstractAction<PC extends Container, BO extends AbstractBO, WS exte
     }
 
     public Item addItem(BO bo) throws UnsupportedOperationException {
-        // bo = (BO) webServiceClient.create_XML(bo);
+        try {
+            bo = (BO) getWebServiceClient().create_XML(bo);
+        } catch (Exception exception) {
+            return null;
+        }
         return getPrincipalContainer().addItem(bo);
     }
 
-    public void updateItem(BO bo) throws UnsupportedOperationException {
-        //  bo = (BO) webServiceClient.update_XML(bo);
+    public boolean updateItem(BO bo) throws UnsupportedOperationException {
+        try {
+            bo = (BO) getWebServiceClient().update_XML(bo);
+        } catch (Exception exception) {
+            return false;
+        }
+        return true;
     }
 
-    
+    public boolean refreshContainer() {
+        Collection<BO> all = new ArrayList<BO>();
+        try {
+            all = getWebServiceClient().findAll_XML();
+        } catch (Exception exception) {
+            return false;
+        }
+        getPrincipalContainer().loadData(all);
+        return true;
+    }
+
+    public ComboBox createCombobox(String caption) {
+        // Creates a new combobox using an existing container
+        if (!isAlreadyMakeFirstLoad()) {
+            refreshContainer();
+        }
+        ComboBox l = new ComboBox(caption,
+                getPrincipalContainer());
+
+        // Sets the combobox to show a certain property as the item caption
+        l.setItemCaptionPropertyId(getPrincipalContainer().getCaptionField());
+        l.setItemCaptionMode(AbstractSelect.ITEM_CAPTION_MODE_PROPERTY);
+
+        // Set the appropriate filtering mode for this example
+        l.setFilteringMode(Filtering.FILTERINGMODE_STARTSWITH);
+        l.setImmediate(true);
+
+        // Disallow null selections
+        l.setNullSelectionAllowed(false);
+        return l;
+    }
 
     /**
      * Set the value of principalContainec

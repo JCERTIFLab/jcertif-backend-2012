@@ -13,5 +13,10 @@ public class ProfilUtilisateurContainer extends AbstractJCertifBeanItemContainer
         super(ProfilUtilisateur.class);
     }
 
+    @Override
+    public String getCaptionField() {
+        return "nomProfil";
+    }
+
 
 }

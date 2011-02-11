@@ -11,6 +11,6 @@ import com.jcertif.presentation.wsClient.StatutApprobationClient;
 public class StatutApprobationAction extends AbstractAction<StatutApprobationContainer, StatutApprobation, StatutApprobationClient> {
 
     public StatutApprobationAction() {
-        setPrincipalContainer(new StatutApprobationContainer());
+        super(new StatutApprobationContainer(), StatutApprobationClient.getInstance());
     }
 }

@@ -5,6 +5,7 @@
 package com.jcertif.presentation.wsClient;
 
 import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
@@ -62,45 +63,45 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
         return webResource;
     }
 
-    public <T> T update_XML(T requestEntity) throws UniformInterfaceException {
+    public <T> T update_XML(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
         return (T) getWebResource().path(UPDATE_SUFFIX).type(javax.ws.rs.core.MediaType.APPLICATION_XML).put(responseType, requestEntity);
     }
 
-    public <T> T update_JSON(T requestEntity) throws UniformInterfaceException {
+    public <T> T update_JSON(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
         return (T) getWebResource().path(UPDATE_SUFFIX).type(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(responseType, requestEntity);
     }
 
-    public <T> T get_XML(PK id) throws UniformInterfaceException {
+    public <T> T get_XML(PK id) throws UniformInterfaceException, ClientHandlerException {
         return (T) getWebResource().path(java.text.MessageFormat.format(FINDBYID_SUFFIX, new Object[]{id})).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
     }
 
-    public <T> T get_JSON(PK id) throws UniformInterfaceException {
+    public <T> T get_JSON(PK id) throws UniformInterfaceException, ClientHandlerException {
         return (T) getWebResource().path(java.text.MessageFormat.format(FINDBYID_SUFFIX, new Object[]{id})).accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 
-    public <T> T create_XML(T requestEntity) throws UniformInterfaceException {
+    public <T> T create_XML(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
         return (T) webResource.type(javax.ws.rs.core.MediaType.APPLICATION_XML).put(responseType, requestEntity);
     }
 
-    public <T> T create_JSON(T requestEntity) throws UniformInterfaceException {
+    public <T> T create_JSON(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
         return (T) webResource.type(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(responseType, requestEntity);
     }
 
-    public Collection<T> findAll_XML() throws UniformInterfaceException {
+    public Collection<T> findAll_XML() throws UniformInterfaceException, ClientHandlerException {
         return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(new GenericType<List<T>>() {
         });
     }
 
-    public Collection<T> findAll_JSON() throws UniformInterfaceException {
+    public Collection<T> findAll_JSON() throws UniformInterfaceException, ClientHandlerException {
         return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(new GenericType<List<T>>() {
         });
     }
 
-    public void delete_XML(T requestEntity) throws UniformInterfaceException {
+    public void delete_XML(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
         webResource.path(DELETE_SUFFIX).type(javax.ws.rs.core.MediaType.APPLICATION_XML).delete(requestEntity);
     }
 
-    public void delete_JSON(T requestEntity) throws UniformInterfaceException {
+    public void delete_JSON(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
         webResource.path(DELETE_SUFFIX).type(javax.ws.rs.core.MediaType.APPLICATION_JSON).delete(requestEntity);
     }
 }

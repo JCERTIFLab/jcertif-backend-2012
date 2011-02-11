@@ -9,7 +9,6 @@ import com.vaadin.data.util.BeanItemContainer;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 
 /**
  *
@@ -27,5 +26,9 @@ public abstract class AbstractJCertifBeanItemContainer<T extends AbstractBO> ext
             AbstractBO abstractBO = it.next();
             addBean(abstractBO);
         }
+        sort(new Object[]{getCaptionField()},
+                new boolean[]{true});
     }
+
+    public abstract String getCaptionField();
 }

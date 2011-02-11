@@ -7,7 +7,6 @@ package com.jcertif.presentation.panel.form;
 import com.jcertif.presentation.action.AbstractAction;
 import com.jcertif.presentation.data.bo.AbstractBO;
 import com.jcertif.presentation.data.bo.participant.Participant;
-import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
 import com.jcertif.presentation.wsClient.MailSenderClient;
 import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItem;
@@ -29,7 +28,6 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
     private Button saveButton = null;
     private Button cancelButton = null;
     private Button editButton = null;
-    private Button sendMailButton = null;
     private AbstractAction action;
     private boolean newContactMode = false;
     private BO abstractBO;

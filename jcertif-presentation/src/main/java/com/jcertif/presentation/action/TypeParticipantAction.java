@@ -12,6 +12,6 @@ import com.jcertif.presentation.wsClient.TypeParticipantClient;
 public class TypeParticipantAction extends AbstractAction<TypeParticipantContainer, TypeParticipant, TypeParticipantClient> {
 
     public TypeParticipantAction() {
-        setPrincipalContainer(new TypeParticipantContainer());
+       super(new TypeParticipantContainer(), TypeParticipantClient.getInstance());
     }
 }

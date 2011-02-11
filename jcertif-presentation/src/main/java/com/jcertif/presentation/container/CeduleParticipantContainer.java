@@ -11,6 +11,10 @@ public class CeduleParticipantContainer extends AbstractJCertifBeanItemContainer
 
     public CeduleParticipantContainer() {
         super(CeduleParticipant.class);
+    }
 
+    @Override
+    public String getCaptionField() {
+        return "id";
     }
 }

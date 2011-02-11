@@ -30,19 +30,19 @@ import com.jcertif.presentation.util.JCertifCalendarTest;
 import com.jcertif.presentation.util.Ruler;
 import com.jcertif.presentation.util.ScheduleGATracker;
 import com.jcertif.presentation.util.SmallText;
-import com.vaadin.data.Property.ValueChangeEvent;
-import com.vaadin.data.Property.ValueChangeListener;
+import com.vaadin.terminal.ThemeResource;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.Embedded;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.Command;
 import com.vaadin.ui.MenuBar.MenuItem;
-import com.vaadin.ui.NativeSelect;
 import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
@@ -152,11 +152,11 @@ public class MainWindow extends Window {
         mainLayout.setExpandRatio(margin, 1);
         tabs.addComponent(buildWelcomeScreen());
         tabs.addComponent(buildCalendrier());
-        tabs.addComponent(JCertifTabCreator.createPrincipalTab("Inscrivez-vous", "Inscription a JCertif 2011", new CreationParticipantPanel(getParticipantAction())));
-//        tabs.addComponent(buildParticipants());
-//        tabs.addComponent(buildAuteurs());
+        tabs.addComponent(JCertifTabCreator.createPrincipalTab("Inscrivez-vous", "Inscription", new CreationParticipantPanel(getParticipantAction())));
+        tabs.addComponent(JCertifTabCreator.createPrincipalTab("Proposer un sujet", "Nouveau Sujet", new CreationParticipantPanel(getParticipantAction())));
+        tabs.addComponent(JCertifTabCreator.createPrincipalTab("Les présentateurs", "Présentateurs JCertif 2011", new CreationParticipantPanel(getParticipantAction())));
+        tabs.addComponent(JCertifTabCreator.createPrincipalTab("FAQ", "Foire aux Questions", new CreationParticipantPanel(getParticipantAction())));
 
-        tabs.addComponent(buildPartenaires());
 
 //        tabs.addComponent(buildDateFields());
 //        tabs.addComponent(buildTabSheets());
@@ -656,10 +656,12 @@ public class MainWindow extends Window {
         HorizontalLayout header = new HorizontalLayout();
         header.setWidth("100%");
         header.setMargin(true);
-        header.setSpacing(true);
+        header.setSpacing(false);
+        Embedded em = new Embedded("", new ThemeResource("icons/logo.png"));
+        header.addComponent(em);
         // header.setStyleName(Runo.LAYOUT_BLACK);
-
         CssLayout titleLayout = new CssLayout();
+
         H2 title = new H2("JCertif Application 2011");
         titleLayout.addComponent(title);
         SmallText description = new SmallText(
@@ -668,28 +670,9 @@ public class MainWindow extends Window {
         titleLayout.addComponent(description);
 
         header.addComponent(titleLayout);
+        header.setComponentAlignment(titleLayout, Alignment.BOTTOM_LEFT);
         HorizontalLayout toggles = new HorizontalLayout();
         toggles.setSpacing(true);
-//        Label bgColor = new Label("Couleur de fond");
-//        bgColor.setDescription("Changer la principale couleur du layout de notre fenetre principale:<ul><li>Default - no style</li><li>White - Runo.LAYOUT_WHITE</li><li>Blue - Runo.LAYOUT_BLUE</li><li>Black - Runo.LAYOUT_BLACK</li></ul>");
-//        toggles.addComponent(bgColor);
-        NativeSelect colors = new NativeSelect();
-        colors.setNullSelectionAllowed(false);
-        colors.setDescription("Set the style name for the main layout of this window:<ul><li>Default - no style</li><li>White - Runo.LAYOUT_WHITE</li><li>Blue - Runo.LAYOUT_BLUE</li><li>Black - Runo.LAYOUT_BLACK</li></ul>");
-        colors.addItem("Default");
-        colors.addItem("White");
-        colors.addItem("Blue");
-        colors.addItem("Black");
-        colors.setImmediate(true);
-        colors.addListener(new ValueChangeListener() {
-
-            @Override
-            public void valueChange(ValueChangeEvent event) {
-                mainLayout.setStyleName(event.getProperty().getValue().toString().toLowerCase());
-            }
-        });
-        colors.setValue("Blue");
-        //  toggles.addComponent(colors);
         // init Google Analytics tracker
         GoogleAnalyticsTracker tracker = new ScheduleGATracker();
         toggles.addComponent(tracker);

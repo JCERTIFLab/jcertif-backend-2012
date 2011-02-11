@@ -6,6 +6,7 @@ package com.jcertif.presentation.principal;
 
 import com.jcertif.presentation.util.H1;
 import com.jcertif.presentation.util.Ruler;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.Panel;
@@ -33,6 +34,7 @@ public class JCertifTabCreator {
         margin.addComponent(title);
         margin.addComponent(new Ruler());
         l.addComponent(mainPanel);
+        l.setComponentAlignment(mainPanel, Alignment.MIDDLE_CENTER);
         l.setExpandRatio(mainPanel, 1);
         return l;
 

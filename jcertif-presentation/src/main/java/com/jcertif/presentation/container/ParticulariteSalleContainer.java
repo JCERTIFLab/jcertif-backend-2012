@@ -12,4 +12,9 @@ public class ParticulariteSalleContainer extends AbstractJCertifBeanItemContaine
     public ParticulariteSalleContainer() {
         super(ParticulariteSalle.class);
     }
+
+    @Override
+    public String getCaptionField() {
+        return "description";
+    }
 }

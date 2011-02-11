@@ -11,6 +11,6 @@ import com.jcertif.presentation.wsClient.CeduleParticipantClient;
 public class CeduleParticipantAction extends AbstractAction<CeduleParticipantContainer, CeduleParticipant, CeduleParticipantClient> {
 
     public CeduleParticipantAction() {
-        setPrincipalContainer(new CeduleParticipantContainer());
+        super(new CeduleParticipantContainer(), CeduleParticipantClient.getInstance());
     }
 }

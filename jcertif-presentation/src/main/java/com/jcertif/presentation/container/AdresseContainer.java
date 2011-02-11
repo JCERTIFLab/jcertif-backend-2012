@@ -10,4 +10,9 @@ public class AdresseContainer extends AbstractJCertifBeanItemContainer<Adresse> 
     public AdresseContainer() throws InstantiationException, IllegalAccessException {
         super(Adresse.class);
     }
+
+    @Override
+    public String getCaptionField() {
+        return "id";
+    }
 }

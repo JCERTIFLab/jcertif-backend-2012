@@ -8,13 +8,11 @@ import com.jcertif.presentation.wsClient.ParticipantClient;
  *
  * @author Douneg
  */
-public class ParticipantAction extends AbstractAction<ParticipantContainer, Participant,ParticipantClient> {
+public class ParticipantAction extends AbstractAction<ParticipantContainer, Participant, ParticipantClient> {
 
 //    @Autowired
 //   private ParticipantClient participantClient;
     public ParticipantAction() {
-        setPrincipalContainer(new ParticipantContainer());
+        super(new ParticipantContainer(), ParticipantClient.getInstance());
     }
-
-
 }

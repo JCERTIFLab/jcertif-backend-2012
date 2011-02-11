@@ -12,4 +12,9 @@ public class TypeParticipantContainer extends AbstractJCertifBeanItemContainer<T
     public TypeParticipantContainer() {
         super(TypeParticipant.class);
     }
+
+    @Override
+    public String getCaptionField() {
+        return "description";
+    }
 }

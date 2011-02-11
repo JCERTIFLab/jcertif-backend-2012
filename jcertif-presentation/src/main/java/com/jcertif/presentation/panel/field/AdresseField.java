@@ -4,6 +4,7 @@
  */
 package com.jcertif.presentation.panel.field;
 
+import com.jcertif.presentation.container.AdresseContainer;
 import com.jcertif.presentation.data.bo.Adresse;
 import com.vaadin.data.Buffered;
 import com.vaadin.data.Item;
@@ -16,10 +17,10 @@ import com.vaadin.ui.DefaultFieldFactory;
 import com.vaadin.ui.Field;
 import com.vaadin.ui.Form;
 import com.vaadin.ui.GridLayout;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Runo;
+import java.util.Arrays;
 
 /**
  *
@@ -32,14 +33,12 @@ public class AdresseField extends CustomField {
     private VerticalLayout verticalLayout = new VerticalLayout();
 
     public AdresseField(Adresse address) {
-        verticalLayout.addComponentAsFirst(new Label("<span style=\"color:White\">Adresse</span>", Label.CONTENT_XHTML));
 
         final GridLayout ourLayout = new GridLayout(3, 6);
         // Use top-left margin and spacing
         ourLayout.setMargin(true, false, false, true);
         ourLayout.setSpacing(true);
         ourLayout.setStyleName(Runo.LAYOUT_DARKER);
-        
         addressForm = new Form() {
 
             @Override
@@ -96,6 +95,7 @@ public class AdresseField extends CustomField {
                     f.addValidator(new EmailValidator(
                             "L'addresse electronique doit contenir '@' et un nom de domaine complet."));
                     f.setRequired(true);
+                    f.setWidth("100%");
                     f.setNullRepresentation("");
                 } else if (propertyId.equals("id")) {
                     TextField f = (TextField) field;
@@ -105,30 +105,37 @@ public class AdresseField extends CustomField {
                 } else if (propertyId.equals("pays")) {
                     TextField f = (TextField) field;
                     f.setCaption("Pays");
+                    f.setColumns(12);
                     f.setNullRepresentation("");
                 } else if (propertyId.equals("province")) {
                     TextField f = (TextField) field;
                     f.setCaption("Province");
+                    f.setColumns(12);
                     f.setNullRepresentation("");
                 } else if (propertyId.equals("codePostal")) {
                     TextField f = (TextField) field;
                     f.setCaption("Code Postal");
+                    f.setWidth("100%");
                     f.setNullRepresentation("");
                 } else if (propertyId.equals("fax")) {
                     TextField f = (TextField) field;
                     f.setCaption("Fax");
+                    f.setWidth("100%");
                     f.setNullRepresentation("");
                 } else if (propertyId.equals("telephoneFixe")) {
                     TextField f = (TextField) field;
                     f.setCaption("Telephone Fixe");
                     f.setNullRepresentation("");
+                    f.setWidth("100%");
                 } else if (propertyId.equals("telephoneMobile")) {
                     TextField f = (TextField) field;
                     f.setCaption("Telephone Mobile");
                     f.setNullRepresentation("");
+                    f.setWidth("100%");
                 } else if (propertyId.equals("ville")) {
                     TextField f = (TextField) field;
                     f.setCaption("Ville");
+                     f.setColumns(12);
                     f.setNullRepresentation("");
                     return f;
                 }
@@ -139,9 +146,9 @@ public class AdresseField extends CustomField {
 
         if (address == null) {
             addressForm.setItemDataSource(new BeanItem(
-                    new Adresse()));
+                    new Adresse()), Arrays.asList(AdresseContainer.NATURAL_COL_ORDER));
         } else {
-            addressForm.setItemDataSource(new BeanItem(address));
+            addressForm.setItemDataSource(new BeanItem(address), Arrays.asList(AdresseContainer.NATURAL_COL_ORDER));
         }
         setCompositionRoot(verticalLayout);
         setSizeFull();

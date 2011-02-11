@@ -12,4 +12,11 @@ public class CodeDescriptionContainer extends AbstractJCertifBeanItemContainer<C
     public CodeDescriptionContainer() {
         super(CodeDescription.class);
     }
+
+    @Override
+    public String getCaptionField() {
+        return "description";
+    }
+
+
 }

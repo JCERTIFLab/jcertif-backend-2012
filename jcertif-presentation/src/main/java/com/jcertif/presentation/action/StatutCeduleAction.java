@@ -11,6 +11,6 @@ import com.jcertif.presentation.wsClient.StatutCeduleClient;
 public class StatutCeduleAction extends AbstractAction<StatutCeduleContainer, StatutCedule, StatutCeduleClient> {
 
     public StatutCeduleAction() {
-        setPrincipalContainer(new StatutCeduleContainer());
+       super(new StatutCeduleContainer(), StatutCeduleClient.getInstance());
     }
 }
