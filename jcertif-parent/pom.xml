@@ -557,6 +557,12 @@
                 <artifactId>stringtemplate</artifactId>
                 <version>3.2</version>
             </dependency>
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>paperstack</artifactId>
+                <version>0.8.1</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
