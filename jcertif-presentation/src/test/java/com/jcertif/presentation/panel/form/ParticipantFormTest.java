@@ -38,7 +38,8 @@ public class ParticipantFormTest {
     @org.junit.Test
     public void testGetParticipant() {
         System.out.println("getParticipant");
-        ParticipantForm instance = new ParticipantForm(new ParticipantAction());
+        ParticipantForm instance = new ParticipantForm(new ParticipantAction()) {
+        };
         Participant expResult = null;
         Participant result = instance.getAbstractBO();
         assertEquals(expResult, result);
@@ -64,7 +65,7 @@ public class ParticipantFormTest {
     @org.junit.Test
     public void testSetItemDataSource() {
         System.out.println("setItemDataSource");
-        BeanItem newDataSource = new BeanItem(new Participant(Long.valueOf(34), "Mr", "Makambo", "Minene", Character.valueOf('M'), "matayo@unhcr.org",  null, null));
+        BeanItem newDataSource = new BeanItem(new Participant(Long.valueOf(34), "Mr", "Makambo", "Minene", Character.valueOf('M'), "matayo@unhcr.org", null, null));
         ParticipantForm instance = new ParticipantForm(new ParticipantAction());
         instance.setItemDataSource(newDataSource);
         // TODO review the generated test code and remove the default call to fail.
@@ -82,7 +83,7 @@ public class ParticipantFormTest {
     @org.junit.Test
     public void testSetBOForEdit() {
         System.out.println("setBOForEdit");
-        Participant abstractBO = new Participant(Long.valueOf(34), "Mr", "Makambo", "Minene", Character.valueOf('M'), "matayo@unhcr.org",  null, null);
+        Participant abstractBO = new Participant(Long.valueOf(34), "Mr", "Makambo", "Minene", Character.valueOf('M'), "matayo@unhcr.org", null, null);
         boolean newBO = false;
         ParticipantForm instance = new ParticipantForm(new ParticipantAction());
         instance.setBOForEdit(abstractBO, newBO);
