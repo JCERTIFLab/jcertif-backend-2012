@@ -20,7 +20,8 @@ import java.util.Collection;
  *
  * @author Douneg
  * Classe permettant de faire la liaison entre une interface et un container
- * Elle permet aussi de faire la liaison entre ces deux dernieres entites et
+ * Elle permet aussi de faire la liaison entre l'interfae le container et le client du service web
+ * permettant d'attaquer la couche metier
  */
 public class AbstractAction<PC extends AbstractJCertifBeanItemContainer, BO extends AbstractBO, WS extends AbstractJCertWebServiceClient> {
 
