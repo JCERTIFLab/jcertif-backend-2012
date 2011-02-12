@@ -7,14 +7,12 @@ package com.jcertif.presentation.action;
 import com.jcertif.presentation.container.AbstractJCertifBeanItemContainer;
 import com.jcertif.presentation.data.bo.AbstractBO;
 import com.jcertif.presentation.wsClient.AbstractJCertWebServiceClient;
-import com.sun.jersey.api.client.UniformInterfaceException;
 import com.vaadin.data.Item;
 import com.vaadin.ui.AbstractSelect;
 import com.vaadin.ui.AbstractSelect.Filtering;
 import com.vaadin.ui.ComboBox;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -59,30 +57,19 @@ public class AbstractAction<PC extends AbstractJCertifBeanItemContainer, BO exte
     }
 
     public Item addItem(BO bo) throws UnsupportedOperationException {
-        try {
-            bo = (BO) getWebServiceClient().create_XML(bo);
-        } catch (Exception exception) {
-            return null;
-        }
+
+        bo = (BO) getWebServiceClient().create_XML(bo);
         return getPrincipalContainer().addItem(bo);
     }
 
     public boolean updateItem(BO bo) throws UnsupportedOperationException {
-        try {
-            bo = (BO) getWebServiceClient().update_XML(bo);
-        } catch (Exception exception) {
-            return false;
-        }
+        bo = (BO) getWebServiceClient().update_XML(bo);
         return true;
     }
 
     public boolean refreshContainer() {
         Collection<BO> all = new ArrayList<BO>();
-        try {
-            all = getWebServiceClient().findAll_XML();
-        } catch (Exception exception) {
-            return false;
-        }
+        all = getWebServiceClient().findAll_XML();
         getPrincipalContainer().loadData(all);
         return true;
     }

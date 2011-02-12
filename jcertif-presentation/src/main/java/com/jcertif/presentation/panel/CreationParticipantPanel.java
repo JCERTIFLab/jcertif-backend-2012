@@ -11,6 +11,7 @@ import com.vaadin.data.Property;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Panel;
 
 /**
@@ -20,18 +21,30 @@ import com.vaadin.ui.Panel;
 public class CreationParticipantPanel extends MasterDetailsPanel<ParticipantAction> implements Button.ClickListener, Property.ValueChangeListener {
 
     private ParticipantForm participantForm;
+    private Button validate = new Button("Valider", this);
 
     public CreationParticipantPanel(ParticipantAction participantAction) {
         super(participantAction);
         participantForm = new ParticipantForm(participantAction);
         participantForm.setBOForEdit(new Participant(), true);
-        participantForm.addInitialFooter();
-        Panel all = buildPanel("Creation d'un participant", participantForm);
+        HorizontalLayout footer = new HorizontalLayout();
+        footer.setSpacing(true);
+        footer.addComponent(validate);
+        footer.setVisible(true);
+        Panel all = buildPanel(null, participantForm);
         getContent().addComponent(all);
     }
 
     @Override
     public void buttonClick(ClickEvent event) {
+        if (event.getButton() == validate) {
+            if (participantForm.isValid()) {
+                participantForm.commit();
+                getAction().addItem(participantForm.getBeanItem().getBean());
+            } else {
+                participantForm.validate();
+            }
+        }
     }
 
     @Override

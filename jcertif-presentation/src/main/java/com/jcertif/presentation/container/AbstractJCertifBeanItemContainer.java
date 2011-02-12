@@ -21,10 +21,13 @@ public abstract class AbstractJCertifBeanItemContainer<T extends AbstractBO> ext
     }
 
     public void loadData(Collection<T> datas) {
-        removeAllItems();
-        for (Iterator<T> it = datas.iterator(); it.hasNext();) {
-            AbstractBO abstractBO = it.next();
-            addBean(abstractBO);
+
+        if (datas != null) {
+            removeAllItems();
+            for (Iterator<T> it = datas.iterator(); it.hasNext();) {
+                AbstractBO abstractBO = it.next();
+                addBean(abstractBO);
+            }
         }
         sort(new Object[]{getCaptionField()},
                 new boolean[]{true});
