@@ -95,61 +95,53 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
     }
 
     public <T> T update_XML(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
-        if (isServerOK()) {
-            return (T) getWebResource().path(UPDATE_SUFFIX).type(javax.ws.rs.core.MediaType.APPLICATION_XML).put(responseType, requestEntity);
-        }
-        return null;
+
+        return (T) getWebResource().path(UPDATE_SUFFIX).type(javax.ws.rs.core.MediaType.APPLICATION_XML).put(responseType, requestEntity);
+
     }
 
     public <T> T update_JSON(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
-        if (isServerOK()) {
-            return (T) getWebResource().path(UPDATE_SUFFIX).type(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(responseType, requestEntity);
-        }
-        return null;
+
+        return (T) getWebResource().path(UPDATE_SUFFIX).type(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(responseType, requestEntity);
+
     }
 
     public <T> T get_XML(PK id) throws UniformInterfaceException, ClientHandlerException {
-        if (isServerOK()) {
-            return (T) getWebResource().path(java.text.MessageFormat.format(FINDBYID_SUFFIX, new Object[]{id})).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
-        }
-        return null;
+
+        return (T) getWebResource().path(java.text.MessageFormat.format(FINDBYID_SUFFIX, new Object[]{id})).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
+
     }
 
     public <T> T get_JSON(PK id) throws UniformInterfaceException, ClientHandlerException {
-        if (isServerOK()) {
-            return (T) getWebResource().path(java.text.MessageFormat.format(FINDBYID_SUFFIX, new Object[]{id})).accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
-        }
-        return null;
+
+        return (T) getWebResource().path(java.text.MessageFormat.format(FINDBYID_SUFFIX, new Object[]{id})).accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
+
     }
 
     public <T> T create_XML(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
-        if (isServerOK()) {
-            return (T) webResource.type(javax.ws.rs.core.MediaType.APPLICATION_XML).put(responseType, requestEntity);
-        }
-        return null;
+
+        return (T) webResource.type(javax.ws.rs.core.MediaType.APPLICATION_XML).put(responseType, requestEntity);
+
     }
 
     public <T> T create_JSON(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
-        if (isServerOK()) {
-            return (T) webResource.type(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(responseType, requestEntity);
-        }
-        return null;
+
+        return (T) webResource.type(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(responseType, requestEntity);
+
     }
 
     public Collection<T> findAll_XML() throws UniformInterfaceException, ClientHandlerException {
-        if (isServerOK()) {
-            return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(new GenericType<List<T>>() {
-            });
-        }
-        return null;
+
+        return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(new GenericType<List<T>>() {
+        });
+
     }
 
     public Collection<T> findAll_JSON() throws UniformInterfaceException, ClientHandlerException {
-        if (isServerOK()) {
-            return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(new GenericType<List<T>>() {
-            });
-        }
-        return null;
+
+        return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(new GenericType<List<T>>() {
+        });
+
     }
 
     public void delete_XML(T requestEntity) throws UniformInterfaceException, ClientHandlerException {

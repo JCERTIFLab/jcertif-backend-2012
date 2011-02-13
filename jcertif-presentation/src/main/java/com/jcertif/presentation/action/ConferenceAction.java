@@ -8,9 +8,10 @@ import com.jcertif.presentation.wsClient.ConferenceClient;
  *
  * @author Douneg
  */
+
 public class ConferenceAction extends AbstractAction<ConferenceContainer, Conference, ConferenceClient> {
 
     public ConferenceAction() {
-       super(new ConferenceContainer(), ConferenceClient.getInstance());
+        super(new ConferenceContainer(), ConferenceClient.getInstance());
     }
 }

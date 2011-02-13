@@ -4,6 +4,7 @@
  */
 package com.jcertif.presentation.principal;
 
+import com.jcertif.presentation.action.AuteurAction;
 import com.jcertif.presentation.action.ParticipantAction;
 import com.jcertif.presentation.action.ParticulariteSalleAction;
 import com.jcertif.presentation.action.ProfilUtilisateurAction;
@@ -13,7 +14,10 @@ import com.jcertif.presentation.action.StatutApprobationAction;
 import com.jcertif.presentation.action.StatutCeduleAction;
 import com.jcertif.presentation.action.TypeEvenementAction;
 import com.jcertif.presentation.action.TypeParticipantAction;
+import com.jcertif.presentation.panel.AuteursPanel;
 import com.jcertif.presentation.panel.CreationParticipantPanel;
+import com.jcertif.presentation.panel.CreationPropositionPresentationPanel;
+import com.jcertif.presentation.panel.FAQPanel;
 import com.jcertif.presentation.panel.ParticipantPanel;
 import com.jcertif.presentation.panel.window.ParticipantWindow;
 import com.jcertif.presentation.panel.window.ParticulariteSalleWindow;
@@ -58,6 +62,7 @@ public class MainWindow extends Window {
     private VerticalLayout mainLayout;
     private TabSheet tabs;
     private ParticipantAction participantAction;
+    private AuteurAction auteurAction;
     private ProfilUtilisateurAction profilUtilisateurAction;
     private PropositionPresentationAction propositionPresentationAction;
     private ParticulariteSalleAction particulariteSalleAction;
@@ -80,6 +85,14 @@ public class MainWindow extends Window {
         }
         return roleParticipantAction;
     }
+
+     public AuteurAction getAuteurAction() {
+        if (auteurAction == null) {
+            auteurAction = new AuteurAction();
+        }
+        return auteurAction;
+    }
+
 
     public StatutApprobationAction getStatutApprobationAction() {
         if (statutApprobationAction == null) {
@@ -139,7 +152,7 @@ public class MainWindow extends Window {
 
     final void buildMainView() {
         mainLayout.setSizeFull();
-        mainLayout.addComponent(getTopMenu());
+      //  mainLayout.addComponent(getTopMenu());
         mainLayout.addComponent(getHeader());
         CssLayout margin = new CssLayout();
         margin.setMargin(false, true, true, true);
@@ -153,9 +166,9 @@ public class MainWindow extends Window {
         tabs.addComponent(buildWelcomeScreen());
         tabs.addComponent(buildCalendrier());
         tabs.addComponent(JCertifTabCreator.createPrincipalTab("Inscrivez-vous", "Inscription", new CreationParticipantPanel(getParticipantAction())));
-        tabs.addComponent(JCertifTabCreator.createPrincipalTab("Proposer un sujet", "Nouveau Sujet", new CreationParticipantPanel(getParticipantAction())));
-        tabs.addComponent(JCertifTabCreator.createPrincipalTab("Les présentateurs", "Présentateurs JCertif 2011", new CreationParticipantPanel(getParticipantAction())));
-        tabs.addComponent(JCertifTabCreator.createPrincipalTab("FAQ", "Foire aux Questions", new CreationParticipantPanel(getParticipantAction())));
+        tabs.addComponent(JCertifTabCreator.createPrincipalTab("Proposer un sujet", "Nouveau Sujet", new CreationPropositionPresentationPanel(getPropositionPresentationAction())));
+        tabs.addComponent(JCertifTabCreator.createPrincipalTab("Les présentateurs", "Présentateurs JCertif 2011", new AuteursPanel(getAuteurAction())));
+        tabs.addComponent(JCertifTabCreator.createPrincipalTab("FAQ", "Foire aux Questions", new FAQPanel()));
 
 
 //        tabs.addComponent(buildDateFields());

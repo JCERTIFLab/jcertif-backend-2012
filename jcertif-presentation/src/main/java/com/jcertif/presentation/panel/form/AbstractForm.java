@@ -28,6 +28,7 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
     private Button saveButton = null;
     private Button cancelButton = null;
     private Button editButton = null;
+    private Button closeButton = null;
     private AbstractAction action;
     private boolean newContactMode = false;
     private BO abstractBO;
@@ -44,6 +45,7 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
          */
         setWriteThrough(false);
         //  addInitialFooter();
+        setImmediate(true);
     }
 
     public void addInitialFooter() {
@@ -69,6 +71,7 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
         footer.addComponent(getSaveButton());
         footer.addComponent(getCancelButton());
         footer.addComponent(getEditButton());
+        footer.addComponent(getCloseButton());
         footer.setVisible(true);
         return footer;
     }
@@ -77,6 +80,7 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
         saveButton = new Button("Sauver", listener);
         cancelButton = new Button("Annuler", listener);
         editButton = new Button("Modifier", listener);
+        closeButton = new Button("Fermer", listener);
     }
 
     public BO getAbstractBO() {
@@ -107,6 +111,10 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
         return saveButton;
     }
 
+    public Button getCloseButton() {
+        return closeButton;
+    }
+
     public void setNewContactMode(boolean newContactMode) {
         this.newContactMode = newContactMode;
     }
@@ -127,12 +135,6 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
             if (isNewContactMode()) {
                 /* We need to add the new abstractBO to the container */
                 Item addedItem = getAction().addItem(abstractBO);
-                MailSenderClient client = new MailSenderClient();
-                //    String sendConfirmation_XML = client.sendConfirmation_XML(new ProfilUtilisateur(Long.MIN_VALUE, "Matayo", "MatayoBweta@gmail.com", null, null, null, null), "JCertif2011");
-                Participant participant = new Participant(Long.MIN_VALUE, "Mr", "Stanyslas", "Matayo", Character.valueOf('M'), "MatayoBweta@gmail.com", null, null);
-                participant.setCodeParticipant(UUID.randomUUID().toString().toUpperCase());
-                client.sendAddParticipantConfirmation_XML(participant);
-
                 /*
                  * We must update the form to use the Item from our datasource
                  * as we are now in edit mode (no longer in add mode)
@@ -142,7 +144,7 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
             } else {
             }
             setReadOnly(true);
-            getApplication().getMainWindow().removeWindow(this.getWindow());
+            
         } else if (source == getCancelButton()) {
             if (isNewContactMode()) {
                 setNewContactMode(false);
@@ -155,6 +157,8 @@ public abstract class AbstractForm<BO extends AbstractBO, A extends AbstractActi
             getApplication().getMainWindow().removeWindow(this.getWindow());
         } else if (source == getEditButton()) {
             setReadOnly(false);
+        }else if (source == getCloseButton()) {
+             getApplication().getMainWindow().removeWindow(this.getWindow());
         }
     }
 

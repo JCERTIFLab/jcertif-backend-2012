@@ -3,8 +3,10 @@ package com.jcertif.presentation.principal;
 import com.jcertif.presentation.wsClient.AbstractJCertWebServiceClient;
 import com.vaadin.Application;
 import com.vaadin.terminal.gwt.server.HttpServletRequestListener;
+import com.vaadin.ui.Window;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.Response;
 
 /**
  * Main Application Vaadin for JCertif.
@@ -21,9 +23,6 @@ public class JCertifVaadinApplication extends Application implements HttpServlet
     private MainWindow main;
 
     public MainWindow getMain() {
-        AbstractJCertWebServiceClient ajcwsc = new AbstractJCertWebServiceClient(null) {
-        };
-        ajcwsc.checkConnection();
         if (main == null) {
             main = new MainWindow();
         }
@@ -36,6 +35,7 @@ public class JCertifVaadinApplication extends Application implements HttpServlet
         setInstance(this); // So that we immediately have access to the current application
         setTheme("jcertifruno");
         setMainWindow(getMain());
+
     }
 
     // @return the current application instance
@@ -58,5 +58,23 @@ public class JCertifVaadinApplication extends Application implements HttpServlet
     @Override
     public void onRequestEnd(HttpServletRequest request, HttpServletResponse response) {
         threadLocal.remove();
+    }
+
+    public static void showError(Integer status) {
+        String statusDescription = (Response.Status.fromStatusCode(status) != null) ? (Response.Status.fromStatusCode(status).getReasonPhrase()) : "";
+        if (JCertifVaadinApplication.getInstance() != null && JCertifVaadinApplication.getInstance().getMainWindow() != null) {
+            Window main = JCertifVaadinApplication.getInstance().getMainWindow();
+            // Create a notification with default settings for a warning.
+            Window.Notification notif = new Window.Notification(
+                    "Erreur " + status,
+                    statusDescription,
+                    Window.Notification.TYPE_ERROR_MESSAGE);
+// Set the position.
+            notif.setPosition(Window.Notification.POSITION_TOP_LEFT);
+// Let it stay there until the user clicks it
+            notif.setDelayMsec(-1);
+// Show it in the main window.
+            main.showNotification(notif);
+        }
     }
 }

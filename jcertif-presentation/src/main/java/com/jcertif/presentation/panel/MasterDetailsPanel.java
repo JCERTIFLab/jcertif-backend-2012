@@ -36,10 +36,13 @@ public abstract class MasterDetailsPanel<PA extends AbstractAction> extends Pane
 
     Panel buildPanel(String panelTitle, Component piece) {
         Panel localPanel = new Panel(panelTitle, new VerticalLayout());
-        localPanel.setSizeFull();
+        VerticalLayout layout = (VerticalLayout) localPanel.getContent();
+        layout.setWidth("100%");
+
         localPanel.addStyleName(Runo.PANEL_LIGHT);
-        localPanel.getContent().setSizeFull();
-        localPanel.addComponent(piece);
+        localPanel.setWidth("100%");
+        layout.addComponent(piece);
+        layout.setExpandRatio(piece, 1);
         return localPanel;
     }
 
@@ -81,7 +84,7 @@ public abstract class MasterDetailsPanel<PA extends AbstractAction> extends Pane
         AbsoluteLayout root = new AbsoluteLayout();
         root.setSizeFull();
         root.setCaption(caption);
-       
+
         if (buttonSet != null) {
             HorizontalLayout buttons = (HorizontalLayout) buildButtonPanel(buttonSet);
             root.addComponent(buttons, "top: 11px; right: 18px; z-index:1;");

@@ -6,15 +6,19 @@ package com.jcertif.presentation.action;
 
 import com.jcertif.presentation.container.AbstractJCertifBeanItemContainer;
 import com.jcertif.presentation.data.bo.AbstractBO;
+import com.jcertif.presentation.principal.JCertifVaadinApplication;
 import com.jcertif.presentation.wsClient.AbstractJCertWebServiceClient;
 import com.vaadin.data.Item;
 import com.vaadin.ui.AbstractSelect;
 import com.vaadin.ui.AbstractSelect.Filtering;
 import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.Window;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  *
@@ -58,21 +62,37 @@ public class AbstractAction<PC extends AbstractJCertifBeanItemContainer, BO exte
     }
 
     public Item addItem(BO bo) throws UnsupportedOperationException {
+        Integer status = getWebServiceClient().checkConnection();
+        if (status < 400) {
+            bo = (BO) getWebServiceClient().create_XML(bo);
+            return getPrincipalContainer().addItem(bo);
+        }
+        JCertifVaadinApplication.showError(status);
 
-        bo = (BO) getWebServiceClient().create_XML(bo);
-        return getPrincipalContainer().addItem(bo);
+        return null;
     }
 
     public boolean updateItem(BO bo) throws UnsupportedOperationException {
-        bo = (BO) getWebServiceClient().update_XML(bo);
-        return true;
+        Integer status = getWebServiceClient().checkConnection();
+        if (status < 400) {
+            bo = (BO) getWebServiceClient().update_XML(bo);
+            return true;
+        }
+        JCertifVaadinApplication.showError(status);
+
+        return false;
     }
 
     public boolean refreshContainer() {
+        Integer status = getWebServiceClient().checkConnection();
         Collection<BO> all = new ArrayList<BO>();
-        all = getWebServiceClient().findAll_XML();
-        getPrincipalContainer().loadData(all);
-        return true;
+        if (alreadyMakeFirstLoad && status < 400) {
+            all = getWebServiceClient().findAll_XML();
+            getPrincipalContainer().loadData(all);
+            return true;
+        }
+        JCertifVaadinApplication.showError(status);
+        return false;
     }
 
     public ComboBox createCombobox(String caption) {

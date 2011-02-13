@@ -21,7 +21,6 @@ public class PropositionPresentationForm extends AbstractForm<PropositionPresent
 
     public PropositionPresentationForm(PropositionPresentationAction action) {
         super(action);
-        setCaption("Proposition Presentation");
         // Create our layout (2x5 GridLayout)
         ourLayout = new GridLayout(2, 5);
         // Use top-left margin and spacing
@@ -30,8 +29,6 @@ public class PropositionPresentationForm extends AbstractForm<PropositionPresent
         ourLayout.setSizeFull();
         setSizeFull();
         setLayout(ourLayout);
-
-
 
         setFormFieldFactory(new DefaultFieldFactory() {
 
@@ -97,9 +94,7 @@ public class PropositionPresentationForm extends AbstractForm<PropositionPresent
 
     @Override
     protected void attachField(Object propertyId, Field field) {
-        if (propertyId.equals("id")) {
-            ourLayout.addComponent(field, 0, 0);
-        } else if (propertyId.equals("titre")) {
+        if (propertyId.equals("titre")) {
             ourLayout.addComponent(field, 0, 1, 1, 1);
         } else if (propertyId.equals("sommaire")) {
             ourLayout.addComponent(field, 0, 2);

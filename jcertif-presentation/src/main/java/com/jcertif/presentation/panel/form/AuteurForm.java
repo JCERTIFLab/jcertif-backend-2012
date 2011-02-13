@@ -20,20 +20,14 @@ import com.vaadin.ui.TextField;
 import java.util.Arrays;
 import java.util.List;
 
-public class ParticipantForm extends AbstractForm<Participant, ParticipantAction> {
+public class AuteurForm extends AbstractForm<Participant, ParticipantAction> {
 
-    private RoleParticipantAction roleParticipantAction = new RoleParticipantAction();
-    private TypeParticipantAction typeParticipantAction = new TypeParticipantAction();
-    private ConferenceAction conferenceAction = new ConferenceAction();
-    private ComboBox conference;
-    private ComboBox role;
     private ComboBox sexe;
     private ComboBox salutation;
-    private ComboBox type;
     private CalendarField dateInscription;
     private GridLayout ourLayout;
 
-    public ParticipantForm(ParticipantAction action) {
+    public AuteurForm(ParticipantAction action) {
         super(action);
         sexe = new ComboBox();
         salutation = new ComboBox();
@@ -43,43 +37,26 @@ public class ParticipantForm extends AbstractForm<Participant, ParticipantAction
         salutation.addItem("M.");
         salutation.addItem("Mme");
         salutation.addItem("Mlle");
-        // Create our layout (4x8 GridLayout)
-        ourLayout = new GridLayout(4, 8);
+        // Create our layout (4x7 GridLayout)
+        ourLayout = new GridLayout(4, 7);
 
         // Use top-left margin and spacing
         ourLayout.setMargin(true, false, false, true);
         ourLayout.setSpacing(true);
         setLayout(ourLayout);
-
+        /*
+         * Enable buffering so that commit() must be called for the form before
+         * input is written to the data. (Form input is not written immediately
+         * through to the underlying object.)
+         */
+        setWriteThrough(false);
 
         setFormFieldFactory(new DefaultFieldFactory() {
 
             @Override
             public Field createField(Item item, Object propertyId,
                     Component uiContext) {
-                if (propertyId.equals("conference")) {
-                    conference = getConferenceAction().createCombobox("Selectionner une conference");
-                    conference.setCaption("Conference");
-                    conference.setRequired(true);
-                    conference.setRequiredError("Veuillez choisir une conference");
-                    return conference;
-                } else if (propertyId.equals("roleparticipant")) {
-                    role = getRoleParticipantAction().createCombobox("Selectionner un role");
-                    role.setCaption("Role");
-                    role.setRequired(true);
-                    role.setRequiredError("Veuillez choisir un role");
-                    return role;
-                } else if (propertyId.equals("typeParticipant")) {
-                    type = getTypeParticipantAction().createCombobox("Selectionner un type");
-                    type.setCaption("Type");
-                    type.setRequired(true);
-                    type.setRequiredError("Veuillez choisir un type pour le participant");
-                    return type;
-                } else if (propertyId.equals("dateInscription")) {
-                    dateInscription.setCaption("Date Inscription");
-                    dateInscription.setRequired(true);
-                    return dateInscription;
-                } else if (propertyId.equals("sexe")) {
+                if (propertyId.equals("sexe")) {
                     sexe.setCaption("Sexe");
                     sexe.setRequired(true);
                     sexe.setRequiredError("Veuillez choisir un sexe");
@@ -90,40 +67,12 @@ public class ParticipantForm extends AbstractForm<Participant, ParticipantAction
                     salutation.setRequiredError("Veuillez choisir une salutation");
                     return salutation;
                 }
-
                 Field field = super.createField(item, propertyId, uiContext);
-                if (propertyId.equals("prenom")) {
+                if (propertyId.equals("biographieSommaire")) {
                     TextField f = (TextField) field;
-                    f.setCaption("Prenom");
-                    f.setRequired(true);
-                    f.setColumns(12);
-                    f.setNullRepresentation("");
-                    return f;
-                } else if (propertyId.equals("nom")) {
-                    TextField f = (TextField) field;
-                    f.setCaption("Nom");
-                    f.setRequired(true);
-                    f.setColumns(12);
-                  f.setNullRepresentation("");
-                    return f;
-                } else if (propertyId.equals("specialite")) {
-                    TextField f = (TextField) field;
-                    f.setCaption("Specialite");
-                    f.setRows(2);
-                    f.setNullRepresentation("");
-                    f.setWidth("100%");
-                } else if (propertyId.equals("cvSoumis")) {
-                    TextField f = (TextField) field;
-                    f.setCaption("CV Soumis");
+                    f.setCaption("Biographie Sommaire");
                     f.setRows(5);
-                    f.setNullRepresentation("");
                     f.setWidth("100%");
-                } else if (propertyId.equals("compagnie")) {
-                    TextField f = (TextField) field;
-                    f.setCaption("Compagnie");
-                    f.setColumns(12);
-                    f.setNullRepresentation("");
-                    return f;
                 } else if (propertyId.equals("email")) {
                     TextField f = (TextField) field;
                     f.setCaption("Email");
@@ -132,9 +81,7 @@ public class ParticipantForm extends AbstractForm<Participant, ParticipantAction
                     f.addValidator(new EmailValidator(
                             "L'addresse electronique doit contenir '@' et un nom de domaine complet."));
                     f.setRequired(true);
-                    f.setNullRepresentation("");
                 } else if ("adresse".equals(propertyId)) {
-
                     // create a custom field for the Address object
                     field = new AdresseField(((Participant) ((BeanItem) getItemDataSource()).getBean()).getAdresse());
                     field.setCaption("Adresse");
@@ -143,13 +90,7 @@ public class ParticipantForm extends AbstractForm<Participant, ParticipantAction
                     TextField f = (TextField) field;
                     f.setCaption("Details");
                     f.setWidth("100%");
-                    f.setNullRepresentation("");
-                    f.setRows(2);
-                } else if (propertyId.equals("website")) {
-                    TextField f = (TextField) field;
-                    f.setCaption("Site Web");
-                    f.setWidth("100%");
-                    f.setNullRepresentation("");
+                    f.setColumns(12);
                 }
                 field.setWidth("100%");
                 return field;
@@ -173,9 +114,9 @@ public class ParticipantForm extends AbstractForm<Participant, ParticipantAction
         } else if (propertyId.equals("email")) {
             ourLayout.addComponent(field, 0, 2);
         } else if (propertyId.equals("specialite")) {
-            ourLayout.addComponent(field, 0, 6, 2, 6);
+            ourLayout.addComponent(field, 1, 2);
         } else if (propertyId.equals("website")) {
-            ourLayout.addComponent(field, 1, 2, 2, 2);
+            ourLayout.addComponent(field, 2, 2);
         } else if (propertyId.equals("details")) {
             ourLayout.addComponent(field, 0, 3, 2, 3);
         } else if (propertyId.equals("conference")) {
@@ -184,14 +125,14 @@ public class ParticipantForm extends AbstractForm<Participant, ParticipantAction
             ourLayout.addComponent(field, 1, 4);
         } else if (propertyId.equals("compagnie")) {
             ourLayout.addComponent(field, 2, 4);
-        } else if (propertyId.equals("cvSoumis")) {
+        } else if (propertyId.equals("biographieSommaire")) {
             ourLayout.addComponent(field, 0, 5, 2, 5);
         } else if (propertyId.equals("roleparticipant")) {
-            ourLayout.addComponent(field, 0, 7);
+            ourLayout.addComponent(field, 0, 6);
         } else if (propertyId.equals("typeParticipant")) {
-            ourLayout.addComponent(field, 1, 7);
+            ourLayout.addComponent(field, 1, 6);
         } else if (propertyId.equals("adresse")) {
-            ourLayout.addComponent(field, 3, 0, 3, 7);
+            ourLayout.addComponent(field, 3, 0, 3, 6);
         }
 
     }
@@ -199,29 +140,5 @@ public class ParticipantForm extends AbstractForm<Participant, ParticipantAction
     @Override
     public List<Object> getColumnOrder() {
         return Arrays.asList(ParticipantContainer.NATURAL_COL_ORDER);
-    }
-
-    public ConferenceAction getConferenceAction() {
-        return conferenceAction;
-    }
-
-    public void setConferenceAction(ConferenceAction conferenceAction) {
-        this.conferenceAction = conferenceAction;
-    }
-
-    public RoleParticipantAction getRoleParticipantAction() {
-        return roleParticipantAction;
-    }
-
-    public void setRoleParticipantAction(RoleParticipantAction roleParticipantAction) {
-        this.roleParticipantAction = roleParticipantAction;
-    }
-
-    public TypeParticipantAction getTypeParticipantAction() {
-        return typeParticipantAction;
-    }
-
-    public void setTypeParticipantAction(TypeParticipantAction typeParticipantAction) {
-        this.typeParticipantAction = typeParticipantAction;
     }
 }

@@ -8,6 +8,7 @@ import com.jcertif.presentation.wsClient.CeduleParticipantClient;
  *
  * @author Douneg
  */
+
 public class CeduleParticipantAction extends AbstractAction<CeduleParticipantContainer, CeduleParticipant, CeduleParticipantClient> {
 
     public CeduleParticipantAction() {
