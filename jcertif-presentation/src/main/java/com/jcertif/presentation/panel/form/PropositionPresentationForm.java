@@ -26,8 +26,8 @@ public class PropositionPresentationForm extends AbstractForm<PropositionPresent
         // Use top-left margin and spacing
         ourLayout.setMargin(false, true, true, true);
         ourLayout.setSpacing(true);
-        ourLayout.setSizeFull();
-        setSizeFull();
+        ourLayout.setWidth("100%");
+        setWidth("100%");
         setLayout(ourLayout);
 
         setFormFieldFactory(new DefaultFieldFactory() {

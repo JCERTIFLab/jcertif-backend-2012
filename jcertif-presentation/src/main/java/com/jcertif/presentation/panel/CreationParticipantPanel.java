@@ -32,6 +32,7 @@ public class CreationParticipantPanel extends MasterDetailsPanel<ParticipantActi
         participantForm.setBOForEdit(new Participant(), true);
         HorizontalLayout footer = new HorizontalLayout();
         footer.setSpacing(true);
+
         footer.addComponent(validate);
         footer.setVisible(true);
         Panel all = buildPanel(null, participantForm);
