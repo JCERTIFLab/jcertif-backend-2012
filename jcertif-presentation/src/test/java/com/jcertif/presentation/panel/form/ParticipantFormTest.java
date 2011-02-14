@@ -9,6 +9,7 @@ import com.jcertif.presentation.data.bo.participant.Participant;
 import com.vaadin.data.util.BeanItem;
 import java.util.Arrays;
 import com.jcertif.presentation.action.ParticipantAction;
+import com.jcertif.presentation.action.RoleParticipantAction;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
