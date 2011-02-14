@@ -4,7 +4,7 @@
 
 .v-tabsheet-spacertd div {
 	height: 37px;
-	border: 1px solid #fff6cc;
+	border: 1px solid #b6bbbc;
 	background: transparent url(img/tab-bg.png);
 	padding: 0;
 }
@@ -44,7 +44,7 @@
 	background-position: -12px 0px;
 }
 .v-tabsheet-tabitem {
-	border: 1px solid #fff6cc;
+	border: 1px solid #b6bbbc;
 	border-right: none;
 	height: 37px;
 	padding: 0;
@@ -95,7 +95,7 @@
 	background: #dce0e0;
 }
 .v-tabsheet-caption-close:active {
-	background: #fff6cc;
+	background: #b6bbbc;
 	color: #fff;
 }
 .v-tabsheet-content {
@@ -180,19 +180,19 @@
 .v-tabsheet-tabs-light .v-tabsheet-spacertd div {
 	height: 31px;
 	border: none;
-	border-bottom: 1px solid #fff6cc;
-	background: transparent url(img/tab-bg.gif) repeat-x;
+	border-bottom: 1px solid #b6bbbc;
+	background: transparent url(img/inline-tab-bg.png) repeat-x;
 }
 .v-tabsheet-tabs-light .v-tabsheet-tabitem {
 	border: none;
-	border-bottom: 1px solid #fff6cc;
+	border-bottom: 1px solid #b6bbbc;
 	height: 30px;
 	padding: 0;
 	margin-top: 0;
 	color: #656d73;
 	font-size: 12px;
 	line-height: normal;
-	background: transparent url(img/tab-bg.gif) repeat-x;
+	background: transparent url(img/inline-tab-bg.png) repeat-x;
 	cursor: pointer;
 	text-shadow: #fff 0 1px 0;
 }
