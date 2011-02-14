@@ -181,7 +181,7 @@
 	height: 31px;
 	border: none;
 	border-bottom: 1px solid #fff6cc;
-	background: transparent url(img/inline-tab-bg.png) repeat-x;
+	background: transparent url(img/tab-bg.gif) repeat-x;
 }
 .v-tabsheet-tabs-light .v-tabsheet-tabitem {
 	border: none;
@@ -192,7 +192,7 @@
 	color: #656d73;
 	font-size: 12px;
 	line-height: normal;
-	background: transparent url(img/inline-tab-bg.png) repeat-x;
+	background: transparent url(img/tab-bg.gif) repeat-x;
 	cursor: pointer;
 	text-shadow: #fff 0 1px 0;
 }
