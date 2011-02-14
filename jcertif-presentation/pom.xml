@@ -106,9 +106,13 @@
         </dependency>
         <dependency>
             <groupId>org.vaadin.addons</groupId>
+            <artifactId>refresher</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.vaadin.addons</groupId>
             <artifactId>googleanalyticstracker</artifactId>
         </dependency>
-		        <dependency>
+        <dependency>
             <groupId>org.vaadin.addons</groupId>
             <artifactId>paperstack</artifactId>
         </dependency>
@@ -116,7 +120,20 @@
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
         <!-- LOGGER -->
         <dependency>
             <groupId>commons-lang</groupId>
@@ -146,6 +163,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 </project>
