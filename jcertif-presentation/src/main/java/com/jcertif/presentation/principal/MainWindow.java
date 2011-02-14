@@ -4,6 +4,7 @@
  */
 package com.jcertif.presentation.principal;
 
+import com.github.wolfie.refresher.Refresher;
 import com.jcertif.presentation.action.AuteurAction;
 import com.jcertif.presentation.action.ParticipantAction;
 import com.jcertif.presentation.action.ParticulariteSalleAction;
@@ -47,11 +48,15 @@ import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.Command;
 import com.vaadin.ui.MenuBar.MenuItem;
+import com.vaadin.ui.Panel;
 import com.vaadin.ui.TabSheet;
+import com.vaadin.ui.TabSheet.SelectedTabChangeEvent;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 import com.vaadin.ui.themes.Runo;
+import java.io.Serializable;
 import org.vaadin.googleanalytics.tracking.GoogleAnalyticsTracker;
+import org.vaadin.virkki.paperstack.PaperStack;
 
 /**
  *
@@ -86,13 +91,12 @@ public class MainWindow extends Window {
         return roleParticipantAction;
     }
 
-     public AuteurAction getAuteurAction() {
+    public AuteurAction getAuteurAction() {
         if (auteurAction == null) {
             auteurAction = new AuteurAction();
         }
         return auteurAction;
     }
-
 
     public StatutApprobationAction getStatutApprobationAction() {
         if (statutApprobationAction == null) {
@@ -152,7 +156,7 @@ public class MainWindow extends Window {
 
     final void buildMainView() {
         mainLayout.setSizeFull();
-      //  mainLayout.addComponent(getTopMenu());
+        //  mainLayout.addComponent(getTopMenu());
         mainLayout.addComponent(getHeader());
         CssLayout margin = new CssLayout();
         margin.setMargin(false, true, true, true);
@@ -194,6 +198,34 @@ public class MainWindow extends Window {
         margin.addComponent(title);
 
         margin.addComponent(new Ruler());
+        final Panel panel = new Panel("Nous sommes ensembles");
+        final HorizontalLayout layout = new HorizontalLayout();
+        final Refresher refresher = new Refresher();
+        PaperStack paperStack = new PaperStack();
+        final CounterThread thread = new CounterThread(paperStack);
+
+        thread.start();
+        panel.addComponent(refresher);
+        layout.setSpacing(true);
+        tabs.addListener(new TabSheet.SelectedTabChangeListener() {
+
+            @Override
+            public void selectedTabChange(SelectedTabChangeEvent event) {
+                if (event != null && event.getTabSheet() != null) {
+                    if (event.getTabSheet().getCaption() != null && event.getTabSheet().getCaption().equals("Bienvenue")) {
+                        refresher.setRefreshInterval(SLEEP_TIME_IN_MILLIS);
+                        thread.startCounting();
+                    } else {
+                        refresher.setRefreshInterval(0);
+                        thread.stopCounting();
+                    }
+                }
+            }
+        });
+
+        layout.addComponent(paperStack);
+
+        margin.addComponent(panel);
 
         HorizontalLayout texts = new HorizontalLayout();
         texts.setSpacing(true);
@@ -202,6 +234,48 @@ public class MainWindow extends Window {
         margin.addComponent(texts);
         return l;
     }
+
+    private class CounterThread extends Thread implements Serializable {
+
+        private static final long serialVersionUID = 6969871601928939400L;
+        private final PaperStack paperStack;
+        private boolean running = false;
+
+        public CounterThread(final PaperStack paperStack) {
+            this.paperStack = paperStack;
+        }
+
+        @Override
+        public void run() {
+            final long startTime = System.currentTimeMillis();
+            final long lifetime = 1000 * 60 * 60; // live for one hour.
+
+            try {
+                while (System.currentTimeMillis() < startTime + lifetime) {
+
+                    if (running) {
+                        // synchronize with the application, to avoid concurrent
+                        // edits on the label's value.
+                        synchronized (JCertifVaadinApplication.getInstance()) {
+                            paperStack.navigate(running);
+                        }
+                    }
+
+                    sleep(SLEEP_TIME_IN_MILLIS);
+                }
+            } catch (final InterruptedException e) {
+            }
+        }
+
+        public void startCounting() {
+            running = true;
+        }
+
+        public void stopCounting() {
+            running = false;
+        }
+    }
+    private static final int SLEEP_TIME_IN_MILLIS = 1000 * 10; // a second
 
     Layout buildAuteurs() {
         VerticalLayout l = new VerticalLayout();
