@@ -1,6 +1,6 @@
 package com.jcertif.presentation.principal;
 
-import com.jcertif.presentation.wsClient.AbstractJCertWebServiceClient;
+import com.sun.jersey.api.client.ClientResponse;
 import com.vaadin.Application;
 import com.vaadin.terminal.gwt.server.HttpServletRequestListener;
 import com.vaadin.ui.Window;
@@ -60,17 +60,18 @@ public class JCertifVaadinApplication extends Application implements HttpServlet
         threadLocal.remove();
     }
 
-    public static void showError(Integer status) {
-        String statusDescription = (Response.Status.fromStatusCode(status) != null) ? (Response.Status.fromStatusCode(status).getReasonPhrase()) : "";
+    public static void showError(ClientResponse status,String description) {
+        String statusDescription = (Response.Status.fromStatusCode(status.getStatus()) != null) ? (Response.Status.fromStatusCode(status.getStatus()).getReasonPhrase()) : "";
         if (JCertifVaadinApplication.getInstance() != null && JCertifVaadinApplication.getInstance().getMainWindow() != null) {
             Window main = JCertifVaadinApplication.getInstance().getMainWindow();
             // Create a notification with default settings for a warning.
             Window.Notification notif = new Window.Notification(
-                    "Erreur " + status,
-                    statusDescription,
+                    "Erreur HTTP " + status.getStatus() + " ","</br>"+
+                    statusDescription+"</br>"+description,
                     Window.Notification.TYPE_ERROR_MESSAGE);
 // Set the position.
-            notif.setPosition(Window.Notification.POSITION_TOP_LEFT);
+            notif.setPosition(Window.Notification.POSITION_CENTERED_TOP);
+
 // Let it stay there until the user clicks it
             notif.setDelayMsec(-1);
 // Show it in the main window.

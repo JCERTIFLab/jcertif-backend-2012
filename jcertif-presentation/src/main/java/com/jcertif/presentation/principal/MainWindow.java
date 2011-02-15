@@ -156,7 +156,7 @@ public class MainWindow extends Window {
 
     final void buildMainView() {
         mainLayout.setSizeFull();
-        //  mainLayout.addComponent(getTopMenu());
+        mainLayout.addComponent(getTopMenu());
         mainLayout.addComponent(getHeader());
         CssLayout margin = new CssLayout();
         margin.setMargin(false, true, true, true);

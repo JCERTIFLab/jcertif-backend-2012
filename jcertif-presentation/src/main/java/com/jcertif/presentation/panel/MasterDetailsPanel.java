@@ -5,16 +5,17 @@
 package com.jcertif.presentation.panel;
 
 import com.jcertif.presentation.action.AbstractAction;
+import com.vaadin.terminal.Sizeable;
 import com.vaadin.ui.AbsoluteLayout;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.SplitPanel;
 import com.vaadin.ui.TabSheet;
-import com.vaadin.ui.Table;
+import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Runo;
 import java.util.Set;
@@ -37,23 +38,23 @@ public abstract class MasterDetailsPanel<PA extends AbstractAction> extends Pane
     Panel buildPanel(String panelTitle, Component piece) {
         Panel localPanel = new Panel(panelTitle, new VerticalLayout());
         VerticalLayout layout = (VerticalLayout) localPanel.getContent();
-        layout.setWidth("100%");
-
+        layout.setSizeFull();
         localPanel.addStyleName(Runo.PANEL_LIGHT);
-        localPanel.setWidth("100%");
         layout.addComponent(piece);
         layout.setExpandRatio(piece, 1);
         return localPanel;
     }
 
     Layout buildMainPanel(String caption, String masterPanelTitle, Component masterPiece, Set<Button> buttonSet, Set<Component> detailsPanel) {
-        AbsoluteLayout root = new AbsoluteLayout();
+        VerticalLayout root= new VerticalLayout();
         root.setSizeFull();
 
         //   root.setCaption(caption);
         if (buttonSet != null) {
             HorizontalLayout buttons = (HorizontalLayout) buildButtonPanel(buttonSet);
-            root.addComponent(buttons, "top: 11px; right: 18px; z-index:1;");
+            buttons.setHeight(30, Sizeable.UNITS_PIXELS);
+            root.addComponent(buttons);
+            root.setComponentAlignment(buttons,Alignment.TOP_RIGHT);
         }
         SplitPanel content = new SplitPanel(SplitPanel.ORIENTATION_VERTICAL);
         content.setSizeFull();

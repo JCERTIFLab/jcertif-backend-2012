@@ -25,7 +25,7 @@ public class JCertifTabCreator {
         l.setSpacing(true);
         l.setCaption(caption);
         l.setStyleName(Runo.LAYOUT_DARKER);
-        l.setSizeFull();
+        l.setWidth("100%");
         CssLayout margin = new CssLayout();
         margin.setMargin(false);
         margin.setWidth("100%");

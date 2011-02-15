@@ -41,27 +41,33 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
     protected static final String UPDATE_SUFFIX = "update";
     protected static final String DELETE_SUFFIX = "delete";
 
-    public Integer checkConnection() {
-        ClientResponse response = getWebResource().accept("text/plain").get(ClientResponse.class);
-        LOGGER.debug("Response after Calling Web Service" + getWebResource(),
-                response);
-        Integer code = response.getStatus();
-        LOGGER.debug("--- Response Code after Calling Web Service" + getWebResource(),
-                code);
-        String codeDescription = "";
-        if (Response.Status.fromStatusCode(code) != null) {
-            codeDescription = Response.Status.fromStatusCode(code).getReasonPhrase();
+    public ClientResponse checkConnection() {
+        ClientResponse response = null;
+        try {
+            response = getWebResource().accept("text/plain").get(ClientResponse.class);
+            LOGGER.debug("Response after Calling Web Service" + getWebResource(),
+                    response);
+            Integer code = response.getStatus();
+            LOGGER.debug("--- Response Code after Calling Web Service" + getWebResource(),
+                    code);
+            String codeDescription = "";
+            if (Response.Status.fromStatusCode(code) != null) {
+                codeDescription = Response.Status.fromStatusCode(code).getReasonPhrase();
+            }
+            if (codeDescription == null) {
+                codeDescription = "";
+            }
+            LOGGER.debug("--- Response Code Description " + getWebResource(),
+                    codeDescription);
+
+        } catch (UniformInterfaceException uniformInterfaceException) {
+            return null;
         }
-        if (codeDescription == null) {
-            codeDescription = "";
-        }
-        LOGGER.debug("--- Response Code Description " + getWebResource(),
-                codeDescription);
-        return code;
+        return response;
     }
 
     public boolean isServerOK() {
-        return checkConnection() < 400;
+        return checkConnection().getStatus() < 400;
     }
 
     public void setWebResource(WebResource webResource) {
