@@ -204,7 +204,7 @@ public class MainWindow extends Window {
         final Refresher refresher = new Refresher();
         PaperStack paperStack = new PaperStack();
         ImageScaler imageScaler=new ImageScaler();
-        imageScaler.setImage(new ThemeResource(""), UNITS_EM, UNITS_EM);
+//        imageScaler.setImage(new ThemeResource(""), UNITS_EM, UNITS_EM);
         final CounterThread thread = new CounterThread(paperStack);
 
         thread.start();
