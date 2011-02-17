@@ -60,14 +60,19 @@ public class JCertifVaadinApplication extends Application implements HttpServlet
         threadLocal.remove();
     }
 
-    public static void showError(ClientResponse status,String description) {
-        String statusDescription = (Response.Status.fromStatusCode(status.getStatus()) != null) ? (Response.Status.fromStatusCode(status.getStatus()).getReasonPhrase()) : "";
+    public static void showError(ClientResponse status, String description) {
+        String statusDescription = null;
+        if (status != null) {
+            statusDescription = (Response.Status.fromStatusCode(status.getStatus()) != null) ? (Response.Status.fromStatusCode(status.getStatus()).getReasonPhrase()) : "";
+        } else {
+            statusDescription = "";
+        }
         if (JCertifVaadinApplication.getInstance() != null && JCertifVaadinApplication.getInstance().getMainWindow() != null) {
             Window main = JCertifVaadinApplication.getInstance().getMainWindow();
             // Create a notification with default settings for a warning.
             Window.Notification notif = new Window.Notification(
-                    "Erreur HTTP " + status.getStatus() + " ","</br>"+
-                    statusDescription+"</br>"+description,
+                    "Erreur HTTP " + status.getStatus() + " ", "</br>"
+                    + statusDescription + "</br>" + description,
                     Window.Notification.TYPE_ERROR_MESSAGE);
 // Set the position.
             notif.setPosition(Window.Notification.POSITION_CENTERED_TOP);
