@@ -566,6 +566,11 @@
                 <artifactId>paperstack</artifactId>
                 <version>0.8.1</version>
             </dependency>
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>imagescaler</artifactId>
+                <version>1.0</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
