@@ -56,6 +56,7 @@ import com.vaadin.ui.Window;
 import com.vaadin.ui.themes.Runo;
 import java.io.Serializable;
 import org.vaadin.googleanalytics.tracking.GoogleAnalyticsTracker;
+import org.vaadin.peter.imagescaler.ImageScaler;
 import org.vaadin.virkki.paperstack.PaperStack;
 
 /**
@@ -202,6 +203,8 @@ public class MainWindow extends Window {
         final HorizontalLayout layout = new HorizontalLayout();
         final Refresher refresher = new Refresher();
         PaperStack paperStack = new PaperStack();
+        ImageScaler imageScaler=new ImageScaler();
+        imageScaler.setImage(new ThemeResource(""), UNITS_EM, UNITS_EM);
         final CounterThread thread = new CounterThread(paperStack);
 
         thread.start();

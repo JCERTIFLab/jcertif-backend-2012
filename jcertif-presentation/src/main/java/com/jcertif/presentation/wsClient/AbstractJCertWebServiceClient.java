@@ -62,6 +62,8 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
 
         } catch (UniformInterfaceException uniformInterfaceException) {
             return null;
+        } catch (ClientHandlerException clientHandlerException) {
+            return null;
         }
         return response;
     }
