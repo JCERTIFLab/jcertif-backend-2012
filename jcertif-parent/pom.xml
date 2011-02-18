@@ -568,11 +568,16 @@
             </dependency>
             <dependency>
                 <groupId>org.vaadin.addons</groupId>
-                <artifactId>imagescaler</artifactId>
-                <version>1.0</version>
+                <artifactId>imagefilter</artifactId>
+                <version>0.5.3</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.jhlabs</groupId>
+                <artifactId>filters</artifactId>
+                <version>2.0.235</version>
+            </dependency>
         </dependencies>
+
     </dependencyManagement>
 
     <profiles>
