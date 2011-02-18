@@ -4,16 +4,17 @@
  */
 package com.jcertif.presentation.panel.form;
 
+import org.mockito.Mock;
 import com.jcertif.presentation.container.ParticipantContainer;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.vaadin.data.util.BeanItem;
 import java.util.Arrays;
 import com.jcertif.presentation.action.ParticipantAction;
-import com.jcertif.presentation.action.RoleParticipantAction;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.MockitoAnnotations;
 import static org.junit.Assert.*;
 
 /**
@@ -22,11 +23,15 @@ import static org.junit.Assert.*;
  */
 public class ParticipantFormTest {
 
+    @Mock
+    ParticipantAction participantAction;
+
     public ParticipantFormTest() {
     }
 
     @Before
     public void setUp() {
+        MockitoAnnotations.initMocks(this);
     }
 
     @After
