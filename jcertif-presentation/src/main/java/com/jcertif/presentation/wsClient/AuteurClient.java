@@ -4,11 +4,9 @@ import com.jcertif.presentation.data.bo.presentation.Auteur;
 
 
 
-
-
-/** Jersey REST client generated for REST resource:AuteurFacade [/participants]<br>
+/** Jersey REST client generated for REST resource:ParticipantFacade [/participants]<br>
  *  USAGE:<pre>
- *        AuteurClient client = new AuteurClient();
+ *        ParticipantClient client = new ParticipantClient();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();

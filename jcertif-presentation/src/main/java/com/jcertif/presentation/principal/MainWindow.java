@@ -35,6 +35,7 @@ import com.jcertif.presentation.util.JCertifCalendarTest;
 import com.jcertif.presentation.util.Ruler;
 import com.jcertif.presentation.util.ScheduleGATracker;
 import com.jcertif.presentation.util.SmallText;
+import com.vaadin.terminal.Sizeable;
 import com.vaadin.terminal.ThemeResource;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -56,7 +57,10 @@ import com.vaadin.ui.Window;
 import com.vaadin.ui.themes.Runo;
 import java.io.Serializable;
 import org.vaadin.googleanalytics.tracking.GoogleAnalyticsTracker;
-import org.vaadin.peter.imagescaler.ImageScaler;
+import org.vaadin.imagefilter.FilterOperation;
+import org.vaadin.imagefilter.Image;
+import org.vaadin.imagefilter.filters.FitIntoFilter;
+import org.vaadin.imagefilter.filters.RoundedCornersFilter;
 import org.vaadin.virkki.paperstack.PaperStack;
 
 /**
@@ -156,6 +160,7 @@ public class MainWindow extends Window {
     }
 
     final void buildMainView() {
+
         mainLayout.setSizeFull();
         mainLayout.addComponent(getTopMenu());
         mainLayout.addComponent(getHeader());
@@ -185,8 +190,13 @@ public class MainWindow extends Window {
     }
 
     Layout buildWelcomeScreen() {
+        Image image = new Image(
+                "http://www.streamhead.com/wp-content/uploads/2010/01/vaadin.png",
+                true);
+
         VerticalLayout l = new VerticalLayout();
         l.setMargin(true);
+        l.setSizeFull();
         l.setSpacing(true);
         l.setCaption("Bienvenue");
         l.setStyleName(Runo.LAYOUT_DARKER);
@@ -194,22 +204,66 @@ public class MainWindow extends Window {
         margin.setMargin(true);
         margin.setWidth("100%");
         l.addComponent(margin);
-
         H1 title = new H1("Bienvenue sur le site de JCertif 2011");
         margin.addComponent(title);
-
         margin.addComponent(new Ruler());
-        final Panel panel = new Panel("Nous sommes ensembles");
-        final HorizontalLayout layout = new HorizontalLayout();
+
+        final Panel panel = new Panel("Nous sommes ensembles", new VerticalLayout());
+        VerticalLayout verticalLayout = (VerticalLayout) panel.getContent();
+        panel.setSizeFull();
+        panel.getContent().setSizeFull();
         final Refresher refresher = new Refresher();
+        refresher.setHeight(0, Sizeable.UNITS_PIXELS);
         PaperStack paperStack = new PaperStack();
-        ImageScaler imageScaler=new ImageScaler();
-//        imageScaler.setImage(new ThemeResource(""), UNITS_EM, UNITS_EM);
+        paperStack.setSizeFull();
+        verticalLayout.addComponent(refresher);
+        verticalLayout.addComponent(paperStack);
+
+        // Fit image into a 500x800 box
+        FilterOperation op = FilterOperation.getByName(FilterOperation.FITINTO);
+        FitIntoFilter fif = (FitIntoFilter) op.getFilter();
+        fif.setHeight((int) paperStack.getHeight());
+        fif.setWidth((int) paperStack.getWidth());
+        image.addOperation(op);
+
+        // Round corners
+        op = FilterOperation.getByName(FilterOperation.ROUNDEDCORNERS);
+        RoundedCornersFilter rcf = (RoundedCornersFilter) op.getFilter();
+        rcf.setCornerRadius(9);
+        image.addOperation(op);
+        image.applyOperations();
+        VerticalLayout c = new VerticalLayout();
+        c.addComponent(image);
+        c.setSizeFull();
+        c.setComponentAlignment(image, Alignment.TOP_CENTER);
+        c.setExpandRatio(image, 1);
+        paperStack.addComponent(c);
+
+//        imageScaler.setImage(new ThemeResource("images/DSC_4914.JPG"), 800, 600);
+
+//        imageScaler = new ImageScaler();
+//        imageScaler.setImage(new ThemeResource("images/DSC_4952.JPG"), 800, 600);
+//        paperStack.addComponent(imageScaler);
+//
+//        imageScaler = new ImageScaler();
+//        imageScaler.setImage(new ThemeResource("images/DSC_4955.JPG"), 800, 600);
+//        paperStack.addComponent(imageScaler);
+//
+//        imageScaler = new ImageScaler();
+//        imageScaler.setImage(new ThemeResource("images/DSC_4968.JPG"), 800, 600);
+//        paperStack.addComponent(imageScaler);
+//
+//        imageScaler = new ImageScaler();
+//        imageScaler.setImage(new ThemeResource("images/DSC_4969.JPG"), 800, 600);
+//        paperStack.addComponent(imageScaler);
+//
+//        imageScaler = new ImageScaler();
+//        imageScaler.setImage(new ThemeResource("images/DSC_4972.JPG"), 800, 600);
+//        paperStack.addComponent(imageScaler);
         final CounterThread thread = new CounterThread(paperStack);
 
         thread.start();
-        panel.addComponent(refresher);
-        layout.setSpacing(true);
+//        panel.addComponent(refresher);
         tabs.addListener(new TabSheet.SelectedTabChangeListener() {
 
             @Override
@@ -226,15 +280,9 @@ public class MainWindow extends Window {
             }
         });
 
-        layout.addComponent(paperStack);
-
-        margin.addComponent(panel);
-
-        HorizontalLayout texts = new HorizontalLayout();
-        texts.setSpacing(true);
-        texts.setWidth("100%");
-        texts.setMargin(false, false, true, false);
-        margin.addComponent(texts);
+        l.addComponent(panel);
+        l.setComponentAlignment(panel, Alignment.TOP_CENTER);
+        l.setExpandRatio(panel, 1);
         return l;
     }
 
