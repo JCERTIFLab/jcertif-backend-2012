@@ -83,4 +83,28 @@ public class JCertifVaadinApplication extends Application implements HttpServlet
             main.showNotification(notif);
         }
     }
+
+    public static void showError(String status, String description) {
+        String statusDescription = null;
+        if (status != null) {
+            statusDescription = status;
+        } else {
+            statusDescription = "";
+        }
+        if (JCertifVaadinApplication.getInstance() != null && JCertifVaadinApplication.getInstance().getMainWindow() != null) {
+            Window main = JCertifVaadinApplication.getInstance().getMainWindow();
+            // Create a notification with default settings for a warning.
+            Window.Notification notif = new Window.Notification(
+                    "Erreur " + status + " ", "</br>"
+                    + statusDescription + "</br>" + description,
+                    Window.Notification.TYPE_ERROR_MESSAGE);
+// Set the position.
+            notif.setPosition(Window.Notification.POSITION_CENTERED_TOP);
+
+// Let it stay there until the user clicks it
+            notif.setDelayMsec(-1);
+// Show it in the main window.
+            main.showNotification(notif);
+        }
+    }
 }

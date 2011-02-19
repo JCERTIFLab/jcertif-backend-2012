@@ -35,6 +35,7 @@ import com.jcertif.presentation.util.JCertifCalendarTest;
 import com.jcertif.presentation.util.Ruler;
 import com.jcertif.presentation.util.ScheduleGATracker;
 import com.jcertif.presentation.util.SmallText;
+import com.vaadin.terminal.ExternalResource;
 import com.vaadin.terminal.Sizeable;
 import com.vaadin.terminal.ThemeResource;
 import com.vaadin.ui.Alignment;
@@ -55,7 +56,12 @@ import com.vaadin.ui.TabSheet.SelectedTabChangeEvent;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 import com.vaadin.ui.themes.Runo;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.vaadin.googleanalytics.tracking.GoogleAnalyticsTracker;
 import org.vaadin.imagefilter.FilterOperation;
 import org.vaadin.imagefilter.Image;
@@ -190,9 +196,10 @@ public class MainWindow extends Window {
     }
 
     Layout buildWelcomeScreen() {
-        Image image = new Image(
-                "http://www.streamhead.com/wp-content/uploads/2010/01/vaadin.png",
-                true);
+
+        File baseDirectory = new File(JCertifVaadinApplication.getInstance().getContext().getBaseDirectory(), "images");
+        System.out.println("getApplication().getContext().getBaseDirectory() " + JCertifVaadinApplication.getInstance().getContext().getBaseDirectory().getAbsolutePath());
+        File[] listOfFiles = baseDirectory.listFiles();
 
         VerticalLayout l = new VerticalLayout();
         l.setMargin(true);
@@ -207,7 +214,6 @@ public class MainWindow extends Window {
         H1 title = new H1("Bienvenue sur le site de JCertif 2011");
         margin.addComponent(title);
         margin.addComponent(new Ruler());
-
         final Panel panel = new Panel("Nous sommes ensembles", new VerticalLayout());
         VerticalLayout verticalLayout = (VerticalLayout) panel.getContent();
         panel.setSizeFull();
@@ -218,26 +224,33 @@ public class MainWindow extends Window {
         paperStack.setSizeFull();
         verticalLayout.addComponent(refresher);
         verticalLayout.addComponent(paperStack);
+        for (File file : listOfFiles) {
+            try {
+                file.getPath();
+                Image image = new Image(new FileInputStream(file), true);
+                // Fit image into a 500x800 box
+                FilterOperation op = FilterOperation.getByName(FilterOperation.FITINTO);
+                FitIntoFilter fif = (FitIntoFilter) op.getFilter();
+                fif.setHeight((int) verticalLayout.getHeight());
+                fif.setWidth((int) verticalLayout.getWidth());
+                image.addOperation(op);
+                // Round corners
+                op = FilterOperation.getByName(FilterOperation.ROUNDEDCORNERS);
+                RoundedCornersFilter rcf = (RoundedCornersFilter) op.getFilter();
+                rcf.setCornerRadius(9);
+                image.addOperation(op);
+                image.applyOperations();
+                VerticalLayout c = new VerticalLayout();
+                c.addComponent(image);
+                c.setSizeFull();
+                c.setComponentAlignment(image, Alignment.TOP_CENTER);
+                c.setExpandRatio(image, 1);
+                paperStack.addComponent(c);
+            } catch (FileNotFoundException ex) {
+                JCertifVaadinApplication.showError(ex.getCause().getMessage(), ex.getMessage());
+            }
+        }
 
-        // Fit image into a 500x800 box
-        FilterOperation op = FilterOperation.getByName(FilterOperation.FITINTO);
-        FitIntoFilter fif = (FitIntoFilter) op.getFilter();
-        fif.setHeight((int) paperStack.getHeight());
-        fif.setWidth((int) paperStack.getWidth());
-        image.addOperation(op);
-
-        // Round corners
-        op = FilterOperation.getByName(FilterOperation.ROUNDEDCORNERS);
-        RoundedCornersFilter rcf = (RoundedCornersFilter) op.getFilter();
-        rcf.setCornerRadius(9);
-        image.addOperation(op);
-        image.applyOperations();
-        VerticalLayout c = new VerticalLayout();
-        c.addComponent(image);
-        c.setSizeFull();
-        c.setComponentAlignment(image, Alignment.TOP_CENTER);
-        c.setExpandRatio(image, 1);
-        paperStack.addComponent(c);
 
 //        imageScaler.setImage(new ThemeResource("images/DSC_4914.JPG"), 800, 600);
 
