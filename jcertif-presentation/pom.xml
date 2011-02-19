@@ -169,8 +169,12 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>com.jhlabs</groupId>
+            <artifactId>filters</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.vaadin.addons</groupId>
-            <artifactId>imagescaler</artifactId>
+            <artifactId>imagefilter</artifactId>
         </dependency>
     </dependencies>
 
