@@ -35,7 +35,6 @@ import com.jcertif.presentation.util.JCertifCalendarTest;
 import com.jcertif.presentation.util.Ruler;
 import com.jcertif.presentation.util.ScheduleGATracker;
 import com.jcertif.presentation.util.SmallText;
-import com.vaadin.terminal.ExternalResource;
 import com.vaadin.terminal.Sizeable;
 import com.vaadin.terminal.ThemeResource;
 import com.vaadin.ui.Alignment;
@@ -60,8 +59,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.Serializable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.vaadin.googleanalytics.tracking.GoogleAnalyticsTracker;
 import org.vaadin.imagefilter.FilterOperation;
 import org.vaadin.imagefilter.Image;
@@ -203,7 +200,7 @@ public class MainWindow extends Window {
 
         VerticalLayout l = new VerticalLayout();
         l.setMargin(true);
-        l.setSizeFull();
+        l.setWidth("100%");
         l.setSpacing(true);
         l.setCaption("Bienvenue");
         l.setStyleName(Runo.LAYOUT_DARKER);
@@ -216,12 +213,12 @@ public class MainWindow extends Window {
         margin.addComponent(new Ruler());
         final Panel panel = new Panel("Nous sommes ensembles", new VerticalLayout());
         VerticalLayout verticalLayout = (VerticalLayout) panel.getContent();
-        panel.setSizeFull();
-        panel.getContent().setSizeFull();
+        panel.setWidth("100%");
+        panel.getContent().setWidth("100%");
         final Refresher refresher = new Refresher();
         refresher.setHeight(0, Sizeable.UNITS_PIXELS);
         PaperStack paperStack = new PaperStack();
-        paperStack.setSizeFull();
+        paperStack.setWidth("100%");
         verticalLayout.addComponent(refresher);
         verticalLayout.addComponent(paperStack);
         for (File file : listOfFiles) {
@@ -231,8 +228,8 @@ public class MainWindow extends Window {
                 // Fit image into a 500x800 box
                 FilterOperation op = FilterOperation.getByName(FilterOperation.FITINTO);
                 FitIntoFilter fif = (FitIntoFilter) op.getFilter();
-                fif.setHeight((int) verticalLayout.getHeight());
-                fif.setWidth((int) verticalLayout.getWidth());
+                fif.setHeight((int) 500);
+                fif.setWidth((int) 800);
                 image.addOperation(op);
                 // Round corners
                 op = FilterOperation.getByName(FilterOperation.ROUNDEDCORNERS);
