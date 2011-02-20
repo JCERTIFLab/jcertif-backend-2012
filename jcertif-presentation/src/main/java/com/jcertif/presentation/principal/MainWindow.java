@@ -247,7 +247,7 @@ public class MainWindow extends Window {
                 c.setExpandRatio(image, 1);
                 paperStack.addComponent(c);
             } catch (FileNotFoundException ex) {
-                JCertifVaadinApplication.showError(ex.getCause().getMessage(), ex.getMessage());
+                JCertifVaadinApplication.showError("", ex.getMessage());
             }
         }
 
