@@ -18,7 +18,7 @@ import com.sun.jersey.api.spring.Autowire;
  * 
  * @author Bernard Adanlessossi
  */
-@Path("/typeparticipant")
+@Path("typeparticipant")
 @Service
 @Autowire
 public class TypeParticipantFacade extends
