@@ -137,7 +137,7 @@ public class CSenderServiceImpl extends CSenderService {
 
 // assign a cid to the image
 
-            imagePart.setHeader("Content-ID", "image");
+            imagePart.setHeader("Content-ID", "<image>");
             mp.addBodyPart(imagePart);
             message.setContent(mp);
             Transport.send(message);

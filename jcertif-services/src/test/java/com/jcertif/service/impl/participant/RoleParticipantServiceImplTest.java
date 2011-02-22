@@ -43,7 +43,7 @@ public class RoleParticipantServiceImplTest {
     @Test
     public void testCreateRoleParticipant() {
         RoleParticipant role = new RoleParticipant();
-        role.setCodeRole("JUG");
+        role.setCode("JUG");
         Mockito.when(roleParticipantDAO.merge(role)).thenReturn(role);
     }
 
@@ -55,11 +55,11 @@ public class RoleParticipantServiceImplTest {
         Long idRoleParticipant = Long.valueOf(1);
         List<RoleParticipant> roleList = new ArrayList<RoleParticipant>();
         RoleParticipant role1 = new RoleParticipant();
-        role1.setCodeRole("JUG");
+        role1.setCode("JUG");
         RoleParticipant role2 = new RoleParticipant();
-        role2.setCodeRole("Media");
+        role2.setCode("Media");
         RoleParticipant role3 = new RoleParticipant();
-        role3.setCodeRole("Soft");
+        role3.setCode("Soft");
         roleList.add(role1);
         roleList.add(role2);
         roleList.add(role3);
@@ -74,7 +74,7 @@ public class RoleParticipantServiceImplTest {
     @Test
     public void testSave() {
         RoleParticipant role = new RoleParticipant();
-        role.setCodeRole("JUG");
+        role.setCode("JUG");
         Mockito.when(roleParticipantDAO.merge(role)).thenReturn(role);
         assertEquals(role, service.save(role));
     }
@@ -85,7 +85,7 @@ public class RoleParticipantServiceImplTest {
     @Test
     public void testUpdate() {
         RoleParticipant role = new RoleParticipant();
-        role.setCodeRole("JUG");
+        role.setCode("JUG");
         Mockito.when(roleParticipantDAO.merge(role)).thenReturn(role);
     }
 
@@ -95,7 +95,7 @@ public class RoleParticipantServiceImplTest {
     @Test
     public void testRemove() {
         RoleParticipant role = new RoleParticipant();
-        role.setCodeRole("JUG");
+        role.setCode("JUG");
         service.remove(role);
         Mockito.verify(roleParticipantDAO).remove(role);
     }

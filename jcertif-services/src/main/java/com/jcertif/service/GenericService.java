@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author UNHCRUser
+ * @author Douneg
  */
 public interface GenericService<T, PK extends Serializable, S extends GenericDAO<T, PK>> {
 

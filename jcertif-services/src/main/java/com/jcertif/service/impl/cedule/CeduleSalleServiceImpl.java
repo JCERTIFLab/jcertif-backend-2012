@@ -16,24 +16,19 @@ import com.jcertif.service.api.cedule.CeduleSalleService;
  * 
  */
 @Service
-public class CeduleSalleServiceImpl extends
-		AbstractService<CeduleSalle, Long, CeduleSalleDAO> implements
-		CeduleSalleService {
-	
-	@Autowired
-	private CeduleSalleDAO ceduleSalleDAO;
+public class CeduleSalleServiceImpl extends AbstractService<CeduleSalle, Long, CeduleSalleDAO> implements
+        CeduleSalleService {
 
+    @Autowired
+    private CeduleSalleDAO ceduleSalleDAO;
 
+    @Override
+    public CeduleSalleDAO getDAO() {
+        return ceduleSalleDAO;
+    }
 
-	@Override
-	public CeduleSalleDAO getDAO() {
-		return ceduleSalleDAO;
-	}
-
-	@Override
-	public void setDAO(CeduleSalleDAO dao) {
-		this.ceduleSalleDAO = dao;
-	}
-
-
+    @Override
+    public void setDAO(CeduleSalleDAO dao) {
+        this.ceduleSalleDAO = dao;
+    }
 }

@@ -1,41 +1,13 @@
 package com.jcertif.service.api.conference;
 
-import java.util.List;
-
 import com.jcertif.bo.conference.Conference;
+import com.jcertif.dao.api.conference.ConferenceDAO;
+import com.jcertif.service.GenericService;
+
 /**
  * 
  * @author Chrisbel
  *
  */
-public interface ConferenceService {
-
-	/**
-	 * 
-	 * @return list des conferences
-	 */
-	public List<Conference> findAll();
-	/**
-	 * 
-	 * @param key
-	 * @return une Conférence
-	 */
-	public Conference findById(Long key);
-	/**
-	 * 
-	 * @param conference
-	 * @return
-	 */
-	public Conference save(Conference conference);
-	/**
-	 * 
-	 * @param conference
-	 * @return
-	 */
-	public Conference update(Conference conference);
-	/**
-	 * @param conference
-	 */
-	public void remove(Conference conference);
-
+public interface ConferenceService extends GenericService<Conference, Long, ConferenceDAO> {
 }
