@@ -8,7 +8,6 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.jcertif.bo.Adresse;
 import com.jcertif.bo.participant.Participant;
-import com.jcertif.dao.api.AdresseDAO;
 import com.jcertif.dao.api.participant.ParticipantDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
@@ -25,14 +24,14 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 	public void testGetReference() {
 		Participant participant1 = participantDAO.getReference(1L);
 		assertEquals("Oracle", participant1.getCompagnie());
-		assertEquals("partenaire", participant1.getRoleparticipant().getCodeRole());
+		assertEquals("partenaire", participant1.getRoleparticipant().getCode());
 		assertEquals("entreprise", participant1.getTypeParticipant().getCode());
 		assertNull(participant1.getProfilUtilisateur());
 		
 		Participant participant3 = participantDAO.findById(3L);
 		assertEquals("Max", participant3.getPrenom());
 		assertEquals("Bonbhel", participant3.getNom());
-		assertEquals("organisateur", participant3.getRoleparticipant().getCodeRole());
+		assertEquals("organisateur", participant3.getRoleparticipant().getCode());
 		assertEquals("particulier", participant3.getTypeParticipant().getCode());
 		assertEquals("Max and co", participant3.getCompagnie());
 		assertNotNull(participant3.getAdresse());
@@ -49,14 +48,14 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 	public void testFind() {
 		Participant participant1 = participantDAO.findById(1L);
 		assertEquals("Oracle", participant1.getCompagnie());
-		assertEquals("partenaire", participant1.getRoleparticipant().getCodeRole());
+		assertEquals("partenaire", participant1.getRoleparticipant().getCode());
 		assertEquals("entreprise", participant1.getTypeParticipant().getCode());
 		assertNull(participant1.getProfilUtilisateur());
 		
 		Participant participant3 = participantDAO.findById(3L);
 		assertEquals("Max", participant3.getPrenom());
 		assertEquals("Bonbhel", participant3.getNom());
-		assertEquals("organisateur", participant3.getRoleparticipant().getCodeRole());
+		assertEquals("organisateur", participant3.getRoleparticipant().getCode());
 		assertEquals("Max and co", participant3.getCompagnie());
 		assertNotNull(participant3.getAdresse());
 		assertEquals("ligne1 1", participant3.getAdresse().getLigne1());

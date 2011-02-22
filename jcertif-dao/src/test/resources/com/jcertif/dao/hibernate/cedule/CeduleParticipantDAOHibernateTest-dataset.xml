@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset xmlns:xsi="http://www.w3.org/2002/XMLSchema-instance">
 	
-	<role_participant id="1" code_role="JCertif" description="invites" />	
-	<role_participant id="2" code_role="JCertifs" description="occupe des invites " />
-	<role_participant id="3" code_role="JCertif 2011" description="conferencier" />
-	<role_participant id="4" code_role="JCertif 2012" description="speaker" />
+	<role_participant id="1" code="JCertif" description="invites" />	
+	<role_participant id="2" code="JCertifs" description="occupe des invites " />
+	<role_participant id="3" code="JCertif 2011" description="conferencier" />
+	<role_participant id="4" code="JCertif 2012" description="speaker" />
 	
 	<participant id="5" salutation="malonga" specialite="chrisbel" prenom="diouf" nom="mamadou" sexe_MF="m" email="roland.amour@chrisbel.net" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="3"/>
 	<participant id="6" salutation="malonga" specialite="chrisbel" prenom="diouf" nom="mamadou" sexe_MF="m" email="roland.amour@chrisbel.net" cv_soumis="" details="detailsorganisateurs 1" role_participant_id="3"/>

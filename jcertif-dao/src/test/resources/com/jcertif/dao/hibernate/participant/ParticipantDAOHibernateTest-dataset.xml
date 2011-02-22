@@ -3,10 +3,10 @@
 
 	<adresse id="1" ligne1="ligne1 1" ligne2="ligne2 1" code_postal="code_postal 1" ville="Kinshasa 1" province="Kinshasa 1" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
 	
-	<role_participant id="1" code_role="speaker" description="speaker" />	
-	<role_participant id="2" code_role="organisateur" description="organisateur" />
-	<role_participant id="3" code_role="visiteur" description="visiteur" />
-	<role_participant id="4" code_role="partenaire" description="partenaire" />
+	<role_participant id="1" code="speaker" description="speaker" />	
+	<role_participant id="2" code="organisateur" description="organisateur" />
+	<role_participant id="3" code="visiteur" description="visiteur" />
+	<role_participant id="4" code="partenaire" description="partenaire" />
 	
 	<type_participant id="1" code="particulier" description="particulier"/>
 	<type_participant id="2" code="entreprise" description="entreprise"/>

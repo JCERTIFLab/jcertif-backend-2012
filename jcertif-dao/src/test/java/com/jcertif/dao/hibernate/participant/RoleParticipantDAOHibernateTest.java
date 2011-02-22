@@ -33,7 +33,7 @@ public class RoleParticipantDAOHibernateTest extends AbstractDAOTestCase{
 	@Test
 	public void testGetReference() {
 		RoleParticipant roleparticipant= roleParticipantDAO.getReference(Long.valueOf(4));
-		assertEquals("JCertif 2012", roleparticipant.getCodeRole());
+		assertEquals("JCertif 2012", roleparticipant.getCode());
 		assertEquals("speaker", roleparticipant.getDescription());
 		
 		
