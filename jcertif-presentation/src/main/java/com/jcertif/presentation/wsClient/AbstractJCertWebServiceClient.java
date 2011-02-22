@@ -128,35 +128,24 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
 
     public <T> T create_XML(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
 
-        return (T) webResource.type(javax.ws.rs.core.MediaType.APPLICATION_XML).put(responseType, requestEntity);
+        return (T) getWebResource().type(javax.ws.rs.core.MediaType.APPLICATION_XML).put(responseType, requestEntity);
 
     }
 
     public <T> T create_JSON(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
 
-        return (T) webResource.type(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(responseType, requestEntity);
+        return (T) getWebResource().type(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(responseType, requestEntity);
 
     }
 
-    public Collection<T> findAll_XML() throws UniformInterfaceException, ClientHandlerException {
-
-        return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(new GenericType<List<T>>() {
-        });
-
-    }
-
-    public Collection<T> findAll_JSON() throws UniformInterfaceException, ClientHandlerException {
-
-        return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(new GenericType<List<T>>() {
-        });
-
-    }
+    public abstract List<T> findAll_XML() throws UniformInterfaceException, ClientHandlerException ;
+    public abstract List<T> findAll_JSON() throws UniformInterfaceException, ClientHandlerException ;
 
     public void delete_XML(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
-        webResource.path(DELETE_SUFFIX).type(javax.ws.rs.core.MediaType.APPLICATION_XML).delete(requestEntity);
+        getWebResource().path(DELETE_SUFFIX).type(javax.ws.rs.core.MediaType.APPLICATION_XML).delete(requestEntity);
     }
 
     public void delete_JSON(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
-        webResource.path(DELETE_SUFFIX).type(javax.ws.rs.core.MediaType.APPLICATION_JSON).delete(requestEntity);
+        getWebResource().path(DELETE_SUFFIX).type(javax.ws.rs.core.MediaType.APPLICATION_JSON).delete(requestEntity);
     }
 }

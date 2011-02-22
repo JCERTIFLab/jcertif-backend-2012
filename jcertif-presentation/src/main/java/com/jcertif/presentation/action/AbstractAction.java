@@ -26,17 +26,13 @@ import java.util.Collection;
  * Elle permet aussi de faire la liaison entre l'interfae le container et le client du service web
  * permettant d'attaquer la couche metier
  */
-public class AbstractAction<PC extends AbstractJCertifBeanItemContainer, BO extends AbstractBO, WS extends AbstractJCertWebServiceClient> {
+public abstract class AbstractAction<PC extends AbstractJCertifBeanItemContainer, BO extends AbstractBO, WS extends AbstractJCertWebServiceClient> {
 
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
-    private PC principalContainer;
-    private WS webServiceClient;
     private boolean alreadyMakeFirstLoad = false;
     private Class<BO> responseType;
 
-    public AbstractAction(PC principalContainer, WS webServiceClient) {
-        this.principalContainer = principalContainer;
-        this.webServiceClient = webServiceClient;
+    public AbstractAction() {
         final ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
         this.responseType = (Class<BO>) type.getActualTypeArguments()[1];
     }
@@ -45,9 +41,7 @@ public class AbstractAction<PC extends AbstractJCertifBeanItemContainer, BO exte
         return alreadyMakeFirstLoad;
     }
 
-    public WS getWebServiceClient() {
-        return webServiceClient;
-    }
+    public abstract WS getWebServiceClient();
     public static final String PROP_PRINCIPALCONTAINER = "principalContainer";
 
     public PropertyChangeSupport getPropertyChangeSupport() {
@@ -59,9 +53,7 @@ public class AbstractAction<PC extends AbstractJCertifBeanItemContainer, BO exte
      *
      * @return the value of principalContainec
      */
-    public PC getPrincipalContainer() {
-        return principalContainer;
-    }
+    public abstract PC getPrincipalContainer();
 
     public Item addItem(BO bo) throws UnsupportedOperationException {
         ClientResponse status = getWebServiceClient().checkConnection();
@@ -70,7 +62,7 @@ public class AbstractAction<PC extends AbstractJCertifBeanItemContainer, BO exte
             return getPrincipalContainer().addItem(bo);
         }
         String clazz = bo.getClass().getSimpleName();
-        String description = "Echec d'ajout de " + clazz ;
+        String description = "Echec d'ajout de " + clazz;
         JCertifVaadinApplication.showError(status, description);
 
         return null;
@@ -83,7 +75,7 @@ public class AbstractAction<PC extends AbstractJCertifBeanItemContainer, BO exte
             return true;
         }
         String clazz = bo.getClass().getSimpleName();
-        String description = "Echec de mise a jour de " + clazz ;
+        String description = "Echec de mise a jour de " + clazz;
         JCertifVaadinApplication.showError(status, description);
 
         return false;
@@ -122,17 +114,6 @@ public class AbstractAction<PC extends AbstractJCertifBeanItemContainer, BO exte
         // Disallow null selections
         l.setNullSelectionAllowed(false);
         return l;
-    }
-
-    /**
-     * Set the value of principalContainec
-     *
-     * @param pc new value of principalContainec
-     */
-    public void setPrincipalContainer(PC pc) {
-        PC oldPC = this.principalContainer;
-        this.principalContainer = pc;
-        getPropertyChangeSupport().firePropertyChange(PROP_PRINCIPALCONTAINER, oldPC, pc);
     }
 
     /**

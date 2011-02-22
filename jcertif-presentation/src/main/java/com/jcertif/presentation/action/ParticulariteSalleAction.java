@@ -11,7 +11,20 @@ import com.jcertif.presentation.wsClient.ParticulariteSalleClient;
  */
 public class ParticulariteSalleAction extends AbstractAction<ParticulariteSalleContainer, ParticulariteSalle, ParticulariteSalleClient> {
 
+    private ParticulariteSalleContainer particulariteSalleContainer;
+
     public ParticulariteSalleAction() {
-        super(new ParticulariteSalleContainer(), ParticulariteSalleClient.getInstance());
+        super();
+        particulariteSalleContainer = new ParticulariteSalleContainer();
+    }
+
+    @Override
+    public ParticulariteSalleClient getWebServiceClient() {
+        return ParticulariteSalleClient.getInstance();
+    }
+
+    @Override
+    public ParticulariteSalleContainer getPrincipalContainer() {
+        return particulariteSalleContainer;
     }
 }

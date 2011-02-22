@@ -1,6 +1,10 @@
 package com.jcertif.presentation.wsClient;
 
 import com.jcertif.presentation.data.bo.cedule.CeduleParticipant;
+import com.sun.jersey.api.client.ClientHandlerException;
+import com.sun.jersey.api.client.GenericType;
+import com.sun.jersey.api.client.UniformInterfaceException;
+import java.util.List;
 
 /** Jersey REST client generated for REST resource:CeduleParticipantFacade [/participants]<br>
  *  USAGE:<pre>
@@ -26,5 +30,18 @@ public class CeduleParticipantClient extends AbstractJCertWebServiceClient<Cedul
             instance = new CeduleParticipantClient();
         }
         return instance;
+    }
+
+    @Override
+    public List<CeduleParticipant> findAll_JSON() throws UniformInterfaceException, ClientHandlerException {
+        return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(new GenericType<List<CeduleParticipant>>() {
+        });
+
+    }
+
+    @Override
+    public List<CeduleParticipant> findAll_XML() throws UniformInterfaceException, ClientHandlerException {
+        return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(new GenericType<List<CeduleParticipant>>() {
+        });
     }
 }

@@ -10,9 +10,22 @@ import com.jcertif.presentation.wsClient.PropositionPresentationClient;
  */
 public class PropositionPresentationAction extends AbstractAction<PropositionPresentationContainer, PropositionPresentation, PropositionPresentationClient> {
 
+    private PropositionPresentationContainer propositionPresentationContainer;
+
 //    @Autowired
 //   private PropositionPresentationClient propositionPresentationClient;
     public PropositionPresentationAction() {
-        super(new PropositionPresentationContainer(), PropositionPresentationClient.getInstance());
+        super();
+        propositionPresentationContainer = new PropositionPresentationContainer();
+    }
+
+    @Override
+    public PropositionPresentationClient getWebServiceClient() {
+        return PropositionPresentationClient.getInstance();
+    }
+
+    @Override
+    public PropositionPresentationContainer getPrincipalContainer() {
+        return propositionPresentationContainer;
     }
 }

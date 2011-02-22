@@ -6,6 +6,10 @@
 package com.jcertif.presentation.wsClient;
 
 import com.jcertif.presentation.data.bo.presentation.StatutApprobation;
+import com.sun.jersey.api.client.ClientHandlerException;
+import com.sun.jersey.api.client.GenericType;
+import com.sun.jersey.api.client.UniformInterfaceException;
+import java.util.List;
 
 /**
  *
@@ -25,5 +29,18 @@ public class StatutApprobationClient extends AbstractJCertWebServiceClient<Statu
             instance = new StatutApprobationClient();
         }
         return instance;
+    }
+
+        @Override
+    public List<StatutApprobation> findAll_JSON() throws UniformInterfaceException, ClientHandlerException {
+        return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(new GenericType<List<StatutApprobation>>() {
+        });
+
+    }
+
+    @Override
+    public List<StatutApprobation> findAll_XML() throws UniformInterfaceException, ClientHandlerException {
+        return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(new GenericType<List<StatutApprobation>>() {
+        });
     }
 }

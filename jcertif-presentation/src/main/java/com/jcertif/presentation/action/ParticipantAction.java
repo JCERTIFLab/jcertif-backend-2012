@@ -10,9 +10,22 @@ import com.jcertif.presentation.wsClient.ParticipantClient;
  */
 public class ParticipantAction extends AbstractAction<ParticipantContainer, Participant, ParticipantClient> {
 
+    private ParticipantContainer participantContainer;
+
 //    @Autowired
 //   private ParticipantClient participantClient;
     public ParticipantAction() {
-        super(new ParticipantContainer(), ParticipantClient.getInstance());
+        super();
+        participantContainer = new ParticipantContainer();
+    }
+
+    @Override
+    public ParticipantClient getWebServiceClient() {
+        return ParticipantClient.getInstance();
+    }
+
+    @Override
+    public ParticipantContainer getPrincipalContainer() {
+        return participantContainer;
     }
 }

@@ -10,9 +10,22 @@ import com.jcertif.presentation.wsClient.AuteurClient;
  */
 public class AuteurAction extends AbstractAction<AuteurContainer, Auteur, AuteurClient> {
 
-//    @Autowired
-//   private AuteurClient participantClient;
+    private AuteurContainer auteurContainer;
+
     public AuteurAction() {
-        super(new AuteurContainer(), AuteurClient.getInstance());
+        super();
+        auteurContainer = new AuteurContainer();
     }
+
+    @Override
+    public AuteurClient getWebServiceClient() {
+        return AuteurClient.getInstance();
+    }
+
+    @Override
+    public AuteurContainer getPrincipalContainer() {
+        return auteurContainer;
+    }
+
+
 }

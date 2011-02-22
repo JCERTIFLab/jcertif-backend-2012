@@ -1,6 +1,10 @@
 package com.jcertif.presentation.wsClient;
 
 import com.jcertif.presentation.data.bo.salle.ParticulariteSalle;
+import com.sun.jersey.api.client.ClientHandlerException;
+import com.sun.jersey.api.client.GenericType;
+import com.sun.jersey.api.client.UniformInterfaceException;
+import java.util.List;
 
 /** Jersey REST client generated for REST resource:ParticulariteSalleFacade [/typeParticipants]<br>
  *  USAGE:<pre>
@@ -26,5 +30,18 @@ public class ParticulariteSalleClient extends AbstractJCertWebServiceClient<Part
             instance = new ParticulariteSalleClient();
         }
         return instance;
+    }
+
+        @Override
+    public List<ParticulariteSalle> findAll_JSON() throws UniformInterfaceException, ClientHandlerException {
+        return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(new GenericType<List<ParticulariteSalle>>() {
+        });
+
+    }
+
+    @Override
+    public List<ParticulariteSalle> findAll_XML() throws UniformInterfaceException, ClientHandlerException {
+        return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(new GenericType<List<ParticulariteSalle>>() {
+        });
     }
 }

@@ -10,7 +10,20 @@ import com.jcertif.presentation.wsClient.StatutCeduleClient;
  */
 public class StatutCeduleAction extends AbstractAction<StatutCeduleContainer, StatutCedule, StatutCeduleClient> {
 
+    private StatutCeduleContainer statutCeduleContainer;
+
     public StatutCeduleAction() {
-       super(new StatutCeduleContainer(), StatutCeduleClient.getInstance());
+        super();
+        statutCeduleContainer = new StatutCeduleContainer();
+    }
+
+    @Override
+    public StatutCeduleClient getWebServiceClient() {
+        return StatutCeduleClient.getInstance();
+    }
+
+    @Override
+    public StatutCeduleContainer getPrincipalContainer() {
+        return statutCeduleContainer;
     }
 }

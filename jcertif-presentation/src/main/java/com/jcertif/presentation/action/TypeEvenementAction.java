@@ -10,7 +10,20 @@ import com.jcertif.presentation.wsClient.TypeEvenementClient;
  */
 public class TypeEvenementAction extends AbstractAction<TypeEvenementContainer, TypeEvenement, TypeEvenementClient> {
 
+    private TypeEvenementContainer typeEvenementContainer;
+
     public TypeEvenementAction() {
-        super(new TypeEvenementContainer(), TypeEvenementClient.getInstance());
+        super();
+        typeEvenementContainer = new TypeEvenementContainer();
+    }
+
+    @Override
+    public TypeEvenementClient getWebServiceClient() {
+        return TypeEvenementClient.getInstance();
+    }
+
+    @Override
+    public TypeEvenementContainer getPrincipalContainer() {
+        return typeEvenementContainer;
     }
 }

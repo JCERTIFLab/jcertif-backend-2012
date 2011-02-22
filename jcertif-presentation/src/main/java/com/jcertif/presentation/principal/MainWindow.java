@@ -195,9 +195,7 @@ public class MainWindow extends Window {
     Layout buildWelcomeScreen() {
 
         File baseDirectory = new File(JCertifVaadinApplication.getInstance().getContext().getBaseDirectory(), "images");
-        System.out.println("getApplication().getContext().getBaseDirectory() " + JCertifVaadinApplication.getInstance().getContext().getBaseDirectory().getAbsolutePath());
         File[] listOfFiles = baseDirectory.listFiles();
-
         VerticalLayout l = new VerticalLayout();
         l.setMargin(true);
         l.setWidth("100%");
@@ -209,26 +207,24 @@ public class MainWindow extends Window {
         margin.setWidth("100%");
         l.addComponent(margin);
         H1 title = new H1("Bienvenue sur le site de JCertif 2011");
+        
         margin.addComponent(title);
         margin.addComponent(new Ruler());
-        final Panel panel = new Panel("Nous sommes ensembles", new VerticalLayout());
-        VerticalLayout verticalLayout = (VerticalLayout) panel.getContent();
-        panel.setWidth("100%");
-        panel.getContent().setWidth("100%");
         final Refresher refresher = new Refresher();
         refresher.setHeight(0, Sizeable.UNITS_PIXELS);
         PaperStack paperStack = new PaperStack();
+        paperStack.setCaption("Nous sommes ensembles");
         paperStack.setWidth("100%");
-        verticalLayout.addComponent(refresher);
-        verticalLayout.addComponent(paperStack);
+        paperStack.setPaperColor("FFED00", "4CCC00");
+        paperStack.setPadding(true);
+        l.addComponent(refresher);
         for (File file : listOfFiles) {
             try {
-                file.getPath();
                 Image image = new Image(new FileInputStream(file), true);
                 // Fit image into a 500x800 box
                 FilterOperation op = FilterOperation.getByName(FilterOperation.FITINTO);
                 FitIntoFilter fif = (FitIntoFilter) op.getFilter();
-                fif.setHeight((int) 500);
+                fif.setHeight((int) 800);
                 fif.setWidth((int) 800);
                 image.addOperation(op);
                 // Round corners
@@ -239,37 +235,17 @@ public class MainWindow extends Window {
                 image.applyOperations();
                 VerticalLayout c = new VerticalLayout();
                 c.addComponent(image);
-                c.setSizeFull();
+                c.setSizeUndefined();
                 c.setComponentAlignment(image, Alignment.TOP_CENTER);
                 c.setExpandRatio(image, 1);
                 paperStack.addComponent(c);
+
+
             } catch (FileNotFoundException ex) {
                 JCertifVaadinApplication.showError("", ex.getMessage());
             }
         }
 
-
-//        imageScaler.setImage(new ThemeResource("images/DSC_4914.JPG"), 800, 600);
-
-//        imageScaler = new ImageScaler();
-//        imageScaler.setImage(new ThemeResource("images/DSC_4952.JPG"), 800, 600);
-//        paperStack.addComponent(imageScaler);
-//
-//        imageScaler = new ImageScaler();
-//        imageScaler.setImage(new ThemeResource("images/DSC_4955.JPG"), 800, 600);
-//        paperStack.addComponent(imageScaler);
-//
-//        imageScaler = new ImageScaler();
-//        imageScaler.setImage(new ThemeResource("images/DSC_4968.JPG"), 800, 600);
-//        paperStack.addComponent(imageScaler);
-//
-//        imageScaler = new ImageScaler();
-//        imageScaler.setImage(new ThemeResource("images/DSC_4969.JPG"), 800, 600);
-//        paperStack.addComponent(imageScaler);
-//
-//        imageScaler = new ImageScaler();
-//        imageScaler.setImage(new ThemeResource("images/DSC_4972.JPG"), 800, 600);
-//        paperStack.addComponent(imageScaler);
         final CounterThread thread = new CounterThread(paperStack);
 
         thread.start();
@@ -289,10 +265,13 @@ public class MainWindow extends Window {
                 }
             }
         });
-
-        l.addComponent(panel);
-        l.setComponentAlignment(panel, Alignment.TOP_CENTER);
-        l.setExpandRatio(panel, 1);
+        VerticalLayout paperStackLayout = new VerticalLayout();
+        paperStackLayout.setSizeUndefined();
+        paperStackLayout.setWidth("100%");
+        paperStackLayout.addComponent(paperStack);
+        l.addComponent(paperStackLayout);
+        l.setComponentAlignment(paperStackLayout, Alignment.MIDDLE_CENTER);
+        l.setExpandRatio(paperStackLayout, 1);
         return l;
     }
 
@@ -309,7 +288,7 @@ public class MainWindow extends Window {
         @Override
         public void run() {
             final long startTime = System.currentTimeMillis();
-            final long lifetime = 1000 * 60 * 60; // live for one hour.
+            final long lifetime = 1000 * 6; // live for six seconds.
 
             try {
                 while (System.currentTimeMillis() < startTime + lifetime) {
@@ -802,6 +781,7 @@ public class MainWindow extends Window {
 
     Layout getHeader() {
         HorizontalLayout header = new HorizontalLayout();
+
         header.setWidth("100%");
         header.setMargin(true);
         header.setSpacing(false);
@@ -818,7 +798,7 @@ public class MainWindow extends Window {
         titleLayout.addComponent(description);
 
         header.addComponent(titleLayout);
-        header.setComponentAlignment(titleLayout, Alignment.BOTTOM_LEFT);
+        header.setComponentAlignment(titleLayout, Alignment.TOP_LEFT);
         HorizontalLayout toggles = new HorizontalLayout();
         toggles.setSpacing(true);
         // init Google Analytics tracker
