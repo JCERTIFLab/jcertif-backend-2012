@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.jcertif</groupId>
+		<artifactId>jcertif-parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../jcertif-parent</relativePath>
+	</parent>
+
+
+	<groupId>com.jcertif</groupId>
+	<artifactId>jcertif-data</artifactId>
+	<packaging>pom</packaging>
+
+	<name>JCERTIF - DATA </name>
+	<description>JCERTIF DATA INIT</description>
+
+	<properties>
+		<mysql.url>jdbc:mysql://localhost:3306/jcertifinteg</mysql.url>
+		<mysql.username>root</mysql.username>
+		<mysql.password></mysql.password>
+		<data.file>data_test.xml</data.file>
+	</properties>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>dbunit-maven-plugin</artifactId>
+				<version>1.0-beta-1</version>
+
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.9</version>
+						<scope>compile</scope>
+					</dependency>
+				</dependencies>
+
+				<!-- common configurations -->
+				<configuration>
+					<driver>com.mysql.jdbc.Driver</driver>
+					<url>${mysql.url}</url>
+					<username>${mysql.username}</username>
+					<password>${mysql.password}</password>
+					<format>flat</format>
+					<dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dataTypeFactoryName>
+					<metadataHandler>org.dbunit.ext.mysql.MySqlMetadataHandler</metadataHandler>
+					<datatypeWarning>true</datatypeWarning>
+				</configuration>
+
+				<executions>
+					<execution>
+						<id>clean</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>operation</goal>
+						</goals>
+						<configuration>
+							<type>CLEAN_INSERT</type>
+							<src>src/test/clean/clean-dataset.xml</src>
+						</configuration>
+					</execution>
+					<execution>
+						<id>insert</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>operation</goal>
+						</goals>
+						<!-- specific configurations -->
+						<configuration>
+							<type>INSERT</type>
+							<src>src/test/data/${data.file}</src>
+						</configuration>
+					</execution>
+
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>
