@@ -113,7 +113,8 @@
                         <h4>Contacts</h4>
                         <p>
                             <img src="images/phone_icon.gif" alt="" title="" class="box_img" />
-                            
+                 XXX XXX XXX XX<br/>
+                 XXX XXX XXX XX
                         </p>
                         <br /><br />
                         <p>
