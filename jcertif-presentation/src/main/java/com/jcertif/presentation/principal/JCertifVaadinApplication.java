@@ -1,5 +1,7 @@
 package com.jcertif.presentation.principal;
 
+import com.jcertif.presentation.ui.calendar.JCertifCalendar;
+import com.jcertif.presentation.ui.calendar.JCertifEventProvider;
 import com.sun.jersey.api.client.ClientResponse;
 import com.vaadin.Application;
 import com.vaadin.terminal.gwt.server.HttpServletRequestListener;
@@ -39,7 +41,9 @@ public class JCertifVaadinApplication extends Application implements HttpServlet
         setInstance(this); // So that we immediately have access to the current application
         setTheme("jcertifruno");
         Window w=new Window();
-        w.getContent().addComponent(new Label("Ouuuppppppppppppppppssssssssss"));
+        JCertifCalendar calendar = new JCertifCalendar();
+        calendar.setEventProvider(new JCertifEventProvider());
+        w.getContent().addComponent(calendar);
         setMainWindow(w);
     }
 
