@@ -32,7 +32,7 @@ public class RoleParticipantClient extends AbstractJCertWebServiceClient<RolePar
         return instance;
     }
 
-        @Override
+    @Override
     public List<RoleParticipant> findAll_JSON() throws UniformInterfaceException, ClientHandlerException {
         return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(new GenericType<List<RoleParticipant>>() {
         });

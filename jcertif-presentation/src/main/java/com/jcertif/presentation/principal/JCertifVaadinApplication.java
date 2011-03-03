@@ -3,7 +3,10 @@ package com.jcertif.presentation.principal;
 import com.sun.jersey.api.client.ClientResponse;
 import com.vaadin.Application;
 import com.vaadin.terminal.gwt.server.HttpServletRequestListener;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.Window;
+import java.io.File;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.Response;
@@ -16,7 +19,8 @@ import javax.ws.rs.core.Response;
  */
 public class JCertifVaadinApplication extends Application implements HttpServletRequestListener {
 
-    /*Patterns ThreadLocal qui permet l'acces a l'application apartir de l'exterieur
+    /*
+     *Patterns ThreadLocal qui permet l'acces a l'application a partir de l'exterieur
      */
     private static ThreadLocal<JCertifVaadinApplication> threadLocal = new ThreadLocal<JCertifVaadinApplication>();
     private static final long serialVersionUID = 1L;
@@ -34,8 +38,9 @@ public class JCertifVaadinApplication extends Application implements HttpServlet
     public void init() {
         setInstance(this); // So that we immediately have access to the current application
         setTheme("jcertifruno");
-        setMainWindow(getMain());
-
+        Window w=new Window();
+        w.getContent().addComponent(new Label("Ouuuppppppppppppppppssssssssss"));
+        setMainWindow(w);
     }
 
     // @return the current application instance
@@ -106,5 +111,24 @@ public class JCertifVaadinApplication extends Application implements HttpServlet
 // Show it in the main window.
             main.showNotification(notif);
         }
+    }
+    private ArrayList<String> allImageName;
+
+    public ArrayList<String> getAllImageName() {
+        if (allImageName == null || allImageName.isEmpty()) {
+            allImageName = getImageName();
+        }
+        return allImageName;
+    }
+
+    private ArrayList<String> getImageName() {
+        ArrayList<String> imageNames = new ArrayList<String>();
+        File mainDir = new File(JCertifVaadinApplication.getInstance().getContext().getBaseDirectory(), "pages");
+        File baseDirectory = new File(mainDir, "mainslide_images");
+        File[] listOfFiles = baseDirectory.listFiles();
+        for (File file : listOfFiles) {
+            imageNames.add(file.getName());
+        }
+        return imageNames;
     }
 }
