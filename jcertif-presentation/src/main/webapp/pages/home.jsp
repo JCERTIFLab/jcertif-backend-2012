@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <jsp:useBean id="imageManager" class="com.jcertif.presentation.action.util.MainImageNameLoader"scope="page">
-        <jsp:setProperty name="imageManager" property="applicationAbsolutePath" value="<%= application.getRealPath("/")%>"/>
+        <jsp:setProperty name="imageManager" property="applicationAbsolutePath" value="<%= application.getRealPath(\"/\")%>"/>
     </jsp:useBean>
      <head>
         <title>JCertif 2011</title>
