@@ -61,8 +61,15 @@
             <id>gwt-dev-release</id>
             <url>http://google-web-toolkit.googlecode.com/svn/2.1.0.M2/gwt/maven/</url>
         </repository>
-
-
+        <repository>
+            <id>repo2</id>
+            <url>http://repo2.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>java.net.maven1</id>
+            <name>java.net</name>
+            <url>http://download.java.net/maven/1</url>
+        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -576,6 +583,28 @@
                 <artifactId>filters</artifactId>
                 <version>2.0.235</version>
             </dependency>
+            <dependency>
+                <groupId>javax.faces</groupId>
+                <artifactId>jsf-api</artifactId>
+                <version>1.2-b19</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.faces</groupId>
+                <artifactId>jsf-impl</artifactId>
+                <version>1.2-b19</version>
+            </dependency>
+            <dependency>
+                <groupId>opensymphony</groupId>
+                <artifactId>sitemesh</artifactId>
+                <version>2.4.2</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>1.2</version>
+                <scope>runtime</scope>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
