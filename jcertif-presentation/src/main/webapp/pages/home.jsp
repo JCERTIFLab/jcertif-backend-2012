@@ -113,8 +113,7 @@
                         <h4>Contacts</h4>
                         <p>
                             <img src="images/phone_icon.gif" alt="" title="" class="box_img" />
-                            0700 679 122 489<br />
-                            0700 679 122 489
+                            
                         </p>
                         <br /><br />
                         <p>
@@ -130,7 +129,7 @@
 
             <div id="footer">
                 <div class="copyright">
-                    <a href="home.jsp"><img src="images/footer_logo.gif" border="0" alt="" title="" /></a>
+                    <a href="home.jsp"><img src="#" border="0" alt="" title="" /></a>
                 </div>
                 <div class="footer_links">
                     <a class="current" href="<%= request.getContextPath()%>/pages/home.jsp" title="">Acceuil</a>
