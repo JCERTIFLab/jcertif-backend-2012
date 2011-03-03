@@ -8,7 +8,9 @@ import com.jcertif.presentation.container.AbstractJCertifBeanItemContainer;
 import com.jcertif.presentation.data.bo.AbstractBO;
 import com.jcertif.presentation.principal.JCertifVaadinApplication;
 import com.jcertif.presentation.wsClient.AbstractJCertWebServiceClient;
+import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.UniformInterfaceException;
 import com.vaadin.data.Item;
 import com.vaadin.ui.AbstractSelect;
 import com.vaadin.ui.AbstractSelect.Filtering;
@@ -96,8 +98,16 @@ public abstract class AbstractAction<PC extends AbstractJCertifBeanItemContainer
     public void refreshContainer() {
         ClientResponse status = getWebServiceClient().checkConnection();
         Collection<BO> all = new ArrayList<BO>();
-        all = getWebServiceClient().findAll_XML();
-        getPrincipalContainer().loadData(all);
+        try{
+
+            all = getWebServiceClient().findAll_XML();
+            getPrincipalContainer().loadData(all);
+        	
+        } catch (UniformInterfaceException e) {
+        	LOGGER.warn("Impossible de communiquer avec la facade", e);
+		} catch (ClientHandlerException e) {
+			LOGGER.warn("Impossible de communiquer avec la facade", e);
+		}
         
 		if (status.getStatus() < 400) {
 			LOGGER.warn(
