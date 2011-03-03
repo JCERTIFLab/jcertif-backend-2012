@@ -36,10 +36,10 @@
 	<conference id="5" name="JCertif 2012" date_debut="2012-02-12" date_fin="2012-11-08" website="www.jcertif.com"/>
 	<conference id="6" name="JCertif 2013" date_debut="2013-02-12" date_fin="2013-02-12" website="www.jcertif.com"/>
 	
-	<evenement id="1" nom_evenement="Accueil et mot du président" date_debut_prevue="2010-03-20" date_fin_prevue="2010-04-20" date_debut_effective="2010-04-01" date_fin_effective="2010-05-20" details="description accueil" type_evenement_id="2" />
-	<evenement id="2" nom_evenement="Formation SCJP" date_debut_prevue="2010-03-22" date_fin_prevue="2010-04-20" date_debut_effective="2010-04-02" date_fin_effective="2010-05-21" details="Description SCJP :SCJP c'est bien." type_evenement_id="1" />
-	<evenement id="3" nom_evenement="Nouveautés JEE 17" date_debut_prevue="2010-03-23" date_fin_prevue="2010-04-20" date_debut_effective="2010-04-03"	date_fin_effective="2010-05-22" details="Description nouveautés" type_evenement_id="3" />
-	<evenement id="4" nom_evenement="Formation SCJD" date_debut_prevue="2010-03-24" date_fin_prevue="2010-04-20" date_debut_effective="2010-04-01" date_fin_effective="2010-05-23" details="SCJD description" type_evenement_id="2" />
+	<evenement id="1" nom_evenement="Accueil et mot du président" date_debut_prevue="2011-09-03 09:00:00" date_fin_prevue="2011-09-03 10:00:00" date_debut_effective="2010-04-01" date_fin_effective="2010-05-20" details="Séance de lancement de JCERTIF 2011" type_evenement_id="2" />
+	<evenement id="2" nom_evenement="Formation SCJP" date_debut_prevue="2011-09-03 15:00:00" date_fin_prevue="2011-09-03 16:00:00" date_debut_effective="2010-04-02" date_fin_effective="2010-05-21" details="Description SCJP :SCJP c'est bien." type_evenement_id="1" />
+	<evenement id="3" nom_evenement="Nouveautés JEE 17" date_debut_prevue="2011-09-04 10:00:00" date_fin_prevue="2011-09-04 12:00:00" date_debut_effective="2010-04-03"	date_fin_effective="2010-05-22" details="Description nouveautés Java EE" type_evenement_id="3" />
+	<evenement id="4" nom_evenement="Formation SCJD" date_debut_prevue="2011-09-04 13:00:00" date_fin_prevue="2011-09-04 15:00:00" date_debut_effective="2010-04-01" date_fin_effective="2010-05-23" details="FORMATION SCJD description" type_evenement_id="2" />
 	
 	<statut_cedule id="1" code="VALIDER" description="Schedule validé"/>
 	<cedule_salle id="1" date_cedule="2011-02-01" details="details 1" salle_id="5" statut_cedule_id="1" evenement_id="1"/>
