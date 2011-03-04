@@ -21,7 +21,6 @@ import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.apache.log4j.jmx.LoggerDynamicMBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,9 +32,8 @@ import org.slf4j.LoggerFactory;
  * permettant d'attaquer la couche metier
  */
 public abstract class AbstractAction<PC extends AbstractJCertifBeanItemContainer, BO extends AbstractBO, WS extends AbstractJCertWebServiceClient> {
-	
-	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractAction.class);
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractAction.class);
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
     private boolean alreadyMakeFirstLoad = false;
     private Class<BO> responseType;
@@ -65,6 +63,11 @@ public abstract class AbstractAction<PC extends AbstractJCertifBeanItemContainer
 
     public Item addItem(BO bo) throws UnsupportedOperationException {
         ClientResponse status = getWebServiceClient().checkConnection();
+        if (status.getStatus() >= 400) {
+            LOGGER.warn(
+                    "Entity={0} Statut={1} .Le statut de la réponse lors du test de connexion a retourné une réponse >= 400, il se peut donc que les données ne soient pas récupérées",
+                    responseType.getSimpleName(), status.getStatus());
+        }
         if (status.getStatus() < 400) {
             bo = (BO) getWebServiceClient().create_XML(bo);
             return getPrincipalContainer().addItem(bo);
@@ -78,43 +81,41 @@ public abstract class AbstractAction<PC extends AbstractJCertifBeanItemContainer
 
     public boolean updateItem(BO bo) throws UnsupportedOperationException {
         ClientResponse status = getWebServiceClient().checkConnection();
-        
-        if (status.getStatus() < 400) {
-			LOGGER.warn(
-					"Entity={0} Statut={1} .Le statut de la réponse lors du test de connexion a retourné une réponse < 400, il se peut donc que les données ne soient pas récupérées",
-					responseType.getSimpleName(), status.getStatus());
-		}
-        if (status.getStatus() < 400) {
+
+        if (status != null && status.getStatus() >= 400) {
+            LOGGER.warn(
+                    "Entity={0} Statut={1} .Le statut de la réponse lors du test de connexion a retourné une réponse >= 400, il se peut donc que les données ne soient pas récupérées",
+                    responseType.getSimpleName(), status.getStatus());
+        }
+        if (status != null && status.getStatus() < 400) {
             bo = (BO) getWebServiceClient().update_XML(bo);
             return true;
         }
         String clazz = bo.getClass().getSimpleName();
         String description = "Echec de mise a jour de " + clazz;
         JCertifVaadinApplication.showError(status, description);
-
         return false;
     }
 
     public void refreshContainer() {
         ClientResponse status = getWebServiceClient().checkConnection();
         Collection<BO> all = new ArrayList<BO>();
-        try{
-
+        try {
             all = getWebServiceClient().findAll_XML();
             getPrincipalContainer().loadData(all);
-        	
-        } catch (UniformInterfaceException e) {
-        	LOGGER.warn("Impossible de communiquer avec la facade", e);
-		} catch (ClientHandlerException e) {
-			LOGGER.warn("Impossible de communiquer avec la facade", e);
-		}
-        
-		if (status.getStatus() < 400) {
-			LOGGER.warn(
-					"Entity={0} Statut={1} .Le statut de la réponse lors du test de connexion a retourné une réponse < 400, il se peut donc que les données ne soient pas récupérées",
-					responseType.getSimpleName(), status.getStatus());
-		}
 
+        } catch (UniformInterfaceException e) {
+            LOGGER.warn("Impossible de communiquer avec la facade", e);
+        } catch (ClientHandlerException e) {
+            LOGGER.warn("Impossible de communiquer avec la facade", e);
+        }
+
+        if (status != null && status.getStatus() >= 400) {
+
+            LOGGER.warn(
+                    "Entity={0} Statut={1} .Le statut de la réponse lors du test de connexion a retourné une réponse >= 400, il se peut donc que les données ne soient pas récupérées",
+                    responseType.getSimpleName(), status.getStatus());
+        }
     }
 
     public ComboBox createCombobox(String caption) {
