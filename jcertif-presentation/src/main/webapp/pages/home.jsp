@@ -41,8 +41,7 @@
 
     <body>
         <div id="main_container">
-            <div id="header">
-                <div id="logo"><a href="<%= request.getContextPath()%>/pages/home.jsp"><img src="images/logo.png" alt="" title="" border="0" /></a></div>
+            <div>
                <jsp:include page="header.jsp"/>
             </div>
 
