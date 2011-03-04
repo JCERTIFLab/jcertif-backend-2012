@@ -6,8 +6,9 @@
 <div id="header">
     <div id="logo">
         <a href="<%=request.getContextPath()%>/pages/home.jsp">
-            <img src="images/logo.png" alt="" title="" border="0" />
+            <img src="images/JCertif_Conf2011.jpg" alt="" title="" border="0" />
         </a>
+
     </div>
     <div id="menu">
         <ul>
