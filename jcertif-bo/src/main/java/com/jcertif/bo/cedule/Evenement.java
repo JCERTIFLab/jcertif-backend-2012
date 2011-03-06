@@ -1,6 +1,7 @@
 package com.jcertif.bo.cedule;
 
 import java.util.Calendar;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -30,28 +32,38 @@ public class Evenement extends AbstractBO {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	@Column
 	protected String nomEvenement;
-	
+
 	@Column
 	private Calendar dateDebutPrevue;
-	
+
 	@Column
 	private Calendar dateFinPrevue;
-	
+
 	@Column
 	private Calendar dateDebutEffective;
-	
+
 	@Column
 	private Calendar dateFinEffective;
-	
+
 	@Column
 	private String details;
-	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST,
-			CascadeType.REFRESH }, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
 	@JoinColumn(name = "type_evenement_id")
 	private TypeEvenement typeEvenement;
+
+	/**
+	 * Evenement d'une cedule Salle.
+	 */
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name = "evenement_id")
+	private Set<CeduleSalle> ceduleSalles;
+
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name = "evenement_id")
+	private Set<CeduleParticipant> ceduleParticipants;
 
 	/**
 	 * @param id
@@ -64,8 +76,8 @@ public class Evenement extends AbstractBO {
 	 * 
 	 */
 	public Evenement(Long id, String nom_evenement, Calendar dateDebutPrevue,
-			Calendar datefinprevue, Calendar dateDebutEffective,
-			Calendar dateFinEffective, String details) {
+			Calendar datefinprevue, Calendar dateDebutEffective, Calendar dateFinEffective,
+			String details) {
 		super();
 		this.id = id;
 		this.nomEvenement = nom_evenement;
@@ -205,13 +217,42 @@ public class Evenement extends AbstractBO {
 	}
 
 	/**
+	 * @return the ceduleSalles
+	 */
+	public Set<CeduleSalle> getCeduleSalles() {
+		return ceduleSalles;
+	}
+
+	/**
+	 * @param ceduleSalles
+	 *            the ceduleSalles to set
+	 */
+	public void setCeduleSalles(Set<CeduleSalle> ceduleSalles) {
+		this.ceduleSalles = ceduleSalles;
+	}
+
+	/**
+	 * @return the ceduleParticipants
+	 */
+	public Set<CeduleParticipant> getCeduleParticipants() {
+		return ceduleParticipants;
+	}
+
+	/**
+	 * @param ceduleParticipants
+	 *            the ceduleParticipants to set
+	 */
+	public void setCeduleParticipants(Set<CeduleParticipant> ceduleParticipants) {
+		this.ceduleParticipants = ceduleParticipants;
+	}
+
+	/**
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(this.getId())
-				.append(this.getDetails()).append(this.getNomEvenement())
-				.toHashCode();
+		return new HashCodeBuilder().append(this.getId()).append(this.getDetails())
+				.append(this.getNomEvenement()).toHashCode();
 	}
 
 	/**
@@ -232,7 +273,6 @@ public class Evenement extends AbstractBO {
 
 		return new EqualsBuilder().append(this.getId(), other.getId())
 				.append(this.getDetails(), other.getDetails())
-				.append(this.getNomEvenement(), other.getNomEvenement())
-				.isEquals();
+				.append(this.getNomEvenement(), other.getNomEvenement()).isEquals();
 	}
 }

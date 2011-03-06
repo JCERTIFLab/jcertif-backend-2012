@@ -39,9 +39,6 @@ public class CeduleParticipant extends AbstractBO {
 	@Column
 	private String details;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "evenement_id")
-	private Evenement evenement;
 
 	
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -69,7 +66,6 @@ public class CeduleParticipant extends AbstractBO {
 		this.id = id;
 		this.dateCedule = dateCedule;
 		this.details = details;
-		this.evenement = event;
 		this.participant = participant;
 		this.statutCedule = statutCedule;
 	}
@@ -139,21 +135,7 @@ public class CeduleParticipant extends AbstractBO {
 	
 	
 
-	/**
-	 * @return the evenement
-	 */
-	public Evenement getEvenement() {
-		return evenement;
-	}
-
-
-	/**
-	 * @param evenement the evenement to set
-	 */
-	public void setEvenement(Evenement evenement) {
-		this.evenement = evenement;
-	}
-
+	
 
 	/**
 	 * @return the participantTODO

@@ -3,12 +3,13 @@ package com.jcertif.presentation.data.bo.cedule;
 
 
 import java.util.Calendar;
-
+import java.util.Set;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import com.jcertif.presentation.data.bo.AbstractBO;
 
 /**
@@ -36,6 +37,10 @@ public class Evenement extends AbstractBO{
 	private String details;
 
 	private TypeEvenement typeEvenement;
+	
+	private Set<CeduleSalle> ceduleSalles;
+	
+	private Set<CeduleParticipant> ceduleParticipants;
 
 	/**
 	 * @param id
@@ -186,6 +191,38 @@ public class Evenement extends AbstractBO{
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	
+
+
+
+	/**
+	 * @return the ceduleSalles
+	 */
+	public Set<CeduleSalle> getCeduleSalles() {
+		return ceduleSalles;
+	}
+
+	/**
+	 * @param ceduleSalles the ceduleSalles to set
+	 */
+	public void setCeduleSalles(Set<CeduleSalle> ceduleSalles) {
+		this.ceduleSalles = ceduleSalles;
+	}
+
+	/**
+	 * @return the ceduleParticipants
+	 */
+	public Set<CeduleParticipant> getCeduleParticipants() {
+		return ceduleParticipants;
+	}
+
+	/**
+	 * @param ceduleParticipants the ceduleParticipants to set
+	 */
+	public void setCeduleParticipants(Set<CeduleParticipant> ceduleParticipants) {
+		this.ceduleParticipants = ceduleParticipants;
 	}
 
 	/**

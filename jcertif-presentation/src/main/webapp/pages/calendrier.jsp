@@ -11,7 +11,7 @@
         var vaadin = {
             vaadinConfigurations : {
                 'vaadin_div' : {
-                    appUri : '/jcertif-presentation/JCertifMain/',
+                    appUri : '/jcertif-presentation/vaadin/calendar',
                     pathInfo : '/',
                     themeUri : '../VAADIN/themes/jcertifruno',
                     versionInfo : {

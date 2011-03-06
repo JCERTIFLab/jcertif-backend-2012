@@ -63,12 +63,6 @@ public class CeduleSalle extends AbstractBO {
 	@JoinColumn(name = "statut_cedule_id")
 	private StatutCedule statutCedule;
 
-	/**
-	 * Evenement d'une cedule Salle.
-	 */
-	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-	@JoinColumn(name = "evenement_id")
-	private Evenement evenement;
 
 
 	/**
@@ -151,20 +145,6 @@ public class CeduleSalle extends AbstractBO {
 	 */
 	public void setStatutCedule(StatutCedule statutCedule) {
 		this.statutCedule = statutCedule;
-	}
-
-	/**
-	 * @return the evenement
-	 */
-	public Evenement getEvenement() {
-		return evenement;
-	}
-
-	/**
-	 * @param evenement the evenement to set
-	 */
-	public void setEvenement(Evenement evenement) {
-		this.evenement = evenement;
 	}
 
 	/**

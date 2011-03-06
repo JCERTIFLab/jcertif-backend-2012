@@ -38,7 +38,7 @@ public class Participant extends Person {
     private String codeParticipant;
     private ProfilUtilisateur profilUtilisateur;
     private Set<CeduleParticipant> ceduleparticipants = new HashSet<CeduleParticipant>();
-
+    private PropositionPresentation presentationSoumise;
     /**
      * Constructor
      */
@@ -309,4 +309,20 @@ public class Participant extends Person {
 
         return new EqualsBuilder().append(this.getId(), other.getId()).append(this.getPrenom(), other.getPrenom()).isEquals();
     }
+
+	/**
+	 * @return the presentationSoumise
+	 */
+	public PropositionPresentation getPresentationSoumise() {
+		return presentationSoumise;
+	}
+
+	/**
+	 * @param presentationSoumise the presentationSoumise to set
+	 */
+	public void setPresentationSoumise(PropositionPresentation presentationSoumise) {
+		this.presentationSoumise = presentationSoumise;
+	}
+    
+    
 }

@@ -1,7 +1,6 @@
 package com.jcertif.bo.participant;
 
 import java.util.Calendar;
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -10,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -32,7 +30,7 @@ public class Participant extends Person {
     private static final long serialVersionUID = 1L;
     @Column
     private Calendar dateInscription;
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "proposition_presentation_id")
     private PropositionPresentation presentationSoumise;
     @Column
@@ -53,9 +51,7 @@ public class Participant extends Person {
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "profil_utilisateur_id")
     private ProfilUtilisateur profilUtilisateur;
-    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-    @JoinColumn(name = "participant_id")
-    private Set<CeduleParticipant> ceduleparticipants = new HashSet<CeduleParticipant>();
+
 
 
     /**
@@ -87,7 +83,6 @@ public class Participant extends Person {
         this.setDetails(details);
         this.roleparticipant = roleparticipant;
         this.conference = conference;
-        this.ceduleparticipants = ceduleparticipants;
     }
 
     /**
@@ -218,21 +213,6 @@ public class Participant extends Person {
      */
     public void setConference(Conference conference) {
         this.conference = conference;
-    }
-
-    /**
-     * @return the ceduleparticipantsTODO
-     */
-    public Set<CeduleParticipant> getCeduleparticipants() {
-        return ceduleparticipants;
-    }
-
-    /**
-     * @param ceduleparticipants
-     *            the ceduleparticipants to setTODOceduleparticipants
-     */
-    public void setCeduleparticipants(Set<CeduleParticipant> ceduleparticipants) {
-        this.ceduleparticipants = ceduleparticipants;
     }
 
     /**

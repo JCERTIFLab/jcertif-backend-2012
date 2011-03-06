@@ -50,19 +50,19 @@ public class EventDetailsPanel extends Panel {
 
     private void initUi() {
         if (event != null) {
-            addComponent(new Label("<h1>" + event.getJcertifEvent().getTitle() + "</h1>",
-                    Label.CONTENT_XHTML));
-            
-            addComponent(new Label("<b>" + getEventTimeLabel(event.getJcertifEvent()) + "</b>",
-                    Label.CONTENT_XHTML));
-
-            addComponent(new Label("<b>Salle: </b>" + event.getJcertifEvent().getRoom(),
-                    Label.CONTENT_XHTML));
-            addComponent(new Label("<b>Type: </b>" + event.getJcertifEvent().getType(),
-                    Label.CONTENT_XHTML));
-           
-            addComponent(new Label("<b>Code: </b>" + event.getJcertifEvent().getCode(),
-                    Label.CONTENT_XHTML));
+//            addComponent(new Label("<h1>" + event.getJcertifEvent().getTitle() + "</h1>",
+//                    Label.CONTENT_XHTML));
+//            
+//            addComponent(new Label("<b>" + getEventTimeLabel(event.getJcertifEvent()) + "</b>",
+//                    Label.CONTENT_XHTML));
+//
+//            addComponent(new Label("<b>Salle: </b>" + event.getJcertifEvent().getRoom(),
+//                    Label.CONTENT_XHTML));
+//            addComponent(new Label("<b>Type: </b>" + event.getJcertifEvent().getType(),
+//                    Label.CONTENT_XHTML));
+//           
+//            addComponent(new Label("<b>Code: </b>" + event.getJcertifEvent().getCode(),
+//                    Label.CONTENT_XHTML));
             addComponent(new Label("<br/>",Label.CONTENT_XHTML));
             final Button attendButton = new Button("S'abonner à l'événement");
             

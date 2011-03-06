@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -38,10 +39,7 @@ public class ParticulariteSalle extends AbstractBO {
 	private String code;
 	@Column
 	private String description;
-	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name ="salle_particularite_salle", joinColumns = @JoinColumn(name = "particularite_salle_id"), inverseJoinColumns = @JoinColumn(name = "salle_id"))
-	private Set<Salle> salles=new HashSet<Salle>();
+
 
 	/**
 	 * Constructor
@@ -132,18 +130,5 @@ public class ParticulariteSalle extends AbstractBO {
 		return new EqualsBuilder().append(id, other.getId()).append(code, other.getCode()).isEquals();
 	}
 
-	/**
-	 * @return the sallesTODO
-	 */
-	public Set<Salle> getSalles() {
-		return salles;
-	}
-
-	/**
-	 * @param salles the salles to setTODOsalles
-	 */
-	public void setSalles(Set<Salle> salles) {
-		this.salles = salles;
-	}
-
+	
 }
