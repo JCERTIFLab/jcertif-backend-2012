@@ -13,7 +13,7 @@
                 'vaadin_div' : {
                     appUri : '/jcertif-presentation/vaadin/calendar',
                     pathInfo : '/',
-                    themeUri : '../VAADIN/themes/jcertifruno',
+                    themeUri : '/jcertif-presentation/VAADIN/themes/jcertifruno',
                     versionInfo : {
                         vaadinVersion : "6.2.0-INTERNAL-NONVERSIONED-DEBUG-BUILD",
                         applicationVersion : "NONVERSIONED"
@@ -26,7 +26,10 @@
     src='../VAADIN/widgetsets/com.jcertif.presentation.gwt.MyWidgetSet/com.jcertif.presentation.gwt.MyWidgetSet.nocache.js'></script>
 </head>
 <body>
+<div id="main_container">
     <jsp:include page="header.jsp"/>
-    <div id="vaadin_div" weight="200px"></div>
+    
+    <div id="vaadin_div"></div>
+    </div>
 </body>
 </html>

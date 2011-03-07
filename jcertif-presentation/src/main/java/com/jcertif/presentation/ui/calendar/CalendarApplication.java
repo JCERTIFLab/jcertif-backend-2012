@@ -16,7 +16,9 @@ import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClickHandler;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.themes.Runo;
 
 /**
  * @author rossi
@@ -34,11 +36,17 @@ public class CalendarApplication extends Application implements EventClickHandle
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Building Calendar Application");
 		}
+		setTheme("jcertifruno");
 		final Window mainWindow = new Window();
 
 		final HorizontalLayout layout = new HorizontalLayout();
+		layout.setSizeFull();
+		
 		layout.addComponent(getCalendarComponent());
+		layout.setExpandRatio(getCalendarComponent(),2);
 		layout.addComponent(getDetailPanel());
+		layout.setExpandRatio(getDetailPanel(),1);
+		
 
 		mainWindow.getContent().addComponent(layout);
 		setMainWindow(mainWindow);
@@ -49,6 +57,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 		if (calendar == null) {
 			calendar = new JCertifCalendar();
 			calendar.setEventProvider(new JCertifEventProvider());
+			calendar.setStyleName(Runo.LAYOUT_DARKER);
 			calendar.setHandler(this);
 		}
 		return calendar;
@@ -66,32 +75,35 @@ public class CalendarApplication extends Application implements EventClickHandle
 			LOGGER.debug("Updating Detail Panel");
 		}
 		getDetailPanel().removeAllComponents();
-		getDetailPanel().addComponent(
+		VerticalLayout layout = new VerticalLayout();
+		
+		layout.addComponent(
 				new Label("Où : "
 						+ event.getJcertifEvent().getCeduleSalles().iterator().next().getSalle().getLibelle()));
 		Date debut = event.getJcertifEvent().getDateDebutPrevue().getTime();
-		getDetailPanel().addComponent(
+		layout.addComponent(
 				new Label("Quand : " + new SimpleDateFormat("EEEEEEEE dd MMMMMMMMMMMMMM").format(debut) + " de " + new SimpleDateFormat("HH:mm").format(debut)
 						+ " à " + new SimpleDateFormat("HH:mm").format(event.getJcertifEvent().getDateFinPrevue().getTime())));
-		getDetailPanel().addComponent(
+		layout.addComponent(
 				new Label("Categorie : " + findSujet(event.getJcertifEvent())));
 		Participant participant = findParticipant(event.getJcertifEvent());
 		
 		if(participant == null){
 			LOGGER.warn("Pas de présentation pour cet évènement");
 		} else {
-			getDetailPanel().addComponent(
+			layout.addComponent(
 					new Label("Titre : " + participant.getPresentationSoumise().getTitre()));
 			
-			getDetailPanel().addComponent(
+			layout.addComponent(
 					new Label("Présentateur : " + participant.getNom() + " " + participant.getPrenom()));
 			
-			getDetailPanel().addComponent(
+			layout.addComponent(
 					new Label("Description : " + participant.getDetails()));
 			
-			getDetailPanel().addComponent(
+			layout.addComponent(
 					new Label("Mot Clé : " + participant.getPresentationSoumise().getMotCle().getMotCle()));	
 		}
+		getDetailPanel().addComponent(layout);
 
 	}
 

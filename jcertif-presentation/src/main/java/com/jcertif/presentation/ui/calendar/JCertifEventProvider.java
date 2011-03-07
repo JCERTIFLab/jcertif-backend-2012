@@ -18,8 +18,6 @@ public class JCertifEventProvider extends BasicEventProvider {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(JCertifEventProvider.class);
 
-	private boolean eventLoaded = false;
-
 	public JCertifEventProvider() {
 		super();
 	}
@@ -28,25 +26,22 @@ public class JCertifEventProvider extends BasicEventProvider {
 	public List<CalendarEvent> getEvents(final Date startDate, final Date endDate) {
 
 		List<CalendarEvent> events = new ArrayList<CalendarEvent>();
-		if (!eventLoaded) {
-			if(LOGGER.isDebugEnabled()){
-				LOGGER.debug("");
-			}
-			List<Evenement> evenementList = EvenementClient.getInstance().findAll_XML();
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Retrieving all events");
+		}
+		List<Evenement> evenementList = EvenementClient.getInstance().findAll_XML();
 
-			for (Evenement dataEvent : evenementList) {
-				Date startDateEvent = dataEvent.getDateDebutPrevue().getTime();
-				Date endDateEvent = dataEvent.getDateFinPrevue().getTime();
+		for (Evenement dataEvent : evenementList) {
+			Date startDateEvent = dataEvent.getDateDebutPrevue().getTime();
+			Date endDateEvent = dataEvent.getDateFinPrevue().getTime();
 
-				JCertifCalendarEvent jCertifEvent = new JCertifCalendarEvent();
-				jCertifEvent.setStart(startDateEvent);
-				jCertifEvent.setEnd(endDateEvent);
-				jCertifEvent.setCaption(dataEvent.getNomEvenement());
-				jCertifEvent.setJcertifEvent(dataEvent);
-				events.add(jCertifEvent);
+			JCertifCalendarEvent jCertifEvent = new JCertifCalendarEvent();
+			jCertifEvent.setStart(startDateEvent);
+			jCertifEvent.setEnd(endDateEvent);
+			jCertifEvent.setCaption(dataEvent.getNomEvenement());
+			jCertifEvent.setJcertifEvent(dataEvent);
+			events.add(jCertifEvent);
 
-			}
-			eventLoaded = true;
 		}
 
 		return events;
