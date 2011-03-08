@@ -22,7 +22,7 @@
     <build>
         <plugins>
 
-            <!-- Compiles your custom GWT components with the GWT compiler -->
+            <!-- Compiles your custom GWT components with the GWT compiler 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
@@ -41,6 +41,23 @@
 
             </plugin>
 
+            
+            
+             <plugin>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>update-widgetset</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            
+            -->
+            
             <plugin>
                 <groupId>org.glassfish</groupId>
                 <artifactId>maven-embedded-glassfish-plugin</artifactId>
@@ -63,18 +80,7 @@
             </plugin>
 
 
-            <plugin>
-                <groupId>com.vaadin</groupId>
-                <artifactId>vaadin-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>update-widgetset</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
+           
         </plugins>
     </build>
     <!-- JCERTIF PRESENTATION DEPENDENCIES -->

@@ -13,10 +13,11 @@ import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
 import com.vaadin.Application;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClick;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClickHandler;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.CustomLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
-import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 import com.vaadin.ui.themes.Runo;
 
@@ -30,6 +31,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 	private static final Logger LOGGER = LoggerFactory.getLogger(CalendarApplication.class);
 	private JCertifCalendar calendar;
 	private Panel detailPanel;
+	private Window mainWindow;
 
 	@Override
 	public void init() {
@@ -37,18 +39,12 @@ public class CalendarApplication extends Application implements EventClickHandle
 			LOGGER.debug("Building Calendar Application");
 		}
 		setTheme("jcertifruno");
-		final Window mainWindow = new Window();
+		mainWindow = new Window();
 
-		final HorizontalLayout layout = new HorizontalLayout();
-		layout.setSizeFull();
 		
-		layout.addComponent(getCalendarComponent());
-		layout.setExpandRatio(getCalendarComponent(),2);
-		layout.addComponent(getDetailPanel());
-		layout.setExpandRatio(getDetailPanel(),1);
 		
 
-		mainWindow.getContent().addComponent(layout);
+		mainWindow.getContent().addComponent(getCalendarComponent());
 		setMainWindow(mainWindow);
 
 	}
@@ -74,36 +70,57 @@ public class CalendarApplication extends Application implements EventClickHandle
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Updating Detail Panel");
 		}
+		event.setStyleName("selected");
 		getDetailPanel().removeAllComponents();
-		VerticalLayout layout = new VerticalLayout();
+//		VerticalLayout layout = new VerticalLayout();
+//		layout.setStyleName("details_event");
 		
-		layout.addComponent(
-				new Label("Où : "
-						+ event.getJcertifEvent().getCeduleSalles().iterator().next().getSalle().getLibelle()));
+		CustomLayout custom = new CustomLayout("details_event_layout");
+		custom.addStyleName("customlayoutexample");
+
+		// Use it as the layout of the Panel.
+		getDetailPanel().setContent(custom);
+		
+
+		Button ok = new Button("Login");
+		custom.addComponent(ok, "participer");
+		custom.addComponent(
+				new Label(event.getJcertifEvent().getCeduleSalles().iterator().next().getSalle().getLibelle()), "ou");
 		Date debut = event.getJcertifEvent().getDateDebutPrevue().getTime();
-		layout.addComponent(
-				new Label("Quand : " + new SimpleDateFormat("EEEEEEEE dd MMMMMMMMMMMMMM").format(debut) + " de " + new SimpleDateFormat("HH:mm").format(debut)
-						+ " à " + new SimpleDateFormat("HH:mm").format(event.getJcertifEvent().getDateFinPrevue().getTime())));
-		layout.addComponent(
-				new Label("Categorie : " + findSujet(event.getJcertifEvent())));
+		custom.addComponent(
+				new Label(new SimpleDateFormat("EEEEEEEE dd MMMMMMMMMMMMMM").format(debut) + " de " + new SimpleDateFormat("HH:mm").format(debut)
+						+ " à " + new SimpleDateFormat("HH:mm").format(event.getJcertifEvent().getDateFinPrevue().getTime())), "quand");
+		custom.addComponent(
+				new Label(findSujet(event.getJcertifEvent())), "categorie");
 		Participant participant = findParticipant(event.getJcertifEvent());
 		
 		if(participant == null){
 			LOGGER.warn("Pas de présentation pour cet évènement");
 		} else {
-			layout.addComponent(
-					new Label("Titre : " + participant.getPresentationSoumise().getTitre()));
+			custom.addComponent(
+					new Label(participant.getPresentationSoumise().getTitre()),"titre");
 			
-			layout.addComponent(
-					new Label("Présentateur : " + participant.getNom() + " " + participant.getPrenom()));
+			custom.addComponent(
+					new Label(participant.getNom() + " " + participant.getPrenom()),"presentateur");
 			
-			layout.addComponent(
-					new Label("Description : " + participant.getDetails()));
+			custom.addComponent(
+					new Label(participant.getDetails()), "details");
 			
-			layout.addComponent(
-					new Label("Mot Clé : " + participant.getPresentationSoumise().getMotCle().getMotCle()));	
+			custom.addComponent(
+					new Label(participant.getPresentationSoumise().getMotCle().getMotCle()),"motcle");	
 		}
-		getDetailPanel().addComponent(layout);
+		
+		final HorizontalLayout layoutH = new HorizontalLayout();
+		layoutH.setSizeFull();
+		
+		layoutH.addComponent(getCalendarComponent());
+		layoutH.setExpandRatio(getCalendarComponent(),2);
+		layoutH.addComponent(getDetailPanel());
+		layoutH.setExpandRatio(getDetailPanel(),1);
+		mainWindow.getContent().removeAllComponents();
+		mainWindow.getContent().addComponent(layoutH);
+		
+
 
 	}
 

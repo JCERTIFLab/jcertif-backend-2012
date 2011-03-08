@@ -71,13 +71,6 @@ public class Sujet extends AbstractBO {
 	}
 
 	/**
-	 * Liste de présentations.
-	 */
-	@ManyToMany
-	@JoinTable(name = "proposition_presentation_sujet", joinColumns = @JoinColumn(name = "sujet_id"), inverseJoinColumns = @JoinColumn(name = "proposition_presentation_id"))
-	private List<PropositionPresentation> presentationsInternal;
-
-	/**
 	 * @return l'identifiant du sujet.
 	 */
 	public Long getId() {
@@ -122,55 +115,11 @@ public class Sujet extends AbstractBO {
 		this.description = description;
 	}
 
-	/**
-	 * @return la liste des présentations du sujet
-	 */
-	protected List<PropositionPresentation> getPresentationsInternal() {
-		if (presentationsInternal == null) {
-			presentationsInternal = new ArrayList<PropositionPresentation>();
-		}
-		return presentationsInternal;
-	}
+	
 
-	/**
-	 * Définit une liste de présentation.
-	 * 
-	 * @param presentationsInternal
-	 *            une liste de présentation
-	 */
-	protected void setPresentationsInternal(
-			List<PropositionPresentation> presentationsInternal) {
-		this.presentationsInternal = presentationsInternal;
-	}
+	
 
-	/**
-	 * @return une liste non modifiable de présentation.
-	 */
-	public List<PropositionPresentation> getPresentations() {
-		return Collections.unmodifiableList(this.getPresentationsInternal());
-	}
-
-	/**
-	 * Ajoute une présentation à un sujet.
-	 * 
-	 * @param presentation
-	 *            une présentation
-	 * @return le résultat de l'ajout
-	 */
-	public boolean addPresentation(PropositionPresentation presentation) {
-		return this.getPresentationsInternal().add(presentation);
-	}
-
-	/**
-	 * Supprimes une présentation.
-	 * 
-	 * @param presentation
-	 *            une présentation
-	 * @return le résultat de la suppression
-	 */
-	public boolean removePresentation(PropositionPresentation presentation) {
-		return this.getPresentationsInternal().remove(presentation);
-	}
+	
 
 	/**
 	 * @see java.lang.Object#hashCode()

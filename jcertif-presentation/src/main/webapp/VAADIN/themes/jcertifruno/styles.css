@@ -1,3 +1,7 @@
+.vaadin_calendar{
+	float:center;	
+}
+
 .v-theme-version:after {content:"6_4_9";}
 .v-theme-version-6_4_9 {display: none;}
 /* Automatically compiled css file from subdirectories. */
@@ -593,6 +597,10 @@ div.v-app-loading {
 .v-ie7 .v-disabled .v-datefield-textfield {
 	filter: alpha(opacity=30);
 }
+
+.v-calendar .v-calendar-event-color1 {
+	color: #4f8324;
+	}
 
 .v-ddwrapper {
 	padding: 2px;
@@ -4402,3 +4410,5 @@ textarea.v-textarea-small {
     width: 39px;          height: 39px;
     background: transparent url(window/img/shadow/bottom-right.png);
 }
+
+

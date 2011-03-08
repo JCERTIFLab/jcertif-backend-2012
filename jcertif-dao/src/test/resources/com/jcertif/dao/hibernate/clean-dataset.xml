@@ -5,16 +5,26 @@
 	<mot_cle />
 	<sujet />
 	<conference />
-	<type_evenement/>
-	<evenement/>
+	<type_evenement />
+	<evenement />
+	<role_participant />
+	<type_participant />
 	<proposition_presentation />
+
 	<participant />
 	<auteur />
 	<propos_presentation_auteur />
 	<proposition_presentation_sujet />
+
 	<appreciation_presentation />
 	<statut_cedule />
+	<cedule_participant />
 	<centre_conference />
+
 	<salle />
+	<particularite_salle />
+	<salle_particularite_salle />
+
 	<cedule_salle />
+	<organisateur />
 </dataset>

@@ -61,17 +61,17 @@
 	<sujet id="2" libelle="libelle sujet 2" description="description sujet 2"/>
 	<sujet id="3" libelle="libelle sujet 3" description="description sujet 3"/>
 	
-	<proposition_presentation id="1" titre="titre 1" sommaire="sommaire 1" besoins_specifiques="besoins 1" description="description 1" details="details 1" mot_cle_id="4" statut_approbation_id="1" conference_id="7"/>
-	<proposition_presentation id="2" titre="titre 2" sommaire="sommaire 2" besoins_specifiques="besoins 2" description="description 2" details="details 2" mot_cle_id="5" statut_approbation_id="2" conference_id="7"/>
-	<proposition_presentation id="3" titre="titre 3" sommaire="sommaire 3" besoins_specifiques="besoins 3" description="description 3" details="details 3" mot_cle_id="6" statut_approbation_id="3" conference_id="7"/>
+	<proposition_presentation id="1" titre="Accueil et mot du président" sommaire="sommaire 1" besoins_specifiques="besoins 1" description="description 1" details="details 1" mot_cle_id="4" statut_approbation_id="1" conference_id="7"/>
+	<proposition_presentation id="2" titre="Présentation des formations JSCP" sommaire="sommaire 2" besoins_specifiques="besoins 2" description="description 2" details="details 2" mot_cle_id="5" statut_approbation_id="2" conference_id="7"/>
+	<proposition_presentation id="3" titre="Nouveautés Java 17, tout ce qu'il faut savoir" sommaire="sommaire 3" besoins_specifiques="besoins 3" description="description 3" details="details 3" mot_cle_id="6" statut_approbation_id="3" conference_id="7"/>
 
 	<proposition_presentation_sujet proposition_presentation_id="1" sujet_id="1"/>
 	<proposition_presentation_sujet proposition_presentation_id="2" sujet_id="2"/>
 	<proposition_presentation_sujet proposition_presentation_id="3" sujet_id="3"/>
 	
-	<participant id="1" proposition_presentation_id="1" nom="Le manager" prenom="Chrisbel" />
-	<participant id="2" proposition_presentation_id="2" nom="Oddet" prenom="Rossi" />
-	<participant id="3" proposition_presentation_id="3" nom="Mon Nom" prenom="Mon prénom"/>
+	<participant id="1" proposition_presentation_id="1" nom="Lucas" prenom="Michel" details="Michel est développeur chez Google depuis bientôt 6 ans, il a d'abord travaillé sur la plateforme de publicité Ad-on avant de rejoindre l'équipe Android en ..." />
+	<participant id="2" proposition_presentation_id="2" nom="Malonga" prenom="Chrisbel" details="Chrisbel est notre manager à tous, nous lui devons du respect. C'est notre manager à tous vives Chrisbel." />
+	<participant id="3" proposition_presentation_id="3" nom="Bonbhel" prenom="Max" details="Max est un passionné de Java et des technologies chiantes. Il déteste les JSP et aimerait que nous utilisions JSF..." />
 	
 	<cedule_participant id="1" evenement_id="1" participant_id="1" statut_cedule_id="1" />
 	<cedule_participant id="2" evenement_id="2" participant_id="2" statut_cedule_id="1" />
