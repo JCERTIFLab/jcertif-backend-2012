@@ -30,6 +30,7 @@
     <jsp:include page="header.jsp"/>
     
     <div id="vaadin_div"></div>
+    <jsp:include page="footer.jsp" />
     </div>
 </body>
 </html>

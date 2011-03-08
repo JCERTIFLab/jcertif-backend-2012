@@ -119,17 +119,7 @@
                 <div style=" clear:both;"></div>
             </div><!--end of main content-->
 
-            <div id="footer">
-                <div class="copyright">
-                    <a href="home.jsp"><img src="#" border="0" alt="" title="" /></a>
-                </div>
-                <div class="footer_links">
-                    <a class="current" href="<%= request.getContextPath()%>/pages/home.jsp" title="">Acceuil</a>
-                    <a href="#">A Propos de JCertif 2001</a>
-                    <a href="contact.jsp">Nous contacter</a>
-                </div>
-
-            </div>
+           <jsp:include page="footer.jsp" />
 
         </div> <!--end of main container-->
     </body>
