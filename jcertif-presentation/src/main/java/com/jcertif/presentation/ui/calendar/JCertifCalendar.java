@@ -17,6 +17,16 @@ public class JCertifCalendar extends Calendar implements UserChangeListener,
 		UserFavouritesChangedListener {
 
 	/**
+	 * Heure de fin de la journée.
+	 */
+	private static final int END_HOUR = 19;
+
+	/**
+	 * Heure de début de la journée
+	 */
+	private static final int START_HOUR = 8;
+
+	/**
 	 * Nombre de jours de l'évènement.
 	 */
 	private static final int NOMBRE_JOUR = 1;
@@ -58,6 +68,7 @@ public class JCertifCalendar extends Calendar implements UserChangeListener,
 		dateFin.add(java.util.Calendar.DATE, NOMBRE_JOUR);
 
 		setEndDate(dateFin.getTime());
+		setVisibleHoursOfDay(START_HOUR, END_HOUR);
 	}
 
 
