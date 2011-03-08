@@ -7,13 +7,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
     <link type="text/css" href="css/bottom.css" rel="stylesheet" />
+    <link type="text/css" href="../VAADIN/themes/jcertifruno/styles.css" rel="stylesheet" />
     <script type="text/javascript">
         var vaadin = {
             vaadinConfigurations : {
                 'vaadin_div' : {
                     appUri : '/jcertif-presentation/vaadin/inscription',
                     pathInfo : '/',
-                    themeUri : '../VAADIN/themes/jcertifruno',
+                    themeUri : '',
                     versionInfo : {
                         vaadinVersion : "6.2.0-INTERNAL-NONVERSIONED-DEBUG-BUILD",
                         applicationVersion : "NONVERSIONED"

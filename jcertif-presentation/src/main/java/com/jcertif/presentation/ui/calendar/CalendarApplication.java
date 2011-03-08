@@ -82,8 +82,8 @@ public class CalendarApplication extends Application implements EventClickHandle
 		getDetailPanel().setContent(custom);
 		
 
-		Button ok = new Button("Login");
-		custom.addComponent(ok, "participer");
+		Button jeParticipeBtn = new Button("Je participe");
+		custom.addComponent(jeParticipeBtn, "participer");
 		custom.addComponent(
 				new Label(event.getJcertifEvent().getCeduleSalles().iterator().next().getSalle().getLibelle()), "ou");
 		Date debut = event.getJcertifEvent().getDateDebutPrevue().getTime();
