@@ -253,7 +253,7 @@ public class PropositionPresentation extends AbstractBO {
     /**
      * @return la liste de sujets.
      */
-    protected List<Sujet> getSujetsInternal() {
+    public List<Sujet> getSujetsInternal() {
         if (sujetsInternal == null) {
             sujetsInternal = new ArrayList<Sujet>();
         }
@@ -266,7 +266,7 @@ public class PropositionPresentation extends AbstractBO {
      * @param sujetsInternal
      *            une liste de sujet
      */
-    protected void setSujetsInternal(List<Sujet> sujetsInternal) {
+    public void setSujetsInternal(List<Sujet> sujetsInternal) {
         this.sujetsInternal = sujetsInternal;
     }
 
