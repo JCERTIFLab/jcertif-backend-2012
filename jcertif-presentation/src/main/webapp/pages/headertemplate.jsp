@@ -24,7 +24,7 @@
                 </div>
                       <div id="right_nav">
                     <ul>
-                        <li><a href="home.jsp" title="">Inscrivez-vous</a></li>
+                        <li><a href="inscription.jsp" title="">Inscrivez-vous</a></li>
                         <li><a href="services.html" title="">Proposer un sujet</a></li>
                         <li><a class="current" href="#" title="">Sponsorship et Partenariat</a></li>
                         <li><a href="#" title="">Demande d'invitation Officielle</a></li>

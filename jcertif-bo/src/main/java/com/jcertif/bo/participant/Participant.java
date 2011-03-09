@@ -39,13 +39,13 @@ public class Participant extends Person {
     private String compagnie;
     @Column
     protected String codeParticipant;
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_participant_id")
     private RoleParticipant roleparticipant;
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_participant_id")
     private TypeParticipant typeParticipant;
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "conference_id")
     private Conference conference;
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)

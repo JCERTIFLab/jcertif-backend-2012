@@ -13,6 +13,7 @@ import com.jcertif.presentation.action.ParticipantAction;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 import static org.junit.Assert.*;
@@ -21,6 +22,7 @@ import static org.junit.Assert.*;
  *
  * @author Douneg
  */
+@Ignore
 public class ParticipantFormTest {
 
     @Mock

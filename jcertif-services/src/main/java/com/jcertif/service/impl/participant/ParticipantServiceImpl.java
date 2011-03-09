@@ -29,33 +29,6 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
 
     @Autowired
     ParticipantDAO participantDAO;
-    @Autowired
-    private ConferenceDAO conferenceDAO;
-    @Autowired
-    private RoleParticipantDAO roleParticipantDAO;
-    @Autowired
-    private TypeParticipantDAO typeParticipantDAO;
-    @Autowired
-    private ProfilUtilisateurDAO profilUtilisateurDAO;
-
-    @Override
-    public Participant save(Participant participant) {
-        if (participant.getConference() != null) {
-            Conference conference = conferenceDAO.getReference(participant.getConference().getId());
-            participant.setConference(conference);
-        } else if (participant.getRoleparticipant() != null) {
-            RoleParticipant roleParticipant = roleParticipantDAO.getReference(participant.getRoleparticipant().getId());
-            participant.setRoleparticipant(roleParticipant);
-        } else if (participant.getTypeParticipant() != null) {
-            TypeParticipant typeParticipant = typeParticipantDAO.getReference(participant.getTypeParticipant().getId());
-            participant.setTypeParticipant(typeParticipant);
-        }
-        if (participant.getProfilUtilisateur() != null) {
-            profilUtilisateurDAO.persist(participant.getProfilUtilisateur());
-        } else {
-        }
-        return super.save(participant);
-    }
 
     @Override
     public ParticipantDAO getDAO() {

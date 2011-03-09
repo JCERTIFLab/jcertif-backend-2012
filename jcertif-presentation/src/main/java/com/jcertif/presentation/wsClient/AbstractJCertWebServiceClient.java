@@ -4,9 +4,11 @@
  */
 package com.jcertif.presentation.wsClient;
 
+import com.jcertif.presentation.data.bo.participant.Participant;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
 import java.io.Serializable;
@@ -38,6 +40,8 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
     protected static final String FINDALL_SUFFIX = "list";
     protected static final String UPDATE_SUFFIX = "update";
     protected static final String DELETE_SUFFIX = "delete";
+    private final Class<T> boClass;
+  
 
     public ClientResponse checkConnection() {
         ClientResponse response = null;
@@ -76,6 +80,8 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
 
     public AbstractJCertWebServiceClient(String ressourceBasePath) {
         this.ressourceBasePath = ressourceBasePath;
+        final ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
+        this.boClass = (Class<T>) type.getActualTypeArguments()[0];
         init();
     }
 
@@ -114,7 +120,7 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
 
     public <T> T get_XML(PK id) throws UniformInterfaceException, ClientHandlerException {
 
-        return (T) getWebResource().path(java.text.MessageFormat.format(FINDBYID_SUFFIX, new Object[]{id})).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
+        return (T) getWebResource().path(java.text.MessageFormat.format(FINDBYID_SUFFIX, new Object[]{id})).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(boClass);
 
     }
 
@@ -126,13 +132,13 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
 
     public <T> T create_XML(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
 
-        return (T) getWebResource().type(javax.ws.rs.core.MediaType.APPLICATION_XML).put(responseType, requestEntity);
+        return (T)getWebResource().path(CREATE_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).post(boClass,requestEntity);
 
     }
 
     public <T> T create_JSON(T requestEntity) throws UniformInterfaceException, ClientHandlerException {
 
-        return (T) getWebResource().type(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(responseType, requestEntity);
+        return (T)getWebResource().path(CREATE_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).post(boClass,requestEntity);
 
     }
 

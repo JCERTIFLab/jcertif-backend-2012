@@ -34,29 +34,4 @@ public class ConferenceFacade extends AbstractFacade<ConferenceService, Conferen
     public void setService(ConferenceService service) {
         this.service = service;
     }
-
-    @Override
-    public Conference create(Conference entity) {
-        return super.create(entity);
-    }
-
-    @Override
-    public Conference delete(Conference profil) {
-        return super.delete(profil);
-    }
-
-    @Override
-    public List<Conference> findAll() {
-        return super.findAll();
-    }
-
-    @Override
-    public Conference findById(Long id) {
-        return super.findById(id);
-    }
-
-    @Override
-    public Conference update(Conference profil) {
-        return super.update(profil);
-    }
 }
