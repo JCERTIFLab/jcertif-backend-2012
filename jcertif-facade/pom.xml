@@ -175,15 +175,6 @@
                     </plugin>
                 </plugins>
 
-                <resources>
-                    <resource>
-                        <directory>src/main/config/integration</directory>
-                    </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                    </resource>
-                </resources>
-
             </build>
         </profile>
 
@@ -193,15 +184,6 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/config/dev</directory>
-                    </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                    </resource>
-                </resources>
-
                 <plugins>
                     <plugin>
                         <groupId>org.glassfish</groupId>
