@@ -14,10 +14,13 @@ import com.vaadin.terminal.ExternalResource;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.PopupView;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.Window.Notification;
 
 /**
  * 
@@ -73,17 +76,12 @@ public class CreationParticipantPanel extends MasterDetailsPanel<ParticipantActi
 				getAction().addItem(participantForm.getBeanItem().getBean());
 				Window main = getApplication().getMainWindow();
 				// Create a notification with default settings for a warning.
-				Window.Notification notif = new Window.Notification(
-						"L'enregistrement a bien été prise en compte. Vous allez être redirigé vers la page d'accueil.",
-						Window.Notification.TYPE_HUMANIZED_MESSAGE);
-				// Set the position.
-				notif.setPosition(Window.Notification.POSITION_CENTERED_BOTTOM);
 
-				// Let it stay there until the user clicks it
-				notif.setDelayMsec(Window.Notification.DELAY_FOREVER);
 				// Show it in the main window.
-				main.showNotification(notif);
-				
+				main.showNotification(
+						"L'enregistrement a bien été prise en compte. Vous allez être redirigé vers la page d'accueil.",
+						Notification.TYPE_HUMANIZED_MESSAGE);
+
 				ExternalResource res = new ExternalResource("home.jsp");
 				main.open(res);
 			} else {

@@ -29,7 +29,7 @@ public class JCertifEventProvider extends BasicEventProvider {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Retrieving all events");
 		}
-		List<Evenement> evenementList = EvenementClient.getInstance().findAll_XML();
+		List<Evenement> evenementList = EvenementClient.getInstance().findAllXML();
 
 		for (Evenement dataEvent : evenementList) {
 			Date startDateEvent = dataEvent.getDateDebutPrevue().getTime();

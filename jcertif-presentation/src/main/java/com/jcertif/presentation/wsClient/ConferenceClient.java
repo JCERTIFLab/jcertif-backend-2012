@@ -39,7 +39,7 @@ public class ConferenceClient extends AbstractJCertWebServiceClient<Conference, 
     }
 
     @Override
-    public List<Conference> findAll_XML() throws UniformInterfaceException, ClientHandlerException {
+    public List<Conference> findAllXML() throws UniformInterfaceException, ClientHandlerException {
         return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(new GenericType<List<Conference>>() {
         });
     }

@@ -29,4 +29,9 @@ public class TypeParticipant extends CodeDescription {
 		this.setCode(code);
 		this.setDescription(desc);
 	}
+	
+	@Override
+	public String toString() {
+		return getDescription();
+	}
 }

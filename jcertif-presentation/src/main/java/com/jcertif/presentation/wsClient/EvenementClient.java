@@ -44,7 +44,7 @@ public class EvenementClient extends
 	}
 
 	@Override
-	public List<Evenement> findAll_XML() throws UniformInterfaceException,
+	public List<Evenement> findAllXML() throws UniformInterfaceException,
 			ClientHandlerException {
 		return getWebResource().path(FINDALL_SUFFIX)
 				.accept(javax.ws.rs.core.MediaType.APPLICATION_XML)

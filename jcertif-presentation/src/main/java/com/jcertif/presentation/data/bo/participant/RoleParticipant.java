@@ -53,4 +53,11 @@ public class RoleParticipant extends CodeDescription {
     public void setParticipants(Set<Participant> participants) {
         this.participants = participants;
     }
+
+	@Override
+	public String toString() {
+		return getDescription();
+	}
+    
+    
 }

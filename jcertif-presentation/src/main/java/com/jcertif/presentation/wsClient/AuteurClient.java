@@ -44,7 +44,7 @@ public class AuteurClient extends AbstractJCertWebServiceClient<Auteur, Long> {
     }
 
     @Override
-    public List<Auteur> findAll_XML() throws UniformInterfaceException, ClientHandlerException {
+    public List<Auteur> findAllXML() throws UniformInterfaceException, ClientHandlerException {
         return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(new GenericType<List<Auteur>>() {
         });
     }

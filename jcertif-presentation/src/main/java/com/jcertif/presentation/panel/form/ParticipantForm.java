@@ -46,7 +46,9 @@ public class ParticipantForm extends AbstractForm<Participant, ParticipantAction
         // Create our layout (4x8 GridLayout)
         ourLayout = new GridLayout(4, 8);
         vLayout = new VerticalLayout();
-
+        vLayout.setMargin(true);
+        vLayout.setSpacing(true);
+        //vLayout.setSizeFull();
         // Use top-left margin and spacing
         ourLayout.setMargin(true, false, false, true);
         ourLayout.setSpacing(true);
@@ -89,6 +91,8 @@ public class ParticipantForm extends AbstractForm<Participant, ParticipantAction
                     f.setCaption("Prenom");
                     f.setRequired(true);
                     f.setColumns(12);
+                    f.setHeight("100%");
+                    f.setRows(1);
                     f.setNullRepresentation("");
                     return f;
                 } else if (propertyId.equals("nom")) {
@@ -96,6 +100,8 @@ public class ParticipantForm extends AbstractForm<Participant, ParticipantAction
                     f.setCaption("Nom");
                     f.setRequired(true);
                     f.setColumns(12);
+                    f.setHeight("100%");
+                    f.setRows(1);
                   f.setNullRepresentation("");
                     return f;
                 } else if (propertyId.equals("specialite")) {
@@ -134,16 +140,16 @@ public class ParticipantForm extends AbstractForm<Participant, ParticipantAction
                 } else if (propertyId.equals("details")) {
                     TextField f = (TextField) field;
                     f.setCaption("Details");
-                    f.setWidth("100%");
+                    f.setColumns(12);
                     f.setNullRepresentation("");
                     f.setRows(2);
                 } else if (propertyId.equals("website")) {
                     TextField f = (TextField) field;
                     f.setCaption("Site Web");
-                    f.setWidth("100%");
+                    f.setColumns(12);
                     f.setNullRepresentation("");
                 }
-                field.setWidth("100%");
+
                 return field;
             }
         });

@@ -142,7 +142,7 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
 
     }
 
-    public abstract List<T> findAll_XML() throws UniformInterfaceException, ClientHandlerException ;
+    public abstract List<T> findAllXML() throws UniformInterfaceException, ClientHandlerException ;
     public abstract List<T> findAll_JSON() throws UniformInterfaceException, ClientHandlerException ;
 
     public void delete_XML(T requestEntity) throws UniformInterfaceException, ClientHandlerException {

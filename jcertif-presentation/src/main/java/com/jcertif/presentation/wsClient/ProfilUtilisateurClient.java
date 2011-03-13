@@ -43,7 +43,7 @@ public class ProfilUtilisateurClient extends AbstractJCertWebServiceClient<Profi
     }
 
     @Override
-    public List<ProfilUtilisateur> findAll_XML() throws UniformInterfaceException, ClientHandlerException {
+    public List<ProfilUtilisateur> findAllXML() throws UniformInterfaceException, ClientHandlerException {
         return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(new GenericType<List<ProfilUtilisateur>>() {
         });
     }

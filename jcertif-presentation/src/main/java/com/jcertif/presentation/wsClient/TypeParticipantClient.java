@@ -42,7 +42,7 @@ public class TypeParticipantClient extends AbstractJCertWebServiceClient<TypePar
     }
 
     @Override
-    public List<TypeParticipant> findAll_XML() throws UniformInterfaceException, ClientHandlerException {
+    public List<TypeParticipant> findAllXML() throws UniformInterfaceException, ClientHandlerException {
         return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(new GenericType<List<TypeParticipant>>() {
         });
     }

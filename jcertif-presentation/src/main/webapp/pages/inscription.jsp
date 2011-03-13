@@ -5,16 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
     <link type="text/css" href="css/bottom.css" rel="stylesheet" />
-    <link type="text/css" href="../VAADIN/themes/jcertifruno/styles.css" rel="stylesheet" />
-    <script type="text/javascript">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link type="text/css" href="../VAADIN/themes/jcertif-chameleon/styles.css" rel="stylesheet" />
+     <script type="text/javascript">
         var vaadin = {
             vaadinConfigurations : {
                 'vaadin_div' : {
                     appUri : '/jcertif-presentation/vaadin/inscription',
                     pathInfo : '/',
-                    themeUri : '',
+                    themeUri : '/jcertif-presentation/VAADIN/themes/chameleon',
                     versionInfo : {
                         vaadinVersion : "6.2.0-INTERNAL-NONVERSIONED-DEBUG-BUILD",
                         applicationVersion : "NONVERSIONED"

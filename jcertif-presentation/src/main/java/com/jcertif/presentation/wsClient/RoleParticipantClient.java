@@ -40,7 +40,7 @@ public class RoleParticipantClient extends AbstractJCertWebServiceClient<RolePar
     }
 
     @Override
-    public List<RoleParticipant> findAll_XML() throws UniformInterfaceException, ClientHandlerException {
+    public List<RoleParticipant> findAllXML() throws UniformInterfaceException, ClientHandlerException {
         return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(new GenericType<List<RoleParticipant>>() {
         });
     }

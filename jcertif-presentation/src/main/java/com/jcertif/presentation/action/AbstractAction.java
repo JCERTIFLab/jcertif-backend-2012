@@ -91,7 +91,7 @@ public abstract class AbstractAction<PC extends AbstractJCertifBeanItemContainer
 		ClientResponse status = getWebServiceClient().checkConnection();
 		Collection<BO> all = new ArrayList<BO>();
 		try {
-			all = getWebServiceClient().findAll_XML();
+			all = getWebServiceClient().findAllXML();
 			getPrincipalContainer().loadData(all);
 
 		} catch (UniformInterfaceException e) {

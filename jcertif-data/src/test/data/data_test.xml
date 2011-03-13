@@ -17,9 +17,9 @@
 	<type_participant id="2" code="entreprise" description="entreprise"/>
 	<type_participant id="3" code="etudiant" description="etudiant"/>
 	
-	<salle id="5" libelle="salle jcertif" description="grande" nombre_place="2000" details="climatisation" />
-	<salle id="6" libelle="palais de congrès" description="grande" nombre_place="900" details="pas de tables" />
-	<salle id="7" libelle="commune" description="petite" nombre_place="500" details="pas de chaises" />
+	<salle id="5" libelle="Hall" description="cette grande salle se situe à l'entrée" nombre_place="2000" details="climatisation" />
+	<salle id="6" libelle="De Brazza" description="Salle historique" nombre_place="900" details="pas de tables" />
+	<salle id="7" libelle="Gide" description="Salle Gide" nombre_place="500" details="pas de chaises" />
 	
 	<particularite_salle id="1" code="SMALL" description="petite" />
 	<particularite_salle id="2" code="BIG" description="grande"/>

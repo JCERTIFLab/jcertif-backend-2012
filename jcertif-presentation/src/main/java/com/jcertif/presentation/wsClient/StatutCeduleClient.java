@@ -39,7 +39,7 @@ public class StatutCeduleClient extends AbstractJCertWebServiceClient<StatutCedu
     }
 
     @Override
-    public List<StatutCedule> findAll_XML() throws UniformInterfaceException, ClientHandlerException {
+    public List<StatutCedule> findAllXML() throws UniformInterfaceException, ClientHandlerException {
         return getWebResource().path(FINDALL_SUFFIX).accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(new GenericType<List<StatutCedule>>() {
         });
     }

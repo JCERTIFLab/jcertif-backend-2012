@@ -5,6 +5,7 @@ import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.vaadin.imagefilter.Image;
 
 import com.jcertif.presentation.data.bo.cedule.CeduleParticipant;
 import com.jcertif.presentation.data.bo.cedule.Evenement;
@@ -13,8 +14,11 @@ import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
 import com.vaadin.Application;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClick;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClickHandler;
+import com.vaadin.terminal.StreamResource;
+import com.vaadin.terminal.StreamResource.StreamSource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CustomLayout;
+import com.vaadin.ui.Embedded;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
@@ -41,7 +45,11 @@ public class CalendarApplication extends Application implements EventClickHandle
 		setTheme("jcertifruno");
 		mainWindow = new Window();
 
-		
+//		CustomLayout custom = new CustomLayout("details_event_layout");
+//		custom.addStyleName("customlayoutexample");
+
+		// Use it as the layout of the Panel.
+		//getDetailPanel().setContent(custom);
 		
 
 		mainWindow.getContent().addComponent(getCalendarComponent());
@@ -82,10 +90,29 @@ public class CalendarApplication extends Application implements EventClickHandle
 		getDetailPanel().setContent(custom);
 		
 
-		Button jeParticipeBtn = new Button("Je participe");
-		custom.addComponent(jeParticipeBtn, "participer");
+		String libelleSalle = event.getJcertifEvent().getCeduleSalles().iterator().next().getSalle().getLibelle();
+		if("Hall".equals(libelleSalle)){
+			StreamSource imageSource = null;
+			// Create the stream resource with some initial filename.
+			StreamResource imageResource =
+			    new StreamResource(imageSource, "initial-filename.png",
+			                       this);
+
+			// Instruct browser not to cache the image.
+			imageResource.setCacheTime(0);
+
+			// Display the image in an Embedded component.
+			Embedded embedded = new Embedded("", imageResource);
+			
+			custom.addComponent(
+					new Image("./pages/images/hall_principal.png", false), "ou");
+		} else if("Gide".equals(libelleSalle)){
+			
+			custom.addComponent(
+					new Image("./pages/images/salle_gide.png", false), "ou");
+		}
 		custom.addComponent(
-				new Label(event.getJcertifEvent().getCeduleSalles().iterator().next().getSalle().getLibelle()), "ou");
+				new Label(), "ou");
 		Date debut = event.getJcertifEvent().getDateDebutPrevue().getTime();
 		custom.addComponent(
 				new Label(new SimpleDateFormat("EEEEEEEE dd MMMMMMMMMMMMMM").format(debut) + " de " + new SimpleDateFormat("HH:mm").format(debut)
