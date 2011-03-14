@@ -2,6 +2,8 @@ package com.jcertif.dao.hibernate.participant;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -138,5 +140,13 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 		participantDAO.remove(entity);
 		assertEquals(2, participantDAO.findAll().size());
 	}	
+	
+	@Test
+	public void testFindByEmail(){
+		List<Participant> partList = participantDAO.findByEmail("max@bon.com");
+		assertEquals(1, partList.size());
+		partList = participantDAO.findByEmail("rossi@bon.com");
+		assertEquals(0, partList.size());
+	}
 	
 }

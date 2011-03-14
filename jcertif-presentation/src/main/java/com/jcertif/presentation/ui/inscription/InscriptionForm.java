@@ -13,6 +13,7 @@ import com.jcertif.presentation.data.bo.conference.Conference;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.wsClient.ConferenceClient;
 import com.jcertif.presentation.wsClient.ParticipantClient;
+import com.sun.jersey.api.client.UniformInterfaceException;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.terminal.ExternalResource;
 import com.vaadin.ui.Button;
@@ -84,12 +85,19 @@ public class InscriptionForm extends Form {
 	public void commit() throws SourceException {
 		// TODO Auto-generated method stub
 		super.commit();
-		ParticipantClient.getInstance().create_XML(
-				((BeanItem<Participant>) this.getItemDataSource()).getBean());
-		Window main = getApplication().getMainWindow();
-		// Create a notification with default settings for a warning.
-		ExternalResource res = new ExternalResource("confirmationInscription.jsp");
-		main.open(res);
+		try {
+			ParticipantClient.getInstance().create_XML(
+					((BeanItem<Participant>) this.getItemDataSource()).getBean());
+			Window main = getApplication().getMainWindow();
+			// Create a notification with default settings for a warning.
+			ExternalResource res = new ExternalResource("confirmationInscription.jsp");
+			main.open(res);
+		} catch (UniformInterfaceException e) {
+			getApplication().getMainWindow().showNotification("Email incorrect");
+			// TODO Gestion de l'exception
+			e.getResponse();
+		}
+
 	}
 
 }
