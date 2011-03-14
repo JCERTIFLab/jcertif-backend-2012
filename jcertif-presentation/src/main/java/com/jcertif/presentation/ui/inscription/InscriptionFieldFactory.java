@@ -7,6 +7,7 @@ import com.jcertif.presentation.data.bo.participant.TypeParticipant;
 import com.jcertif.presentation.wsClient.RoleParticipantClient;
 import com.jcertif.presentation.wsClient.TypeParticipantClient;
 import com.vaadin.data.Item;
+import com.vaadin.data.validator.EmailValidator;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Field;
@@ -51,7 +52,9 @@ public class InscriptionFieldFactory implements FormFieldFactory {
 			text.setRows(5);
 			return text;
 		} else if (pid.equals("email")) {
-			return createTextField("Email", true);
+			TextField text = createTextField("Email", true);
+			text.addValidator(new EmailValidator("L'adresse email doit être au format xxxxx@yyyyy.zzz"));
+			return text ;
 		} else if (pid.equals("website")) {
 			return createTextField("Site web", false);
 		} else if (pid.equals("roleparticipant")) {
