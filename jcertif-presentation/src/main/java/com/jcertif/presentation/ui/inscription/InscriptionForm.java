@@ -1,0 +1,95 @@
+/**
+ * 
+ */
+package com.jcertif.presentation.ui.inscription;
+
+import java.util.Calendar;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.jcertif.presentation.data.bo.conference.Conference;
+import com.jcertif.presentation.data.bo.participant.Participant;
+import com.jcertif.presentation.wsClient.ConferenceClient;
+import com.jcertif.presentation.wsClient.ParticipantClient;
+import com.vaadin.data.util.BeanItem;
+import com.vaadin.terminal.ExternalResource;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Form;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Window;
+import com.vaadin.ui.Window.Notification;
+
+/**
+ * Formulation d'inscription d'un participant.
+ * 
+ * @author rossi
+ * 
+ */
+public class InscriptionForm extends Form {
+
+	private static final Object[] VISIBLE_PROPERTIES = new Object[] { "salutation", "prenom",
+			"nom", "email", "roleparticipant", "typeParticipant", "compagnie", "website", "details" };
+	private static final long serialVersionUID = 1L;
+	private static final Logger LOGGER = LoggerFactory.getLogger(InscriptionForm.class);
+
+	public InscriptionForm() {
+		super();
+		init();
+	}
+
+	private void init() {
+		// this.setLayout(new VerticalLayout());
+		this.getLayout().setMargin(true);
+		setFormFieldFactory(new InscriptionFieldFactory());
+
+		Participant bean = new Participant();
+
+		// Initialisation de la conférence
+		List<Conference> conferences = ConferenceClient.getInstance().findAllXML();
+
+		if (conferences == null || conferences.isEmpty()) {
+			LOGGER.error("Aucune conférence n'est présente côté facade");
+		} else {
+			// TODO définir avec Max une clé fonctionnelle pour la conférence à
+			// choisir
+			bean.setConference(conferences.iterator().next());
+		}
+
+		// Init à la date du jour
+		bean.setDateInscription(Calendar.getInstance());
+
+		// Mapping BO Bean Form
+		BeanItem<Participant> item = new BeanItem<Participant>(bean);
+		this.setItemDataSource(item);
+		this.setVisibleItemProperties(VISIBLE_PROPERTIES);
+
+		// Footer avec le bouton enregistrer
+		Button saveParticipant = new Button("Enregistrer", this, "commit");
+		HorizontalLayout layoutFooter = new HorizontalLayout();
+		layoutFooter.addComponent(saveParticipant);
+		this.setFooter(layoutFooter);
+
+		this.setCaption("Inscription à JCERTIF 2011");
+		this.setDescription("Veuillez remplir ce formulaire afin de vous inscrire à l'évènement");
+
+	}
+
+	/**
+	 * @see com.vaadin.ui.Form#commit()
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void commit() throws SourceException {
+		// TODO Auto-generated method stub
+		super.commit();
+		ParticipantClient.getInstance().create_XML(
+				((BeanItem<Participant>) this.getItemDataSource()).getBean());
+		Window main = getApplication().getMainWindow();
+		// Create a notification with default settings for a warning.
+		ExternalResource res = new ExternalResource("confirmationInscription.jsp");
+		main.open(res);
+	}
+
+}
