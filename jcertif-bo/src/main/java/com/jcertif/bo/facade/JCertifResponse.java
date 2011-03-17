@@ -14,7 +14,6 @@ import com.jcertif.bo.participant.Participant;
  * 
  */
 @XmlRootElement
-@XmlSeeAlso(Participant.class)
 public class JCertifResponse {
 	
 	private Error error;
