@@ -14,7 +14,7 @@
                 'vaadin_div' : {
                     appUri : '/jcertif-presentation/vaadin/inscription',
                     pathInfo : '/',
-                    themeUri : '/jcertif-presentation/VAADIN/themes/chameleon',
+                    themeUri : '',
                     versionInfo : {
                         vaadinVersion : "6.2.0-INTERNAL-NONVERSIONED-DEBUG-BUILD",
                         applicationVersion : "NONVERSIONED"
