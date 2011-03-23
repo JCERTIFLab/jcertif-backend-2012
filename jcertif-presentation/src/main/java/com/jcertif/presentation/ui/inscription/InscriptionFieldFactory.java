@@ -1,9 +1,11 @@
 package com.jcertif.presentation.ui.inscription;
 
 import java.util.List;
+import java.util.Locale;
 
 import com.jcertif.presentation.data.bo.participant.RoleParticipant;
 import com.jcertif.presentation.data.bo.participant.TypeParticipant;
+import com.jcertif.presentation.internationalisation.Messages;
 import com.jcertif.presentation.wsClient.RoleParticipantClient;
 import com.jcertif.presentation.wsClient.TypeParticipantClient;
 import com.vaadin.data.Item;
@@ -32,9 +34,9 @@ public class InscriptionFieldFactory implements FormFieldFactory {
 		String pid = (String) propertyId;
 
 		if (pid.equals("nom")) {
-			return createTextField("Nom", true);
+			return createTextField(Messages.getString("Presentation.nom", Locale.getDefault()), true);
 		} else if (pid.equals("prenom")) {
-			return createTextField("Prénom", true);
+			return createTextField(Messages.getString("Presentation.prenom", Locale.getDefault()), true);
 		} else if (pid.equals("salutation")) {
 			ComboBox combo = new ComboBox("Civilité");
 			combo.addItem("Mlle");
@@ -44,7 +46,7 @@ public class InscriptionFieldFactory implements FormFieldFactory {
 			combo.setRequiredError("La Civilité est obligatoire");
 			return combo;
 		} else if (pid.equals("specialite")) {
-			return createTextField("Spécialité", false);
+			return createTextField(Messages.getString("Presentation.specialite", Locale.getDefault()), false);
 		} else if (pid.equals("compagnie")) {
 			return createTextField("Entreprise", false);
 		} else if (pid.equals("details")) {

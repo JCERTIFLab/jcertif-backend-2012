@@ -5,12 +5,14 @@ package com.jcertif.presentation.ui.inscription;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.bo.conference.Conference;
 import com.jcertif.presentation.data.bo.participant.Participant;
+import com.jcertif.presentation.internationalisation.Messages;
 import com.jcertif.presentation.wsClient.ConferenceClient;
 import com.jcertif.presentation.wsClient.ParticipantClient;
 import com.sun.jersey.api.client.UniformInterfaceException;
@@ -67,13 +69,13 @@ public class InscriptionForm extends Form {
 		this.setVisibleItemProperties(VISIBLE_PROPERTIES);
 
 		// Footer avec le bouton enregistrer
-		Button saveParticipant = new Button("Enregistrer", this, "commit");
+		Button saveParticipant = new Button(Messages.getString("Presentation.enregistrer", Locale.getDefault()), this, "commit");
 		HorizontalLayout layoutFooter = new HorizontalLayout();
 		layoutFooter.addComponent(saveParticipant);
 		this.setFooter(layoutFooter);
 
-		this.setCaption("Inscription à JCERTIF 2011");
-		this.setDescription("Veuillez remplir ce formulaire afin de vous inscrire à l'évènement");
+		this.setCaption(Messages.getString("Presentation.inscription_caption", Locale.getDefault()));
+		this.setDescription(Messages.getString("Presentation.inscription_description", Locale.getDefault()));
 
 	}
 
