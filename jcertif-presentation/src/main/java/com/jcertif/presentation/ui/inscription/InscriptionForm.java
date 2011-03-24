@@ -15,14 +15,13 @@ import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.internationalisation.Messages;
 import com.jcertif.presentation.wsClient.ConferenceClient;
 import com.jcertif.presentation.wsClient.ParticipantClient;
-import com.sun.jersey.api.client.UniformInterfaceException;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.terminal.ExternalResource;
+import com.vaadin.terminal.UserError;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Form;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Window;
-import com.vaadin.ui.Window.Notification;
 
 /**
  * Formulation d'inscription d'un participant.
@@ -69,13 +68,15 @@ public class InscriptionForm extends Form {
 		this.setVisibleItemProperties(VISIBLE_PROPERTIES);
 
 		// Footer avec le bouton enregistrer
-		Button saveParticipant = new Button(Messages.getString("Presentation.enregistrer", Locale.getDefault()), this, "commit");
+		Button saveParticipant = new Button(Messages.getString("Presentation.enregistrer",
+				Locale.getDefault()), this, "commit");
 		HorizontalLayout layoutFooter = new HorizontalLayout();
 		layoutFooter.addComponent(saveParticipant);
 		this.setFooter(layoutFooter);
 
 		this.setCaption(Messages.getString("Presentation.inscription_caption", Locale.getDefault()));
-		this.setDescription(Messages.getString("Presentation.inscription_description", Locale.getDefault()));
+		this.setDescription(Messages.getString("Presentation.inscription_description",
+				Locale.getDefault()));
 
 	}
 
@@ -85,19 +86,20 @@ public class InscriptionForm extends Form {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void commit() throws SourceException {
-		// TODO Auto-generated method stub
 		super.commit();
-		try {
-			ParticipantClient.getInstance().create_XML(
-					((BeanItem<Participant>) this.getItemDataSource()).getBean());
+
+		ParticipantClient client = ParticipantClient.getInstance();
+		Participant bean = ((BeanItem<Participant>) this.getItemDataSource()).getBean();
+		
+		if (client.isEmailExist(bean.getEmail())) {
+			this.setComponentError(new UserError("Cette adresse email est déjà utilisé."));
+		} else {
+			
+			client.create_XML(bean);
 			Window main = getApplication().getMainWindow();
 			// Create a notification with default settings for a warning.
 			ExternalResource res = new ExternalResource("confirmationInscription.jsp");
 			main.open(res);
-		} catch (UniformInterfaceException e) {
-			getApplication().getMainWindow().showNotification("Email incorrect");
-			// TODO Gestion de l'exception
-			e.getResponse();
 		}
 
 	}
