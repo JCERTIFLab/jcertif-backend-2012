@@ -20,6 +20,7 @@
 		<mapping class="com.jcertif.bo.cedule.CeduleSalle" />
 		<mapping class="com.jcertif.bo.conference.Conference" />
 		<mapping class="com.jcertif.bo.conference.Organisateur" />
+		<mapping class="com.jcertif.bo.conference.Faq" />
 		<mapping class="com.jcertif.bo.salle.ParticulariteSalle"/>
 		<mapping class="com.jcertif.bo.participant.RoleParticipant"/>
 		<mapping class="com.jcertif.bo.participant.Participant"/>

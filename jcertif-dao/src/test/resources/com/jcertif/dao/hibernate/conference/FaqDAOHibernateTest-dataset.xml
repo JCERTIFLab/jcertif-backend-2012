@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<faq id="1" question="JCertif c'est quoi ?" reponse="JCERTIF c'est l'excellence" />
+	<faq id="2" question="JCertif commence quand ?" reponse="Très bientôt" />
+	<faq id="3" question="JCertif pourquoi?" reponse="Parce que" />
+</dataset>

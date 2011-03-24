@@ -6,7 +6,6 @@ package com.jcertif.bo.conference;
 
 import java.util.Calendar;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -17,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -48,6 +48,10 @@ public class Conference extends AbstractBO {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "organisateur_conference", joinColumns = @JoinColumn(name = "conference_id"), inverseJoinColumns = @JoinColumn(name = "organisateur_id"))
 	private Set<Organisateur> organisateurs = new HashSet<Organisateur>();
+	
+	@OneToMany
+	@JoinColumn(name = "conference_id")
+	private Set<Faq> faqs = new HashSet<Faq>();
 
 	public Long getId() {
 		return id;
@@ -151,6 +155,22 @@ public class Conference extends AbstractBO {
 	 */
 	public void setDateFin(Calendar dateFin) {
 		this.dateFin = dateFin;
+	}
+	
+	
+
+	/**
+	 * @return the faqs
+	 */
+	public Set<Faq> getFaqs() {
+		return faqs;
+	}
+
+	/**
+	 * @param faqs the faqs to set
+	 */
+	public void setFaqs(Set<Faq> faqs) {
+		this.faqs = faqs;
 	}
 
 	/**
