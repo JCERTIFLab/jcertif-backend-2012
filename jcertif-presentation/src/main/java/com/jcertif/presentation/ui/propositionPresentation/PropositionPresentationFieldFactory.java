@@ -1,18 +1,26 @@
 package com.jcertif.presentation.ui.propositionPresentation;
 
 import java.util.List;
+import java.util.Locale;
 
 import com.jcertif.presentation.data.bo.participant.RoleParticipant;
 import com.jcertif.presentation.data.bo.participant.TypeParticipant;
+import com.jcertif.presentation.data.bo.presentation.Sujet;
+import com.jcertif.presentation.internationalisation.Messages;
 import com.jcertif.presentation.wsClient.RoleParticipantClient;
+import com.jcertif.presentation.wsClient.SujetClient;
 import com.jcertif.presentation.wsClient.TypeParticipantClient;
 import com.vaadin.data.Item;
+import com.vaadin.data.Property;
+import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.validator.EmailValidator;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Field;
 import com.vaadin.ui.FormFieldFactory;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.TwinColSelect;
+import com.vaadin.ui.VerticalLayout;
 
 /**
  * Factory des champs du formulaire de proposition de sujet de présentation.
@@ -20,7 +28,7 @@ import com.vaadin.ui.TextField;
  * @author max
  * 
  */
-public class PropositionPresentationFieldFactory implements FormFieldFactory {
+public class PropositionPresentationFieldFactory extends VerticalLayout implements FormFieldFactory, Property.ValueChangeListener {
 
 	private static final long serialVersionUID = 1L;
 
@@ -32,67 +40,85 @@ public class PropositionPresentationFieldFactory implements FormFieldFactory {
 		String pid = (String) propertyId;
 
 		if (pid.equals("titre")) {
-			return createTextField("Titre", true);
+			return createTextField(Messages.getString("Presentation.proposition.title", Locale.getDefault()), true);
 		} else if (pid.equals("description")) {
-			return createTextField("Description", true);
-		} else if (pid.equals("sommaire")) {
-			return createTextField("Sommaire", true);
+			return createTextAreaField(Messages.getString("Presentation.proposition.description", Locale.getDefault()), true);
+		} else if (pid.equals("topic")) {
+			return createTwinColumnSelectSujet(); //createTextAreaField(Messages.getString("Presentation.proposition.description", Locale.getDefault()), true);
+		}
+		else if (pid.equals("sommaire")) {
+			return createTextAreaField(Messages.getString("Presentation.proposition.sommary", Locale.getDefault()), true);
 		} else if (pid.equals("besoinsSpecifiques")) {
 			return createTextField("Besoins specifiques", false);
+		} else if (pid.equals("keyWord")) {
+			return createTextField("Mot clé", false);
 		} 
-//		else if (pid.equals("compagnie")) {
-//			return createTextField("Entreprise", false);
-//		} else if (pid.equals("details")) {
-//			TextField text = createTextField("Présentation", false);
-//			text.setRows(5);
-//			return text;
-//		} else if (pid.equals("email")) {
-//			TextField text = createTextField("Email", true);
-//			text.addValidator(new EmailValidator("L'adresse email doit être au format xxxxx@yyyyy.zzz"));
-//			return text ;
-//		} else if (pid.equals("website")) {
-//			return createTextField("Site web", false);
-//		} else if (pid.equals("roleparticipant")) {
-//			ComboBox combo = new ComboBox("Rôle");
-//			initComboRoleParticipant(combo);
-//			combo.setRequired(true);
-//			combo.setRequiredError("Le rôle est obligatoire");
-//			return combo;
-//		} else if (propertyId.equals("typeParticipant")) {
-//			ComboBox combo = new ComboBox("Type");
-//			initComboTypeParticipant(combo);
-//			combo.setRequired(true);
-//			combo.setRequiredError("Le type est obligatoire");
-//			return combo;
-//		}
-
 		return null;
-	}
-
-	private void initComboTypeParticipant(ComboBox combo) {
-		List<TypeParticipant> typeParticipantList = TypeParticipantClient.getInstance()
-				.findAllXML();
-		for (TypeParticipant type : typeParticipantList) {
-			combo.addItem(type);
-		}
-	}
-
-	private void initComboRoleParticipant(ComboBox combo) {
-		List<RoleParticipant> roleParticipantList = RoleParticipantClient.getInstance()
-				.findAllXML();
-		for (RoleParticipant type : roleParticipantList) {
-			combo.addItem(type);
-		}
 	}
 
 	private TextField createTextField(final String caption, final boolean isRequired) {
 		TextField textField = new TextField(caption);
 		textField.setRequired(isRequired);
 		textField.setNullRepresentation("");
-		textField.setColumns(12);
+		textField.setColumns(40);
 		textField.setValidationVisible(true);
 		textField.setRequiredError("Le champ " + caption + " est obligatoire");
 		return textField;
 	}
+	
+	 public TextField createTextAreaField(final String caption, final boolean isRequired) {
+		 TextField textField = new TextField(caption);
+		 textField.setRequired(isRequired);
+		 textField.setNullRepresentation("");
+		 textField.setColumns(40);
+		 textField.setRows(10);
+		 textField.setValidationVisible(true);
+		 textField.setRequiredError("Le champ " + caption + " est obligatoire");
+		 return textField;
+	 }
+	 
+
+    /*
+     * Shows a notification when a selection is made.
+     */
+    public void valueChange(ValueChangeEvent event) {
+        if (!event.getProperty().toString().equals("[]")) {
+            getWindow().showNotification(
+                    "Catégorie sélectionnée : " + event.getProperty());
+        }
+    }
+
+//    private static final String[] cities = new String[] { "Berlin", "Brussels",
+//        "Helsinki", "Madrid", "Oslo", "Paris", "Stockholm" };
+
+	public TwinColSelect createTwinColumnSelectSujet() 
+	{
+	    setSpacing(true);
+	
+	    TwinColSelect twinColSelect = new TwinColSelect();
+	    initTwinColumnSujet(twinColSelect); 
+//	    for (int i = 0; i < cities.length; i++) {
+//	        l.addItem(cities[i]);
+//	    }
+	    twinColSelect.setRows(7);
+	    twinColSelect.setNullSelectionAllowed(true);
+	    twinColSelect.setMultiSelect(true);
+	    twinColSelect.setImmediate(true);
+	    twinColSelect.addListener(this);
+	    //l.setLeftColumnCaption("Available cities");
+	    //l.setRightColumnCaption("Selected destinations");
+	    twinColSelect.setWidth("350px");
+	
+//	    addComponent(l);
+	    return twinColSelect;
+	}
+
+	private void initTwinColumnSujet(TwinColSelect twinColSelect) {
+		List<Sujet> sujetList = SujetClient.getInstance().findAllXML();
+		for (Sujet type : sujetList) {
+			twinColSelect.addItem(type.getLibelle());
+		}
+	}
+
 
 }

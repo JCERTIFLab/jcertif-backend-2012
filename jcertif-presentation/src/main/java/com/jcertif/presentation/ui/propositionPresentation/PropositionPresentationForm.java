@@ -35,7 +35,7 @@ import com.vaadin.ui.Window.Notification;
 public class PropositionPresentationForm extends Form {
 
 	private static final Object[] VISIBLE_PROPERTIES = new Object[] { "titre", "description",
-			"details", "sommaire", "besoinsSpecifiques"};
+			"topic", "sommaire", "besoinsSpecifiques", "keyWord"};
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = LoggerFactory.getLogger(PropositionPresentationForm.class);
 
