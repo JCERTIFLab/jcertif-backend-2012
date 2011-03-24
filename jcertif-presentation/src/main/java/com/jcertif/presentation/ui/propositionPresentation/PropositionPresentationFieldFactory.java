@@ -41,16 +41,20 @@ public class PropositionPresentationFieldFactory extends VerticalLayout implemen
 
 		if (pid.equals("titre")) {
 			return createTextField(Messages.getString("Presentation.proposition.title", Locale.getDefault()), true);
-		} else if (pid.equals("description")) {
+		} 
+		else if (pid.equals("description")) {
 			return createTextAreaField(Messages.getString("Presentation.proposition.description", Locale.getDefault()), true);
-		} else if (pid.equals("topic")) {
-			return createTwinColumnSelectSujet(); //createTextAreaField(Messages.getString("Presentation.proposition.description", Locale.getDefault()), true);
+		} 
+		else if (pid.equals("topic")) {
+			return createTwinColumnSelectSujet(false); //createTextAreaField(Messages.getString("Presentation.proposition.description", Locale.getDefault()), true);
 		}
 		else if (pid.equals("sommaire")) {
 			return createTextAreaField(Messages.getString("Presentation.proposition.sommary", Locale.getDefault()), true);
-		} else if (pid.equals("besoinsSpecifiques")) {
+		} 
+		else if (pid.equals("besoinsSpecifiques")) {
 			return createTextField("Besoins specifiques", false);
-		} else if (pid.equals("keyWord")) {
+		} 
+		else if (pid.equals("keyWord")) {
 			return createTextField("Mot clé", false);
 		} 
 		return null;
@@ -91,7 +95,7 @@ public class PropositionPresentationFieldFactory extends VerticalLayout implemen
 //    private static final String[] cities = new String[] { "Berlin", "Brussels",
 //        "Helsinki", "Madrid", "Oslo", "Paris", "Stockholm" };
 
-	public TwinColSelect createTwinColumnSelectSujet() 
+	public TwinColSelect createTwinColumnSelectSujet(boolean isRequired) 
 	{
 	    setSpacing(true);
 	
@@ -105,6 +109,7 @@ public class PropositionPresentationFieldFactory extends VerticalLayout implemen
 	    twinColSelect.setMultiSelect(true);
 	    twinColSelect.setImmediate(true);
 	    twinColSelect.addListener(this);
+	    twinColSelect.setRequired(isRequired);
 	    //l.setLeftColumnCaption("Available cities");
 	    //l.setRightColumnCaption("Selected destinations");
 	    twinColSelect.setWidth("350px");
