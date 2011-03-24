@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.jcertif.bo.presentation.MotCle;
 import com.jcertif.bo.presentation.PropositionPresentation;
 import com.jcertif.bo.presentation.StatutApprobation;
-import com.jcertif.dao.api.presentation.PropostionPresentationDAO;
+import com.jcertif.dao.api.presentation.PropositionPresentationDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
 /**
@@ -25,7 +25,7 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 	 * DAO Presentation.
 	 */
 	@Autowired
-	private PropostionPresentationDAO presentationDAO;
+	private PropositionPresentationDAO presentationDAO;
 
 	/**
 	 * Test de la méthode getReference().

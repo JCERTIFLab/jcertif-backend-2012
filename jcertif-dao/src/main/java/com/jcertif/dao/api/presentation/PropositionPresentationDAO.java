@@ -9,5 +9,5 @@ import com.jcertif.dao.api.GenericDAO;
  * @author rossi.oddet
  * 
  */
-public interface PropostionPresentationDAO extends GenericDAO<PropositionPresentation, Long> {
+public interface PropositionPresentationDAO extends GenericDAO<PropositionPresentation, Long> {
 }
