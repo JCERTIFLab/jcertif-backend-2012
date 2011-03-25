@@ -104,4 +104,14 @@ public class StatutApprobationDAOHibernateTest extends AbstractDAOTestCase {
 		statutApprobationDAO.remove(statut);
 		assertEquals(7, statutApprobationDAO.findAll().size());
 	}
+	
+	/**
+	 * Test de la méthode findByCode().
+	 */
+	@Test
+	public void testFindByCode() {
+		StatutApprobation statut = statutApprobationDAO.findByCode("code_statut statut_approbation 2").iterator().next();
+		assertEquals("description statut_approbation 2", statut.getDescription());
+	}
+	
 }

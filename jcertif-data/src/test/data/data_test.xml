@@ -49,10 +49,10 @@
 	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="6" statut_cedule_id="1" evenement_id="2"/>
 	<cedule_salle id="3" date_cedule="2011-02-02" details="details 2" salle_id="7" statut_cedule_id="1" evenement_id="3"/>
 	
-	
-	<statut_approbation id="1" code_statut="code_statut statut_approbation 1" description="description statut_approbation 1"/>
-	<statut_approbation id="2" code_statut="code_statut statut_approbation 2" description="description statut_approbation 2"/>
-	<statut_approbation id="3" code_statut="code_statut statut_approbation 3" description="description statut_approbation 3"/>
+	<statut_approbation id="1" code_statut="T" description="En traitement"/>
+	<statut_approbation id="2" code_statut="C" description="En attente de complément"/>
+	<statut_approbation id="3" code_statut="A" description="Approuvé"/>
+	<statut_approbation id="4" code_statut="R" description="Refus"/>
 
 
 	
