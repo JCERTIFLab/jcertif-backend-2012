@@ -108,7 +108,7 @@ public class PropositionPresentationFieldFactory extends VerticalLayout implemen
 	
         // Create the multiselect option group
         // 'Shorthand' constructor - also supports data binding using Containers
-	    OptionGroup citySelect = new OptionGroup(caption, sujetList);
+	    OptionGroup citySelect = new OptionGroup(caption, sujetList); // getSujetList()
 
         citySelect.setMultiSelect(true);
         citySelect.setNullSelectionAllowed(false); // user can not 'unselect'
@@ -120,7 +120,7 @@ public class PropositionPresentationFieldFactory extends VerticalLayout implemen
 	    return citySelect;
 	}
 
-	private List getSujetList() {
+	private List<Sujet> getSujetList() {
 		List<Sujet> sujetList = SujetClient.getInstance().findAllXML();
 		return sujetList;
 	}
