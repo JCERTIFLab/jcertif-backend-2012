@@ -21,7 +21,7 @@ public class SujetClient extends AbstractJCertWebServiceClient<Sujet, Long> {
      * The unique instance.
      */
     private SujetClient() {
-        super("typeevenement");
+        super("sujet");
     }
     private static SujetClient instance;
 

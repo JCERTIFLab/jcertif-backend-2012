@@ -461,4 +461,5 @@ public class PropositionPresentation extends AbstractBO {
 
         return new EqualsBuilder().append(titre, other.getTitre()).append(description, other.getDescription()).isEquals();
     }
+    
 }

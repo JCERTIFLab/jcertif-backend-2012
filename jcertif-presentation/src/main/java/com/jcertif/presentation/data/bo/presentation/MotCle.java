@@ -60,6 +60,11 @@ public class MotCle extends AbstractBO{
 		this.motCle = motCle;
 		this.description = description;
 	}
+	
+	public MotCle(final String motCle) {
+		super();
+		this.motCle = motCle;
+	}
 
 	/**
 	 * @return l'identifiant d'un mot clé.
@@ -140,5 +145,15 @@ public class MotCle extends AbstractBO{
 
 		return new EqualsBuilder().append(motCle, other.getMotCle()).isEquals();
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return getMotCle();
+	}
+	
+	
 
 }

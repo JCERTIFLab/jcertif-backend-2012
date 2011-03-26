@@ -7,24 +7,17 @@ import java.util.Locale;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.jcertif.presentation.data.bo.participant.RoleParticipant;
-import com.jcertif.presentation.data.bo.participant.TypeParticipant;
 import com.jcertif.presentation.data.bo.presentation.Sujet;
 import com.jcertif.presentation.internationalisation.Messages;
-import com.jcertif.presentation.wsClient.RoleParticipantClient;
 import com.jcertif.presentation.wsClient.SujetClient;
-import com.jcertif.presentation.wsClient.TypeParticipantClient;
 import com.vaadin.data.Item;
 import com.vaadin.data.Property;
 import com.vaadin.data.Property.ValueChangeEvent;
-import com.vaadin.data.validator.EmailValidator;
-import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Field;
 import com.vaadin.ui.FormFieldFactory;
 import com.vaadin.ui.OptionGroup;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.TwinColSelect;
 import com.vaadin.ui.VerticalLayout;
 
 /**
@@ -108,7 +101,7 @@ public class PropositionPresentationFieldFactory extends VerticalLayout implemen
 	
         // Create the multiselect option group
         // 'Shorthand' constructor - also supports data binding using Containers
-	    OptionGroup citySelect = new OptionGroup(caption, sujetList); // getSujetList()
+	    OptionGroup citySelect = new OptionGroup(caption, getSujetList()); // getSujetList()
 
         citySelect.setMultiSelect(true);
         citySelect.setNullSelectionAllowed(false); // user can not 'unselect'
@@ -119,6 +112,7 @@ public class PropositionPresentationFieldFactory extends VerticalLayout implemen
         //        citySelect.addListener(this); // react when the user selects something
 	    return citySelect;
 	}
+	
 
 	private List<Sujet> getSujetList() {
 		List<Sujet> sujetList = SujetClient.getInstance().findAllXML();

@@ -194,6 +194,17 @@ public class Sujet extends AbstractBO {
 
 		return new EqualsBuilder().append(libelle, other.getLibelle())
 				.append(description, other.getDescription()).isEquals();
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return getLibelle();
 	} 
+	
+	
+	
 
 }
