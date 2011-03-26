@@ -1,7 +1,11 @@
 package com.jcertif.presentation.ui.propositionPresentation;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.bo.participant.RoleParticipant;
 import com.jcertif.presentation.data.bo.participant.TypeParticipant;
@@ -18,6 +22,7 @@ import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Field;
 import com.vaadin.ui.FormFieldFactory;
+import com.vaadin.ui.OptionGroup;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.TwinColSelect;
 import com.vaadin.ui.VerticalLayout;
@@ -31,6 +36,8 @@ import com.vaadin.ui.VerticalLayout;
 public class PropositionPresentationFieldFactory extends VerticalLayout implements FormFieldFactory, Property.ValueChangeListener {
 
 	private static final long serialVersionUID = 1L;
+	private static final Logger LOGGER = LoggerFactory.getLogger(PropositionPresentationForm.class);
+
 
 	/**
 	 * @see com.vaadin.ui.FormFieldFactory#createField(com.vaadin.data.Item, java.lang.Object, com.vaadin.ui.Component)
@@ -45,17 +52,17 @@ public class PropositionPresentationFieldFactory extends VerticalLayout implemen
 		else if (pid.equals("description")) {
 			return createTextAreaField(Messages.getString("Presentation.proposition.description", Locale.getDefault()), true);
 		} 
-		else if (pid.equals("topic")) {
-			return createTwinColumnSelectSujet(false); //createTextAreaField(Messages.getString("Presentation.proposition.description", Locale.getDefault()), true);
+		else if (pid.equals("sujetsInternal")) {
+			return createOptionGroupSujet(Messages.getString("Presentation.proposition.subject", Locale.getDefault()), true); //createTextAreaField(Messages.getString("Presentation.proposition.description", Locale.getDefault()), true);
 		}
 		else if (pid.equals("sommaire")) {
 			return createTextAreaField(Messages.getString("Presentation.proposition.sommary", Locale.getDefault()), true);
 		} 
 		else if (pid.equals("besoinsSpecifiques")) {
-			return createTextField("Besoins specifiques", false);
+			return createTextField(Messages.getString("Presentation.proposition.needed", Locale.getDefault()), false);
 		} 
-		else if (pid.equals("keyWord")) {
-			return createTextField("Mot clé", false);
+		else if (pid.equals("motCle")) {
+			return createTextField(Messages.getString("Presentation.proposition.keyword", Locale.getDefault()), false);
 		} 
 		return null;
 	}
@@ -92,37 +99,30 @@ public class PropositionPresentationFieldFactory extends VerticalLayout implemen
         }
     }
 
-//    private static final String[] cities = new String[] { "Berlin", "Brussels",
-//        "Helsinki", "Madrid", "Oslo", "Paris", "Stockholm" };
+    private static final List<String> sujetList = Arrays.asList(new String[] {
+            "Java Core", "Développement Mobiles", "Web 2.0", "Web sémantique"});
 
-	public TwinColSelect createTwinColumnSelectSujet(boolean isRequired) 
+	public OptionGroup createOptionGroupSujet(final String caption, boolean isRequired) 
 	{
-	    setSpacing(true);
+		setSpacing(true);
 	
-	    TwinColSelect twinColSelect = new TwinColSelect();
-	    initTwinColumnSujet(twinColSelect); 
-//	    for (int i = 0; i < cities.length; i++) {
-//	        l.addItem(cities[i]);
-//	    }
-	    twinColSelect.setRows(7);
-	    twinColSelect.setNullSelectionAllowed(true);
-	    twinColSelect.setMultiSelect(true);
-	    twinColSelect.setImmediate(true);
-	    twinColSelect.addListener(this);
-	    twinColSelect.setRequired(isRequired);
-	    //l.setLeftColumnCaption("Available cities");
-	    //l.setRightColumnCaption("Selected destinations");
-	    twinColSelect.setWidth("350px");
-	
-//	    addComponent(l);
-	    return twinColSelect;
+        // Create the multiselect option group
+        // 'Shorthand' constructor - also supports data binding using Containers
+	    OptionGroup citySelect = new OptionGroup(caption, sujetList);
+
+        citySelect.setMultiSelect(true);
+        citySelect.setNullSelectionAllowed(false); // user can not 'unselect'
+        citySelect.setImmediate(false); // send the change to the server at once
+        citySelect.setRequired(isRequired); // isRequired
+	    citySelect.setRequiredError("Le champ " + caption + " est obligatoire");
+
+        //        citySelect.addListener(this); // react when the user selects something
+	    return citySelect;
 	}
 
-	private void initTwinColumnSujet(TwinColSelect twinColSelect) {
+	private List getSujetList() {
 		List<Sujet> sujetList = SujetClient.getInstance().findAllXML();
-		for (Sujet type : sujetList) {
-			twinColSelect.addItem(type.getLibelle());
-		}
+		return sujetList;
 	}
 
 

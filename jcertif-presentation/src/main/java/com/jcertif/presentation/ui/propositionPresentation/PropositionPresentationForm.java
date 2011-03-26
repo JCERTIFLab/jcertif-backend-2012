@@ -35,7 +35,7 @@ import com.vaadin.ui.Window.Notification;
 public class PropositionPresentationForm extends Form {
 
 	private static final Object[] VISIBLE_PROPERTIES = new Object[] { "titre", "description",
-			"topic", "sommaire", "besoinsSpecifiques", "keyWord"};
+			"sujetsInternal", "sommaire", "besoinsSpecifiques", "motCle"};
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = LoggerFactory.getLogger(PropositionPresentationForm.class);
 
@@ -77,7 +77,7 @@ public class PropositionPresentationForm extends Form {
 		this.setFooter(layoutFooter);
 
 		this.setCaption("Proposer une présentation à JCERTIF 2011");
-		this.setDescription("Veuillez remplir ce formulaire afin de proposer une présentation ");
+		this.setDescription(""); //Veuillez remplir ce formulaire afin de proposer une présentation 
 
 	}
 
@@ -94,7 +94,7 @@ public class PropositionPresentationForm extends Form {
 					((BeanItem<PropositionPresentation>) this.getItemDataSource()).getBean());
 			Window main = getApplication().getMainWindow();
 			// Create a notification with default settings for a warning.
-			ExternalResource res = new ExternalResource("confirmationInscription.jsp");
+			ExternalResource res = new ExternalResource("confirmationProposition.jsp");
 			main.open(res);
 		} catch (UniformInterfaceException e) {
 			getApplication().getMainWindow().showNotification("Email incorrect");
