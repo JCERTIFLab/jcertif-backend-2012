@@ -1,4 +1,4 @@
-package com.jcertif.presentation.ui.inscription;
+package com.jcertif.presentation.ui.inscription.participant;
 
 import java.util.List;
 import java.util.Locale;
@@ -6,10 +6,10 @@ import java.util.Locale;
 import com.jcertif.presentation.data.bo.participant.RoleParticipant;
 import com.jcertif.presentation.data.bo.participant.TypeParticipant;
 import com.jcertif.presentation.internationalisation.Messages;
+import com.jcertif.presentation.ui.util.ComponentFactory;
 import com.jcertif.presentation.wsClient.RoleParticipantClient;
 import com.jcertif.presentation.wsClient.TypeParticipantClient;
 import com.vaadin.data.Item;
-import com.vaadin.data.validator.EmailValidator;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Field;
@@ -22,21 +22,24 @@ import com.vaadin.ui.TextField;
  * @author rossi
  * 
  */
-public class InscriptionFieldFactory implements FormFieldFactory {
+public class ParticipantFieldFactory implements FormFieldFactory {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see com.vaadin.ui.FormFieldFactory#createField(com.vaadin.data.Item, java.lang.Object, com.vaadin.ui.Component)
+	 * @see com.vaadin.ui.FormFieldFactory#createField(com.vaadin.data.Item,
+	 *      java.lang.Object, com.vaadin.ui.Component)
 	 */
 	@Override
 	public Field createField(Item item, Object propertyId, Component uiContext) {
 		String pid = (String) propertyId;
 
 		if (pid.equals("nom")) {
-			return createTextField(Messages.getString("Presentation.nom", Locale.getDefault()), true);
+			return ComponentFactory.createTextField(
+					Messages.getString("Presentation.nom", Locale.getDefault()), true);
 		} else if (pid.equals("prenom")) {
-			return createTextField(Messages.getString("Presentation.prenom", Locale.getDefault()), true);
+			return ComponentFactory.createTextField(
+					Messages.getString("Presentation.prenom", Locale.getDefault()), true);
 		} else if (pid.equals("salutation")) {
 			ComboBox combo = new ComboBox("Civilité");
 			combo.addItem("Mlle");
@@ -46,19 +49,16 @@ public class InscriptionFieldFactory implements FormFieldFactory {
 			combo.setRequiredError("La Civilité est obligatoire");
 			return combo;
 		} else if (pid.equals("specialite")) {
-			return createTextField(Messages.getString("Presentation.specialite", Locale.getDefault()), false);
+			return ComponentFactory.createTextField(
+					Messages.getString("Presentation.specialite", Locale.getDefault()), false);
 		} else if (pid.equals("compagnie")) {
-			return createTextField("Entreprise", false);
+			return ComponentFactory.createTextField("Entreprise", false);
 		} else if (pid.equals("details")) {
-			TextField text = createTextField("Présentation", false);
+			TextField text = ComponentFactory.createTextField("Présentation", false);
 			text.setRows(5);
 			return text;
-		} else if (pid.equals("email")) {
-			TextField text = createTextField("Email", true);
-			text.addValidator(new EmailValidator("L'adresse email doit être au format xxxxx@yyyyy.zzz"));
-			return text ;
 		} else if (pid.equals("website")) {
-			return createTextField("Site web", false);
+			return ComponentFactory.createTextField("Site web", false);
 		} else if (pid.equals("roleparticipant")) {
 			ComboBox combo = new ComboBox("Rôle");
 			initComboRoleParticipant(combo);
@@ -90,16 +90,6 @@ public class InscriptionFieldFactory implements FormFieldFactory {
 		for (RoleParticipant type : roleParticipantList) {
 			combo.addItem(type);
 		}
-	}
-
-	private TextField createTextField(final String caption, final boolean isRequired) {
-		TextField textField = new TextField(caption);
-		textField.setRequired(isRequired);
-		textField.setNullRepresentation("");
-		textField.setColumns(12);
-		textField.setValidationVisible(true);
-		textField.setRequiredError("Le champ " + caption + " est obligatoire");
-		return textField;
 	}
 
 }

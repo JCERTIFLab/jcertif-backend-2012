@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.jcertif.bo.participant.Participant;
 import com.jcertif.dao.api.participant.ParticipantDAO;
+import com.jcertif.dao.api.participant.ProfilUtilisateurDAO;
 import com.jcertif.exception.ExistingEmailException;
 import com.jcertif.service.AbstractService;
 import com.jcertif.service.api.participant.ParticipantService;
@@ -24,7 +25,12 @@ import com.jcertif.service.api.participant.ParticipantService;
 public class ParticipantServiceImpl extends AbstractService<Participant, Long, ParticipantDAO> implements ParticipantService {
 
     @Autowired
-    ParticipantDAO participantDAO;
+    private ParticipantDAO participantDAO;
+    
+    @Autowired
+    private ProfilUtilisateurDAO profilUtilisateurDAO;
+    
+    
 
     @Override
     public ParticipantDAO getDAO() {
@@ -42,6 +48,10 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
 		List<Participant> partList = participantDAO.findByEmail(entite.getEmail());
 		if(partList.size() != 0){
 			throw new ExistingEmailException();
+		}
+		
+		if(entite.getProfilUtilisateur() != null){
+			profilUtilisateurDAO.persist(entite.getProfilUtilisateur());
 		}
 		return super.save(entite);
 		

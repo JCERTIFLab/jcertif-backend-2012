@@ -48,7 +48,7 @@ public class Participant extends Person {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "conference_id")
     private Conference conference;
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "profil_utilisateur_id")
     private ProfilUtilisateur profilUtilisateur;
     
