@@ -299,7 +299,7 @@ div.v-calendar-event-all-day {
 	border-radius: 4px;
 	border: 1px solid #777;
 	background: #E3F6CE;;
-	opacity: .8;
+	opacity: 0.5;
 	filter: alpha(opacity = 80);
 	height: 14px; /* "min-height" */
 }

@@ -40,6 +40,10 @@ public class JCertifEventProvider extends BasicEventProvider {
 			jCertifEvent.setEnd(endDateEvent);
 			jCertifEvent.setCaption(dataEvent.getNomEvenement());
 			jCertifEvent.setJcertifEvent(dataEvent);
+
+			String libelleSalle = dataEvent.getCeduleSalles().iterator().next().getSalle()
+					.getLibelle();
+			jCertifEvent.setStyleName(libelleSalle);
 			events.add(jCertifEvent);
 
 		}

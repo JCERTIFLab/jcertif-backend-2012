@@ -18,6 +18,7 @@ import com.vaadin.addon.calendar.event.CalendarEvent;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClick;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClickHandler;
 import com.vaadin.terminal.ExternalResource;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.CustomLayout;
 import com.vaadin.ui.Embedded;
 import com.vaadin.ui.HorizontalLayout;
@@ -128,7 +129,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 
 		Date debut = event.getJcertifEvent().getDateDebutPrevue().getTime();
 		custom.addComponent(
-				new Label(new SimpleDateFormat("EEEEEEEE dd MMMMMMMMMMMMMM").format(debut)
+				new Label(new SimpleDateFormat("EEEEEEEE").format(debut)
 						+ " de "
 						+ new SimpleDateFormat("HH:mm").format(debut)
 						+ " à "
@@ -142,6 +143,9 @@ public class CalendarApplication extends Application implements EventClickHandle
 		} else {
 			custom.addComponent(new Label(event.getJcertifEvent().getPropositionPresentation()
 					.getTitre()), "titre");
+			
+			custom.addComponent(new Button("je veux participer"), "participer");
+			
 
 			custom.addComponent(new Label(participant.getNom() + " " + participant.getPrenom()),
 					"presentateur");

@@ -18,7 +18,7 @@
 	<type_participant id="3" code="etudiant" description="etudiant"/>
 	
 	<salle id="5" libelle="Hall" description="cette grande salle se situe à l'entrée" nombre_place="2000" details="climatisation" />
-	<salle id="6" libelle="De Brazza" description="Salle historique" nombre_place="900" details="pas de tables" />
+	<salle id="6" libelle="De-Brazza" description="Salle historique" nombre_place="900" details="pas de tables" />
 	<salle id="7" libelle="Gide" description="Salle Gide" nombre_place="500" details="pas de chaises" />
 	
 	<particularite_salle id="1" code="SMALL" description="petite" />
@@ -50,13 +50,13 @@
 
 	
 	
-	<mot_cle id="4" mot_cle="mot_cle 4" description="description 4"/>
-	<mot_cle id="5" mot_cle="mot_cle 5" description="description 5"/>
-	<mot_cle id="6" mot_cle="mot_cle 6" description="description 6"/>
+	<mot_cle id="4" mot_cle="JEE, Spring" description="description 4"/>
+	<mot_cle id="5" mot_cle="Vaadin, JSP" description="description 5"/>
+	<mot_cle id="6" mot_cle="GWT" description="description 6"/>
 	
-	<sujet id="1" libelle="libelle sujet 1" description="description sujet 1"/>
-	<sujet id="2" libelle="libelle sujet 2" description="description sujet 2"/>
-	<sujet id="3" libelle="libelle sujet 3" description="description sujet 3"/>
+	<sujet id="1" libelle="Developpement Mobile" description="description sujet 1"/>
+	<sujet id="2" libelle="Developpement Desktop" description="description sujet 2"/>
+	<sujet id="3" libelle="Developpement Tablet" description="description sujet 3"/>
 	
 	<proposition_presentation id="1" titre="Accueil et mot du président" sommaire="sommaire 1" besoins_specifiques="besoins 1" description="description 1" details="details 1" mot_cle_id="4" statut_approbation_id="1" conference_id="7"/>
 	<proposition_presentation id="2" titre="Présentation des formations JSCP" sommaire="sommaire 2" besoins_specifiques="besoins 2" description="description 2" details="details 2" mot_cle_id="5" statut_approbation_id="2" conference_id="7"/>
@@ -68,7 +68,7 @@
 	
 	
 	<evenement id="1" nom_evenement="Accueil et mot du président" date_debut_prevue="2011-09-03 09:00:00" date_fin_prevue="2011-09-03 10:00:00" date_debut_effective="2010-04-01" date_fin_effective="2010-05-20" details="Séance de lancement de JCERTIF 2011" type_evenement_id="2" proposition_presentation_id="1"/>
-	<evenement id="2" nom_evenement="Formation SCJP" date_debut_prevue="2011-09-03 10:15:00" date_fin_prevue="2011-09-03 16:00:00" date_debut_effective="2010-04-02" date_fin_effective="2010-05-21" details="Description SCJP :SCJP c'est bien." type_evenement_id="1" proposition_presentation_id="2" />
+	<evenement id="2" nom_evenement="Formation SCJP" date_debut_prevue="2011-09-03 10:15:00" date_fin_prevue="2011-09-03 11:00:00" date_debut_effective="2010-04-02" date_fin_effective="2010-05-21" details="Description SCJP :SCJP c'est bien." type_evenement_id="1" proposition_presentation_id="2" />
 	<evenement id="3" nom_evenement="Nouveautés JEE 17" date_debut_prevue="2011-09-04 10:00:00" date_fin_prevue="2011-09-04 12:00:00" date_debut_effective="2010-04-03"	date_fin_effective="2010-05-22" details="Description nouveautés Java EE" type_evenement_id="3" proposition_presentation_id="3" />
 	
 	<statut_cedule id="1" code="VALIDER" description="Schedule validé"/>
