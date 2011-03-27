@@ -45,18 +45,28 @@
 	<statut_approbation id="1" code_statut="T" description="En traitement"/>
 	<statut_approbation id="2" code_statut="C" description="En attente de complément"/>
 	<statut_approbation id="3" code_statut="A" description="Approuvé"/>
-	<statut_approbation id="4" code_statut="R" description="Refus"/>
+	<statut_approbation id="4" code_statut="R" description="Refusé"/>
 
 
 	
 	
-	<mot_cle id="4" mot_cle="JEE, Spring" description="description 4"/>
-	<mot_cle id="5" mot_cle="Vaadin, JSP" description="description 5"/>
-	<mot_cle id="6" mot_cle="GWT" description="description 6"/>
-	
-	<sujet id="1" libelle="Developpement Mobile" description="description sujet 1"/>
-	<sujet id="2" libelle="Developpement Desktop" description="description sujet 2"/>
-	<sujet id="3" libelle="Developpement Tablet" description="description sujet 3"/>
+	<mot_cle id="4" mot_cle="Web 2.0" description="description 4"/>
+	<mot_cle id="5" mot_cle="Java" description="description 5"/>
+	<mot_cle id="6" mot_cle="Android" description="description 6"/>
+	<mot_cle id="7" mot_cle="HTML5" description="description 4"/>
+	<mot_cle id="8" mot_cle="Vaadin" description="description 5"/>
+	<mot_cle id="9" mot_cle="JSF" description="description 6"/>
+	<mot_cle id="10" mot_cle="JEE, Spring" description="description 4"/>
+	<mot_cle id="11" mot_cle="Vaadin, JSP" description="description 5"/>
+	<mot_cle id="12" mot_cle="GWT" description="description 6"/>
+
+	<sujet id="1" libelle="Deéveloppement Mobile" description="description sujet 1"/>
+	<sujet id="2" libelle="Web 2.0" description="description sujet 2"/>
+	<sujet id="3" libelle="Java Core" description="description sujet 3"/>
+	<sujet id="4" libelle="Open Source" description="description sujet 4"/>
+	<sujet id="6" libelle="Developpement Mobile" description="description sujet 1"/>
+	<sujet id="7" libelle="Developpement Desktop" description="description sujet 2"/>
+	<sujet id="8" libelle="Developpement Tablet" description="description sujet 3"/>
 	
 	<proposition_presentation id="1" titre="Accueil et mot du président" sommaire="sommaire 1" besoins_specifiques="besoins 1" description="description 1" details="details 1" mot_cle_id="4" statut_approbation_id="1" conference_id="7"/>
 	<proposition_presentation id="2" titre="Présentation des formations JSCP" sommaire="sommaire 2" besoins_specifiques="besoins 2" description="description 2" details="details 2" mot_cle_id="5" statut_approbation_id="2" conference_id="7"/>
@@ -87,11 +97,7 @@
 	
 	<propos_presentation_auteur presentation_id="1" auteur_id="1"/>
 	<propos_presentation_auteur presentation_id="2" auteur_id="2"/>
-	<propos_presentation_auteur presentation_id="3" auteur_id="3"/>
-	
-	
-	
-	
+	<propos_presentation_auteur presentation_id="3" auteur_id="3"/>	
 	
 	
 
