@@ -11,6 +11,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import com.jcertif.presentation.data.bo.AbstractBO;
+import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
 
 /**
  * 
@@ -41,6 +42,8 @@ public class Evenement extends AbstractBO{
 	private Set<CeduleSalle> ceduleSalles;
 	
 	private Set<CeduleParticipant> ceduleParticipants;
+	
+	private PropositionPresentation propositionPresentation;
 
 	/**
 	 * @param id
@@ -104,6 +107,22 @@ public class Evenement extends AbstractBO{
 	 */
 	public void setNomEvenement(String nomEvenement) {
 		this.nomEvenement = nomEvenement;
+	}
+	
+	
+
+	/**
+	 * @return the propositionPresentation
+	 */
+	public PropositionPresentation getPropositionPresentation() {
+		return propositionPresentation;
+	}
+
+	/**
+	 * @param propositionPresentation the propositionPresentation to set
+	 */
+	public void setPropositionPresentation(PropositionPresentation propositionPresentation) {
+		this.propositionPresentation = propositionPresentation;
 	}
 
 	/**

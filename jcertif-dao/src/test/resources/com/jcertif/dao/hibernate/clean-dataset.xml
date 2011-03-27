@@ -6,10 +6,11 @@
 	<sujet />
 	<conference />
 	<type_evenement />
-	<evenement />
+	
 	<role_participant />
 	<type_participant />
 	<proposition_presentation />
+	<evenement />
 	<faq/>
 
 	<participant />

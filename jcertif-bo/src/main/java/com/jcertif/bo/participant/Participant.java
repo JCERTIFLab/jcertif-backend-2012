@@ -8,6 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -30,9 +32,7 @@ public class Participant extends Person {
     private static final long serialVersionUID = 1L;
     @Column
     private Calendar dateInscription;
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinColumn(name = "proposition_presentation_id")
-    private PropositionPresentation presentationSoumise;
+    
     @Column
     private String cvSoumis;
     @Column
@@ -51,6 +51,13 @@ public class Participant extends Person {
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "profil_utilisateur_id")
     private ProfilUtilisateur profilUtilisateur;
+    
+	/**
+	 * Liste des auteurs.
+	 */
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "propos_presentation_auteur", joinColumns = @JoinColumn(name = "auteur_id"), inverseJoinColumns = @JoinColumn(name = "presentation_id" ))
+	private Set<PropositionPresentation> propositionPresentations;
 
 
 
@@ -78,7 +85,6 @@ public class Participant extends Person {
         this.setNom(nom);
         this.setSexe(sexe);
         this.setEmail(email);
-        this.presentationSoumise = presentationsoumise;
         this.cvSoumis = cvsoumis;
         this.setDetails(details);
         this.roleparticipant = roleparticipant;
@@ -110,7 +116,6 @@ public class Participant extends Person {
         this.setNom(nom);
         this.setSexe(sexe_MF);
         this.setEmail(email);
-        this.presentationSoumise = presentationsoumise;
         this.cvSoumis = cvsoumis;
         this.setDetails(details);
     }
@@ -141,20 +146,6 @@ public class Participant extends Person {
      */
     public void setDateInscription(Calendar dateInscription) {
         this.dateInscription = dateInscription;
-    }
-
-    /**
-     * @return the presentationSoumise
-     */
-    public PropositionPresentation getPresentationSoumise() {
-        return presentationSoumise;
-    }
-
-    /**
-     * @param presentationSoumise the presentationSoumise to set
-     */
-    public void setPresentationSoumise(PropositionPresentation presentationSoumise) {
-        this.presentationSoumise = presentationSoumise;
     }
 
     /**
@@ -246,8 +237,24 @@ public class Participant extends Person {
     public void setCodeParticipant(String codeParticipant) {
         this.codeParticipant = codeParticipant;
     }
+    
+    
 
     /**
+	 * @return the propositionPresentations
+	 */
+	public Set<PropositionPresentation> getPropositionPresentations() {
+		return propositionPresentations;
+	}
+
+	/**
+	 * @param propositionPresentations the propositionPresentations to set
+	 */
+	public void setPropositionPresentations(Set<PropositionPresentation> propositionPresentations) {
+		this.propositionPresentations = propositionPresentations;
+	}
+
+	/**
      * @see java.lang.Object#hashCode()
      */
     @Override

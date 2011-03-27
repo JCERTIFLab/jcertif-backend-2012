@@ -28,31 +28,6 @@ public class EvenementServiceImpl extends AbstractService<Evenement, Long, Evene
 	@Autowired
 	private EvenementDAO evenementDAO;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jcertif.service.AbstractService#findAll()
-	 */
-	@Override
-	public List<Evenement> findAll() {
-		List<Evenement> evenements = super.findAll();
-
-		for (Evenement event : evenements) {
-			if (event.getCeduleParticipants() != null) {
-				for (CeduleParticipant cedule : event.getCeduleParticipants()) {
-					if (cedule.getParticipant().getPresentationSoumise() != null) {
-						if (cedule.getParticipant().getPresentationSoumise().getSujets() != null) {
-							Sujet sujet = cedule.getParticipant().getPresentationSoumise().getSujets().iterator()
-									.next();
-							sujet.getId();
-						}
-					}
-				}
-			}
-		}
-
-		return evenements;
-	}
 
 	@Override
 	public EvenementDAO getDAO() {

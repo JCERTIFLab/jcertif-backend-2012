@@ -1,22 +1,23 @@
 package com.jcertif.presentation.ui.calendar;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.vaadin.imagefilter.Image;
 
 import com.jcertif.presentation.data.bo.cedule.CeduleParticipant;
 import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
 import com.vaadin.Application;
+import com.vaadin.addon.calendar.event.CalendarEvent;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClick;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClickHandler;
-import com.vaadin.terminal.StreamResource;
-import com.vaadin.terminal.StreamResource.StreamSource;
-import com.vaadin.ui.Button;
+import com.vaadin.terminal.ExternalResource;
 import com.vaadin.ui.CustomLayout;
 import com.vaadin.ui.Embedded;
 import com.vaadin.ui.HorizontalLayout;
@@ -45,14 +46,40 @@ public class CalendarApplication extends Application implements EventClickHandle
 		setTheme("jcertifruno");
 		mainWindow = new Window();
 
-//		CustomLayout custom = new CustomLayout("details_event_layout");
-//		custom.addStyleName("customlayoutexample");
+		// CustomLayout custom = new CustomLayout("details_event_layout");
+		// custom.addStyleName("customlayoutexample");
 
 		// Use it as the layout of the Panel.
-		//getDetailPanel().setContent(custom);
-		
+		// getDetailPanel().setContent(custom);
 
 		mainWindow.getContent().addComponent(getCalendarComponent());
+		DateFormat dateF = new SimpleDateFormat("dd/MM/yyyy HH");
+		Date startDate = null;
+		Date endDate = null;
+		try {
+			endDate = dateF.parse("03/09/2011 09");
+			startDate = dateF.parse("04/09/2011 21");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		List<CalendarEvent> events = getCalendarComponent().getEventProvider().getEvents(startDate,
+				endDate);
+		CalendarEvent firstEvent = null;
+		for (CalendarEvent calendarEvent : events) {
+			if (firstEvent == null) {
+				firstEvent = calendarEvent;
+			} else {
+				if (firstEvent.getStart().after(calendarEvent.getStart())){
+					firstEvent = calendarEvent;
+				}
+			}
+
+		}
+
+		if (firstEvent != null) {
+			updateDetailPanel((JCertifCalendarEvent) firstEvent);
+		}
+
 		setMainWindow(mainWindow);
 
 	}
@@ -80,80 +107,66 @@ public class CalendarApplication extends Application implements EventClickHandle
 		}
 		event.setStyleName("selected");
 		getDetailPanel().removeAllComponents();
-//		VerticalLayout layout = new VerticalLayout();
-//		layout.setStyleName("details_event");
-		
+		// VerticalLayout layout = new VerticalLayout();
+		// layout.setStyleName("details_event");
+
 		CustomLayout custom = new CustomLayout("details_event_layout");
 		custom.addStyleName("customlayoutexample");
 
 		// Use it as the layout of the Panel.
 		getDetailPanel().setContent(custom);
-		
 
-		String libelleSalle = event.getJcertifEvent().getCeduleSalles().iterator().next().getSalle().getLibelle();
-		if("Hall".equals(libelleSalle)){
-			StreamSource imageSource = null;
-			// Create the stream resource with some initial filename.
-			StreamResource imageResource =
-			    new StreamResource(imageSource, "initial-filename.png",
-			                       this);
+		String libelleSalle = event.getJcertifEvent().getCeduleSalles().iterator().next()
+				.getSalle().getLibelle();
 
-			// Instruct browser not to cache the image.
-			imageResource.setCacheTime(0);
+		ExternalResource res = new ExternalResource("./images/salles/" + libelleSalle + ".png");
 
-			// Display the image in an Embedded component.
-			Embedded embedded = new Embedded("", imageResource);
-			
-			custom.addComponent(
-					new Image("./pages/images/hall_principal.png", false), "ou");
-		} else if("Gide".equals(libelleSalle)){
-			
-			custom.addComponent(
-					new Image("./pages/images/salle_gide.png", false), "ou");
-		}
-		custom.addComponent(
-				new Label(), "ou");
+		// Display the image in an Embedded component.
+		Embedded embedded = new Embedded("", res);
+
+		custom.addComponent(embedded, "ou");
+
 		Date debut = event.getJcertifEvent().getDateDebutPrevue().getTime();
 		custom.addComponent(
-				new Label(new SimpleDateFormat("EEEEEEEE dd MMMMMMMMMMMMMM").format(debut) + " de " + new SimpleDateFormat("HH:mm").format(debut)
-						+ " à " + new SimpleDateFormat("HH:mm").format(event.getJcertifEvent().getDateFinPrevue().getTime())), "quand");
-		custom.addComponent(
-				new Label(findSujet(event.getJcertifEvent())), "categorie");
+				new Label(new SimpleDateFormat("EEEEEEEE dd MMMMMMMMMMMMMM").format(debut)
+						+ " de "
+						+ new SimpleDateFormat("HH:mm").format(debut)
+						+ " à "
+						+ new SimpleDateFormat("HH:mm").format(event.getJcertifEvent()
+								.getDateFinPrevue().getTime())), "quand");
+		custom.addComponent(new Label(findSujet(event.getJcertifEvent())), "categorie");
 		Participant participant = findParticipant(event.getJcertifEvent());
-		
-		if(participant == null){
+
+		if (participant == null) {
 			LOGGER.warn("Pas de présentation pour cet évènement");
 		} else {
-			custom.addComponent(
-					new Label(participant.getPresentationSoumise().getTitre()),"titre");
-			
-			custom.addComponent(
-					new Label(participant.getNom() + " " + participant.getPrenom()),"presentateur");
-			
-			custom.addComponent(
-					new Label(participant.getDetails()), "details");
-			
-			custom.addComponent(
-					new Label(participant.getPresentationSoumise().getMotCle().getMotCle()),"motcle");	
+			custom.addComponent(new Label(event.getJcertifEvent().getPropositionPresentation()
+					.getTitre()), "titre");
+
+			custom.addComponent(new Label(participant.getNom() + " " + participant.getPrenom()),
+					"presentateur");
+
+			custom.addComponent(new Label(participant.getDetails()), "details");
+
+			custom.addComponent(new Label(event.getJcertifEvent().getPropositionPresentation()
+					.getMotCle().getMotCle()), "motcle");
 		}
-		
+
 		final HorizontalLayout layoutH = new HorizontalLayout();
 		layoutH.setSizeFull();
-		
+
 		layoutH.addComponent(getCalendarComponent());
-		layoutH.setExpandRatio(getCalendarComponent(),2);
+		layoutH.setExpandRatio(getCalendarComponent(), 2);
 		layoutH.addComponent(getDetailPanel());
-		layoutH.setExpandRatio(getDetailPanel(),1);
+		layoutH.setExpandRatio(getDetailPanel(), 1);
 		mainWindow.getContent().removeAllComponents();
 		mainWindow.getContent().addComponent(layoutH);
-		
-
 
 	}
 
 	private String findSujet(final Evenement event) {
 		String sujet = "<Aucun>";
-		PropositionPresentation pres = findParticipant(event).getPresentationSoumise();
+		PropositionPresentation pres = event.getPropositionPresentation();
 
 		if (pres.getSujets() == null || pres.getSujets().isEmpty()) {
 			LOGGER.warn("Evenement sans Sujet, Evenement.id={0}", event.getId());
@@ -171,8 +184,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 			LOGGER.warn("Evenement sans CeduleParticipant, Evenement.id={0}", event.getId());
 		} else {
 
-			pres=  cedule.getParticipant();
-
+			pres = cedule.getParticipant();
 
 		}
 

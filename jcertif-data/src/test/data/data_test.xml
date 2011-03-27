@@ -40,14 +40,7 @@
 	<faq id="2" question="JCertif commence quand ?" reponse="Très bientôt" conference_id="7" />
 	<faq id="3" question="JCertif pourquoi?" reponse="Parce que" conference_id="7" />
 	
-	<evenement id="1" nom_evenement="Accueil et mot du président" date_debut_prevue="2011-09-03 09:00:00" date_fin_prevue="2011-09-03 10:00:00" date_debut_effective="2010-04-01" date_fin_effective="2010-05-20" details="Séance de lancement de JCERTIF 2011" type_evenement_id="2" />
-	<evenement id="2" nom_evenement="Formation SCJP" date_debut_prevue="2011-09-03 09:00:00" date_fin_prevue="2011-09-03 16:00:00" date_debut_effective="2010-04-02" date_fin_effective="2010-05-21" details="Description SCJP :SCJP c'est bien." type_evenement_id="1" />
-	<evenement id="3" nom_evenement="Nouveautés JEE 17" date_debut_prevue="2011-09-04 10:00:00" date_fin_prevue="2011-09-04 12:00:00" date_debut_effective="2010-04-03"	date_fin_effective="2010-05-22" details="Description nouveautés Java EE" type_evenement_id="3" />
 	
-	<statut_cedule id="1" code="VALIDER" description="Schedule validé"/>
-	<cedule_salle id="1" date_cedule="2011-02-01" details="details 1" salle_id="5" statut_cedule_id="1" evenement_id="1"/>
-	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="6" statut_cedule_id="1" evenement_id="2"/>
-	<cedule_salle id="3" date_cedule="2011-02-02" details="details 2" salle_id="7" statut_cedule_id="1" evenement_id="3"/>
 	
 	<statut_approbation id="1" code_statut="T" description="En traitement"/>
 	<statut_approbation id="2" code_statut="C" description="En attente de complément"/>
@@ -73,13 +66,28 @@
 	<proposition_presentation_sujet proposition_presentation_id="2" sujet_id="2"/>
 	<proposition_presentation_sujet proposition_presentation_id="3" sujet_id="3"/>
 	
-	<participant id="1" proposition_presentation_id="1" nom="Lucas" prenom="Michel" details="Michel est développeur chez Google depuis bientôt 6 ans, il a d'abord travaillé sur la plateforme de publicité Ad-on avant de rejoindre l'équipe Android en ..." />
-	<participant id="2" proposition_presentation_id="2" nom="Malonga" prenom="Chrisbel" details="Chrisbel est notre manager à tous, nous lui devons du respect. C'est notre manager à tous vives Chrisbel." />
-	<participant id="3" proposition_presentation_id="3" nom="Bonbhel" prenom="Max" details="Max est un passionné de Java et des technologies chiantes. Il déteste les JSP et aimerait que nous utilisions JSF..." />
+	
+	<evenement id="1" nom_evenement="Accueil et mot du président" date_debut_prevue="2011-09-03 09:00:00" date_fin_prevue="2011-09-03 10:00:00" date_debut_effective="2010-04-01" date_fin_effective="2010-05-20" details="Séance de lancement de JCERTIF 2011" type_evenement_id="2" proposition_presentation_id="1"/>
+	<evenement id="2" nom_evenement="Formation SCJP" date_debut_prevue="2011-09-03 10:15:00" date_fin_prevue="2011-09-03 16:00:00" date_debut_effective="2010-04-02" date_fin_effective="2010-05-21" details="Description SCJP :SCJP c'est bien." type_evenement_id="1" proposition_presentation_id="2" />
+	<evenement id="3" nom_evenement="Nouveautés JEE 17" date_debut_prevue="2011-09-04 10:00:00" date_fin_prevue="2011-09-04 12:00:00" date_debut_effective="2010-04-03"	date_fin_effective="2010-05-22" details="Description nouveautés Java EE" type_evenement_id="3" proposition_presentation_id="3" />
+	
+	<statut_cedule id="1" code="VALIDER" description="Schedule validé"/>
+	<cedule_salle id="1" date_cedule="2011-02-01" details="details 1" salle_id="5" statut_cedule_id="1" evenement_id="1"/>
+	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="6" statut_cedule_id="1" evenement_id="2"/>
+	<cedule_salle id="3" date_cedule="2011-02-02" details="details 2" salle_id="7" statut_cedule_id="1" evenement_id="3"/>
+	
+	
+	<participant id="1" nom="Lucas" prenom="Michel" details="Michel est développeur chez Google depuis bientôt 6 ans, il a d'abord travaillé sur la plateforme de publicité Ad-on avant de rejoindre l'équipe Android en ..." />
+	<participant id="2" nom="Malonga" prenom="Chrisbel" details="Chrisbel est notre manager à tous, nous lui devons du respect. C'est notre manager à tous vives Chrisbel." />
+	<participant id="3" nom="Bonbhel" prenom="Max" details="Max est un passionné de Java et des technologies chiantes. Il déteste les JSP et aimerait que nous utilisions JSF..." />
 	
 	<cedule_participant id="1" evenement_id="1" participant_id="1" statut_cedule_id="1" />
 	<cedule_participant id="2" evenement_id="2" participant_id="2" statut_cedule_id="1" />
 	<cedule_participant id="3" evenement_id="3" participant_id="3" statut_cedule_id="1" />
+	
+	<propos_presentation_auteur presentation_id="1" auteur_id="1"/>
+	<propos_presentation_auteur presentation_id="2" auteur_id="2"/>
+	<propos_presentation_auteur presentation_id="3" auteur_id="3"/>
 	
 	
 	

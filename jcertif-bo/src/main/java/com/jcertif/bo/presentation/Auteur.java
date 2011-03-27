@@ -4,16 +4,8 @@
  */
 package com.jcertif.bo.presentation;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -65,61 +57,7 @@ public class Auteur extends Person {
 		this.photo = photo;
 	}
 
-	/**
-	 * Liste de présentations.
-	 */
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "propos_presentation_auteur", joinColumns = @JoinColumn(name = "auteur_id"), inverseJoinColumns = @JoinColumn(name = "presentation_id"))
-	private Set<PropositionPresentation> presentationsInternal;
-
 	
-
-	/**
-	 * @return the presentationsInternal
-	 */
-	protected Set<PropositionPresentation> getPresentationsInternal() {
-		if (presentationsInternal == null) {
-			presentationsInternal = new HashSet<PropositionPresentation>();
-		}
-		return presentationsInternal;
-	}
-
-	/**
-	 * @param presentationsInternal
-	 *            the presentationsInternal to set
-	 */
-	protected void setPresentationsInternal(
-			Set<PropositionPresentation> presentationsInternal) {
-		this.presentationsInternal = presentationsInternal;
-	}
-
-	/**
-	 * @return la liste des présentations de l'auteur.
-	 */
-	public Set<PropositionPresentation> getPresentations() {
-		return Collections.unmodifiableSet(getPresentationsInternal());
-	}
-
-	/**
-	 * Ajoute une présentation.
-	 * 
-	 * @param presentation
-	 *            une présentation
-	 * @return le résultat de l'ajout
-	 */
-	public boolean addPresentation(final PropositionPresentation presentation) {
-		return getPresentationsInternal().add(presentation);
-	}
-
-	/**
-	 * @param presentation
-	 *            une présentation
-	 * @return
-	 */
-	public boolean removePresentation(final PropositionPresentation presentation) {
-		return getPresentationsInternal().remove(presentation);
-	}
-
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */

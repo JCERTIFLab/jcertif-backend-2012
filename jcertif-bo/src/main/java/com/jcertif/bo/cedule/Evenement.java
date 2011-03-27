@@ -18,6 +18,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import com.jcertif.bo.AbstractBO;
+import com.jcertif.bo.presentation.PropositionPresentation;
 
 /**
  * 
@@ -64,6 +65,10 @@ public class Evenement extends AbstractBO {
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name = "evenement_id")
 	private Set<CeduleParticipant> ceduleParticipants;
+	
+	@ManyToOne
+	@JoinColumn(name = "proposition_presentation_id")
+	private PropositionPresentation propositionPresentation;
 
 	/**
 	 * @param id
@@ -244,6 +249,22 @@ public class Evenement extends AbstractBO {
 	 */
 	public void setCeduleParticipants(Set<CeduleParticipant> ceduleParticipants) {
 		this.ceduleParticipants = ceduleParticipants;
+	}
+	
+	
+
+	/**
+	 * @return the propositionPresentation
+	 */
+	public PropositionPresentation getPropositionPresentation() {
+		return propositionPresentation;
+	}
+
+	/**
+	 * @param propositionPresentation the propositionPresentation to set
+	 */
+	public void setPropositionPresentation(PropositionPresentation propositionPresentation) {
+		this.propositionPresentation = propositionPresentation;
 	}
 
 	/**

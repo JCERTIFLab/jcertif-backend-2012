@@ -25,6 +25,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import com.jcertif.bo.AbstractBO;
 import com.jcertif.bo.comite.ComiteRevisionPresentation;
 import com.jcertif.bo.conference.Conference;
+import com.jcertif.bo.participant.Participant;
 
 /**
  * Bo {@link PropositionPresentation}.
@@ -122,7 +123,7 @@ public class PropositionPresentation extends AbstractBO {
 	 */
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "propos_presentation_auteur", joinColumns = @JoinColumn(name = "presentation_id"), inverseJoinColumns = @JoinColumn(name = "auteur_id"))
-	private Set<Auteur> auteursInternal;
+	private Set<Participant> participants;
 
 	/**
 	 * @return l'identifiant d'une présentation
@@ -411,52 +412,9 @@ public class PropositionPresentation extends AbstractBO {
 		return getComiteRevisionPresentationsInternal().remove(comite);
 	}
 
-	/**
-	 * @return the auteursInternal
-	 */
-	protected Set<Auteur> getAuteursInternal() {
-		if (auteursInternal == null) {
-			auteursInternal = new HashSet<Auteur>();
-		}
-		return auteursInternal;
-	}
 
-	/**
-	 * @param auteursInternal
-	 *            the auteursInternal to set
-	 */
-	protected void setAuteursInternal(Set<Auteur> auteursInternal) {
-		this.auteursInternal = auteursInternal;
-	}
 
-	/**
-	 * @return the auteursInternal
-	 */
-	public Set<Auteur> getAuteurs() {
-		return auteursInternal;
-	}
-
-	/**
-	 * Ajout d'un auteur.
-	 * 
-	 * @param auteur
-	 *            un auteur
-	 * @return le résultat de l'ajout
-	 */
-	public boolean addAuteur(final Auteur auteur) {
-		return getAuteursInternal().add(auteur);
-	}
-
-	/**
-	 * Suppression d'un auteur.
-	 * 
-	 * @param auteur
-	 *            un auteur
-	 * @return le résultat de la suppression
-	 */
-	public boolean removeAuteur(final Auteur auteur) {
-		return getAuteursInternal().remove(auteur);
-	}
+	
 
 	/**
 	 * @see java.lang.Object#hashCode()
