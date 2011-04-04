@@ -2,7 +2,6 @@ package com.jcertif.bo.presentation;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -17,6 +16,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -121,7 +121,7 @@ public class PropositionPresentation extends AbstractBO {
 	/**
 	 * Liste des auteurs.
 	 */
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name = "propos_presentation_auteur", joinColumns = @JoinColumn(name = "presentation_id"), inverseJoinColumns = @JoinColumn(name = "auteur_id"))
 	private Set<Participant> participants;
 
@@ -411,10 +411,24 @@ public class PropositionPresentation extends AbstractBO {
 			ComiteRevisionPresentation comite) {
 		return getComiteRevisionPresentationsInternal().remove(comite);
 	}
-
-
-
 	
+	/**
+	 * @return the participants
+	 */
+	public Set<Participant> getParticipants() {
+		return participants;
+	}
+
+	/**
+	 * @param participants the participants to set
+	 */
+	public void setParticipants(Set<Participant> participants) {
+		this.participants = participants;
+	}
+	
+	 public void afterUnmarshal(Unmarshaller u, Object parent) {
+		    this.participants = (Set<Participant>)parent;
+	}
 
 	/**
 	 * @see java.lang.Object#hashCode()

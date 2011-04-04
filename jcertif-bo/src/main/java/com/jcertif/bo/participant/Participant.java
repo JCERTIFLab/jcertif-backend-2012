@@ -238,22 +238,6 @@ public class Participant extends Person {
         this.codeParticipant = codeParticipant;
     }
     
-    
-
-    /**
-	 * @return the propositionPresentations
-	 */
-	public Set<PropositionPresentation> getPropositionPresentations() {
-		return propositionPresentations;
-	}
-
-	/**
-	 * @param propositionPresentations the propositionPresentations to set
-	 */
-	public void setPropositionPresentations(Set<PropositionPresentation> propositionPresentations) {
-		this.propositionPresentations = propositionPresentations;
-	}
-
 	/**
      * @see java.lang.Object#hashCode()
      */

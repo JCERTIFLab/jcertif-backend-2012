@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
@@ -73,7 +74,7 @@ public abstract class Person extends AbstractBO {
 	/**
 	 * Détails de la personne.
 	 */
-	@Column
+	@Column (length=1000)
 	private String details;
 
 	/**

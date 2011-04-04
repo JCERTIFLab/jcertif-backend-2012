@@ -58,7 +58,7 @@ public class JCertifCalendar extends Calendar implements UserChangeListener,
 		setTimeFormat(TimeFormat.Format24H);
 		setVisibleHoursOfDay(8, 21);
 		setWidth("100%");
-		setHeight("1500px");
+		setHeight("1000px");
 		setLocale(Locale.getDefault());
 		setReadOnly(true);
 		setStartDate(dateDebutJCERTIF.getTime());

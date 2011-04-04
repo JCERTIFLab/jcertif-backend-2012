@@ -28,23 +28,7 @@ Début surcharge et ajout pour jcertif.
 	color: red;	
 }
 
-.v-calendar-event-Hall {
-	background-image: url('../../../pages/images/salles/Hall.png');
-	background-repeat:no-repeat;
-	background-position: right bottom;
-}
 
-.v-calendar-event-De-Brazza {
-	background-image: url('../../../pages/images/salles/De-Brazza.png');
-	background-repeat:no-repeat;
-	background-position: right bottom;
-}
-
-.v-calendar-event-Gide {
-	background-image: url('../../../pages/images/salles/Gide.png');
-	background-repeat:no-repeat;
-	background-position: right bottom;
-}
 /**
 
 Fin surcharge et ajout pour jcertif.

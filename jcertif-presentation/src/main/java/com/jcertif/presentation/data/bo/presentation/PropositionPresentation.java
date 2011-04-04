@@ -63,10 +63,8 @@ public class PropositionPresentation extends AbstractBO {
      * Statut de l'approbation de la présentation.
      */
     private StatutApprobation statutApprobation;
-    /**
-     * Participant faisant la proposition de la présentation.
-     */
-    private Participant participant;
+    
+    private Set<Participant> participants;
     /**
      * Liste des sujets de la présentation.
      */
@@ -125,26 +123,23 @@ public class PropositionPresentation extends AbstractBO {
         return description;
     }
 
-          /**
-     * @return le participant
-     */
-
-    public Participant getParticipant() {
-        return participant;
-    }
-
-   /**
-     * Définit un participant.
-     *
-     * @param participant
-     *            un participant
-     */
-
-    public void setParticipant(Participant participant) {
-        this.participant = participant;
-    }
+    
 
     /**
+	 * @return the participants
+	 */
+	public Set<Participant> getParticipants() {
+		return participants;
+	}
+
+	/**
+	 * @param participants the participants to set
+	 */
+	public void setParticipants(Set<Participant> participants) {
+		this.participants = participants;
+	}
+
+	/**
      * Définit une description.
      *
      * @param description

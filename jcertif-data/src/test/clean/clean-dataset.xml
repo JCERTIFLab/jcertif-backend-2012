@@ -12,6 +12,7 @@
 	<proposition_presentation />
 	<evenement/>
 	<faq/>
+	<profil_utilisateur/>
 	<participant />
 	<auteur />
 	<propos_presentation_auteur />

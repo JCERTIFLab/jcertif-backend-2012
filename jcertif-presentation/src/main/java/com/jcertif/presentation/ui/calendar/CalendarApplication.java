@@ -5,11 +5,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.jcertif.presentation.data.bo.cedule.CeduleParticipant;
 import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
@@ -52,7 +52,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 
 		// Use it as the layout of the Panel.
 		// getDetailPanel().setContent(custom);
-
+		mainWindow.addStyleName("jcertif_calendar");
 		mainWindow.getContent().addComponent(getCalendarComponent());
 		DateFormat dateF = new SimpleDateFormat("dd/MM/yyyy HH");
 		Date startDate = null;
@@ -70,7 +70,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 			if (firstEvent == null) {
 				firstEvent = calendarEvent;
 			} else {
-				if (firstEvent.getStart().after(calendarEvent.getStart())){
+				if (firstEvent.getStart().after(calendarEvent.getStart())) {
 					firstEvent = calendarEvent;
 				}
 			}
@@ -98,6 +98,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 	private Panel getDetailPanel() {
 		if (detailPanel == null) {
 			detailPanel = new Panel();
+			detailPanel.setStyleName("event_details_panel");
 		}
 		return detailPanel;
 	}
@@ -112,7 +113,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 		// layout.setStyleName("details_event");
 
 		CustomLayout custom = new CustomLayout("details_event_layout");
-		custom.addStyleName("customlayoutexample");
+		custom.addStyleName("details_event_layout");
 
 		// Use it as the layout of the Panel.
 		getDetailPanel().setContent(custom);
@@ -120,12 +121,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 		String libelleSalle = event.getJcertifEvent().getCeduleSalles().iterator().next()
 				.getSalle().getLibelle();
 
-		ExternalResource res = new ExternalResource("./images/salles/" + libelleSalle + ".png");
-
-		// Display the image in an Embedded component.
-		Embedded embedded = new Embedded("", res);
-
-		custom.addComponent(embedded, "ou");
+		custom.addComponent(new Label("Salle " + libelleSalle), "ou");
 
 		Date debut = event.getJcertifEvent().getDateDebutPrevue().getTime();
 		custom.addComponent(
@@ -136,19 +132,33 @@ public class CalendarApplication extends Application implements EventClickHandle
 						+ new SimpleDateFormat("HH:mm").format(event.getJcertifEvent()
 								.getDateFinPrevue().getTime())), "quand");
 		custom.addComponent(new Label(findSujet(event.getJcertifEvent())), "categorie");
-		Participant participant = findParticipant(event.getJcertifEvent());
+		Set<Participant> participantSet = findParticipant(event.getJcertifEvent());
 
-		if (participant == null) {
+		if (participantSet == null || participantSet.isEmpty()) {
 			LOGGER.warn("Pas de présentation pour cet évènement");
 		} else {
+			// TODO Gérer le cas de plusieurs participant
+			Participant participant = participantSet.iterator().next();
+
 			custom.addComponent(new Label(event.getJcertifEvent().getPropositionPresentation()
 					.getTitre()), "titre");
-			
+
 			custom.addComponent(new Button("je veux participer"), "participer");
-			
 
 			custom.addComponent(new Label(participant.getNom() + " " + participant.getPrenom()),
 					"presentateur");
+
+			if (participant.getProfilUtilisateur() != null
+					&& participant.getProfilUtilisateur().getPhoto() != null) {
+				ExternalResource res = new ExternalResource("./images/speakers/"
+						+ participant.getProfilUtilisateur().getPhoto());
+
+				// Display the image in an Embedded component.
+				Embedded embedded = new Embedded("", res);
+				embedded.addStyleName("photo_speaker");
+
+				custom.addComponent(embedded, "photo");
+			}
 
 			custom.addComponent(new Label(participant.getDetails()), "details");
 
@@ -160,7 +170,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 		layoutH.setSizeFull();
 
 		layoutH.addComponent(getCalendarComponent());
-		layoutH.setExpandRatio(getCalendarComponent(), 2);
+		layoutH.setExpandRatio(getCalendarComponent(), 3);
 		layoutH.addComponent(getDetailPanel());
 		layoutH.setExpandRatio(getDetailPanel(), 1);
 		mainWindow.getContent().removeAllComponents();
@@ -181,18 +191,12 @@ public class CalendarApplication extends Application implements EventClickHandle
 		return sujet;
 	}
 
-	private Participant findParticipant(final Evenement event) {
-		Participant pres = null;
-		CeduleParticipant cedule = event.getCeduleParticipants().iterator().next();
-		if (cedule == null) {
-			LOGGER.warn("Evenement sans CeduleParticipant, Evenement.id={0}", event.getId());
-		} else {
-
-			pres = cedule.getParticipant();
-
+	private Set<Participant> findParticipant(final Evenement event) {
+		Set<Participant> participantSet = event.getPropositionPresentation().getParticipants();
+		if (participantSet == null) {
+			LOGGER.warn("Evenement sans participant Evenement.id={0}", event.getId());
 		}
-
-		return pres;
+		return participantSet;
 	}
 
 	@Override
