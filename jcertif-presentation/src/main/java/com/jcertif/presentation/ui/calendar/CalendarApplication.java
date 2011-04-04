@@ -89,7 +89,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 		if (calendar == null) {
 			calendar = new JCertifCalendar();
 			calendar.setEventProvider(new JCertifEventProvider());
-			calendar.setStyleName(Runo.LAYOUT_DARKER);
+			calendar.addStyleName("calendar_central");
 			calendar.setHandler(this);
 		}
 		return calendar;

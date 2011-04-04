@@ -1,5 +1,4 @@
 body {
-	background-color: #D7DFE2;
 	margin: 0px;
 	padding: 0px;
 	font: 10px verdana, arial, helvetica;
@@ -571,19 +570,23 @@ textarea.contact_textarea {
 	background-image: url('./images/salles/Hall.png');
 	background-repeat: no-repeat;
 	background-position: right bottom;
+	border: 1px solid;
 }
 
 .v-calendar-event-De-Brazza {
 	background-image: url('./images/salles/De-Brazza.png');
 	background-repeat: no-repeat;
 	background-position: right bottom;
+	border: 1px solid;
 }
 
 .v-calendar-event-Gide {
 	background-image: url('./images/salles/Gide.png');
 	background-repeat: no-repeat;
 	background-position: right bottom;
+	border: 1px solid;
 }
+
 
 .event_details_panel {
 	background: none;
@@ -612,7 +615,20 @@ textarea.contact_textarea {
 }
 
 .jcertif_calendar {
-	background-color: #6E6E6E;
+	background-color: #D8D8D8;
+
+
+}
+
+#vaadin_div {
+	border: 2px solid;
+}
+
+.calendar_central {
+	background-color: #D8D8D8;
+}
+.v-calendar-calendar_central {
+	background-color: #D8D8D8;
 }
 
 .event_details {
