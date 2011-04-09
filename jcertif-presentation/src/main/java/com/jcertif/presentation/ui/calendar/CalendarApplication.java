@@ -24,6 +24,7 @@ import com.vaadin.Application;
 import com.vaadin.addon.calendar.event.CalendarEvent;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClick;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClickHandler;
+import com.vaadin.terminal.ExternalResource;
 import com.vaadin.terminal.gwt.server.HttpServletRequestListener;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -243,8 +244,11 @@ public class CalendarApplication extends Application implements EventClickHandle
 			}
 			if (connectedPart == null) {
 				// Show Login
-				mainWindow.getContent().removeAllComponents();
-				mainWindow.getContent().addComponent(getLoginForm());
+				String pathUrl = this.getURL().getPath().split("/")[1];
+				ExternalResource res = new ExternalResource(this.getURL().getProtocol() + "://"
+						+ this.getURL().getHost() + ":" + this.getURL().getPort() + "/" + pathUrl
+						+ "/pages/" + UIConst.LOGIN_VIEW);
+				this.getMainWindow().open(res);
 			} else {
 				addSelectedEventToCurrentUser();
 			}
