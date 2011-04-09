@@ -12,4 +12,14 @@ public interface UIConst {
 
 	String CALENDAR_DETAIL_LAYOUT = "details_event_layout";
 
+	String LOGIN_VIEW = "login.jsp";
+
+	String PARAM_CONNECTED = "connected";
+
+	String PARAM_LASTNAME = "lastname";
+
+	String PARAM_FIRSTNAME = "firstname";
+
+	String PARAM_EMAIL = "email";
+
 }

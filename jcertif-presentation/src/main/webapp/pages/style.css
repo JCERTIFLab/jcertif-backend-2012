@@ -1,10 +1,10 @@
 @IMPORT url("./css/jcertif-calendar.css");
 
 body {
+	background-color: #D7DFE2;
 	margin: 0px;
 	padding: 0px;
 	font: 10px verdana, arial, helvetica;
-	color: #416271;
 }
 
 h1 {
@@ -50,6 +50,23 @@ p.green {
 	color: #d4f0ba;
 }
 
+.greenColor {
+	padding: 0px 0 0px 0;
+	margin: 0px;
+	font-size: 18px;
+	color: #50a842;
+}
+
+.redColor {
+	font-size: 18px;
+	color: #dc0000;
+}
+
+.titreDate {
+	font-size: 18px;
+	color: #f7951e;
+}
+
 p.clear {
 	clear: both;
 	padding: 10px 0 0 0;
@@ -82,6 +99,15 @@ img.box_img {
 #logo {
 	padding: 15px 0 0 30px;
 	float: left;
+}
+
+#logout {
+	color: #F000FF;
+}
+
+#profil {
+	font-size: 14px;
+	font-weight: bold;
 }
 /*----------------------menu-------------------------*/
 #menu {
@@ -126,8 +152,8 @@ img.box_img {
 	height: 42px;
 	width: auto;
 	text-decoration: none;
-	color: #fff;
-	padding: 0 0 0 15px;
+	color: #ff8c00;
+	padding: 0 0 0 25px;
 	background: url(images/menu_arrow.gif) no-repeat left;
 }
 
@@ -375,7 +401,7 @@ input.submit {
 .contact_information {
 	width: 200px;
 	float: left;
-	padding: 10px 0 0 10px;
+	padding: 0px 0 0 0px;
 }
 
 .news {
@@ -567,3 +593,7 @@ textarea.contact_textarea {
 	color: #fff;
 }
 
+/** VAADIN **/
+#vaadin_div{
+	background-color: #D8D8D8;
+}

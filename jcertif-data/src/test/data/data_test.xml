@@ -86,9 +86,12 @@
 	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="6" statut_cedule_id="1" evenement_id="2"/>
 	<cedule_salle id="3" date_cedule="2011-02-02" details="details 2" salle_id="7" statut_cedule_id="1" evenement_id="3"/>
 	
-	<profil_utilisateur id="1" email="michel@gmail.com" password="michel" photo="1.png" />
-	<profil_utilisateur id="2" email="chrisbel@gmail.com" password="chrisbel" photo="2.png" />
-	<profil_utilisateur id="3" email="max@gmail.com" password="max" photo="3.png" />
+	<!-- password=michel-->
+	<profil_utilisateur id="1" email="michel@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="1.png" />
+	<!-- password=chrisbel-->
+	<profil_utilisateur id="2" email="chrisbel@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="2.png" />
+	<!-- password=max-->
+	<profil_utilisateur id="3" email="max@gmail.com" password="47-2781195093-10211382-98110-89-868120" photo="3.png" />
 	
 	<participant id="1" nom="Lucas" email="michel@gmail.com" prenom="Michel" profil_utilisateur_id="1" details="Michel Lucas réalise ses études en ingénierie, à l'Institut industriel du Nord, et les termine en 19652. Après un passage chez Siemens et dans une SSII, il rejoint en 1971 le Crédit mutuel de Strasbourg en tant qu'informaticien. Formé sur le terrain, sous la houlette de Théo Braun, dans l'adversité (création d'une filiale à Marseille dans un marché hostile, gestion de conflit social au journal L'Alsace, déjà propriété du Crédit mutuel local), son caractère et sa spécialité, l'informatique, qu'il impose dans l'entreprise, vont donner au Crédit mutuel une longueur d'avance en gestion de la clientèle. Il participe activement à l'expansion de la banque, géographiquement et dans le secteur de l'assurance." />
 	<participant id="2" nom="Malonga" email="chrisbel@gmail.com" prenom="Chrisbel" profil_utilisateur_id="2" details="Passionné et audacieux, j'aime croire que c'est possible lorsqu'on se donne les moyens. Ingénieur développeur JAVA JEE, je suis actuellement en formation d'Architecte JAVA JEE. Je suis un des membres leader du congoJug, et directeur du projet Jcertif Conférence 2011, le plus grand événement autour de la technologie Java en Afrique." />

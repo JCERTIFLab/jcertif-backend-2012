@@ -16,6 +16,15 @@
         	<td width="">
 					<div id="slogan" align="right">
         				<font class=greenColor><b>Du 3 au 4 Septembre |</b></font> <font class=redColor><b>| Brazzaville, Congo</b></font> 
+        				<br/>
+        				<br/>
+        				<%
+        					if(session.getAttribute("connected") != null && session.getAttribute("connected").equals(Boolean.TRUE)) {	
+        				%>
+        				<div id="profil" ><%=session.getAttribute("firstname")%> <%=session.getAttribute("lastname")%></div> <a id="logout" href="<%=request.getContextPath()%>/pages/logout.jsp" title=""><b>Déconnexion</b></a>
+        				<%
+        					}
+        				%>
         			</div>
         	</td>
         </tr>

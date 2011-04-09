@@ -12,7 +12,7 @@
         var vaadin = {
             vaadinConfigurations : {
                 'vaadin_div' : {
-                    appUri : '/jcertif-presentation/vaadin/calendar',
+                    appUri : '/jcertif-presentation/vaadin/login',
                     pathInfo : '/',
                     themeUri : '/jcertif-presentation/VAADIN/themes/jcertifruno',
                     versionInfo : {
@@ -30,9 +30,6 @@
 
 <div id="main_container">
     <jsp:include page="headertemplate.jsp"/>
-     <%
-     session.setAttribute("url", request.getContextPath() +"/pages/calendrier.jsp");
-     %>
     
     <div id="vaadin_div"></div>
     <jsp:include page="footer.jsp" />

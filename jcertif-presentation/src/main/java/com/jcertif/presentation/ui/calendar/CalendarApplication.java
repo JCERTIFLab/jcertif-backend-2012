@@ -7,22 +7,24 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.bo.cedule.CeduleParticipant;
 import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.bo.participant.Participant;
-import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
-import com.jcertif.presentation.internationalisation.Messages;
 import com.jcertif.presentation.ui.login.LoginForm;
+import com.jcertif.presentation.ui.util.UIConst;
 import com.jcertif.presentation.wsClient.CeduleParticipantClient;
 import com.jcertif.presentation.wsClient.ParticipantClient;
 import com.vaadin.Application;
 import com.vaadin.addon.calendar.event.CalendarEvent;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClick;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClickHandler;
-import com.vaadin.terminal.UserError;
+import com.vaadin.terminal.gwt.server.HttpServletRequestListener;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.HorizontalLayout;
@@ -32,7 +34,8 @@ import com.vaadin.ui.Window;
  * @author rossi
  * 
  */
-public class CalendarApplication extends Application implements EventClickHandler, ClickListener {
+public class CalendarApplication extends Application implements EventClickHandler, ClickListener,
+		HttpServletRequestListener {
 
 	private static final long serialVersionUID = 1L;
 	/**
@@ -63,7 +66,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 	/**
 	 * Connected Participant.
 	 */
-	private Participant connectedParticipant;
+	private Participant connectedPart;
 
 	private Evenement selectedEvent;
 
@@ -208,9 +211,9 @@ public class CalendarApplication extends Application implements EventClickHandle
 	private List<Long> getCurrentParticipateEventIds() {
 		List<Long> eventIds = new ArrayList<Long>();
 
-		if (connectedParticipant != null && connectedParticipant.getCeduleParticipants() != null
-				&& !connectedParticipant.getCeduleParticipants().isEmpty()) {
-			for (CeduleParticipant cedule : connectedParticipant.getCeduleParticipants()) {
+		if (connectedPart != null && connectedPart.getCeduleParticipants() != null
+				&& !connectedPart.getCeduleParticipants().isEmpty()) {
+			for (CeduleParticipant cedule : connectedPart.getCeduleParticipants()) {
 				eventIds.add(cedule.getEvenementId());
 			}
 		}
@@ -228,34 +231,17 @@ public class CalendarApplication extends Application implements EventClickHandle
 			// Validate form
 			getLoginForm().commit();
 
-			// Find the participant
-			connectedParticipant = ParticipantClient.getInstance().findByEmail(
-					(String) getLoginForm().getField("id").getValue());
+			connectedPart = getLoginForm().commitAndGetParticipant();
 
-			if (connectedParticipant == null) {
-				getLoginForm().setComponentError(
-						new UserError(Messages.getString("login.failedmessage")));
-			} else {
-
-				ProfilUtilisateur profil = connectedParticipant.getProfilUtilisateur();
-
-				if (((String) getLoginForm().getField("password").getValue()).equals(profil
-						.getPassword())) {
-
-					addSelectedEventToCurrentUser();
-				} else {
-					// password incorrect
-					getLoginForm().setComponentError(
-							new UserError(Messages.getString("login.failedmessage")));
-				}
-
+			if (connectedPart != null) {
+				addSelectedEventToCurrentUser();
 			}
 
 		} else if (event.getButton().equals(getDetailComponent().getParticipateButton())) {
 			if (LOGGER.isDebugEnabled()) {
 				LOGGER.debug("Event Click on participate Button");
 			}
-			if (connectedParticipant == null) {
+			if (connectedPart == null) {
 				// Show Login
 				mainWindow.getContent().removeAllComponents();
 				mainWindow.getContent().addComponent(getLoginForm());
@@ -269,7 +255,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 			}
 			CeduleParticipant ceduleToBeDeleted = null;
 			// Analyze if Cedule Participant already exist
-			for (CeduleParticipant cedule : connectedParticipant.getCeduleParticipants()) {
+			for (CeduleParticipant cedule : connectedPart.getCeduleParticipants()) {
 				if (cedule.getEvenementId().equals(selectedEvent.getId())) {
 					ceduleToBeDeleted = cedule;
 				}
@@ -278,8 +264,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 
 			// Rechargement du participant après mise à jour de sa
 			// cedule
-			connectedParticipant = ParticipantClient.getInstance().findByEmail(
-					connectedParticipant.getEmail());
+			connectedPart = ParticipantClient.getInstance().findByEmail(connectedPart.getEmail());
 
 			// Reinit calendar
 			init();
@@ -293,9 +278,9 @@ public class CalendarApplication extends Application implements EventClickHandle
 	private void addSelectedEventToCurrentUser() {
 		// Analyze if Cedule Participant already exist
 		boolean ceduleAlreadyExist = false;
-		if (connectedParticipant.getCeduleParticipants() != null) {
+		if (connectedPart.getCeduleParticipants() != null) {
 
-			for (CeduleParticipant cedule : connectedParticipant.getCeduleParticipants()) {
+			for (CeduleParticipant cedule : connectedPart.getCeduleParticipants()) {
 				if (cedule.getEvenementId().equals(selectedEvent.getId())) {
 					ceduleAlreadyExist = true;
 				}
@@ -306,17 +291,17 @@ public class CalendarApplication extends Application implements EventClickHandle
 			// Create new cedule for participant
 			CeduleParticipant newCedule = new CeduleParticipant();
 			newCedule.setEvenementId(selectedEvent.getId());
-			newCedule.setParticipantId(connectedParticipant.getId());
+			newCedule.setParticipantId(connectedPart.getId());
 			if (LOGGER.isDebugEnabled()) {
 				LOGGER.debug(
 						"Creating cedule participant with participantId={} and evenementId={}",
-						connectedParticipant.getId(), selectedEvent.getId());
+						connectedPart.getId(), selectedEvent.getId());
 			}
 			CeduleParticipantClient.getInstance().create_XML(newCedule);
 
 			// Rechargement du participant après mise à jour de sa
 			// cedule
-			connectedParticipant = ParticipantClient.getInstance().findByEmail(
+			connectedPart = ParticipantClient.getInstance().findByEmail(
 					(String) getLoginForm().getField("id").getValue());
 		}
 
@@ -363,6 +348,30 @@ public class CalendarApplication extends Application implements EventClickHandle
 			loginForm.getLoginButton().addListener(this);
 		}
 		return loginForm;
+	}
+
+	@Override
+	public void onRequestStart(HttpServletRequest request, HttpServletResponse response) {
+		// If user is already connected and connectPart is null, load of user
+		// profil
+		if (connectedPart == null
+				&& request.getSession().getAttribute(UIConst.PARAM_CONNECTED) != null
+				&& request.getSession().getAttribute(UIConst.PARAM_CONNECTED).equals(Boolean.TRUE)) {
+			connectedPart = ParticipantClient.getInstance().findByEmail(
+					(String) request.getSession().getAttribute(UIConst.PARAM_EMAIL));
+		}
+	}
+
+	@Override
+	public void onRequestEnd(HttpServletRequest request, HttpServletResponse response) {
+		// Save the login information
+		if (connectedPart != null
+				&& request.getSession().getAttribute(UIConst.PARAM_CONNECTED) == null) {
+			request.getSession().setAttribute(UIConst.PARAM_CONNECTED, true);
+			request.getSession().setAttribute(UIConst.PARAM_LASTNAME, connectedPart.getNom());
+			request.getSession().setAttribute(UIConst.PARAM_FIRSTNAME, connectedPart.getPrenom());
+			request.getSession().setAttribute(UIConst.PARAM_EMAIL, connectedPart.getEmail());
+		}
 	}
 
 }
