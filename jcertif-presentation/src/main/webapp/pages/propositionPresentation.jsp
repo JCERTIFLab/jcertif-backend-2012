@@ -29,7 +29,7 @@
 <body>
 
     <div id="main_container">
-    <jsp:include page="header.jsp"/>
+    <jsp:include page="headertemplate.jsp"/>
     
     <div id="vaadin_div"></div>
     <jsp:include page="footer.jsp" />
