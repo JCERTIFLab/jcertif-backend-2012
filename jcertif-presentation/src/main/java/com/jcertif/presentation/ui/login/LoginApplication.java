@@ -86,15 +86,6 @@ public class LoginApplication extends Application implements ClickListener,
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Login request with urlRedirect={}", urlRedirect);
 		}
-
-		if (connectedPart != null) {
-			if (LOGGER.isDebugEnabled()) {
-				LOGGER.debug("------- User is already connected. Email={}",
-						connectedPart.getEmail());
-			}
-			ExternalResource res = new ExternalResource(urlRedirect);
-			this.getMainWindow().open(res);
-		}
 	}
 
 	@Override
