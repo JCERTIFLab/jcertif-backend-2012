@@ -17,8 +17,7 @@ import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
  */
 @Repository
 public class CeduleParticipantDAOHibernate extends
-		AbstractHibernateGenericDAO<CeduleParticipant, Long> implements
-		CeduleParticipantDAO {
+		AbstractHibernateGenericDAO<CeduleParticipant, Long> implements CeduleParticipantDAO {
 
 	/**
 	 * @see com.jcertif.dao.api.cedule.CeduleParticipantDAO#findByParticipant(java.lang.Long)
@@ -27,7 +26,7 @@ public class CeduleParticipantDAOHibernate extends
 	@Override
 	public List<CeduleParticipant> findByParticipant(Long idParticipant) {
 		return getCurrentSession().createCriteria(CeduleParticipant.class)
-				.add(Restrictions.eq("participant.id", idParticipant)).list();
+				.add(Restrictions.eq("participantId", idParticipant)).list();
 	}
 
 }

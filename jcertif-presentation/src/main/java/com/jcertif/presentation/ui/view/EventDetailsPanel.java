@@ -11,7 +11,7 @@ import com.jcertif.presentation.data.RestApiFacade;
 import com.jcertif.presentation.data.domain.JCertifPresentation;
 import com.jcertif.presentation.data.domain.JCertifSpeaker;
 import com.jcertif.presentation.data.domain.MyScheduleUser;
-import com.jcertif.presentation.ui.calendar.JCertifCalendarEvent;
+import com.jcertif.presentation.ui.calendar.CalendarEventBean;
 
 import com.jcertif.presentation.util.StringUtil;
 import com.vaadin.Application.UserChangeEvent;
@@ -40,9 +40,9 @@ public class EventDetailsPanel extends Panel {
 
     private static final long serialVersionUID = -671137262550574991L;
 
-    private JCertifCalendarEvent event;
+    private CalendarEventBean event;
 
-    public EventDetailsPanel(JCertifCalendarEvent event) {
+    public EventDetailsPanel(CalendarEventBean event) {
         this.event = event;
         setWidth("100%");
         initUi();

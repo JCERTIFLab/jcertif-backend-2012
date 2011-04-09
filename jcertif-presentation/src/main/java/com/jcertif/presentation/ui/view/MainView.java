@@ -8,11 +8,11 @@ import java.util.Date;
 import com.jcertif.presentation.JCertifWebApplication;
 import com.jcertif.presentation.data.domain.JCertifPresentation;
 import com.jcertif.presentation.ui.FullScreenButton;
-import com.jcertif.presentation.ui.calendar.JCertifCalendar;
-import com.jcertif.presentation.ui.calendar.JCertifCalendarEvent;
+import com.jcertif.presentation.ui.calendar.CalendarComponent;
+import com.jcertif.presentation.ui.calendar.CalendarEventBean;
 
 //import com.jcertif.presentation.ui.ceduler.JCertifCeduler;
-import com.jcertif.presentation.ui.calendar.JCertifEventProvider;
+import com.jcertif.presentation.ui.calendar.CalendarEventBeanProvider;
 
 import com.vaadin.addon.calendar.event.CalendarEvent;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClick;
@@ -41,7 +41,7 @@ public class MainView extends HorizontalLayout implements EventClickHandler, Val
 
     //private JCertifCalendarEvent currentEvent;
 
-    private JCertifCalendar calendar;
+    private CalendarComponent calendar;
     private EventDetailsPanel detailsPanel;
     private HorizontalLayout toolbar;
     private Panel detailsPanelWrapper;
@@ -59,7 +59,7 @@ public class MainView extends HorizontalLayout implements EventClickHandler, Val
         setMargin(true);
         setSpacing(true);
         
-        calendar = new JCertifCalendar();
+        calendar = new CalendarComponent();
         calendar.setHandler(this);
         detailsPanel = new EventDetailsPanel(null);
         
@@ -87,8 +87,8 @@ public class MainView extends HorizontalLayout implements EventClickHandler, Val
     @Override
     public void eventClick(EventClick event) {
         CalendarEvent calEvent = event.getCalendarEvent();
-        if (calEvent instanceof JCertifCalendarEvent) {
-        	JCertifCalendarEvent jCertifcalEvent = (JCertifCalendarEvent) calEvent;
+        if (calEvent instanceof CalendarEventBean) {
+        	CalendarEventBean jCertifcalEvent = (CalendarEventBean) calEvent;
             // Replace the current detailsPanel with a new one.
             EventDetailsPanel newDetailsPanel = new EventDetailsPanel(
             		jCertifcalEvent);

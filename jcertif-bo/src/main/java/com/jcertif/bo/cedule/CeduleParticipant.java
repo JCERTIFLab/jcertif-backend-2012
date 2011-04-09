@@ -1,11 +1,11 @@
 package com.jcertif.bo.cedule;
+
 /**
  * Chrisbel Malonga
  * roland.amour@chrisbel.net
  */
 import java.util.Calendar;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,6 +20,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import com.jcertif.bo.AbstractBO;
 import com.jcertif.bo.participant.Participant;
+
 /**
  * @author chrisbel
  */
@@ -32,20 +33,20 @@ public class CeduleParticipant extends AbstractBO {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	@Column
 	private Calendar dateCedule;
-	
+
 	@Column
 	private String details;
-	
 
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "participant_id")
-	private Participant participant;
-	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@Column(name = "participant_id")
+	private Long participantId;
+
+	@Column(name = "evenement_id")
+	private Long evenementId;
+
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "statut_cedule_id")
 	private StatutCedule statutCedule;
 
@@ -55,21 +56,17 @@ public class CeduleParticipant extends AbstractBO {
 	public CeduleParticipant() {
 
 	}
-	
 
 	/**
 	 * Constructor
 	 */
-	public CeduleParticipant(Long id, Calendar dateCedule, String details,
-			 Participant participant,Evenement event,
-			StatutCedule statutCedule) {
+	public CeduleParticipant(Long id, Calendar dateCedule, String details, Participant participant,
+			Evenement event, StatutCedule statutCedule) {
 		this.id = id;
 		this.dateCedule = dateCedule;
 		this.details = details;
-		this.participant = participant;
 		this.statutCedule = statutCedule;
 	}
-
 
 	/**
 	 * @return the idTODO
@@ -131,26 +128,36 @@ public class CeduleParticipant extends AbstractBO {
 		this.statutCedule = statutCedule;
 	}
 
-	
-	
-	
-
-	
-
 	/**
-	 * @return the participantTODO
+	 * @return the participantId
 	 */
-	public Participant getParticipant() {
-		return participant;
+	public Long getParticipantId() {
+		return participantId;
 	}
 
 	/**
-	 * @param participant the participant to setTODOparticipant
+	 * @param participantId
+	 *            the participantId to set
 	 */
-	public void setParticipant(Participant participant) {
-		this.participant = participant;
+	public void setParticipantId(Long participantId) {
+		this.participantId = participantId;
 	}
-	
+
+	/**
+	 * @return the evenementId
+	 */
+	public Long getEvenementId() {
+		return evenementId;
+	}
+
+	/**
+	 * @param evenementId
+	 *            the evenementId to set
+	 */
+	public void setEvenementId(Long evenementId) {
+		this.evenementId = evenementId;
+	}
+
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -175,6 +182,7 @@ public class CeduleParticipant extends AbstractBO {
 
 		final CeduleParticipant other = (CeduleParticipant) obj;
 
-		return new EqualsBuilder().append(id, other.getId()).append(details, other.getDetails()).isEquals();
+		return new EqualsBuilder().append(id, other.getId()).append(details, other.getDetails())
+				.isEquals();
 	}
 }

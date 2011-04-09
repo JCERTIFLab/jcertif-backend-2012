@@ -1,6 +1,5 @@
 package com.jcertif.presentation.data.bo.cedule;
 
-
 import java.util.Calendar;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -16,24 +15,19 @@ import com.jcertif.presentation.data.bo.participant.Participant;
  */
 
 @XmlRootElement
-public class CeduleParticipant extends AbstractBO{
+public class CeduleParticipant extends AbstractBO {
 
 	private static final long serialVersionUID = 1L;
 
-	
 	private Long id;
-	
-	
+
 	private Calendar dateCedule;
-	
-	
+
 	private String details;
 
-	private Evenement evenement;
+	private Long participantId;
 
-	
-
-	private Participant participant;
+	private Long evenementId;
 
 	private StatutCedule statutCedule;
 
@@ -43,22 +37,17 @@ public class CeduleParticipant extends AbstractBO{
 	public CeduleParticipant() {
 
 	}
-	
 
 	/**
 	 * Constructor
 	 */
-	public CeduleParticipant(Long id, Calendar dateCedule, String details,
-			 Participant participant,Evenement event,
-			StatutCedule statutCedule) {
+	public CeduleParticipant(Long id, Calendar dateCedule, String details, Participant participant,
+			Evenement event, StatutCedule statutCedule) {
 		this.id = id;
 		this.dateCedule = dateCedule;
 		this.details = details;
-		this.evenement = event;
-		this.participant = participant;
 		this.statutCedule = statutCedule;
 	}
-
 
 	/**
 	 * @return the idTODO
@@ -120,44 +109,40 @@ public class CeduleParticipant extends AbstractBO{
 		this.statutCedule = statutCedule;
 	}
 
-	
-	
-	
-
 	/**
-	 * @return the evenement
+	 * @return the participantId
 	 */
-	public Evenement getEvenement() {
-		return evenement;
-	}
-
-
-	/**
-	 * @param evenement the evenement to set
-	 */
-	public void setEvenement(Evenement evenement) {
-		this.evenement = evenement;
-	}
-
-
-	/**
-	 * @return the participantTODO
-	 */
-	public Participant getParticipant() {
-		return participant;
+	public Long getParticipantId() {
+		return participantId;
 	}
 
 	/**
-	 * @param participant the participant to setTODOparticipant
+	 * @param participantId
+	 *            the participantId to set
 	 */
-	public void setParticipant(Participant participant) {
-		this.participant = participant;
+	public void setParticipantId(Long participantId) {
+		this.participantId = participantId;
 	}
-	
+
+	/**
+	 * @return the evenementId
+	 */
+	public Long getEvenementId() {
+		return evenementId;
+	}
+
+	/**
+	 * @param evenementId
+	 *            the evenementId to set
+	 */
+	public void setEvenementId(Long evenementId) {
+		this.evenementId = evenementId;
+	}
+
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */
-	
+
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder().append(id).append(details).toHashCode();
@@ -179,6 +164,7 @@ public class CeduleParticipant extends AbstractBO{
 
 		final CeduleParticipant other = (CeduleParticipant) obj;
 
-		return new EqualsBuilder().append(id, other.getId()).append(details, other.getDetails()).isEquals();
-	} 
+		return new EqualsBuilder().append(id, other.getId()).append(details, other.getDetails())
+				.isEquals();
+	}
 }

@@ -62,9 +62,8 @@ public abstract class AbstractFacade<S extends GenericService<T, PK, ?>, T, PK e
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Path(DELETE_SUFFIX)
-	public T delete(T profil) {
+	public void delete(T profil) {
 		getService().remove(profil);
-		return profil;
 	}
 
 	/**

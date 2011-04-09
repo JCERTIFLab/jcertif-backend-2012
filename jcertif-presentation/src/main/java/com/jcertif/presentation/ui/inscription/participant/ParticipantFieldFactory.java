@@ -1,7 +1,6 @@
 package com.jcertif.presentation.ui.inscription.participant;
 
 import java.util.List;
-import java.util.Locale;
 
 import com.jcertif.presentation.data.bo.participant.RoleParticipant;
 import com.jcertif.presentation.data.bo.participant.TypeParticipant;
@@ -35,11 +34,10 @@ public class ParticipantFieldFactory implements FormFieldFactory {
 		String pid = (String) propertyId;
 
 		if (pid.equals("nom")) {
-			return ComponentFactory.createTextField(
-					Messages.getString("Presentation.nom", Locale.getDefault()), true);
+			return ComponentFactory.createTextField(Messages.getString("Presentation.nom"), true);
 		} else if (pid.equals("prenom")) {
-			return ComponentFactory.createTextField(
-					Messages.getString("Presentation.prenom", Locale.getDefault()), true);
+			return ComponentFactory
+					.createTextField(Messages.getString("Presentation.prenom"), true);
 		} else if (pid.equals("salutation")) {
 			ComboBox combo = new ComboBox("Civilité");
 			combo.addItem("Mlle");
@@ -49,8 +47,8 @@ public class ParticipantFieldFactory implements FormFieldFactory {
 			combo.setRequiredError("La Civilité est obligatoire");
 			return combo;
 		} else if (pid.equals("specialite")) {
-			return ComponentFactory.createTextField(
-					Messages.getString("Presentation.specialite", Locale.getDefault()), false);
+			return ComponentFactory.createTextField(Messages.getString("Presentation.specialite"),
+					false);
 		} else if (pid.equals("compagnie")) {
 			return ComponentFactory.createTextField("Entreprise", false);
 		} else if (pid.equals("details")) {

@@ -13,7 +13,7 @@ import com.vaadin.addon.calendar.ui.Calendar;
  * JCertifCalendar is a Calendar UI component for displaying the JCertif
  * conference schedule.
  */
-public class JCertifCalendar extends Calendar implements UserChangeListener,
+public class CalendarComponent extends Calendar implements UserChangeListener,
 		UserFavouritesChangedListener {
 
 	/**
@@ -36,7 +36,7 @@ public class JCertifCalendar extends Calendar implements UserChangeListener,
 	/**
 	 * A Constructor.
 	 */
-	public JCertifCalendar() {
+	public CalendarComponent() {
 		super();
 		configureCalendar();
 	}

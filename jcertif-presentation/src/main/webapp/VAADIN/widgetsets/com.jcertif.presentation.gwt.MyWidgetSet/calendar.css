@@ -293,6 +293,7 @@ div.v-calendar-event-all-day {
 	font-weight: bold;
 }
 
+/** JCERTIF TAILORING **/
 .v-calendar-event-content {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -301,8 +302,9 @@ div.v-calendar-event-all-day {
 	background: #E3F6CE;;
 	opacity: 0.5;
 	filter: alpha(opacity = 80);
-	height: 14px; /* "min-height" */
+	height: 14px; 
 }
+
 
 .v-calendar-event.selected {
 	-webkit-border-radius: 4px;

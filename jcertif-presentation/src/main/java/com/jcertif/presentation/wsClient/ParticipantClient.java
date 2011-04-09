@@ -1,10 +1,11 @@
 package com.jcertif.presentation.wsClient;
 
+import java.util.List;
+
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.UniformInterfaceException;
-import java.util.List;
 
 /**
  * Jersey REST client generated for REST resource:ParticipantFacade
@@ -70,5 +71,17 @@ public class ParticipantClient extends AbstractJCertWebServiceClient<Participant
 				});
 		isEmailExist = !participantList.isEmpty();
 		return isEmailExist;
+	}
+
+	public Participant findByEmail(String email) {
+		Participant participant = null;
+		List<Participant> participantList = getWebResource().path("/listByEmail/" + email).get(
+				new GenericType<List<Participant>>() {
+				});
+
+		if (!participantList.isEmpty()) {
+			participant = participantList.iterator().next();
+		}
+		return participant;
 	}
 }

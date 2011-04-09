@@ -5,7 +5,6 @@ package com.jcertif.presentation.ui.inscription.participant;
 
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,10 +13,7 @@ import com.jcertif.presentation.data.bo.conference.Conference;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.internationalisation.Messages;
 import com.jcertif.presentation.wsClient.ConferenceClient;
-import com.vaadin.data.Validator;
-import com.vaadin.data.Validator.InvalidValueException;
 import com.vaadin.data.util.BeanItem;
-import com.vaadin.terminal.UserError;
 import com.vaadin.ui.Form;
 
 /**
@@ -63,7 +59,7 @@ public class ParticipantForm extends Form {
 		BeanItem<Participant> item = new BeanItem<Participant>(bean);
 		this.setItemDataSource(item);
 		this.setVisibleItemProperties(VISIBLE_PROPERTIES);
-		this.setCaption(Messages.getString("Presentation.inscription_caption", Locale.getDefault()));
+		this.setCaption(Messages.getString("Presentation.inscription_caption"));
 	}
 
 }

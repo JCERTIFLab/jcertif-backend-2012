@@ -3,41 +3,69 @@ package com.jcertif.presentation.ui.calendar;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.jcertif.presentation.data.bo.cedule.CeduleParticipant;
 import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.bo.participant.Participant;
-import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
+import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
+import com.jcertif.presentation.internationalisation.Messages;
+import com.jcertif.presentation.ui.login.LoginForm;
+import com.jcertif.presentation.wsClient.CeduleParticipantClient;
+import com.jcertif.presentation.wsClient.ParticipantClient;
 import com.vaadin.Application;
 import com.vaadin.addon.calendar.event.CalendarEvent;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClick;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClickHandler;
-import com.vaadin.terminal.ExternalResource;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.CustomLayout;
-import com.vaadin.ui.Embedded;
+import com.vaadin.terminal.UserError;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Panel;
 import com.vaadin.ui.Window;
-import com.vaadin.ui.themes.Runo;
 
 /**
  * @author rossi
  * 
  */
-public class CalendarApplication extends Application implements EventClickHandler {
+public class CalendarApplication extends Application implements EventClickHandler, ClickListener {
 
 	private static final long serialVersionUID = 1L;
+	/**
+	 * A Logger.
+	 */
 	private static final Logger LOGGER = LoggerFactory.getLogger(CalendarApplication.class);
-	private JCertifCalendar calendar;
-	private Panel detailPanel;
+
+	/**
+	 * Calendar component.
+	 */
+	private CalendarComponent calendarComponent;
+
+	/**
+	 * Calendar Detail Component.
+	 */
+	private CalendarDetailComponent detailComponent;
+
+	/**
+	 * Login Form.
+	 */
+	private LoginForm loginForm;
+
+	/**
+	 * Main Window.
+	 */
 	private Window mainWindow;
+
+	/**
+	 * Connected Participant.
+	 */
+	private Participant connectedParticipant;
+
+	private Evenement selectedEvent;
 
 	@Override
 	public void init() {
@@ -45,15 +73,63 @@ public class CalendarApplication extends Application implements EventClickHandle
 			LOGGER.debug("Building Calendar Application");
 		}
 		setTheme("jcertifruno");
-		mainWindow = new Window();
+		boolean init = false;
+		if (mainWindow == null) {
+			init = true;
+			mainWindow = new Window();
+			mainWindow.addStyleName("jcertif_calendar");
+		}
 
-		// CustomLayout custom = new CustomLayout("details_event_layout");
-		// custom.addStyleName("customlayoutexample");
-
-		// Use it as the layout of the Panel.
-		// getDetailPanel().setContent(custom);
-		mainWindow.addStyleName("jcertif_calendar");
+		// Add calendar component
 		mainWindow.getContent().addComponent(getCalendarComponent());
+
+		// Update Detail Panel with first event
+		CalendarEvent firstEvent = findFirstEvent();
+		if (firstEvent != null) {
+			updateDetailPanel((CalendarEventBean) firstEvent);
+		}
+
+		if (init) {
+			setMainWindow(mainWindow);
+		}
+
+	}
+
+	/**
+	 * Find the first event.
+	 * 
+	 * @param events
+	 *            a event list
+	 * @return the first event
+	 */
+	private CalendarEvent findFirstEvent() {
+		List<CalendarEvent> events = getCalendarEventBeans();
+
+		CalendarEvent firstEvent = null;
+		for (CalendarEvent calendarEvent : events) {
+			// Setting participate style
+			List<Long> eventIds = getCurrentParticipateEventIds();
+			CalendarEventBean calendarEventBean = (CalendarEventBean) calendarEvent;
+			if (eventIds.contains(calendarEventBean.getFacadeEvent().getId())) {
+				calendarEventBean.setStyleName(CalendarStyle.PARTICIPATE_EVENT);
+			}
+
+			if (firstEvent == null) {
+				firstEvent = calendarEvent;
+			} else {
+				if (firstEvent.getStart().after(calendarEvent.getStart())) {
+					firstEvent = calendarEvent;
+				}
+			}
+
+		}
+		return firstEvent;
+	}
+
+	/**
+	 * @return
+	 */
+	private List<CalendarEvent> getCalendarEventBeans() {
 		DateFormat dateF = new SimpleDateFormat("dd/MM/yyyy HH");
 		Date startDate = null;
 		Date endDate = null;
@@ -65,146 +141,228 @@ public class CalendarApplication extends Application implements EventClickHandle
 		}
 		List<CalendarEvent> events = getCalendarComponent().getEventProvider().getEvents(startDate,
 				endDate);
-		CalendarEvent firstEvent = null;
-		for (CalendarEvent calendarEvent : events) {
-			if (firstEvent == null) {
-				firstEvent = calendarEvent;
-			} else {
-				if (firstEvent.getStart().after(calendarEvent.getStart())) {
-					firstEvent = calendarEvent;
-				}
-			}
-
-		}
-
-		if (firstEvent != null) {
-			updateDetailPanel((JCertifCalendarEvent) firstEvent);
-		}
-
-		setMainWindow(mainWindow);
-
+		return events;
 	}
 
-	private JCertifCalendar getCalendarComponent() {
-		if (calendar == null) {
-			calendar = new JCertifCalendar();
-			calendar.setEventProvider(new JCertifEventProvider());
-			calendar.addStyleName("calendar_central");
-			calendar.setHandler(this);
-		}
-		return calendar;
-	}
-
-	private Panel getDetailPanel() {
-		if (detailPanel == null) {
-			detailPanel = new Panel();
-			detailPanel.setStyleName("event_details_panel");
-		}
-		return detailPanel;
-	}
-
-	private void updateDetailPanel(final JCertifCalendarEvent event) {
+	/**
+	 * @param event
+	 */
+	private void updateDetailPanel(final CalendarEventBean event) {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Updating Detail Panel");
 		}
-		event.setStyleName("selected");
-		getDetailPanel().removeAllComponents();
-		// VerticalLayout layout = new VerticalLayout();
-		// layout.setStyleName("details_event");
+		selectedEvent = event.getFacadeEvent();
+		updateSelectedStyle(event);
 
-		CustomLayout custom = new CustomLayout("details_event_layout");
-		custom.addStyleName("details_event_layout");
+		List<Long> eventIds = getCurrentParticipateEventIds();
 
-		// Use it as the layout of the Panel.
-		getDetailPanel().setContent(custom);
-
-		String libelleSalle = event.getJcertifEvent().getCeduleSalles().iterator().next()
-				.getSalle().getLibelle();
-
-		custom.addComponent(new Label("Salle " + libelleSalle), "ou");
-
-		Date debut = event.getJcertifEvent().getDateDebutPrevue().getTime();
-		custom.addComponent(
-				new Label(new SimpleDateFormat("EEEEEEEE").format(debut)
-						+ " de "
-						+ new SimpleDateFormat("HH:mm").format(debut)
-						+ " à "
-						+ new SimpleDateFormat("HH:mm").format(event.getJcertifEvent()
-								.getDateFinPrevue().getTime())), "quand");
-		custom.addComponent(new Label(findSujet(event.getJcertifEvent())), "categorie");
-		Set<Participant> participantSet = findParticipant(event.getJcertifEvent());
-
-		if (participantSet == null || participantSet.isEmpty()) {
-			LOGGER.warn("Pas de présentation pour cet évènement");
-		} else {
-			// TODO Gérer le cas de plusieurs participant
-			Participant participant = participantSet.iterator().next();
-
-			custom.addComponent(new Label(event.getJcertifEvent().getPropositionPresentation()
-					.getTitre()), "titre");
-
-			custom.addComponent(new Button("je veux participer"), "participer");
-
-			custom.addComponent(new Label(participant.getNom() + " " + participant.getPrenom()),
-					"presentateur");
-
-			if (participant.getProfilUtilisateur() != null
-					&& participant.getProfilUtilisateur().getPhoto() != null) {
-				ExternalResource res = new ExternalResource("./images/speakers/"
-						+ participant.getProfilUtilisateur().getPhoto());
-
-				// Display the image in an Embedded component.
-				Embedded embedded = new Embedded("", res);
-				embedded.addStyleName("photo_speaker");
-
-				custom.addComponent(embedded, "photo");
-			}
-
-			custom.addComponent(new Label(participant.getDetails()), "details");
-
-			custom.addComponent(new Label(event.getJcertifEvent().getPropositionPresentation()
-					.getMotCle().getMotCle()), "motcle");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Current participant has {} cedules.", eventIds.size());
 		}
 
+		// Update the panel event
+		getDetailComponent().update(event.getFacadeEvent(),
+				!eventIds.contains(event.getFacadeEvent().getId()));
+
+		// Build Horizontal layout for calendar and detail panel
 		final HorizontalLayout layoutH = new HorizontalLayout();
 		layoutH.setSizeFull();
-
 		layoutH.addComponent(getCalendarComponent());
 		layoutH.setExpandRatio(getCalendarComponent(), 3);
-		layoutH.addComponent(getDetailPanel());
-		layoutH.setExpandRatio(getDetailPanel(), 1);
+		layoutH.addComponent(getDetailComponent());
+		layoutH.setExpandRatio(getDetailComponent(), 1);
+
+		// Update main window
 		mainWindow.getContent().removeAllComponents();
 		mainWindow.getContent().addComponent(layoutH);
 
 	}
 
-	private String findSujet(final Evenement event) {
-		String sujet = "<Aucun>";
-		PropositionPresentation pres = event.getPropositionPresentation();
+	private void updateSelectedStyle(final CalendarEventBean selectedEvent) {
+		selectedEvent.setStyleName(CalendarStyle.SELECTED_EVENT);
 
-		if (pres.getSujets() == null || pres.getSujets().isEmpty()) {
-			LOGGER.warn("Evenement sans Sujet, Evenement.id={0}", event.getId());
-		} else {
-			sujet = pres.getSujets().iterator().next().getLibelle();
+		List<CalendarEvent> events = getCalendarEventBeans();
+		for (CalendarEvent calendarEvent : events) {
+			// Setting participate style
+			List<Long> eventIds = getCurrentParticipateEventIds();
+			CalendarEventBean calendarEventBean = (CalendarEventBean) calendarEvent;
+			if (eventIds.contains(calendarEventBean.getFacadeEvent().getId())) {
+				calendarEventBean.setStyleName(CalendarStyle.PARTICIPATE_EVENT);
+			} else {
+				calendarEventBean.removeStyle(CalendarStyle.PARTICIPATE_EVENT);
+			}
+
+			// Setting selected style
+			if (selectedEvent.equals(calendarEventBean)) {
+				calendarEventBean.setStyleName(CalendarStyle.SELECTED_EVENT);
+			} else {
+				calendarEventBean.removeStyle(CalendarStyle.SELECTED_EVENT);
+			}
 		}
 
-		return sujet;
 	}
 
-	private Set<Participant> findParticipant(final Evenement event) {
-		Set<Participant> participantSet = event.getPropositionPresentation().getParticipants();
-		if (participantSet == null) {
-			LOGGER.warn("Evenement sans participant Evenement.id={0}", event.getId());
+	/**
+	 * @return
+	 */
+	private List<Long> getCurrentParticipateEventIds() {
+		List<Long> eventIds = new ArrayList<Long>();
+
+		if (connectedParticipant != null && connectedParticipant.getCeduleParticipants() != null
+				&& !connectedParticipant.getCeduleParticipants().isEmpty()) {
+			for (CeduleParticipant cedule : connectedParticipant.getCeduleParticipants()) {
+				eventIds.add(cedule.getEvenementId());
+			}
 		}
-		return participantSet;
+		return eventIds;
 	}
 
+	@Override
+	public void buttonClick(ClickEvent event) {
+
+		if (event.getButton().equals(getLoginForm().getLoginButton())) {
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Event Click on logging Button");
+			}
+
+			// Validate form
+			getLoginForm().commit();
+
+			// Find the participant
+			connectedParticipant = ParticipantClient.getInstance().findByEmail(
+					(String) getLoginForm().getField("id").getValue());
+
+			if (connectedParticipant == null) {
+				getLoginForm().setComponentError(
+						new UserError(Messages.getString("login.failedmessage")));
+			} else {
+
+				ProfilUtilisateur profil = connectedParticipant.getProfilUtilisateur();
+
+				if (((String) getLoginForm().getField("password").getValue()).equals(profil
+						.getPassword())) {
+
+					addSelectedEventToCurrentUser();
+				} else {
+					// password incorrect
+					getLoginForm().setComponentError(
+							new UserError(Messages.getString("login.failedmessage")));
+				}
+
+			}
+
+		} else if (event.getButton().equals(getDetailComponent().getParticipateButton())) {
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Event Click on participate Button");
+			}
+			if (connectedParticipant == null) {
+				// Show Login
+				mainWindow.getContent().removeAllComponents();
+				mainWindow.getContent().addComponent(getLoginForm());
+			} else {
+				addSelectedEventToCurrentUser();
+			}
+
+		} else if (event.getButton().equals(getDetailComponent().getCancelButton())) {
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Event Click on cancel Button");
+			}
+			CeduleParticipant ceduleToBeDeleted = null;
+			// Analyze if Cedule Participant already exist
+			for (CeduleParticipant cedule : connectedParticipant.getCeduleParticipants()) {
+				if (cedule.getEvenementId().equals(selectedEvent.getId())) {
+					ceduleToBeDeleted = cedule;
+				}
+			}
+			CeduleParticipantClient.getInstance().delete_XML(ceduleToBeDeleted);
+
+			// Rechargement du participant après mise à jour de sa
+			// cedule
+			connectedParticipant = ParticipantClient.getInstance().findByEmail(
+					connectedParticipant.getEmail());
+
+			// Reinit calendar
+			init();
+		}
+
+	}
+
+	/**
+	 * 
+	 */
+	private void addSelectedEventToCurrentUser() {
+		// Analyze if Cedule Participant already exist
+		boolean ceduleAlreadyExist = false;
+		if (connectedParticipant.getCeduleParticipants() != null) {
+
+			for (CeduleParticipant cedule : connectedParticipant.getCeduleParticipants()) {
+				if (cedule.getEvenementId().equals(selectedEvent.getId())) {
+					ceduleAlreadyExist = true;
+				}
+			}
+		}
+
+		if (!ceduleAlreadyExist) {
+			// Create new cedule for participant
+			CeduleParticipant newCedule = new CeduleParticipant();
+			newCedule.setEvenementId(selectedEvent.getId());
+			newCedule.setParticipantId(connectedParticipant.getId());
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug(
+						"Creating cedule participant with participantId={} and evenementId={}",
+						connectedParticipant.getId(), selectedEvent.getId());
+			}
+			CeduleParticipantClient.getInstance().create_XML(newCedule);
+
+			// Rechargement du participant après mise à jour de sa
+			// cedule
+			connectedParticipant = ParticipantClient.getInstance().findByEmail(
+					(String) getLoginForm().getField("id").getValue());
+		}
+
+		// Reinit calendar
+		init();
+	}
+
+	/**
+	 * @see com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClickHandler#eventClick(com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClick)
+	 */
 	@Override
 	public void eventClick(EventClick event) {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Event Click on Calendar Application");
 		}
-		updateDetailPanel((JCertifCalendarEvent) event.getCalendarEvent());
+		updateDetailPanel((CalendarEventBean) event.getCalendarEvent());
+	}
+
+	private CalendarComponent getCalendarComponent() {
+		if (calendarComponent == null) {
+			calendarComponent = new CalendarComponent();
+			calendarComponent.setEventProvider(new CalendarEventBeanProvider());
+			calendarComponent.addStyleName("calendar_central");
+			calendarComponent.setHandler(this);
+		}
+		return calendarComponent;
+	}
+
+	private CalendarDetailComponent getDetailComponent() {
+		if (detailComponent == null) {
+			detailComponent = new CalendarDetailComponent();
+			detailComponent.getParticipateButton().addListener(this);
+			detailComponent.getCancelButton().addListener(this);
+		}
+		return detailComponent;
+	}
+
+	/**
+	 * @return the loginForm
+	 */
+	private LoginForm getLoginForm() {
+		if (loginForm == null) {
+			loginForm = new LoginForm();
+			loginForm.getLoginButton().addListener(this);
+		}
+		return loginForm;
 	}
 
 }
