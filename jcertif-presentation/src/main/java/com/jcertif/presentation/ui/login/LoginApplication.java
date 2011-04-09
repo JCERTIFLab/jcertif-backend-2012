@@ -39,7 +39,7 @@ public class LoginApplication extends Application implements ClickListener,
 	/**
 	 * Redirect URL.
 	 */
-	private String urlRedirect = "accueil.jsp";
+	private String urlRedirect = "home.jsp";
 
 	/**
 	 * Login Form.
@@ -74,7 +74,6 @@ public class LoginApplication extends Application implements ClickListener,
 	@Override
 	public void buttonClick(ClickEvent event) {
 		connectedPart = getLoginForm().commitAndGetParticipant();
-		this.getMainWindow();
 		ExternalResource res = new ExternalResource(urlRedirect);
 		this.getMainWindow().open(res);
 	}
