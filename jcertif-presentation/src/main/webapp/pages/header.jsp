@@ -21,7 +21,7 @@
         				<%
         					if(session.getAttribute("connected") != null && session.getAttribute("connected").equals(Boolean.TRUE)) {	
         				%>
-        				<div id="profil" ><%=session.getAttribute("firstname")%> <%=session.getAttribute("lastname")%></div> <a id="logout" href="<%=request.getContextPath()%>/pages/logout.jsp" title=""><b>Déconnexion</b></a>
+        				<div id="profil" ><%=session.getAttribute("firstname")%> <%=session.getAttribute("lastname")%></div> <a id="logout" href="<%=request.getContextPath()%>/vaadin/logout" title=""><b>Déconnexion</b></a>
         				<%
         					}
         				%>
