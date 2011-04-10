@@ -9,10 +9,10 @@ import com.jcertif.presentation.ui.util.ComponentFactory;
 import com.jcertif.presentation.wsClient.RoleParticipantClient;
 import com.jcertif.presentation.wsClient.TypeParticipantClient;
 import com.vaadin.data.Item;
-import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Field;
 import com.vaadin.ui.FormFieldFactory;
+import com.vaadin.ui.NativeSelect;
 import com.vaadin.ui.TextField;
 
 /**
@@ -39,13 +39,13 @@ public class ParticipantFieldFactory implements FormFieldFactory {
 			return ComponentFactory
 					.createTextField(Messages.getString("Presentation.prenom"), true);
 		} else if (pid.equals("salutation")) {
-			ComboBox combo = new ComboBox("Civilité");
-			combo.addItem("Mlle");
-			combo.addItem("Mme");
-			combo.addItem("Mr");
-			combo.setRequired(true);
-			combo.setRequiredError("La Civilité est obligatoire");
-			return combo;
+			NativeSelect select = new NativeSelect("Civilité");
+			select.addItem("Mlle");
+			select.addItem("Mme");
+			select.addItem("Mr");
+			select.setRequired(true);
+			select.setRequiredError("La Civilité est obligatoire");
+			return select;
 		} else if (pid.equals("specialite")) {
 			return ComponentFactory.createTextField(Messages.getString("Presentation.specialite"),
 					false);
@@ -58,13 +58,13 @@ public class ParticipantFieldFactory implements FormFieldFactory {
 		} else if (pid.equals("website")) {
 			return ComponentFactory.createTextField("Site web", false);
 		} else if (pid.equals("roleparticipant")) {
-			ComboBox combo = new ComboBox("Rôle");
+			NativeSelect combo = new NativeSelect("Rôle");
 			initComboRoleParticipant(combo);
 			combo.setRequired(true);
 			combo.setRequiredError("Le rôle est obligatoire");
 			return combo;
 		} else if (propertyId.equals("typeParticipant")) {
-			ComboBox combo = new ComboBox("Type");
+			NativeSelect combo = new NativeSelect("Type");
 			initComboTypeParticipant(combo);
 			combo.setRequired(true);
 			combo.setRequiredError("Le type est obligatoire");
@@ -74,7 +74,7 @@ public class ParticipantFieldFactory implements FormFieldFactory {
 		return null;
 	}
 
-	private void initComboTypeParticipant(ComboBox combo) {
+	private void initComboTypeParticipant(NativeSelect combo) {
 		List<TypeParticipant> typeParticipantList = TypeParticipantClient.getInstance()
 				.findAllXML();
 		for (TypeParticipant type : typeParticipantList) {
@@ -82,7 +82,7 @@ public class ParticipantFieldFactory implements FormFieldFactory {
 		}
 	}
 
-	private void initComboRoleParticipant(ComboBox combo) {
+	private void initComboRoleParticipant(NativeSelect combo) {
 		List<RoleParticipant> roleParticipantList = RoleParticipantClient.getInstance()
 				.findAllXML();
 		for (RoleParticipant type : roleParticipantList) {
