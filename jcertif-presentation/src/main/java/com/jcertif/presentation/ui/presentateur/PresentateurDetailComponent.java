@@ -123,9 +123,12 @@ public class PresentateurDetailComponent extends Panel {
 	private List<Participant> getPresentateursList() {
 		List<Participant> presentateursList = new ArrayList<Participant>(); 
 		Set<Participant> participants = new HashSet<Participant>(ParticipantClient.getInstance().findAllXML());
-		
+		System.out.print("QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ");
 		for (Participant participant : participants) {
-			if ("Speaker".equalsIgnoreCase(participant.getRoleparticipant().getCode()) ) {
+//			System.out.print(participant.getNom() + "==>" + participant.getPrenom() + " ==> " + participant.getRoleparticipant().getCode());
+
+			if (participant.getRoleparticipant() != null && "Speaker".equalsIgnoreCase(participant.getRoleparticipant().getCode()) ) {
+				System.out.print(participant.getNom() + "==>" + participant.getPrenom() + " ==> " + participant.getRoleparticipant().getCode());
 				presentateursList.add(participant);
 			}
 		}
