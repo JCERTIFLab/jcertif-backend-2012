@@ -87,8 +87,18 @@
                         </div>
 
                     </div>
-                    -->
-							<br />
+                    --><jsp:include page="sponsors.jsp" />
+							
+						</div>
+						<!--end of right content-->
+						<!--
+
+                <div style=" clear:both;"></div>
+                -->
+					</td>
+				</tr>
+				<tr>
+					<td><br />
 							<div class="contact_information">
 								<h4>Contacts</h4>
 								<p>
@@ -103,16 +113,10 @@
 										class="box_img" /> info@jcertif.com<br />
 								</p>
 
-							</div>
-						</div>
-						<!--end of right content-->
-						<!--
-
-                <div style=" clear:both;"></div>
-                -->
-					</td>
-				</tr>
+							</div></td>
+					</tr>
 			</table>
+			
 		</div>
 		<!--end of main content-->
 
