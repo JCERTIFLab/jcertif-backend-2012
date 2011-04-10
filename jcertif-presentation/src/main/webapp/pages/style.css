@@ -171,7 +171,7 @@ img.box_img {
 /*----------------middle green box-----------*/
 .green_box {
 	width: 900px;
-	height: 265px;
+	height: 200px;
 	clear: both;
 	background: url(images/green_box_bg.gif) no-repeat left #50a842;
 	background-position: 50px 0px;

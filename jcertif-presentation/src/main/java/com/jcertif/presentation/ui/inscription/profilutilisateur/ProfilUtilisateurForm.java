@@ -33,15 +33,21 @@ public class ProfilUtilisateurForm extends Form {
 		this.getLayout().setMargin(true);
 		setFormFieldFactory(new ProfilUtilisateurFieldFactory());
 
+		initProfilBean();
+
+		this.setCaption(Messages.getString("Presentation.profil_caption", Locale.getDefault()));
+	}
+
+	/**
+	 * 
+	 */
+	public void initProfilBean() {
 		ProfilUtilisateurBean bean = new ProfilUtilisateurBean();
 
 		// Mapping BO Bean Form
 		BeanItem<ProfilUtilisateurBean> item = new BeanItem<ProfilUtilisateurBean>(bean);
 		this.setItemDataSource(item);
 		this.setVisibleItemProperties(VISIBLE_PROPERTIES);
-
-		this.setCaption(Messages.getString("Presentation.profil_caption", Locale.getDefault()));
 	}
-
 
 }

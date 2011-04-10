@@ -75,6 +75,9 @@ public class LoginApplication extends Application implements ClickListener,
 	@Override
 	public void buttonClick(ClickEvent event) {
 		connectedPart = getLoginForm().commitAndGetParticipant();
+		if (urlRedirect == null) {
+			urlRedirect = "home.jsp";
+		}
 		ExternalResource res = new ExternalResource(urlRedirect);
 		this.getMainWindow().open(res);
 	}

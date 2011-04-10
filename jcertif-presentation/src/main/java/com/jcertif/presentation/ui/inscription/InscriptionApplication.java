@@ -14,6 +14,7 @@ import com.jcertif.presentation.internationalisation.Messages;
 import com.jcertif.presentation.ui.inscription.participant.ParticipantForm;
 import com.jcertif.presentation.ui.inscription.profilutilisateur.ProfilUtilisateurBean;
 import com.jcertif.presentation.ui.inscription.profilutilisateur.ProfilUtilisateurForm;
+import com.jcertif.presentation.ui.util.UIConst;
 import com.jcertif.presentation.wsClient.ParticipantClient;
 import com.vaadin.Application;
 import com.vaadin.data.util.BeanItem;
@@ -36,9 +37,9 @@ public class InscriptionApplication extends Application implements ClickListener
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = LoggerFactory.getLogger(InscriptionApplication.class);
 
-	private Form profilForm;
+	private ProfilUtilisateurForm profilForm;
 
-	private Form participantForm;
+	private ParticipantForm participantForm;
 
 	private Form addressForm;
 
@@ -72,10 +73,14 @@ public class InscriptionApplication extends Application implements ClickListener
 				participant.setEmail(profilUtilisateur.getEmail());
 				participant.setProfilUtilisateur(profilUtilisateur);
 				ParticipantClient.getInstance().create_XML(participant);
-				Window main = this.getMainWindow();
+				participantForm.initParticipantBean();
+				profilForm.initProfilBean();
 				// Create a notification with default settings for a warning.
-				ExternalResource res = new ExternalResource("confirmationInscription.jsp");
-				main.open(res);
+				String pathUrl = this.getURL().getPath().split("/")[1];
+				ExternalResource res = new ExternalResource(this.getURL().getProtocol() + "://"
+						+ this.getURL().getHost() + ":" + this.getURL().getPort() + "/" + pathUrl
+						+ "/pages/" + UIConst.CONFIRMATION_VIEW);
+				this.getMainWindow().open(res);
 			}
 		}
 

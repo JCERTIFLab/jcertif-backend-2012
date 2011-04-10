@@ -39,6 +39,14 @@ public class ParticipantForm extends Form {
 		this.getLayout().setMargin(true);
 		setFormFieldFactory(new ParticipantFieldFactory());
 
+		initParticipantBean();
+		this.setCaption(Messages.getString("Presentation.inscription_caption"));
+	}
+
+	/**
+	 * 
+	 */
+	public void initParticipantBean() {
 		Participant bean = new Participant();
 
 		// Initialisation de la conférence
@@ -59,7 +67,6 @@ public class ParticipantForm extends Form {
 		BeanItem<Participant> item = new BeanItem<Participant>(bean);
 		this.setItemDataSource(item);
 		this.setVisibleItemProperties(VISIBLE_PROPERTIES);
-		this.setCaption(Messages.getString("Presentation.inscription_caption"));
 	}
 
 }
