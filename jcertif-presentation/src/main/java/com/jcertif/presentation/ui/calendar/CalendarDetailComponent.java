@@ -2,6 +2,7 @@ package com.jcertif.presentation.ui.calendar;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.ResourceBundle;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -116,7 +117,7 @@ public class CalendarDetailComponent extends Panel {
 		// Participant photo
 		if (participant.getProfilUtilisateur() != null
 				&& participant.getProfilUtilisateur().getPhoto() != null) {
-			ExternalResource res = new ExternalResource(UIConst.URL_SPEAKER_IMG
+			ExternalResource res = new ExternalResource(getFacadeURL() + UIConst.URL_SPEAKER_IMG
 					+ participant.getProfilUtilisateur().getPhoto());
 			Embedded embedded = new Embedded("", res);
 			htmlLayout.addComponent(embedded, "photo");
@@ -130,6 +131,11 @@ public class CalendarDetailComponent extends Panel {
 				.getMotCle()), "motcle");
 		;
 
+	}
+
+	public static String getFacadeURL() {
+		ResourceBundle bundle = ResourceBundle.getBundle(UIConst.WEBAPP_PROPERTIES_FILE);
+		return bundle.getString(UIConst.FACADE_URL_PROP);
 	}
 
 	/**

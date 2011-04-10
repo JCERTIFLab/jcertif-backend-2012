@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.jcertif.presentation.ui.util.UIConst;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
@@ -34,8 +35,6 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
 	private WebResource webResource;
 	private Class<T> responseType;
 	private final String ressourceBasePath;
-	public static String FACADE_URL_PROP = "facade.url";
-	public static String WEBAPP_PROPERTIES_FILE = "jcertif-presentation";
 	protected static final String CREATE_SUFFIX = "create";
 	protected static final String FINDBYID_SUFFIX = "{0}";
 	protected static final String FINDALL_SUFFIX = "list";
@@ -91,8 +90,8 @@ public abstract class AbstractJCertWebServiceClient<T, PK extends Serializable> 
 	}
 
 	public static String getBaseURI() {
-		ResourceBundle bundle = ResourceBundle.getBundle(WEBAPP_PROPERTIES_FILE);
-		return bundle.getString(FACADE_URL_PROP);
+		ResourceBundle bundle = ResourceBundle.getBundle(UIConst.WEBAPP_PROPERTIES_FILE);
+		return bundle.getString(UIConst.FACADE_URL_PROP);
 	}
 
 	public void close() {
