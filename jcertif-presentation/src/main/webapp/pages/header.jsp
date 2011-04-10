@@ -9,7 +9,7 @@
     		<td width="" align="left" >
         	    <div id="logo" align="left">
         			<a href="<%=request.getContextPath()%>/pages/home.jsp">
-            			<img src="images/JCertif_Conf2011_2.png" alt="Logo JCertif 2011" title="" border="0" align="left" margin="0"/>
+            			<img src="images/JCertif_Conf2011_2.png" alt="Logo JCertif 2011" title="" border="0" align="left"/>
         			</a>
         		</div>
         	</td>
