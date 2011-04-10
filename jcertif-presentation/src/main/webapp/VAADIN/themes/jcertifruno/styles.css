@@ -3126,8 +3126,8 @@ div.v-csslayout-box-shadow {
 	background: transparent url(panel/img/top-right.png) no-repeat right top;
 }
 .v-panel-content {
-	border: 1px solid #babfc0;
-	border-bottom: 1px solid #dee2e3;
+	border: 0px solid #babfc0;
+	border-bottom: 0px solid #dee2e3;
 	background-color: #fff;
 }
 .v-panel-deco {

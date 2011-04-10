@@ -15,10 +15,11 @@
 }
 
 /* Header bar */
+/*
 .v-calendar {
 	background-color: #fff;
 }
-
+*/
 .v-calendar-header-month,.v-calendar-header-week {
 	border-bottom: 0px solid #c1c1c1;
 }
