@@ -48,7 +48,7 @@
 		<jsp:include page="headertemplate.jsp" />
 
 		<div id="main_content">
-			<table border="1">
+			<table border="0">
 				<tr>
 					<td>
 						<div id="left_content">
