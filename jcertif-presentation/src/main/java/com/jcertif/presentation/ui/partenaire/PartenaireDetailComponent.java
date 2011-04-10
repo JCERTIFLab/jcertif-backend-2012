@@ -78,24 +78,13 @@ public class PartenaireDetailComponent extends Panel {
 			// Participant photo
 			if (participant.getProfilUtilisateur() != null
 					&& participant.getProfilUtilisateur().getPhoto() != null) {
-				ExternalResource res = new ExternalResource(getFacadeURL() + UIConst.URL_SPEAKER_IMG
+				ExternalResource res = new ExternalResource(getFacadeURL() + UIConst.URL_PARTNER_IMG
 						+ participant.getProfilUtilisateur().getPhoto());
 				Embedded embedded = new Embedded("", res);
 				htmlLayout.addComponent(embedded, "photo");
 			}
-	
 			// Participant Bio
-			htmlLayout.addComponent(new Label(participant.getDetails()), "details");
-			
-			//Proposition de présentation
-			htmlLayout.addComponent(new Label("Présentations"));
-			
-			if(participant.getPropositionPresentations() != null){
-				for (PropositionPresentation propositionPresentation : participant.getPropositionPresentations()) {	
-					// Presentation title
-					htmlLayout.addComponent(new Label(propositionPresentation.getTitre()), "titre");
-				}
-			}
+			htmlLayout.addComponent(new Label(participant.getDetails()), "details");			
 		}
 
 	}
