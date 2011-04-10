@@ -54,7 +54,7 @@ public class ParticipantFieldFactory implements FormFieldFactory {
 		} else if (pid.equals("compagnie")) {
 			return ComponentFactory.createTextField("Entreprise", false);
 		} else if (pid.equals("details")) {
-			TextField text = ComponentFactory.createTextField("Présentation", false);
+			TextField text = ComponentFactory.createTextField("Bio", false);
 			text.setRows(5);
 			return text;
 		} else if (pid.equals("website")) {
