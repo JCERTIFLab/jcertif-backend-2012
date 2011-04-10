@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -296,6 +297,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 			CeduleParticipant newCedule = new CeduleParticipant();
 			newCedule.setEvenementId(selectedEvent.getId());
 			newCedule.setParticipantId(connectedPart.getId());
+			newCedule.setDateCedule(Calendar.getInstance());
 			if (LOGGER.isDebugEnabled()) {
 				LOGGER.debug(
 						"Creating cedule participant with participantId={} and evenementId={}",
