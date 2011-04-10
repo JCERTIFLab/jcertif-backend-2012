@@ -6,16 +6,14 @@
 	<type_evenement id="2" code="GEN" description="Généralités"/>
 	<type_evenement id="3" code="PRES" description="Présentation"/>
 	
+	<role_participant id="1" code="Speaker" description="speaker" />
+	<role_participant id="2" code="Organisateur" description="organisateur" />
+	<role_participant id="3" code="Visiteur" description="visiteur" />
+	<role_participant id="4" code="Partenaire" description="partenaire" />
 	
-	
-	<role_participant id="1" code="speaker" description="speaker" />
-	<role_participant id="2" code="organisateur" description="organisateur" />
-	<role_participant id="3" code="visiteur" description="visiteur" />
-	<role_participant id="4" code="partenaire" description="partenaire" />
-	
-	<type_participant id="1" code="particulier" description="particulier"/>
-	<type_participant id="2" code="entreprise" description="entreprise"/>
-	<type_participant id="3" code="etudiant" description="etudiant"/>
+	<type_participant id="1" code="Particulier" description="particulier"/>
+	<type_participant id="2" code="Entreprise" description="entreprise"/>
+	<type_participant id="3" code="Etudiant" description="etudiant"/>
 	
 	<salle id="5" libelle="Hall" description="cette grande salle se situe à l'entrée" nombre_place="2000" details="climatisation" />
 	<salle id="6" libelle="De-Brazza" description="Salle historique" nombre_place="900" details="pas de tables" />
@@ -39,17 +37,12 @@
 	<faq id="1" question="JCertif c'est quoi ?" reponse="JCERTIF c'est l'excellence" conference_id="7" />
 	<faq id="2" question="JCertif commence quand ?" reponse="Très bientôt" conference_id="7" />
 	<faq id="3" question="JCertif pourquoi?" reponse="Parce que" conference_id="7" />
-	
-	
-	
+		
 	<statut_approbation id="1" code_statut="T" description="En traitement"/>
 	<statut_approbation id="2" code_statut="C" description="En attente de complément"/>
 	<statut_approbation id="3" code_statut="A" description="Approuvé"/>
 	<statut_approbation id="4" code_statut="R" description="Refusé"/>
 
-
-	
-	
 	<mot_cle id="4" mot_cle="Web 2.0" description="description 4"/>
 	<mot_cle id="5" mot_cle="Java" description="description 5"/>
 	<mot_cle id="6" mot_cle="Android" description="description 6"/>
@@ -96,6 +89,10 @@
 	<participant id="1" nom="Lucas" email="michel@gmail.com" prenom="Michel" profil_utilisateur_id="1" details="Michel Lucas réalise ses études en ingénierie, à l'Institut industriel du Nord, et les termine en 19652. Après un passage chez Siemens et dans une SSII, il rejoint en 1971 le Crédit mutuel de Strasbourg en tant qu'informaticien. Formé sur le terrain, sous la houlette de Théo Braun, dans l'adversité (création d'une filiale à Marseille dans un marché hostile, gestion de conflit social au journal L'Alsace, déjà propriété du Crédit mutuel local), son caractère et sa spécialité, l'informatique, qu'il impose dans l'entreprise, vont donner au Crédit mutuel une longueur d'avance en gestion de la clientèle. Il participe activement à l'expansion de la banque, géographiquement et dans le secteur de l'assurance." />
 	<participant id="2" nom="Malonga" email="chrisbel@gmail.com" prenom="Chrisbel" profil_utilisateur_id="2" details="Passionné et audacieux, j'aime croire que c'est possible lorsqu'on se donne les moyens. Ingénieur développeur JAVA JEE, je suis actuellement en formation d'Architecte JAVA JEE. Je suis un des membres leader du congoJug, et directeur du projet Jcertif Conférence 2011, le plus grand événement autour de la technologie Java en Afrique." />
 	<participant id="3" nom="Bonbhel" email="max@gmail.com" prenom="Max" profil_utilisateur_id="3" details="Hi ! My name is Jean-François Bonbhel I'm a software developer and consultant at Fujitsu Canada (located in Quebec city, Canada). I have a strong expertise with Java and JEE (Java Enterprise Edition). I am a founder of Congo Java User Group and president of JUG-AFRICA an umbrella Java User Group (JUG) for the entire continent of Africa that individual JUGs can affiliate with. I'm also member of the Oracle Expertise and Solution Center (OESC) of Fujitsu Canada and an active member of the Sun Network Developer and the Quebec Oracle User Group (OraGec). The opinions expressed on this site are my own and don't necessarily reflect those of my employer Ha!Ha! Ha!" />
+
+	<auteur id="1" nom="Lucas" email="michel@gmail.com" prenom="Michel" biographie_sommaire="Michel Lucas réalise ses études en ingénierie, à l'Institut industriel du Nord, et les termine en 19652. Après un passage chez Siemens et dans une SSII, il rejoint en 1971 le Crédit mutuel de Strasbourg en tant qu'informaticien. Formé sur le terrain, sous la houlette de Théo Braun, dans l'adversité (création d'une filiale à Marseille dans un marché hostile, gestion de conflit social au journal L'Alsace, déjà propriété du Crédit mutuel local), son caractère et sa spécialité, l'informatique, qu'il impose dans l'entreprise, vont donner au Crédit mutuel une longueur d'avance en gestion de la clientèle. Il participe activement à l'expansion de la banque, géographiquement et dans le secteur de l'assurance." />
+	<auteur id="2" nom="Malonga" email="chrisbel@gmail.com" prenom="Chrisbel" biographie_sommaire="Passionné et audacieux, j'aime croire que c'est possible lorsqu'on se donne les moyens. Ingénieur développeur JAVA JEE, je suis actuellement en formation d'Architecte JAVA JEE. Je suis un des membres leader du congoJug, et directeur du projet Jcertif Conférence 2011, le plus grand événement autour de la technologie Java en Afrique." />
+	<auteur id="3" nom="Bonbhel" email="max@gmail.com" prenom="Max" biographie_sommaire="Hi ! My name is Jean-François Bonbhel I'm a software developer and consultant at Fujitsu Canada (located in Quebec city, Canada). I have a strong expertise with Java and JEE (Java Enterprise Edition). I am a founder of Congo Java User Group and president of JUG-AFRICA an umbrella Java User Group (JUG) for the entire continent of Africa that individual JUGs can affiliate with. I'm also member of the Oracle Expertise and Solution Center (OESC) of Fujitsu Canada and an active member of the Sun Network Developer and the Quebec Oracle User Group (OraGec). The opinions expressed on this site are my own and don't necessarily reflect those of my employer Ha!Ha! Ha!" />
 	
 	<cedule_participant id="1" evenement_id="1" participant_id="1" statut_cedule_id="1" />
 	<cedule_participant id="2" evenement_id="2" participant_id="2" statut_cedule_id="1" />
@@ -104,8 +101,5 @@
 	<propos_presentation_auteur presentation_id="1" auteur_id="1"/>
 	<propos_presentation_auteur presentation_id="2" auteur_id="2"/>
 	<propos_presentation_auteur presentation_id="3" auteur_id="3"/>	
-	
-	
-
 
 </dataset>
