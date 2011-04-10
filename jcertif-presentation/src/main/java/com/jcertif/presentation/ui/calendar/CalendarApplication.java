@@ -365,6 +365,8 @@ public class CalendarApplication extends Application implements EventClickHandle
 				&& request.getSession().getAttribute(UIConst.PARAM_CONNECTED).equals(Boolean.TRUE)) {
 			connectedPart = ParticipantClient.getInstance().findByEmail(
 					(String) request.getSession().getAttribute(UIConst.PARAM_EMAIL));
+			// Reinit calendar
+			init();
 		}
 
 		// logout case
