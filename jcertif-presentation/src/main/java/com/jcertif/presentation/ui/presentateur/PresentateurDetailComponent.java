@@ -1,8 +1,6 @@
 package com.jcertif.presentation.ui.presentateur;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -11,20 +9,11 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
-import com.jcertif.presentation.data.bo.presentation.Sujet;
-import com.jcertif.presentation.internationalisation.Messages;
-import com.jcertif.presentation.ui.calendar.CalendarEventBean;
-import com.jcertif.presentation.ui.calendar.CalendarStyle;
 import com.jcertif.presentation.ui.util.UIConst;
-import com.jcertif.presentation.wsClient.EvenementClient;
 import com.jcertif.presentation.wsClient.ParticipantClient;
-import com.jcertif.presentation.wsClient.SujetClient;
-import com.vaadin.addon.calendar.event.CalendarEvent;
 import com.vaadin.terminal.ExternalResource;
-import com.vaadin.ui.Button;
 import com.vaadin.ui.CustomLayout;
 import com.vaadin.ui.Embedded;
 import com.vaadin.ui.Label;
@@ -68,19 +57,19 @@ public class PresentateurDetailComponent extends Panel {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Updating Detail Panel with Participant");
 		}
-		this.removeAllComponents();
-		CustomLayout htmlLayout = new CustomLayout(UIConst.CALENDAR_DETAIL_LAYOUT);
-		htmlLayout.addStyleName("details_event_layout");
-
-		// Use it as the layout of the Panel.
-		this.setContent(htmlLayout);
-
-
-		// Sujet
-		htmlLayout.addComponent(new Label("Presentateurs"));
-
+//		this.removeAllComponents();
 
 		for (Participant participant : getPresentateursList()) {
+
+			CustomLayout htmlLayout = new CustomLayout(UIConst.CALENDAR_DETAIL_LAYOUT);
+			htmlLayout.addStyleName("details_event_layout");
+	
+			// Use it as the layout of the Panel.
+			this.setContent(htmlLayout);
+	
+	
+			// Sujet
+			htmlLayout.addComponent(new Label("Presentateurs"));
 	
 			// Lastname + firstname
 			htmlLayout.addComponent(new Label(participant.getNom() + " " + participant.getPrenom()),
@@ -123,12 +112,9 @@ public class PresentateurDetailComponent extends Panel {
 	private List<Participant> getPresentateursList() {
 		List<Participant> presentateursList = new ArrayList<Participant>(); 
 		Set<Participant> participants = new HashSet<Participant>(ParticipantClient.getInstance().findAllXML());
-		System.out.print("QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ");
-		for (Participant participant : participants) {
-//			System.out.print(participant.getNom() + "==>" + participant.getPrenom() + " ==> " + participant.getRoleparticipant().getCode());
 
+		for (Participant participant : participants) {
 			if (participant.getRoleparticipant() != null && "Speaker".equalsIgnoreCase(participant.getRoleparticipant().getCode()) ) {
-				System.out.print(participant.getNom() + "==>" + participant.getPrenom() + " ==> " + participant.getRoleparticipant().getCode());
 				presentateursList.add(participant);
 			}
 		}
