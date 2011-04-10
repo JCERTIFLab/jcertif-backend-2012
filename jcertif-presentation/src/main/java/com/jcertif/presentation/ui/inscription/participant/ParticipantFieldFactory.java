@@ -23,6 +23,7 @@ import com.vaadin.ui.TextField;
  */
 public class ParticipantFieldFactory implements FormFieldFactory {
 
+	private static final String TAILLE_COMBO = "12em";
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -45,6 +46,7 @@ public class ParticipantFieldFactory implements FormFieldFactory {
 			select.addItem("Mr");
 			select.setRequired(true);
 			select.setRequiredError("La Civilité est obligatoire");
+			select.setWidth(TAILLE_COMBO);
 			return select;
 		} else if (pid.equals("specialite")) {
 			return ComponentFactory.createTextField(Messages.getString("Presentation.specialite"),
@@ -62,12 +64,14 @@ public class ParticipantFieldFactory implements FormFieldFactory {
 			initComboRoleParticipant(combo);
 			combo.setRequired(true);
 			combo.setRequiredError("Le rôle est obligatoire");
+			combo.setWidth(TAILLE_COMBO);
 			return combo;
 		} else if (propertyId.equals("typeParticipant")) {
 			NativeSelect combo = new NativeSelect("Type");
 			initComboTypeParticipant(combo);
 			combo.setRequired(true);
 			combo.setRequiredError("Le type est obligatoire");
+			combo.setWidth(TAILLE_COMBO);
 			return combo;
 		}
 
