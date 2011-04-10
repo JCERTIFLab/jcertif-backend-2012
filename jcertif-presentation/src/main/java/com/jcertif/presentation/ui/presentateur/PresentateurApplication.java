@@ -25,6 +25,7 @@ public class PresentateurApplication extends Application {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Initialize Presentateur Application");
 		}
+		setTheme("jcertifruno");
 		final Window mainWindow = new Window();
 		mainWindow.getContent().addComponent(new PresentateurDetailComponent());
 		setMainWindow(mainWindow);
