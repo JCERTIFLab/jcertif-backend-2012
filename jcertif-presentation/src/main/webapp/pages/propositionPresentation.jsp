@@ -30,7 +30,15 @@
 <body>
 	<%
 	session.setAttribute("url", request.getContextPath() +"/pages/propositionPresentation.jsp");
-	%>
+		if(session.getAttribute("connected") == null || session.getAttribute("connected").equals(Boolean.FALSE)) {
+        			session.setAttribute("login.propositionsujet",true);
+        			response.sendRedirect(request.getContextPath() + "/pages/login.jsp");
+        	%>
+            <%
+        		} else {
+        			session.setAttribute("login.propositionsujet",false);
+        		}
+            %>  
 	<div id="main_container">
 		<jsp:include page="headertemplate.jsp" />
 

@@ -34,7 +34,9 @@
         <ul>
             <li><a class="current" href="<%=request.getContextPath()%>/pages/home.jsp" title=""><b>Acceuil</b></a></li>
             <li><a href="<%=request.getContextPath()%>/pages/inscription.jsp" title=""><b>Inscrivez-vous</b></a></li>
-            <li><a href="<%=request.getContextPath()%>/pages/propositionPresentation.jsp" title=""><b>Proposer un sujet</b></a></li>           
+          
+             <li><a href="<%=request.getContextPath()%>/pages/propositionPresentation.jsp" title=""><b>Proposer un sujet</b></a></li>
+               
             <li><a href="<%=request.getContextPath()%>/pages/calendrier.jsp" title=""><b>Calendrier</b></a></li>
             <li><a href="<%=request.getContextPath()%>/pages/presentateurs.jsp" title=""><b>Presentateurs</b></a></li>
             <li><a href="<%=request.getContextPath()%>/pages/faq.jsp" title=""><b>FAQ</b></a></li>

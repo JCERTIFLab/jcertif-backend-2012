@@ -36,6 +36,7 @@ public class LogoutApplication extends Application implements HttpServletRequest
 			request.getSession().setAttribute(UIConst.PARAM_LASTNAME, null);
 			request.getSession().setAttribute(UIConst.PARAM_FIRSTNAME, null);
 			request.getSession().setAttribute(UIConst.PARAM_EMAIL, null);
+			request.getSession().setAttribute(UIConst.PARAM_LOGOUT, true);
 
 			String urlRedirect = (String) request.getSession().getAttribute("url");
 			ExternalResource res = new ExternalResource(urlRedirect);

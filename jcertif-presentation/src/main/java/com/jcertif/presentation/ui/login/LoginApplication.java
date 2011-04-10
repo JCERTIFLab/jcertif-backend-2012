@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.bo.participant.Participant;
+import com.jcertif.presentation.internationalisation.Messages;
 import com.jcertif.presentation.ui.util.UIConst;
 import com.vaadin.Application;
 import com.vaadin.terminal.ExternalResource;
@@ -81,14 +82,29 @@ public class LoginApplication extends Application implements ClickListener,
 	@Override
 	public void onRequestStart(HttpServletRequest request, HttpServletResponse response) {
 		urlRedirect = (String) request.getSession().getAttribute("url");
+		Object propo = request.getSession().getAttribute("login.propositionsujet");
+
+		if (propo == null || Boolean.FALSE.equals(propo)) {
+			getLoginForm().setCaption(Messages.getString("login.titre"));
+		} else {
+			getLoginForm().setCaption(Messages.getString("login.propositionsujet"));
+			request.getSession().setAttribute("login.propositionsujet", false);
+		}
 
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Login request with urlRedirect={}", urlRedirect);
 		}
+
+		// case of logout
+		if (Boolean.TRUE.equals(request.getSession().getAttribute(UIConst.PARAM_LOGOUT))) {
+			connectedPart = null;
+		}
+
 	}
 
 	@Override
 	public void onRequestEnd(HttpServletRequest request, HttpServletResponse response) {
+
 		if (connectedPart != null
 				&& request.getSession().getAttribute(UIConst.PARAM_CONNECTED) == null) {
 			request.getSession().setAttribute(UIConst.PARAM_CONNECTED, true);
@@ -96,6 +112,6 @@ public class LoginApplication extends Application implements ClickListener,
 			request.getSession().setAttribute(UIConst.PARAM_FIRSTNAME, connectedPart.getPrenom());
 			request.getSession().setAttribute(UIConst.PARAM_EMAIL, connectedPart.getEmail());
 		}
-	}
 
+	}
 }

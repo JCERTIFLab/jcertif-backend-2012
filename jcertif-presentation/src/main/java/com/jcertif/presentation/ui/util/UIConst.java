@@ -22,6 +22,8 @@ public interface UIConst {
 
 	String PARAM_EMAIL = "email";
 
+	String PARAM_LOGOUT = "logout";
+
 	String FACADE_URL_PROP = "facade.url";
 	String WEBAPP_PROPERTIES_FILE = "jcertif-presentation";
 

@@ -29,7 +29,7 @@
 </head>
 <body>
 	<%
-	session.setAttribute("url", request.getContextPath() +"/pages/accueil.jsp");
+	session.setAttribute("url", request.getContextPath() +"/pages/home.jsp");
 	%>
 	<div id="main_container">
 		<jsp:include page="headertemplate.jsp" />
