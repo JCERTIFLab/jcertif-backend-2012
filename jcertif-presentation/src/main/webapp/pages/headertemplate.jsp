@@ -58,7 +58,7 @@
 									Partenariat</a></li>
 							<li><a href="infoUtile.html" title="">Informations
 									utiles</a></li>
-							<li><a href="contact.html" title=""><b>Nous
+							<li><a href="contact.jsp" title=""><b>Nous
 										contacter</b> </a></li>
 
 						</ul>

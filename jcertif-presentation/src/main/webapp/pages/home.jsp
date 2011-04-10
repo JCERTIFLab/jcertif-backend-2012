@@ -97,24 +97,7 @@
                 -->
 					</td>
 				</tr>
-				<tr>
-					<td><br />
-							<div class="contact_information">
-								<h4>Contacts</h4>
-								<p>
-									<img src="images/phone_icon.gif" alt="" title=""
-										class="box_img" /> Canada : 1 418 271 0819<br /> Congo : 242
-									06623 3524
-								</p>
-								<br />
-								<br />
-								<p>
-									<img src="images/contact_icon.gif" alt="" title=""
-										class="box_img" /> info@jcertif.com<br />
-								</p>
-
-							</div></td>
-					</tr>
+				
 			</table>
 			
 		</div>
