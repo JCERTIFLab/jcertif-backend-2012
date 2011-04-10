@@ -16,7 +16,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -63,13 +62,13 @@ public class PropositionPresentation extends AbstractBO {
 	 */
 	@Column
 	private String details;
-	
+
 	/**
 	 * Un sommaire.
 	 */
 	@Column
 	private String sommaire;
-	
+
 	/**
 	 * Les besoins spécifiques.
 	 */
@@ -121,7 +120,7 @@ public class PropositionPresentation extends AbstractBO {
 	/**
 	 * Liste des auteurs.
 	 */
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "propos_presentation_auteur", joinColumns = @JoinColumn(name = "presentation_id"), inverseJoinColumns = @JoinColumn(name = "auteur_id"))
 	private Set<Participant> participants;
 
@@ -192,8 +191,6 @@ public class PropositionPresentation extends AbstractBO {
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	
-	
 
 	/**
 	 * @return the sommaire
@@ -203,7 +200,8 @@ public class PropositionPresentation extends AbstractBO {
 	}
 
 	/**
-	 * @param sommaire the sommaire to set
+	 * @param sommaire
+	 *            the sommaire to set
 	 */
 	public void setSommaire(String sommaire) {
 		this.sommaire = sommaire;
@@ -217,7 +215,8 @@ public class PropositionPresentation extends AbstractBO {
 	}
 
 	/**
-	 * @param besoinsSpecifiques the besoinsSpecifiques to set
+	 * @param besoinsSpecifiques
+	 *            the besoinsSpecifiques to set
 	 */
 	public void setBesoinsSpecifiques(String besoinsSpecifiques) {
 		this.besoinsSpecifiques = besoinsSpecifiques;
@@ -339,8 +338,7 @@ public class PropositionPresentation extends AbstractBO {
 	 * @param appreciationsInternal
 	 *            une liste d'appréciation
 	 */
-	protected void setAppreciationsInternal(
-			List<Appreciation> appreciationsInternal) {
+	protected void setAppreciationsInternal(List<Appreciation> appreciationsInternal) {
 		this.appreciationsInternal = appreciationsInternal;
 	}
 
@@ -396,8 +394,7 @@ public class PropositionPresentation extends AbstractBO {
 	 *            un comité de révision
 	 * @return le résultat de la suppression.
 	 */
-	public boolean addComiteRevisionPresentation(
-			ComiteRevisionPresentation comite) {
+	public boolean addComiteRevisionPresentation(ComiteRevisionPresentation comite) {
 		return getComiteRevisionPresentationsInternal().add(comite);
 	}
 
@@ -407,11 +404,10 @@ public class PropositionPresentation extends AbstractBO {
 	 * @param comite
 	 * @return le résultat de la suppression
 	 */
-	public boolean removeComiteRevisionPresentation(
-			ComiteRevisionPresentation comite) {
+	public boolean removeComiteRevisionPresentation(ComiteRevisionPresentation comite) {
 		return getComiteRevisionPresentationsInternal().remove(comite);
 	}
-	
+
 	/**
 	 * @return the participants
 	 */
@@ -420,14 +416,11 @@ public class PropositionPresentation extends AbstractBO {
 	}
 
 	/**
-	 * @param participants the participants to set
+	 * @param participants
+	 *            the participants to set
 	 */
 	public void setParticipants(Set<Participant> participants) {
 		this.participants = participants;
-	}
-	
-	 public void afterUnmarshal(Unmarshaller u, Object parent) {
-		    this.participants = (Set<Participant>)parent;
 	}
 
 	/**
@@ -435,8 +428,7 @@ public class PropositionPresentation extends AbstractBO {
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(titre).append(description)
-				.toHashCode();
+		return new HashCodeBuilder().append(titre).append(description).toHashCode();
 	}
 
 	/**

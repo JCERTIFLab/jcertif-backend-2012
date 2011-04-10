@@ -6,14 +6,17 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.jcertif.bo.participant.Participant;
 import com.jcertif.bo.presentation.MotCle;
 import com.jcertif.bo.presentation.PropositionPresentation;
 import com.jcertif.bo.presentation.StatutApprobation;
+import com.jcertif.dao.api.participant.ParticipantDAO;
 import com.jcertif.dao.api.presentation.PropositionPresentationDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
 /**
- * Test de l'implémentation Hibernate de l'accès aux données {@link PropositionPresentation}.
+ * Test de l'implémentation Hibernate de l'accès aux données
+ * {@link PropositionPresentation}.
  * 
  * @author rossi.oddet
  * 
@@ -26,6 +29,9 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 	 */
 	@Autowired
 	private PropositionPresentationDAO presentationDAO;
+
+	@Autowired
+	private ParticipantDAO participantDAO;
 
 	/**
 	 * Test de la méthode getReference().
@@ -59,7 +65,7 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 		assertEquals(Long.valueOf(5), presentation1.getMotCle().getId());
 		assertEquals("mot_cle 5", presentation1.getMotCle().getMotCle());
 		assertEquals("description 5", presentation1.getMotCle().getDescription());
-		
+
 	}
 
 	/**
@@ -75,8 +81,8 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 	 */
 	@Test
 	public void testFindAllWithSort() {
-		assertEquals("titre 3", presentationDAO.findAllWithSort("titre", false)
-				.iterator().next().getTitre());
+		assertEquals("titre 3", presentationDAO.findAllWithSort("titre", false).iterator().next()
+				.getTitre());
 	}
 
 	/**
@@ -128,6 +134,11 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 		statut.setCodeStatut("code_statut 1000");
 		statut.setDescription("description 1000");
 		presentation.setStatutApprobation(statut);
+
+		Participant part = new Participant();
+		part.setEmail("max@gt.fr");
+
+		participantDAO.persist(part);
 		PropositionPresentation savedPresentation = presentationDAO.merge(presentation);
 
 		// Vérification
@@ -150,7 +161,12 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 		presentationDAO.remove(entity);
 		assertEquals(2, presentationDAO.findAll().size());
 	}
-	
-	
+
+	@Test
+	public void testCascadeParticipant() {
+		PropositionPresentation entity = presentationDAO.findById(Long.valueOf(1l));
+		presentationDAO.remove(entity);
+		assertEquals(2, presentationDAO.findAll().size());
+	}
 
 }

@@ -14,6 +14,8 @@ public interface UIConst {
 
 	String LOGIN_VIEW = "login.jsp";
 
+	String CONFIRMATION_VIEW = "confirmationProposition.jsp";
+
 	String PARAM_CONNECTED = "connected";
 
 	String PARAM_LASTNAME = "lastname";

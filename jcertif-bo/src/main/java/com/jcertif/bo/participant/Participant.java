@@ -60,7 +60,7 @@ public class Participant extends Person {
 	/**
 	 * Liste des auteurs.
 	 */
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
 	@JoinTable(name = "propos_presentation_auteur", joinColumns = @JoinColumn(name = "auteur_id"), inverseJoinColumns = @JoinColumn(name = "presentation_id"))
 	private Set<PropositionPresentation> propositionPresentations;
 
