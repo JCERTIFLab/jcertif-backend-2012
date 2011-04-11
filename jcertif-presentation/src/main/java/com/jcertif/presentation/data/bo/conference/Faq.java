@@ -3,6 +3,8 @@
  */
 package com.jcertif.presentation.data.bo.conference;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
@@ -12,7 +14,8 @@ import com.jcertif.presentation.data.bo.AbstractBO;
  * @author rossi
  * 
  */
-public class Faq  extends AbstractBO {
+@XmlRootElement
+public class Faq extends AbstractBO {
 
 	private static final long serialVersionUID = 1L;
 
@@ -68,9 +71,6 @@ public class Faq  extends AbstractBO {
 	public void setReponse(String reponse) {
 		this.reponse = reponse;
 	}
-	
-	
-	
 
 	/**
 	 * @return the conferenceId
@@ -80,7 +80,8 @@ public class Faq  extends AbstractBO {
 	}
 
 	/**
-	 * @param conferenceId the conferenceId to set
+	 * @param conferenceId
+	 *            the conferenceId to set
 	 */
 	public void setConferenceId(Long conferenceId) {
 		this.conferenceId = conferenceId;
