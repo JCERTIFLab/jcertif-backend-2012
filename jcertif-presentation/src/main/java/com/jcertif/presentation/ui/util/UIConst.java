@@ -9,14 +9,14 @@ package com.jcertif.presentation.ui.util;
 public interface UIConst {
 
 	String URL_SPEAKER_IMG = "/speakers/";
-	
+
 	String URL_PARTNER_IMG = "/sponsors/";
 
 	String CALENDAR_DETAIL_LAYOUT = "details_event_layout";
 
-	String LOGIN_VIEW = "login.jsp";
+	String LOGIN_VIEW = "/pages/login.jsp";
 
-	String CONFIRMATION_VIEW = "confirmationProposition.jsp";
+	String CONFIRMATION_VIEW = "/pages/confirmationProposition.jsp";
 
 	String PARAM_CONNECTED = "connected";
 

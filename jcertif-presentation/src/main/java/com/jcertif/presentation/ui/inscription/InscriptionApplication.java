@@ -5,6 +5,9 @@ package com.jcertif.presentation.ui.inscription;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,6 +23,7 @@ import com.vaadin.Application;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.terminal.ExternalResource;
 import com.vaadin.terminal.UserError;
+import com.vaadin.terminal.gwt.server.HttpServletRequestListener;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -32,7 +36,8 @@ import com.vaadin.ui.Window;
  * @author rossi
  * 
  */
-public class InscriptionApplication extends Application implements ClickListener {
+public class InscriptionApplication extends Application implements ClickListener,
+		HttpServletRequestListener {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = LoggerFactory.getLogger(InscriptionApplication.class);
@@ -42,6 +47,8 @@ public class InscriptionApplication extends Application implements ClickListener
 	private ParticipantForm participantForm;
 
 	private Form addressForm;
+
+	private String contextPath;
 
 	@Override
 	public void init() {
@@ -75,11 +82,7 @@ public class InscriptionApplication extends Application implements ClickListener
 				ParticipantClient.getInstance().create_XML(participant);
 				participantForm.initParticipantBean();
 				profilForm.initProfilBean();
-				// Create a notification with default settings for a warning.
-				String pathUrl = this.getURL().getPath().split("/")[1];
-				ExternalResource res = new ExternalResource(this.getURL().getProtocol() + "://"
-						+ this.getURL().getHost() + ":" + this.getURL().getPort() + "/" + pathUrl
-						+ "/pages/" + UIConst.CONFIRMATION_VIEW);
+				ExternalResource res = new ExternalResource(contextPath + UIConst.CONFIRMATION_VIEW);
 				this.getMainWindow().open(res);
 			}
 		}
@@ -114,6 +117,17 @@ public class InscriptionApplication extends Application implements ClickListener
 			result = false;
 		}
 		return result;
+	}
+
+	@Override
+	public void onRequestStart(HttpServletRequest request, HttpServletResponse response) {
+		contextPath = request.getContextPath();
+	}
+
+	@Override
+	public void onRequestEnd(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

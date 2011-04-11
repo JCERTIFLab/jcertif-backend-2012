@@ -51,6 +51,7 @@ public class PropositionPresentationApplication extends Application implements
 
 	@Override
 	public void onRequestStart(HttpServletRequest request, HttpServletResponse response) {
+		getPropForm().setContextPath(request.getContextPath());
 		getPropForm().setEmailParticipant(
 				(String) request.getSession().getAttribute(UIConst.PARAM_EMAIL));
 	}

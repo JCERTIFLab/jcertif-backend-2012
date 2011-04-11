@@ -40,6 +40,7 @@ public class PropositionPresentationForm extends Form {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = LoggerFactory.getLogger(PropositionPresentationForm.class);
 	private String emailParticipant;
+	private String contextPath;
 
 	public PropositionPresentationForm() {
 		super();
@@ -121,18 +122,7 @@ public class PropositionPresentationForm extends Form {
 
 			intBeanProposition();
 
-			// Create a notification with default settings for a warning.
-			String pathUrl = this.getApplication().getURL().getPath().split("/")[1];
-			ExternalResource res = new ExternalResource(this.getApplication().getURL()
-					.getProtocol()
-					+ "://"
-					+ this.getApplication().getURL().getHost()
-					+ ":"
-					+ this.getApplication().getURL().getPort()
-					+ "/"
-					+ pathUrl
-					+ "/pages/"
-					+ UIConst.CONFIRMATION_VIEW);
+			ExternalResource res = new ExternalResource(contextPath + UIConst.CONFIRMATION_VIEW);
 			getApplication().getMainWindow().open(res);
 
 		} catch (UniformInterfaceException e) {
@@ -146,6 +136,14 @@ public class PropositionPresentationForm extends Form {
 			e.printStackTrace();
 		}
 
+	}
+
+	/**
+	 * @param contextPath
+	 *            the contextPath to set
+	 */
+	public void setContextPath(String contextPath) {
+		this.contextPath = contextPath;
 	}
 
 	/**

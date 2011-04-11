@@ -73,6 +73,8 @@ public class CalendarApplication extends Application implements EventClickHandle
 
 	private Evenement selectedEvent;
 
+	private String contextPath;
+
 	@Override
 	public void init() {
 		if (LOGGER.isDebugEnabled()) {
@@ -250,10 +252,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 			}
 			if (connectedPart == null) {
 				// Show Login
-				String pathUrl = this.getURL().getPath().split("/")[1];
-				ExternalResource res = new ExternalResource(this.getURL().getProtocol() + "://"
-						+ this.getURL().getHost() + ":" + this.getURL().getPort() + "/" + pathUrl
-						+ "/pages/" + UIConst.LOGIN_VIEW);
+				ExternalResource res = new ExternalResource(contextPath + UIConst.LOGIN_VIEW);
 				this.getMainWindow().open(res);
 			} else {
 				addSelectedEventToCurrentUser();
@@ -362,6 +361,8 @@ public class CalendarApplication extends Application implements EventClickHandle
 
 	@Override
 	public void onRequestStart(HttpServletRequest request, HttpServletResponse response) {
+
+		contextPath = request.getContextPath();
 		// If user is already connected and connectPart is null, load of user
 		// profil
 		if (connectedPart == null
