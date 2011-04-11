@@ -103,11 +103,13 @@ div.participate {
 	padding-bottom: 10px;
 }
 
+.v-caption-photo_speaker {
+	height: 0px;	
+}
+
 .event_details_presentateur {
 	font-weight: bold;
 	font-size: 12px;
-	float: left;
-	width: 100%;
 	padding-bottom: 10px;
 }
 
@@ -116,5 +118,5 @@ div.participate {
 }
 
 .event_details_details {
-	clear: left;
+	
 }
