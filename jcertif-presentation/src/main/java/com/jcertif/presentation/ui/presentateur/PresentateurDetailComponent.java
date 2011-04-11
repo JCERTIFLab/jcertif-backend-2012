@@ -55,7 +55,7 @@ public class PresentateurDetailComponent extends Panel {
 	 */
 	public void update() {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Updating Detail Panel with Participant");
+			LOGGER.debug("Updating Detail Panel with Presentateur");
 		}
 //		this.removeAllComponents();
 

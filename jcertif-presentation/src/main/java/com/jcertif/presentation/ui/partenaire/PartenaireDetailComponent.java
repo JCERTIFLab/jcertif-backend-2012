@@ -55,7 +55,7 @@ public class PartenaireDetailComponent extends Panel {
 	 */
 	public void update() {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Updating Detail Panel with Participant");
+			LOGGER.debug("Updating Detail Panel with Partenaire");
 		}
 //		this.removeAllComponents();
 
