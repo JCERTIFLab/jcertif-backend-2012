@@ -161,11 +161,16 @@ public class CSenderServiceImpl extends CSenderService {
 	public Boolean sendAddPropositionConfirmation(PropositionPresentation propo) {
 		Session session = initSession();
 
+		String destinataire = "info@jcertif.com";
+
+		if (propo.getParticipants() != null && !propo.getParticipants().isEmpty()) {
+			destinataire = propo.getParticipants().iterator().next().getEmail();
+		}
+
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
-			message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse("info@jcertif.com"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinataire));
 			message.setSubject("Confirmation Proposition Présentation JCertif 2011");
 			// Add html content
 

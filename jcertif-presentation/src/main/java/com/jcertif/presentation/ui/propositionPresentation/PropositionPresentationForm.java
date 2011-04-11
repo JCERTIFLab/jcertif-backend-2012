@@ -2,7 +2,9 @@ package com.jcertif.presentation.ui.propositionPresentation;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -111,15 +113,9 @@ public class PropositionPresentationForm extends Form {
 			propo.setSujetsInternal(sujetParticipantList);
 
 			Participant participant = ParticipantClient.getInstance().findByEmail(emailParticipant);
-			// if (participant.getPropositionPresentations() == null) {
-			// participant.setPropositionPresentations(new
-			// HashSet<PropositionPresentation>());
-			// participant.getPropositionPresentations().add(propo);
-			// }
-			// TODO créer le lien participant proposition
-			// Set<Participant> partiList = new HashSet<Participant>();
-			// partiList.add(participant);
-			// propo.setParticipants(partiList);
+			Set<Participant> partiList = new HashSet<Participant>();
+			partiList.add(participant);
+			propo.setParticipants(partiList);
 
 			PropositionPresentationClient.getInstance().create_XML(propo);
 
