@@ -99,6 +99,37 @@
 	</servlet>
 
 	<servlet>
+		<servlet-name>JCertifPartenaire</servlet-name>
+		<servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+		<init-param>
+			<description>Vaadin application class to start</description>
+			<param-name>application</param-name>
+			<param-value>com.jcertif.presentation.ui.partenaire.PartenaireApplication</param-value>
+		</init-param>
+		<init-param>
+			<description>Application widgetset</description>
+			<param-name>widgetset</param-name>
+			<param-value>com.jcertif.presentation.gwt.MyWidgetSet</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>JCertifFaq</servlet-name>
+		<servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+		<init-param>
+			<description>Vaadin application class to start</description>
+			<param-name>application</param-name>
+			<param-value>com.jcertif.presentation.ui.faq.FaqApplication</param-value>
+		</init-param>
+		<init-param>
+			<description>Application widgetset</description>
+			<param-name>widgetset</param-name>
+			<param-value>com.jcertif.presentation.gwt.MyWidgetSet</param-value>
+		</init-param>
+	</servlet>
+
+
+	<servlet>
 		<servlet-name>JCertifLogin</servlet-name>
 		<servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
 		<init-param>
@@ -141,6 +172,17 @@
 		<servlet-name>JCertifProposition</servlet-name>
 		<url-pattern>/vaadin/propositionPresentation/*</url-pattern>
 	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>JCertifPartenaire</servlet-name>
+		<url-pattern>/vaadin/partenaire/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>JCertifFaq</servlet-name>
+		<url-pattern>/vaadin/faq/*</url-pattern>
+	</servlet-mapping>
+
 	
 	<servlet-mapping>
 		<servlet-name>JCertifPresentateur</servlet-name>
