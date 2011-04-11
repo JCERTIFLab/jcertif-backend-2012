@@ -66,10 +66,8 @@ public class CSenderServiceImpl extends CSenderService {
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
-			message.setRecipients(
-					Message.RecipientType.TO,
-					InternetAddress.parse(profilUtilisateur.getEmail() + ",bonbhel@gmail.com"
-							+ ",rossi.oddet@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO,
+					InternetAddress.parse(profilUtilisateur.getEmail()));
 			message.setSubject("Confirmation Enregistrement Participation JCertif 2011");
 			// Add html content
 
