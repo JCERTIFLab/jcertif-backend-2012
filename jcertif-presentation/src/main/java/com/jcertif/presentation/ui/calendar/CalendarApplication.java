@@ -177,7 +177,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 		layoutH.setExpandRatio(getCalendarComponent(), 30);
 		com.vaadin.ui.Label espace = new com.vaadin.ui.Label("");
 		layoutH.addComponent(espace);
-		layoutH.setExpandRatio(espace, 2);
+		layoutH.setExpandRatio(espace, 0.8f);
 		layoutH.addComponent(getDetailComponent());
 		layoutH.setExpandRatio(getDetailComponent(), 10);
 
