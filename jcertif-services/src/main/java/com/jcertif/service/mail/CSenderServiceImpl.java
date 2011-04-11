@@ -9,6 +9,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -63,11 +64,11 @@ public class CSenderServiceImpl extends CSenderService {
 			}
 		});
 
+		String recipients = getDiffusionList() + "," + profilUtilisateur.getEmail();
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
-			message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse(profilUtilisateur.getEmail()));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
 			message.setSubject("Confirmation Enregistrement Participation JCertif 2011");
 			// Add html content
 
@@ -119,11 +120,12 @@ public class CSenderServiceImpl extends CSenderService {
 			}
 		});
 
+		String recipients = getDiffusionList() + "," + participant.getEmail();
+
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
-			message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse(participant.getEmail()));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
 			message.setSubject("Confirmation Enregistrement Participation JCertif 2011");
 			// Add html content
 
@@ -160,17 +162,16 @@ public class CSenderServiceImpl extends CSenderService {
 	@Async
 	public Boolean sendAddPropositionConfirmation(PropositionPresentation propo) {
 		Session session = initSession();
-
-		String destinataire = "info@jcertif.com";
+		String recipients = getDiffusionList();
 
 		if (propo.getParticipants() != null && !propo.getParticipants().isEmpty()) {
-			destinataire = propo.getParticipants().iterator().next().getEmail();
+			recipients += "," + propo.getParticipants().iterator().next().getEmail();
 		}
 
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinataire));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
 			message.setSubject("Confirmation Proposition Présentation JCertif 2011");
 			// Add html content
 
@@ -205,6 +206,16 @@ public class CSenderServiceImpl extends CSenderService {
 			throw new RuntimeException(e);
 		}
 		return Boolean.TRUE;
+	}
+
+	/**
+	 * @return
+	 */
+	private String getDiffusionList() {
+		String recipients;
+		ResourceBundle bundle = ResourceBundle.getBundle("service");
+		recipients = bundle.getString("diffusion");
+		return recipients;
 	}
 
 	/**
