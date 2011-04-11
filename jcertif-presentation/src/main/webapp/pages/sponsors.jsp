@@ -10,15 +10,15 @@
 	String facadeURL = bundle.getString(UIConst.FACADE_URL_PROP);
 %>
 
-<div>
-	<img alt="" src="<%=facadeURL%>/sponsors/google.gif" width="250">
+<div align="right">
+	<img alt="" src="<%=facadeURL%>/sponsors/google.gif" width="200">
 	<br/>
-	<img alt="" src="<%=facadeURL%>/sponsors/objis.jpg" width="250">
+	<img alt="" src="<%=facadeURL%>/sponsors/objis.jpg" width="200">
 	<br/>
-	<img alt="" src="<%=facadeURL%>/sponsors/oraclent.png" width="250">
+	<img alt="" src="<%=facadeURL%>/sponsors/oraclent.png" width="200">
 	<br/>
 	<img alt="" src="<%=facadeURL%>/sponsors/warid.gif" width="100" >
 	<br/>
 	<br/>
-	<img alt="" src="<%=facadeURL%>/sponsors/burotop.jpg" width="250" >
+	<img alt="" src="<%=facadeURL%>/sponsors/burotop.jpg" width="200" >
 </div>
