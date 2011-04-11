@@ -19,6 +19,7 @@ import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.ui.login.LoginForm;
 import com.jcertif.presentation.ui.util.UIConst;
+import com.jcertif.presentation.ui.util.UIStyle;
 import com.jcertif.presentation.wsClient.CeduleParticipantClient;
 import com.jcertif.presentation.wsClient.ParticipantClient;
 import com.vaadin.Application;
@@ -116,7 +117,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 			List<Long> eventIds = getCurrentParticipateEventIds();
 			CalendarEventBean calendarEventBean = (CalendarEventBean) calendarEvent;
 			if (eventIds.contains(calendarEventBean.getFacadeEvent().getId())) {
-				calendarEventBean.setStyleName(CalendarStyle.PARTICIPATE_EVENT);
+				calendarEventBean.setStyleName(UIStyle.PARTICIPATE_EVENT);
 			}
 
 			if (firstEvent == null) {
@@ -184,7 +185,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 	}
 
 	private void updateSelectedStyle(final CalendarEventBean selectedEvent) {
-		selectedEvent.setStyleName(CalendarStyle.SELECTED_EVENT);
+		selectedEvent.setStyleName(UIStyle.SELECTED_EVENT);
 
 		List<CalendarEvent> events = getCalendarEventBeans();
 		for (CalendarEvent calendarEvent : events) {
@@ -192,16 +193,16 @@ public class CalendarApplication extends Application implements EventClickHandle
 			List<Long> eventIds = getCurrentParticipateEventIds();
 			CalendarEventBean calendarEventBean = (CalendarEventBean) calendarEvent;
 			if (eventIds.contains(calendarEventBean.getFacadeEvent().getId())) {
-				calendarEventBean.setStyleName(CalendarStyle.PARTICIPATE_EVENT);
+				calendarEventBean.setStyleName(UIStyle.PARTICIPATE_EVENT);
 			} else {
-				calendarEventBean.removeStyle(CalendarStyle.PARTICIPATE_EVENT);
+				calendarEventBean.removeStyle(UIStyle.PARTICIPATE_EVENT);
 			}
 
 			// Setting selected style
 			if (selectedEvent.equals(calendarEventBean)) {
-				calendarEventBean.setStyleName(CalendarStyle.SELECTED_EVENT);
+				calendarEventBean.setStyleName(UIStyle.SELECTED_EVENT);
 			} else {
-				calendarEventBean.removeStyle(CalendarStyle.SELECTED_EVENT);
+				calendarEventBean.removeStyle(UIStyle.SELECTED_EVENT);
 			}
 		}
 
@@ -239,6 +240,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 				addSelectedEventToCurrentUser();
 			}
 
+			// Participate button click
 		} else if (event.getButton().equals(getDetailComponent().getParticipateButton())) {
 			if (LOGGER.isDebugEnabled()) {
 				LOGGER.debug("Event Click on participate Button");
@@ -253,7 +255,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 			} else {
 				addSelectedEventToCurrentUser();
 			}
-
+			// Cancel button click
 		} else if (event.getButton().equals(getDetailComponent().getCancelButton())) {
 			if (LOGGER.isDebugEnabled()) {
 				LOGGER.debug("Event Click on cancel Button");
@@ -307,8 +309,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 
 			// Rechargement du participant après mise à jour de sa
 			// cedule
-			connectedPart = ParticipantClient.getInstance().findByEmail(
-					(String) getLoginForm().getField("id").getValue());
+			connectedPart = ParticipantClient.getInstance().findByEmail(connectedPart.getEmail());
 		}
 
 		// Reinit calendar
