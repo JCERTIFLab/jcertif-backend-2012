@@ -34,7 +34,6 @@ public class PresentateurDetailComponent extends Panel {
 	 */
 	private static final Logger LOGGER = LoggerFactory.getLogger(PresentateurDetailComponent.class);
 
-
 	/**
 	 * A constructor.
 	 * 
@@ -57,45 +56,47 @@ public class PresentateurDetailComponent extends Panel {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Updating Detail Panel with Presentateur");
 		}
-//		this.removeAllComponents();
+		// this.removeAllComponents();
 
 		for (Participant participant : getPresentateursList()) {
 
 			CustomLayout htmlLayout = new CustomLayout(UIConst.CALENDAR_DETAIL_LAYOUT);
 			htmlLayout.addStyleName("details_event_layout");
-	
-			// Use it as the layout of the Panel.
-			this.setContent(htmlLayout);
-	
-	
+
 			// Sujet
 			htmlLayout.addComponent(new Label("Presentateurs"));
-	
+
 			// Lastname + firstname
-			htmlLayout.addComponent(new Label(participant.getNom() + " " + participant.getPrenom()),
-					"presentateur");
-	
+			htmlLayout
+					.addComponent(new Label(participant.getNom() + " " + participant.getPrenom()),
+							"presentateur");
+
 			// Participant photo
 			if (participant.getProfilUtilisateur() != null
 					&& participant.getProfilUtilisateur().getPhoto() != null) {
-				ExternalResource res = new ExternalResource(getFacadeURL() + UIConst.URL_SPEAKER_IMG
-						+ participant.getProfilUtilisateur().getPhoto());
+				ExternalResource res = new ExternalResource(getFacadeURL()
+						+ UIConst.URL_SPEAKER_IMG + participant.getProfilUtilisateur().getPhoto());
 				Embedded embedded = new Embedded("", res);
 				htmlLayout.addComponent(embedded, "photo");
 			}
-	
+
 			// Participant Bio
 			htmlLayout.addComponent(new Label(participant.getDetails()), "details");
-			
-			//Proposition de présentation
+
+			// Proposition de présentation
 			htmlLayout.addComponent(new Label("Présentations"));
-			
-			if(participant.getPropositionPresentations() != null){
-				for (PropositionPresentation propositionPresentation : participant.getPropositionPresentations()) {	
+
+			if (participant.getPropositionPresentations() != null) {
+				for (PropositionPresentation propositionPresentation : participant
+						.getPropositionPresentations()) {
 					// Presentation title
 					htmlLayout.addComponent(new Label(propositionPresentation.getTitre()), "titre");
 				}
 			}
+
+			// Use it as the layout of the Panel.
+			this.addComponent(htmlLayout);
+
 		}
 
 	}
@@ -104,22 +105,23 @@ public class PresentateurDetailComponent extends Panel {
 		ResourceBundle bundle = ResourceBundle.getBundle(UIConst.WEBAPP_PROPERTIES_FILE);
 		return bundle.getString(UIConst.FACADE_URL_PROP);
 	}
-	
-//	Set<Evenement> boEvents = new HashSet<Evenement>(EvenementClient.getInstance()
-//			.findAllXML());
 
+	// Set<Evenement> boEvents = new
+	// HashSet<Evenement>(EvenementClient.getInstance()
+	// .findAllXML());
 
 	private List<Participant> getPresentateursList() {
-		List<Participant> presentateursList = new ArrayList<Participant>(); 
-		Set<Participant> participants = new HashSet<Participant>(ParticipantClient.getInstance().findAllXML());
+		List<Participant> presentateursList = new ArrayList<Participant>();
+		Set<Participant> participants = new HashSet<Participant>(ParticipantClient.getInstance()
+				.findAllXML());
 
 		for (Participant participant : participants) {
-			if (participant.getRoleparticipant() != null && "Speaker".equalsIgnoreCase(participant.getRoleparticipant().getCode()) ) {
+			if (participant.getRoleparticipant() != null
+					&& "Speaker".equalsIgnoreCase(participant.getRoleparticipant().getCode())) {
 				presentateursList.add(participant);
 			}
 		}
 		return presentateursList;
 	}
-
 
 }
