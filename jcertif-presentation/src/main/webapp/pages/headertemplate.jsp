@@ -51,7 +51,7 @@
 						%>
 					</div>
 				</td>
-				<td align="right">
+				<td>
 					<div id="right_nav">
 						<ul>
 							<li><a class="current" href="<%=request.getContextPath()%>/pages/partenaires.jsp" title="">Sponsorship et
