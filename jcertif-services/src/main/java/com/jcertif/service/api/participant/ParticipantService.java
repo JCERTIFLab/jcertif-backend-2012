@@ -26,4 +26,6 @@ public interface ParticipantService extends GenericService<Participant, Long, Pa
 	 */
 	List<Participant> findByEmail(String email);
 
+	List<Participant> findAllWithProposition();
+
 }

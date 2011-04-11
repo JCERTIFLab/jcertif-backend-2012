@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.participant.Participant;
+import com.jcertif.bo.presentation.PropositionPresentation;
 import com.jcertif.dao.api.participant.ParticipantDAO;
 import com.jcertif.facade.AbstractFacade;
 import com.jcertif.service.api.participant.ParticipantService;
@@ -31,11 +32,10 @@ import com.sun.jersey.api.spring.Autowire;
 @Path("participant")
 @Service
 @Autowire
-public class ParticipantFacade extends
-        AbstractFacade<ParticipantService, Participant, Long> {
-	
+public class ParticipantFacade extends AbstractFacade<ParticipantService, Participant, Long> {
+
 	@Autowired
-    private CSenderService cSenderService;
+	private CSenderService cSenderService;
 
 	@Autowired
 	private ParticipantService participantService;
@@ -59,13 +59,41 @@ public class ParticipantFacade extends
 		cSenderService.sendAddParticipantConfirmation(entity);
 		return part;
 	}
-	
+
 	@GET
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Path("/listByEmail/{email}")
-	public List<Participant> findBy(@PathParam(value = "email") String email){
-		return participantService.findByEmail(email);
+	public List<Participant> findBy(@PathParam(value = "email") String email) {
+		List<Participant> participants = participantService.findByEmail(email);
+		removeCycle(participants);
+		return participants;
 	}
-	
-	
+
+	@GET
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Path(FINDALL_SUFFIX)
+	@Override
+	public List<Participant> findAll() {
+		List<Participant> participants = participantService.findAllWithProposition();
+		removeCycle(participants);
+		return participants;
+	}
+
+	/**
+	 * @param participants
+	 */
+	private void removeCycle(List<Participant> participants) {
+		if (participants != null && !participants.isEmpty()) {
+			for (Participant participant : participants) {
+
+				if (participant.getPropositionPresentations() != null
+						&& !participant.getPropositionPresentations().isEmpty()) {
+					for (PropositionPresentation prop : participant.getPropositionPresentations()) {
+						prop.setParticipants(null);
+					}
+				}
+			}
+		}
+	}
+
 }

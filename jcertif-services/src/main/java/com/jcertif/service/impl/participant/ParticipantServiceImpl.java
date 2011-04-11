@@ -100,4 +100,19 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
 		return participantDAO.findByEmail(email);
 	}
 
+	@Override
+	public List<Participant> findAllWithProposition() {
+		List<Participant> participants = participantDAO.findAll();
+
+		if (participants != null && !participants.isEmpty()) {
+			for (Participant participant : participants) {
+
+				if (participant.getPropositionPresentations() != null
+						&& !participant.getPropositionPresentations().isEmpty()) {
+					participant.getPropositionPresentations().iterator().next();
+				}
+			}
+		}
+		return participants;
+	}
 }

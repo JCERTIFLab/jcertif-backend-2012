@@ -120,7 +120,7 @@ public class PropositionPresentation extends AbstractBO {
 	/**
 	 * Liste des auteurs.
 	 */
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "propos_presentation_auteur", joinColumns = @JoinColumn(name = "presentation_id"), inverseJoinColumns = @JoinColumn(name = "auteur_id"))
 	private Set<Participant> participants;
 
