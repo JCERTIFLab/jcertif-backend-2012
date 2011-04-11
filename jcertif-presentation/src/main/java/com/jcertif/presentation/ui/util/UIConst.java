@@ -9,6 +9,8 @@ package com.jcertif.presentation.ui.util;
 public interface UIConst {
 
 	String URL_SPEAKER_IMG = "/speakers/";
+	
+	String URL_PARTNER_IMG = "/sponsors/";
 
 	String CALENDAR_DETAIL_LAYOUT = "details_event_layout";
 
