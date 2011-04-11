@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.ui.util.UIConst;
+import com.jcertif.presentation.ui.util.UIStyle;
 import com.jcertif.presentation.wsClient.ParticipantClient;
 import com.vaadin.terminal.ExternalResource;
 import com.vaadin.ui.CustomLayout;
@@ -76,6 +77,7 @@ public class PartenaireDetailComponent extends Panel {
 				ExternalResource res = new ExternalResource(getFacadeURL()
 						+ UIConst.URL_PARTNER_IMG + participant.getProfilUtilisateur().getPhoto());
 				Embedded embedded = new Embedded("", res);
+				embedded.setStyleName(UIStyle.PHOTO_PARTENAIRE);
 				htmlLayout.addComponent(embedded, "photo");
 			}
 			// Participant Bio

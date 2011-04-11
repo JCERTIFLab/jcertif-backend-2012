@@ -599,3 +599,13 @@ textarea.contact_textarea {
 #vaadin_div{
 	background-color: #D8D8D8;
 }
+
+/** PHOTO **/
+
+.photo_speaker img {
+	width: 100px;
+}
+
+.photo_sponsor img {
+	width: 200px;
+}

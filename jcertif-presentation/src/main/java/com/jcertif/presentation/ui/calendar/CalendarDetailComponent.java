@@ -13,6 +13,7 @@ import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
 import com.jcertif.presentation.internationalisation.Messages;
 import com.jcertif.presentation.ui.util.UIConst;
+import com.jcertif.presentation.ui.util.UIStyle;
 import com.vaadin.terminal.ExternalResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CustomLayout;
@@ -120,6 +121,7 @@ public class CalendarDetailComponent extends Panel {
 			ExternalResource res = new ExternalResource(getFacadeURL() + UIConst.URL_SPEAKER_IMG
 					+ participant.getProfilUtilisateur().getPhoto());
 			Embedded embedded = new Embedded("", res);
+			embedded.setStyleName(UIStyle.PHOTO_SPEAKER);
 			htmlLayout.addComponent(embedded, "photo");
 		}
 
