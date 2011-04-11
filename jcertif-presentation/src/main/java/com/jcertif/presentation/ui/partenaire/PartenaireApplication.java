@@ -23,7 +23,7 @@ public class PartenaireApplication extends Application {
 	@Override
 	public void init() {
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Initialize Presentateur Application");
+			LOGGER.debug("Initialize Partenaires Application");
 		}
 		setTheme("jcertifruno");
 		final Window mainWindow = new Window();

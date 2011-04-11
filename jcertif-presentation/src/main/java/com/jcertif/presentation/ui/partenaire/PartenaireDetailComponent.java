@@ -69,7 +69,7 @@ public class PartenaireDetailComponent extends Panel {
 	
 	
 			// Sujet
-			htmlLayout.addComponent(new Label("Presentateurs"));
+			htmlLayout.addComponent(new Label("Partenaires"));
 	
 			// Lastname + firstname
 			htmlLayout.addComponent(new Label(participant.getNom() + " " + participant.getPrenom()),
