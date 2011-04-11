@@ -174,9 +174,12 @@ public class CalendarApplication extends Application implements EventClickHandle
 		final HorizontalLayout layoutH = new HorizontalLayout();
 		layoutH.setSizeFull();
 		layoutH.addComponent(getCalendarComponent());
-		layoutH.setExpandRatio(getCalendarComponent(), 3);
+		layoutH.setExpandRatio(getCalendarComponent(), 30);
+		com.vaadin.ui.Label espace = new com.vaadin.ui.Label("");
+		layoutH.addComponent(espace);
+		layoutH.setExpandRatio(espace, 2);
 		layoutH.addComponent(getDetailComponent());
-		layoutH.setExpandRatio(getDetailComponent(), 1);
+		layoutH.setExpandRatio(getDetailComponent(), 10);
 
 		// Update main window
 		mainWindow.getContent().removeAllComponents();
