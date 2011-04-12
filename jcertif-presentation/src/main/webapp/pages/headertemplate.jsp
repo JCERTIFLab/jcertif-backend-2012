@@ -28,7 +28,7 @@
 			
 			-->
 	<div>
-		<table width="100%">
+		<table width="100%" border="0">
 			<tr>
 				<td>
 					<div class="text_content">

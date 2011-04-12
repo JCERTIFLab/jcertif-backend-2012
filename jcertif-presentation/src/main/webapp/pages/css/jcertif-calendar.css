@@ -76,7 +76,7 @@ div.participate {
 }
 
 .event_details_ou {
-	
+	font-weight: bold;	
 }
 
 .event_details_quand {
@@ -94,7 +94,7 @@ div.participate {
 .event_details_titre {
 	font-weight: bold;
 	font-size: medium;
-	padding-top: 20px;
+	padding-top: 18px;
 	padding-bottom: 5px;
 }
 

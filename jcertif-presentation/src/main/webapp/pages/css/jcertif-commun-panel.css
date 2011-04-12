@@ -1,0 +1,39 @@
+/*---- SPEAKER # FAQ ----*/
+
+.commun_details_panel {
+	background: none;
+	border: none;
+}
+
+
+.commun_details_caption{
+	font-weight: bold;
+	font-size: 20px;
+	color: #7ea743;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.commun_details_captionDetail{
+	font-size: 12px;
+		
+}
+.commun_details_presentateur {
+	font-weight: bold;
+	font-size: medium;
+	padding-top: 18px;
+	padding-bottom: 5px;
+}
+
+.commun_details_photo {
+	float: right;
+}
+
+
+.commun_details_details {
+	font-size: 12px;
+}
+
+.commun_details_papersList{
+	font-size: 12px;
+}

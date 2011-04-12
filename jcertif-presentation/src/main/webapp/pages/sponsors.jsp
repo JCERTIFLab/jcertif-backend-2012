@@ -13,12 +13,12 @@
 <div align="right">
 	<img alt="" src="<%=facadeURL%>/sponsors/google.gif" width="200">
 	<br/>
-	<img alt="" src="<%=facadeURL%>/sponsors/objis.jpg" width="200">
+	<img alt="" src="<%=facadeURL%>/sponsors/burotop.jpg" width="200" >
 	<br/>
 	<img alt="" src="<%=facadeURL%>/sponsors/oraclent.png" width="200">
 	<br/>
+	<img alt="" src="<%=facadeURL%>/sponsors/objis.jpg" width="200">
+	<br/>
 	<img alt="" src="<%=facadeURL%>/sponsors/warid.gif" width="100" >
 	<br/>
-	<br/>
-	<img alt="" src="<%=facadeURL%>/sponsors/burotop.jpg" width="200" >
 </div>
