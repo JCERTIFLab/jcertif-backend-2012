@@ -28,6 +28,8 @@ import com.vaadin.ui.Panel;
 public class PartenaireDetailComponent extends Panel {
 
 	private static final long serialVersionUID = 1L;
+	private boolean isFirsTime = true;
+
 
 	/**
 	 * A Logger for class.
@@ -43,7 +45,7 @@ public class PartenaireDetailComponent extends Panel {
 	public PartenaireDetailComponent() {
 		super();
 		update();
-		this.addStyleName("event_details_panel");
+		this.addStyleName("commun_details_panel");
 	}
 
 	/**
@@ -60,11 +62,15 @@ public class PartenaireDetailComponent extends Panel {
 
 		for (Participant participant : getPartnersListsList()) {
 
-			CustomLayout htmlLayout = new CustomLayout(UIConst.CALENDAR_DETAIL_LAYOUT);
-			htmlLayout.addStyleName("details_event_layout");
+			CustomLayout htmlLayout = new CustomLayout(UIConst.COMMUN_DETAIL_LAYOUT);
+			htmlLayout.addStyleName("details_commun_layout");
 
-			// Sujet
-			htmlLayout.addComponent(new Label("Partenaires"));
+
+			// Entete
+			if(isFirsTime){
+				htmlLayout.addComponent(new Label("Les Sponsors"), "caption");
+				htmlLayout.addComponent(new Label("Vous aussi devenez sponsor de JCertif 2011 et afficher le logo de votre entreprise au côté de Google et Oracle."), "captionDetail");				
+			}
 
 			// Lastname + firstname
 			htmlLayout
@@ -85,6 +91,7 @@ public class PartenaireDetailComponent extends Panel {
 
 			// Use it as the layout of the Panel.
 			this.addComponent(htmlLayout);
+			isFirsTime = false;
 		}
 
 	}

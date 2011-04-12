@@ -13,6 +13,8 @@ public interface UIConst {
 	String URL_PARTNER_IMG = "/sponsors/";
 
 	String CALENDAR_DETAIL_LAYOUT = "details_event_layout";
+	
+	String COMMUN_DETAIL_LAYOUT = "details_commun_layout";
 
 	String LOGIN_VIEW = "/pages/login.jsp";
 
