@@ -19,6 +19,13 @@ import com.vaadin.ui.CustomLayout;
 import com.vaadin.ui.Embedded;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.PopupView.PopupVisibilityListener;
+
+
+import com.vaadin.ui.PopupView;
+import com.vaadin.ui.PopupView.PopupVisibilityEvent;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * Presentateur details Panel.
@@ -29,6 +36,8 @@ import com.vaadin.ui.Panel;
 public class PresentateurDetailComponent extends Panel {
 
 	private static final long serialVersionUID = 1L;
+	private boolean isFirsTime = true;
+
 
 	/**
 	 * A Logger for class.
@@ -44,7 +53,7 @@ public class PresentateurDetailComponent extends Panel {
 	public PresentateurDetailComponent() {
 		super();
 		update();
-		this.addStyleName("event_details_panel");
+		this.addStyleName("commun_details_panel");
 	}
 
 	/**
@@ -63,14 +72,20 @@ public class PresentateurDetailComponent extends Panel {
 
 		for (Participant participant : getPresentateursList()) {
 
-			CustomLayout htmlLayout = new CustomLayout(UIConst.CALENDAR_DETAIL_LAYOUT);
-			htmlLayout.addStyleName("details_event_layout");
+			CustomLayout htmlLayout = new CustomLayout(UIConst.COMMUN_DETAIL_LAYOUT);
+			htmlLayout.addStyleName("details_commun_layout");
 
+
+			// Entete
+			if(isFirsTime){
+				htmlLayout.addComponent(new Label("Les présentateur"), "caption");
+				htmlLayout.addComponent(new Label("Voici la liste temporaire des à la conférence JCertif 2011. Vous aussi, proposez un sujet de présentation et venez vous joindre aux experts de notre liste."), "captionDetail");				
+			}
 
 			// Lastname + firstname
 			htmlLayout
 					.addComponent(new Label(participant.getNom() + " " + participant.getPrenom()),
-							"titre");
+							"presentateur");
 
 			// Participant photo
 			if (participant.getProfilUtilisateur() != null
@@ -85,19 +100,20 @@ public class PresentateurDetailComponent extends Panel {
 			// Participant Bio
 			htmlLayout.addComponent(new Label(participant.getDetails()), "details");
 
-			// Proposition de présentation
-			htmlLayout.addComponent(new Label("Présentations"));
+			// Affichage des présentations associees au participant			
+			createPopup(htmlLayout, participant);
 
-			if (participant.getPropositionPresentations() != null) {
+/*			if (participant.getPropositionPresentations() != null) {
 				for (PropositionPresentation propositionPresentation : participant
 						.getPropositionPresentations()) {
 					// Presentation title
-					htmlLayout.addComponent(new Label(propositionPresentation.getTitre()), "presentateur");
+					htmlLayout.addComponent(new Label(propositionPresentation.getTitre()), "papersList");
 				}
 			}
-
+*/
 			// Use it as the layout of the Panel.
 			this.addComponent(htmlLayout);
+			isFirsTime = false;
 
 		}
 
@@ -136,5 +152,77 @@ public class PresentateurDetailComponent extends Panel {
 		}
 		return false;
 	}
+	
+	private void createPopup(CustomLayout htmlLayout, Participant participant){
+		
+		int idx = 1;
+		
+		if (participant.getPropositionPresentations() != null) {
+			for (PropositionPresentation propositionPresentation : participant.getPropositionPresentations()) {
+				
+		        Label content = new Label("<h2>" + propositionPresentation.getTitre() + "</h2>"
+                + "<p>" + propositionPresentation.getDescription() + "</p>");
+		        content.setContentMode(Label.CONTENT_XHTML);
 
+		        
+		        // The PopupView popup will be as large as needed by the content
+		        content.setWidth("400px");
+		
+		        // Construct the PopupView with simple HTML text representing the
+		        // minimized view
+		        PopupView popup = new PopupView(propositionPresentation.getTitre(), content);
+		        popup.setHideOnMouseOut(true);
+		        //popup.addListener((PopupVisibilityListener) htmlLayout);
+		        htmlLayout.addComponent(popup, "papersList" + idx++);
+
+			}
+		}
+
+        // Create the content for the popup
+		
+	}
+	
+
+}
+
+
+
+
+@SuppressWarnings("serial")
+class PopupViewClosingExample extends VerticalLayout implements
+        PopupView.PopupVisibilityListener {
+
+    public PopupViewClosingExample() {
+
+        setSpacing(true);
+
+        // Create the content for the popup
+        Label content = new Label(
+                "This popup will close as soon as you move the mouse cursor outside of the popup area.");
+        // The PopupView popup will be as large as needed by the content
+        content.setWidth("300px");
+
+        // Construct the PopupView with simple HTML text representing the
+        // minimized view
+        PopupView popup = new PopupView("Default popup", content);
+        popup.setHideOnMouseOut(true);
+        popup.addListener(this);
+        addComponent(popup);
+
+        content = new Label(
+                "This popup will only close if you click the mouse outside the popup area.");
+        // The PopupView popup will be as large as needed by the content
+        content.setWidth("300px");
+
+        popup = new PopupView("Popup that won't auto-close", content);
+        popup.setHideOnMouseOut(false);
+        popup.addListener(this);
+        addComponent(popup);
+    }
+
+    public void popupVisibilityChange(PopupVisibilityEvent event) {
+        if (!event.isPopupVisible()) {
+            getWindow().showNotification("Popup closed");
+        }
+    }
 }
