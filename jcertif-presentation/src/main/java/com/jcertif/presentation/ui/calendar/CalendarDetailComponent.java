@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
+import com.jcertif.presentation.data.bo.presentation.Sujet;
 import com.jcertif.presentation.internationalisation.Messages;
 import com.jcertif.presentation.ui.util.UIConst;
 import com.jcertif.presentation.ui.util.UIStyle;
@@ -174,11 +175,16 @@ public class CalendarDetailComponent extends Panel {
 	 * @return sujet
 	 */
 	private String findSujet(final Evenement event) {
-		String sujet = "<Aucun>";
+		String sujet = "";
 		PropositionPresentation pres = event.getPropositionPresentation();
-		// TODO Manage several sujet case
-		sujet = pres.getSujets().iterator().next().getLibelle();
+		// TODO Manage several sujet case 
+		//Max : Ajout de la gestion des multiple sujet
+		for(Sujet suj : pres.getSujets()){
+			sujet += suj.getLibelle();
+			sujet += " ";
+		}
+		if(sujet.isEmpty())
+			sujet = "<Aucun>";
 		return sujet;
 	}
-
 }

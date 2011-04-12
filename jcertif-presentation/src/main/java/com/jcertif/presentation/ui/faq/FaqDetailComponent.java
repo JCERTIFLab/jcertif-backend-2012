@@ -23,7 +23,7 @@ import com.vaadin.ui.Panel;
 public class FaqDetailComponent extends Panel {
 
 	private static final long serialVersionUID = 1L;
-
+	private boolean isFirsTime = true;
 	/**
 	 * A Logger for class.
 	 */
@@ -38,7 +38,7 @@ public class FaqDetailComponent extends Panel {
 	public FaqDetailComponent() {
 		super();
 		update();
-		this.addStyleName("event_details_panel");
+		this.addStyleName("commun_details_panel");
 	}
 
 	/**
@@ -55,12 +55,15 @@ public class FaqDetailComponent extends Panel {
 
 		for (Faq faq : getFaqList()) {
 
-			CustomLayout htmlLayout = new CustomLayout(UIConst.CALENDAR_DETAIL_LAYOUT);
-			htmlLayout.addStyleName("details_event_layout");
+			CustomLayout htmlLayout = new CustomLayout(UIConst.COMMUN_DETAIL_LAYOUT);
+			htmlLayout.addStyleName("details_commun_layout");
 
 			// Sujet
-			htmlLayout.addComponent(new Label("Foire aux Questions"));
-
+			if(isFirsTime){
+				htmlLayout.addComponent(new Label("Foire aux Questions"), "caption");
+				htmlLayout.addComponent(new Label("Voici les réponses à certaines des questions fréquemment posées au sujet des emplois à la fonction publique fédérale."), "captionDetail");				
+			}
+			
 			// Lastname + firstname
 			htmlLayout.addComponent(new Label(faq.getQuestion()), "presentateur");
 			// Participant Bio
@@ -68,6 +71,7 @@ public class FaqDetailComponent extends Panel {
 
 			// Use it as the layout of the Panel.
 			this.addComponent(htmlLayout);
+			isFirsTime = false;
 		}
 
 	}

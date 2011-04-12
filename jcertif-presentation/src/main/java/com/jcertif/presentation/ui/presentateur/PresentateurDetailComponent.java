@@ -58,19 +58,19 @@ public class PresentateurDetailComponent extends Panel {
 			LOGGER.debug("Updating Detail Panel with Presentateur");
 		}
 		// this.removeAllComponents();
+		// Sujet
+		//this.setCaption("Presentateurs");
 
 		for (Participant participant : getPresentateursList()) {
 
 			CustomLayout htmlLayout = new CustomLayout(UIConst.CALENDAR_DETAIL_LAYOUT);
 			htmlLayout.addStyleName("details_event_layout");
 
-			// Sujet
-			htmlLayout.addComponent(new Label("Presentateurs"));
 
 			// Lastname + firstname
 			htmlLayout
 					.addComponent(new Label(participant.getNom() + " " + participant.getPrenom()),
-							"presentateur");
+							"titre");
 
 			// Participant photo
 			if (participant.getProfilUtilisateur() != null
@@ -92,7 +92,7 @@ public class PresentateurDetailComponent extends Panel {
 				for (PropositionPresentation propositionPresentation : participant
 						.getPropositionPresentations()) {
 					// Presentation title
-					htmlLayout.addComponent(new Label(propositionPresentation.getTitre()), "titre");
+					htmlLayout.addComponent(new Label(propositionPresentation.getTitre()), "presentateur");
 				}
 			}
 
@@ -118,12 +118,23 @@ public class PresentateurDetailComponent extends Panel {
 				.findAllXML());
 
 		for (Participant participant : participants) {
-			if (participant.getRoleparticipant() != null
-					&& "Speaker".equalsIgnoreCase(participant.getRoleparticipant().getCode())) {
+			if ( isApeaker(participant)) {
 				presentateursList.add(participant);
 			}
 		}
 		return presentateursList;
+	}
+	
+	// En plus du role Presentateur, un speaker doit avoir au moins une porposition de presentation approuvee en attente de complement
+	private boolean isApeaker(Participant part) {
+		if(part.getPropositionPresentations() != null && part.getRoleparticipant() != null && "Speaker".equalsIgnoreCase(part.getRoleparticipant().getCode())){
+			for (PropositionPresentation popos : part.getPropositionPresentations()) {
+				if (  "C".equalsIgnoreCase(popos.getStatutApprobation().getCodeStatut()) || "A".equalsIgnoreCase(popos.getStatutApprobation().getCodeStatut()) ) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 }
