@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<appreciation />
+	<statut_approbation />
+	<mot_cle />
+	<sujet />
+	<conference />
+	<type_evenement/>
+	
+	<role_participant/>
+	<type_participant/>
+	<proposition_presentation />
+	<evenement/>
+	<faq/>
+	<profil_utilisateur/>
+	<participant />
+	<auteur />
+	<propos_presentation_auteur />
+	<proposition_presentation_sujet />
+	
+	<appreciation_presentation />
+	<statut_cedule />
+	<cedule_participant/>
+	<centre_conference />
+
+	<salle />
+	<particularite_salle/>
+		<salle_particularite_salle/>
+		
+	<cedule_salle />
+	<organisateur/>
+</dataset>
