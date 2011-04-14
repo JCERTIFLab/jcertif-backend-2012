@@ -3,7 +3,6 @@ package com.jcertif.presentation.ui.presentateur;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -11,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
+import com.jcertif.presentation.ui.util.JCertifProps;
 import com.jcertif.presentation.ui.util.UIConst;
 import com.jcertif.presentation.ui.util.UIStyle;
 import com.jcertif.presentation.wsClient.ParticipantClient;
@@ -19,13 +19,9 @@ import com.vaadin.ui.CustomLayout;
 import com.vaadin.ui.Embedded;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
-import com.vaadin.ui.PopupView.PopupVisibilityListener;
-
-
 import com.vaadin.ui.PopupView;
 import com.vaadin.ui.PopupView.PopupVisibilityEvent;
 import com.vaadin.ui.VerticalLayout;
-
 
 /**
  * Presentateur details Panel.
@@ -37,7 +33,6 @@ public class PresentateurDetailComponent extends Panel {
 
 	private static final long serialVersionUID = 1L;
 	private boolean isFirsTime = true;
-
 
 	/**
 	 * A Logger for class.
@@ -68,18 +63,21 @@ public class PresentateurDetailComponent extends Panel {
 		}
 		// this.removeAllComponents();
 		// Sujet
-		//this.setCaption("Presentateurs");
+		// this.setCaption("Presentateurs");
 
 		for (Participant participant : getPresentateursList()) {
 
 			CustomLayout htmlLayout = new CustomLayout(UIConst.COMMUN_DETAIL_LAYOUT);
 			htmlLayout.addStyleName("details_commun_layout");
 
-
 			// Entete
-			if(isFirsTime){
+			if (isFirsTime) {
 				htmlLayout.addComponent(new Label("Les présentateur"), "caption");
-				htmlLayout.addComponent(new Label("Voici la liste temporaire des à la conférence JCertif 2011. Vous aussi, proposez un sujet de présentation et venez vous joindre aux experts de notre liste."), "captionDetail");				
+				htmlLayout
+						.addComponent(
+								new Label(
+										"Voici la liste temporaire des à la conférence JCertif 2011. Vous aussi, proposez un sujet de présentation et venez vous joindre aux experts de notre liste."),
+								"captionDetail");
 			}
 
 			// Lastname + firstname
@@ -90,8 +88,10 @@ public class PresentateurDetailComponent extends Panel {
 			// Participant photo
 			if (participant.getProfilUtilisateur() != null
 					&& participant.getProfilUtilisateur().getPhoto() != null) {
-				ExternalResource res = new ExternalResource(getFacadeURL()
-						+ UIConst.URL_SPEAKER_IMG + participant.getProfilUtilisateur().getPhoto());
+				ExternalResource res = new ExternalResource(JCertifProps.getInstance()
+						.getFacadeUrl()
+						+ UIConst.URL_SPEAKER_IMG
+						+ participant.getProfilUtilisateur().getPhoto());
 				Embedded embedded = new Embedded("", res);
 				embedded.setStyleName(UIStyle.PHOTO_SPEAKER);
 				htmlLayout.addComponent(embedded, "photo");
@@ -100,17 +100,16 @@ public class PresentateurDetailComponent extends Panel {
 			// Participant Bio
 			htmlLayout.addComponent(new Label(participant.getDetails()), "details");
 
-			// Affichage des présentations associees au participant			
+			// Affichage des présentations associees au participant
 			createPopup(htmlLayout, participant);
 
-/*			if (participant.getPropositionPresentations() != null) {
-				for (PropositionPresentation propositionPresentation : participant
-						.getPropositionPresentations()) {
-					// Presentation title
-					htmlLayout.addComponent(new Label(propositionPresentation.getTitre()), "papersList");
-				}
-			}
-*/
+			/*
+			 * if (participant.getPropositionPresentations() != null) { for
+			 * (PropositionPresentation propositionPresentation : participant
+			 * .getPropositionPresentations()) { // Presentation title
+			 * htmlLayout.addComponent(new
+			 * Label(propositionPresentation.getTitre()), "papersList"); } }
+			 */
 			// Use it as the layout of the Panel.
 			this.addComponent(htmlLayout);
 			isFirsTime = false;
@@ -119,110 +118,100 @@ public class PresentateurDetailComponent extends Panel {
 
 	}
 
-	public static String getFacadeURL() {
-		ResourceBundle bundle = ResourceBundle.getBundle(UIConst.WEBAPP_PROPERTIES_FILE);
-		return bundle.getString(UIConst.FACADE_URL_PROP);
-	}
-
-	// Set<Evenement> boEvents = new
-	// HashSet<Evenement>(EvenementClient.getInstance()
-	// .findAllXML());
-
 	private List<Participant> getPresentateursList() {
 		List<Participant> presentateursList = new ArrayList<Participant>();
 		Set<Participant> participants = new HashSet<Participant>(ParticipantClient.getInstance()
 				.findAllXML());
 
 		for (Participant participant : participants) {
-			if ( isApeaker(participant)) {
+			if (isApeaker(participant)) {
 				presentateursList.add(participant);
 			}
 		}
 		return presentateursList;
 	}
-	
-	// En plus du role Presentateur, un speaker doit avoir au moins une porposition de presentation approuvee en attente de complement
+
+	// En plus du role Presentateur, un speaker doit avoir au moins une
+	// porposition de presentation approuvee en attente de complement
 	private boolean isApeaker(Participant part) {
-		if(part.getPropositionPresentations() != null && part.getRoleparticipant() != null && "Speaker".equalsIgnoreCase(part.getRoleparticipant().getCode())){
+		if (part.getPropositionPresentations() != null && part.getRoleparticipant() != null
+				&& UIConst.ROLE_SPEAKER.equalsIgnoreCase(part.getRoleparticipant().getCode())) {
 			for (PropositionPresentation popos : part.getPropositionPresentations()) {
-				if (  "C".equalsIgnoreCase(popos.getStatutApprobation().getCodeStatut()) || "A".equalsIgnoreCase(popos.getStatutApprobation().getCodeStatut()) ) {
+				if ("C".equalsIgnoreCase(popos.getStatutApprobation().getCodeStatut())
+						|| "A".equalsIgnoreCase(popos.getStatutApprobation().getCodeStatut())) {
 					return true;
 				}
 			}
 		}
 		return false;
 	}
-	
-	private void createPopup(CustomLayout htmlLayout, Participant participant){
-		
-		int idx = 1;
-		
-		if (participant.getPropositionPresentations() != null) {
-			for (PropositionPresentation propositionPresentation : participant.getPropositionPresentations()) {
-				
-		        Label content = new Label("<h2>" + propositionPresentation.getTitre() + "</h2>"
-                + "<p>" + propositionPresentation.getDescription() + "</p>");
-		        content.setContentMode(Label.CONTENT_XHTML);
 
-		        
-		        // The PopupView popup will be as large as needed by the content
-		        content.setWidth("400px");
-		
-		        // Construct the PopupView with simple HTML text representing the
-		        // minimized view
-		        PopupView popup = new PopupView(propositionPresentation.getTitre(), content);
-		        popup.setHideOnMouseOut(true);
-		        //popup.addListener((PopupVisibilityListener) htmlLayout);
-		        htmlLayout.addComponent(popup, "papersList" + idx++);
+	private void createPopup(CustomLayout htmlLayout, Participant participant) {
+
+		int idx = 1;
+
+		if (participant.getPropositionPresentations() != null) {
+			for (PropositionPresentation propositionPresentation : participant
+					.getPropositionPresentations()) {
+
+				Label content = new Label("<h2>" + propositionPresentation.getTitre() + "</h2>"
+						+ "<p>" + propositionPresentation.getDescription() + "</p>");
+				content.setContentMode(Label.CONTENT_XHTML);
+
+				// The PopupView popup will be as large as needed by the content
+				content.setWidth("400px");
+
+				// Construct the PopupView with simple HTML text representing
+				// the
+				// minimized view
+				PopupView popup = new PopupView(propositionPresentation.getTitre(), content);
+				popup.setHideOnMouseOut(true);
+				// popup.addListener((PopupVisibilityListener) htmlLayout);
+				htmlLayout.addComponent(popup, "papersList" + idx++);
 
 			}
 		}
 
-        // Create the content for the popup
-		
+		// Create the content for the popup
+
 	}
-	
 
 }
 
-
-
-
 @SuppressWarnings("serial")
-class PopupViewClosingExample extends VerticalLayout implements
-        PopupView.PopupVisibilityListener {
+class PopupViewClosingExample extends VerticalLayout implements PopupView.PopupVisibilityListener {
 
-    public PopupViewClosingExample() {
+	public PopupViewClosingExample() {
 
-        setSpacing(true);
+		setSpacing(true);
 
-        // Create the content for the popup
-        Label content = new Label(
-                "This popup will close as soon as you move the mouse cursor outside of the popup area.");
-        // The PopupView popup will be as large as needed by the content
-        content.setWidth("300px");
+		// Create the content for the popup
+		Label content = new Label(
+				"This popup will close as soon as you move the mouse cursor outside of the popup area.");
+		// The PopupView popup will be as large as needed by the content
+		content.setWidth("300px");
 
-        // Construct the PopupView with simple HTML text representing the
-        // minimized view
-        PopupView popup = new PopupView("Default popup", content);
-        popup.setHideOnMouseOut(true);
-        popup.addListener(this);
-        addComponent(popup);
+		// Construct the PopupView with simple HTML text representing the
+		// minimized view
+		PopupView popup = new PopupView("Default popup", content);
+		popup.setHideOnMouseOut(true);
+		popup.addListener(this);
+		addComponent(popup);
 
-        content = new Label(
-                "This popup will only close if you click the mouse outside the popup area.");
-        // The PopupView popup will be as large as needed by the content
-        content.setWidth("300px");
+		content = new Label(
+				"This popup will only close if you click the mouse outside the popup area.");
+		// The PopupView popup will be as large as needed by the content
+		content.setWidth("300px");
 
-        popup = new PopupView("Popup that won't auto-close", content);
-        popup.setHideOnMouseOut(false);
-        popup.addListener(this);
-        addComponent(popup);
-    }
+		popup = new PopupView("Popup that won't auto-close", content);
+		popup.setHideOnMouseOut(false);
+		popup.addListener(this);
+		addComponent(popup);
+	}
 
-    public void popupVisibilityChange(PopupVisibilityEvent event) {
-        if (!event.isPopupVisible()) {
-            getWindow().showNotification("Popup closed");
-        }
-    }
+	public void popupVisibilityChange(PopupVisibilityEvent event) {
+		if (!event.isPopupVisible()) {
+			getWindow().showNotification("Popup closed");
+		}
+	}
 }

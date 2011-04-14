@@ -3,6 +3,8 @@
  */
 package com.jcertif.facade.participant;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -13,6 +15,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +43,19 @@ public class ParticipantFacade extends AbstractFacade<ParticipantService, Partic
 	@Autowired
 	private ParticipantService participantService;
 
+	// @Autowired
+	// private ServletContext context;
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(cSenderService).append(participantService).toHashCode();
+	}
+
 	@Override
 	public ParticipantService getService() {
 		return participantService;
@@ -58,6 +74,15 @@ public class ParticipantFacade extends AbstractFacade<ParticipantService, Partic
 		Participant part = super.create(entity);
 		cSenderService.sendAddParticipantConfirmation(entity);
 		return part;
+	}
+
+	@POST
+	@Consumes({ MediaType.APPLICATION_OCTET_STREAM })
+	@Path("store/{role}/{id}/{ext}")
+	public void store(final InputStream fileStream, @PathParam(value = "id") Long idParticipant,
+			@PathParam(value = "role") String codeRole, @PathParam(value = "ext") String ext)
+			throws IOException {
+		participantService.saveInFile(fileStream, idParticipant, codeRole, ext);
 	}
 
 	@GET

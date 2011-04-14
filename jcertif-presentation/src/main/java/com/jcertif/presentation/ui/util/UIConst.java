@@ -13,7 +13,7 @@ public interface UIConst {
 	String URL_PARTNER_IMG = "/sponsors/";
 
 	String CALENDAR_DETAIL_LAYOUT = "details_event_layout";
-	
+
 	String COMMUN_DETAIL_LAYOUT = "details_commun_layout";
 
 	String LOGIN_VIEW = "/pages/login.jsp";
@@ -31,6 +31,13 @@ public interface UIConst {
 	String PARAM_LOGOUT = "logout";
 
 	String FACADE_URL_PROP = "facade.url";
+
 	String WEBAPP_PROPERTIES_FILE = "jcertif-presentation";
+
+	String ROLE_SPEAKER = "Speaker";
+
+	String ROLE_PARTENAIRE = "Partenaire";
+
+	String PHOTO_SUFFIX_PATTERN = "yyyMMddHHmmssSSS";
 
 }

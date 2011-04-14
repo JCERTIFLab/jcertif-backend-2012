@@ -8,8 +8,6 @@ import java.util.Locale;
 import com.jcertif.presentation.internationalisation.Messages;
 import com.jcertif.presentation.ui.util.ComponentFactory;
 import com.vaadin.data.Item;
-import com.vaadin.data.Validator;
-import com.vaadin.data.Validator.InvalidValueException;
 import com.vaadin.data.validator.EmailValidator;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Field;

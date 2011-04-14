@@ -13,7 +13,6 @@ import com.vaadin.ui.Component;
 import com.vaadin.ui.Field;
 import com.vaadin.ui.FormFieldFactory;
 import com.vaadin.ui.NativeSelect;
-import com.vaadin.ui.TextField;
 
 /**
  * Factory des champs du formulaire inscription.
@@ -23,7 +22,7 @@ import com.vaadin.ui.TextField;
  */
 public class ParticipantFieldFactory implements FormFieldFactory {
 
-	private static final String TAILLE_COMBO = "12em";
+	private static final String TAILLE_COMBO = "150px";
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -53,16 +52,13 @@ public class ParticipantFieldFactory implements FormFieldFactory {
 					false);
 		} else if (pid.equals("compagnie")) {
 			return ComponentFactory.createTextField("Entreprise", false);
-		} else if (pid.equals("details")) {
-			TextField text = ComponentFactory.createTextField("Bio", false);
-			text.setRows(5);
-			return text;
 		} else if (pid.equals("website")) {
 			return ComponentFactory.createTextField("Site web", false);
 		} else if (pid.equals("roleparticipant")) {
 			NativeSelect combo = new NativeSelect("Rôle");
 			initComboRoleParticipant(combo);
 			combo.setRequired(true);
+			combo.setImmediate(true);
 			combo.setRequiredError("Le rôle est obligatoire");
 			combo.setWidth(TAILLE_COMBO);
 			return combo;

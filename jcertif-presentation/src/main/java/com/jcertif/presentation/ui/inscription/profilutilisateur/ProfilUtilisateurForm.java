@@ -33,7 +33,7 @@ public class ProfilUtilisateurForm extends Form {
 		this.getLayout().setMargin(true);
 		setFormFieldFactory(new ProfilUtilisateurFieldFactory());
 
-		initProfilBean();
+		reinitProfilBean();
 
 		this.setCaption(Messages.getString("Presentation.profil_caption", Locale.getDefault()));
 	}
@@ -41,7 +41,7 @@ public class ProfilUtilisateurForm extends Form {
 	/**
 	 * 
 	 */
-	public void initProfilBean() {
+	public void reinitProfilBean() {
 		ProfilUtilisateurBean bean = new ProfilUtilisateurBean();
 
 		// Mapping BO Bean Form

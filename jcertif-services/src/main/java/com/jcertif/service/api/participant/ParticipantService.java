@@ -3,6 +3,8 @@
  */
 package com.jcertif.service.api.participant;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import com.jcertif.bo.participant.Participant;
@@ -27,5 +29,8 @@ public interface ParticipantService extends GenericService<Participant, Long, Pa
 	List<Participant> findByEmail(String email);
 
 	List<Participant> findAllWithProposition();
+
+	void saveInFile(InputStream fileStream, Long idParticipant, String codeRole, String ext)
+			throws IOException;
 
 }

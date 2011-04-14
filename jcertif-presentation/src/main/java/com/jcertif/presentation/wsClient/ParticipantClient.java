@@ -1,5 +1,8 @@
 package com.jcertif.presentation.wsClient;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import com.jcertif.presentation.data.bo.participant.Participant;
@@ -83,5 +86,11 @@ public class ParticipantClient extends AbstractJCertWebServiceClient<Participant
 			participant = participantList.iterator().next();
 		}
 		return participant;
+	}
+
+	public void store(File file, String role, Long idParticipant, String ext)
+			throws UniformInterfaceException, FileNotFoundException {
+		getWebResource().path("/store/" + role + "/" + idParticipant + "/" + ext).post(
+				new FileInputStream(file));
 	}
 }

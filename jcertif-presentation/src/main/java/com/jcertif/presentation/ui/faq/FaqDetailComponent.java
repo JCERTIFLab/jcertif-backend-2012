@@ -1,7 +1,6 @@
 package com.jcertif.presentation.ui.faq;
 
 import java.util.HashSet;
-import java.util.ResourceBundle;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -59,11 +58,15 @@ public class FaqDetailComponent extends Panel {
 			htmlLayout.addStyleName("details_commun_layout");
 
 			// Sujet
-			if(isFirsTime){
+			if (isFirsTime) {
 				htmlLayout.addComponent(new Label("Foire aux Questions"), "caption");
-				htmlLayout.addComponent(new Label("Voici les réponses à certaines des questions fréquemment posées au sujet des emplois à la fonction publique fédérale."), "captionDetail");				
+				htmlLayout
+						.addComponent(
+								new Label(
+										"Voici les réponses à certaines des questions fréquemment posées au sujet des emplois à la fonction publique fédérale."),
+								"captionDetail");
 			}
-			
+
 			// Lastname + firstname
 			htmlLayout.addComponent(new Label(faq.getQuestion()), "presentateur");
 			// Participant Bio
@@ -75,15 +78,6 @@ public class FaqDetailComponent extends Panel {
 		}
 
 	}
-
-	public static String getFacadeURL() {
-		ResourceBundle bundle = ResourceBundle.getBundle(UIConst.WEBAPP_PROPERTIES_FILE);
-		return bundle.getString(UIConst.FACADE_URL_PROP);
-	}
-
-	// Set<Evenement> boEvents = new
-	// HashSet<Evenement>(EvenementClient.getInstance()
-	// .findAllXML());
 
 	// Récupération des partenaires
 	private Set<Faq> getFaqList() {

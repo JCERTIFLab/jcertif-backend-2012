@@ -3,11 +3,19 @@
  */
 package com.jcertif.service.impl.participant;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +36,8 @@ import com.jcertif.service.api.participant.ParticipantService;
 @Service
 public class ParticipantServiceImpl extends AbstractService<Participant, Long, ParticipantDAO>
 		implements ParticipantService {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(ParticipantServiceImpl.class);
 
 	@Autowired
 	private ParticipantDAO participantDAO;
@@ -114,5 +124,39 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
 			}
 		}
 		return participants;
+	}
+
+	/**
+	 * @param fileStream
+	 * @param idParticipant
+	 * @param codeRole
+	 * @param ext
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	@Override
+	public void saveInFile(final InputStream fileStream, Long idParticipant, String codeRole,
+			String ext) throws IOException {
+		File dir = new File("./" + codeRole);
+		if (!dir.exists()) {
+			dir.mkdir();
+		}
+
+		File outputFile = new File(dir, idParticipant + "." + ext);
+
+		OutputStream out;
+
+		out = new FileOutputStream(outputFile);
+
+		byte buf[] = new byte[1024];
+		int len;
+
+		while ((len = fileStream.read(buf)) > 0)
+			out.write(buf, 0, len);
+		out.close();
+		fileStream.close();
+
+		LOGGER.info("File {} saved for idParticipant={}", outputFile.getAbsolutePath(),
+				idParticipant);
 	}
 }

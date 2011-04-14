@@ -25,7 +25,7 @@ import com.vaadin.ui.Form;
 public class ParticipantForm extends Form {
 
 	private static final Object[] VISIBLE_PROPERTIES = new Object[] { "salutation", "prenom",
-			"nom", "roleparticipant", "typeParticipant", "compagnie", "website", "details" };
+			"nom", "roleparticipant", "typeParticipant", "compagnie", "website" };
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = LoggerFactory.getLogger(ParticipantForm.class);
 
@@ -39,14 +39,14 @@ public class ParticipantForm extends Form {
 		this.getLayout().setMargin(true);
 		setFormFieldFactory(new ParticipantFieldFactory());
 
-		initParticipantBean();
+		reinitParticipantBean();
 		this.setCaption(Messages.getString("Presentation.inscription_caption"));
 	}
 
 	/**
 	 * 
 	 */
-	public void initParticipantBean() {
+	public void reinitParticipantBean() {
 		Participant bean = new Participant();
 
 		// Initialisation de la conférence

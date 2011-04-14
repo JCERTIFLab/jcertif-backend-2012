@@ -28,4 +28,6 @@ public interface UIStyle {
 	 */
 	String PHOTO_PARTENAIRE = "photo_sponsor";
 
+	String COMPLEMENT_WINDOW = "complement_window";
+
 }
