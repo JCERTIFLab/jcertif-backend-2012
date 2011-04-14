@@ -18,6 +18,8 @@ public interface UIConst {
 
 	String LOGIN_VIEW = "/pages/login.jsp";
 
+	String HOME_VIEW = "/pages/home.jsp";
+
 	String CONFIRMATION_VIEW = "/pages/confirmationProposition.jsp";
 
 	String PARAM_CONNECTED = "connected";

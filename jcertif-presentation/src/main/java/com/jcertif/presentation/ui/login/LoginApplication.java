@@ -40,12 +40,14 @@ public class LoginApplication extends Application implements ClickListener,
 	/**
 	 * Redirect URL.
 	 */
-	private String urlRedirect = "home.jsp";
+	private String urlRedirect;
 
 	/**
 	 * Login Form.
 	 */
 	private LoginForm loginForm;
+
+	private String contextPath;
 
 	/**
 	 * @see com.vaadin.Application#init()
@@ -76,7 +78,7 @@ public class LoginApplication extends Application implements ClickListener,
 	public void buttonClick(ClickEvent event) {
 		connectedPart = getLoginForm().commitAndGetParticipant();
 		if (urlRedirect == null) {
-			urlRedirect = "home.jsp";
+			urlRedirect = contextPath + UIConst.HOME_VIEW;
 		}
 		ExternalResource res = new ExternalResource(urlRedirect);
 		this.getMainWindow().open(res);
@@ -85,6 +87,7 @@ public class LoginApplication extends Application implements ClickListener,
 	@Override
 	public void onRequestStart(HttpServletRequest request, HttpServletResponse response) {
 		urlRedirect = (String) request.getSession().getAttribute("url");
+		contextPath = request.getContextPath();
 		Object propo = request.getSession().getAttribute("login.propositionsujet");
 
 		if (propo == null || Boolean.FALSE.equals(propo)) {
