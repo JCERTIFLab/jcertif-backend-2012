@@ -159,16 +159,19 @@ public class InscriptionApplication extends Application implements ClickListener
 		participant.setAdresse(adresse);
 		Participant parti = ParticipantClient.getInstance().create_XML(participant);
 
-		try {
-			String[] extensionTab = photo.getName().split("\\.");
-			String ext = extensionTab[extensionTab.length - 1];
-			ParticipantClient.getInstance().store(photo,
-					participant.getRoleparticipant().getCode(), parti.getId(), ext);
-		} catch (UniformInterfaceException e) {
-			LOGGER.error("Erreur lors de la sauvegarde de la photo du participant", e);
-		} catch (FileNotFoundException e) {
-			LOGGER.error("Erreur lors de la sauvegarde de la photo du participant", e);
+		if (photo != null) {
+			try {
+				String[] extensionTab = photo.getName().split("\\.");
+				String ext = extensionTab[extensionTab.length - 1];
+				ParticipantClient.getInstance().store(photo,
+						participant.getRoleparticipant().getCode(), parti.getId(), ext);
+			} catch (UniformInterfaceException e) {
+				LOGGER.error("Erreur lors de la sauvegarde de la photo du participant", e);
+			} catch (FileNotFoundException e) {
+				LOGGER.error("Erreur lors de la sauvegarde de la photo du participant", e);
+			}
 		}
+
 		getParticipantForm().reinitParticipantBean();
 		getProfilForm().reinitProfilBean();
 		getAddressForm().reinitAdresseBean();
