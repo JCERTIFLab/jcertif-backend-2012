@@ -279,7 +279,7 @@ public class InscriptionApplication extends Application implements ClickListener
 
 		//
 		if (e.getWindow().equals(getComplementForm())) {
-
+			getComplementForm().reinitComplementBean();
 		}
 
 	}
