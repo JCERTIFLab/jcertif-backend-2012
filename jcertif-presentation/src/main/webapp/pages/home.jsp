@@ -40,7 +40,7 @@
 							<div class="pikachoose">
 								<ul id="pikame" class="jcarousel-skin-pika">
 									<c:forEach var="image" items="${imageManager.allImageName}">
-										<li><a href="home.jsp"><img alt=""
+										<li><a href="#"><img alt=""
 												src="mainslide_images/${image}" />
 										</a><span></span>
 										</li>
