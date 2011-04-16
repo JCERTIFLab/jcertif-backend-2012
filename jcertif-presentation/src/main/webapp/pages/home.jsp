@@ -12,30 +12,14 @@
 <head>
 <title>JCertif 2011</title>
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-<link type="text/css" href="css/bottom.css" rel="stylesheet" />
+<link type="text/css" href="css/simple.css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.pikachoose.js"></script>
 <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
 <script type="text/javascript">            $(document).ready(
             function (){
-                $("#pikame").PikaChoose();
-
-                $("#pikame").jcarousel({
-                    initCallback: function(carousel)
-                    {
-                        $(carousel.list).find('img').click(function() {
-                            var clicked = parseInt($(this).parents('.jcarousel-item').attr('jcarouselindex'));
-                            var last = ($(this).parents('ul').find('li:last').index() == clicked-1) ? true : false;
-                            if(!last){
-                                clicked = (clicked-2<=0) ? 0 : clicked-2;
-                            }
-                            clicked++;
-                          carousel.scroll(clicked);
-                        });
-                    }
-                });
-
-            });		
+                $("#pikame").PikaChoose({showCaption:false});
+            }); 		
             -->
         </script>
 </head>
@@ -56,7 +40,7 @@
 							<div class="pikachoose">
 								<ul id="pikame" class="jcarousel-skin-pika">
 									<c:forEach var="image" items="${imageManager.allImageName}">
-										<li><a href=""><img alt=""
+										<li><a href="home.jsp"><img alt=""
 												src="mainslide_images/${image}" />
 										</a><span></span>
 										</li>
