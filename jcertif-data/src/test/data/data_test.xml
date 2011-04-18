@@ -118,6 +118,7 @@
 	<evenement id="8" nom_evenement="Android : Atelier de programmation Android" date_debut_prevue="2011-09-03 15:00:00" date_fin_prevue="2011-09-03 18:00:00" date_debut_effective="2011-09-03 15:00:00" date_fin_effective="2011-09-03 15:00:00" details="Android : Atelier de programmation Android" type_evenement_id="6" proposition_presentation_id="8" />
 	<evenement id="9" nom_evenement="Keynote : Web 2.0 C'est du passé ? Venez découvrir le future du Web" date_debut_prevue="2011-09-04 09:00:00" date_fin_prevue="2011-09-04 10:00:00" date_debut_effective="2011-09-04 09:00:00"	date_fin_effective="2011-09-04 09:00:00" details="Keynote : Web 2.0 C'est du passé ? Venez découvrir le future du Web" type_evenement_id="3" proposition_presentation_id="9" />
 	<evenement id="10" nom_evenement="Certification Java 6: Atelier de certification SCJP 6" date_debut_prevue="2011-09-04 14:00:00" date_fin_prevue="2011-09-03 17:30:00" date_debut_effective="2011-09-03 17:30:00" date_fin_effective="2011-09-03 17:30:00" details="Certification Java 6: Atelier de certification SCJP 6" type_evenement_id="1" proposition_presentation_id="10"/>
+	<evenement id="20" nom_evenement="Mot d'au revoir et annonce des prochains événement" date_debut_prevue="2011-09-04 17:35:00" date_fin_prevue="2011-09-04 17:55:00" date_debut_effective="2011-09-04 17:35:00" date_fin_effective="2011-09-04 17:35:00" details="Mot d'au revoir et annonce des prochains événement" type_evenement_id="2" proposition_presentation_id="20"/>
 	
 		
 	<!-- password=michel-->
@@ -262,9 +263,9 @@
 	<cedule_participant id="38" evenement_id="20" participant_id="12" statut_cedule_id="1" />
 	<cedule_participant id="39" evenement_id="20" participant_id="13" statut_cedule_id="1" />
 	<cedule_participant id="40" evenement_id="20" participant_id="14" statut_cedule_id="1" />
-	<cedule_participant id="50" evenement_id="20" participant_id="15" statut_cedule_id="1" />
-	<cedule_participant id="51" evenement_id="20" participant_id="16" statut_cedule_id="1" />
-	<cedule_participant id="52" evenement_id="20" participant_id="17" statut_cedule_id="1" />
+	<cedule_participant id="41" evenement_id="20" participant_id="15" statut_cedule_id="1" />
+	<cedule_participant id="42" evenement_id="20" participant_id="16" statut_cedule_id="1" />
+	<cedule_participant id="43" evenement_id="20" participant_id="17" statut_cedule_id="1" />
 
 	<cedule_salle id="1" date_cedule="2011-02-01" details="details 1" salle_id="5" statut_cedule_id="2" evenement_id="1"/>
 	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="6" statut_cedule_id="2" evenement_id="2"/>
