@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
-import com.jcertif.presentation.internationalisation.Messages;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.wsClient.ParticipantClient;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.terminal.UserError;
@@ -42,7 +42,7 @@ public class LoginForm extends Form {
 		BeanItem<LoginBean> item = new BeanItem<LoginBean>(loginBean);
 		this.setItemDataSource(item);
 		this.setVisibleItemProperties(VISIBLE_PROPERTIES);
-		this.setCaption(Messages.getString("login.titre"));
+		this.setCaption(Msg.get("ui.login.title"));
 
 		// Login Button
 		HorizontalLayout layoutFooter = new HorizontalLayout();
@@ -73,7 +73,7 @@ public class LoginForm extends Form {
 		}
 
 		if (!isvalid) {
-			this.setComponentError(new UserError(Messages.getString("login.failedmessage")));
+			this.setComponentError(new UserError(Msg.get("ui.login.invalid.error")));
 			return null;
 		}
 
@@ -100,7 +100,7 @@ public class LoginForm extends Form {
 	 */
 	public Button getLoginButton() {
 		if (loginButton == null) {
-			loginButton = new Button(Messages.getString("login.button"));
+			loginButton = new Button(Msg.get("ui.login.button"));
 		}
 		return loginButton;
 	}

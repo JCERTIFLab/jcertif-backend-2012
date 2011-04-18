@@ -12,10 +12,7 @@
 
 	<div id="main_container">
 		<jsp:include page="headertemplate.jsp" />
-<h2>
-		Votre inscription a bien été prise en compte. Vous allez recevoir un
-		mail qui vous indiquera les prochaines étapes à suivre.
-		</h2>
+		<h2><%=session.getAttribute("confirmationInscription.jsp.text")%></h2>
 		<jsp:include page="footer.jsp" />
 	</div>
 </body>

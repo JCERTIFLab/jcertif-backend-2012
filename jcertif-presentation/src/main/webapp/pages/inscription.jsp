@@ -26,10 +26,12 @@
 </script>
 <script type="text/javascript"
 	src='../VAADIN/widgetsets/com.jcertif.presentation.gwt.MyWidgetSet/com.jcertif.presentation.gwt.MyWidgetSet.nocache.js'></script>
+
+<title><%=session.getAttribute("inscription.jsp.title")%></title>
 </head>
 <body>
 	<%
-	session.setAttribute("url", request.getContextPath() +"/pages/home.jsp");
+		session.setAttribute("url", request.getContextPath() + "/pages/home.jsp");
 	%>
 	<div id="main_container">
 		<jsp:include page="headertemplate.jsp" />

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.bo.conference.Conference;
 import com.jcertif.presentation.data.bo.participant.Participant;
-import com.jcertif.presentation.internationalisation.Messages;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.wsClient.ConferenceClient;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.Form;
@@ -40,7 +40,7 @@ public class ParticipantForm extends Form {
 		setFormFieldFactory(new ParticipantFieldFactory());
 
 		reinitParticipantBean();
-		this.setCaption(Messages.getString("Presentation.inscription_caption"));
+		this.setCaption(Msg.get("ui.inscription.participant.title"));
 	}
 
 	/**

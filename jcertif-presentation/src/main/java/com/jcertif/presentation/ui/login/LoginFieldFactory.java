@@ -1,6 +1,6 @@
 package com.jcertif.presentation.ui.login;
 
-import com.jcertif.presentation.internationalisation.Messages;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.util.ComponentFactory;
 import com.vaadin.data.Item;
 import com.vaadin.data.validator.EmailValidator;
@@ -21,13 +21,12 @@ public class LoginFieldFactory implements FormFieldFactory {
 	public Field createField(Item item, Object propertyId, Component uiContext) {
 		String pid = (String) propertyId;
 		if (pid.equals("id")) {
-			TextField loginTx = ComponentFactory.createTextField(Messages.getString("login.id"),
-					true);
-			loginTx.addValidator(new EmailValidator(Messages.getString("login.id.wrongformat")));
+			TextField loginTx = ComponentFactory.createTextField(Msg.get("ui.login.email"), true);
+			loginTx.addValidator(new EmailValidator(Msg.get("ui.login.email.invalid.error")));
 			return loginTx;
 		} else if (pid.equals("password")) {
-			TextField passwordTx = ComponentFactory.createTextField(
-					Messages.getString("login.password"), true);
+			TextField passwordTx = ComponentFactory.createTextField(Msg.get("ui.login.password"),
+					true);
 			passwordTx.setSecret(true);
 			return passwordTx;
 		}

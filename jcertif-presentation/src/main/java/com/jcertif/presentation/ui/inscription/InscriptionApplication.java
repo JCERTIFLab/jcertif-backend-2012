@@ -16,7 +16,7 @@ import com.jcertif.presentation.data.bo.Adresse;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
 import com.jcertif.presentation.data.bo.participant.RoleParticipant;
-import com.jcertif.presentation.internationalisation.Messages;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.inscription.adresse.AdresseForm;
 import com.jcertif.presentation.ui.inscription.complement.ComplementForm;
 import com.jcertif.presentation.ui.inscription.participant.ParticipantForm;
@@ -64,8 +64,6 @@ public class InscriptionApplication extends Application implements ClickListener
 
 	private Button commitButton;
 
-	private boolean complementFormOK;
-
 	@Override
 	public void init() {
 		if (LOGGER.isDebugEnabled()) {
@@ -98,7 +96,7 @@ public class InscriptionApplication extends Application implements ClickListener
 				commitAndSaveParticipant(true);
 			} else {
 				getComplementForm().setComponentError(
-						new UserError(Messages.getString("ui.inscription.complement.msgerror")));
+						new UserError(Msg.get("ui.inscription.complement.invalid")));
 			}
 		} else {
 			commitAndSaveParticipant(false);
@@ -187,7 +185,7 @@ public class InscriptionApplication extends Application implements ClickListener
 		if (client.isEmailExist(((BeanItem<Participant>) getParticipantForm().getItemDataSource())
 				.getBean().getEmail())) {
 			getParticipantForm().setComponentError(
-					new UserError("Cette adresse email est déjà utilisé."));
+					new UserError(Msg.get("ui.inscription.profilutilisateur.email.used")));
 			result = false;
 		}
 		return result;
@@ -199,12 +197,14 @@ public class InscriptionApplication extends Application implements ClickListener
 		if (!getProfilForm().getField("confirmEmail").getValue()
 				.equals(getProfilForm().getField("email").getValue())) {
 			getProfilForm().setComponentError(
-					new UserError("Les adresses email saisies ne sont identiques."));
+					new UserError(Msg.get("ui.inscription.profilutilisateur.email.equals.error")));
 			result = false;
 		} else if (!getProfilForm().getField("confirmPassword").getValue()
 				.equals(getProfilForm().getField("password").getValue())) {
-			getProfilForm().setComponentError(
-					new UserError("Les adresses email saisies ne sont identiques."));
+			getProfilForm()
+					.setComponentError(
+							new UserError(Msg
+									.get("ui.inscription.profilutilisateur.password.equals.error")));
 			result = false;
 		}
 		return result;
@@ -225,7 +225,7 @@ public class InscriptionApplication extends Application implements ClickListener
 	 */
 	public Button getCommitButton() {
 		if (commitButton == null) {
-			commitButton = new Button(Messages.getString("inscription.button"));
+			commitButton = new Button(Msg.get("ui.inscription.valider.button"));
 			commitButton.addListener(this);
 		}
 		return commitButton;

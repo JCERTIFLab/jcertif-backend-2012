@@ -9,7 +9,7 @@ import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.jcertif.presentation.internationalisation.Messages;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.util.ComponentFactory;
 import com.jcertif.presentation.ui.util.JCertifProps;
 import com.jcertif.presentation.ui.util.UIConst;
@@ -52,7 +52,7 @@ public class ComplementForm extends Window implements Receiver, Upload.Succeeded
 	}
 
 	private void init() {
-		this.setCaption(Messages.getString("inscription.complement.title"));
+		this.setCaption(Msg.get("ui.inscription.complement.title"));
 		this.setContent(new FormLayout());
 		this.setStyleName(UIStyle.COMPLEMENT_WINDOW);
 		// this.addComponent(new
@@ -78,8 +78,8 @@ public class ComplementForm extends Window implements Receiver, Upload.Succeeded
 	 */
 	public TextField getBioTx() {
 		if (bioTx == null) {
-			bioTx = ComponentFactory.createTextField(
-					Messages.getString("inscription.complement.bio"), true);
+			bioTx = ComponentFactory
+					.createTextField(Msg.get("ui.inscription.complement.bio"), true);
 			bioTx.setRows(5);
 			bioTx.setColumns(30);
 		}
@@ -91,9 +91,8 @@ public class ComplementForm extends Window implements Receiver, Upload.Succeeded
 	 */
 	public Upload getPhotoUpload() {
 		if (photoUpload == null) {
-			photoUpload = new Upload(Messages.getString("inscription.complement.photo.title"), this);
-			photoUpload
-					.setButtonCaption(Messages.getString("inscription.complement.button.upload"));
+			photoUpload = new Upload(Msg.get("ui.inscription.complement.upload.text"), this);
+			photoUpload.setButtonCaption(Msg.get("ui.inscription.complement.upload.button"));
 			photoUpload.addListener((Upload.SucceededListener) this);
 			photoUpload.addListener((Upload.FailedListener) this);
 
@@ -106,7 +105,7 @@ public class ComplementForm extends Window implements Receiver, Upload.Succeeded
 	 */
 	public Button getValidateBt() {
 		if (validateBt == null) {
-			validateBt = new Button(Messages.getString("inscription.complement.button.validate"));
+			validateBt = new Button(Msg.get("ui.inscription.complement.valider.button"));
 		}
 		return validateBt;
 	}

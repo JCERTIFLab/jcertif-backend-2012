@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.util.JCertifProps;
 import com.jcertif.presentation.ui.util.UIConst;
 import com.jcertif.presentation.ui.util.UIStyle;
@@ -72,12 +73,9 @@ public class PresentateurDetailComponent extends Panel {
 
 			// Entete
 			if (isFirsTime) {
-				htmlLayout.addComponent(new Label("Les présentateur"), "caption");
-				htmlLayout
-						.addComponent(
-								new Label(
-										"Voici la liste temporaire des à la conférence JCertif 2011. Vous aussi, proposez un sujet de présentation et venez vous joindre aux experts de notre liste."),
-								"captionDetail");
+				htmlLayout.addComponent(new Label(Msg.get("ui.presentateur.title")), "caption");
+				htmlLayout.addComponent(new Label(Msg.get("ui.presentateur.description")),
+						"captionDetail");
 			}
 
 			// Lastname + firstname
@@ -103,13 +101,6 @@ public class PresentateurDetailComponent extends Panel {
 			// Affichage des présentations associees au participant
 			createPopup(htmlLayout, participant);
 
-			/*
-			 * if (participant.getPropositionPresentations() != null) { for
-			 * (PropositionPresentation propositionPresentation : participant
-			 * .getPropositionPresentations()) { // Presentation title
-			 * htmlLayout.addComponent(new
-			 * Label(propositionPresentation.getTitre()), "papersList"); } }
-			 */
 			// Use it as the layout of the Panel.
 			this.addComponent(htmlLayout);
 			isFirsTime = false;

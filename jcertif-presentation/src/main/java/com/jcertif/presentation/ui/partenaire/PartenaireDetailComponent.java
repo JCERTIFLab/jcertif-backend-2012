@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.bo.participant.Participant;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.util.UIConst;
 import com.jcertif.presentation.ui.util.UIStyle;
 import com.jcertif.presentation.wsClient.ParticipantClient;
@@ -29,7 +30,6 @@ public class PartenaireDetailComponent extends Panel {
 
 	private static final long serialVersionUID = 1L;
 	private boolean isFirsTime = true;
-
 
 	/**
 	 * A Logger for class.
@@ -65,11 +65,11 @@ public class PartenaireDetailComponent extends Panel {
 			CustomLayout htmlLayout = new CustomLayout(UIConst.COMMUN_DETAIL_LAYOUT);
 			htmlLayout.addStyleName("details_commun_layout");
 
-
 			// Entete
-			if(isFirsTime){
-				htmlLayout.addComponent(new Label("Les Sponsors"), "caption");
-				htmlLayout.addComponent(new Label("Vous aussi devenez sponsor de JCertif 2011 et afficher le logo de votre entreprise au côté de Google et Oracle."), "captionDetail");				
+			if (isFirsTime) {
+				htmlLayout.addComponent(new Label(Msg.get("ui.partenaire.title")), "caption");
+				htmlLayout.addComponent(new Label(Msg.get("ui.partenaire.description")),
+						"captionDetail");
 			}
 
 			// Lastname + firstname

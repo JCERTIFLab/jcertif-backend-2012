@@ -29,5 +29,15 @@ public interface UIStyle {
 	String PHOTO_PARTENAIRE = "photo_sponsor";
 
 	String COMPLEMENT_WINDOW = "complement_window";
+	
+	String CENTRAL_CALENDAR = "calendar_central";
+	
+	String EVENT_DETAILS_PANEL = "event_details_panel";
+	
+	String DETAILS_EVENT_LAYOUT = "details_event_layout";
+	
+	String COMMON_DETAILS_PANEL ="commun_details_panel";
+	
+	String DETAILS_COMMON_LAYOUT = "details_commun_layout";
 
 }

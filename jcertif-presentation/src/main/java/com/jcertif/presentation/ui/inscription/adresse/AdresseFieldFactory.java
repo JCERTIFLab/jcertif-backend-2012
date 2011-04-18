@@ -1,6 +1,6 @@
 package com.jcertif.presentation.ui.inscription.adresse;
 
-import com.jcertif.presentation.internationalisation.Messages;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.util.ComponentFactory;
 import com.jcertif.presentation.ui.util.PaysUtility;
 import com.vaadin.data.Item;
@@ -28,21 +28,21 @@ public class AdresseFieldFactory implements FormFieldFactory {
 		String pid = (String) propertyId;
 		if (pid.equals("telephoneFixe")) {
 			TextField tx = ComponentFactory.createTextField(
-					Messages.getString("inscription.adresse.telephone.fixe"), false);
+					Msg.get("ui.inscription.adresse.telephone.fixe"), false);
 			tx.setImmediate(true);
 			return tx;
 		} else if (pid.equals("telephoneMobile")) {
 			TextField tx = ComponentFactory.createTextField(
-					Messages.getString("inscription.adresse.telephone.mobile"), false);
+					Msg.get("ui.inscription.adresse.telephone.mobile"), false);
 			tx.setImmediate(true);
 			return tx;
 		} else if (pid.equals("ville")) {
 			TextField tx = ComponentFactory.createTextField(
-					Messages.getString("inscription.adresse.ville"), false);
+					Msg.get("ui.inscription.adresse.ville"), false);
 			tx.setImmediate(true);
 			return tx;
 		} else if (pid.equals("pays")) {
-			NativeSelect select = new NativeSelect(Messages.getString("inscription.adresse.pays"),
+			NativeSelect select = new NativeSelect(Msg.get("ui.inscription.adresse.pays"),
 					PaysUtility.getISO3166Container());
 			select.setItemCaptionPropertyId(PaysUtility.iso3166_PROPERTY_NAME);
 			select.setItemIconPropertyId(PaysUtility.iso3166_PROPERTY_FLAG);

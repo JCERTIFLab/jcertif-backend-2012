@@ -86,7 +86,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getCommunicationErrorCaption() {
         return (communicationErrorNotificationEnabled ? 
-        		Messages.getString("LocalizedSystemMessages.communicationErrorCaption", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("LocalizedSystemMessages.communicationErrorCaption", getThreadLocale()) //$NON-NLS-1$
                 : null);
     }
 
@@ -96,7 +96,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getCommunicationErrorMessage() {
         return (communicationErrorNotificationEnabled ? 
-        		Messages.getString("LocalizedSystemMessages.communicationErrorMessage", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("LocalizedSystemMessages.communicationErrorMessage", getThreadLocale()) //$NON-NLS-1$
                 : null);
     }
     
@@ -107,7 +107,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getInternalErrorCaption() {
         return (internalErrorNotificationEnabled ? 
-        		Messages.getString("LocalizedSystemMessages.internalErrorCaption", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("LocalizedSystemMessages.internalErrorCaption", getThreadLocale()) //$NON-NLS-1$
                 : null);
     }
 
@@ -117,7 +117,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getInternalErrorMessage() {
         return (internalErrorNotificationEnabled ? 
-        		Messages.getString("LocalizedSystemMessages.internalErrorMessage", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("LocalizedSystemMessages.internalErrorMessage", getThreadLocale()) //$NON-NLS-1$
                 : null);
     }
 
@@ -128,7 +128,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
     @Override
 	public String getOutOfSyncCaption() {
         return (outOfSyncNotificationEnabled ? 
-        		Messages.getString("LocalizedSystemMessages.outOfSyncCaption", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("LocalizedSystemMessages.outOfSyncCaption", getThreadLocale()) //$NON-NLS-1$
         		: null);
     }
 
@@ -138,7 +138,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getOutOfSyncMessage() {
         return (outOfSyncNotificationEnabled ? 
-        		Messages.getString("LocalizedSystemMessages.outOfSyncMessage", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("LocalizedSystemMessages.outOfSyncMessage", getThreadLocale()) //$NON-NLS-1$
         		: null);
     }
     
@@ -149,7 +149,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getSessionExpiredCaption() {
         return (sessionExpiredNotificationEnabled ? 
-        		Messages.getString("LocalizedSystemMessages.sessionExpiredCaption", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("LocalizedSystemMessages.sessionExpiredCaption", getThreadLocale()) //$NON-NLS-1$
                 : null);
     }
 
@@ -160,7 +160,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getSessionExpiredMessage() {
         return (sessionExpiredNotificationEnabled ? 
-        		Messages.getString("LocalizedSystemMessages.sessionExpiredMessage", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("LocalizedSystemMessages.sessionExpiredMessage", getThreadLocale()) //$NON-NLS-1$
                 : null);
     }
 }

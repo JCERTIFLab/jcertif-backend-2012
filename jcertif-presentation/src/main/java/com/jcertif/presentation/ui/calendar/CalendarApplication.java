@@ -333,7 +333,7 @@ public class CalendarApplication extends Application implements EventClickHandle
 		if (calendarComponent == null) {
 			calendarComponent = new CalendarComponent();
 			calendarComponent.setEventProvider(new CalendarEventBeanProvider());
-			calendarComponent.addStyleName("calendar_central");
+			calendarComponent.addStyleName(UIStyle.CENTRAL_CALENDAR);
 			calendarComponent.setHandler(this);
 		}
 		return calendarComponent;

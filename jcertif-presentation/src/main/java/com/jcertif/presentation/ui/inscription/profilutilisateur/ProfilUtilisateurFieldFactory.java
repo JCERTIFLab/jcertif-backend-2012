@@ -3,9 +3,7 @@
  */
 package com.jcertif.presentation.ui.inscription.profilutilisateur;
 
-import java.util.Locale;
-
-import com.jcertif.presentation.internationalisation.Messages;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.util.ComponentFactory;
 import com.vaadin.data.Item;
 import com.vaadin.data.validator.EmailValidator;
@@ -32,25 +30,25 @@ public class ProfilUtilisateurFieldFactory implements FormFieldFactory {
 
 		if (pid.equals("email")) {
 			TextField text = ComponentFactory.createTextField(
-					Messages.getString("Presentation.email", Locale.getDefault()), true);
-			text.addValidator(new EmailValidator(
-					"L'adresse email doit être au format xxxxx@yyyyy.zzz"));
+					Msg.get("ui.inscription.profilutilisateur.email"), true);
+			text.addValidator(new EmailValidator(Msg
+					.get("ui.inscription.profilutilisateur.email.invalid.error")));
 			return text;
 		} else if (pid.equals("password")) {
 			TextField text = ComponentFactory.createTextField(
-					Messages.getString("Presentation.password", Locale.getDefault()), true);
+					Msg.get("ui.inscription.profilutilisateur.password"), true);
 			text.setSecret(true);
 			return text;
 		} else if (pid.equals("confirmPassword")) {
 			TextField text = ComponentFactory.createTextField(
-					Messages.getString("Presentation.confirmpassword", Locale.getDefault()), true);
+					Msg.get("ui.inscription.profilutilisateur.confirmpassword"), true);
 			text.setSecret(true);
 			return text;
 		} else if (pid.equals("confirmEmail")) {
 			TextField text = ComponentFactory.createTextField(
-					Messages.getString("Presentation.confirmemail", Locale.getDefault()), true);
-			text.addValidator(new EmailValidator(
-					"L'adresse email doit être au format xxxxx@yyyyy.zzz"));
+					Msg.get("ui.inscription.profilutilisateur.confirmemail"), true);
+			text.addValidator(new EmailValidator(Msg
+					.get("ui.inscription.profilutilisateur.email.invalid.error")));
 			return text;
 		}
 

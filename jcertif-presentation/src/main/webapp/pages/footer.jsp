@@ -6,14 +6,11 @@
 
 <div id="footer">
 	<div class="copyright">
-		<a href="home.jsp"><img src="#" border="0" alt="" title="" />
-		</a>
+		<a href="home.jsp"> </a>
 	</div>
 	<div class="footer_links">
-		<a class="current"
-			href="<%= request.getContextPath()%>/pages/home.jsp" title="">Acceuil</a>
-		<a href="#">A Propos de JCertif 2001</a> <a href="contact.jsp">Nous
-			contacter</a>
+		<a class="current" href="<%=request.getContextPath()%>/pages/home.jsp" title=""><%=session.getAttribute("footer.jsp.accueil")%></a>
+		<a href="#"><%=session.getAttribute("footer.jsp.apropos")%></a> <a href="contact.jsp"><%=session.getAttribute("footer.jsp.contact")%></a>
 	</div>
 
 </div>

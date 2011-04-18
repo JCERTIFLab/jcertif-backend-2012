@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.jcertif.presentation.ui.propositionPresentation;
+package com.jcertif.presentation.ui.proposition;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

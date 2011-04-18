@@ -1,4 +1,4 @@
-package com.jcertif.presentation.ui.propositionPresentation;
+package com.jcertif.presentation.ui.proposition;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -13,6 +13,7 @@ import com.jcertif.presentation.data.bo.conference.Conference;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
 import com.jcertif.presentation.data.bo.presentation.Sujet;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.util.UIConst;
 import com.jcertif.presentation.wsClient.ConferenceClient;
 import com.jcertif.presentation.wsClient.ParticipantClient;
@@ -55,14 +56,13 @@ public class PropositionPresentationForm extends Form {
 		intBeanProposition();
 
 		// Footer avec le bouton enregistrer
-		Button saveProposition = new Button("Enregistrer", this, "commit");
+		Button saveProposition = new Button(Msg.get("ui.proposition.send.button"), this, "commit");
 		HorizontalLayout layoutFooter = new HorizontalLayout();
 		layoutFooter.addComponent(saveProposition);
 		this.setFooter(layoutFooter);
 
-		this.setCaption("Proposer une présentation à JCERTIF 2011");
-		this.setDescription(""); // Veuillez remplir ce formulaire afin de
-									// proposer une présentation
+		this.setCaption(Msg.get("ui.proposition.form.title"));
+		this.setDescription(Msg.get("ui.proposition.form.description"));
 
 	}
 

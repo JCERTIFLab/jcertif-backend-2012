@@ -1,7 +1,7 @@
 package com.jcertif.presentation.ui.inscription.adresse;
 
 import com.jcertif.presentation.data.bo.Adresse;
-import com.jcertif.presentation.internationalisation.Messages;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.Form;
 
@@ -26,7 +26,7 @@ public class AdresseForm extends Form {
 		this.getLayout().setMargin(true);
 		setFormFieldFactory(new AdresseFieldFactory());
 		reinitAdresseBean();
-		this.setCaption(Messages.getString("inscription.adresse.title"));
+		this.setCaption(Msg.get("ui.inscription.adresse.title"));
 	}
 
 	/**

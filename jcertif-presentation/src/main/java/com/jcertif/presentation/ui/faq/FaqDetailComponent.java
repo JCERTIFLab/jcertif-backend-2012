@@ -7,7 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.bo.conference.Faq;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.util.UIConst;
+import com.jcertif.presentation.ui.util.UIStyle;
 import com.jcertif.presentation.wsClient.FaqClient;
 import com.vaadin.ui.CustomLayout;
 import com.vaadin.ui.Label;
@@ -37,7 +39,7 @@ public class FaqDetailComponent extends Panel {
 	public FaqDetailComponent() {
 		super();
 		update();
-		this.addStyleName("commun_details_panel");
+		this.addStyleName(UIStyle.COMMON_DETAILS_PANEL);
 	}
 
 	/**
@@ -55,16 +57,13 @@ public class FaqDetailComponent extends Panel {
 		for (Faq faq : getFaqList()) {
 
 			CustomLayout htmlLayout = new CustomLayout(UIConst.COMMUN_DETAIL_LAYOUT);
-			htmlLayout.addStyleName("details_commun_layout");
+			htmlLayout.addStyleName(UIStyle.DETAILS_COMMON_LAYOUT);
 
 			// Sujet
 			if (isFirsTime) {
-				htmlLayout.addComponent(new Label("Foire aux Questions"), "caption");
-				htmlLayout
-						.addComponent(
-								new Label(
-										"Voici les réponses à certaines des questions fréquemment posées au sujet des emplois à la fonction publique fédérale."),
-								"captionDetail");
+				htmlLayout.addComponent(new Label(Msg.get("ui.faq.title")), "caption");
+				htmlLayout.addComponent(new Label(Msg.get("ui.faq.description")),
+						"captionDetail");
 			}
 
 			// Lastname + firstname

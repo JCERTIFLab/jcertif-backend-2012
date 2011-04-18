@@ -19,26 +19,25 @@
 	%>
 	<div id="main_container">
 		<jsp:include page="headertemplate.jsp" />
-		<br/>
+		<br />
 
 
 		<div class="contact_information">
-			<h4>Contacts</h4>
+			<h4><%=session.getAttribute("contact.jsp.title")%></h4>
 			<p>
 				<img src="images/phone_icon.gif" alt="" title="" class="box_img" />
-				Canada : 1 418 271 0819<br /> Congo : 242 06623 3524
+				<%=session.getAttribute("contact.jsp.canada")%><br /><%=session.getAttribute("contact.jsp.congo")%>
 			</p>
 			<br /> <br />
 			<p>
 				<img src="images/contact_icon.gif" alt="" title="" class="box_img" />
-				info@jcertif.com<br />
+				<%=session.getAttribute("contact.jsp.email")%><br />
 			</p>
-			
-				<br/>
-		<br/>
+
+			<br /> <br />
 
 		</div>
-			
+
 		<jsp:include page="footer.jsp" />
 	</div>
 

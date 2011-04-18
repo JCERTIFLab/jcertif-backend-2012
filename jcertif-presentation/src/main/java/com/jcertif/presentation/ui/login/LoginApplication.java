@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.bo.participant.Participant;
-import com.jcertif.presentation.internationalisation.Messages;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.util.UIConst;
 import com.vaadin.Application;
 import com.vaadin.terminal.ExternalResource;
@@ -91,9 +91,9 @@ public class LoginApplication extends Application implements ClickListener,
 		Object propo = request.getSession().getAttribute("login.propositionsujet");
 
 		if (propo == null || Boolean.FALSE.equals(propo)) {
-			getLoginForm().setCaption(Messages.getString("login.titre"));
+			getLoginForm().setCaption(Msg.get("ui.login.title"));
 		} else {
-			getLoginForm().setCaption(Messages.getString("login.propositionsujet"));
+			getLoginForm().setCaption(Msg.get("ui.login.title.proposition"));
 			request.getSession().setAttribute("login.propositionsujet", false);
 		}
 

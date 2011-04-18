@@ -1,4 +1,4 @@
-package com.jcertif.presentation.ui.propositionPresentation;
+package com.jcertif.presentation.ui.proposition;
 
 import java.util.HashSet;
 

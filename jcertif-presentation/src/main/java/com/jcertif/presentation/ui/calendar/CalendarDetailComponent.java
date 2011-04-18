@@ -11,7 +11,7 @@ import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.presentation.PropositionPresentation;
 import com.jcertif.presentation.data.bo.presentation.Sujet;
-import com.jcertif.presentation.internationalisation.Messages;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.util.JCertifProps;
 import com.jcertif.presentation.ui.util.UIConst;
 import com.jcertif.presentation.ui.util.UIStyle;
@@ -63,7 +63,7 @@ public class CalendarDetailComponent extends Panel {
 	public CalendarDetailComponent(Evenement event) {
 		super();
 		update(event, true);
-		this.addStyleName("event_details_panel");
+		this.addStyleName(UIStyle.EVENT_DETAILS_PANEL);
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class CalendarDetailComponent extends Panel {
 		// Room
 		String room = event.getCeduleSalles().iterator().next().getSalle().getLibelle();
 		htmlLayout.addComponent(
-				new Label(Messages.getString("calendar.details.room") + " " + room), "ou");
+				new Label(Msg.get("ui.calendar.details.room") + " " + room), "ou");
 
 		// When
 		Date debut = event.getDateDebutPrevue().getTime();
@@ -141,7 +141,7 @@ public class CalendarDetailComponent extends Panel {
 	 */
 	public Button getParticipateButton() {
 		if (participateButton == null) {
-			participateButton = new Button(Messages.getString("calendar.details.participatebutton"));
+			participateButton = new Button(Msg.get("ui.calendar.details.participate.button"));
 		}
 		return participateButton;
 	}
@@ -151,7 +151,7 @@ public class CalendarDetailComponent extends Panel {
 	 */
 	public Button getCancelButton() {
 		if (cancelButton == null) {
-			cancelButton = new Button(Messages.getString("calendar.details.cancelbutton"));
+			cancelButton = new Button(Msg.get("ui.calendar.details.cancel.button"));
 		}
 		return cancelButton;
 	}
@@ -179,7 +179,7 @@ public class CalendarDetailComponent extends Panel {
 			sujet += " ";
 		}
 		if (sujet.isEmpty())
-			sujet = "<Aucun>";
+			sujet = Msg.get("ui.calendar.details.nosujet");
 		return sujet;
 	}
 }

@@ -25,6 +25,7 @@
     </script>
     <script type="text/javascript"
     src='../VAADIN/widgetsets/com.jcertif.presentation.gwt.MyWidgetSet/com.jcertif.presentation.gwt.MyWidgetSet.nocache.js'></script>
+	<title><%=session.getAttribute("login.jsp.title")%></title>
 </head>
 <body>
 

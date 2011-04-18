@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.jcertif.presentation.data.bo.participant.RoleParticipant;
 import com.jcertif.presentation.data.bo.participant.TypeParticipant;
-import com.jcertif.presentation.internationalisation.Messages;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.util.ComponentFactory;
 import com.jcertif.presentation.wsClient.RoleParticipantClient;
 import com.jcertif.presentation.wsClient.TypeParticipantClient;
@@ -34,39 +34,44 @@ public class ParticipantFieldFactory implements FormFieldFactory {
 		String pid = (String) propertyId;
 
 		if (pid.equals("nom")) {
-			return ComponentFactory.createTextField(Messages.getString("Presentation.nom"), true);
+			return ComponentFactory.createTextField(Msg.get("ui.inscription.participant.lastname"),
+					true);
 		} else if (pid.equals("prenom")) {
-			return ComponentFactory
-					.createTextField(Messages.getString("Presentation.prenom"), true);
+			return ComponentFactory.createTextField(
+					Msg.get("ui.inscription.participant.firstname"), true);
 		} else if (pid.equals("salutation")) {
-			NativeSelect select = new NativeSelect("Civilité");
+			NativeSelect select = new NativeSelect(Msg.get("ui.inscription.participant.civility"));
 			select.addItem("Mlle");
 			select.addItem("Mme");
 			select.addItem("Mr");
 			select.setRequired(true);
-			select.setRequiredError("La Civilité est obligatoire");
+			select.setRequiredError(Msg.get("ui.inscription.participant.civility.required.error"));
 			select.setWidth(TAILLE_COMBO);
 			return select;
 		} else if (pid.equals("specialite")) {
-			return ComponentFactory.createTextField(Messages.getString("Presentation.specialite"),
-					false);
+			return ComponentFactory.createTextField(
+					Msg.get("ui.inscription.participant.speciality"), false);
 		} else if (pid.equals("compagnie")) {
-			return ComponentFactory.createTextField("Entreprise", false);
+			return ComponentFactory.createTextField(Msg.get("ui.inscription.participant.company"),
+					false);
 		} else if (pid.equals("website")) {
-			return ComponentFactory.createTextField("Site web", false);
+			return ComponentFactory.createTextField(Msg.get("ui.inscription.participant.website"),
+					false);
 		} else if (pid.equals("roleparticipant")) {
-			NativeSelect combo = new NativeSelect("Rôle");
+			NativeSelect combo = new NativeSelect(Msg.get("ui.inscription.participant.role"));
 			initComboRoleParticipant(combo);
 			combo.setRequired(true);
 			combo.setImmediate(true);
-			combo.setRequiredError("Le rôle est obligatoire");
+			combo.setRequiredError(String.format(Msg.get("ui.form.required.error"),
+					Msg.get("ui.inscription.participant.role")));
 			combo.setWidth(TAILLE_COMBO);
 			return combo;
 		} else if (propertyId.equals("typeParticipant")) {
-			NativeSelect combo = new NativeSelect("Type");
+			NativeSelect combo = new NativeSelect(Msg.get("ui.inscription.participant.type"));
 			initComboTypeParticipant(combo);
 			combo.setRequired(true);
-			combo.setRequiredError("Le type est obligatoire");
+			combo.setRequiredError(String.format(Msg.get("ui.form.required.error"),
+					Msg.get("ui.inscription.participant.type")));
 			combo.setWidth(TAILLE_COMBO);
 			return combo;
 		}

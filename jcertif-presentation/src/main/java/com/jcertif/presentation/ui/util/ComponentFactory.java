@@ -3,6 +3,7 @@
  */
 package com.jcertif.presentation.ui.util;
 
+import com.jcertif.presentation.internationalisation.Msg;
 import com.vaadin.ui.TextField;
 
 /**
@@ -17,7 +18,7 @@ public class ComponentFactory {
 		textField.setNullRepresentation("");
 		textField.setColumns(12);
 		textField.setValidationVisible(true);
-		textField.setRequiredError("Le champ " + caption + " est obligatoire");
+		textField.setRequiredError(String.format(Msg.get("ui.form.required.error"), caption));
 		return textField;
 	}
 }
