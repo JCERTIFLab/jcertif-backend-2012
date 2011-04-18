@@ -18,7 +18,7 @@
 									|| session.getAttribute("connected").equals(Boolean.FALSE)) {
 						%>
 						<div class="read_more">
-							<a href="login.jsp">Se connecter</a>
+							<a href="login.jsp"><%=session.getAttribute("headertemplate.jsp.connection") %>Se connecter</a>
 						</div>
 						<%
 							}
