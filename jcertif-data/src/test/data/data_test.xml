@@ -270,6 +270,14 @@
 	<cedule_salle id="1" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="1"/>
 	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="2" statut_cedule_id="2" evenement_id="2"/>
 	<cedule_salle id="3" date_cedule="2011-02-02" details="details 2" salle_id="3" statut_cedule_id="2" evenement_id="3"/>
+	<cedule_salle id="4" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="4"/>
+	<cedule_salle id="5" date_cedule="2011-02-02" details="details 2" salle_id="2" statut_cedule_id="2" evenement_id="5"/>
+	<cedule_salle id="6" date_cedule="2011-02-02" details="details 2" salle_id="3" statut_cedule_id="2" evenement_id="6"/>
+	<cedule_salle id="7" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="7"/>
+	<cedule_salle id="8" date_cedule="2011-02-02" details="details 2" salle_id="2" statut_cedule_id="2" evenement_id="8"/>
+	<cedule_salle id="9" date_cedule="2011-02-02" details="details 2" salle_id="3" statut_cedule_id="2" evenement_id="9"/>
+	<cedule_salle id="10" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="10"/>
+	<cedule_salle id="11" date_cedule="2011-02-01" details="details 1" salle_id="3" statut_cedule_id="2" evenement_id="20"/>
 			
 
 

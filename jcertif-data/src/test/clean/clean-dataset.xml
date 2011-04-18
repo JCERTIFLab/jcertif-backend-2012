@@ -6,7 +6,7 @@
 	<sujet />
 	<conference />
 	<type_evenement/>
-	
+	<adresse/>
 	<role_participant/>
 	<type_participant/>
 	<proposition_presentation />
