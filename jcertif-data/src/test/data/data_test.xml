@@ -1,115 +1,275 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<dataset>
+<dataset>	
+	<role_participant id="1" code="Speaker" description="Présentateur" />
+	<role_participant id="2" code="Organisateur" description="Organisateur" />
+	<role_participant id="3" code="Visiteur" description="Visiteur" />
+	<role_participant id="4" code="Partenaire" description="Partenaire" />
+	
+	<type_participant id="1" code="Particulier" description="Particulier"/>
+	<type_participant id="2" code="Entreprise" description="Représentant d'entreprise"/>
+	<type_participant id="3" code="Etudiant" description="Etudiant"/>
+	
+	<salle id="1" libelle="Hall" description="cette grande salle se situe à l'entrée" nombre_place="500" details="Hall d'exposition" />
+	<salle id="2" libelle="De-Brazza" description="Salle principale de la conférence" nombre_place="480" details="Grande salle de cinéma confortable. Pas de tables disponible" />
+	<salle id="3" libelle="Gide" description="Salle secondaire de la conférence" nombre_place="100" details="Salle de spectacle avec estrate. Pas de chaises" />
+	<salle id="4" libelle="Campus France" description="Salle Gide" nombre_place="100" details="Salle de cours du Campus France accéssible depuis le Hall" />
+	<salle id="5" libelle="Autre espace" description="Autre espace spécialement aménagé pour tenir des événement" nombre_place="20" details="èA venir" />
+	
+	<particularite_salle id="1" code="BIG" description="Salle de petite taille"/>
+	<particularite_salle id="2" code="MEDIUM" description="Salle de taille moyenne"/>
+	<particularite_salle id="3" code="SMALL" description="Salle de petite taille" />
+	<particularite_salle id="4" code="Internet" description="Salle disposant d'un accès ;a Internet" />
 
-	<type_evenement id="1" code="FORM" description="Formation"/>
-	<type_evenement id="2" code="GEN" description="Généralités"/>
-	<type_evenement id="3" code="PRES" description="Présentation"/>
+	<salle_particularite_salle  particularite_salle_id="1" salle_id="1"/>
+	<salle_particularite_salle  particularite_salle_id="1" salle_id="4"/>
+	<salle_particularite_salle  particularite_salle_id="2" salle_id="1"/>
+	<salle_particularite_salle  particularite_salle_id="2" salle_id="4"/>
+	<salle_particularite_salle  particularite_salle_id="3" salle_id="2"/>
+	<salle_particularite_salle  particularite_salle_id="3" salle_id="4"/>
+	<salle_particularite_salle  particularite_salle_id="4" salle_id="3"/>
+	<salle_particularite_salle  particularite_salle_id="4" salle_id="4"/>
 	
-	<role_participant id="1" code="Speaker" description="speaker" />
-	<role_participant id="2" code="Organisateur" description="organisateur" />
-	<role_participant id="3" code="Visiteur" description="visiteur" />
-	<role_participant id="4" code="Partenaire" description="partenaire" />
+	<conference id="1" name="JCertif 2011" date_debut="2011-08-03" date_fin="2011-08-04" website="www.jcertif.com" />
+	<conference id="2" name="JCertif 2012" date_debut="2012-08-03" date_fin="2012-08-04" website="www.jcertif.com"/>
+	<conference id="3" name="JCertif 2013" date_debut="2013-08-03" date_fin="2013-08-04" website="www.jcertif.com"/>
 	
-	<type_participant id="1" code="Particulier" description="particulier"/>
-	<type_participant id="2" code="Entreprise" description="entreprise"/>
-	<type_participant id="3" code="Etudiant" description="etudiant"/>
 	
-	<salle id="5" libelle="Hall" description="cette grande salle se situe à l'entrée" nombre_place="2000" details="climatisation" />
-	<salle id="6" libelle="De-Brazza" description="Salle historique" nombre_place="900" details="pas de tables" />
-	<salle id="7" libelle="Gide" description="Salle Gide" nombre_place="500" details="pas de chaises" />
+	<faq id="1" question="JCertif c'est quoi ?" reponse="JCERTIF est un mouvement créer par des passionnés de la technologie dont le but est de promouvoir les nouvelles technologies de l'information à travers des activitées comme des conférences (JCertif Conf), des ateliers et cours de programmation (JCertif University) ainsi que des laboratoires de développement de projet (JCertif Lab)" conference_id="1" />
+	<faq id="2" question="JCertif commence quand ?" reponse="Les événement JCertif Conf et JCertif University commencent le 3 septembre 2011 à 8h00" conference_id="1" />
+	<faq id="3" question="JCertif pourquoi?" reponse="Parce que : 1 - C'est la plus grande conférence info de l'Afriuqe Central \n 2 - C'est le meilleur endroit pour se tenir informer des dernières nouveautés en Programation Java\n 3 - C'est des cours et des ateliers gratuits de programmation en Java\n 4 - C'est l'occasion de présenter et d'échanger sur un sujet qu'on maitrise\n 5 - C'est rencontrer de potentiels clients ou investisseurs pour nos idées ou projets\n 6 - C'est se faire connaitre auprès des entreprises de l'industrie de l'informatique au Congo\n 7 - C'est proposer ses services et son savoir faire à plusieurs entreprises spécialisées dans les TI\n 8 - C'est Proposer son CV à des entreprises qui vous conviennent" conference_id="1" />
+	<faq id="4" question="Combien ça coûte ?" reponse="Les ateliers et cours de programmation de JCertif University sont gratuits et ouvert à tous ceux qui ont les pré-requis propres à chaque atelier. Par contre, la participation à JCertif Conf et JCertif Conf nécessite une petite contibution (voir la page Information utiles)" conference_id="1" />
 	
-	<particularite_salle id="1" code="SMALL" description="petite" />
-	<particularite_salle id="2" code="BIG" description="grande"/>
-	<particularite_salle id="3" code="MEDIUM" description="moyen"/>
-	<particularite_salle id="4" code="COOL" description="jolie" />
-
-	<salle_particularite_salle  particularite_salle_id="1" salle_id="7"/>
-	<salle_particularite_salle  particularite_salle_id="1" salle_id="5"/>
-	<salle_particularite_salle  particularite_salle_id="1" salle_id="6"/>
-	<salle_particularite_salle  particularite_salle_id="3" salle_id="6"/>
-	<salle_particularite_salle  particularite_salle_id="4" salle_id="5"/>
 	
-	<conference id="7" name="JCertif 2011" date_debut="2011-02-12" date_fin="2011-12-02" website="www.jcertif.com" />
-	<conference id="5" name="JCertif 2012" date_debut="2012-02-12" date_fin="2012-11-08" website="www.jcertif.com"/>
-	<conference id="6" name="JCertif 2013" date_debut="2013-02-12" date_fin="2013-02-12" website="www.jcertif.com"/>
-	
-	<faq id="1" question="JCertif c'est quoi ?" reponse="JCERTIF c'est l'excellence" conference_id="7" />
-	<faq id="2" question="JCertif commence quand ?" reponse="Très bientôt" conference_id="7" />
-	<faq id="3" question="JCertif pourquoi?" reponse="Parce que" conference_id="7" />
-		
 	<statut_approbation id="1" code_statut="T" description="En traitement"/>
 	<statut_approbation id="2" code_statut="C" description="En attente de complément"/>
 	<statut_approbation id="3" code_statut="A" description="Approuvé"/>
 	<statut_approbation id="4" code_statut="R" description="Refusé"/>
 
-	<mot_cle id="4" mot_cle="Web 2.0" description="description 4"/>
-	<mot_cle id="5" mot_cle="Java" description="description 5"/>
-	<mot_cle id="6" mot_cle="Android" description="description 6"/>
+	<mot_cle id="1" mot_cle="JCertif, Conférence" description="Webservices"/>
+	<mot_cle id="2" mot_cle="Riche Faces" description="Riche Faces"/>
+	<mot_cle id="3" mot_cle="Mobile" description="Mobile"/>
+	<mot_cle id="4" mot_cle="Web sémantique" description="Web sémantique"/>
+	<mot_cle id="5" mot_cle="Java" description="Java"/>
+	<mot_cle id="6" mot_cle="Android" description="Android"/>
 	<mot_cle id="7" mot_cle="HTML5" description="description 4"/>
-	<mot_cle id="8" mot_cle="Vaadin" description="description 5"/>
-	<mot_cle id="9" mot_cle="JSF" description="description 6"/>
-	<mot_cle id="10" mot_cle="JEE, Spring" description="description 4"/>
-	<mot_cle id="11" mot_cle="Vaadin, JSP" description="description 5"/>
-	<mot_cle id="12" mot_cle="GWT" description="description 6"/>
+	<mot_cle id="8" mot_cle="Vaadin" description="HTML5"/>
+	<mot_cle id="9" mot_cle="JSF" description="JSF"/>
+	<mot_cle id="10" mot_cle="JEE, Spring" description="JEE"/>
+	<mot_cle id="11" mot_cle="Vaadin, JSP" description="Vaadin"/>
+	<mot_cle id="12" mot_cle="GWT" description="Google GWT"/>
+	<mot_cle id="13" mot_cle="Webservices" description="Webservices"/>
+	<mot_cle id="14" mot_cle="Java JEE 6, GlassFish" description="Java JEE 6, GlassFish"/>
+	<mot_cle id="15" mot_cle="OSGi, CDI" description="OSGi, CDI"/>
 
-	<sujet id="1" libelle="Développement Mobile" description="description sujet 1"/>
-	<sujet id="2" libelle="Web 2.0" description="description sujet 2"/>
-	<sujet id="3" libelle="Java Core" description="description sujet 3"/>
-	<sujet id="4" libelle="Open Source" description="description sujet 4"/>
-	<sujet id="6" libelle="Developpement Mobile" description="description sujet 1"/>
-	<sujet id="7" libelle="Developpement Desktop" description="description sujet 2"/>
-	<sujet id="8" libelle="Developpement Tablet" description="description sujet 3"/>
+	<sujet id="1" libelle="Server-side Java technologies" description="Dévéloppement côté Serveur"/>
+	<sujet id="2" libelle="Java web frameworks" description="Tous les Framework de développement de la couche présentation JSF, Vaadin, Riche Faces etc..."/>
+	<sujet id="3" libelle="Java Core" description="Développement pure en Java"/>
+	<sujet id="4" libelle="Open Source Java tools" description="Tous les outils Open Source de l'écosystème Java: Spring, Tomcat etc..."/>
+	<sujet id="6" libelle="Emerging JVM languages" description="Tous les nouveaux language de sript qui s'exécute de la JVM : JavaFX, Scala, Groovy, PHP etc..."/>
+	<sujet id="7" libelle="Rich client technologies" description="Rich client technologies"/>
+	<sujet id="8" libelle="Cloud techologies" description="description sujet 3"/>
+	<sujet id="9" libelle="Mobile development" description="Mobile development"/>
+	<sujet id="10" libelle="Community Leader" description="Community Leader"/>
 	
-	<proposition_presentation id="1" titre="Accueil et mot du président" sommaire="sommaire 1" besoins_specifiques="besoins 1" description="description 1" details="details 1" mot_cle_id="4" statut_approbation_id="1" conference_id="7"/>
-	<proposition_presentation id="2" titre="Présentation des formations JSCP" sommaire="sommaire 2" besoins_specifiques="besoins 2" description="description 2" details="details 2" mot_cle_id="5" statut_approbation_id="2" conference_id="7"/>
-	<proposition_presentation id="3" titre="Nouveautés Java 17, tout ce qu'il faut savoir" sommaire="sommaire 3" besoins_specifiques="besoins 3" description="description 3" details="details 3" mot_cle_id="6" statut_approbation_id="3" conference_id="7"/>
+	<proposition_presentation id="1" titre="Accueil et mot de bienvenu" sommaire="Accueil et mot de bienvenu" besoins_specifiques="Micro sans fil" description="Le président de JCertif présente son équipe et explique le déroulement de la journée" details="" mot_cle_id="1" statut_approbation_id="3" conference_id="1"/>
+	<proposition_presentation id="2" titre="Présentation de JUG-AFRICA et du CongoJUG" sommaire="Présentation de JUG-AFRICA et du CongoJUG" besoins_specifiques="Micro Sans fil et vidéo projecteur" description="Présentation du mouvement Java en Afrique et présentation de JUG-AFRICA et du CongoJUG" details="Pas plus de 30 minutes" mot_cle_id="1" statut_approbation_id="3" conference_id="1"/>
+	<proposition_presentation id="3" titre="Keynote : L'état de Java sous Oracle (plus d'un an après)" sommaire="L'état de Java sous Oracle plus d'un an après l'achat de Sun par Oracle. Il sera question d'un roadmap complet de toutes les plateformes : Java SE, JEE et ME" besoins_specifiques="Micro sans fil et vidéo projecteur" description="Principale présentation de la première partie de la journée par Arun Goupta" details="" mot_cle_id="5" statut_approbation_id="3" conference_id="1"/>
+	<proposition_presentation id="4" titre="Java JEE6 : Ateliers de programmation Java EE 6 (environ 4 hrs)" sommaire="Ateliers de programmation Java EE 6 (environ 4 hrs)" besoins_specifiques="Micro Sans fil et vidéo projecteur" description="Ateliers de 4 heures environ. Cette session est réservée aux personnes avec une certaines expérience en Java. Chaque participant devra apporter son propre ordinateur portable" details="" mot_cle_id="10" statut_approbation_id="3" conference_id="1"/>
+	<proposition_presentation id="5" titre="GlassFish 3.1: Deployer une application Java EE 6 avec les Clusters" sommaire="Deployer une application Java EE 6 sur GlassFish 3.1 en utilisant les Clusters du serveur d'application" besoins_specifiques="Micro sans fil, Vidéo projecteur" description="Cette atelier permettra au dévéloppeur de créer et déployer facillement une application Java EE6 sur GlassFish 3.1 en utilisant les Clusters fournis par le serveur d'application. Cette session est réservée au personnes ayant déjà une certaine connaissance en Java ou JEE" details="" mot_cle_id="14" statut_approbation_id="3" conference_id="1"/>
+	<proposition_presentation id="6" titre="OSGi/Java EE 6 : Atelier d'Architecture et de programmation" sommaire="Atelier d'Architecture et de programmation avec OSGi et Java EE6" besoins_specifiques="Micro Sans fil et vidéo projecteur" description="Cette atelier de haut niveau permettra à des architectes Java de : Créer des services OSGi et un client OSGi (consomateur de service) avec Eclipse - Remplacer le client OSGi par défaut par un client Hybride de type WAB - Remplacer le service OSGi par défaut par un service basé sur EJB (EJB-based service) - Utiliser les framework CDI de Java EE6 pour injecter dynamiquement un service OSGi. Cette session est réservée aux personnes ayant déjà une certaine connaissance en Java JEE" details="Pas plus de 30 minutes" mot_cle_id="15" statut_approbation_id="3" conference_id="1"/>
+	<proposition_presentation id="7" titre="Android2Business : Développement Android pour les entreprises" sommaire="Présentation Android permettant de montrer comment les entreprises peuvent gagner de l'argent avec la plateforme Android" besoins_specifiques="Micro sans fil" description="Cette présentation est ouvert à tous et sera une bonne occasion pour découvrir toutes les opportunités que peut offrir Android pour les entreprises" details="" mot_cle_id="6" statut_approbation_id="3" conference_id="1"/>
+	<proposition_presentation id="8" titre="Android : Atelier de programmation Android" sommaire="Atelier de programmation des applications mobiles avec Android" besoins_specifiques="Micro Sans fil, vidéo projecteur et Téléphone ou Tablette Android" description="Cette atelier permettra aux participants de développer une application Android en Java. À la fin de la session, les participants seront capable d'intégrer un projet Android. Cette session est réservée au personnes ayant déjà une certaine connaissance en Java" details="" mot_cle_id="6" statut_approbation_id="3" conference_id="1"/>
+	<proposition_presentation id="9" titre="Keynote : Web 2.0 C'est du passé ? Venez découvrir le future du Web" sommaire="Présentation Web 2.0, Web sémantique" besoins_specifiques="Micro sans fil et vidéo projecteur" description="La présentation permettra de présenter les grandes orientations du Web  après 2.0" details="" mot_cle_id="4" statut_approbation_id="3" conference_id="1"/>
+	<proposition_presentation id="10" titre="Certification Java 6: Atelier de certification SCJP 6" sommaire="Atelier et cours de programmation pour se préparere à la certification Java SCJP 6" besoins_specifiques="Micro sans fil et vidéo projecteur" description="La présentation permettra d'acquerir les rudiments en développement Java et avoir les connaissances nécessaires pour se présenter à l'examen de certification Java d'Oracle. Atelier réservé aux personnes ayant des connaissances en programmation orientée objet" details="" mot_cle_id="5" statut_approbation_id="3" conference_id="1"/>
 
-	<proposition_presentation_sujet proposition_presentation_id="1" sujet_id="1"/>
-	<proposition_presentation_sujet proposition_presentation_id="2" sujet_id="2"/>
+	<proposition_presentation id="20" titre="Mot d'au revoir et annonce des prochains événement" sommaire="Rémerciment des participants et des partenaires de l'événement. Annonce des dates des prochaines activité." besoins_specifiques="Micro sans fil" description="Le président de JCertif clôture l'événement et remercie les partenaires, bénévoles, participants, speakers etc." details="" mot_cle_id="1" statut_approbation_id="3" conference_id="1"/>
+
+
+
+
+
+	<proposition_presentation_sujet proposition_presentation_id="1" sujet_id="10"/>
+	<proposition_presentation_sujet proposition_presentation_id="2" sujet_id="10"/>
 	<proposition_presentation_sujet proposition_presentation_id="3" sujet_id="3"/>
+	<proposition_presentation_sujet proposition_presentation_id="4" sujet_id="1"/>
+	<proposition_presentation_sujet proposition_presentation_id="5" sujet_id="1"/>
+	<proposition_presentation_sujet proposition_presentation_id="6" sujet_id="1"/>
+	<proposition_presentation_sujet proposition_presentation_id="7" sujet_id="8"/>
+	<proposition_presentation_sujet proposition_presentation_id="8" sujet_id="8"/>
+	<proposition_presentation_sujet proposition_presentation_id="9" sujet_id="2"/>
+		
+
+	<type_evenement id="1" code="FORM" description="Formation"/>
+	<type_evenement id="2" code="GEN" description="Généralités"/>
+	<type_evenement id="3" code="PRES" description="Présentation"/>
+	<type_evenement id="4" code="PAN" description="Pannel de discussion"/>
+	<type_evenement id="5" code="DEB" description="Débat ouvert"/>
+	<type_evenement id="6" code="ATL" description="Ateliers pratiques"/>
+
+		
+	<evenement id="1" nom_evenement="Accueil et mot du président" date_debut_prevue="2011-09-03 09:00:00" date_fin_prevue="2011-09-03 10:00:00" date_debut_effective="2011-09-03 10:00:00" date_fin_effective="2011-09-03 10:00:00" details="Séance de lancement de JCERTIF 2011" type_evenement_id="2" proposition_presentation_id="1"/>
+	<evenement id="2" nom_evenement="Présentation de JUG-AFRICA et du CongoJUG" date_debut_prevue="2011-09-03 10:15:00" date_fin_prevue="2011-09-03 10:45:00" date_debut_effective="2011-09-03 10:45:00" date_fin_effective="2011-09-03 10:45:00" details="Présentation de JUG-AFRICA et du CongoJUG" type_evenement_id="2" proposition_presentation_id="2" />
+	<evenement id="3" nom_evenement="Keynote : L'état de Java sous Oracle (plus d'un an après)" date_debut_prevue="2011-09-03 11:00:00" date_fin_prevue="2011-09-03 12:00:00" date_debut_effective="2011-09-03 11:00:00"	date_fin_effective="2011-09-03 11:00:00" details="Keynote : Présenté par Arun Gupta d'Oracle corporation" type_evenement_id="3" proposition_presentation_id="3" />
+	<evenement id="4" nom_evenement="Java JEE6 : Ateliers de programmation Java EE 6 (environ 4 hrs)" date_debut_prevue="2011-09-03 13:00:00" date_fin_prevue="2011-09-03 17:00:00" date_debut_effective="2011-09-03 13:00:00" date_fin_effective="2011-09-03 13:00:00" details="Atelier de programmation Java EE 6" type_evenement_id="6" proposition_presentation_id="4"/>
+	<evenement id="5" nom_evenement="GlassFish 3.1: Deployer une application Java EE 6 avec les Clusters" date_debut_prevue="2011-09-04 09:00:00" date_fin_prevue="2011-09-04 12:00:00" date_debut_effective="2011-09-04 09:00:00" date_fin_effective="2011-09-04 09:00:00" details="Atelier de développement et déploiement d'une application Java EE 6 sur GlassFisg avec les Clusters." type_evenement_id="6" proposition_presentation_id="5" />
+	<evenement id="6" nom_evenement="OSGi/Java EE 6 : Atelier d'Architecture et de programmation" date_debut_prevue="2011-09-04 15:00:00" date_fin_prevue="2011-09-04 17:00:00" date_debut_effective="2011-09-04 15:00:00"	date_fin_effective="2011-09-04 15:00:00" details="Atelier d'Architecture et de programmation" type_evenement_id="6" proposition_presentation_id="6" />
+	<evenement id="7" nom_evenement="Android2Business : Développement Android pour les entreprises" date_debut_prevue="2011-09-03 13:00:00" date_fin_prevue="2011-09-03 14:00:00" date_debut_effective="2011-09-03 13:00:00" date_fin_effective="2011-09-03 13:00:00" details="Android2Business : Développement Android pour les entreprises" type_evenement_id="3" proposition_presentation_id="7"/>
+	<evenement id="8" nom_evenement="Android : Atelier de programmation Android" date_debut_prevue="2011-09-03 15:00:00" date_fin_prevue="2011-09-03 18:00:00" date_debut_effective="2011-09-03 15:00:00" date_fin_effective="2011-09-03 15:00:00" details="Android : Atelier de programmation Android" type_evenement_id="6" proposition_presentation_id="8" />
+	<evenement id="9" nom_evenement="Keynote : Web 2.0 C'est du passé ? Venez découvrir le future du Web" date_debut_prevue="2011-09-04 09:00:00" date_fin_prevue="2011-09-04 10:00:00" date_debut_effective="2011-09-04 09:00:00"	date_fin_effective="2011-09-04 09:00:00" details="Keynote : Web 2.0 C'est du passé ? Venez découvrir le future du Web" type_evenement_id="3" proposition_presentation_id="9" />
+	<evenement id="10" nom_evenement="Certification Java 6: Atelier de certification SCJP 6" date_debut_prevue="2011-09-04 14:00:00" date_fin_prevue="2011-09-03 17:30:00" date_debut_effective="2011-09-03 17:30:00" date_fin_effective="2011-09-03 17:30:00" details="Certification Java 6: Atelier de certification SCJP 6" type_evenement_id="1" proposition_presentation_id="10"/>
 	
-	
-	<evenement id="1" nom_evenement="Accueil et mot du président" date_debut_prevue="2011-09-03 09:00:00" date_fin_prevue="2011-09-03 10:00:00" date_debut_effective="2010-04-01" date_fin_effective="2010-05-20" details="Séance de lancement de JCERTIF 2011" type_evenement_id="2" proposition_presentation_id="1"/>
-	<evenement id="2" nom_evenement="Formation SCJP" date_debut_prevue="2011-09-03 10:15:00" date_fin_prevue="2011-09-03 11:00:00" date_debut_effective="2010-04-02" date_fin_effective="2010-05-21" details="Description SCJP :SCJP c'est bien." type_evenement_id="1" proposition_presentation_id="2" />
-	<evenement id="3" nom_evenement="Nouveautés JEE 17" date_debut_prevue="2011-09-04 10:00:00" date_fin_prevue="2011-09-04 12:00:00" date_debut_effective="2010-04-03"	date_fin_effective="2010-05-22" details="Description nouveautés Java EE" type_evenement_id="3" proposition_presentation_id="3" />
-	
-	<statut_cedule id="1" code="VALIDER" description="Schedule validé"/>
-	<cedule_salle id="1" date_cedule="2011-02-01" details="details 1" salle_id="5" statut_cedule_id="1" evenement_id="1"/>
-	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="6" statut_cedule_id="1" evenement_id="2"/>
-	<cedule_salle id="3" date_cedule="2011-02-02" details="details 2" salle_id="7" statut_cedule_id="1" evenement_id="3"/>
+		
+	<!-- password=michel-->
+	<profil_utilisateur id="1" email="arun.p.gupta@oracle.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="1.png" />
+	<profil_utilisateur id="2" email="horalass@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="2.png" />
+	<profil_utilisateur id="3" email="mike@cambridgeweb.ie" password="79-113-37-16-51-608186-90-24-302643-798655" photo="google.gif" />
+	<profil_utilisateur id="4" email="matayobweta@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="google.gif" />
+
+	<!-- password=max-->
+	<profil_utilisateur id="5" email="bonbhel@gmail.com" password="47-2781195093-10211382-98110-89-868120" photo="3.png" />
 	
 	<!-- password=michel-->
-	<profil_utilisateur id="1" email="michel@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="1.png" />
-	<!-- password=chrisbel-->
-	<profil_utilisateur id="2" email="chrisbel@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="2.png" />
-	<!-- password=max-->
-	<profil_utilisateur id="3" email="max@gmail.com" password="47-2781195093-10211382-98110-89-868120" photo="3.png" />
+	<profil_utilisateur id="6" email="luc.missidimbazi@wanadoo.fr" password="79-113-37-16-51-608186-90-24-302643-798655" photo="objis.jpg" />
+	<profil_utilisateur id="7" email="douglas.mbiandou@objis.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="warid.gif" />
 	
-	<profil_utilisateur id="4" email="google@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="google.gif" />
-	<!-- password=chrisbel-->
-	<profil_utilisateur id="5" email="objis@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="objis.jpg" />
-	<!-- password=max-->
-	<profil_utilisateur id="6" email="warid@gmail.com" password="47-2781195093-10211382-98110-89-868120" photo="warid.gif" />
 	
-	<participant id="1" nom="Lucas" role_participant_id="1" email="michel@gmail.com" prenom="Michel" profil_utilisateur_id="1" details="Michel Lucas réalise ses études en ingénierie, à l'Institut industriel du Nord, et les termine en 19652. Après un passage chez Siemens et dans une SSII, il rejoint en 1971 le Crédit mutuel de Strasbourg en tant qu'informaticien. Formé sur le terrain, sous la houlette de Théo Braun, dans l'adversité (création d'une filiale à Marseille dans un marché hostile, gestion de conflit social au journal L'Alsace, déjà propriété du Crédit mutuel local), son caractère et sa spécialité, l'informatique, qu'il impose dans l'entreprise, vont donner au Crédit mutuel une longueur d'avance en gestion de la clientèle. Il participe activement à l'expansion de la banque, géographiquement et dans le secteur de l'assurance." />
-	<participant id="2" nom="Malonga" role_participant_id="1"  email="chrisbel@gmail.com" prenom="Chrisbel" profil_utilisateur_id="2" details="Chrisbel est notre manager à tous, notre source d'inspiration. Passionné et audacieux, j'aime croire que c'est possible lorsqu'on se donne les moyens. Ingénieur développeur JAVA JEE, je suis actuellement en formation d'Architecte JAVA JEE. Je suis un des membres leader du congoJug, et directeur du projet Jcertif Conférence 2011, le plus grand événement autour de la technologie Java en Afrique." />
-	<participant id="3" nom="Bonbhel" role_participant_id="1"  email="max@gmail.com" prenom="Max" profil_utilisateur_id="3" details="Hi ! My name is Jean-François Bonbhel I'm a software developer and consultant at Fujitsu Canada (located in Quebec city, Canada). I have a strong expertise with Java and JEE (Java Enterprise Edition). I am a founder of Congo Java User Group and president of JUG-AFRICA an umbrella Java User Group (JUG) for the entire continent of Africa that individual JUGs can affiliate with. I'm also member of the Oracle Expertise and Solution Center (OESC) of Fujitsu Canada and an active member of the Sun Network Developer and the Quebec Oracle User Group (OraGec). The opinions expressed on this site are my own and don't necessarily reflect those of my employer Ha!Ha! Ha!" />
+	<profil_utilisateur id="8" email="rossi.oddet@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="warid.gif" />
+	<profil_utilisateur id="9" email="chrisbel@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="objis.jpg" />
+	
+	<profil_utilisateur id="10" email="luc.missidimbazi@wanadoo.fr" password="79-113-37-16-51-608186-90-24-302643-798655" photo="warid.gif" />
+	<profil_utilisateur id="11" email="matayobweta@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="google.gif" />
+	
+	<profil_utilisateur id="12" email="info@jcertif.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="objis.jpg" />
+	<profil_utilisateur id="13" email="info@jcertif.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="warid.gif" />
+	<profil_utilisateur id="14" email="info@jcertif.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="google.gif" />
+	<profil_utilisateur id="15" email="info@jcertif.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="objis.jpg" />
+	<profil_utilisateur id="16" email="info@jcertif.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="warid.gif" />
+	<profil_utilisateur id="17" email="info@jcertif.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="google.gif" />
 
-	<participant id="4" nom="Google" role_participant_id="4" email="google@gmail.com" prenom="Google" profil_utilisateur_id="4" details="Google est l'une des premières entreprises américaines et mondiales par le chiffre d'affaires. Début 2008, l'entreprise était cotée à 210 milliards de dollars à la Bourse de Wall Street. La société compte environ 20 000 employés, dont la plupart travaillent au siège mondial : le Googleplex, à Mountain View, en Californie" />
-	<participant id="5" nom="Objis" role_participant_id="4"  email="objis@gmail.com" prenom="Objis" profil_utilisateur_id="5" details="Passionné et audacieux, j'aime croire que c'est possible lorsqu'on se donne les moyens. Ingénieur développeur JAVA JEE, je suis actuellement en formation d'Architecte JAVA JEE. Je suis un des membres leader du congoJug, et directeur du projet Jcertif Conférence 2011, le plus grand événement autour de la technologie Java en Afrique." />
-	<participant id="6" nom="Warid" role_participant_id="4"  email="warid@gmail.com" prenom="Warid" profil_utilisateur_id="6" details="Warid congo est localisé à Brazzaville...." />
 
+	<!-- Participants Présentateurs -->		
+	<adresse id="1" telephone_fixe="" telephone_mobile="" ville="San Fracisco" pays="États-Unis"/>
+	<adresse id="2" telephone_fixe="" telephone_mobile="" ville="Lomé" pays="Togo"/>
+	<adresse id="3" telephone_fixe="" telephone_mobile="" ville="Orlando" pays="États-Unis"/>
+	<adresse id="4" telephone_fixe="" telephone_mobile="" ville="Kinshasa" pays="Congo, République Démocratique"/>
+	<adresse id="5" telephone_fixe="" telephone_mobile="" ville="Québec" pays="Canada"/>
+	<adresse id="6" telephone_fixe="" telephone_mobile="" ville="Brazzaville" pays="Congo"/>
+	<adresse id="7" telephone_fixe="" telephone_mobile="" ville="Paris" pays="France"/>
+
+	<!-- Participants Organisateurs -->		
+	<adresse id="8" telephone_fixe="" telephone_mobile="" ville="Nantes" pays="France"/>
+	<adresse id="9" telephone_fixe="" telephone_mobile="" ville="Paris" pays="France"/>
+
+	<!-- Adresse Particuliers -->		
+	<adresse id="10" telephone_fixe="" telephone_mobile="" ville="Brazzaville" pays="Congo"/>
+	<adresse id="11" telephone_fixe="" telephone_mobile="" ville="Québec" pays="Canada"/>
 	
-	<auteur id="1" nom="Lucas" email="michel@gmail.com" prenom="Michel" biographie_sommaire="Michel Lul'adversité (création d'unegueur d'avance en gestion de la clientèle. Il participe activement à l'expansion de la banque, géographiquement et dans le secteur de l'assurance." />
-	<auteur id="2" nom="Malonga" email="chrisbel@gmail.com" prenom="Chrisbel" biographie_sommaire="Passionné y employer Ha!Ha! Ha!" />
-	
+	<!-- Adresses Sponsors -->		
+	<adresse id="12" telephone_fixe="" telephone_mobile="" ville="Mountain View" pays="États-Unis"/>
+	<adresse id="13" telephone_fixe="" telephone_mobile="" ville="Paris" pays="France"/>
+	<adresse id="14" telephone_fixe="" telephone_mobile="" ville="Brazzaville" pays="Congo"/>
+	<adresse id="15" telephone_fixe="" telephone_mobile="" ville="Redshoos" pays="États-Unis"/>
+	<adresse id="16" telephone_fixe="" telephone_mobile="" ville="Brazzaville" pays="Congo"/>
+	<adresse id="17" telephone_fixe="" telephone_mobile="" ville="Londres" pays="Royaume-Uni"/>	
+
+
+	<!-- Participants Présentateurs-->		
+	<participant id="1" compagnie="Oracle" role_participant_id="1" type_participant_id="2" website="http://blogs.sun.com/arungupta/" adresse_id="1" nom="Gupta" email="arun.p.gupta@oracle.com" prenom="Arun" profil_utilisateur_id="1" details="Arun Gupta est un évangéliste des technologies Java EE et GlassFish chez Oracle. Avec plus de 14 ans d'expérience dans l'industrie du logiciel, Arun a travaillé sur la Java (TM) et sur plusieurs autres technologies liées au Web. Son rôle est de créer et promouvoir une grande communauté autour de Java EE 6 et de GlassFish. Arun a travaillé dans l'équipe dédiée à la plateforme Java EE chez Sun Microsystems et a contribué à toutes les évolutions de Java EE jusqu'à ce jour. Arun parcourt le monde aujourd'hui pour présenter à des conférences et donner des formations en développement d'application avec Java EE 6. Avec plus de 1000 posts et 25.0000 visites par jour sur son blog,  Arun est un blogueur prolifique et très influent : http://blogs.sun.com/arungupta. Vous pouvez le suivre via Twitter à : @ arungupta." />
+	<participant id="2" compagnie="Oracle" role_participant_id="1" type_participant_id="1" website="http://horalass.blogspot.com/" adresse_id="2" nom="Lassey-Assiakoley" email="horalass@gmail.com" prenom="Horacio" profil_utilisateur_id="2" details="Stanyslas Matayo Bweta est suis ingénieur informaticien de l'Université de Kinshasa, il a commencé à apprendre Java en 2004 de façon autodidacte dans le cadre de son travail de fin d'étude. Il a notamment la programmation travaillé à la conception d'une application qui permettait de visualiser des mouvements élémentaire (rotation, translation et déformations) de points matériels discrets. Apres ses études, il me s'est lancé dans la consultation pour aider les entreprises dans le développement des applications Web et Swing en Java. Actuellement, Stanyslas est assistant informatique depuis 4 ans au bureau régional du HCR, où il développer des applications d'appoint en Java, VBA, ASP.Net en plus de la gestion du réseau et des utilisateurs." />
+	<participant id="3" compagnie="Cambridgeweb" role_participant_id="1" type_participant_id="2" website="http://www.cambridgeweb.ie" adresse_id="3" nom="Levin" email="mike@cambridgeweb.ie" prenom="Mike" profil_utilisateur_id="3" details="Mike a grandi au Texas aux État-Unis avant d'aller habiter en Europe notamment à Dublin et à Prague. Il a parcouru le monde avant de s'établir en Floride. Mike est un développeur de logiciel expérimenté. Il a fondé et dirige une société spécialisée dans le Web 2.0. Sa principale passion c'est les oiseaux : www.zoobird.com. Mike dirige OrlandoJUG (www.orlandoJUG.org), fondateur et co-président de GatorJUG (www.gatorJUG.org), CajunJUG (www.cajunJUG.org), et le JUG de l'African de l'ouest(www.senejug.com). Il a créé la communauté des développeurs Codetown www.codetown.us. Mike adore blogger à cette adresse  (www.mikelevin.net) et il produit aussi des podcasts appelés Swampcast (www.swampcast.com). Vous pouvez le joindre à : mike@zoobird.com." />
+	<participant id="4" compagnie="HCR" role_participant_id="1" type_participant_id="1" website="" adresse_id="4" nom="Matayo Bweta" email="matayobweta@gmail.com" prenom="Stanyslas" profil_utilisateur_id="4" details="Michel Lucas réalise ses études en ingénierie, à l'Institut industriel du Nord, et les termine en 19652. Après un passage chez Siemens et dans une SSII, il rejoint en 1971 le Crédit mutuel de Strasbourg en tant qu'informaticien. Formé sur le terrain, sous la houlette de Théo Braun, dans l'adversité (création d'une filiale à Marseille dans un marché hostile, gestion de conflit social au journal L'Alsace, déjà propriété du Crédit mutuel local), son caractère et sa spécialité, l'informatique, qu'il impose dans l'entreprise, vont donner au Crédit mutuel une longueur d'avance en gestion de la clientèle. Il participe activement à l'expansion de la banque, géographiquement et dans le secteur de l'assurance." />
+	<participant id="5" compagnie="Fujitsu Canada" role_participant_id="1" type_participant_id="1" website="http://www.bonbhel.com/" adresse_id="5" nom="Bonbhel" email="bonbhel@gmail.com" prenom="Max" profil_utilisateur_id="5" details="Développeur expérimenté chez FUJITSU Canada, Max est certifié Java (SCJP) et possède une grande expérience comme consultant et formateur Java auprès de différents clients au Canada et parfois à l'étranger notamment en France. Comme membre du Centre d'expertise et de solution Oracle de FUJISTU Canada il se spécialise actuellement dans le développement des applications Web 2.0 avec la plate-forme  Java JEE et l'architecture orienté services avec la Suite SOA d'Oracle. Max est le fondateur et le président en intérim de JUG-AFRICA le principal groupe d'utilisateur Java en AFRIQUE. JUG-AFRICA regroupe la majorité des JUGs (Java User Group) venant de plusieurs pays à travers le continent Africain de l'Égypte à l'Afrique du SUD en passant par le Mali, le Nigéria etc. Mais avant toute chose, sa première passion c'est le partage et l'échange de connaissances avec d'autres passionnées de partout ailleurs dans le monde." />
+	<participant id="6" compagnie="ARPCE" role_participant_id="1" type_participant_id="1" website="" adresse_id="6" nom="MISSIDIMBAZI" email="luc.missidimbazi@wanadoo.fr" prenom="Luc" profil_utilisateur_id="6" details="Après un parcours dans les grands groupes européens de Télécommunication (Alcatel, Global Crossing, Neuf Cegetel et ECI-Telecom) en qualité d'ingénieur télécom, chef de projets et responsable opérationnel, il a rejoint en 2010 l'ARPCE (Agence de régulation des Postes et Communications Electronique) en qualité de  Directeur des Marchés du Haut Débit au Congo. A ce titre il pilote  les grands projets de l'ARPCE sur le haut débit : l'encadrement réglementaire des réseaux optiques, la mise en place du 1er IXP Congolais, la mise en place de l'ACNIC pour la gestion du cc-TLD, le déploiement de la 3G)." />
+	<participant id="7" compagnie="Objis" role_participant_id="1" type_participant_id="2" website="http://www.objis.com/" adresse_id="7" nom="Mbiandou" email="douglas.mbiandou@objis.com" prenom="Douglas" profil_utilisateur_id="7" details="Douglas Mbiandou est Ingénieur diplômé de l'INSA Lyon. Après 10 années d'expérience dans les projets systèmes d'information en France et à l'étranger (USA, Genève...), il propose, en collaboration avec la direction de votre entreprise, une stratégie de formation répondant aux besoins JAVA et nouvelles technologies des applications modernes.Garant de la satisfaction de service Objis, il est l'architecte de l'approche innovante de la formation Objis, basée sur le partage." />
+
+	<!-- Participants Organisateurs -->		
+	<participant id="8" compagnie="" role_participant_id="2" type_participant_id="1" website="" adresse_id="8" nom="Oddet" email="rossi.oddet@gmail.com" prenom="Rossi" profil_utilisateur_id="8" details="Principal Architect de l'application JCertif, Rossi est un développeur Java/JEE hors paire et un coder efficace et toujours à la recherche des meilleures solutions." />
+	<participant id="9" compagnie="" role_participant_id="2" type_participant_id="1" website="" adresse_id="9" nom="Malonga" email="chrisbel@gmail.com" prenom="Chrisbel" profil_utilisateur_id="9" details="Chrisbel est notre manager à tous, notre source d'inspiration. Passionné et audacieux, j'aime croire que c'est possible lorsqu'on se donne les moyens. Ingénieur développeur JAVA JEE, je suis actuellement en formation d'Architecte JAVA JEE. Je suis un des membres leader du congoJug, et directeur du projet Jcertif Conférence 2011, le plus grand événement autour de la technologie Java en Afrique." />
+
+	<!-- Participants Particuliers -->		
+	<participant id="10" compagnie="" role_participant_id="3" type_participant_id="1" website="" adresse_id="10" nom="Komlan" email="tseke_sayi@yahoo.fr" prenom="Édouard" profil_utilisateur_id="10" details="" />
+	<participant id="11" compagnie="" role_participant_id="3" type_participant_id="1" website="" adresse_id="11" nom="Tséké" email="orkidodesign@yahoo.fr" prenom="Ido" profil_utilisateur_id="11" details="" />
+
+
+	<!-- Participants Sponsors -->		
+	<participant id="12" compagnie="Google" role_participant_id="4" type_participant_id="2" website="http://www.google.com/" adresse_id="12" nom="Google" email="info@jcertif.com" prenom="" profil_utilisateur_id="12" details="Google est l'une des premières entreprises américaines et mondiales par le chiffre d'affaires. Fondé le 4 septembre 1998 dans la Silicon Valley, en Californie, par Larry Page et Sergey Brin, créateurs du moteur de recherche Google. L'entreprise est principalement connue à travers le monde pour son moteur de recherche, mais également par quelques-uns de ses logiciels emblématiques, tels que Google Earth. Google s'est donnée comme mission « d'organiser l'information à l'échelle mondiale et de la rendre universellement accessible et utile »" />
+	<participant id="13" compagnie="Objis" role_participant_id="4" type_participant_id="2" website="http://www.objis.com/" adresse_id="13" nom="Objis" email="info@jcertif.com" prenom="" profil_utilisateur_id="13" details="Objis est le spécialiste Français de la formation JAVA , SOA, WEB2.0. Porteur d'une approche innovante de la formation basée sur le partage, nous renforçons l'expertise et la productivité de nos clients à travers des formations participatives à forte valeur ajoutée en travaux pratiques." />
+	<participant id="14" compagnie="Warid Congo" role_participant_id="4" type_participant_id="2" website="http://www.waridtel.cg/" adresse_id="14" nom="Warid Congo" email="info@jcertif.com" prenom="" profil_utilisateur_id="14" details="Warid congo est une entreprise spécialisée dans les télécommunication et basée à Brazzaville. Warid Congo vous offre la possibilité d'accéder à des  produits et  services les plus passionnants et les plus innovants les uns que les autres ! Vous pouvez télécharger des musiques, envoyez des MMS depuis votre téléphone mobile à côté des services classiques que vous offre un réseau de téléphonie mobile : appel, envoi des SMS,  mise en attente d'appel, appel en conférence, alertes d'appel en absence etc." />
+	<participant id="15" compagnie="Oracle Corporation" role_participant_id="4" type_participant_id="2" website="http://www.oracle.com/" adresse_id="15" nom="Oracle Corporation" email="info@jcertif.com" prenom="" profil_utilisateur_id="15" details="Oracle Corporation est une entreprise américaine créée en 1977 par Lawrence Ellison. L'entreprise est générallement connue dans le monde pour son célèbre système de gestion de base de données relationnel (SGBDR). Oracle est Corporation propriétaire de la technology Java et propose aussi des dizaines de logiciels d'entreprises." />
+	<participant id="16" compagnie="Buro Top" role_participant_id="4" type_participant_id="2" website="http://www.burotop.net/" adresse_id="16" nom="Buro Top" email="info@jcertif.com" prenom="" profil_utilisateur_id="16" details="Buro Top est une société de services informatiques basée à Brazzaville. Il offre des solutions complètes aux entreprises. Il prpose à ces clients aussi bien les logiciels personnalisés que le mobilier en passant par l'équipement informatique" />
+	<participant id="17" compagnie="Pearson" role_participant_id="4" type_participant_id="2" website="http://www.pearson.com/" adresse_id="17" nom="Pearson"  email="info@jcertif.com" prenom="" profil_utilisateur_id="17" details="Entreprise basée à Londres et spécialisée dans l'éducation numérique." />
+		
+
+
+
+	<propos_presentation_auteur presentation_id="1" auteur_id="5"/>
+	<propos_presentation_auteur presentation_id="2" auteur_id="5"/>
+	<propos_presentation_auteur presentation_id="3" auteur_id="1"/>	
+	<propos_presentation_auteur presentation_id="4" auteur_id="1"/>
+	<propos_presentation_auteur presentation_id="5" auteur_id="1"/>
+	<propos_presentation_auteur presentation_id="6" auteur_id="1"/>	
+	<propos_presentation_auteur presentation_id="7" auteur_id="5"/>
+	<propos_presentation_auteur presentation_id="8" auteur_id="5"/>
+	<propos_presentation_auteur presentation_id="9" auteur_id="3"/>	
+	<propos_presentation_auteur presentation_id="10" auteur_id="5"/>
+	<propos_presentation_auteur presentation_id="20" auteur_id="5"/>
+
+
+	<statut_cedule id="1" code="VALIDER" description="Participation confirmée"/>
+	<statut_cedule id="2" code="PROVISOIRE" description="Participation provisoire"/>	
+
 	<cedule_participant id="1" evenement_id="1" participant_id="1" statut_cedule_id="1" />
-	<cedule_participant id="2" evenement_id="2" participant_id="2" statut_cedule_id="1" />
-	<cedule_participant id="3" evenement_id="3" participant_id="3" statut_cedule_id="1" />
+	<cedule_participant id="2" evenement_id="1" participant_id="2" statut_cedule_id="1" />
+	<cedule_participant id="3" evenement_id="1" participant_id="3" statut_cedule_id="1" />
+	<cedule_participant id="4" evenement_id="1" participant_id="4" statut_cedule_id="1" />
+	<cedule_participant id="5" evenement_id="1" participant_id="5" statut_cedule_id="1" />
+	<cedule_participant id="6" evenement_id="1" participant_id="6" statut_cedule_id="1" />
+	<cedule_participant id="7" evenement_id="1" participant_id="7" statut_cedule_id="1" />
+	<cedule_participant id="8" evenement_id="1" participant_id="8" statut_cedule_id="1" />
+	<cedule_participant id="9" evenement_id="1" participant_id="9" statut_cedule_id="1" />
+	<cedule_participant id="10" evenement_id="1" participant_id="10" statut_cedule_id="1" />
+	<cedule_participant id="11" evenement_id="1" participant_id="11" statut_cedule_id="1" />
+	<cedule_participant id="12" evenement_id="1" participant_id="12" statut_cedule_id="1" />
+	<cedule_participant id="13" evenement_id="1" participant_id="13" statut_cedule_id="1" />
+	<cedule_participant id="14" evenement_id="1" participant_id="14" statut_cedule_id="1" />
+	<cedule_participant id="15" evenement_id="1" participant_id="15" statut_cedule_id="1" />
+	<cedule_participant id="16" evenement_id="1" participant_id="16" statut_cedule_id="1" />
+	<cedule_participant id="17" evenement_id="1" participant_id="17" statut_cedule_id="1" />
 	
-	<propos_presentation_auteur presentation_id="1" auteur_id="1"/>
-	<propos_presentation_auteur presentation_id="2" auteur_id="2"/>
-	<propos_presentation_auteur presentation_id="3" auteur_id="3"/>	
+	
+	<cedule_participant id="18" evenement_id="2" participant_id="5" statut_cedule_id="1" />
+	<cedule_participant id="19" evenement_id="3" participant_id="1" statut_cedule_id="1" />
+	<cedule_participant id="20" evenement_id="4" participant_id="1" statut_cedule_id="1" />
+	<cedule_participant id="21" evenement_id="5" participant_id="1" statut_cedule_id="1" />
+	<cedule_participant id="22" evenement_id="6" participant_id="1" statut_cedule_id="1" />
+	<cedule_participant id="23" evenement_id="7" participant_id="5" statut_cedule_id="1" />
+	<cedule_participant id="24" evenement_id="8" participant_id="5" statut_cedule_id="1" />
+	<cedule_participant id="25" evenement_id="9" participant_id="3" statut_cedule_id="1" />
+	<cedule_participant id="26" evenement_id="10" participant_id="5" statut_cedule_id="1" />
+
+	<cedule_participant id="27" evenement_id="20" participant_id="1" statut_cedule_id="1" />
+	<cedule_participant id="28" evenement_id="20" participant_id="2" statut_cedule_id="1" />
+	<cedule_participant id="29" evenement_id="20" participant_id="3" statut_cedule_id="1" />
+	<cedule_participant id="30" evenement_id="20" participant_id="4" statut_cedule_id="1" />
+	<cedule_participant id="31" evenement_id="20" participant_id="5" statut_cedule_id="1" />
+	<cedule_participant id="32" evenement_id="20" participant_id="6" statut_cedule_id="1" />
+	<cedule_participant id="33" evenement_id="20" participant_id="7" statut_cedule_id="1" />
+	<cedule_participant id="34" evenement_id="20" participant_id="8" statut_cedule_id="1" />
+	<cedule_participant id="35" evenement_id="20" participant_id="9" statut_cedule_id="1" />
+	<cedule_participant id="36" evenement_id="20" participant_id="10" statut_cedule_id="1" />
+	<cedule_participant id="37" evenement_id="20" participant_id="11" statut_cedule_id="1" />
+	<cedule_participant id="38" evenement_id="20" participant_id="12" statut_cedule_id="1" />
+	<cedule_participant id="39" evenement_id="20" participant_id="13" statut_cedule_id="1" />
+	<cedule_participant id="40" evenement_id="20" participant_id="14" statut_cedule_id="1" />
+	<cedule_participant id="50" evenement_id="20" participant_id="15" statut_cedule_id="1" />
+	<cedule_participant id="51" evenement_id="20" participant_id="16" statut_cedule_id="1" />
+	<cedule_participant id="52" evenement_id="20" participant_id="17" statut_cedule_id="1" />
+
+	<cedule_salle id="1" date_cedule="2011-02-01" details="details 1" salle_id="5" statut_cedule_id="2" evenement_id="1"/>
+	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="6" statut_cedule_id="2" evenement_id="2"/>
+	<cedule_salle id="3" date_cedule="2011-02-02" details="details 2" salle_id="7" statut_cedule_id="2" evenement_id="3"/>
+			
+
 
 </dataset>
