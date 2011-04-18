@@ -34,7 +34,7 @@ public class Participant extends Person {
 	@Column
 	private Calendar dateInscription;
 
-	@Column
+	@Column(length = 1000)
 	private String cvSoumis;
 	@Column
 	private String compagnie;

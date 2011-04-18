@@ -31,10 +31,10 @@ public class Faq extends AbstractBO {
 	@Column
 	private String question;
 
-	@Column
+	@Column(length = 1000)
 	private String reponse;
 
-	@Column(name="conference_id")
+	@Column(name = "conference_id")
 	private Long conferenceId;
 
 	/**
@@ -81,9 +81,6 @@ public class Faq extends AbstractBO {
 	public void setReponse(String reponse) {
 		this.reponse = reponse;
 	}
-	
-	
-	
 
 	/**
 	 * @return the conferenceId
@@ -93,7 +90,8 @@ public class Faq extends AbstractBO {
 	}
 
 	/**
-	 * @param conferenceId the conferenceId to set
+	 * @param conferenceId
+	 *            the conferenceId to set
 	 */
 	public void setConferenceId(Long conferenceId) {
 		this.conferenceId = conferenceId;

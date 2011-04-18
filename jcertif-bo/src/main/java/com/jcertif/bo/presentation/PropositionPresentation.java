@@ -54,7 +54,7 @@ public class PropositionPresentation extends AbstractBO {
 	/**
 	 * La description de la présentation.
 	 */
-	@Column
+	@Column(length = 1000)
 	private String description;
 
 	/**
