@@ -267,9 +267,9 @@
 	<cedule_participant id="42" evenement_id="20" participant_id="16" statut_cedule_id="1" />
 	<cedule_participant id="43" evenement_id="20" participant_id="17" statut_cedule_id="1" />
 
-	<cedule_salle id="1" date_cedule="2011-02-01" details="details 1" salle_id="5" statut_cedule_id="2" evenement_id="1"/>
-	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="6" statut_cedule_id="2" evenement_id="2"/>
-	<cedule_salle id="3" date_cedule="2011-02-02" details="details 2" salle_id="7" statut_cedule_id="2" evenement_id="3"/>
+	<cedule_salle id="1" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="1"/>
+	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="2" statut_cedule_id="2" evenement_id="2"/>
+	<cedule_salle id="3" date_cedule="2011-02-02" details="details 2" salle_id="3" statut_cedule_id="2" evenement_id="3"/>
 			
 
 
