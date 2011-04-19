@@ -1,7 +1,9 @@
 package com.jcertif.presentation.internationalisation;
 
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
@@ -42,5 +44,17 @@ public class Msg {
 			String key = enumKeys.nextElement();
 			session.setAttribute(key, bundle.getString(key));
 		}
+	}
+
+	public static Map<String, String> getAllProps() {
+		Map<String, String> allProps = new HashMap<String, String>();
+		ResourceBundle bundle = ResourceBundle.getBundle(BUNDLE_NAME, Locale.getDefault());
+		Enumeration<String> enumKeys = bundle.getKeys();
+
+		while (enumKeys.hasMoreElements()) {
+			String key = enumKeys.nextElement();
+			allProps.put(key, bundle.getString(key));
+		}
+		return allProps;
 	}
 }

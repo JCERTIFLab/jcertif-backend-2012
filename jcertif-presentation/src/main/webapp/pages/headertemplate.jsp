@@ -29,7 +29,7 @@
 					<div id="right_nav">
 						<ul>
 							<li><a class="current" href="<%=request.getContextPath()%>/pages/partenaires.jsp" title=""><%=session.getAttribute("headertemplate.jsp.sponsors") %></a></li>
-							<li><a href="infoUtile.html" title=""><%=session.getAttribute("headertemplate.jsp.infos") %></a></li>
+							<li><a href="infosutiles.jsp" title=""><%=session.getAttribute("headertemplate.jsp.infos") %></a></li>
 							<li><a href="contact.jsp" title=""><b><%=session.getAttribute("headertemplate.jsp.contact") %></b> </a></li>
 
 						</ul>

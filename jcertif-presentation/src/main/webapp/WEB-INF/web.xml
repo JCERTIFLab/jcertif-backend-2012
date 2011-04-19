@@ -158,6 +158,23 @@
 			<param-value>com.jcertif.presentation.gwt.MyWidgetSet</param-value>
 		</init-param>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>JCertifInfosUtiles</servlet-name>
+		<servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+		<init-param>
+			<description>Vaadin application class to start</description>
+			<param-name>application</param-name>
+			<param-value>com.jcertif.presentation.ui.infosutiles.InfosUtilesApplication</param-value>
+		</init-param>
+		<init-param>
+			<description>Application widgetset</description>
+			<param-name>widgetset</param-name>
+			<param-value>com.jcertif.presentation.gwt.MyWidgetSet</param-value>
+		</init-param>
+	</servlet>
+	
+	
 
 	<servlet-mapping>
 		<servlet-name>JCertifCalendar</servlet-name>
@@ -197,6 +214,12 @@
 		<servlet-name>JCertifLogout</servlet-name>
 		<url-pattern>/vaadin/logout/*</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>JCertifInfosUtiles</servlet-name>
+		<url-pattern>/vaadin/infosutiles/*</url-pattern>
+	</servlet-mapping>
+	
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
