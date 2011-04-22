@@ -181,5 +181,23 @@
 		</dependency>
 
 	</dependencies>
+	
+	<profiles>
+	
+		 <profile>
+            <id>pre-prod</id>
+            <build>
+               <finalName>jcertif-presentation</finalName>
+            </build>
+        </profile>
+		
+		<profile>
+            <id>prod</id>
+            <build>
+               <finalName>jcertif-presentation</finalName>
+            </build>
+        </profile>
+	
+	</profiles>
 
 </project>

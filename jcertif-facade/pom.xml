@@ -1,233 +1,252 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.jcertif</groupId>
-        <artifactId>jcertif-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <relativePath>../jcertif-parent</relativePath>
-    </parent>
+	<parent>
+		<groupId>com.jcertif</groupId>
+		<artifactId>jcertif-parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../jcertif-parent</relativePath>
+	</parent>
 
-    <groupId>com.jcertif</groupId>
-    <artifactId>jcertif-facade</artifactId>
-    <packaging>war</packaging>
+	<groupId>com.jcertif</groupId>
+	<artifactId>jcertif-facade</artifactId>
+	<packaging>war</packaging>
 
-    <name>JCERTIF - FACADE</name>
-    <description>JCERTIF FACADE - Webservices REST Layer</description>
-
-    <!-- JCERTIF FACADE DEPENDENCIES -->
-    <dependencies>
-
-        <dependency>
-            <groupId>com.jcertif</groupId>
-            <artifactId>jcertif-services</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.jcertif</groupId>
-            <artifactId>jcertif-bo</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>jsr311-api</artifactId>
-        </dependency>
+	<name>JCERTIF - FACADE</name>
+	<description>JCERTIF FACADE - Webservices REST Layer</description>
 
 
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-server</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-client</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.jersey.contribs</groupId>
-            <artifactId>jersey-spring</artifactId>
-        </dependency>
+	<!-- JCERTIF FACADE DEPENDENCIES -->
+	<dependencies>
 
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-json</artifactId>
-        </dependency>
+		<dependency>
+			<groupId>com.jcertif</groupId>
+			<artifactId>jcertif-services</artifactId>
+		</dependency>
 
+		<dependency>
+			<groupId>com.jcertif</groupId>
+			<artifactId>jcertif-bo</artifactId>
+		</dependency>
 
-        <!-- LOGGER -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>jsr311-api</artifactId>
+		</dependency>
 
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-        </dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey.contribs</groupId>
+			<artifactId>jersey-spring</artifactId>
+		</dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-        </dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+		</dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+		<!-- LOGGER -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
 
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <scope>test</scope>
-        </dependency>
-        
-        <dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.dbunit</groupId>
 			<artifactId>dbunit</artifactId>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>compile</scope>
 		</dependency>
 
-        <!-- DERBY just for demonstration -->
+		<!-- DERBY just for demonstration -->
 
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+	</dependencies>
 
-    <profiles>
+	<profiles>
 
-        <!-- Profiles for running functional tests -->
+		<!-- Profiles for running functional tests -->
 
-        <profile>
-            <id>integration-tests</id>
-            <activation>
-                <property>
-                    <name>integration-tests</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.glassfish</groupId>
-                        <artifactId>maven-embedded-glassfish-plugin</artifactId>
-                        <version>3.0.1</version>
-                        <configuration>
-                            <goalPrefix>glassfish</goalPrefix>
-                            <app>${basedir}/target/jcertif-facade-${version}.war</app>
-                            <autoDelete>true</autoDelete>
-                            <port>9999</port>
-                            <contextRoot>jcertif-facade</contextRoot>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>start-container</id>
-                                <phase>pre-integration-test</phase>
-                                <goals>
-                                    <goal>start</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>deploy-container</id>
-                                <phase>pre-integration-test</phase>
-                                <goals>
-                                    <goal>deploy</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>undeploy-container</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>undeploy</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>stop-container</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>stop</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
+		<profile>
+			<id>integration-tests</id>
+			<activation>
+				<property>
+					<name>integration-tests</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.glassfish</groupId>
+						<artifactId>maven-embedded-glassfish-plugin</artifactId>
+						<version>3.0.1</version>
+						<configuration>
+							<goalPrefix>glassfish</goalPrefix>
+							<app>${basedir}/target/jcertif-facade-${version}.war</app>
+							<autoDelete>true</autoDelete>
+							<port>9999</port>
+							<contextRoot>jcertif-facade</contextRoot>
+						</configuration>
+						<executions>
+							<execution>
+								<id>start-container</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>start</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>deploy-container</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>undeploy-container</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>undeploy</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>stop-container</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
 
-            </build>
-        </profile>
+			</build>
+		</profile>
 
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.glassfish</groupId>
-                        <artifactId>maven-embedded-glassfish-plugin</artifactId>
-                        <version>3.0.1</version>
-                        <configuration>
-                            <instanceRoot>${basedir}/target/glassfish-deploy</instanceRoot>
-                            <app>${basedir}/target/jcertif-facade-${version}.war</app>
-                            <autoDelete>true</autoDelete>
-                            <port>8080</port>
-                            <contextRoot>jcertif-facade</contextRoot>
-                        </configuration>
-                    </plugin>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.glassfish</groupId>
+						<artifactId>maven-embedded-glassfish-plugin</artifactId>
+						<version>3.0.1</version>
+						<configuration>
+							<instanceRoot>${basedir}/target/glassfish-deploy</instanceRoot>
+							<app>${basedir}/target/jcertif-facade-${version}.war</app>
+							<autoDelete>true</autoDelete>
+							<port>8080</port>
+							<contextRoot>jcertif-facade</contextRoot>
+						</configuration>
+					</plugin>
 
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>tomcat-maven-plugin</artifactId>
-                        <configuration>
-                            <warFile>${basedir}/target/jcertif-facade-${version}.war</warFile>
-                        </configuration>
-                    </plugin>
-                </plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tomcat-maven-plugin</artifactId>
+						<configuration>
+							<warFile>${basedir}/target/jcertif-facade-${version}.war</warFile>
+						</configuration>
+					</plugin>
+				</plugins>
 
-            </build>
-        </profile>
+			</build>
+		</profile>
 
-    </profiles>
+
+		<profile>
+			<id>pre-prod</id>
+			<build>
+				<finalName>jcertif-facade</finalName>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>prod</id>
+			<build>
+				<finalName>jcertif-facade</finalName>
+			</build>
+		</profile>
+
+
+
+	</profiles>
 
 
 </project>
