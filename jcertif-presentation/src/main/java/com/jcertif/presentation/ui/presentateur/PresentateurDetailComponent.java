@@ -86,10 +86,8 @@ public class PresentateurDetailComponent extends Panel {
 			// Participant photo
 			if (participant.getProfilUtilisateur() != null
 					&& participant.getProfilUtilisateur().getPhoto() != null) {
-				ExternalResource res = new ExternalResource(JCertifProps.getInstance()
-						.getFacadeUrl()
-						+ UIConst.URL_SPEAKER_IMG
-						+ participant.getProfilUtilisateur().getPhoto());
+				ExternalResource res = new ExternalResource(JCertifProps.getInstance().getPicsUrl()
+						+ UIConst.URL_SPEAKER_IMG + participant.getProfilUtilisateur().getPhoto());
 				Embedded embedded = new Embedded("", res);
 				embedded.setStyleName(UIStyle.PHOTO_SPEAKER);
 				htmlLayout.addComponent(embedded, "photo");

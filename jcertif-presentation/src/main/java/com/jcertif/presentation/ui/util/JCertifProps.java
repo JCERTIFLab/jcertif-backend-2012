@@ -11,12 +11,15 @@ import java.util.ResourceBundle;
 public final class JCertifProps {
 
 	private static final String FACADE_URL_PROP = "facade.url";
+	private static final String PICS_URL_PROP = "pics.url";
 	private static final String PHOTO_TMP_DIR = "tmp.photo.dir";
 	private static final String WEBAPP_PROPERTIES_FILE = "jcertif-presentation";
 
 	private static JCertifProps instance;
 
 	private String facadeUrl;
+
+	private String picsUrl;
 
 	private String photoTmpDirectory;
 
@@ -40,6 +43,16 @@ public final class JCertifProps {
 			facadeUrl = getProperty(FACADE_URL_PROP);
 		}
 		return facadeUrl;
+	}
+
+	/**
+	 * @return the picsUrl
+	 */
+	public String getPicsUrl() {
+		if (picsUrl == null) {
+			picsUrl = getProperty(PICS_URL_PROP);
+		}
+		return picsUrl;
 	}
 
 	/**

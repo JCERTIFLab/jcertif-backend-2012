@@ -36,7 +36,11 @@
 		<hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
 		<hibernate.generate_statistics>false</hibernate.generate_statistics>
 		<facade.url>http://localhost:8080/jcertif-facade</facade.url>
-		
+		<!-- Ne pas mettre le "/" avec la fin du répertoire -->
+		<pics.participant.dir>./src/main/webapp</pics.participant.dir>
+		<pics.url>http://localhost:8082/jcertif-pics</pics.url>
+		<!-- Ne pas mettre le "/" avec la fin du répertoire -->
+		<tmp.photo.dir>./tmp/photo</tmp.photo.dir>
 	</properties>
 
 	<modules>
@@ -45,6 +49,7 @@
 		<module>../jcertif-services</module>
 		<module>../jcertif-facade</module>
 		<module>../jcertif-presentation</module>
+		<module>../jcertif-pics</module>
 
 
 	</modules>
@@ -684,15 +689,6 @@
 					</plugin>
 				</plugins>
 			</build>
-			<properties>
-				<jdbc.driver.classname>com.mysql.jdbc.Driver</jdbc.driver.classname>
-				<jdbc.url>jdbc:mysql://localhost:3306/jcertifinteg?createDatabaseIfNotExist=true</jdbc.url>
-				<jdbc.username>jcertif</jdbc.username>
-				<jdbc.password>forAfrica</jdbc.password>
-				<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
-				<hibernate.hbm2ddl.auto>create</hibernate.hbm2ddl.auto>
-				<hibernate.generate_statistics>false</hibernate.generate_statistics>
-			</properties>
 		</profile>
 
 		<profile>
@@ -706,6 +702,12 @@
 				<hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
 				<hibernate.generate_statistics>false</hibernate.generate_statistics>
 				<facade.url>http://jcertif.baamtu.com/jcertif-facade</facade.url>
+				<!-- Ne pas mettre le "/" avec la fin du répertoire -->
+				<pics.participant.dir>./../webapps/jcertif-pics</pics.participant.dir>
+				<pics.url>http://jcertif.baamtu.com/jcertif-pics</pics.url>
+				
+				<!-- Ne pas mettre le "/" avec la fin du répertoire -->
+				<tmp.photo.dir>./../webapps/jcertif-presentation</tmp.photo.dir>
 			</properties>
 		</profile>
 		
@@ -720,6 +722,11 @@
 				<hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
 				<hibernate.generate_statistics>false</hibernate.generate_statistics>
 				<facade.url>http://jcertif.baamtu.com/jcertif-facade</facade.url>
+				<!-- Ne pas mettre le "/" avec la fin du répertoire -->
+				<pics.participant.dir>./../webapps/jcertif-pics</pics.participant.dir>
+				<pics.url>http://localhost:8082/jcertif-pics</pics.url>
+				<!-- Ne pas mettre le "/" avec la fin du répertoire -->
+				<tmp.photo.dir>./../webapps/jcertif-presentation</tmp.photo.dir>
 			</properties>
 		</profile>
 	</profiles>

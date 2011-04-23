@@ -25,6 +25,7 @@ import com.jcertif.presentation.ui.inscription.profilutilisateur.ProfilUtilisate
 import com.jcertif.presentation.ui.util.PaysUtility;
 import com.jcertif.presentation.ui.util.UIConst;
 import com.jcertif.presentation.wsClient.ParticipantClient;
+import com.jcertif.presentation.wsClient.pics.ParticipantPicsClient;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.vaadin.Application;
 import com.vaadin.data.util.BeanItem;
@@ -161,7 +162,8 @@ public class InscriptionApplication extends Application implements ClickListener
 			try {
 				String[] extensionTab = photo.getName().split("\\.");
 				String ext = extensionTab[extensionTab.length - 1];
-				ParticipantClient.getInstance().store(photo,
+
+				ParticipantPicsClient.getInstance().store(photo,
 						participant.getRoleparticipant().getCode(), parti.getId(), ext);
 			} catch (UniformInterfaceException e) {
 				LOGGER.error("Erreur lors de la sauvegarde de la photo du participant", e);

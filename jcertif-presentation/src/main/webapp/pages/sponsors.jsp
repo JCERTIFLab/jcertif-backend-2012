@@ -1,3 +1,4 @@
+<%@page import="com.jcertif.presentation.ui.util.JCertifProps"%>
 <%@page import="com.jcertif.presentation.ui.util.UIConst"%>
 <%@page import="java.util.ResourceBundle"%>
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -6,19 +7,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%
-	ResourceBundle bundle = ResourceBundle.getBundle(UIConst.WEBAPP_PROPERTIES_FILE);
-	String facadeURL = bundle.getString(UIConst.FACADE_URL_PROP);
+	
+	String picsURL = JCertifProps.getInstance().getPicsUrl();
+	String partenaire = UIConst.URL_PARTNER_IMG;
 %>
 
 <div align="right">
-	<img alt="" src="<%=facadeURL%>/sponsors/google.gif" width="200">
+	<img alt="" src="<%=picsURL + partenaire%>google.gif" width="200">
 	<br/>
-	<img alt="" src="<%=facadeURL%>/sponsors/burotop.jpg" width="200" >
+	<img alt="" src="<%=picsURL + partenaire%>burotop.jpg" width="200" >
 	<br/>
-	<img alt="" src="<%=facadeURL%>/sponsors/oraclent.png" width="200">
+	<img alt="" src="<%=picsURL + partenaire%>oraclent.png" width="200">
 	<br/>
-	<img alt="" src="<%=facadeURL%>/sponsors/objis.jpg" width="200">
+	<img alt="" src="<%=picsURL + partenaire%>objis.jpg" width="200">
 	<br/>
-	<img alt="" src="<%=facadeURL%>/sponsors/warid.gif" width="100" >
+	<img alt="" src="<%=picsURL + partenaire%>warid.gif" width="100" >
 	<br/>
 </div>

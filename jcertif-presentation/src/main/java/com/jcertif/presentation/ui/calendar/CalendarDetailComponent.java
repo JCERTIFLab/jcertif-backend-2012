@@ -86,8 +86,7 @@ public class CalendarDetailComponent extends Panel {
 
 		// Room
 		String room = event.getCeduleSalles().iterator().next().getSalle().getLibelle();
-		htmlLayout.addComponent(
-				new Label(Msg.get("ui.calendar.details.room") + " " + room), "ou");
+		htmlLayout.addComponent(new Label(Msg.get("ui.calendar.details.room") + " " + room), "ou");
 
 		// When
 		Date debut = event.getDateDebutPrevue().getTime();
@@ -119,7 +118,7 @@ public class CalendarDetailComponent extends Panel {
 		// Participant photo
 		if (participant.getProfilUtilisateur() != null
 				&& participant.getProfilUtilisateur().getPhoto() != null) {
-			ExternalResource res = new ExternalResource(JCertifProps.getInstance().getFacadeUrl()
+			ExternalResource res = new ExternalResource(JCertifProps.getInstance().getPicsUrl()
 					+ UIConst.URL_SPEAKER_IMG + participant.getProfilUtilisateur().getPhoto());
 			Embedded embedded = new Embedded("", res);
 			embedded.setStyleName(UIStyle.PHOTO_SPEAKER);
