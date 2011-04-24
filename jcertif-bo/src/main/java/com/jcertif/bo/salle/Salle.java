@@ -17,6 +17,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.jcertif.bo.AbstractBO;
 import com.jcertif.bo.conference.CentreConference;
@@ -29,6 +31,7 @@ import com.jcertif.bo.conference.CentreConference;
  */
 @Entity
 @XmlRootElement
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Salle extends AbstractBO {
 
 	private static final long serialVersionUID = 1L;
@@ -70,11 +73,11 @@ public class Salle extends AbstractBO {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "centre_conference_id")
 	private CentreConference centreConference;
-	
+
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name ="salle_particularite_salle", joinColumns = @JoinColumn(name = "salle_id"), inverseJoinColumns = @JoinColumn(name = "particularite_salle_id"))
-	private Set<ParticulariteSalle> particularitesalles=new HashSet<ParticulariteSalle>();
-	
+	@JoinTable(name = "salle_particularite_salle", joinColumns = @JoinColumn(name = "salle_id"), inverseJoinColumns = @JoinColumn(name = "particularite_salle_id"))
+	private Set<ParticulariteSalle> particularitesalles = new HashSet<ParticulariteSalle>();
+
 	/**
 	 * Contructeur par défaut.
 	 */
@@ -191,8 +194,7 @@ public class Salle extends AbstractBO {
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(libelle).append(description)
-				.toHashCode();
+		return new HashCodeBuilder().append(libelle).append(description).toHashCode();
 	}
 
 	/**
@@ -223,7 +225,8 @@ public class Salle extends AbstractBO {
 	}
 
 	/**
-	 * @param particularitesalles the particularitesalles to setTODOparticularitesalles
+	 * @param particularitesalles
+	 *            the particularitesalles to setTODOparticularitesalles
 	 */
 	public void setParticularitesalles(Set<ParticulariteSalle> particularitesalles) {
 		this.particularitesalles = particularitesalles;

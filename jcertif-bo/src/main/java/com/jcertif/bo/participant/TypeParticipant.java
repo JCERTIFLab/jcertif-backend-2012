@@ -3,6 +3,9 @@ package com.jcertif.bo.participant;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import com.jcertif.bo.CodeDescription;
 
 /**
@@ -11,6 +14,7 @@ import com.jcertif.bo.CodeDescription;
  */
 @Entity
 @XmlRootElement
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class TypeParticipant extends CodeDescription {
 
 	private static final long serialVersionUID = 1L;

@@ -11,6 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.jcertif.bo.AbstractBO;
 
@@ -20,6 +22,7 @@ import com.jcertif.bo.AbstractBO;
  */
 @Entity
 @XmlRootElement
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Faq extends AbstractBO {
 
 	private static final long serialVersionUID = 1L;

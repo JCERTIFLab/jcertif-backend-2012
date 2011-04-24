@@ -16,6 +16,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.jcertif.bo.AbstractBO;
 import com.jcertif.bo.Adresse;
@@ -28,6 +30,7 @@ import com.jcertif.bo.salle.Salle;
  */
 @Entity
 @XmlRootElement
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class CentreConference extends AbstractBO {
 
 	private static final long serialVersionUID = 1L;
@@ -43,78 +46,73 @@ public class CentreConference extends AbstractBO {
 	/**
 	 * Nom du centre conférence.
 	 */
-	@Column(name="nom1")
+	@Column(name = "nom1")
 	private String nom;
-	
+
 	/**
 	 * Description.
 	 */
 	@Column
 	private String description;
-	
+
 	/**
 	 * Adresse.
 	 */
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "Adresse_id")
 	private Adresse adresse;
-	
+
 	/**
 	 * Téléphone.
 	 */
 	@Column
 	private String telephone;
-	
+
 	/**
 	 * Email.
 	 */
 	@Column
 	private String email;
-	
+
 	/**
 	 * Site web.
 	 */
 	@Column
 	private String website;
-	
+
 	/**
 	 * Nom contact.
 	 */
 	@Column
 	private String nomContact;
-	
-	
+
 	/**
 	 * Prénom contact.
 	 */
 	@Column
 	private String prenomContact;
-	
+
 	/**
 	 * Téléphone contact.
 	 */
 	@Column
 	private String telephoneContact;
-	
-	
+
 	/**
 	 * Email contact.
 	 */
 	@Column
 	private String emailContact;
-	
-	
+
 	/**
 	 * Détails.
 	 */
 	@Column
 	private String details;
-	
+
 	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "centre_conference_id")
 	private Set<Salle> centreConferenceSalle = new HashSet<Salle>();
-
-	
 
 	/**
 	 * 
@@ -129,9 +127,9 @@ public class CentreConference extends AbstractBO {
 	 * @param telephoneContact
 	 * @param details
 	 */
-	public CentreConference(Long id, String nom, String description,
-			Adresse adresse, String email, String website, String nomContact,
-			String prenomContact, String telephoneContact, String details) {
+	public CentreConference(Long id, String nom, String description, Adresse adresse, String email,
+			String website, String nomContact, String prenomContact, String telephoneContact,
+			String details) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -145,11 +143,9 @@ public class CentreConference extends AbstractBO {
 		this.details = details;
 	}
 
-
 	public CentreConference() {
 		super();
 	}
-
 
 	/**
 	 * @return the id
@@ -159,7 +155,8 @@ public class CentreConference extends AbstractBO {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Long id) {
 		this.id = id;
@@ -173,7 +170,8 @@ public class CentreConference extends AbstractBO {
 	}
 
 	/**
-	 * @param nom1 the nom1 to set
+	 * @param nom1
+	 *            the nom1 to set
 	 */
 	public void setNom(String nom1) {
 		this.nom = nom1;
@@ -187,7 +185,8 @@ public class CentreConference extends AbstractBO {
 	}
 
 	/**
-	 * @param description the description to set
+	 * @param description
+	 *            the description to set
 	 */
 	public void setDescription(String description) {
 		this.description = description;
@@ -201,13 +200,12 @@ public class CentreConference extends AbstractBO {
 	}
 
 	/**
-	 * @param adresse the adresse to set
+	 * @param adresse
+	 *            the adresse to set
 	 */
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
-	
-	
 
 	/**
 	 * @return the telephone
@@ -216,14 +214,13 @@ public class CentreConference extends AbstractBO {
 		return telephone;
 	}
 
-
 	/**
-	 * @param telephone the telephone to set
+	 * @param telephone
+	 *            the telephone to set
 	 */
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-
 
 	/**
 	 * @return the email
@@ -233,7 +230,8 @@ public class CentreConference extends AbstractBO {
 	}
 
 	/**
-	 * @param email the email to set
+	 * @param email
+	 *            the email to set
 	 */
 	public void setEmail(String email) {
 		this.email = email;
@@ -247,7 +245,8 @@ public class CentreConference extends AbstractBO {
 	}
 
 	/**
-	 * @param website the website to set
+	 * @param website
+	 *            the website to set
 	 */
 	public void setWebsite(String website) {
 		this.website = website;
@@ -261,7 +260,8 @@ public class CentreConference extends AbstractBO {
 	}
 
 	/**
-	 * @param nomContact the nomContact to set
+	 * @param nomContact
+	 *            the nomContact to set
 	 */
 	public void setNomContact(String nomContact) {
 		this.nomContact = nomContact;
@@ -275,7 +275,8 @@ public class CentreConference extends AbstractBO {
 	}
 
 	/**
-	 * @param prenomContact the prenomContact to set
+	 * @param prenomContact
+	 *            the prenomContact to set
 	 */
 	public void setPrenomContact(String prenomContact) {
 		this.prenomContact = prenomContact;
@@ -289,13 +290,12 @@ public class CentreConference extends AbstractBO {
 	}
 
 	/**
-	 * @param telephoneContact the telephoneContact to set
+	 * @param telephoneContact
+	 *            the telephoneContact to set
 	 */
 	public void setTelephoneContact(String telephoneContact) {
 		this.telephoneContact = telephoneContact;
 	}
-	
-	
 
 	/**
 	 * @return the emailContact
@@ -304,14 +304,13 @@ public class CentreConference extends AbstractBO {
 		return emailContact;
 	}
 
-
 	/**
-	 * @param emailContact the emailContact to set
+	 * @param emailContact
+	 *            the emailContact to set
 	 */
 	public void setEmailContact(String emailContact) {
 		this.emailContact = emailContact;
 	}
-
 
 	/**
 	 * @return the details
@@ -321,32 +320,29 @@ public class CentreConference extends AbstractBO {
 	}
 
 	/**
-	 * @param details the details to set
+	 * @param details
+	 *            the details to set
 	 */
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	
-	
 
 	public Set<Salle> getCentreConferenceSalle() {
 		return centreConferenceSalle;
 	}
 
-
 	public void setCentreConferenceSalle(Set<Salle> centreConferenceSalle) {
 		this.centreConferenceSalle = centreConferenceSalle;
 	}
-
 
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(id).append(nom)
-				.toHashCode();
+		return new HashCodeBuilder().append(id).append(nom).toHashCode();
 	}
+
 	/**
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -361,7 +357,7 @@ public class CentreConference extends AbstractBO {
 			return false;
 		}
 
-		final CentreConference other = (CentreConference)obj;
+		final CentreConference other = (CentreConference) obj;
 
 		return new EqualsBuilder().append(id, other.getId()).append(nom, other.getNom()).isEquals();
 	}

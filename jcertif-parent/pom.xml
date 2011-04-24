@@ -32,9 +32,16 @@
 		<jdbc.url>jdbc:mysql://localhost:3306/jcertifinteg?createDatabaseIfNotExist=true</jdbc.url>
 		<jdbc.username>jcertif</jdbc.username>
 		<jdbc.password>forAfrica</jdbc.password>
+		
+		<!-- Hibernate properties -->
 		<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
 		<hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
 		<hibernate.generate_statistics>false</hibernate.generate_statistics>
+		<hibernate.cache.use_second_level_cache>false</hibernate.cache.use_second_level_cache>
+		<hibernate.cache.provider_class>net.sf.ehcache.hibernate.EhCacheProvider</hibernate.cache.provider_class>
+		<hibernate.show_sql>false</hibernate.show_sql>
+		<hibernate.cache.use_query_cache>false</hibernate.cache.use_query_cache>
+		
 		<facade.url>http://localhost:8080/jcertif-facade</facade.url>
 		<!-- Ne pas mettre le "/" avec la fin du répertoire -->
 		<pics.participant.dir>./src/main/webapp</pics.participant.dir>
@@ -286,10 +293,6 @@
 					<exclusion>
 						<groupId>commons-logging</groupId>
 						<artifactId>commons-logging</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>net.sf.ehcache</groupId>
-						<artifactId>ehcache</artifactId>
 					</exclusion>
 					<exclusion>
 						<groupId>asm</groupId>
@@ -648,7 +651,20 @@
 				<version>1.2</version>
 				<scope>runtime</scope>
 			</dependency>
+			
+			<dependency>
+				<groupId>javax.jcr</groupId>
+				<artifactId>jcr</artifactId>
+				<version>2.0</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.apache.jackrabbit</groupId>
+				<artifactId>jackrabbit-core</artifactId>
+				<version>2.2.4</version>
+			</dependency>
 
+	
 		</dependencies>
 
 	</dependencyManagement>
@@ -698,9 +714,14 @@
 				<jdbc.url>jdbc:mysql://localhost:3306/jcertifpreprod</jdbc.url>
 				<jdbc.username>jcertif</jdbc.username>
 				<jdbc.password>forAfrica</jdbc.password>
+				
 				<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
 				<hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
-				<hibernate.generate_statistics>false</hibernate.generate_statistics>
+				<hibernate.generate_statistics>true</hibernate.generate_statistics>
+				<hibernate.cache.provider_class>net.sf.ehcache.hibernate.EhCacheProvider</hibernate.cache.provider_class>
+				<hibernate.show_sql>true</hibernate.show_sql>
+				<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
+				
 				<facade.url>http://jcertif.baamtu.com/jcertif-facade</facade.url>
 				<!-- Ne pas mettre le "/" avec la fin du répertoire -->
 				<pics.participant.dir>catalina.base/webapps/jcertif-pics</pics.participant.dir>
@@ -718,9 +739,15 @@
 				<jdbc.url>jdbc:mysql://localhost:3306/jcertifpreprod</jdbc.url>
 				<jdbc.username>jcertif</jdbc.username>
 				<jdbc.password>forAfrica</jdbc.password>
+				
 				<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
 				<hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
 				<hibernate.generate_statistics>false</hibernate.generate_statistics>
+				<hibernate.cache.use_second_level_cache>true</hibernate.cache.use_second_level_cache>
+				<hibernate.cache.provider_class>net.sf.ehcache.hibernate.EhCacheProvider</hibernate.cache.provider_class>
+				<hibernate.show_sql>true</hibernate.show_sql>
+				<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
+				
 				<facade.url>http://jcertif.baamtu.com/jcertif-facade</facade.url>
 				<!-- Ne pas mettre le "/" avec la fin du répertoire -->
 				<pics.participant.dir>catalina.base/webapps/jcertif-pics</pics.participant.dir>
@@ -737,9 +764,15 @@
 				<jdbc.url>jdbc:mysql://localhost:3306/jcertifinteg</jdbc.url>
 				<jdbc.username>jcertif</jdbc.username>
 				<jdbc.password>forAfrica</jdbc.password>
+				
 				<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
 				<hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
 				<hibernate.generate_statistics>false</hibernate.generate_statistics>
+				<hibernate.cache.use_second_level_cache>true</hibernate.cache.use_second_level_cache>
+				<hibernate.cache.provider_class>net.sf.ehcache.hibernate.EhCacheProvider</hibernate.cache.provider_class>
+				<hibernate.show_sql>false</hibernate.show_sql>
+				<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
+				
 				<facade.url>http://localhost:8080/jcertif-facade</facade.url>
 				<!-- Ne pas mettre le "/" avec la fin du répertoire -->
 				<pics.participant.dir>catalina.base/webapps/jcertif-pics</pics.participant.dir>

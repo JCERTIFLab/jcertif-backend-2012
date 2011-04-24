@@ -38,8 +38,7 @@ public abstract class AbstractDAOTestCase {
 	/**
 	 * Un Logger.
 	 */
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(AbstractDAOTestCase.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractDAOTestCase.class);
 
 	/** Sufix for DBUnit files */
 	private static final String DATASET_FILENAME_SUFFIX = "-dataset.xml";
@@ -64,8 +63,7 @@ public abstract class AbstractDAOTestCase {
 	@Before
 	public void setUpTestDataWithinTransaction() throws Exception {
 
-		final IDatabaseTester databaseTester = new DataSourceDatabaseTester(
-				this.dataSource);
+		final IDatabaseTester databaseTester = new DataSourceDatabaseTester(this.dataSource);
 
 		// Nettoyage de la base de données.
 		cleanDB();
@@ -92,12 +90,12 @@ public abstract class AbstractDAOTestCase {
 	 * @throws SQLException
 	 * @throws IOException
 	 */
-	private void cleanDB() throws DataSetException, DatabaseUnitException,
-			SQLException, IOException {
-		final File file = ResourceUtils
-				.getFile(ResourceUtils.CLASSPATH_URL_PREFIX + CLEAN_FILE);
-		DatabaseOperation.CLEAN_INSERT.execute(new DatabaseConnection(
-				this.dataSource.getConnection()), getXmlDataSet(file));
+	private void cleanDB() throws DataSetException, DatabaseUnitException, SQLException,
+			IOException {
+		LOGGER.debug("CLEANING DATABASE");
+		final File file = ResourceUtils.getFile(ResourceUtils.CLASSPATH_URL_PREFIX + CLEAN_FILE);
+		DatabaseOperation.CLEAN_INSERT.execute(
+				new DatabaseConnection(this.dataSource.getConnection()), getXmlDataSet(file));
 	}
 
 	/**
@@ -110,28 +108,26 @@ public abstract class AbstractDAOTestCase {
 		final String dataSetFileName = getDataSetFilename();
 
 		try {
-			final File file = ResourceUtils
-					.getFile(ResourceUtils.CLASSPATH_URL_PREFIX
-							+ dataSetFileName);
+			final File file = ResourceUtils.getFile(ResourceUtils.CLASSPATH_URL_PREFIX
+					+ dataSetFileName);
 			dataSet = getXmlDataSet(file);
 		} catch (FileNotFoundException e) {
 			// Dataset are not mandatory, so a FileNotFoundException is
 			// acceptable, just inform the user
-			LOGGER.info("No dataset named '" + dataSetFileName
-					+ "' was found in the classpath.");
+			LOGGER.info("No dataset named '" + dataSetFileName + "' was found in the classpath.");
 		}
 
 		return dataSet;
 	}
 
-	protected IDataSet getXmlDataSet(File file) throws DataSetException,
-			IOException {
+	protected IDataSet getXmlDataSet(File file) throws DataSetException, IOException {
 		return new FlatXmlDataSetBuilder().build(file);
 	}
 
 	protected String getDataSetFilename() {
-		return StringUtils.replaceChars(this.getClass().getCanonicalName(),
-				'.', File.separatorChar) + DATASET_FILENAME_SUFFIX;
+		return StringUtils
+				.replaceChars(this.getClass().getCanonicalName(), '.', File.separatorChar)
+				+ DATASET_FILENAME_SUFFIX;
 	}
 
 	protected DatabaseOperation getDatabaseSetupOperation() {

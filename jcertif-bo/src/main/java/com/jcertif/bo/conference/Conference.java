@@ -21,6 +21,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.jcertif.bo.AbstractBO;
 
@@ -29,6 +31,7 @@ import com.jcertif.bo.AbstractBO;
  */
 @Entity
 @XmlRootElement
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Conference extends AbstractBO {
 
 	private static final long serialVersionUID = 1L;
@@ -48,7 +51,7 @@ public class Conference extends AbstractBO {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "organisateur_conference", joinColumns = @JoinColumn(name = "conference_id"), inverseJoinColumns = @JoinColumn(name = "organisateur_id"))
 	private Set<Organisateur> organisateurs = new HashSet<Organisateur>();
-	
+
 	@OneToMany
 	@JoinColumn(name = "conference_id")
 	private Set<Faq> faqs = new HashSet<Faq>();
@@ -156,8 +159,6 @@ public class Conference extends AbstractBO {
 	public void setDateFin(Calendar dateFin) {
 		this.dateFin = dateFin;
 	}
-	
-	
 
 	/**
 	 * @return the faqs
@@ -167,7 +168,8 @@ public class Conference extends AbstractBO {
 	}
 
 	/**
-	 * @param faqs the faqs to set
+	 * @param faqs
+	 *            the faqs to set
 	 */
 	public void setFaqs(Set<Faq> faqs) {
 		this.faqs = faqs;
@@ -197,8 +199,8 @@ public class Conference extends AbstractBO {
 
 		final Conference other = (Conference) obj;
 
-		return new EqualsBuilder().append(nom, other.getNom())
-				.append(details, other.getDetails()).isEquals();
+		return new EqualsBuilder().append(nom, other.getNom()).append(details, other.getDetails())
+				.isEquals();
 	}
 
 }

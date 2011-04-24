@@ -5,28 +5,28 @@
 	<mot_cle />
 	<sujet />
 	<conference />
-	<type_evenement />
-	
-	<role_participant />
-	<type_participant />
+	<type_evenement/>
+	<adresse/>
+	<role_participant/>
+	<type_participant/>
 	<proposition_presentation />
-	<evenement />
+	<evenement/>
 	<faq/>
 	<profil_utilisateur/>
 	<participant />
 	<auteur />
 	<propos_presentation_auteur />
 	<proposition_presentation_sujet />
-
+	
 	<appreciation_presentation />
 	<statut_cedule />
-	<cedule_participant />
+	<cedule_participant/>
 	<centre_conference />
 
 	<salle />
-	<particularite_salle />
-	<salle_particularite_salle />
-
+	<particularite_salle/>
+		<salle_particularite_salle/>
+		
 	<cedule_salle />
-	<organisateur />
+	<organisateur/>
 </dataset>
