@@ -42,4 +42,6 @@ public interface UIConst {
 
 	String PHOTO_SUFFIX_PATTERN = "yyyMMddHHmmssSSS";
 
+	String TOMCAT_DIR_VARIABLE = "catalina.base";
+
 }

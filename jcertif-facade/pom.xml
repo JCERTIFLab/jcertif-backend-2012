@@ -243,6 +243,13 @@
 				<finalName>jcertif-facade</finalName>
 			</build>
 		</profile>
+		
+		<profile>
+			<id>tomcat-local</id>
+			<build>
+				<finalName>jcertif-facade</finalName>
+			</build>
+		</profile>
 
 
 

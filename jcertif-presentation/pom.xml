@@ -197,6 +197,13 @@
                <finalName>jcertif-presentation</finalName>
             </build>
         </profile>
+		
+		<profile>
+            <id>tomcat-local</id>
+            <build>
+               <finalName>jcertif-presentation</finalName>
+            </build>
+        </profile>
 	
 	</profiles>
 

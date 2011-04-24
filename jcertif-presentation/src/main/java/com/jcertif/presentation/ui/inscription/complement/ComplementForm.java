@@ -117,7 +117,14 @@ public class ComplementForm extends Window implements Receiver, Upload.Succeeded
 	@Override
 	public OutputStream receiveUpload(String filename, String MIMEType) {
 		FileOutputStream fos = null;
-		File tmpDir = new File(JCertifProps.getInstance().getPhotoTmpDirectory());
+		String photoTmp = JCertifProps.getInstance().getPhotoTmpDirectory();
+
+		if (photoTmp.startsWith(UIConst.TOMCAT_DIR_VARIABLE)) {
+			photoTmp = photoTmp.replace(UIConst.TOMCAT_DIR_VARIABLE,
+					System.getProperty(UIConst.TOMCAT_DIR_VARIABLE));
+		}
+
+		File tmpDir = new File(photoTmp);
 
 		if (!tmpDir.exists()) {
 			tmpDir.mkdirs();
@@ -129,6 +136,9 @@ public class ComplementForm extends Window implements Receiver, Upload.Succeeded
 			fos = new FileOutputStream(file);
 		} catch (final java.io.FileNotFoundException e) {
 			LOGGER.error("Erreur création fichier", e);
+			this.addComponent(new Label("Erreur " + e + " message=" + e.getMessage()));
+			this.addComponent(new Label("catalina dir path  "
+					+ new File(System.getProperty("catalina.base")).getAbsolutePath()));
 			return null;
 		}
 
@@ -145,7 +155,7 @@ public class ComplementForm extends Window implements Receiver, Upload.Succeeded
 	public void uploadFailed(Upload.FailedEvent event) {
 		// Log the failure on screen.
 		this.addComponent(new Label("Uploading " + event.getFilename() + " of type '"
-				+ event.getMIMEType() + "' failed."));
+				+ event.getMIMEType() + "' failed. exception :" + event.getReason()));
 	}
 
 	public boolean isValid() {

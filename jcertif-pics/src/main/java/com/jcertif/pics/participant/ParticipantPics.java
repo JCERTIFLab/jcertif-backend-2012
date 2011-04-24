@@ -17,6 +17,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.jcertif.pics.util.PicsConst;
+
 /**
  * @author rossi.oddet
  * 
@@ -36,6 +38,11 @@ public class ParticipantPics {
 
 		ResourceBundle rb = ResourceBundle.getBundle("jcertif-pics");
 		String picDir = rb.getString("pics.participant.dir");
+
+		if (picDir.startsWith(PicsConst.TOMCAT_DIR_VARIABLE)) {
+			picDir = picDir.replace(PicsConst.TOMCAT_DIR_VARIABLE,
+					System.getProperty(PicsConst.TOMCAT_DIR_VARIABLE));
+		}
 		File dir = new File(picDir + "/" + codeRole);
 		if (!dir.exists()) {
 			dir.mkdirs();

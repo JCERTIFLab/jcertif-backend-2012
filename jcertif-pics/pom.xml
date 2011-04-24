@@ -155,6 +155,13 @@
                <finalName>jcertif-pics</finalName>
             </build>
         </profile>
+		
+		<profile>
+            <id>tomcat-local</id>
+            <build>
+               <finalName>jcertif-pics</finalName>
+            </build>
+        </profile>
 	
 	</profiles>
 
