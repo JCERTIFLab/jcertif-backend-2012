@@ -4,7 +4,7 @@
     <!-- Change the width below to just wider than your form's width
     to optimize its initial scale on Apple iOS  and Android devices -->
     <meta name = "viewport" content="width=640">
-<title>Proposition enr&eacute;gistr&eacute;e</title>
+<title>Approbation de pr&eacute;sentation</title>
 <style>
 <!--
 body {background-color:#ffffff; font-family:verdana; font-size:12px; text-align:left; min-width: 500px; margin:50 0 0 0;}
@@ -28,20 +28,28 @@ p {line-height:18px;}
 </div>
 
 <div class="container2">
-<div class="pagetitlesuccess">Merci pour votre proposition de pr&eacute;sentation!</div>
+<div class="pagetitlesuccess">Bravo ! Proposition de pr&eacute;sentation est accept&eacute;e!</div>
 <p>
-   Merci $participant.salutation$ $participant.nom$ $participant.prenom$!<br />
-   Votre proposition de pr&eacute;sentation &agrave; la conf&eacute;rence JCertif 2011 a bien &eacute;t&eacute; enregistr&eacute;e.<br />
+   Bonjour $participant.salutation$ $participant.nom$ $participant.prenom$!<br />
+   Votre proposition de pr&eacute;sentation &agrave; la conf&eacute;rence JCertif 2011 a &eacute;t&eacute; approuv&eacute;e.<br />
    <br />
-   L&#39;&eacute;quipe d&#39;approbation vous notifiera par email de la suite accord&eacute;e &agrave; votre proposition (accept&eacute;e or refus&eacute;e).<br />
+   Vous pouvez d&egrave;s maintenant commencer &agrave; pr&eacute;parer votre d&eacute;placement pour les 3 et 4 Septembre 2011 &agrave; Brazzaville.
    <br />
-   R&egrave;gles g&eacute;n&eacute;rales de JCertif:<br />
-   --------------------------------------<br />
+   <br>Voici quelques information importantes:<b/><br />
+  
    <lu>
-   		<li>Les badges d&#39;acc&egrave;s VIP gratuits accord&eacute;s aux pr&eacute;sentateurs sont limit&eacute;s à 1 badge par pr&eacute;sentateur et ne peuventt être transf&eacute;r&eacute;s ou prêt&eacute;s à un tier.<li/> 
-		<li>Le CongoJUG ne rembourse pas les frais de voyage ni tout autres d&eacute;penses occasionn&eacute;es par le d&eacute;placement des pr&eacute;sentateurs.<li/> 
-		<li>En acceptant l&#39;invitation de pr&eacute;senter &agrave; JCertif, vous autorisez CongoJug &agrave; promouvoir, publier ou utiliser le contenu de votre pr&eacute;sentation pour les besoins de la conf&eacute;rence.<li/>
+   		<li>Nous fournir votre pr&eacute;f&eacute;rence pour la case horaire de votre pr&eacute;sentation (lien calendar).<li/> 
+		<li>Nous fournir une pr&eacute;f&eacute;rence de la taille du T-Shirt sp&eacute;cial pour les pr&eacute;sentateurs JCertif 2011.<li/> 
+		<li>Commencez &agrave; vous renseigner sur les possibilit&eacute;s d&#39;h&eacute;bergement et des moyens de transport.<li/>
+		<li>Consultez notre page d&#39;information utiles (lien infoUtile).<li/>
 	<ul/>
+	
+	<br>pr&eacute;sentation accept&eacute;e:<b/><br />
+   <lu>
+		<li>$propositionPresentation.titre$.<li/>
+	<ul/>
+
+
    
    <br />
    Devenez vous aussi collecteur de votre secteur et et rejoingnez l&#39;&eacute;quipe d&#39;organisation !<br />
