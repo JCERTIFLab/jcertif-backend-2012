@@ -36,7 +36,7 @@ p {line-height:18px;}
    Il ne vous reste que 2 petites &eacute;tapes pour compl&eacute;ter la proc&eacute;dure.<br />
    <br />
    &Eacute;tapes &agrave; suivre :<br />
-   -------------------<br />
+   ------------------- <br />
    &nbsp;1 - Contacter rapidement le collecteur de votre sercteur ( <a href="http://www.jcertif.com/node/33">http://www.jcertif.com/PageXXX</a>).<br />
    &nbsp;2 - Payer les frais de participation et recevez votre carte d&#39;invitation officielle et un num&eacute;ro de confirmation.<br />
    <br />
