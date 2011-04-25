@@ -37,8 +37,8 @@ p {line-height:18px;}
    <br />
    &Eacute;tapes &agrave; suivre :<br />
    ------------------- <br />
-   &nbsp;1 - Contacter rapidement le collecteur de votre sercteur ( <a href="http://www.jcertif.com/node/33">http://www.jcertif.com/PageXXX</a>).<br />
-   &nbsp;2 - Payer les frais de participation et recevez votre carte d&#39;invitation officielle et un num&eacute;ro de confirmation.<br />
+   &nbsp;1 - Contactez rapidement le collecteur de votre sercteur ( <a href="http://www.jcertif.com/node/33">http://www.jcertif.com/PageXXX</a>).<br />
+   &nbsp;2 - Payez les frais de participation et recevez votre carte d&#39;invitation officielle et un num&eacute;ro de confirmation.<br />
    <br />
    Vous pouvez retourner &agrave; la page d&#39;accueil : <a href="http://www.jcertif.com/">http://www.jcertif.com</a><br />
    <br />
