@@ -26,7 +26,9 @@
 			<h4><%=session.getAttribute("contact.jsp.title")%></h4>
 			<p>
 				<img src="images/phone_icon.gif" alt="" title="" class="box_img" />
-				<%=session.getAttribute("contact.jsp.canada")%><br /><%=session.getAttribute("contact.jsp.congo")%>
+				<%=session.getAttribute("contact.jsp.congo")%><br />
+				<%=session.getAttribute("contact.jsp.france")%><br />
+				<%=session.getAttribute("contact.jsp.canada")%>
 			</p>
 			<br /> <br />
 			<p>
