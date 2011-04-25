@@ -36,7 +36,7 @@ p {line-height:18px;}
    L&#39;&eacute;quipe d&#39;approbation vous notifiera par email de la suite accord&eacute;e &agrave; votre proposition (accept&eacute;e or refus&eacute;e).<br />
    <br />
    R&egrave;gles g&eacute;n&eacute;rales de JCertif:<br />
-   --------------------------------------<br />
+   -------------------------------------<br />
    <lu>
    		<li>Les badges d&#39;acc&egrave;s VIP gratuits accord&eacute;s aux pr&eacute;sentateurs sont limit&eacute;s à 1 badge par pr&eacute;sentateur et ne peuventt être transf&eacute;r&eacute;s ou prêt&eacute;s à un tier.<li/> 
 		<li>Le CongoJUG ne rembourse pas les frais de voyage ni tout autres d&eacute;penses occasionn&eacute;es par le d&eacute;placement des pr&eacute;sentateurs.<li/> 
