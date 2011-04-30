@@ -24,7 +24,7 @@ p {line-height:18px;}
 
 <div class="container">
 <div align="left">
-   <img style="width: 100px; height: 63px;" alt="JCertif Logo" src="cid:image"><br>
+   <img style="width: 100px;" alt="JCertif Logo" src="cid:image"><br>
 </div>
 
 <div class="container2">

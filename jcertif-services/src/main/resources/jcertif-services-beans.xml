@@ -31,7 +31,7 @@
         <property name="socketFactoryClass" value="javax.net.ssl.SSLSocketFactory"/>
         <property name="auth" value="true"/>
         <property name="smtpPort" value="465"/>
-        <property name="photoURI" value="/com/jcertif/service/mail/JCertifCarte_100x69.png"/>
+        <property name="photoURI" value="/com/jcertif/service/mail/logo_jcertif2011.png"/>
     </bean>
 
 </beans>
