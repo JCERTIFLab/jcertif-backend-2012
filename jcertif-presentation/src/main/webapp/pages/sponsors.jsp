@@ -21,6 +21,6 @@
 	<br/>
 	<img alt="" src="<%=picsURL + partenaire%>objis.jpg" width="200">
 	<br/>
-	<img alt="" src="<%=picsURL + partenaire%>warid.gif" width="100" >
+	<img alt="" src="<%=picsURL + partenaire%>warid.gif" width="200" >
 	<br/>
 </div>
