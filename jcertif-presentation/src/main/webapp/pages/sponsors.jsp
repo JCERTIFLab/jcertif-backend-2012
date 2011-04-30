@@ -19,7 +19,7 @@
 	<br/>
 	<img alt="" src="<%=picsURL + partenaire%>oraclent.png" width="200">
 	<br/>
-	<img alt="" src="<%=picsURL + partenaire%>objis.jpg" width="200">
+	<img alt="" src="<%=picsURL + partenaire%>objis.gif" width="200">
 	<br/>
 	<img alt="" src="<%=picsURL + partenaire%>warid.gif" width="200" >
 	<br/>
