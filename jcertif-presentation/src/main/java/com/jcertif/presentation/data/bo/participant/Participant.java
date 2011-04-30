@@ -37,6 +37,7 @@ public class Participant extends Person {
 	private ProfilUtilisateur profilUtilisateur;
 	private Set<CeduleParticipant> ceduleParticipants;
 	private Set<PropositionPresentation> propositionPresentations;
+	private NiveauPartenariat niveauPartenariat;
 
 	/**
 	 * Constructor
@@ -48,9 +49,10 @@ public class Participant extends Person {
 	/**
 	 * Constructor
 	 */
-	public Participant(Long id, Calendar dateinscription, String salutation, String specialite,
-			String prenom, String nom, Character sexe, String email, String cvsoumis,
-			String details, RoleParticipant roleparticipant, Conference conference,
+	public Participant(Long id, Calendar dateinscription, String salutation,
+			String specialite, String prenom, String nom, Character sexe,
+			String email, String cvsoumis, String details,
+			RoleParticipant roleparticipant, Conference conference,
 			Set<CeduleParticipant> ceduleparticipants) {
 		super();
 		this.setId(id);
@@ -83,8 +85,8 @@ public class Participant extends Person {
 	 * @param cvsoumis
 	 * @param details
 	 */
-	public Participant(Long id, String salutation, String prenom, String nom, Character sexe_MF,
-			String email, String cvsoumis, String details) {
+	public Participant(Long id, String salutation, String prenom, String nom,
+			Character sexe_MF, String email, String cvsoumis, String details) {
 		super();
 		this.setId(id);
 		this.setSalutation(salutation);
@@ -115,7 +117,8 @@ public class Participant extends Person {
 	 * @param presentationsInternal
 	 *            the presentationsInternal to set
 	 */
-	protected void setPresentationsInternal(Set<PropositionPresentation> presentationsInternal) {
+	protected void setPresentationsInternal(
+			Set<PropositionPresentation> presentationsInternal) {
 		this.presentationsInternal = presentationsInternal;
 	}
 
@@ -283,6 +286,21 @@ public class Participant extends Person {
 	}
 
 	/**
+	 * @return the niveauPartenariat
+	 */
+	public NiveauPartenariat getNiveauPartenariat() {
+		return niveauPartenariat;
+	}
+
+	/**
+	 * @param niveauPartenariat
+	 *            the niveauPartenariat to set
+	 */
+	public void setNiveauPartenariat(NiveauPartenariat niveauPartenariat) {
+		this.niveauPartenariat = niveauPartenariat;
+	}
+
+	/**
 	 * @return the propositionPresentations
 	 */
 	public Set<PropositionPresentation> getPropositionPresentations() {
@@ -293,7 +311,8 @@ public class Participant extends Person {
 	 * @param propositionPresentations
 	 *            the propositionPresentations to set
 	 */
-	public void setPropositionPresentations(Set<PropositionPresentation> propositionPresentations) {
+	public void setPropositionPresentations(
+			Set<PropositionPresentation> propositionPresentations) {
 		this.propositionPresentations = propositionPresentations;
 	}
 
@@ -302,7 +321,8 @@ public class Participant extends Person {
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(this.getId()).append(this.getPrenom()).toHashCode();
+		return new HashCodeBuilder().append(this.getId())
+				.append(this.getPrenom()).toHashCode();
 	}
 
 	/**

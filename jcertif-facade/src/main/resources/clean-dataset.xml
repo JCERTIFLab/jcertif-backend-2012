@@ -9,6 +9,7 @@
 	<adresse/>
 	<role_participant/>
 	<type_participant/>
+	<niveau_partenariat/>
 	<proposition_presentation />
 	<evenement/>
 	<faq/>

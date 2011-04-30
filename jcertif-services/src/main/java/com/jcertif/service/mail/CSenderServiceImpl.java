@@ -49,6 +49,8 @@ import com.jcertif.service.api.participant.ParticipantService;
 @Service
 public class CSenderServiceImpl extends CSenderService {
 
+	private static final int NOMBRE_MAX_PARTENAIRES = 8;
+
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(CSenderServiceImpl.class);
 
@@ -200,7 +202,12 @@ public class CSenderServiceImpl extends CSenderService {
 		for (Participant partenaire : participants) {
 			if (partenaire.getRoleparticipant() != null
 					&& "Partenaire".equalsIgnoreCase(partenaire
-							.getRoleparticipant().getCode())) {
+							.getRoleparticipant().getCode())
+					&& partenaire.getNiveauPartenariat() != null
+					&& ("Titanium".equalsIgnoreCase(partenaire
+							.getNiveauPartenariat().getCode()) || "Platine"
+							.equalsIgnoreCase(partenaire.getNiveauPartenariat()
+									.getCode())) && i < NOMBRE_MAX_PARTENAIRES) {
 				MimeBodyPart imagePartenaire = new MimeBodyPart();
 				URL urlpart = new URL(getPicsUrl() + "/Partenaire/"
 						+ partenaire.getProfilUtilisateur().getPhoto());

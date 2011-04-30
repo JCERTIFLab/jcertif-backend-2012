@@ -53,6 +53,10 @@ public class Participant extends Person {
 	@JoinColumn(name = "profil_utilisateur_id")
 	private ProfilUtilisateur profilUtilisateur;
 
+	@ManyToOne
+	@JoinColumn(name = "niveau_partenariat_id")
+	private NiveauPartenariat niveauPartenariat;
+
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name = "participant_id")
 	private Set<CeduleParticipant> ceduleParticipants;
@@ -74,11 +78,11 @@ public class Participant extends Person {
 	/**
 	 * Constructor
 	 */
-	public Participant(Long id, Calendar dateinscription, String salutation, String specialite,
-			String prenom, String nom, Character sexe, String email,
-			PropositionPresentation presentationsoumise, String cvsoumis, String details,
-			RoleParticipant roleparticipant, Conference conference,
-			Set<CeduleParticipant> ceduleparticipants) {
+	public Participant(Long id, Calendar dateinscription, String salutation,
+			String specialite, String prenom, String nom, Character sexe,
+			String email, PropositionPresentation presentationsoumise,
+			String cvsoumis, String details, RoleParticipant roleparticipant,
+			Conference conference, Set<CeduleParticipant> ceduleparticipants) {
 		super();
 		this.setId(id);
 		this.dateInscription = dateinscription;
@@ -109,8 +113,9 @@ public class Participant extends Person {
 	 * @param cvsoumis
 	 * @param details
 	 */
-	public Participant(Long id, String salutation, String prenom, String nom, Character sexe_MF,
-			String email, PropositionPresentation presentationsoumise, String cvsoumis,
+	public Participant(Long id, String salutation, String prenom, String nom,
+			Character sexe_MF, String email,
+			PropositionPresentation presentationsoumise, String cvsoumis,
 			String details) {
 		super();
 		this.setId(id);
@@ -273,8 +278,24 @@ public class Participant extends Person {
 	 * @param propositionPresentations
 	 *            the propositionPresentations to set
 	 */
-	public void setPropositionPresentations(Set<PropositionPresentation> propositionPresentations) {
+	public void setPropositionPresentations(
+			Set<PropositionPresentation> propositionPresentations) {
 		this.propositionPresentations = propositionPresentations;
+	}
+
+	/**
+	 * @return the niveauPartenariat
+	 */
+	public NiveauPartenariat getNiveauPartenariat() {
+		return niveauPartenariat;
+	}
+
+	/**
+	 * @param niveauPartenariat
+	 *            the niveauPartenariat to set
+	 */
+	public void setNiveauPartenariat(NiveauPartenariat niveauPartenariat) {
+		this.niveauPartenariat = niveauPartenariat;
 	}
 
 	/**
@@ -282,7 +303,8 @@ public class Participant extends Person {
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(this.getId()).append(this.getPrenom()).toHashCode();
+		return new HashCodeBuilder().append(this.getId())
+				.append(this.getPrenom()).toHashCode();
 	}
 
 	/**
