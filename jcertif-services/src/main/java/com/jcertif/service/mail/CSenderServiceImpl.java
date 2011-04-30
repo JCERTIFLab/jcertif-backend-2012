@@ -5,11 +5,14 @@
 package com.jcertif.service.mail;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.HashSet;
 import java.util.Properties;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -30,12 +33,14 @@ import org.antlr.stringtemplate.StringTemplate;
 import org.antlr.stringtemplate.StringTemplateGroup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.jcertif.bo.participant.Participant;
 import com.jcertif.bo.participant.ProfilUtilisateur;
 import com.jcertif.bo.presentation.PropositionPresentation;
+import com.jcertif.service.api.participant.ParticipantService;
 
 /**
  * 
@@ -44,11 +49,16 @@ import com.jcertif.bo.presentation.PropositionPresentation;
 @Service
 public class CSenderServiceImpl extends CSenderService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(CSenderServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(CSenderServiceImpl.class);
+
+	@Autowired
+	private ParticipantService participantService;
 
 	@Override
 	@Async
-	public Boolean sendConfirmation(final ProfilUtilisateur profilUtilisateur, final String from) {
+	public Boolean sendConfirmation(final ProfilUtilisateur profilUtilisateur,
+			final String from) {
 		Properties props = new Properties();
 		props.put("mail.smtp.host", getHost());
 		props.put("mail.smtp.socketFactory.port", getSocketFactoryPort());
@@ -56,25 +66,30 @@ public class CSenderServiceImpl extends CSenderService {
 		props.put("mail.smtp.auth", getAuth());
 		props.put("mail.smtp.port", getSmtpPort());
 
-		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+		Session session = Session.getDefaultInstance(props,
+				new javax.mail.Authenticator() {
 
-			@Override
-			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(getUserName(), getPassword());
-			}
-		});
+					@Override
+					protected PasswordAuthentication getPasswordAuthentication() {
+						return new PasswordAuthentication(getUserName(),
+								getPassword());
+					}
+				});
 
-		String recipients = getDiffusionList() + "," + profilUtilisateur.getEmail();
+		String recipients = getDiffusionList() + ","
+				+ profilUtilisateur.getEmail();
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
+			message.setRecipients(Message.RecipientType.TO,
+					InternetAddress.parse(recipients));
 			message.setSubject("Confirmation Enregistrement Participation JCertif 2011");
 			// Add html content
 
 			// Specify the cid of the image to include in the email
 			StringTemplateGroup group = new StringTemplateGroup("mailTemplate");
-			StringTemplate st = group.getInstanceOf("com/jcertif/service/mail/confirmParticipant");
+			StringTemplate st = group
+					.getInstanceOf("com/jcertif/service/mail/confirmParticipant");
 			st.setAttribute(from, st);
 			String html = st.toString();
 			Multipart mp = new MimeMultipart();
@@ -82,7 +97,8 @@ public class CSenderServiceImpl extends CSenderService {
 			htmlPart.setContent(html, "text/html");
 			mp.addBodyPart(htmlPart);
 			MimeBodyPart imagePart = new MimeBodyPart();
-			DataSource fds = new FileDataSource(new File(new URI(getPhotoURI())));
+			DataSource fds = new FileDataSource(
+					new File(new URI(getPhotoURI())));
 			imagePart.setDataHandler(new DataHandler(fds));
 
 			// assign a cid to the image
@@ -112,31 +128,41 @@ public class CSenderServiceImpl extends CSenderService {
 		props.put("mail.smtp.auth", getAuth());
 		props.put("mail.smtp.port", getSmtpPort());
 
-		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+		Session session = Session.getDefaultInstance(props,
+				new javax.mail.Authenticator() {
 
-			@Override
-			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(getUserName(), getPassword());
-			}
-		});
+					@Override
+					protected PasswordAuthentication getPasswordAuthentication() {
+						return new PasswordAuthentication(getUserName(),
+								getPassword());
+					}
+				});
 
 		String recipients = getDiffusionList() + "," + participant.getEmail();
 
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
+			message.setRecipients(Message.RecipientType.TO,
+					InternetAddress.parse(recipients));
 			message.setSubject("Confirmation Enregistrement Participation JCertif 2011");
 			// Add html content
 
+			Multipart mp = new MimeMultipart();
+
 			// Specify the cid of the image to include in the email
 			StringTemplateGroup group = new StringTemplateGroup("mailTemplate");
-			StringTemplate st = group.getInstanceOf("com/jcertif/service/mail/confirmParticipant");
+			StringTemplate st = group
+					.getInstanceOf("com/jcertif/service/mail/confirmParticipant");
 			st.setAttribute("participant", participant);
+
+			// Ajout des photos des partenaires
+			String partenaires = ajoutImagesPartenaire(mp);
+			st.setAttribute("partenaires", partenaires);
 
 			String html = st.toString();
 			System.out.println("Message " + html);
-			Multipart mp = new MimeMultipart();
+
 			MimeBodyPart htmlPart = new MimeBodyPart();
 			htmlPart.setContent(html, "text/html");
 			mp.addBodyPart(htmlPart);
@@ -149,13 +175,54 @@ public class CSenderServiceImpl extends CSenderService {
 
 			imagePart.setHeader("Content-ID", "<image>");
 			mp.addBodyPart(imagePart);
+
 			message.setContent(mp);
 			Transport.send(message);
 
 		} catch (MessagingException e) {
+			LOGGER.error("", e);
+			throw new RuntimeException(e);
+		} catch (MalformedURLException e) {
+			LOGGER.error("", e);
 			throw new RuntimeException(e);
 		}
 		return Boolean.TRUE;
+	}
+
+	private String ajoutImagesPartenaire(Multipart mp)
+			throws MalformedURLException, MessagingException {
+		String partenaires = "";
+
+		Set<Participant> participants = new HashSet(
+				participantService.findAll());
+
+		int i = 0;
+		for (Participant partenaire : participants) {
+			if (partenaire.getRoleparticipant() != null
+					&& "Partenaire".equalsIgnoreCase(partenaire
+							.getRoleparticipant().getCode())) {
+				MimeBodyPart imagePartenaire = new MimeBodyPart();
+				URL urlpart = new URL(getPicsUrl() + "/Partenaire/"
+						+ partenaire.getProfilUtilisateur().getPhoto());
+				DataSource fdsPart = new URLDataSource(urlpart);
+				imagePartenaire.setDataHandler(new DataHandler(fdsPart));
+
+				// assign a cid to the image
+
+				imagePartenaire.setHeader("Content-ID", "<image_partenaire" + i
+						+ ">");
+
+				partenaires += "<td><a href=\"" + partenaire.getWebsite()
+						+ "\"><img style= \"width: 150px;\" alt=\""
+						+ "JCertif Logo\" src=\"cid:image_partenaire" + i
+						+ "\"></a></td>";
+
+				mp.addBodyPart(imagePartenaire);
+				i++;
+
+			}
+		}
+		return partenaires;
 	}
 
 	@Override
@@ -164,28 +231,36 @@ public class CSenderServiceImpl extends CSenderService {
 		Session session = initSession();
 		String recipients = getDiffusionList();
 
-		if (propo.getParticipants() != null && !propo.getParticipants().isEmpty()) {
-			recipients += "," + propo.getParticipants().iterator().next().getEmail();
+		if (propo.getParticipants() != null
+				&& !propo.getParticipants().isEmpty()) {
+			recipients += ","
+					+ propo.getParticipants().iterator().next().getEmail();
 		}
 
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
+			message.setRecipients(Message.RecipientType.TO,
+					InternetAddress.parse(recipients));
 			message.setSubject("Confirmation Proposition Présentation JCertif 2011");
 			// Add html content
-
+			Multipart mp = new MimeMultipart();
 			// Specify the cid of the image to include in the email
 			StringTemplateGroup group = new StringTemplateGroup("mailTemplate");
-			StringTemplate st = group.getInstanceOf("com/jcertif/service/mail/confirmProposition");
+			StringTemplate st = group
+					.getInstanceOf("com/jcertif/service/mail/confirmProposition");
 			st.setAttribute("proposition", propo);
+
+			// Ajout des photos des partenaires
+			String partenaires = ajoutImagesPartenaire(mp);
+			st.setAttribute("partenaires", partenaires);
 
 			String html = st.toString();
 
 			if (LOGGER.isDebugEnabled()) {
 				LOGGER.debug("Message " + html);
 			}
-			Multipart mp = new MimeMultipart();
+
 			MimeBodyPart htmlPart = new MimeBodyPart();
 			htmlPart.setContent(html, "text/html");
 			mp.addBodyPart(htmlPart);
@@ -204,6 +279,9 @@ public class CSenderServiceImpl extends CSenderService {
 		} catch (MessagingException e) {
 			LOGGER.error("", e);
 			throw new RuntimeException(e);
+		} catch (MalformedURLException e) {
+			LOGGER.error("", e);
+			throw new RuntimeException(e);
 		}
 		return Boolean.TRUE;
 	}
@@ -212,10 +290,14 @@ public class CSenderServiceImpl extends CSenderService {
 	 * @return
 	 */
 	private String getDiffusionList() {
-		String recipients;
 		ResourceBundle bundle = ResourceBundle.getBundle("service");
-		recipients = bundle.getString("diffusion");
-		return recipients;
+		return bundle.getString("diffusion");
+	}
+
+	private String getPicsUrl() {
+		ResourceBundle bundle = ResourceBundle.getBundle("service");
+		return bundle.getString("pics.url");
+
 	}
 
 	/**
@@ -229,13 +311,15 @@ public class CSenderServiceImpl extends CSenderService {
 		props.put("mail.smtp.auth", getAuth());
 		props.put("mail.smtp.port", getSmtpPort());
 
-		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+		Session session = Session.getDefaultInstance(props,
+				new javax.mail.Authenticator() {
 
-			@Override
-			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(getUserName(), getPassword());
-			}
-		});
+					@Override
+					protected PasswordAuthentication getPasswordAuthentication() {
+						return new PasswordAuthentication(getUserName(),
+								getPassword());
+					}
+				});
 		return session;
 	}
 }

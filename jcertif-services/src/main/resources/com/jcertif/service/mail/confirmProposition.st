@@ -59,12 +59,7 @@ p {line-height:18px;}
 <b>Sponsors<b/>
 <table>
 	<tr>
-		<td><img style="width: 100px; height: 63px;" alt="JCertif Logo" src="cid:image"></td>
-		<td><img style="width: 100px; height: 63px;" alt="JCertif Logo" src="cid:image"></td>
-		<td><img style="width: 100px; height: 63px;" alt="JCertif Logo" src="cid:image"></td>
-		<td><img style="width: 100px; height: 63px;" alt="JCertif Logo" src="cid:image"></td>
-		<td><img style="width: 100px; height: 63px;" alt="JCertif Logo" src="cid:image"></td>
-		<td><img style="width: 100px; height: 63px;" alt="JCertif Logo" src="cid:image"></td>
+		$partenaires$
 	</tr>
    		
 </div>

@@ -24,7 +24,6 @@
 			<plugin>
 				<groupId>org.glassfish</groupId>
 				<artifactId>maven-embedded-glassfish-plugin</artifactId>
-				<version>3.0.1</version>
 				<configuration>
 					<app>${basedir}/target/jcertif-pics-${version}.war</app>
 					<autoDelete>true</autoDelete>
@@ -46,7 +45,7 @@
 	</build>
 	<!-- JCERTIF PRESENTATION DEPENDENCIES -->
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>com.jcertif</groupId>
 			<artifactId>jcertif-services</artifactId>
@@ -81,8 +80,7 @@
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-json</artifactId>
 		</dependency>
-
-
+		
 		<!-- LOGGER -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -137,32 +135,32 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
-		
+
 	</dependencies>
-	
+
 	<profiles>
-	
-		 <profile>
-            <id>pre-prod</id>
-            <build>
-               <finalName>jcertif-pics</finalName>
-            </build>
-        </profile>
-		
+
 		<profile>
-            <id>prod</id>
-            <build>
-               <finalName>jcertif-pics</finalName>
-            </build>
-        </profile>
-		
+			<id>pre-prod</id>
+			<build>
+				<finalName>jcertif-pics</finalName>
+			</build>
+		</profile>
+
 		<profile>
-            <id>tomcat-local</id>
-            <build>
-               <finalName>jcertif-pics</finalName>
-            </build>
-        </profile>
-	
+			<id>prod</id>
+			<build>
+				<finalName>jcertif-pics</finalName>
+			</build>
+		</profile>
+
+		<profile>
+			<id>tomcat-local</id>
+			<build>
+				<finalName>jcertif-pics</finalName>
+			</build>
+		</profile>
+
 	</profiles>
 
 </project>

@@ -201,6 +201,11 @@
 					<artifactId>vaadin-maven-plugin</artifactId>
 					<version>1.0.1</version>
 				</plugin>
+				<plugin>
+					<groupId>org.glassfish</groupId>
+					<artifactId>maven-embedded-glassfish-plugin</artifactId>
+					<version>3.0</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -312,6 +317,17 @@
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-annotations</artifactId>
 				<version>3.3.1.GA</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>net.sf.ehcache</groupId>
+				<artifactId>ehcache</artifactId>
+				<version>1.2.3</version>
 				<exclusions>
 					<exclusion>
 						<groupId>commons-logging</groupId>

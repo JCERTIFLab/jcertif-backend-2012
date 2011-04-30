@@ -17,6 +17,15 @@
 
     <name>JCERTIF - SERVICES</name>
     <description>JCERTIF Services</description>
+    
+    <build>
+    	<resources>
+    		<resource>
+    			<directory>src/main/resources</directory>
+    			<filtering>true</filtering>
+    		</resource>
+    	</resources>
+    </build>
 
 	<!-- JCERTIF Services Implementation -->
     <dependencies>
