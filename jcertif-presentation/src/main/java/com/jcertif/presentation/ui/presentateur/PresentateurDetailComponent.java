@@ -1,9 +1,6 @@
 package com.jcertif.presentation.ui.presentateur;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +35,8 @@ public class PresentateurDetailComponent extends Panel {
 	/**
 	 * A Logger for class.
 	 */
-	private static final Logger LOGGER = LoggerFactory.getLogger(PresentateurDetailComponent.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(PresentateurDetailComponent.class);
 
 	/**
 	 * A constructor.
@@ -62,39 +60,43 @@ public class PresentateurDetailComponent extends Panel {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Updating Detail Panel with Presentateur");
 		}
-		// this.removeAllComponents();
-		// Sujet
-		// this.setCaption("Presentateurs");
 
-		for (Participant participant : getPresentateursList()) {
+		List<Participant> participantList = ParticipantClient.getInstance()
+				.getSpeakersValid();
+		for (Participant participant : participantList) {
 
-			CustomLayout htmlLayout = new CustomLayout(UIConst.COMMUN_DETAIL_LAYOUT);
+			CustomLayout htmlLayout = new CustomLayout(
+					UIConst.COMMUN_DETAIL_LAYOUT);
 			htmlLayout.addStyleName("details_commun_layout");
 
 			// Entete
 			if (isFirsTime) {
-				htmlLayout.addComponent(new Label(Msg.get("ui.presentateur.title")), "caption");
-				htmlLayout.addComponent(new Label(Msg.get("ui.presentateur.description")),
+				htmlLayout.addComponent(
+						new Label(Msg.get("ui.presentateur.title")), "caption");
+				htmlLayout.addComponent(
+						new Label(Msg.get("ui.presentateur.description")),
 						"captionDetail");
 			}
 
 			// Lastname + firstname
-			htmlLayout
-					.addComponent(new Label(participant.getNom() + " " + participant.getPrenom()),
-							"presentateur");
+			htmlLayout.addComponent(new Label(participant.getNom() + " "
+					+ participant.getPrenom()), "presentateur");
 
 			// Participant photo
 			if (participant.getProfilUtilisateur() != null
 					&& participant.getProfilUtilisateur().getPhoto() != null) {
-				ExternalResource res = new ExternalResource(JCertifProps.getInstance().getPicsUrl()
-						+ UIConst.URL_SPEAKER_IMG + participant.getProfilUtilisateur().getPhoto());
+				ExternalResource res = new ExternalResource(JCertifProps
+						.getInstance().getPicsUrl()
+						+ UIConst.URL_SPEAKER_IMG
+						+ participant.getProfilUtilisateur().getPhoto());
 				Embedded embedded = new Embedded("", res);
 				embedded.setStyleName(UIStyle.PHOTO_SPEAKER);
 				htmlLayout.addComponent(embedded, "photo");
 			}
 
 			// Participant Bio
-			htmlLayout.addComponent(new Label(participant.getDetails()), "details");
+			htmlLayout.addComponent(new Label(participant.getDetails()),
+					"details");
 
 			// Affichage des présentations associees au participant
 			createPopup(htmlLayout, participant);
@@ -107,33 +109,6 @@ public class PresentateurDetailComponent extends Panel {
 
 	}
 
-	private List<Participant> getPresentateursList() {
-		List<Participant> presentateursList = new ArrayList<Participant>();
-		Set<Participant> participants = new HashSet<Participant>(ParticipantClient.getInstance()
-				.findAllXML());
-
-		for (Participant participant : participants) {
-			if (isApeaker(participant)) {
-				presentateursList.add(participant);
-			}
-		}
-		return presentateursList;
-	}
-
-	// En plus du role Presentateur, un speaker doit avoir au moins une
-	// porposition de presentation approuvee ou en attente de complement
-	private boolean isApeaker(Participant part) {
-		if (part.getPropositionPresentations() != null && part.getRoleparticipant() != null
-				&& UIConst.ROLE_SPEAKER.equalsIgnoreCase(part.getRoleparticipant().getCode())) {
-			for (PropositionPresentation popos : part.getPropositionPresentations()) {
-				if ("C".equalsIgnoreCase(popos.getStatutApprobation().getCodeStatut())
-						|| "A".equalsIgnoreCase(popos.getStatutApprobation().getCodeStatut())) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
 
 	private void createPopup(CustomLayout htmlLayout, Participant participant) {
 
@@ -143,8 +118,9 @@ public class PresentateurDetailComponent extends Panel {
 			for (PropositionPresentation propositionPresentation : participant
 					.getPropositionPresentations()) {
 
-				Label content = new Label("<h2>" + propositionPresentation.getTitre() + "</h2>"
-						+ "<p>" + propositionPresentation.getDescription() + "</p>");
+				Label content = new Label("<h2>"
+						+ propositionPresentation.getTitre() + "</h2>" + "<p>"
+						+ propositionPresentation.getDescription() + "</p>");
 				content.setContentMode(Label.CONTENT_XHTML);
 
 				// The PopupView popup will be as large as needed by the content
@@ -153,7 +129,8 @@ public class PresentateurDetailComponent extends Panel {
 				// Construct the PopupView with simple HTML text representing
 				// the
 				// minimized view
-				PopupView popup = new PopupView(propositionPresentation.getTitre(), content);
+				PopupView popup = new PopupView(
+						propositionPresentation.getTitre(), content);
 				popup.setHideOnMouseOut(true);
 				// popup.addListener((PopupVisibilityListener) htmlLayout);
 				htmlLayout.addComponent(popup, "papersList" + idx++);
@@ -168,7 +145,8 @@ public class PresentateurDetailComponent extends Panel {
 }
 
 @SuppressWarnings("serial")
-class PopupViewClosingExample extends VerticalLayout implements PopupView.PopupVisibilityListener {
+class PopupViewClosingExample extends VerticalLayout implements
+		PopupView.PopupVisibilityListener {
 
 	public PopupViewClosingExample() {
 
