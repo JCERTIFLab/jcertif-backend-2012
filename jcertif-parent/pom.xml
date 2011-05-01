@@ -48,6 +48,7 @@
 		<pics.url>http://localhost:8082/jcertif-pics</pics.url>
 		<!-- Ne pas mettre le "/" avec la fin du répertoire -->
 		<tmp.photo.dir>./tmp/photo</tmp.photo.dir>
+		<presentation.cache.enabled>false</presentation.cache.enabled>
 	</properties>
 
 	<modules>
@@ -746,6 +747,8 @@
 				
 				<!-- Ne pas mettre le "/" avec la fin du répertoire, mettre catalina.base pour utiliser cette variable de tomcat -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
+				
+				<presentation.cache.enabled>true</presentation.cache.enabled>
 			</properties>
 		</profile>
 		
@@ -771,6 +774,8 @@
 				<pics.url>http://localhost:8082/jcertif-pics</pics.url>
 				<!-- Ne pas mettre le "/" avec la fin du répertoire, mettre catalina.base pour utiliser cette variable de tomcat  -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
+				
+				<presentation.cache.enabled>true</presentation.cache.enabled>
 			</properties>
 		</profile>
 		
@@ -796,6 +801,7 @@
 				<pics.url>http://localhost:8080/jcertif-pics</pics.url>
 				<!-- Ne pas mettre le "/" avec la fin du répertoire, mettre catalina.base pour utiliser cette variable de tomcat  -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
+				<presentation.cache.enabled>true</presentation.cache.enabled>
 			</properties>
 		</profile>
 	</profiles>

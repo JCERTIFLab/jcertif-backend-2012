@@ -35,7 +35,6 @@
 			<plugin>
 				<groupId>org.glassfish</groupId>
 				<artifactId>maven-embedded-glassfish-plugin</artifactId>
-				<version>3.0.1</version>
 				<configuration>
 					<app>${basedir}/target/jcertif-presentation-${version}.war</app>
 					<autoDelete>true</autoDelete>
@@ -180,31 +179,36 @@
 			<version>1.1.14</version>
 		</dependency>
 
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+		</dependency>
+
 	</dependencies>
-	
+
 	<profiles>
-	
-		 <profile>
-            <id>pre-prod</id>
-            <build>
-               <finalName>jcertif-presentation</finalName>
-            </build>
-        </profile>
-		
+
 		<profile>
-            <id>prod</id>
-            <build>
-               <finalName>jcertif-presentation</finalName>
-            </build>
-        </profile>
-		
+			<id>pre-prod</id>
+			<build>
+				<finalName>jcertif-presentation</finalName>
+			</build>
+		</profile>
+
 		<profile>
-            <id>tomcat-local</id>
-            <build>
-               <finalName>jcertif-presentation</finalName>
-            </build>
-        </profile>
-	
+			<id>prod</id>
+			<build>
+				<finalName>jcertif-presentation</finalName>
+			</build>
+		</profile>
+
+		<profile>
+			<id>tomcat-local</id>
+			<build>
+				<finalName>jcertif-presentation</finalName>
+			</build>
+		</profile>
+
 	</profiles>
 
 </project>

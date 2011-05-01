@@ -4,17 +4,6 @@
  */
 package com.jcertif.presentation.action;
 
-import com.jcertif.presentation.container.AbstractJCertifBeanItemContainer;
-import com.jcertif.presentation.data.bo.AbstractBO;
-import com.jcertif.presentation.principal.JCertifVaadinApplication;
-import com.jcertif.presentation.wsClient.AbstractJCertWebServiceClient;
-import com.sun.jersey.api.client.ClientHandlerException;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.UniformInterfaceException;
-import com.vaadin.data.Item;
-import com.vaadin.ui.AbstractSelect;
-import com.vaadin.ui.AbstractSelect.Filtering;
-import com.vaadin.ui.ComboBox;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.lang.reflect.ParameterizedType;
@@ -23,6 +12,16 @@ import java.util.Collection;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.jcertif.presentation.container.AbstractJCertifBeanItemContainer;
+import com.jcertif.presentation.data.bo.AbstractBO;
+import com.jcertif.presentation.wsClient.AbstractJCertWebServiceClient;
+import com.sun.jersey.api.client.ClientHandlerException;
+import com.sun.jersey.api.client.UniformInterfaceException;
+import com.vaadin.data.Item;
+import com.vaadin.ui.AbstractSelect;
+import com.vaadin.ui.AbstractSelect.Filtering;
+import com.vaadin.ui.ComboBox;
 
 /**
  * 
@@ -33,13 +32,16 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractAction<PC extends AbstractJCertifBeanItemContainer, BO extends AbstractBO, WS extends AbstractJCertWebServiceClient> {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractAction.class);
-	private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(AbstractAction.class);
+	private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(
+			this);
 	private boolean alreadyMakeFirstLoad = false;
 	private Class<BO> responseType;
 
 	public AbstractAction() {
-		final ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
+		final ParameterizedType type = (ParameterizedType) this.getClass()
+				.getGenericSuperclass();
 		this.responseType = (Class<BO>) type.getActualTypeArguments()[1];
 	}
 
@@ -70,25 +72,25 @@ public abstract class AbstractAction<PC extends AbstractJCertifBeanItemContainer
 	}
 
 	public boolean updateItem(BO bo) throws UnsupportedOperationException {
-		ClientResponse status = getWebServiceClient().checkConnection();
+		// ClientResponse status = getWebServiceClient().checkConnection();
 
-		if (status != null && status.getStatus() >= 400) {
-			LOGGER.warn(
-					"Entity={0} Statut={1} .Le statut de la réponse lors du test de connexion a retourné une réponse >= 400, il se peut donc que les données ne soient pas récupérées",
-					responseType.getSimpleName(), status.getStatus());
-		}
-		if (status != null && status.getStatus() < 400) {
-			bo = (BO) getWebServiceClient().update_XML(bo);
-			return true;
-		}
-		String clazz = bo.getClass().getSimpleName();
-		String description = "Echec de mise a jour de " + clazz;
-		JCertifVaadinApplication.showError(status, description);
+		// if (status != null && status.getStatus() >= 400) {
+		// LOGGER.warn(
+		// "Entity={0} Statut={1} .Le statut de la réponse lors du test de connexion a retourné une réponse >= 400, il se peut donc que les données ne soient pas récupérées",
+		// responseType.getSimpleName(), status.getStatus());
+		// }
+		// if (status != null && status.getStatus() < 400) {
+		// bo = (BO) getWebServiceClient().update_XML(bo);
+		// return true;
+		// }
+		// String clazz = bo.getClass().getSimpleName();
+		// String description = "Echec de mise a jour de " + clazz;
+		// JCertifVaadinApplication.showError(status, description);
 		return false;
 	}
 
 	public void refreshContainer() {
-		ClientResponse status = getWebServiceClient().checkConnection();
+		// ClientResponse status = getWebServiceClient().checkConnection();
 		Collection<BO> all = new ArrayList<BO>();
 		try {
 			all = getWebServiceClient().findAllXML();
@@ -100,12 +102,12 @@ public abstract class AbstractAction<PC extends AbstractJCertifBeanItemContainer
 			LOGGER.warn("Impossible de communiquer avec la facade", e);
 		}
 
-		if (status != null && status.getStatus() >= 400) {
-
-			LOGGER.warn(
-					"Entity={0} Statut={1} .Le statut de la réponse lors du test de connexion a retourné une réponse >= 400, il se peut donc que les données ne soient pas récupérées",
-					responseType.getSimpleName(), status.getStatus());
-		}
+		// if (status != null && status.getStatus() >= 400) {
+		//
+		// LOGGER.warn(
+		// "Entity={0} Statut={1} .Le statut de la réponse lors du test de connexion a retourné une réponse >= 400, il se peut donc que les données ne soient pas récupérées",
+		// responseType.getSimpleName(), status.getStatus());
+		// }
 	}
 
 	public ComboBox createCombobox(String caption) {

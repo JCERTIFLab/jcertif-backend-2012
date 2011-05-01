@@ -5,6 +5,7 @@ package com.jcertif.presentation.wsClient;
 
 import java.util.List;
 
+import com.jcertif.presentation.cache.UICacheManager;
 import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.GenericType;
@@ -46,9 +47,15 @@ public class EvenementClient extends
 	@Override
 	public List<Evenement> findAllXML() throws UniformInterfaceException,
 			ClientHandlerException {
-		return getWebResource().path(FINDALL_SUFFIX)
-				.accept(javax.ws.rs.core.MediaType.APPLICATION_XML)
-				.get(new GenericType<List<Evenement>>() {
-				});
+		List<Evenement> events = UICacheManager.getInstance().getEvenement();
+
+		if (events == null) {
+			events = getWebResource().path(FINDALL_SUFFIX)
+					.accept(javax.ws.rs.core.MediaType.APPLICATION_XML)
+					.get(new GenericType<List<Evenement>>() {
+					});
+			UICacheManager.getInstance().putEvenement(events);
+		}
+		return events;
 	}
 }
