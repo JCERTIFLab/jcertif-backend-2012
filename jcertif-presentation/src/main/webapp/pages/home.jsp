@@ -71,7 +71,11 @@
                         </div>
 
                     </div>
-                    --><jsp:include page="sponsors.jsp" />
+                    -->
+                    </td>
+                    <td colspan="2">
+                    <jsp:include page="sponsors.jsp" />
+                    </td>
 							
 						</div>
 						<!--end of right content-->
@@ -79,7 +83,10 @@
 
                 <div style=" clear:both;"></div>
                 -->
-					</td>
+					
+				</tr>
+				<tr>
+					<td><jsp:include page="speakers.jsp" /></td>
 				</tr>
 				
 			</table>
