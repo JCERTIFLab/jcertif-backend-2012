@@ -3,6 +3,7 @@ package com.jcertif.presentation;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Date;
+import java.util.Locale;
 
 
 import com.jcertif.presentation.JCertifWebApplication;
@@ -14,8 +15,10 @@ import com.jcertif.presentation.ui.view.UnsupportedBrowserWindow;
 import com.jcertif.presentation.data.CachingRestApiFacade;
 import com.jcertif.presentation.data.RestApiFacade;
 import com.jcertif.presentation.data.domain.JCertifPresentation;
+import com.jcertif.presentation.internationalisation.LocalizedSystemMessages;
 import com.jcertif.presentation.ui.view.MainView;
 import com.vaadin.Application;
+import com.vaadin.Application.SystemMessages;
 import com.vaadin.service.ApplicationContext.TransactionListener;
 import com.vaadin.terminal.gwt.server.WebApplicationContext;
 import com.vaadin.terminal.gwt.server.WebBrowser;
@@ -42,7 +45,10 @@ public class JCertifWebApplication extends Application implements TransactionLis
 
     private static final long serialVersionUID = 1167695727109405960L;
 
-    private static final CustomizedSystemMessages systemMessages;
+//    private static final CustomizedSystemMessages systemMessages;
+    
+	private static LocalizedSystemMessages localizedMessages;
+
 
 	
     // Use the ThreadLocal pattern, for more details see:
@@ -55,16 +61,16 @@ public class JCertifWebApplication extends Application implements TransactionLis
     private GoogleAnalyticsTracker tracker;
 
     static {
-        systemMessages = new CustomizedSystemMessages();
+//        systemMessages = new CustomizedSystemMessages();
 
         // Disable session expired notification -> just restart the application
         // if the session expires.
-        systemMessages.setSessionExpiredNotificationEnabled(false);
+//        systemMessages.setSessionExpiredNotificationEnabled(false);
     }
 
-    public static SystemMessages getSystemMessages() {
-        return systemMessages;
-    }
+//    public static SystemMessages getSystemMessages() {
+//        return systemMessages;
+//    }
 
     @Override
     public String getVersion() {
@@ -74,6 +80,16 @@ public class JCertifWebApplication extends Application implements TransactionLis
  
     @Override
     public void init() {
+    	
+    	
+		// change the system message language in case any are shown while "init" is running.
+		LocalizedSystemMessages msg = (LocalizedSystemMessages) getSystemMessages();
+		msg.setThreadLocale(this.getLocale());  // by default getLocale() comes from the user's browser.
+		
+		// the following defines what will happen before and after each http request.
+        attachHttpRequestListener();
+
+    	
     	Window mainWindow = new Window("JCertif 2011 Schedule");
         setMainWindow(mainWindow);
         //setTheme("jcertif");
@@ -248,6 +264,46 @@ public class JCertifWebApplication extends Application implements TransactionLis
             // remove the ThreadLocal value
             currentApplication.remove();
         }
+    }
+
+    /**
+     * Get localized SystemMessages for this application.
+     * 
+     * <p>This method is static; we need to call {@link LocalizedSystemMessages#setThreadLocale(Locale)}
+     * to change the language that will be used for this thread. This is typically done in a
+     * {@link TransactionListener#transactionStart(Application, Object)} method in order to associate
+     * the Locale with the thread processing the HTTP request.</p>
+     * 
+     * @return the LocalizedSystemMessages for this application
+     */
+	public static SystemMessages getSystemMessages() {
+    	if (localizedMessages == null)
+    		localizedMessages = new LocalizedSystemMessages() {
+				@Override
+				protected Locale getDefaultSystemMessageLocale() {
+					return Locale.FRENCH;
+				}	
+    	};
+    	return localizedMessages;
+    }
+    
+    /**
+     * Attach a listener for the begin and end of every HTTP request in the session.
+     * (Vaadin "transaction" equals "http request".)  
+     */
+    private void attachHttpRequestListener() {
+        getContext().addTransactionListener(new TransactionListener() {
+			private static final long serialVersionUID = 316709294485669937L;
+
+			@Override
+			public void transactionEnd(Application application, Object transactionData) {}
+
+			@Override
+			public void transactionStart(Application application, Object transactionData) {
+				// force system messages to appear in user's lanquage
+        		((LocalizedSystemMessages)getSystemMessages()).setThreadLocale(getLocale());
+			}
+        });
     }
 
 
