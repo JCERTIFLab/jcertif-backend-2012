@@ -121,7 +121,7 @@ public class PresentateurDetailComponent extends Panel {
 	}
 
 	// En plus du role Presentateur, un speaker doit avoir au moins une
-	// porposition de presentation approuvee en attente de complement
+	// porposition de presentation approuvee ou en attente de complement
 	private boolean isApeaker(Participant part) {
 		if (part.getPropositionPresentations() != null && part.getRoleparticipant() != null
 				&& UIConst.ROLE_SPEAKER.equalsIgnoreCase(part.getRoleparticipant().getCode())) {
