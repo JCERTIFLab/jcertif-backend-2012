@@ -10,6 +10,7 @@ import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.bo.cedule.TypeEvenement;
 import com.jcertif.presentation.data.bo.conference.Conference;
 import com.jcertif.presentation.data.bo.conference.Faq;
+import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.participant.RoleParticipant;
 import com.jcertif.presentation.data.bo.participant.TypeParticipant;
 import com.jcertif.presentation.data.bo.presentation.Sujet;
@@ -28,6 +29,7 @@ public final class UICacheManager {
 	private static final String CACHE_CONFERENCE = "conference";
 	private static final String CACHE_EVENEMENT = "evenement";
 	private static final String CACHE_FAQ = "faq";
+	private static final String CACHE_PARTICIPANT = "participant";
 
 	private CacheManager cacheManager;
 	private static UICacheManager instance;
@@ -133,4 +135,14 @@ public final class UICacheManager {
 	public List<Faq> getFaq() {
 		return (List<Faq>) get(CACHE_FAQ);
 	}
+
+	public void putParticipant(List<Participant> objToCache) {
+		put(CACHE_PARTICIPANT, objToCache);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Participant> getParticipant() {
+		return (List<Participant>) get(CACHE_PARTICIPANT);
+	}
+
 }

@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+import com.jcertif.presentation.cache.UICacheManager;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.GenericType;
@@ -25,7 +26,8 @@ import com.sun.jersey.api.client.UniformInterfaceException;
  * @author Douneg
  */
 
-public class ParticipantClient extends AbstractJCertWebServiceClient<Participant, Long> {
+public class ParticipantClient extends
+		AbstractJCertWebServiceClient<Participant, Long> {
 
 	/**
 	 * The unique instance.
@@ -54,11 +56,19 @@ public class ParticipantClient extends AbstractJCertWebServiceClient<Participant
 	}
 
 	@Override
-	public List<Participant> findAllXML() throws UniformInterfaceException, ClientHandlerException {
-		return getWebResource().path(FINDALL_SUFFIX)
-				.accept(javax.ws.rs.core.MediaType.APPLICATION_XML)
-				.get(new GenericType<List<Participant>>() {
-				});
+	public List<Participant> findAllXML() throws UniformInterfaceException,
+			ClientHandlerException {
+		List<Participant> participants = UICacheManager.getInstance()
+				.getParticipant();
+
+		if (participants == null) {
+			participants = getWebResource().path(FINDALL_SUFFIX)
+					.accept(javax.ws.rs.core.MediaType.APPLICATION_XML)
+					.get(new GenericType<List<Participant>>() {
+					});
+			UICacheManager.getInstance().putParticipant(participants);
+		}
+		return participants;
 	}
 
 	/**
@@ -69,7 +79,8 @@ public class ParticipantClient extends AbstractJCertWebServiceClient<Participant
 	 */
 	public boolean isEmailExist(String email) {
 		boolean isEmailExist = false;
-		List<Participant> participantList = getWebResource().path("/listByEmail/" + email).get(
+		List<Participant> participantList = getWebResource().path(
+				"/listByEmail/" + email).get(
 				new GenericType<List<Participant>>() {
 				});
 		isEmailExist = !participantList.isEmpty();
@@ -78,7 +89,8 @@ public class ParticipantClient extends AbstractJCertWebServiceClient<Participant
 
 	public Participant findByEmail(String email) {
 		Participant participant = null;
-		List<Participant> participantList = getWebResource().path("/listByEmail/" + email).get(
+		List<Participant> participantList = getWebResource().path(
+				"/listByEmail/" + email).get(
 				new GenericType<List<Participant>>() {
 				});
 
@@ -90,7 +102,8 @@ public class ParticipantClient extends AbstractJCertWebServiceClient<Participant
 
 	public void store(File file, String role, Long idParticipant, String ext)
 			throws UniformInterfaceException, FileNotFoundException {
-		getWebResource().path("/store/" + role + "/" + idParticipant + "/" + ext).post(
+		getWebResource().path(
+				"/store/" + role + "/" + idParticipant + "/" + ext).post(
 				new FileInputStream(file));
 	}
 }
