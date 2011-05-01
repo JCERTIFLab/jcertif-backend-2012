@@ -1,21 +1,3 @@
-/* 
- * Copyright ©2009 Jean-François Lamy
- * 
- * Licensed under the Apache Licence, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0.txt
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
-
-
-
 package com.jcertif.presentation.internationalisation;
 
 import java.util.Locale;
@@ -86,7 +68,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getCommunicationErrorCaption() {
         return (communicationErrorNotificationEnabled ? 
-        		Msg.getString("LocalizedSystemMessages.communicationErrorCaption", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("ui.message.system.communicationError.title", getThreadLocale()) //$NON-NLS-1$
                 : null);
     }
 
@@ -96,7 +78,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getCommunicationErrorMessage() {
         return (communicationErrorNotificationEnabled ? 
-        		Msg.getString("LocalizedSystemMessages.communicationErrorMessage", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("ui.message.system.communicationError.message", getThreadLocale()) //$NON-NLS-1$
                 : null);
     }
     
@@ -107,7 +89,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getInternalErrorCaption() {
         return (internalErrorNotificationEnabled ? 
-        		Msg.getString("LocalizedSystemMessages.internalErrorCaption", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("ui.message.system.internalError.title", getThreadLocale()) //$NON-NLS-1$
                 : null);
     }
 
@@ -117,7 +99,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getInternalErrorMessage() {
         return (internalErrorNotificationEnabled ? 
-        		Msg.getString("LocalizedSystemMessages.internalErrorMessage", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("ui.message.system.internalError.message", getThreadLocale()) //$NON-NLS-1$
                 : null);
     }
 
@@ -128,7 +110,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
     @Override
 	public String getOutOfSyncCaption() {
         return (outOfSyncNotificationEnabled ? 
-        		Msg.getString("LocalizedSystemMessages.outOfSyncCaption", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("ui.message.system.outOfSync.title", getThreadLocale()) //$NON-NLS-1$
         		: null);
     }
 
@@ -138,7 +120,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getOutOfSyncMessage() {
         return (outOfSyncNotificationEnabled ? 
-        		Msg.getString("LocalizedSystemMessages.outOfSyncMessage", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("ui.message.system.outOfSync.message", getThreadLocale()) //$NON-NLS-1$
         		: null);
     }
     
@@ -149,7 +131,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getSessionExpiredCaption() {
         return (sessionExpiredNotificationEnabled ? 
-        		Msg.getString("LocalizedSystemMessages.sessionExpiredCaption", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("ui.message.system.sessionExpired.title", getThreadLocale()) //$NON-NLS-1$
                 : null);
     }
 
@@ -160,7 +142,7 @@ public class LocalizedSystemMessages extends CustomizedSystemMessages {
 	@Override
     public String getSessionExpiredMessage() {
         return (sessionExpiredNotificationEnabled ? 
-        		Msg.getString("LocalizedSystemMessages.sessionExpiredMessage", getThreadLocale()) //$NON-NLS-1$
+        		Msg.getString("ui.message.system.sessionExpired.message", getThreadLocale()) //$NON-NLS-1$
                 : null);
     }
 }
