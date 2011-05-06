@@ -6,7 +6,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
@@ -74,7 +73,7 @@ public abstract class Person extends AbstractBO {
 	/**
 	 * Détails de la personne.
 	 */
-	@Column (length=1000)
+	@Column(columnDefinition = "TEXT")
 	private String details;
 
 	/**
@@ -82,7 +81,7 @@ public abstract class Person extends AbstractBO {
 	 */
 	@Column
 	private String email;
-	
+
 	/**
 	 * Site web d'une personne.
 	 */
@@ -191,8 +190,6 @@ public abstract class Person extends AbstractBO {
 		this.specialite = specialite;
 	}
 
-	
-
 	/**
 	 * @return the adresse
 	 */
@@ -201,7 +198,8 @@ public abstract class Person extends AbstractBO {
 	}
 
 	/**
-	 * @param adresse the adresse to set
+	 * @param adresse
+	 *            the adresse to set
 	 */
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
@@ -245,12 +243,11 @@ public abstract class Person extends AbstractBO {
 	}
 
 	/**
-	 * @param website the website to set
+	 * @param website
+	 *            the website to set
 	 */
 	public void setWebsite(String website) {
 		this.website = website;
 	}
-	
-	
 
 }
