@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.jcertif.presentation.wsClient.ParticipantClient"%>
 <%@page
 	import="com.jcertif.presentation.data.bo.participant.Participant"%>
@@ -11,29 +12,58 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <div>
-	<table>
-		<tr>
+	
+	<table width="auto">
+		
 	<%
 		String picsURL = JCertifProps.getInstance().getPicsUrl();
 		String speaker = UIConst.URL_SPEAKER_IMG;
+		int tailleMax = 7;
+		List<List<Participant>> list = new ArrayList<List<Participant>>();
+		
 		List<Participant> validSpeakers = ParticipantClient.getInstance()
-				.getSpeakersValid();
+		.getSpeakersValid();
+		int index = 0;
+		List<Participant> tempList=new ArrayList<Participant>();
+		list.add(tempList);
 		for (Participant participant : validSpeakers) {
+			
+			if(index%tailleMax==0){
+				tempList = new ArrayList<Participant>();
+				list.add(tempList);
+				tempList.add(participant);
+			} else {
+				tempList.add(participant);
+			}
+			index++;
+		}
+		
+		
+		for(List<Participant> partList : list) {
+			%>
+			<tr>
+			<%
+			for (Participant participant : partList) {
 	%>
-	<td><a href="presentateurs.jsp"><img alt="<%=participant.getDetails() %>" src="<%=picsURL + speaker + participant.getProfilUtilisateur().getPhoto()%>" width="100" height="100"></a></td>
+	<td><a href="presentateurs.jsp"><img alt="<%=participant.getDetails() %>" src="<%=picsURL + speaker + participant.getProfilUtilisateur().getPhoto()%>" height="75px" width="75px"></a></td>
 	<%
 		}
 		%>
 		</tr>
 		<tr>
 		<%
-		for (Participant participant : validSpeakers) {
+		for (Participant participant : partList) {
 		
 	%>
-		<td align="center"><%=participant.getNom() + " " + participant.getPrenom() %></td>
+		<td align="center" width="75px"><%=participant.getNom() + " " + participant.getPrenom() %></td>
 	<%
 		}
+		%>
+		</tr>
+		<%
+		
+		}
 	%>
-	</tr>
+	
 	</table>
 </div>

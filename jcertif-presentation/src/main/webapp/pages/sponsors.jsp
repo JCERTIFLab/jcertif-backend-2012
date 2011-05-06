@@ -10,24 +10,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <div align="right">
+<table>
+
 <%
 	
 	String picsURL = JCertifProps.getInstance().getPicsUrl();
 	String partenaire = UIConst.URL_PARTNER_IMG;
 	List<Participant> participants = ParticipantClient.getInstance().getSponsors();
-	
+	int i = 1;
+	double s = participants.size()/2;
 	for(Participant participant:participants){
 		
 	if(participant.getNiveauPartenariat() != null){
 		
-	
+		if(i%2==0){
 %>
 
-
-	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="200"></a>
+	<td>
+	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="125"></a>
 	<br/>
+	</td>
+	</tr>
+	<tr>
+	<%
+		} else {
+	
+	%>
+	<tr>
+	<td>
+	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="125"></a>
+	</td>
+	<%} 
+	i++;	
+		%>
 	
 <%}
 	}
 %>
+</tr>
+</table>
 </div>

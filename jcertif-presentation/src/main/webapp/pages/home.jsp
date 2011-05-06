@@ -73,7 +73,7 @@
                     </div>
                     -->
                     </td>
-                    <td colspan="2">
+                    <td rowspan="3">
                     <jsp:include page="sponsors.jsp" />
                     </td>
 							
