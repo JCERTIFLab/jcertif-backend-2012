@@ -60,7 +60,10 @@ public class OrganisateurDetailComponent extends Panel {
 		}
 		// this.removeAllComponents();
 
-		for (Participant participant : getOrganizersList()) {
+		List<Participant> participantList = ParticipantClient.getInstance()
+															.getOrganizersList();
+		
+		for (Participant participant : participantList) {
 
 			CustomLayout htmlLayout = new CustomLayout(UIConst.COMMUN_DETAIL_LAYOUT);
 			htmlLayout.addStyleName("details_commun_layout");
@@ -94,21 +97,6 @@ public class OrganisateurDetailComponent extends Panel {
 			isFirsTime = false;
 		}
 
-	}
-
-	// Récupération des partenaires
-	private List<Participant> getOrganizersList() {
-		List<Participant> organizerList = new ArrayList<Participant>();
-		Set<Participant> participants = new HashSet<Participant>(ParticipantClient.getInstance()
-				.findAllXML());
-
-		for (Participant participant : participants) {
-			if (participant.getRoleparticipant() != null
-					&& "Organisateur".equalsIgnoreCase(participant.getRoleparticipant().getCode())) {
-				organizerList.add(participant);
-			}
-		}
-		return organizerList;
 	}
 
 }
