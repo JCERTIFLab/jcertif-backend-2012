@@ -122,6 +122,22 @@ public class ParticipantClient extends
 		return false;
 	}
 
+	// Récupération des partenaires
+	public List<Participant> getOrganizersList() {
+		List<Participant> organizerList = new ArrayList<Participant>();
+		Set<Participant> participants = new HashSet<Participant>(ParticipantClient.getInstance()
+				.findAllXML());
+
+		for (Participant participant : participants) {
+			if (participant.getRoleparticipant() != null
+					&& (UIConst.ROLE_ORGANIZER.equalsIgnoreCase(participant.getRoleparticipant().getCode()) ||
+					   UIConst.TYPE_STAFF.equalsIgnoreCase(participant.getTypeParticipant().getCode()) )) {
+				organizerList.add(participant);
+			}
+		}
+		return organizerList;
+	}
+
 	/**
 	 * Return true if this email is already used.
 	 * 
