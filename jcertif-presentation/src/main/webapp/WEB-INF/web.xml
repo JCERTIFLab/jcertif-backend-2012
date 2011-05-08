@@ -189,6 +189,21 @@
 	</servlet>
 
 	<servlet>
+		<servlet-name>JCertifApropos</servlet-name>
+		<servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+		<init-param>
+			<description>Vaadin application class to start</description>
+			<param-name>application</param-name>
+			<param-value>com.jcertif.presentation.ui.apropos.AproposApplication</param-value>
+		</init-param>
+		<init-param>
+			<description>Application widgetset</description>
+			<param-name>widgetset</param-name>
+			<param-value>com.jcertif.presentation.gwt.MyWidgetSet</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
 		<servlet-name>JCertifCommunity</servlet-name>
 		<servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
 		<init-param>
@@ -251,6 +266,11 @@
 	<servlet-mapping>
 		<servlet-name>JCertifInfosUtiles</servlet-name>
 		<url-pattern>/vaadin/infosutiles/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>JCertifApropos</servlet-name>
+		<url-pattern>/vaadin/apropos/*</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
