@@ -55,7 +55,7 @@
 		for (Participant participant : partList) {
 		
 	%>
-		<td align="center" width="75px"><%=participant.getNom() + " " + participant.getPrenom() %></td>
+		<td align="center" width="75px"><%=participant.getPrenom() + " " + participant.getNom() + " (" + participant.getCompagnie() + ")" %></td>
 	<%
 		}
 		%>
@@ -64,6 +64,9 @@
 		
 		}
 	%>
+	
+	
+	
 	
 	</table>
 </div>
