@@ -34,11 +34,10 @@
         <ul>
             <li><a class="current" href="<%=request.getContextPath()%>/pages/home.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.home")%></b></a></li>
             <li><a href="<%=request.getContextPath()%>/pages/inscription.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.inscription")%></b></a></li>
-          
-             <li><a href="<%=request.getContextPath()%>/pages/propositionPresentation.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.proposition")%></b></a></li>
-               
+            <li><a href="<%=request.getContextPath()%>/pages/propositionPresentation.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.proposition")%></b></a></li>
             <li><a href="<%=request.getContextPath()%>/pages/calendrier.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.calendar")%></b></a></li>
             <li><a href="<%=request.getContextPath()%>/pages/presentateurs.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.speakers")%></b></a></li>
+            <li><a href="<%=request.getContextPath()%>/pages/apropos.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.apropos")%></b></a></li>
             <li><a href="<%=request.getContextPath()%>/pages/faq.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.faq")%></b></a></li>
         </ul>
     </div>
