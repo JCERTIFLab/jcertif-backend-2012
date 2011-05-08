@@ -47,5 +47,9 @@ public interface UIConst {
 	String ROLE_ORGANIZER = "Oraganisateur";
 	
 	String TYPE_STAFF = "Staff";
+	
+	String TYPE_COMM = "Community";
+	
+	String TYPE_VALID = "Valide";
 
 }
