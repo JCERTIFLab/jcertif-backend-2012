@@ -21,8 +21,8 @@ import com.vaadin.ui.Panel;
  */
 public class AproposDetailComponent extends Panel {
 
-	private static final String APROPOS_PROP_PREFIX = "ui.about.jcertif";
-	private static final String APROPOS_SORT_PREFIX = "ui.about.jcertif.sorting";
+	private static final String APROPOS_PROP_PREFIX = "ui.about";
+	private static final String APROPOS_SORT_PREFIX = "ui.about.sorting";
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -73,14 +73,15 @@ public class AproposDetailComponent extends Panel {
 			}
 		}
 
-		String[] tabOrder = Msg.get(APROPOS_SORT_PREFIX).split(",");
+		String[] tabOrder = Msg.get("ui.about.sorting").split(",");
 
 		// Entete
 		CustomLayout htmlLayout = new CustomLayout(UIConst.COMMUN_DETAIL_LAYOUT);
 		htmlLayout.addStyleName("details_commun_layout");
-		htmlLayout.addComponent(new Label(Msg.get("ui.about.jcertif.title")), "caption");
-		htmlLayout.addComponent(new Label(Msg.get("ui.about.jcertif.description.p1")), "captionDetail");
+		htmlLayout.addComponent(new Label(Msg.get("ui.about.title")), "caption");
+		htmlLayout.addComponent(new Label(Msg.get("ui.about.description")), "captionDetail");
 		this.addComponent(htmlLayout);
+		
 		for (String sort : tabOrder) {
 			Map<String, String> props = keyProps.get(sort);
 
