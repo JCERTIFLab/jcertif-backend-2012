@@ -11,7 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <div align="right">
-<table style="border: 0; text-decoration: none;">
+<table>
 
 <%
 	
@@ -27,8 +27,8 @@
 		if(i%2==0){
 %>
 
-	<td style="border: 0; text-decoration: none;">
-	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="125"></a>
+	<td>
+	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="125" border="0"></a>
 	<br/>
 	</td>
 	</tr>
@@ -38,8 +38,8 @@
 	
 	%>
 	<tr>
-	<td style="border: 0; text-decoration: none;">
-	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="125"></a>
+	<td>
+	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="125" border="0"></a>
 	</td>
 	<%} 
 	i++;	
