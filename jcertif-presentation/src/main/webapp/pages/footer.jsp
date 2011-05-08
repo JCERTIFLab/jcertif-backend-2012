@@ -10,7 +10,7 @@
 	</div>
 	<div class="footer_links">
 		<a class="current" href="<%=request.getContextPath()%>/pages/home.jsp" title=""><%=session.getAttribute("footer.jsp.accueil")%></a>
-		<a href="#"><%=session.getAttribute("footer.jsp.apropos")%></a> <a href="contact.jsp"><%=session.getAttribute("footer.jsp.contact")%></a>
+		<a href="<%=request.getContextPath()%>/pages/apropos.jsp"><%=session.getAttribute("footer.jsp.apropos")%></a> <a href="contact.jsp"><%=session.getAttribute("footer.jsp.contact")%></a>
 	</div>
 
 </div>
