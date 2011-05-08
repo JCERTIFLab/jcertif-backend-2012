@@ -8,8 +8,14 @@ import com.jcertif.presentation.data.bo.CodeDescription;
  * @author rossi.oddet
  * 
  */
-public class NiveauPartenariat extends CodeDescription {
+public class NiveauPartenariat extends CodeDescription implements
+		Comparable<NiveauPartenariat> {
 
 	private static final long serialVersionUID = 1L;
+
+	@Override
+	public int compareTo(NiveauPartenariat o) {
+		return this.getId().compareTo(o.getId());
+	}
 
 }

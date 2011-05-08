@@ -1,3 +1,4 @@
+<%@page import="java.util.Set"%>
 <%@page import="com.jcertif.presentation.data.bo.participant.Participant"%>
 <%@page import="java.util.List"%>
 <%@page import="com.jcertif.presentation.wsClient.ParticipantClient"%>
@@ -16,7 +17,7 @@
 	
 	String picsURL = JCertifProps.getInstance().getPicsUrl();
 	String partenaire = UIConst.URL_PARTNER_IMG;
-	List<Participant> participants = ParticipantClient.getInstance().getSponsors();
+	List<Participant> participants = ParticipantClient.getInstance().getSponsorsSortedByNiveau();
 	int i = 1;
 	double s = participants.size()/2;
 	for(Participant participant:participants){

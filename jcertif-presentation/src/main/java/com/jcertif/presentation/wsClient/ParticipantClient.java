@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -90,6 +92,33 @@ public class ParticipantClient extends
 		return partnersList;
 	}
 
+	public List<Participant> getSponsorsSortedByNiveau() {
+		Set<Participant> participants = new HashSet<Participant>(findAllXML());
+
+		List<Participant> participantSorted = new ArrayList<Participant>();
+
+		for (Participant participant : participants) {
+			if (participant.getRoleparticipant() != null
+					&& "Partenaire".equalsIgnoreCase(participant
+							.getRoleparticipant().getCode())
+					&& participant.getNiveauPartenariat() != null) {
+				participantSorted.add(participant);
+			}
+		}
+
+		Collections.sort(participantSorted, new Comparator<Participant>() {
+
+			@Override
+			public int compare(Participant o1, Participant o2) {
+				// TODO Auto-generated method stub
+				return o1.getNiveauPartenariat().compareTo(
+						o2.getNiveauPartenariat());
+			}
+		});
+
+		return participantSorted;
+	}
+
 	public List<Participant> getSpeakersValid() {
 		List<Participant> presentateursList = new ArrayList<Participant>();
 
@@ -125,37 +154,38 @@ public class ParticipantClient extends
 	// Récupération des partenaires
 	public List<Participant> getOrganizersList() {
 		List<Participant> organizerList = new ArrayList<Participant>();
-		Set<Participant> participants = new HashSet<Participant>(ParticipantClient.getInstance()
-				.findAllXML());
+		Set<Participant> participants = new HashSet<Participant>(
+				ParticipantClient.getInstance().findAllXML());
 
 		for (Participant participant : participants) {
 			if (participant.getRoleparticipant() != null
-					&& (UIConst.ROLE_ORGANIZER.equalsIgnoreCase(participant.getRoleparticipant().getCode()) ||
-					   UIConst.TYPE_STAFF.equalsIgnoreCase(participant.getTypeParticipant().getCode()) )) {
+					&& (UIConst.ROLE_ORGANIZER.equalsIgnoreCase(participant
+							.getRoleparticipant().getCode()) || UIConst.TYPE_STAFF
+							.equalsIgnoreCase(participant.getTypeParticipant()
+									.getCode()))) {
 				organizerList.add(participant);
 			}
 		}
 		return organizerList;
 	}
 
-
 	// Récupération des communautés
 	public List<Participant> getCommunitiesList() {
 		List<Participant> communityList = new ArrayList<Participant>();
-		Set<Participant> participants = new HashSet<Participant>(ParticipantClient.getInstance()
-				.findAllXML());
+		Set<Participant> participants = new HashSet<Participant>(
+				ParticipantClient.getInstance().findAllXML());
 
 		for (Participant participant : participants) {
 			if (participant.getRoleparticipant() != null
-					&& (UIConst.TYPE_COMM.equalsIgnoreCase(participant.getTypeParticipant().getCode()) ||
-					   UIConst.TYPE_VALID.equalsIgnoreCase(participant.getCodeParticipant()) )) {
+					&& (UIConst.TYPE_COMM.equalsIgnoreCase(participant
+							.getTypeParticipant().getCode()) || UIConst.TYPE_VALID
+							.equalsIgnoreCase(participant.getCodeParticipant()))) {
 				communityList.add(participant);
 			}
 		}
 		return communityList;
 	}
 
-	
 	/**
 	 * Return true if this email is already used.
 	 * 
