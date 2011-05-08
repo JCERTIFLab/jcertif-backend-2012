@@ -38,7 +38,7 @@
 	
 	%>
 	<tr>
-	<td>
+	<td style="border: 0; text-decoration: none;">
 	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="125"></a>
 	</td>
 	<%} 
