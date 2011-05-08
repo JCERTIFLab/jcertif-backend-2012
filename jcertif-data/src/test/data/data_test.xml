@@ -83,7 +83,7 @@
 	<sujet id="10" libelle="Community Leader" description="Community Leader"/>
 	<sujet id="11" libelle="Concepts et Architecture" description="Concepts, architectures et méthodologie"/>
 	<sujet id="12" libelle="Gestion de contenu" description="Outils de gestion de contenu : ERP,CRM etc..."/>
-	<sujet id="12" libelle="Sujets génériques" description="Esemble de sujets d'ordre général"/>
+	<sujet id="13" libelle="Sujets génériques" description="Esemble de sujets d'ordre général"/>
 	
 	<proposition_presentation id="1" titre="Accueil et mot de bienvenu" sommaire="Accueil et mot de bienvenu" besoins_specifiques="Micro sans fil" description="Le président de JCertif présente son équipe et explique le déroulement de la journée" details="" mot_cle_id="1" statut_approbation_id="3" conference_id="1"/>
 
@@ -133,7 +133,7 @@
 	<proposition_presentation_sujet proposition_presentation_id="18" sujet_id="5"/>
 	<proposition_presentation_sujet proposition_presentation_id="19" sujet_id="1"/>
 	<proposition_presentation_sujet proposition_presentation_id="20" sujet_id="11"/>
-	<proposition_presentation_sujet proposition_presentation_id="21" sujet_id="12"/>
+	<proposition_presentation_sujet proposition_presentation_id="21" sujet_id="13"/>
 	
 	<proposition_presentation_sujet proposition_presentation_id="40" sujet_id="10"/>
 
