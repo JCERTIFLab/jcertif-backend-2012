@@ -45,7 +45,7 @@
 			<%
 			for (Participant participant : partList) {
 	%>
-	<td><a href="presentateurs.jsp"><img alt="<%=participant.getDetails() %>" src="<%=picsURL + speaker + participant.getProfilUtilisateur().getPhoto()%>" height="75px" width="75px"></a></td>
+	<td><a href="<%="presentateurs.jsp#" + participant.getId()%>" ><img alt="<%=participant.getDetails() %>" src="<%=picsURL + speaker + participant.getProfilUtilisateur().getPhoto()%>" height="75px" width="75px" border="0"></a></td>
 	<%
 		}
 		%>

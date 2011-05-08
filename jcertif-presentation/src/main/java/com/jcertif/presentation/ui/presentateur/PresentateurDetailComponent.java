@@ -79,8 +79,10 @@ public class PresentateurDetailComponent extends Panel {
 			}
 
 			// Lastname + firstname
-			htmlLayout.addComponent(new Label(participant.getNom() + " "
-					+ participant.getPrenom()), "presentateur");
+			Label nameLabel = new Label("<a name=\"" + participant.getId()
+					+ "\"></a>" + participant.getNom() + " "
+					+ participant.getPrenom(), Label.CONTENT_XHTML);
+			htmlLayout.addComponent(nameLabel, "presentateur");
 
 			// Participant photo
 			if (participant.getProfilUtilisateur() != null
@@ -108,7 +110,6 @@ public class PresentateurDetailComponent extends Panel {
 		}
 
 	}
-
 
 	private void createPopup(CustomLayout htmlLayout, Participant participant) {
 
