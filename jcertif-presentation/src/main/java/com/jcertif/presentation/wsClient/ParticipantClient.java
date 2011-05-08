@@ -182,9 +182,9 @@ public class ParticipantClient extends
 
 		for (Participant participant : participants) {
 			if (participant.getRoleparticipant() != null
-					&& (UIConst.TYPE_COMM.equalsIgnoreCase(participant
+					&& UIConst.TYPE_COMM.equalsIgnoreCase(participant
 							.getTypeParticipant().getCode()) && UIConst.TYPE_VALID
-							.equalsIgnoreCase(participant.getCodeParticipant()))) {
+							.equalsIgnoreCase(participant.getCodeParticipant())) {
 				communityList.add(participant);
 			}
 		}
