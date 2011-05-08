@@ -92,6 +92,11 @@ public class ParticipantClient extends
 		return partnersList;
 	}
 
+	/**
+	 * Attention les sponsors qui n'ont pas de niveau sont exclus.
+	 * 
+	 * @return
+	 */
 	public List<Participant> getSponsorsSortedByNiveau() {
 		Set<Participant> participants = new HashSet<Participant>(findAllXML());
 

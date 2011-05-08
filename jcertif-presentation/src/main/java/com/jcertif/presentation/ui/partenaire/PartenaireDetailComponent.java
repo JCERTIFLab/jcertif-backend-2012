@@ -100,7 +100,7 @@ public class PartenaireDetailComponent extends Panel {
 	}
 
 	private List<Participant> getPartnersListsList() {
-		return ParticipantClient.getInstance().getSponsors();
+		return ParticipantClient.getInstance().getSponsorsSortedByNiveau();
 	}
 
 }
