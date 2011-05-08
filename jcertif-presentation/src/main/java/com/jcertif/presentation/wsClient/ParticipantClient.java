@@ -138,6 +138,24 @@ public class ParticipantClient extends
 		return organizerList;
 	}
 
+
+	// Récupération des communautés
+	public List<Participant> getCommunitiesList() {
+		List<Participant> communityList = new ArrayList<Participant>();
+		Set<Participant> participants = new HashSet<Participant>(ParticipantClient.getInstance()
+				.findAllXML());
+
+		for (Participant participant : participants) {
+			if (participant.getRoleparticipant() != null
+					&& (UIConst.TYPE_COMM.equalsIgnoreCase(participant.getTypeParticipant().getCode()) ||
+					   UIConst.TYPE_VALID.equalsIgnoreCase(participant.getCodeParticipant()) )) {
+				communityList.add(participant);
+			}
+		}
+		return communityList;
+	}
+
+	
 	/**
 	 * Return true if this email is already used.
 	 * 
