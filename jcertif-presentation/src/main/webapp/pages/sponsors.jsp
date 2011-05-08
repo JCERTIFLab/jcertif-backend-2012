@@ -11,7 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <div align="right">
-<table>
+<table style="border: 0; text-decoration: none;">
 
 <%
 	
@@ -27,7 +27,7 @@
 		if(i%2==0){
 %>
 
-	<td>
+	<td style="border: 0; text-decoration: none;">
 	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="125"></a>
 	<br/>
 	</td>
