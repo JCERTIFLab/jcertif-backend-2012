@@ -608,6 +608,7 @@ textarea.contact_textarea {
 
 .photo_speaker img {
 	width: 100px;
+	height:100px;
 	margin: 10px;
 }
 
@@ -617,4 +618,5 @@ textarea.contact_textarea {
 
 .photo_organisateur img {
 	width: 100px;
+	height:100px;
 }
