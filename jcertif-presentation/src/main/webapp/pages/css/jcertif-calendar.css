@@ -123,3 +123,9 @@ div.participate {
 .event_details_details {
 	
 }
+
+/*  */
+.v-button-selected .v-button-caption{
+	color:darkOrange;
+	font-weight:bold;	
+}

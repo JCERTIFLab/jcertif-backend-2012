@@ -52,9 +52,7 @@
 	padding: 0;
 	margin: 0;
 	height: 12px;
-	width: 12px;
 	overflow: hidden;
-	background: transparent url(img/arrows.png) no-repeat 50% 0;
 	opacity: .3;
 	filter: alpha(opacity = 30);
 	cursor: default;

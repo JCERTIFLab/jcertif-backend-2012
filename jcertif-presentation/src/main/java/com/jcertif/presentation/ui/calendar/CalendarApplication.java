@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,23 +29,26 @@ import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClick;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClickHandler;
 import com.vaadin.terminal.ExternalResource;
 import com.vaadin.terminal.gwt.server.HttpServletRequestListener;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 /**
  * @author rossi
  * 
  */
-public class CalendarApplication extends Application implements EventClickHandler, ClickListener,
-		HttpServletRequestListener {
+public class CalendarApplication extends Application implements
+		EventClickHandler, ClickListener, HttpServletRequestListener {
 
 	private static final long serialVersionUID = 1L;
 	/**
 	 * A Logger.
 	 */
-	private static final Logger LOGGER = LoggerFactory.getLogger(CalendarApplication.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(CalendarApplication.class);
 
 	/**
 	 * Calendar component.
@@ -74,6 +78,8 @@ public class CalendarApplication extends Application implements EventClickHandle
 	private Evenement selectedEvent;
 
 	private String contextPath;
+
+	private VerticalLayout buttonLineLayout;
 
 	@Override
 	public void init() {
@@ -147,8 +153,8 @@ public class CalendarApplication extends Application implements EventClickHandle
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		List<CalendarEvent> events = getCalendarComponent().getEventProvider().getEvents(startDate,
-				endDate);
+		List<CalendarEvent> events = getCalendarComponent().getEventProvider()
+				.getEvents(startDate, endDate);
 		return events;
 	}
 
@@ -175,8 +181,11 @@ public class CalendarApplication extends Application implements EventClickHandle
 		// Build Horizontal layout for calendar and detail panel
 		final HorizontalLayout layoutH = new HorizontalLayout();
 		layoutH.setSizeFull();
-		layoutH.addComponent(getCalendarComponent());
-		layoutH.setExpandRatio(getCalendarComponent(), 30);
+
+		final VerticalLayout vLayout = getButtonLineLayout();
+
+		layoutH.addComponent(vLayout);
+		layoutH.setExpandRatio(vLayout, 30);
 		com.vaadin.ui.Label espace = new com.vaadin.ui.Label("");
 		layoutH.addComponent(espace);
 		layoutH.setExpandRatio(espace, 0.8f);
@@ -187,6 +196,73 @@ public class CalendarApplication extends Application implements EventClickHandle
 		mainWindow.getContent().removeAllComponents();
 		mainWindow.getContent().addComponent(layoutH);
 
+	}
+
+	private VerticalLayout getButtonLineLayout() {
+
+		if (buttonLineLayout == null) {
+			buttonLineLayout = new VerticalLayout();
+
+			final HorizontalLayout layoutH2 = new HorizontalLayout();
+			final Button but1 = new Button("day 1");
+			final Button but2 = new Button("day 2");
+			but1.addListener(new ClickListener() {
+
+				@Override
+				public void buttonClick(ClickEvent event) {
+					but1.addStyleName("selected");
+					but2.removeStyleName("selected");
+					setDay1();
+				}
+			});
+
+			but2.addListener(new ClickListener() {
+
+				@Override
+				public void buttonClick(ClickEvent event) {
+					but2.addStyleName("selected");
+					but1.removeStyleName("selected");
+					setDay2();
+				}
+			});
+
+			layoutH2.addComponent(but1);
+			layoutH2.addComponent(but2);
+			buttonLineLayout.addComponent(layoutH2);
+			buttonLineLayout.addComponent(getCalendarComponent());
+			but1.addStyleName("selected");
+			but2.removeStyleName("selected");
+			setDay1();
+		}
+
+		return buttonLineLayout;
+	}
+
+	private void setDay1() {
+		setDay(3);
+	}
+
+	private void setDay(int day) {
+		GregorianCalendar dateDebutJCERTIF = new GregorianCalendar();
+		dateDebutJCERTIF.set(GregorianCalendar.YEAR, 2011);
+		dateDebutJCERTIF.set(GregorianCalendar.MONTH, 8);
+		dateDebutJCERTIF.set(GregorianCalendar.DATE, day);
+		dateDebutJCERTIF.set(GregorianCalendar.HOUR_OF_DAY, 0);
+		dateDebutJCERTIF.set(GregorianCalendar.MINUTE, 0);
+		dateDebutJCERTIF.set(GregorianCalendar.SECOND, 0);
+		dateDebutJCERTIF.set(GregorianCalendar.MILLISECOND, 0);
+
+		getCalendarComponent().setStartDate(dateDebutJCERTIF.getTime());
+
+		java.util.Calendar dateFin = java.util.Calendar.getInstance();
+		dateFin.setTime(dateDebutJCERTIF.getTime());
+		dateFin.add(java.util.Calendar.DATE, 0);
+
+		getCalendarComponent().setEndDate(dateFin.getTime());
+	}
+
+	private void setDay2() {
+		setDay(4);
 	}
 
 	private void updateSelectedStyle(final CalendarEventBean selectedEvent) {
@@ -219,9 +295,11 @@ public class CalendarApplication extends Application implements EventClickHandle
 	private List<Long> getCurrentParticipateEventIds() {
 		List<Long> eventIds = new ArrayList<Long>();
 
-		if (connectedPart != null && connectedPart.getCeduleParticipants() != null
+		if (connectedPart != null
+				&& connectedPart.getCeduleParticipants() != null
 				&& !connectedPart.getCeduleParticipants().isEmpty()) {
-			for (CeduleParticipant cedule : connectedPart.getCeduleParticipants()) {
+			for (CeduleParticipant cedule : connectedPart
+					.getCeduleParticipants()) {
 				eventIds.add(cedule.getEvenementId());
 			}
 		}
@@ -246,25 +324,29 @@ public class CalendarApplication extends Application implements EventClickHandle
 			}
 
 			// Participate button click
-		} else if (event.getButton().equals(getDetailComponent().getParticipateButton())) {
+		} else if (event.getButton().equals(
+				getDetailComponent().getParticipateButton())) {
 			if (LOGGER.isDebugEnabled()) {
 				LOGGER.debug("Event Click on participate Button");
 			}
 			if (connectedPart == null) {
 				// Show Login
-				ExternalResource res = new ExternalResource(contextPath + UIConst.LOGIN_VIEW);
+				ExternalResource res = new ExternalResource(contextPath
+						+ UIConst.LOGIN_VIEW);
 				this.getMainWindow().open(res);
 			} else {
 				addSelectedEventToCurrentUser();
 			}
 			// Cancel button click
-		} else if (event.getButton().equals(getDetailComponent().getCancelButton())) {
+		} else if (event.getButton().equals(
+				getDetailComponent().getCancelButton())) {
 			if (LOGGER.isDebugEnabled()) {
 				LOGGER.debug("Event Click on cancel Button");
 			}
 			CeduleParticipant ceduleToBeDeleted = null;
 			// Analyze if Cedule Participant already exist
-			for (CeduleParticipant cedule : connectedPart.getCeduleParticipants()) {
+			for (CeduleParticipant cedule : connectedPart
+					.getCeduleParticipants()) {
 				if (cedule.getEvenementId().equals(selectedEvent.getId())) {
 					ceduleToBeDeleted = cedule;
 				}
@@ -273,7 +355,8 @@ public class CalendarApplication extends Application implements EventClickHandle
 
 			// Rechargement du participant après mise à jour de sa
 			// cedule
-			connectedPart = ParticipantClient.getInstance().findByEmail(connectedPart.getEmail());
+			connectedPart = ParticipantClient.getInstance().findByEmail(
+					connectedPart.getEmail());
 
 			// Reinit calendar
 			init();
@@ -289,7 +372,8 @@ public class CalendarApplication extends Application implements EventClickHandle
 		boolean ceduleAlreadyExist = false;
 		if (connectedPart.getCeduleParticipants() != null) {
 
-			for (CeduleParticipant cedule : connectedPart.getCeduleParticipants()) {
+			for (CeduleParticipant cedule : connectedPart
+					.getCeduleParticipants()) {
 				if (cedule.getEvenementId().equals(selectedEvent.getId())) {
 					ceduleAlreadyExist = true;
 				}
@@ -311,7 +395,8 @@ public class CalendarApplication extends Application implements EventClickHandle
 
 			// Rechargement du participant après mise à jour de sa
 			// cedule
-			connectedPart = ParticipantClient.getInstance().findByEmail(connectedPart.getEmail());
+			connectedPart = ParticipantClient.getInstance().findByEmail(
+					connectedPart.getEmail());
 		}
 
 		// Reinit calendar
@@ -360,16 +445,19 @@ public class CalendarApplication extends Application implements EventClickHandle
 	}
 
 	@Override
-	public void onRequestStart(HttpServletRequest request, HttpServletResponse response) {
+	public void onRequestStart(HttpServletRequest request,
+			HttpServletResponse response) {
 
 		contextPath = request.getContextPath();
 		// If user is already connected and connectPart is null, load of user
 		// profil
 		if (connectedPart == null
 				&& request.getSession().getAttribute(UIConst.PARAM_CONNECTED) != null
-				&& request.getSession().getAttribute(UIConst.PARAM_CONNECTED).equals(Boolean.TRUE)) {
+				&& request.getSession().getAttribute(UIConst.PARAM_CONNECTED)
+						.equals(Boolean.TRUE)) {
 			connectedPart = ParticipantClient.getInstance().findByEmail(
-					(String) request.getSession().getAttribute(UIConst.PARAM_EMAIL));
+					(String) request.getSession().getAttribute(
+							UIConst.PARAM_EMAIL));
 			// Reinit calendar
 			init();
 		}
@@ -377,21 +465,26 @@ public class CalendarApplication extends Application implements EventClickHandle
 		// logout case
 		if (connectedPart != null
 				&& (request.getSession().getAttribute(UIConst.PARAM_CONNECTED) == null || request
-						.getSession().getAttribute(UIConst.PARAM_CONNECTED).equals(Boolean.FALSE))) {
+						.getSession().getAttribute(UIConst.PARAM_CONNECTED)
+						.equals(Boolean.FALSE))) {
 			connectedPart = null;
 			init();
 		}
 	}
 
 	@Override
-	public void onRequestEnd(HttpServletRequest request, HttpServletResponse response) {
+	public void onRequestEnd(HttpServletRequest request,
+			HttpServletResponse response) {
 		// Save the login information
 		if (connectedPart != null
 				&& request.getSession().getAttribute(UIConst.PARAM_CONNECTED) == null) {
 			request.getSession().setAttribute(UIConst.PARAM_CONNECTED, true);
-			request.getSession().setAttribute(UIConst.PARAM_LASTNAME, connectedPart.getNom());
-			request.getSession().setAttribute(UIConst.PARAM_FIRSTNAME, connectedPart.getPrenom());
-			request.getSession().setAttribute(UIConst.PARAM_EMAIL, connectedPart.getEmail());
+			request.getSession().setAttribute(UIConst.PARAM_LASTNAME,
+					connectedPart.getNom());
+			request.getSession().setAttribute(UIConst.PARAM_FIRSTNAME,
+					connectedPart.getPrenom());
+			request.getSession().setAttribute(UIConst.PARAM_EMAIL,
+					connectedPart.getEmail());
 		}
 	}
 
