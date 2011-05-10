@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import com.jcertif.presentation.data.bo.cedule.CeduleParticipant;
 import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.bo.participant.Participant;
+import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.login.LoginForm;
 import com.jcertif.presentation.ui.util.UIConst;
 import com.jcertif.presentation.ui.util.UIStyle;
@@ -204,8 +205,8 @@ public class CalendarApplication extends Application implements
 			buttonLineLayout = new VerticalLayout();
 
 			final HorizontalLayout layoutH2 = new HorizontalLayout();
-			final Button but1 = new Button("day 1");
-			final Button but2 = new Button("day 2");
+			final Button but1 = new Button(Msg.get("ui.calendar.button.day1"));
+			final Button but2 = new Button(Msg.get("ui.calendar.button.day2"));
 			but1.addListener(new ClickListener() {
 
 				@Override
@@ -233,6 +234,7 @@ public class CalendarApplication extends Application implements
 			but1.addStyleName("selected");
 			but2.removeStyleName("selected");
 			setDay1();
+			layoutH2.addStyleName("calendar-button-line");
 		}
 
 		return buttonLineLayout;
