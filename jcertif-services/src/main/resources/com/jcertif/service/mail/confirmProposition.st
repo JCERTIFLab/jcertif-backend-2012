@@ -33,35 +33,35 @@ p {line-height:18px;}
    Merci $participant.salutation$ $participant.prenom$ $participant.nom$!<br />
    Votre proposition de pr&eacute;sentation &agrave; la conf&eacute;rence JCertif 2011 a bien &eacute;t&eacute; enregistr&eacute;e.<br />
    <br />
-   L&#39;&eacute;quipe d&#39;approbation vous notifiera par email de la suite accord&eacute;e &agrave; votre proposition (accept&eacute;e or refus&eacute;e).<br />
+   L&#39;&eacute;quipe d&#39;approbation vous notifiera par email de la suite accord&eacute;e &agrave; votre proposition (accept&eacute;e ou refus&eacute;e).<br />
    <br />
-   R&egrave;gles g&eacute;n&eacute;rales de JCertif:<br />
+   R&egrave;gles g&eacute;n&eacute;rales de JCertif :<br />
    -------------------------------------<br />
-   <lu>
-   		<li>Les badges d&#39;acc&egrave;s VIP gratuits accord&eacute;s aux pr&eacute;sentateurs sont limit&eacute;s à 1 badge par pr&eacute;sentateur et ne peuventt être transf&eacute;r&eacute;s ou prêt&eacute;s à un tier.<li/> 
-		<li>L'organisation JCercif ne rembourse pas les frais de voyage ni toutes autres d&eacute;penses occasionn&eacute;es par le d&eacute;placement des pr&eacute;sentateurs.<li/> 
-		<li>En acceptant l&#39;invitation de pr&eacute;senter &agrave; JCertif 2011, vous autorisez JCertif &agrave; promouvoir, publier ou utiliser le contenu de votre pr&eacute;sentation pour les besoins de la conf&eacute;rence.<li/>
-	<ul/>
+   <ul>
+   		<li>Les badges d&#39;acc&egrave;s VIP gratuits accord&eacute;s aux pr&eacute;sentateurs sont limit&eacute;s à 1 badge par pr&eacute;sentateur et ne peuvent être transf&eacute;r&eacute;s ou prêt&eacute;s à un tiers.</li> 
+		<li>L'organisation JCertif ne rembourse pas les frais de voyage ni toutes autres d&eacute;penses occasionn&eacute;es par le d&eacute;placement des pr&eacute;sentateurs.</li> 
+		<li>En acceptant l&#39;invitation de pr&eacute;senter &agrave; JCertif 2011, vous autorisez JCertif &agrave; promouvoir, publier ou utiliser le contenu de votre pr&eacute;sentation pour les besoins de la conf&eacute;rence.</li>
+	</ul>
    
    <br />
    Devenez vous aussi collecteur de votre secteur et rejoingnez l&#39;&eacute;quipe d&#39;organisation !<br />
    N&#39;h&eacute;sitez pas &agrave; nous contacter pour plus d&#39;informations. 
-   <a href="mailto:info@jcertif.com?subject=Je%20souhaite%20devenir%20collecteur%20de%20mon%20secteur">Info@jcertif.com</a><br />
+   <a href="mailto:info@jcertif.com?subject=Je%20souhaite%20devenir%20collecteur%20de%20mon%20secteur">info@jcertif.com</a><br />
    <br />
    ================================================<br />
    &Eacute;quipe JCertif 2011 - <a href="http://www.jcertif.com/" target="_blank" style="color: rgb(0, 0, 204);">http://www.jcertif.com</a><br />
-   Info@jcertif.com
+   info@jcertif.com
 </p>
 </div>
 <hr />
 
 <div align="center">
-<b>Sponsors<b/>
+<b>Sponsors</b>
 <table>
 	<tr>
 		$partenaires$
 	</tr>
-   		
+</table>	
 </div>
 
 

@@ -37,30 +37,30 @@ p {line-height:18px;}
    <br />
    &Eacute;tapes &agrave; suivre :<br />
    ------------------- <br />
-   &nbsp;1 - Contactez rapidement le collecteur de votre secteur. Consultez notre foire aux questions pour trouver le collecteur le plus pr&ecirc;t de chez vous : <a href="#">FAQ</a>).<br />
+   &nbsp;1 - Contactez rapidement le collecteur de votre secteur. Consultez notre foire aux questions pour trouver le collecteur le plus pr&ecirc;t de chez vous : <a href="http://www.jcertif.com/pages/faq.jsp">FAQ</a>.<br />
    &nbsp;2 - Payez les frais de participation et recevez votre carte d&#39;invitation officielle et un num&eacute;ro de confirmation.<br />
    <br />
-   Vous pouvez retourner &agrave; <a href="http://www.jcertif.com/">la page d&#39;accueil</a><br />
+   Vous pouvez retourner &agrave; <a href="http://www.jcertif.com/">la page d&#39;accueil.</a><br />
    <br />
    <br />
    Devenez vous aussi collecteur de votre secteur et et rejoingnez l&#39;&eacute;quipe d&#39;organisation !<br />
-   N&#39;h&eacute;sitez pas &agrave; nous contacter pour plus d&#39;informations. 
-   <a href="mailto:info@jcertif.com?subject=Je%20souhaite%20devenir%20collecteur%20de%20mon%20secteur">Info@jcertif.com</a><br />
+   N&#39;h&eacute;sitez pas &agrave; nous contacter pour plus d&#39;informations :
+   <a href="mailto:info@jcertif.com?subject=Je%20souhaite%20devenir%20collecteur%20de%20mon%20secteur">info@jcertif.com</a><br />
    <br />
    ================================================<br />
    &Eacute;quipe JCertif 2011 - <a href="http://www.jcertif.com/" target="_blank" style="color: rgb(0, 0, 204);">http://www.jcertif.com</a><br />
-   Info@jcertif.com
+   info@jcertif.com
 </p>
 </div>
 <hr />
 
 <div align="center">
-<b>Sponsors<b/>
+<b>Sponsors</b>
 <table>
 	<tr>
 		$partenaires$
 	</tr>
-   		
+</table> 		
 </div>
 
 
