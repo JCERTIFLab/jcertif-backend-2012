@@ -14,14 +14,15 @@
 <title><%=session.getAttribute("home.jsp.title")%></title>
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 <link type="text/css" href="css/simple.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jcertif.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.pikachoose.js"></script>
 <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
 <script type="text/javascript">            $(document).ready(
             function (){
                 $("#pikame").PikaChoose({showCaption:false});
+                JCERTIF.menu.init("#menu_home");
             }); 		
-            -->
         </script>
 </head>
 

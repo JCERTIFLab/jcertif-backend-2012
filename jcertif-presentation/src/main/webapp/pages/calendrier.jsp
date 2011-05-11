@@ -9,6 +9,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
     <link type="text/css" href="css/bottom.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jcertif.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
  <link type="text/css" href="../VAADIN/themes/jcertifruno/styles.css" rel="stylesheet" />
     <script type="text/javascript">
         var vaadin = {
@@ -24,6 +26,11 @@
                 }
             }
         };
+        
+        $(document).ready(function()
+        {
+           JCERTIF.menu.init("#menu_calendrier");
+        });
     </script>
     <script type="text/javascript"
     src='../VAADIN/widgetsets/com.jcertif.presentation.gwt.MyWidgetSet/com.jcertif.presentation.gwt.MyWidgetSet.nocache.js'></script>
