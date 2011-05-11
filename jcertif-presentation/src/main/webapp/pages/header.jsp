@@ -36,7 +36,9 @@
             <li><a id="menu_inscription" href="<%=request.getContextPath()%>/pages/inscription.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.inscription")%></b></a></li>
             <li><a id="menu_proposition" href="<%=request.getContextPath()%>/pages/propositionPresentation.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.proposition")%></b></a></li>
             <li><a id="menu_calendrier" href="<%=request.getContextPath()%>/pages/calendrier.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.calendar")%></b></a></li>
+            <li><a id="menu_propositionlist" href="<%=request.getContextPath()%>/pages/propositionlist.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.propositionlist")%></b></a></li>
             <li><a id="menu_presentateurs" href="<%=request.getContextPath()%>/pages/presentateurs.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.speakers")%></b></a></li>
+            
             <li><a id="menu_apropos" href="<%=request.getContextPath()%>/pages/apropos.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.apropos")%></b></a></li>
             <li><a id="menu_faq" href="<%=request.getContextPath()%>/pages/faq.jsp" title=""><b><%=session.getAttribute("header.jsp.menu.faq")%></b></a></li>
         </ul>

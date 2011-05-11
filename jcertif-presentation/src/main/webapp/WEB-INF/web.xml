@@ -7,7 +7,7 @@
 	<context-param>
 		<description>Vaadin production mode</description>
 		<param-name>productionMode</param-name>
-		<param-value>false</param-value>
+		<param-value>true</param-value>
 	</context-param>
 	<context-param>
 		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
@@ -75,6 +75,21 @@
 			<description>Vaadin application class to start</description>
 			<param-name>application</param-name>
 			<param-value>com.jcertif.presentation.ui.proposition.PropositionPresentationApplication</param-value>
+		</init-param>
+		<init-param>
+			<description>Application widgetset</description>
+			<param-name>widgetset</param-name>
+			<param-value>com.jcertif.presentation.gwt.MyWidgetSet</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>JCertifPropositionList</servlet-name>
+		<servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+		<init-param>
+			<description>Vaadin application class to start</description>
+			<param-name>application</param-name>
+			<param-value>com.jcertif.presentation.ui.propositionlist.PropositionListApplication</param-value>
 		</init-param>
 		<init-param>
 			<description>Application widgetset</description>
@@ -232,6 +247,11 @@
 		<servlet-name>JCertifProposition</servlet-name>
 		<url-pattern>/vaadin/propositionPresentation/*</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>JCertifPropositionList</servlet-name>
+		<url-pattern>/vaadin/propositionlist/*</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>JCertifPartenaire</servlet-name>
@@ -278,6 +298,20 @@
 		<url-pattern>/vaadin/community/*</url-pattern>
 	</servlet-mapping>
 	
+	<!--
+	
+	<filter>
+                <filter-name>monitoring</filter-name>
+                <filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
+        </filter>
+        <filter-mapping>
+                <filter-name>monitoring</filter-name>
+                <url-pattern>/*</url-pattern>
+        </filter-mapping>
+        <listener>
+                <listener-class>net.bull.javamelody.SessionListener</listener-class>
+        </listener>
+	  -->
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
