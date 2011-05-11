@@ -10,9 +10,37 @@
 <link type="text/css" href="css/bottom.css" rel="stylesheet" />
 <link type="text/css" href="../VAADIN/themes/jcertifruno/styles.css"
 	rel="stylesheet" />
+	
+	<script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=true">
+</script>
+ <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+  function init() {
+    var latlng = new google.maps.LatLng(-4.28030000, 15.258900);
+    var myOptions = {
+      zoom: 12,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+    var myMarker = new google.maps.Marker({
+    	// Coordonnées du cinéma
+    	position: latlng,
+    	map: map,
+    	title: "JCERTIF 2011"
+    });
+  }
+  
+  $(document).ready(function()
+	        {
+	        	init();
+	    
+	        });
 
-<script type="text/javascript"
-	src='../VAADIN/widgetsets/com.jcertif.presentation.gwt.MyWidgetSet/com.jcertif.presentation.gwt.MyWidgetSet.nocache.js'></script>
+</script>
+
 </head>
 <body>
 	<%
@@ -40,9 +68,14 @@
 			<br /> <br />
 
 		</div>
-
-		<jsp:include page="footer.jsp" />
+		
+		
+		<div id="map_canvas" style="float:right; width:550px; height:350px"></div>
+		
+		<jsp:include page="footer.jsp" /> 
 	</div>
-
+	
+		
+	
 </body>
 </html>
