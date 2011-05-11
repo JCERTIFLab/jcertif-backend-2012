@@ -30,7 +30,8 @@ public class LoginApplication extends Application implements ClickListener,
 	/**
 	 * A logger.
 	 */
-	private static final Logger LOGGER = LoggerFactory.getLogger(LoginApplication.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(LoginApplication.class);
 
 	/**
 	 * Un participant connecté.
@@ -77,18 +78,22 @@ public class LoginApplication extends Application implements ClickListener,
 	@Override
 	public void buttonClick(ClickEvent event) {
 		connectedPart = getLoginForm().commitAndGetParticipant();
-		if (urlRedirect == null) {
-			urlRedirect = contextPath + UIConst.HOME_VIEW;
+		if (connectedPart != null) {
+			if (urlRedirect == null) {
+				urlRedirect = contextPath + UIConst.HOME_VIEW;
+			}
+			ExternalResource res = new ExternalResource(urlRedirect);
+			this.getMainWindow().open(res);
 		}
-		ExternalResource res = new ExternalResource(urlRedirect);
-		this.getMainWindow().open(res);
 	}
 
 	@Override
-	public void onRequestStart(HttpServletRequest request, HttpServletResponse response) {
+	public void onRequestStart(HttpServletRequest request,
+			HttpServletResponse response) {
 		urlRedirect = (String) request.getSession().getAttribute("url");
 		contextPath = request.getContextPath();
-		Object propo = request.getSession().getAttribute("login.propositionsujet");
+		Object propo = request.getSession().getAttribute(
+				"login.propositionsujet");
 
 		if (propo == null || Boolean.FALSE.equals(propo)) {
 			getLoginForm().setCaption(Msg.get("ui.login.title"));
@@ -102,21 +107,26 @@ public class LoginApplication extends Application implements ClickListener,
 		}
 
 		// case of logout
-		if (Boolean.TRUE.equals(request.getSession().getAttribute(UIConst.PARAM_LOGOUT))) {
+		if (Boolean.TRUE.equals(request.getSession().getAttribute(
+				UIConst.PARAM_LOGOUT))) {
 			connectedPart = null;
 		}
 
 	}
 
 	@Override
-	public void onRequestEnd(HttpServletRequest request, HttpServletResponse response) {
+	public void onRequestEnd(HttpServletRequest request,
+			HttpServletResponse response) {
 
 		if (connectedPart != null
 				&& request.getSession().getAttribute(UIConst.PARAM_CONNECTED) == null) {
 			request.getSession().setAttribute(UIConst.PARAM_CONNECTED, true);
-			request.getSession().setAttribute(UIConst.PARAM_LASTNAME, connectedPart.getNom());
-			request.getSession().setAttribute(UIConst.PARAM_FIRSTNAME, connectedPart.getPrenom());
-			request.getSession().setAttribute(UIConst.PARAM_EMAIL, connectedPart.getEmail());
+			request.getSession().setAttribute(UIConst.PARAM_LASTNAME,
+					connectedPart.getNom());
+			request.getSession().setAttribute(UIConst.PARAM_FIRSTNAME,
+					connectedPart.getPrenom());
+			request.getSession().setAttribute(UIConst.PARAM_EMAIL,
+					connectedPart.getEmail());
 		}
 
 	}
