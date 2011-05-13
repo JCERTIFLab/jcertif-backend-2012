@@ -80,8 +80,8 @@ public class CalendarApplication extends Application implements
 
 	private String contextPath;
 
-	final Button but1 = new Button(Msg.get("ui.calendar.button.day1"));
-	final Button but2 = new Button(Msg.get("ui.calendar.button.day2"));
+	private Button day1Button = new Button(Msg.get("ui.calendar.button.day1"));
+	private Button day2Button = new Button(Msg.get("ui.calendar.button.day2"));
 
 	private boolean isDay1 = true;
 
@@ -113,12 +113,12 @@ public class CalendarApplication extends Application implements
 			updateDetailPanel((CalendarEventBean) updateToShow);
 
 			if (isDay1) {
-				but1.addStyleName("selected");
-				but2.removeStyleName("selected");
+				day1Button.addStyleName("selected");
+				day2Button.removeStyleName("selected");
 				setDay1();
 			} else {
-				but2.addStyleName("selected");
-				but1.removeStyleName("selected");
+				day2Button.addStyleName("selected");
+				day1Button.removeStyleName("selected");
 				setDay2();
 			}
 
@@ -240,28 +240,28 @@ public class CalendarApplication extends Application implements
 
 		final HorizontalLayout layoutH2 = new HorizontalLayout();
 
-		but1.addListener(new ClickListener() {
+		day1Button.addListener(new ClickListener() {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				but1.addStyleName("selected");
-				but2.removeStyleName("selected");
+				day1Button.addStyleName("selected");
+				day2Button.removeStyleName("selected");
 				setDay1();
 			}
 		});
 
-		but2.addListener(new ClickListener() {
+		day2Button.addListener(new ClickListener() {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				but2.addStyleName("selected");
-				but1.removeStyleName("selected");
+				day2Button.addStyleName("selected");
+				day1Button.removeStyleName("selected");
 				setDay2();
 			}
 		});
 
-		layoutH2.addComponent(but1);
-		layoutH2.addComponent(but2);
+		layoutH2.addComponent(day1Button);
+		layoutH2.addComponent(day2Button);
 		buttonLineLayout.addComponent(layoutH2);
 		buttonLineLayout.addComponent(getCalendarComponent());
 
