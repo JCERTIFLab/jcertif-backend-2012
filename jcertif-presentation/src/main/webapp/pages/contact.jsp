@@ -58,6 +58,7 @@
 				<%=session.getAttribute("contact.jsp.congo")%><br />
 				<%=session.getAttribute("contact.jsp.france")%><br />
 				<%=session.getAttribute("contact.jsp.canada")%>
+				<%=session.getAttribute("contact.jsp.twitter")%>
 			</p>
 			<br /> <br />
 			<p>
