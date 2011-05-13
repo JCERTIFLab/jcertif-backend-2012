@@ -206,10 +206,10 @@
 
 	<!-- Profils Organisateurs -->		
 
-	<profil_utilisateur id="15" email="rossi.oddet@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />
-	<profil_utilisateur id="16" email="chrisbel@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />
+	<profil_utilisateur id="15" email="rossi.oddet@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="rossi.jpg" />
+	<profil_utilisateur id="16" email="chrisbel@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="chrisbel.jpg" />
 	<profil_utilisateur id="17" email="adanlessossi@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="Bernard.jpg" />
-	<profil_utilisateur id="18" email="dieudonne.nieme@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />
+	<profil_utilisateur id="18" email="dieudonne.nieme@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dieudonne.png" />
 	<profil_utilisateur id="19" email="thierry.balla@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="Thierry.jpg" />
 	<profil_utilisateur id="20" email="gayeaminata84@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />	
 	<profil_utilisateur id="21" email="bertin.abiassi@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />	
@@ -220,6 +220,7 @@
 	<profil_utilisateur id="26" email="badr.elhouari@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />	
 	<profil_utilisateur id="27" email="poundja.habib@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />	
 	<profil_utilisateur id="28" email="fred@closebase.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="Frederic.jpg" />	
+	<profil_utilisateur id="29" email="honorenz@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="Honore.jpg" />	
 
 
 	<!-- Profils Particuliers -->		
@@ -243,6 +244,7 @@
 	<profil_utilisateur id="50" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="pratic.jpg" />	
 	<profil_utilisateur id="51" email="info@congojug.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="congojug.png" />	
 	<profil_utilisateur id="52" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="jugafrica.gif" />	
+	<profil_utilisateur id="53" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="kinjugLgo.jpg" />	
 
 
 	<!-- Participants Présentateurs -->		
@@ -279,6 +281,7 @@
 	<adresse id="26" telephone_fixe="" telephone_mobile="" ville="Paris" pays="France"/>
 	<adresse id="27" telephone_fixe="" telephone_mobile="" ville="Rabat" pays="Maroc"/>
 	<adresse id="28" telephone_fixe="" telephone_mobile="" ville="Bruxelles" pays="Belgique"/>
+	<adresse id="29" telephone_fixe="" telephone_mobile="" ville="Kinshasa" pays="Congo, République Démocratique"/>
 
 	<!-- Adresse Particuliers -->		
 	<adresse id="60" telephone_fixe="" telephone_mobile="" ville="Brazzaville" pays="Congo"/>
@@ -298,7 +301,9 @@
 	<adresse id="49" telephone_fixe="" telephone_mobile="" ville="Redshoos" pays="États-Unis"/>
 	<adresse id="50" telephone_fixe="" telephone_mobile="" ville="Paris" pays="France"/>
 	<adresse id="51" telephone_fixe="" telephone_mobile="" ville="Brazzaville" pays="Congo"/>	
-	<adresse id="52" telephone_fixe="" telephone_mobile="" ville="Brazzaville" pays="Congo"/>	
+	<adresse id="52" telephone_fixe="" telephone_mobile="" ville="Brazzaville" pays="Congo"/>
+	<adresse id="53" telephone_fixe="" telephone_mobile="" ville="Kinshasa" pays="Congo, République Démocratique"/>
+		
 
 
 	<!-- Participants Sponsors -->	
@@ -315,6 +320,7 @@
 	<participant id="50" niveau_partenariat_id="6" compagnie="Pratic Congo" role_participant_id="4" type_participant_id="5" code_participant="Valide" website="http://www.pratic.org/" adresse_id="49" nom="PRATIC Congo" email="" prenom="" profil_utilisateur_id="50" details="PRATIC est une association à but non lucratif régie par la loi 1901. PRATIC est un acteur important dans la promotion, la réflexion et analyses des TICs. Il est présent dans plusieurs pays dont le Congo Brazzaville, le Sénégal et la France" />
 	<participant id="51" niveau_partenariat_id="6" compagnie="Congo Java User Group" role_participant_id="4" type_participant_id="5" code_participant="Valide" website="http://www.congojug.com/" adresse_id="49" nom="Congo JUG" email="" prenom="" profil_utilisateur_id="51" details="Congo Java User Group (JUG) est une communauté regroupant l'ensemble des acteurs (professionnels, étudiants, développeurs, enseignants, institutions, communautés open source ...) autour du langage Java et des technologies Open Source." />
 	<participant id="52" niveau_partenariat_id="6" compagnie="Africa Java User Group" role_participant_id="4" type_participant_id="5" code_participant="Valide" website="http://java.net/projects/jug-africa/pages/Home" adresse_id="49" nom="JUG-AFRICA" email="" prenom="" profil_utilisateur_id="52" details="JUG-AFICA est un organisme à but non lucratif reconnu par Oracle et toute la communauté Java comme contributeur de la technologie Java. Comme membre du JCP (Java Community Process), JUG-AFRICA participe au processus d'évolution du langage Java. Il rassemble plus de 15 groupes d'utilisateurs Java de pertout en Arique. De l'Égypte à l'Afrique du SUD en passant par le Mali, le Nigéria, le Togo, le Sénégal etc... Pour plus de détail : http://java.net/projects/jug-africa/pages/Home" />
+	<participant id="53" niveau_partenariat_id="6" compagnie="Kin Java User Group" role_participant_id="4" type_participant_id="5" code_participant="Valide" website="http://www.kinjug.org" adresse_id="43" nom="Kin-JUG" email="" prenom="" profil_utilisateur_id="53" details="KinJUG est une communauté sans but lucratif qui réunit en son sein les utilisateurs des technologies de l'information et de la communication, et les programmeurs congolais, vivant à Kinshasa (kinois), pour la promotion, le développement et la vulgarisation des outils (logiciels) en logiciels libres, en général, et plus particulièrement en Java." />
 
 	
 	<!-- Participants Présentateurs-->		
@@ -345,7 +351,7 @@
 
 
 	<!-- Participants Organisateurs -->		
-	<participant id="15" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="15" nom="Oddet" email="rossi.oddet@gmail.com" prenom="Rossi" profil_utilisateur_id="15" details="Principal Architect de l'application JCertif App, l'outil d'inscription de JCertf 2011, Rossi est un développeur Java/JEE hors paire et un coder efficace et toujours à la recherche des meilleures solutions. Rossi travaille actuellement à Nantes en France comme spécialiste Java et Java EE" />
+	<participant id="15" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="15" nom="Oddet" email="rossi.oddet@gmail.com" prenom="Rossi" profil_utilisateur_id="15" details="Principal Architect de l'application JCertif App, l'outil d'inscription de JCertf 2011, Rossi est un développeur Java/JEE hors paire et un coder efficace et toujours à la recherche des meilleures solutions. Rossi travaille pour un centre de développement logiciel à Nantes (France) en tant que Team Lead. Evoluant depuis 5 ans sur la plateforme JavaEE, il aime mélanger motivation/code/stratégie/management pour réussir les projets pour lesquels il s'est engagé. Il a participé activement au développement de JCertif App, l'outil d'inscription de JCertf 2011. Il est intervenu au départ sur l'architecture Maven, la persistance de données (Hibernate), puis sur la couche WebService REST (Jersey) et enfin sur le développement des vues (Vaadin)" />
 	<participant id="16" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="16" nom="Malonga" email="chrisbel@gmail.com" prenom="Chrisbel" profil_utilisateur_id="16" details="Chrisbel est le manager de JCertif 2011. Passionné et audacieux, il aime croire que c'est possible lorsqu'on se donne les moyens. Ingénieur et développeur JAVA JEE à Paris, il suis actuellement une formation d'Architecte JAVA JEE avec Objis France. Chrisbel est un membre actif et co-leader du congoJug." />
 
 	<participant id="17" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="17" nom="Adanlessossi" email="adanlessossi@gmail.com" prenom="Bernard" profil_utilisateur_id="17" details="Bernard est un expert de la plateforme Java EE, il travaille en Suisse comme Sotfware Ingineer à l'Instutut Fédéral de la Propriété Intellectuelle. Beranard à été le leader de la couche Web Services de l'application JCertif App." />
@@ -358,13 +364,15 @@
 	<participant id="22" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="22" nom="Diouf" email="mngdiouf@gmail.com" prenom="Mamadou NGor" profil_utilisateur_id="22" details="Mamadou travaille à Dakar comme spécialiste Informatique dans une grande entreprise. Très actif dans la communauté Java du Sénégal et d'Afrique, Mamadou à travaillé dans l'équipe BO/DAO JCertif App, pour créer l'outil d'inscription de la conférence JCertf 2011." />
 
 	<participant id="23" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="23" nom="Diouf" email="moustaphadiouf@gmail.com" prenom="Mouhamed" profil_utilisateur_id="23" details="Avec plusieurs années d'expérience à son actif, Mouhamed est expert dans la mise en place de systèmes complexes, architecte Java/JEE et spécialiste de l'approche par règles métier. Mouhamed est responsable TI chez Baamtu une strart-Up très prométeuse de Paris. Il a mis en place toute l'infrastructure logicielle de dévéloppement, de déploiement et de collaboration du projet JCertif App." />
-	<participant id="24" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="24" nom="BESSALAH" email="samkiller@gmail.com" prenom="Sam" profil_utilisateur_id="24" details="Membre de ParisJUG et spécialiste Java et Java EE, Sam a travaillé dans l'équipe JCertif App, l'outil d'inscription de JCertf 2011. À compléter...." />
+	<participant id="24" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="24" nom="BESSALAH" email="samkiller@gmail.com" prenom="Sam" profil_utilisateur_id="24" details="Membre de ParisJUG et spécialiste Java et Java EE, Sam a travaillé dans l'équipe JCertif App, l'outil d'inscription de JCertf 2011." />
 
-	<participant id="25" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="25" nom="Ntanga" email="teddy_ntanga083@yahoo.fr" prenom="Teddy" profil_utilisateur_id="25" details="Passionné de Java et des nouvelles technologies en général, Teddy a travaillé avec l'équipe de JCertif App, l'outil d'inscription et de gestion de JCertf 2011. À compléter....." />
+	<participant id="25" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="25" nom="Ntanga" email="teddy_ntanga083@yahoo.fr" prenom="Teddy" profil_utilisateur_id="25" details="Passionné de Java et des nouvelles technologies en général, Teddy a travaillé avec l'équipe de JCertif App, l'outil d'inscription et de gestion de JCertf 2011." />
 	<participant id="26" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="26" nom="Elhouari" email="badr.elhouari@gmail.com" prenom="Badr" profil_utilisateur_id="26" details="Team Leader et Développeur Sénior Java EE, Badr travaille actuellement chez Sagem Sécurité au Maroc comme consultant technique Senior. Il a travaillé dans l'équipe de la couche présentation de JCertif App, l'outil d'inscription et de gestion de JCertf 2011." />
 
-	<participant id="27" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="27" nom="Poundja" email="poundja.habib@gmail.com" prenom="Habib" profil_utilisateur_id="27" details="Dévloppeur expérimenté basé à Kinshasa, Congo RDC, Habib a travaillé dans l'équipe de la couche présentation de JCertif App, l'outil d'inscription de JCertf 2011. À compléter......" />
+	<participant id="27" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="27" nom="Poundja" email="poundja.habib@gmail.com" prenom="Habib" profil_utilisateur_id="27" details="Dévloppeur expérimenté basé à Kinshasa, Congo RDC, Habib a travaillé dans l'équipe de la couche présentation de JCertif App, l'outil d'inscription de JCertf 2011." />
 	<participant id="28" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="28" nom="Close" email="fred@closebase.com" prenom="Frederic" profil_utilisateur_id="28" details="Architecte et sénior dévéloppeur chez ClearPriority en Belgique, Frédéric à joué un rôle important dans l'équipe de réalisation de JCertif App, l'outil d'inscription de JCertf 2011." />
+
+	<participant id="29" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="29" nom="NZAMBU" email="honorenz@gmail.com" prenom="Honoré" profil_utilisateur_id="28" details="Honoré NZAMBU est ingénieur civil informaticien, consultant formateur à l'Agence Universitaire de la Francophonie et assistant chargé des cours à l'Institut Supérieur d'Informatique CHAMINADE, institut tenu par les religieux marianistes. Après avoir suivi plusieurs formations complémentaires notamment à l'Académie régionale Cisco Networking, avec Microsoft IT Academy, à l'Agence Universitaire de la francophonie (Linux, SPIP, MOODLE...), au Centre International de formation et production audiovisuel, au réseau international francophone d'établissement de formation des formateurs, au musée royal de belgique à TERVUREN, au programme à horaire décalé des facultés universitaires notre dame de paix de Namur (FUNDP), il a effectué plusieurs missions. Honoré a collaboré à la réalisation de l'application JCertif App" />
 
 	<!-- Participants Particuliers -->		
 	<participant id="60" compagnie="" role_participant_id="3" type_participant_id="1" website="" adresse_id="60" nom="Komlan" email="tseke_sayi@yahoo.fr" prenom="Édouard" profil_utilisateur_id="60" details="" />
