@@ -80,7 +80,10 @@ public class CalendarApplication extends Application implements
 
 	private String contextPath;
 
-	private VerticalLayout buttonLineLayout;
+	final Button but1 = new Button(Msg.get("ui.calendar.button.day1"));
+	final Button but2 = new Button(Msg.get("ui.calendar.button.day2"));
+
+	private boolean isDay1 = true;
 
 	@Override
 	public void init() {
@@ -99,12 +102,30 @@ public class CalendarApplication extends Application implements
 		mainWindow.getContent().addComponent(getCalendarComponent());
 
 		// Update Detail Panel with first event
-		CalendarEvent firstEvent = findFirstEvent();
-		if (firstEvent != null) {
-			updateDetailPanel((CalendarEventBean) firstEvent);
+		CalendarEvent updateToShow = null;
+		if (selectedEvent == null) {
+			updateToShow = findFirstEvent();
+		} else {
+			updateToShow = findCalendarEvent(selectedEvent);
+		}
+		;
+		if (updateToShow != null) {
+			updateDetailPanel((CalendarEventBean) updateToShow);
+
+			if (isDay1) {
+				but1.addStyleName("selected");
+				but2.removeStyleName("selected");
+				setDay1();
+			} else {
+				but2.addStyleName("selected");
+				but1.removeStyleName("selected");
+				setDay2();
+			}
+
 		}
 
 		if (init) {
+
 			setMainWindow(mainWindow);
 		}
 
@@ -141,6 +162,20 @@ public class CalendarApplication extends Application implements
 		return firstEvent;
 	}
 
+	private CalendarEvent findCalendarEvent(Evenement event) {
+		List<CalendarEvent> events = getCalendarEventBeans();
+
+		CalendarEvent firstEvent = null;
+		for (CalendarEvent calendarEvent : events) {
+			if (((CalendarEventBean) calendarEvent).getFacadeEvent().equals(
+					event)) {
+				return calendarEvent;
+			}
+
+		}
+		return null;
+	}
+
 	/**
 	 * @return
 	 */
@@ -149,7 +184,7 @@ public class CalendarApplication extends Application implements
 		Date startDate = null;
 		Date endDate = null;
 		try {
-			endDate = dateF.parse("03/09/2011 09");
+			endDate = dateF.parse("03/09/2011 08");
 			startDate = dateF.parse("04/09/2011 21");
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -201,47 +236,43 @@ public class CalendarApplication extends Application implements
 
 	private VerticalLayout getButtonLineLayout() {
 
-		if (buttonLineLayout == null) {
-			buttonLineLayout = new VerticalLayout();
+		VerticalLayout buttonLineLayout = new VerticalLayout();
 
-			final HorizontalLayout layoutH2 = new HorizontalLayout();
-			final Button but1 = new Button(Msg.get("ui.calendar.button.day1"));
-			final Button but2 = new Button(Msg.get("ui.calendar.button.day2"));
-			but1.addListener(new ClickListener() {
+		final HorizontalLayout layoutH2 = new HorizontalLayout();
 
-				@Override
-				public void buttonClick(ClickEvent event) {
-					but1.addStyleName("selected");
-					but2.removeStyleName("selected");
-					setDay1();
-				}
-			});
+		but1.addListener(new ClickListener() {
 
-			but2.addListener(new ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				but1.addStyleName("selected");
+				but2.removeStyleName("selected");
+				setDay1();
+			}
+		});
 
-				@Override
-				public void buttonClick(ClickEvent event) {
-					but2.addStyleName("selected");
-					but1.removeStyleName("selected");
-					setDay2();
-				}
-			});
+		but2.addListener(new ClickListener() {
 
-			layoutH2.addComponent(but1);
-			layoutH2.addComponent(but2);
-			buttonLineLayout.addComponent(layoutH2);
-			buttonLineLayout.addComponent(getCalendarComponent());
-			but1.addStyleName("selected");
-			but2.removeStyleName("selected");
-			setDay1();
-			layoutH2.addStyleName("calendar-button-line");
-		}
+			@Override
+			public void buttonClick(ClickEvent event) {
+				but2.addStyleName("selected");
+				but1.removeStyleName("selected");
+				setDay2();
+			}
+		});
+
+		layoutH2.addComponent(but1);
+		layoutH2.addComponent(but2);
+		buttonLineLayout.addComponent(layoutH2);
+		buttonLineLayout.addComponent(getCalendarComponent());
+
+		layoutH2.addStyleName("calendar-button-line");
 
 		return buttonLineLayout;
 	}
 
 	private void setDay1() {
 		setDay(3);
+		isDay1 = true;
 	}
 
 	private void setDay(int day) {
@@ -265,6 +296,7 @@ public class CalendarApplication extends Application implements
 
 	private void setDay2() {
 		setDay(4);
+		isDay1 = false;
 	}
 
 	private void updateSelectedStyle(final CalendarEventBean selectedEvent) {
