@@ -182,69 +182,69 @@
 	<!-- Profils Speakers -->		
 		
 	<!-- Spassword=michel-->
-	<profil_utilisateur id="1" email="arun.p.gupta@oracle.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="arun.png" />
-	<profil_utilisateur id="2" email="horalass@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="horacio.jpg" />
-	<profil_utilisateur id="3" email="mike@cambridgeweb.ie" password="79-113-37-16-51-608186-90-24-302643-798655" photo="mike.jpg" />
-	<profil_utilisateur id="4" email="matayobweta@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="stanyslas.jpg" />
+	<profil_utilisateur id="1" email="arun.p.gupta@oracle.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="arun.png" />
+	<profil_utilisateur id="2" email="horalass@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="horacio.jpg" />
+	<profil_utilisateur id="3" email="mike@cambridgeweb.ie" password="-41-1282447119-793369873-62-80-120-9268-16" photo="mike.jpg" />
+	<profil_utilisateur id="4" email="matayobweta@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="stanyslas.jpg" />
 
 	<!-- password=max-->
 	<profil_utilisateur id="5" email="bonbhel@gmail.com" password="47-2781195093-10211382-98110-89-868120" photo="Max.png" />
 	
 	<!-- password=michel -->
-	<profil_utilisateur id="6" email="luc.missidimbazi@wanadoo.fr" password="79-113-37-16-51-608186-90-24-302643-798655" photo="luc.gif" />
-	<profil_utilisateur id="7" email="douglas.mbiandou@objis.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="douglas.jpg" />
+	<profil_utilisateur id="6" email="luc.missidimbazi@wanadoo.fr" password="-41-1282447119-793369873-62-80-120-9268-16" photo="luc.gif" />
+	<profil_utilisateur id="7" email="douglas.mbiandou@objis.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="douglas.jpg" />
 		
-	<profil_utilisateur id="8" email="roger.brinkley@oracle.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="RogerBrinkley.jpg" />
-	<profil_utilisateur id="9" email="michael.heinrichs@oracle.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="michael.png" />
+	<profil_utilisateur id="8" email="roger.brinkley@oracle.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="RogerBrinkley.jpg" />
+	<profil_utilisateur id="9" email="michael.heinrichs@oracle.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="michael.png" />
 	
-	<profil_utilisateur id="10" email="brunodepaulak@yahoo.com.br" password="79-113-37-16-51-608186-90-24-302643-798655" photo="Bruno.jpg" />
-	<profil_utilisateur id="11" email="juanb@za.ibm.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />
+	<profil_utilisateur id="10" email="brunodepaulak@yahoo.com.br" password="-41-1282447119-793369873-62-80-120-9268-16" photo="Bruno.jpg" />
+	<profil_utilisateur id="11" email="juanb@za.ibm.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />
 
-	<profil_utilisateur id="12" email="antani@us.ibm.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />
-	<profil_utilisateur id="13" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />
-	<profil_utilisateur id="14" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />
+	<profil_utilisateur id="12" email="antani@us.ibm.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />
+	<profil_utilisateur id="13" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />
+	<profil_utilisateur id="14" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />
 
 	<!-- Profils Organisateurs -->		
 
-	<profil_utilisateur id="15" email="rossi.oddet@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="rossi.jpg" />
-	<profil_utilisateur id="16" email="chrisbel@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="chrisbel.jpg" />
-	<profil_utilisateur id="17" email="adanlessossi@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="Bernard.jpg" />
-	<profil_utilisateur id="18" email="dieudonne.nieme@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dieudonne.png" />
-	<profil_utilisateur id="19" email="thierry.balla@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="Thierry.jpg" />
-	<profil_utilisateur id="20" email="gayeaminata84@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />	
-	<profil_utilisateur id="21" email="bertin.abiassi@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />	
-	<profil_utilisateur id="22" email="mngdiouf@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />	
-	<profil_utilisateur id="23" email="moustaphadiouf@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />	
-	<profil_utilisateur id="24" email="samkiller@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />
-	<profil_utilisateur id="25" email="teddy_ntanga083@yahoo.fr" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />	
-	<profil_utilisateur id="26" email="badr.elhouari@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />	
-	<profil_utilisateur id="27" email="poundja.habib@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="dedault.jpg" />	
-	<profil_utilisateur id="28" email="fred@closebase.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="Frederic.jpg" />	
-	<profil_utilisateur id="29" email="honorenz@gmail.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="Honore.jpg" />	
+	<profil_utilisateur id="15" email="rossi.oddet@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="rossi.jpg" />
+	<profil_utilisateur id="16" email="chrisbel@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="chrisbel.jpg" />
+	<profil_utilisateur id="17" email="adanlessossi@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="Bernard.jpg" />
+	<profil_utilisateur id="18" email="dieudonne.nieme@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dieudonne.png" />
+	<profil_utilisateur id="19" email="thierry.balla@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="Thierry.jpg" />
+	<profil_utilisateur id="20" email="gayeaminata84@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />	
+	<profil_utilisateur id="21" email="bertin.abiassi@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />	
+	<profil_utilisateur id="22" email="mngdiouf@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />	
+	<profil_utilisateur id="23" email="moustaphadiouf@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />	
+	<profil_utilisateur id="24" email="samkiller@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />
+	<profil_utilisateur id="25" email="teddy_ntanga083@yahoo.fr" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />	
+	<profil_utilisateur id="26" email="badr.elhouari@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />	
+	<profil_utilisateur id="27" email="poundja.habib@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />	
+	<profil_utilisateur id="28" email="fred@closebase.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="Frederic.jpg" />	
+	<profil_utilisateur id="29" email="honorenz@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="Honore.jpg" />	
 
 
 	<!-- Profils Particuliers -->		
 
-	<profil_utilisateur id="60" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="" />
-	<profil_utilisateur id="61" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="" />
+	<profil_utilisateur id="60" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="" />
+	<profil_utilisateur id="61" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="" />
 
 
 	<!-- Participants Sponsors -->		
 	<!-- password=michel -->
-	<profil_utilisateur id="40" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="google.gif" />
-	<profil_utilisateur id="41" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="objis.gif" />
-	<profil_utilisateur id="42" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="warid.gif" />
-	<profil_utilisateur id="43" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="oraclent.png" />
-	<profil_utilisateur id="44" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="burotop.jpg" />
-	<profil_utilisateur id="45" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="pearson.gif" />
-	<profil_utilisateur id="46" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="ibm.jpg" />
-	<profil_utilisateur id="47" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="baamtu.png" />
-	<profil_utilisateur id="48" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="burjug.gif" />
-	<profil_utilisateur id="49" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="parisjug.jpg" />	
-	<profil_utilisateur id="50" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="pratic.jpg" />	
-	<profil_utilisateur id="51" email="info@congojug.com" password="79-113-37-16-51-608186-90-24-302643-798655" photo="congojug.png" />	
-	<profil_utilisateur id="52" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="jugafrica.gif" />	
-	<profil_utilisateur id="53" email="" password="79-113-37-16-51-608186-90-24-302643-798655" photo="kinjugLgo.jpg" />	
+	<profil_utilisateur id="40" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="google.gif" />
+	<profil_utilisateur id="41" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="objis.gif" />
+	<profil_utilisateur id="42" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="warid.gif" />
+	<profil_utilisateur id="43" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="oraclent.png" />
+	<profil_utilisateur id="44" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="burotop.jpg" />
+	<profil_utilisateur id="45" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="pearson.gif" />
+	<profil_utilisateur id="46" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="ibm.jpg" />
+	<profil_utilisateur id="47" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="baamtu.png" />
+	<profil_utilisateur id="48" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="burjug.gif" />
+	<profil_utilisateur id="49" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="parisjug.jpg" />	
+	<profil_utilisateur id="50" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="pratic.jpg" />	
+	<profil_utilisateur id="51" email="info@congojug.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="congojug.png" />	
+	<profil_utilisateur id="52" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="jugafrica.gif" />	
+	<profil_utilisateur id="53" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="kinjugLgo.jpg" />	
 
 
 	<!-- Participants Présentateurs -->		
