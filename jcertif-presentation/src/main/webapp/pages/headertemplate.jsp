@@ -9,7 +9,7 @@
 	<div>
 		<table width="100%" border="0">
 			<tr>
-				<td>
+				<td width="70%">
 					<div class="text_content">
 						<h1><%=session.getAttribute("headertemplate.jsp.title") %></h1>
 						<p class="green"><%=session.getAttribute("headertemplate.jsp.summary") %></p>

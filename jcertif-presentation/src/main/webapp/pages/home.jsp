@@ -49,31 +49,6 @@
 									</c:forEach>
 								</ul>
 							</div>
-							<!--
-                    <p class="clear">
-                        <img src="images/pic1.jpg" alt="" title="" class="left_img" />
-                    </p>
-                    <div class="read_more_link"><a href="#">read more</a></div>
-
-                -->
-						</div>
-						<!--end of left content-->
-						<!--
-				</td>
-				<td align="left" valign="top">
-                -->
-						<div id="right_content">
-							<!--
-                    <div class="search_box">
-                        <div class="search_title">Newsletter</div>
-                        <input type="text" class="search_input" /><br />
-                        <input type="image" src="images/news-subscribe2.png" class="submit" />
-                        <div class="subsearch">
-                            "Rester informer sur l'évolution des activités.
-                        </div>
-
-                    </div>
-                    -->
                     </td>
                     <td rowspan="3">
                     <jsp:include page="sponsors.jsp" />
