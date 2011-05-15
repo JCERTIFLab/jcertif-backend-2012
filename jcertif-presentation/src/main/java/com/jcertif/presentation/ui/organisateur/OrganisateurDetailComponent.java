@@ -77,8 +77,8 @@ public class OrganisateurDetailComponent extends Panel {
 			}
 
 			// Lastname + firstname
-			htmlLayout.addComponent(new Label(participant.getNom() + " "
-					+ participant.getPrenom()), "presentateur");
+			htmlLayout.addComponent(new Label(participant.getPrenom() + " "
+					+ participant.getNom()), "presentateur");
 
 			// Participant photo
 			if (participant.getProfilUtilisateur() != null

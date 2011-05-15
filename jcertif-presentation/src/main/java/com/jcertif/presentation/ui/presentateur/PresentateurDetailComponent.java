@@ -80,8 +80,8 @@ public class PresentateurDetailComponent extends Panel {
 
 			// Lastname + firstname
 			Label nameLabel = new Label("<a name=\"" + participant.getId()
-					+ "\"></a>" + participant.getNom() + " "
-					+ participant.getPrenom(), Label.CONTENT_XHTML);
+					+ "\"></a>" + participant.getPrenom() + " "
+					+ participant.getNom(), Label.CONTENT_XHTML);
 			htmlLayout.addComponent(nameLabel, "presentateur");
 
 			// Participant photo
