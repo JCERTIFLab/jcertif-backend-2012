@@ -750,10 +750,16 @@
 				
 				<presentation.cache.enabled>true</presentation.cache.enabled>
 			</properties>
+		</profile>
+		
+		<profile>
+			<id>update-data</id>
 			<modules>
 				<module>../jcertif-data</module>
 			</modules>
 		</profile>
+		
+		
 		
 		<profile>
 			<id>prod</id>
