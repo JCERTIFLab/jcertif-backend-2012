@@ -750,6 +750,9 @@
 				
 				<presentation.cache.enabled>true</presentation.cache.enabled>
 			</properties>
+			<modules>
+				<module>../jcertif-data</module>
+			</modules>
 		</profile>
 		
 		<profile>
