@@ -44,7 +44,7 @@
 					<driver>${jdbc.driver.classname}</driver>
 					<url>${jdbc.url}</url>
 					<username>${jdbc.username}</username>
-					<password>${forAfrica}</password>
+					<password>${jdbc.password}</password>
 					<format>flat</format>
 					<dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dataTypeFactoryName>
 					<metadataHandler>org.dbunit.ext.mysql.MySqlMetadataHandler</metadataHandler>
