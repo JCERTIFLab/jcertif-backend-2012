@@ -11,6 +11,6 @@
 
 	<!-- Cache de requête par défaut -->
 	<cache name="org.hibernate.cache.StandardQueryCache"
-		maxElementsInMemory="5" eternal="true"
+		maxElementsInMemory="5" eternal="false" timeToLiveSeconds="86400"
 		overflowToDisk="false" />
 </ehcache>
