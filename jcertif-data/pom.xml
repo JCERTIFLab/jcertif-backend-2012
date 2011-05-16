@@ -19,9 +19,6 @@
 	<description>JCERTIF DATA INIT</description>
 
 	<properties>
-		<mysql.url>jdbc:mysql://localhost:3306/jcertifinteg</mysql.url>
-		<mysql.username>root</mysql.username>
-		<mysql.password></mysql.password>
 		<data.file>data_test.xml</data.file>
 	</properties>
 
@@ -44,10 +41,10 @@
 
 				<!-- common configurations -->
 				<configuration>
-					<driver>com.mysql.jdbc.Driver</driver>
-					<url>${mysql.url}</url>
-					<username>${mysql.username}</username>
-					<password>${mysql.password}</password>
+					<driver>${jdbc.driver.classname}</driver>
+					<url>${jdbc.url}</url>
+					<username>${jdbc.username}</username>
+					<password>${forAfrica}</password>
 					<format>flat</format>
 					<dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dataTypeFactoryName>
 					<metadataHandler>org.dbunit.ext.mysql.MySqlMetadataHandler</metadataHandler>
