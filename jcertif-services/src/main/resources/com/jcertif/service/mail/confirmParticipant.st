@@ -37,7 +37,7 @@ p {line-height:18px;}
    <br />
    &Eacute;tapes &agrave; suivre :<br />
    ------------------- <br />
-   &nbsp;1 - Contactez rapidement le collecteur de votre secteur. Consultez notre foire aux questions pour trouver le collecteur le plus pr&ecirc;t de chez vous : <a href="http://www.jcertif.com/pages/faq.jsp">FAQ</a>.<br />
+   &nbsp;1 - Contactez rapidement le collecteur de votre secteur. Consultez notre <a href="http://www.jcertif.com/">foire aux questions (FAQ)</a> pour trouver le collecteur le plus pr&ecirc;t de chez vous.<br />
    &nbsp;2 - Payez les frais de participation et recevez votre carte d&#39;invitation officielle et un num&eacute;ro de confirmation.<br />
    <br />
    Vous pouvez retourner &agrave; <a href="http://www.jcertif.com/">la page d&#39;accueil.</a><br />

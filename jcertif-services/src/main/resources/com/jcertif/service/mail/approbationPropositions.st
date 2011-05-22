@@ -38,7 +38,7 @@ p {line-height:18px;}
    <br>Voici quelques informations importantes:<b/><br />
   
    <lu>
-   		<li>Nous fournir une pr&eacute;f&eacute;rence de la case horaire de votre pr&eacute;sentation. Consultez notre <a href="#">calendrier</a><li/> 
+   		<li>Nous fournir une pr&eacute;f&eacute;rence de la case horaire de votre pr&eacute;sentation. Consultez notre <a href="http://www.jcertif.com">calendrier</a><li/> 
 		<li>Nous fournir une pr&eacute;f&eacute;rence de la taille du T-Shirt sp&eacute;cial pour les pr&eacute;sentateurs de JCertif 2011.<li/> 
 		<li>Commencez &agrave; vous renseigner sur les possibilit&eacute;s d&#39;h&eacute;bergement et les moyens de transport disponibles.<li/>
 		<li>Consultez notre page <a href="#">d&#39;informations utiles</a>.<li/>
