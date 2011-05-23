@@ -17,7 +17,7 @@
 	
 	String picsURL = JCertifProps.getInstance().getPicsUrl();
 	String partenaire = UIConst.URL_PARTNER_IMG;
-	List<Participant> participants = ParticipantClient.getInstance().getSponsorsSortedByNiveau();
+	List<Participant> participants = ParticipantClient.getInstance().getSponsorsSortedByNiveauForHomePage();
 	int i = 1;
 	double s = participants.size()/2;
 	for(Participant participant:participants){

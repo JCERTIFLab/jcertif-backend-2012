@@ -124,6 +124,23 @@ public class ParticipantClient extends
 		return participantSorted;
 	}
 
+	/**
+	 * @return Sponsors list for Home Page
+	 */
+	public List<Participant> getSponsorsSortedByNiveauForHomePage() {
+
+		List<Participant> participantListForHome = new ArrayList<Participant>();
+
+		for (Participant part : getSponsorsSortedByNiveau()) {
+
+			if (part.getNiveauPartenariat().getId() <= 4) {
+				participantListForHome.add(part);
+			}
+
+		}
+		return participantListForHome;
+	}
+
 	public List<Participant> getSpeakersValid() {
 		List<Participant> presentateursList = new ArrayList<Participant>();
 
@@ -183,8 +200,9 @@ public class ParticipantClient extends
 		for (Participant participant : participants) {
 			if (participant.getRoleparticipant() != null
 					&& UIConst.TYPE_COMM.equalsIgnoreCase(participant
-							.getTypeParticipant().getCode()) && UIConst.TYPE_VALID
-							.equalsIgnoreCase(participant.getCodeParticipant())) {
+							.getTypeParticipant().getCode())
+					&& UIConst.TYPE_VALID.equalsIgnoreCase(participant
+							.getCodeParticipant())) {
 				communityList.add(participant);
 			}
 		}
