@@ -19,9 +19,9 @@
 	<niveau_partenariat id="5" code="Community" description="Community"/>
 	<niveau_partenariat id="6" code="Education" description="Education"/>
 	
-	<salle id="1" libelle="Hall" description="cette grande salle se situe à l'entrée" nombre_place="500" details="Hall d'exposition" />
-	<salle id="2" libelle="De-Brazza" description="Salle principale de la conférence" nombre_place="480" details="Grande salle de cinéma confortable. Pas de tables disponible" />
-	<salle id="3" libelle="Gide" description="Salle secondaire de la conférence" nombre_place="100" details="Salle de spectacle avec estrate. Pas de chaises" />
+	<salle id="1" libelle="De-Brazza" description="Salle principale de la conférence" nombre_place="480" details="Grande salle de cinéma confortable. Pas de tables disponible" />
+	<salle id="2" libelle="Gide" description="Salle secondaire de la conférence" nombre_place="100" details="Salle de spectacle avec estrate. Pas de chaises" />
+	<salle id="3" libelle="Hall" description="cette grande salle se situe à l'entrée" nombre_place="500" details="Hall d'exposition" />
 	<salle id="4" libelle="Campus France" description="Salle Gide" nombre_place="100" details="Salle de cours du Campus France accéssible depuis le Hall" />
 	<salle id="5" libelle="Autre espace" description="Autre espace spécialement aménagé pour tenir des événement" nombre_place="20" details="À venir" />
 	
@@ -92,7 +92,7 @@
 	<sujet id="12" libelle="Gestion de contenu" description="Outils de gestion de contenu : ERP,CRM etc..."/>
 	<sujet id="13" libelle="Sujets génériques" description="Esemble de sujets d'ordre général"/>
 	
-	<proposition_presentation id="1" titre="Accueil et mot de bienvenu" sommaire="Accueil et mot de bienvenu" besoins_specifiques="Micro sans fil" description="Le président de JCertif présente son équipe et explique le déroulement de la journée" details="" mot_cle_id="1" statut_approbation_id="3" conference_id="1"/>
+	<proposition_presentation id="1" titre="Accueil et mot de bienvenu (jour 1)" sommaire="Accueil et mot de bienvenu" besoins_specifiques="Micro sans fil" description="Le président de JCertif présente son équipe et explique le déroulement de la journée" details="" mot_cle_id="1" statut_approbation_id="3" conference_id="1"/>
 
 	<proposition_presentation id="2" titre="Présentation de JUG-AFRICA et du CongoJUG" sommaire="Présentation de JUG-AFRICA et du CongoJUG" besoins_specifiques="Micro Sans fil et vidéo projecteur" description="Présentation du mouvement Java en Afrique et présentation de JUG-AFRICA et du CongoJUG" details="Pas plus de 30 minutes" mot_cle_id="1" statut_approbation_id="3" conference_id="1"/>
 	<proposition_presentation id="3" titre="Keynote : L'état de Java sous Oracle (plus d'un an après)" sommaire="L'état de Java sous Oracle plus d'un an après l'achat de Sun par Oracle. Il sera question d'un roadmap complet de toutes les plateformes : Java SE, JEE et ME" besoins_specifiques="Micro sans fil et vidéo projecteur" description="Principale présentation de la première partie de la journée par Arun Goupta" details="" mot_cle_id="5" statut_approbation_id="3" conference_id="1"/>
@@ -111,13 +111,17 @@
 	<proposition_presentation id="15" titre="Implanter la technologie CLOUD sécurisée" sommaire="Deployer une application Java EE 6 sur GlassFish 3.1 en utilisant les Clusters du serveur d'application" besoins_specifiques="Micro sans fil, Vidéo projecteur" description="Cette atelier permettra au dévéloppeur de créer et déployer facillement une application Java EE6 sur GlassFish 3.1 en utilisant les Clusters fournis par le serveur d'application. Cette session est réservée au personnes ayant déjà une certaine connaissance en Java ou JEE" details="" mot_cle_id="14" statut_approbation_id="2" conference_id="1"/>
 	<proposition_presentation id="16" titre="Gérer vos tâches planifies (Batch ) avec Java" sommaire="Atelier d'Architecture et de programmation avec OSGi et Java EE6" besoins_specifiques="Micro Sans fil et vidéo projecteur" description="Cette atelier de haut niveau permettra à des architectes Java de : Créer des services OSGi et un client OSGi (consomateur de service) avec Eclipse - Remplacer le client OSGi par défaut par un client Hybride de type WAB - Remplacer le service OSGi par défaut par un service basé sur EJB (EJB-based service) - Utiliser les framework CDI de Java EE6 pour injecter dynamiquement un service OSGi. Cette session est réservée aux personnes ayant déjà une certaine connaissance en Java JEE" details="Pas plus de 30 minutes" mot_cle_id="15" statut_approbation_id="2" conference_id="1"/>
 	<proposition_presentation id="17" titre="Optimiser les coûts en utilisant Java batch" sommaire="Présentation Android permettant de montrer comment les entreprises peuvent gagner de l'argent avec la plateforme Android" besoins_specifiques="Micro sans fil" description="Cette présentation est ouvert à tous et sera une bonne occasion pour découvrir toutes les opportunités que peut offrir Android pour les entreprises" details="" mot_cle_id="6" statut_approbation_id="2" conference_id="1"/>
-	<proposition_presentation id="18" titre="Java batch pour des processus d'affaires efficace" sommaire="Atelier de programmation des applications mobiles avec Android" besoins_specifiques="Micro Sans fil, vidéo projecteur et Téléphone ou Tablette Android" description="Cette atelier permettra aux participants de développer une application Android en Java. À la fin de la session, les participants seront capable d'intégrer un projet Android. Cette session est réservée au personnes ayant déjà une certaine connaissance en Java" details="" mot_cle_id="6" statut_approbation_id="2" conference_id="1"/>
+	<proposition_presentation id="18" titre="Java batch pour des processus d'affaires efficace" sommaire="Atelier de programmation des applications mobiles avec Android" besoins_specifiques="Micro Sans fil, vidéo projecteur et Téléphone ou Tablette Android" description="Cette atelier permettra aux participants de développer une application Android en Java. À la fin de la session, les participants seront capable d'intégrer un projet Android. Cette session est réservée au personnes ayant déjà une certaine connaissance en Java" details="" mot_cle_id="6" statut_approbation_id="4" conference_id="1"/>
 	<proposition_presentation id="19" titre="Persistent Object Graph as REST Resources" sommaire="Présentation Web 2.0, Web sémantique" besoins_specifiques="Micro sans fil et vidéo projecteur" description="La présentation permettra de présenter les grandes orientations du Web  après 2.0" details="" mot_cle_id="4" statut_approbation_id="2" conference_id="1"/>
 	<proposition_presentation id="20" titre="Second-tier cache as in-memory object database " sommaire="Atelier et cours de programmation pour se préparere à la certification Java SCJP 6" besoins_specifiques="Micro sans fil et vidéo projecteur" description="La présentation permettra d'acquerir les rudiments en développement Java et avoir les connaissances nécessaires pour se présenter à l'examen de certification Java d'Oracle. Atelier réservé aux personnes ayant des connaissances en programmation orientée objet" details="" mot_cle_id="5" statut_approbation_id="2" conference_id="1"/>
 
 	<proposition_presentation id="21" titre="Oracle Development Tools" sommaire="Cette session présentée par un Senior d'Oracle permettra d'avoir une vue d'ensemble des outils de développement offerts par Oracle" besoins_specifiques="Micro sans fil et vidéo projecteur" description="Cette session présentée par un Senior d'Oracle permettra d'avoir une vue d'ensemble des outils de développement offerts par Oracle" details="" mot_cle_id="5" statut_approbation_id="2" conference_id="1"/>
 
+	<proposition_presentation id="22" titre="Google Road Map" sommaire="Cette session présentée par un Senior de Google permettra d'avoir une vue d'ensemble des outils de développement offerts par Google" besoins_specifiques="Micro sans fil et vidéo projecteur" description="Cette session présentée par un Senior de Google permettra d'avoir une vue d'ensemble des outils de développement offerts par Google" details="" mot_cle_id="5" statut_approbation_id="2" conference_id="1"/>
+	<proposition_presentation id="23" titre="Internet Haut débit au Congo" sommaire="Cette session présentée par le directeur chargé du Haut débit au Congo à la ARCPE permettra d'avoir une vue d'ensemble de l'Internet Haut débit dans notre pays" besoins_specifiques="Micro sans fil et vidéo projecteur" description="Cette session présentée par le directeur chargé du Haut débit au Congo à la ARCPE permettra d'avoir une vue d'ensemble de l'Internet Haut débit dans notre pays" details="" mot_cle_id="5" statut_approbation_id="2" conference_id="1"/>
+
 	<proposition_presentation id="40" titre="Mot d'au revoir et annonce des prochains événement" sommaire="Rémerciment des participants et des partenaires de l'événement. Annonce des dates des prochaines activité." besoins_specifiques="Micro sans fil" description="Le président de JCertif clôture l'événement et remercie les partenaires, bénévoles, participants, speakers etc." details="" mot_cle_id="1" statut_approbation_id="3" conference_id="1"/>
+	<proposition_presentation id="41" titre="Accueil et mot de bienvenu (jour 2)" sommaire="Accueil et mot de bienvenu" besoins_specifiques="Micro sans fil" description="Le président de JCertif présente son équipe et explique le déroulement de la journée" details="" mot_cle_id="1" statut_approbation_id="3" conference_id="1"/>
 
 
 	<proposition_presentation_sujet proposition_presentation_id="1" sujet_id="10"/>
@@ -141,9 +145,12 @@
 	<proposition_presentation_sujet proposition_presentation_id="19" sujet_id="1"/>
 	<proposition_presentation_sujet proposition_presentation_id="20" sujet_id="11"/>
 	<proposition_presentation_sujet proposition_presentation_id="21" sujet_id="13"/>
+	<proposition_presentation_sujet proposition_presentation_id="22" sujet_id="13"/>
+	<proposition_presentation_sujet proposition_presentation_id="23" sujet_id="13"/>
 	
 	<proposition_presentation_sujet proposition_presentation_id="40" sujet_id="10"/>
-
+	<proposition_presentation_sujet proposition_presentation_id="41" sujet_id="10"/>
+	
 	<type_evenement id="1" code="FORM" description="Formation"/>
 	<type_evenement id="2" code="GEN" description="Généralités"/>
 	<type_evenement id="3" code="PRES" description="Présentation"/>
@@ -152,31 +159,35 @@
 	<type_evenement id="6" code="ATL" description="Ateliers pratiques"/>
 
 		
-	<evenement id="1" nom_evenement="Accueil et mot du président" date_debut_prevue="2011-09-03 09:00:00" date_fin_prevue="2011-09-03 10:00:00" date_debut_effective="2011-09-03 10:00:00" date_fin_effective="2011-09-03 10:00:00" details="Séance de lancement de JCERTIF 2011" type_evenement_id="2" proposition_presentation_id="1"/>
+	<evenement id="1" nom_evenement="Accueil et mot du président" date_debut_prevue="2011-09-03 09:00:00" date_fin_prevue="2011-09-03 09:30:00" date_debut_effective="2011-09-03 10:00:00" date_fin_effective="2011-09-03 10:00:00" details="Séance de lancement de JCERTIF 2011" type_evenement_id="2" proposition_presentation_id="1"/>
 
-	<evenement id="2" nom_evenement="Présentation de JUG-AFRICA et du CongoJUG" date_debut_prevue="2011-09-03 10:15:00" date_fin_prevue="2011-09-03 10:45:00" date_debut_effective="2011-09-03 10:45:00" date_fin_effective="2011-09-03 10:45:00" details="Présentation de JUG-AFRICA et du CongoJUG" type_evenement_id="2" proposition_presentation_id="2" />
-	<evenement id="3" nom_evenement="Keynote : L'état de Java sous Oracle" date_debut_prevue="2011-09-03 11:00:00" date_fin_prevue="2011-09-03 12:00:00" date_debut_effective="2011-09-03 11:00:00"	date_fin_effective="2011-09-03 11:00:00" details="Keynote : Présenté par Arun Gupta d'Oracle corporation" type_evenement_id="3" proposition_presentation_id="3" />
-	<evenement id="4" nom_evenement="Ateliers de programmation Java EE 6" date_debut_prevue="2011-09-03 13:00:00" date_fin_prevue="2011-09-03 17:00:00" date_debut_effective="2011-09-03 13:00:00" date_fin_effective="2011-09-03 13:00:00" details="Atelier de programmation Java EE 6" type_evenement_id="6" proposition_presentation_id="4"/>
-	<evenement id="5" nom_evenement="GlassFish 3.1: Deployer une application Java EE" date_debut_prevue="2011-09-04 09:00:00" date_fin_prevue="2011-09-04 12:00:00" date_debut_effective="2011-09-04 09:00:00" date_fin_effective="2011-09-04 09:00:00" details="Atelier de développement et déploiement d'une application Java EE 6 sur GlassFisg avec les Clusters." type_evenement_id="6" proposition_presentation_id="5" />
-	<evenement id="6" nom_evenement="OSGi/Java EE 6 : Architecture et programmation" date_debut_prevue="2011-09-04 15:00:00" date_fin_prevue="2011-09-04 17:00:00" date_debut_effective="2011-09-04 15:00:00"	date_fin_effective="2011-09-04 15:00:00" details="Atelier d'Architecture et de programmation" type_evenement_id="6" proposition_presentation_id="6" />
-	<evenement id="7" nom_evenement="Développement Android pour les entreprises" date_debut_prevue="2011-09-03 13:00:00" date_fin_prevue="2011-09-03 14:00:00" date_debut_effective="2011-09-03 13:00:00" date_fin_effective="2011-09-03 13:00:00" details="Android2Business : Développement Android pour les entreprises" type_evenement_id="3" proposition_presentation_id="7"/>
-	<evenement id="8" nom_evenement="Android : Atelier de programmation Android" date_debut_prevue="2011-09-03 15:00:00" date_fin_prevue="2011-09-03 18:00:00" date_debut_effective="2011-09-03 15:00:00" date_fin_effective="2011-09-03 15:00:00" details="Android : Atelier de programmation Android" type_evenement_id="6" proposition_presentation_id="8" />
-	<evenement id="9" nom_evenement="Web 2.0 C'est du passé ? Venez découvrir" date_debut_prevue="2011-09-04 09:00:00" date_fin_prevue="2011-09-04 10:00:00" date_debut_effective="2011-09-04 09:00:00"	date_fin_effective="2011-09-04 09:00:00" details="Keynote : Web 2.0 C'est du passé ? Venez découvrir le future du Web" type_evenement_id="3" proposition_presentation_id="9" />
-	<evenement id="10" nom_evenement="Atelier de certification SCJP 6" date_debut_prevue="2011-09-04 14:00:00" date_fin_prevue="2011-09-03 17:30:00" date_debut_effective="2011-09-03 17:30:00" date_fin_effective="2011-09-03 17:30:00" details="Certification Java 6: Atelier de certification SCJP 6" type_evenement_id="1" proposition_presentation_id="10"/>
+	<evenement id="2" nom_evenement="Présentation de JUG-AFRICA et du CongoJUG" date_debut_prevue="2011-09-03 09:45:00" date_fin_prevue="2011-09-03 10:30:00" date_debut_effective="2011-09-03 10:45:00" date_fin_effective="2011-09-03 10:45:00" details="Présentation de JUG-AFRICA et du CongoJUG" type_evenement_id="2" proposition_presentation_id="2" />
+	<evenement id="3" nom_evenement="Keynote : L'état de Java sous Oracle" date_debut_prevue="2011-09-03 10:30:00" date_fin_prevue="2011-09-03 11:30:00" date_debut_effective="2011-09-03 11:00:00"	date_fin_effective="2011-09-03 11:00:00" details="Keynote : Présenté par Arun Gupta d'Oracle corporation" type_evenement_id="3" proposition_presentation_id="3" />
+	<evenement id="4" nom_evenement="Ateliers de programmation Java EE 6" date_debut_prevue="2011-09-03 13:30:00" date_fin_prevue="2011-09-03 15:30:00" date_debut_effective="2011-09-03 13:00:00" date_fin_effective="2011-09-03 13:00:00" details="Atelier de programmation Java EE 6" type_evenement_id="6" proposition_presentation_id="4"/>
+	<evenement id="5" nom_evenement="GlassFish 3.1: Deployer une application Java EE" date_debut_prevue="2011-09-03 15:30:00" date_fin_prevue="2011-09-03 17:30:00" date_debut_effective="2011-09-04 09:00:00" date_fin_effective="2011-09-04 09:00:00" details="Atelier de développement et déploiement d'une application Java EE 6 sur GlassFisg avec les Clusters." type_evenement_id="6" proposition_presentation_id="5" />
+	<evenement id="6" nom_evenement="OSGi/Java EE 6 : Architecture et programmation" date_debut_prevue="2011-09-04 13:30:00" date_fin_prevue="2011-09-04 15:30:00" date_debut_effective="2011-09-04 15:00:00"	date_fin_effective="2011-09-04 15:00:00" details="Atelier d'Architecture et de programmation" type_evenement_id="6" proposition_presentation_id="6" />
+	<evenement id="7" nom_evenement="Développement Android pour les entreprises" date_debut_prevue="2011-09-03 11:30:00" date_fin_prevue="2011-09-03 12:30:00" date_debut_effective="2011-09-03 13:00:00" date_fin_effective="2011-09-03 13:00:00" details="Android2Business : Développement Android pour les entreprises" type_evenement_id="3" proposition_presentation_id="7"/>
+	<evenement id="8" nom_evenement="Android : Atelier de programmation Android" date_debut_prevue="2011-09-04 15:30:00" date_fin_prevue="2011-09-04 17:30:00" date_debut_effective="2011-09-03 15:00:00" date_fin_effective="2011-09-03 15:00:00" details="Android : Atelier de programmation Android" type_evenement_id="6" proposition_presentation_id="8" />
+	<evenement id="9" nom_evenement="Web 2.0 C'est du passé ? Venez découvrir" date_debut_prevue="2011-09-04 11:30:00" date_fin_prevue="2011-09-04 12:30:00" date_debut_effective="2011-09-04 09:00:00"	date_fin_effective="2011-09-04 09:00:00" details="Keynote : Web 2.0 C'est du passé ? Venez découvrir le future du Web" type_evenement_id="3" proposition_presentation_id="9" />
+	<evenement id="10" nom_evenement="Atelier de certification SCJP 6" date_debut_prevue="2011-09-03 13:30:00" date_fin_prevue="2011-09-03 17:30:00" date_debut_effective="2011-09-03 17:30:00" date_fin_effective="2011-09-03 17:30:00" details="Certification Java 6: Atelier de certification SCJP 6" type_evenement_id="1" proposition_presentation_id="10"/>
 	
-	<evenement id="11" nom_evenement="Manager son entreprise avec un ERP" date_debut_prevue="2011-09-03 09:00:00" date_fin_prevue="2011-09-03 10:00:00" date_debut_effective="2011-09-03 10:00:00" date_fin_effective="2011-09-03 10:00:00" details="Séance de lancement de JCERTIF 2011" type_evenement_id="2" proposition_presentation_id="11"/>
-	<evenement id="12" nom_evenement="Agile plus SOA : Le couplé gagnant" date_debut_prevue="2011-09-03 10:15:00" date_fin_prevue="2011-09-03 10:45:00" date_debut_effective="2011-09-03 10:45:00" date_fin_effective="2011-09-03 10:45:00" details="Présentation de JUG-AFRICA et du CongoJUG" type_evenement_id="2" proposition_presentation_id="12" />
-	<evenement id="13" nom_evenement="Tester vos application avec TAP" date_debut_prevue="2011-09-03 11:00:00" date_fin_prevue="2011-09-03 12:00:00" date_debut_effective="2011-09-03 11:00:00"	date_fin_effective="2011-09-03 11:00:00" details="Keynote : Présenté par Arun Gupta d'Oracle corporation" type_evenement_id="3" proposition_presentation_id="13" />
-	<evenement id="14" nom_evenement="JavaFX 2.0 : L'Interface Utilisateur" date_debut_prevue="2011-09-03 13:00:00" date_fin_prevue="2011-09-03 17:00:00" date_debut_effective="2011-09-03 13:00:00" date_fin_effective="2011-09-03 13:00:00" details="Atelier de programmation Java EE 6" type_evenement_id="6" proposition_presentation_id="14"/>
-	<evenement id="15" nom_evenement="Le CLOUD sécurisé en entreprise" date_debut_prevue="2011-09-03 11:00:00" date_fin_prevue="2011-09-03 12:00:00" date_debut_effective="2011-09-03 11:00:00"	date_fin_effective="2011-09-03 11:00:00" details="Keynote : Présenté par Arun Gupta d'Oracle corporation" type_evenement_id="3" proposition_presentation_id="15" />
-	<evenement id="16" nom_evenement="Gérer vos tâches planifies (Batch ) avec Java" date_debut_prevue="2011-09-04 09:00:00" date_fin_prevue="2011-09-04 12:00:00" date_debut_effective="2011-09-04 09:00:00" date_fin_effective="2011-09-04 09:00:00" details="Atelier de développement et déploiement d'une application Java EE 6 sur GlassFisg avec les Clusters." type_evenement_id="6" proposition_presentation_id="16" />
+	<evenement id="11" nom_evenement="Manager son entreprise avec un ERP" date_debut_prevue="2011-09-03 14:30:00" date_fin_prevue="2011-09-03 15:30:00" date_debut_effective="2011-09-03 10:00:00" date_fin_effective="2011-09-03 10:00:00" details="Séance de lancement de JCERTIF 2011" type_evenement_id="2" proposition_presentation_id="11"/>
+	<evenement id="12" nom_evenement="Agile plus SOA : Le couplé gagnant" date_debut_prevue="2011-09-03 13:30:00" date_fin_prevue="2011-09-03 14:30:00" date_debut_effective="2011-09-03 10:45:00" date_fin_effective="2011-09-03 10:45:00" details="Présentation de JUG-AFRICA et du CongoJUG" type_evenement_id="2" proposition_presentation_id="12" />
+	<evenement id="13" nom_evenement="Tester vos application avec TAP" date_debut_prevue="2011-09-04 10:30:00" date_fin_prevue="2011-09-04 11:30:00" date_debut_effective="2011-09-03 11:00:00"	date_fin_effective="2011-09-03 11:00:00" details="Keynote : Présenté par Arun Gupta d'Oracle corporation" type_evenement_id="3" proposition_presentation_id="13" />
+	<evenement id="14" nom_evenement="JavaFX 2.0 : L'Interface Utilisateur" date_debut_prevue="2011-09-04 15:30:00" date_fin_prevue="2011-09-04 17:30:00" date_debut_effective="2011-09-03 13:00:00" date_fin_effective="2011-09-03 13:00:00" details="Atelier de programmation Java EE 6" type_evenement_id="6" proposition_presentation_id="14"/>
+	<evenement id="15" nom_evenement="Le CLOUD sécurisé en entreprise" date_debut_prevue="2011-09-04 11:30:00" date_fin_prevue="2011-09-04 12:30:00" date_debut_effective="2011-09-03 11:00:00"	date_fin_effective="2011-09-03 11:00:00" details="Keynote : Présenté par Arun Gupta d'Oracle corporation" type_evenement_id="3" proposition_presentation_id="15" />
+	<evenement id="16" nom_evenement="Gérer vos tâches planifies (Batch ) avec Java / Optimiser les coûts en utilisant Java batch" date_debut_prevue="2011-09-04 14:30:00" date_fin_prevue="2011-09-04 15:30:00" date_debut_effective="2011-09-04 09:00:00" date_fin_effective="2011-09-04 09:00:00" details="Atelier de développement et déploiement d'une application Java EE 6 sur GlassFisg avec les Clusters." type_evenement_id="6" proposition_presentation_id="16" />
 	<evenement id="17" nom_evenement="Optimiser les coûts en utilisant Java batch" date_debut_prevue="2011-09-04 15:00:00" date_fin_prevue="2011-09-04 17:00:00" date_debut_effective="2011-09-04 15:00:00"	date_fin_effective="2011-09-04 15:00:00" details="Atelier d'Architecture et de programmation" type_evenement_id="6" proposition_presentation_id="17" />
-	<evenement id="18" nom_evenement="Java batch et processus d'affaires efficaces" date_debut_prevue="2011-09-03 13:00:00" date_fin_prevue="2011-09-03 14:00:00" date_debut_effective="2011-09-03 13:00:00" date_fin_effective="2011-09-03 13:00:00" details="Android2Business : Développement Android pour les entreprises" type_evenement_id="3" proposition_presentation_id="18"/>
-	<evenement id="19" nom_evenement="Persistance : Objects Graph et resources REST" date_debut_prevue="2011-09-03 15:00:00" date_fin_prevue="2011-09-03 18:00:00" date_debut_effective="2011-09-03 15:00:00" date_fin_effective="2011-09-03 15:00:00" details="Android : Atelier de programmation Android" type_evenement_id="6" proposition_presentation_id="19" />
-	<evenement id="20" nom_evenement="Second-tier cache as in-memory object database" date_debut_prevue="2011-09-04 09:00:00" date_fin_prevue="2011-09-04 10:00:00" date_debut_effective="2011-09-04 09:00:00"	date_fin_effective="2011-09-04 09:00:00" details="Keynote : Web 2.0 C'est du passé ? Venez découvrir le future du Web" type_evenement_id="3" proposition_presentation_id="20" />
-	<evenement id="21" nom_evenement="Oracle Development Tools" date_debut_prevue="2011-09-04 09:00:00" date_fin_prevue="2011-09-04 10:00:00" date_debut_effective="2011-09-04 09:00:00"	date_fin_effective="2011-09-04 09:00:00" details="Cette session présentée par un Senior d'Oracle permettra d'avoir une vue d'ensemble des outils de développement offerts par Oracle" type_evenement_id="3" proposition_presentation_id="21" />
+	<evenement id="18" nom_evenement="Java batch et processus d'affaires efficaces" date_debut_prevue="2011-09-04 13:30:00" date_fin_prevue="2011-09-04 14:30:00" date_debut_effective="2011-09-03 13:00:00" date_fin_effective="2011-09-03 13:00:00" details="Android2Business : Développement Android pour les entreprises" type_evenement_id="3" proposition_presentation_id="18"/>
+	<evenement id="19" nom_evenement="Persistance : Objects Graph et resources REST" date_debut_prevue="2011-09-03 15:30:00" date_fin_prevue="2011-09-03 16:30:00" date_debut_effective="2011-09-03 15:00:00" date_fin_effective="2011-09-03 15:00:00" details="Android : Atelier de programmation Android" type_evenement_id="6" proposition_presentation_id="19" />
+	<evenement id="20" nom_evenement="Second-tier cache as in-memory object database" date_debut_prevue="2011-09-03 16:30:00" date_fin_prevue="2011-09-03 17:30:00" date_debut_effective="2011-09-04 09:00:00"	date_fin_effective="2011-09-04 09:00:00" details="Keynote : Web 2.0 C'est du passé ? Venez découvrir le future du Web" type_evenement_id="3" proposition_presentation_id="20" />
+	<evenement id="21" nom_evenement="Oracle Development Tools" date_debut_prevue="2011-09-03 11:30:00" date_fin_prevue="2011-09-03 12:30:00" date_debut_effective="2011-09-04 09:00:00"	date_fin_effective="2011-09-04 09:00:00" details="Cette session présentée par un Senior d'Oracle permettra d'avoir une vue d'ensemble des outils de développement offerts par Oracle" type_evenement_id="3" proposition_presentation_id="21" />
+	<evenement id="22" nom_evenement="Google Road Map" date_debut_prevue="2011-09-04 10:30:00" date_fin_prevue="2011-09-04 11:30:00" date_debut_effective="2011-09-04 09:00:00"	date_fin_effective="2011-09-04 09:00:00" details="Cette session présentée par un Senior de Google permettra d'avoir une vue d'ensemble des outils de développement offerts par Google" type_evenement_id="3" proposition_presentation_id="22" />
+	<evenement id="23" nom_evenement="Internet haut débit au Congo" date_debut_prevue="2011-09-04 09:30:00" date_fin_prevue="2011-09-04 10:30:00" date_debut_effective="2011-09-04 09:00:00"	date_fin_effective="2011-09-04 09:00:00" details="Cette session présentée par un Senior de Google permettra d'avoir une vue d'ensemble des outils de développement offerts par Google" type_evenement_id="3" proposition_presentation_id="22" />
+
 		
-	<evenement id="40" nom_evenement="Au revoir et annonces" date_debut_prevue="2011-09-04 17:35:00" date_fin_prevue="2011-09-04 17:55:00" date_debut_effective="2011-09-04 17:35:00" date_fin_effective="2011-09-04 17:35:00" details="Mot d'au revoir et annonce des prochains événement" type_evenement_id="2" proposition_presentation_id="20"/>
+	<evenement id="40" nom_evenement="Au revoir et annonces" date_debut_prevue="2011-09-04 17:35:00" date_fin_prevue="2011-09-04 18:00:00" date_debut_effective="2011-09-04 17:35:00" date_fin_effective="2011-09-04 17:35:00" details="Mot d'au revoir et annonce des prochains événement" type_evenement_id="2" proposition_presentation_id="41"/>
+	<evenement id="41" nom_evenement="Accueil et mot du président (jour 2)" date_debut_prevue="2011-09-04 09:00:00" date_fin_prevue="2011-09-04 09:30:00" date_debut_effective="2011-09-03 10:00:00" date_fin_effective="2011-09-03 10:00:00" details="Séance de lancement de la deuxièeme journée de JCERTIF 2011" type_evenement_id="2" proposition_presentation_id="41"/>
 	
 	
 	<!-- Profils Speakers -->		
@@ -221,6 +232,7 @@
 	<profil_utilisateur id="27" email="poundja.habib@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />	
 	<profil_utilisateur id="28" email="fred@closebase.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="Frederic.jpg" />	
 	<profil_utilisateur id="29" email="honorenz@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="Honore.jpg" />	
+	<profil_utilisateur id="30" email="van.repers@google.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="vanreper.png" />	
 
 
 	<!-- Profils Particuliers -->		
@@ -284,6 +296,7 @@
 	<adresse id="27" telephone_fixe="" telephone_mobile="" ville="Rabat" pays="Maroc"/>
 	<adresse id="28" telephone_fixe="" telephone_mobile="" ville="Bruxelles" pays="Belgique"/>
 	<adresse id="29" telephone_fixe="" telephone_mobile="" ville="Kinshasa" pays="Congo, République Démocratique"/>
+	<adresse id="30" telephone_fixe="" telephone_mobile="" ville="Mountain View, San Francisco" pays="États-Unis"/>
 
 	<!-- Adresse Particuliers -->		
 	<adresse id="60" telephone_fixe="" telephone_mobile="" ville="Brazzaville" pays="Congo"/>
@@ -354,6 +367,9 @@
 		- Managed globally distributed, development project teams through multiple software life cycles
 		Dr. Poddar has most recently spoken at the San Francisco and San Jose Java User Groups." />
 
+	<participant id="30" compagnie="Google" role_participant_id="1" type_participant_id="2" website="http://www.google.com/" adresse_id="30" nom="Reper" email="van.reper@google.com" prenom="Roger " profil_utilisateur_id="30" details="Michael Van Riper has a Bachelors in Computer Science from MIT. Van has more than 20 years of experience as a software engineer in Silicon Valley. He was a core member of the engineering team at Adobe that built the award winning Adobe PageMill web authoring program. Since 1999, he has focused on developing web applications in Java. He is a founder and co-leader of the Silicon Valley Web Developer JUG and the Silicon Valley Google Technology User Group. Van is a Program Manager in Google's Developer Relations Team." />
+
+
 
 	<!-- Participants Organisateurs -->		
 	<participant id="15" compagnie="" role_participant_id="2" type_participant_id="4" website="" adresse_id="15" nom="Oddet" email="rossi.oddet@gmail.com" prenom="Rossi" profil_utilisateur_id="15" details="Principal Architect de l'application JCertif App, l'outil d'inscription de JCertf 2011, Rossi est un développeur Java/JEE hors paire et un coder efficace et toujours à la recherche des meilleures solutions. Rossi travaille pour un centre de développement logiciel à Nantes (France) en tant que Team Lead. Evoluant depuis 5 ans sur la plateforme JavaEE, il aime mélanger motivation/code/stratégie/management pour réussir les projets pour lesquels il s'est engagé. Il a participé activement au développement de JCertif App, l'outil d'inscription de JCertf 2011. Il est intervenu au départ sur l'architecture Maven, la persistance de données (Hibernate), puis sur la couche WebService REST (Jersey) et enfin sur le développement des vues (Vaadin)" />
@@ -407,8 +423,13 @@
 	<propos_presentation_auteur presentation_id="19" auteur_id="14"/>	
 	<propos_presentation_auteur presentation_id="20" auteur_id="14"/>
 	<propos_presentation_auteur presentation_id="21" auteur_id="8"/>
+	<propos_presentation_auteur presentation_id="22" auteur_id="30"/>
+	<propos_presentation_auteur presentation_id="23" auteur_id="6"/>
+	
 
 	<propos_presentation_auteur presentation_id="40" auteur_id="5"/>
+	<propos_presentation_auteur presentation_id="41" auteur_id="5"/>
+	
 
 
 	<statut_cedule id="1" code="VALIDER" description="Participation confirmée"/>
@@ -462,15 +483,31 @@
 	<cedule_participant id="43" evenement_id="20" participant_id="17" statut_cedule_id="1" />
 
 	<cedule_salle id="1" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="1"/>
-	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="2" statut_cedule_id="2" evenement_id="2"/>
-	<cedule_salle id="3" date_cedule="2011-02-02" details="details 2" salle_id="3" statut_cedule_id="2" evenement_id="3"/>
-	<cedule_salle id="4" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="4"/>
+	
+	<cedule_salle id="2" date_cedule="2011-02-02" details="details 2" salle_id="1" statut_cedule_id="2" evenement_id="2"/>
+	<cedule_salle id="3" date_cedule="2011-02-02" details="details 2" salle_id="1" statut_cedule_id="2" evenement_id="3"/>
+	<cedule_salle id="4" date_cedule="2011-02-01" details="details 1" salle_id="2" statut_cedule_id="2" evenement_id="4"/>
 	<cedule_salle id="5" date_cedule="2011-02-02" details="details 2" salle_id="2" statut_cedule_id="2" evenement_id="5"/>
-	<cedule_salle id="6" date_cedule="2011-02-02" details="details 2" salle_id="3" statut_cedule_id="2" evenement_id="6"/>
+	<cedule_salle id="6" date_cedule="2011-02-02" details="details 2" salle_id="2" statut_cedule_id="2" evenement_id="6"/>
 	<cedule_salle id="7" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="7"/>
 	<cedule_salle id="8" date_cedule="2011-02-02" details="details 2" salle_id="2" statut_cedule_id="2" evenement_id="8"/>
-	<cedule_salle id="9" date_cedule="2011-02-02" details="details 2" salle_id="3" statut_cedule_id="2" evenement_id="9"/>
-	<cedule_salle id="10" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="10"/>
-	<cedule_salle id="11" date_cedule="2011-02-01" details="details 1" salle_id="3" statut_cedule_id="2" evenement_id="20"/>
+	<cedule_salle id="9" date_cedule="2011-02-02" details="details 2" salle_id="1" statut_cedule_id="2" evenement_id="9"/>
+	<cedule_salle id="10" date_cedule="2011-02-01" details="details 1" salle_id="3" statut_cedule_id="2" evenement_id="10"/>
+	<cedule_salle id="11" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="11"/>
+	<cedule_salle id="12" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="12"/>
+	<cedule_salle id="13" date_cedule="2011-02-02" details="details 2" salle_id="2" statut_cedule_id="2" evenement_id="13"/>
+	
+	<cedule_salle id="14" date_cedule="2011-02-02" details="details 2" salle_id="1" statut_cedule_id="2" evenement_id="14"/>
+	<cedule_salle id="15" date_cedule="2011-02-01" details="details 1" salle_id="2" statut_cedule_id="2" evenement_id="15"/>
+	<cedule_salle id="16" date_cedule="2011-02-02" details="details 2" salle_id="1" statut_cedule_id="2" evenement_id="16"/>
+	<cedule_salle id="18" date_cedule="2011-02-02" details="details 2" salle_id="1" statut_cedule_id="2" evenement_id="18"/>
+	<cedule_salle id="19" date_cedule="2011-02-02" details="details 2" salle_id="1" statut_cedule_id="2" evenement_id="19"/>
+	<cedule_salle id="20" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="20"/>
+	<cedule_salle id="21" date_cedule="2011-02-01" details="details 1" salle_id="2" statut_cedule_id="2" evenement_id="21"/>
+	<cedule_salle id="22" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="22"/>
+	<cedule_salle id="23" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="23"/>
+	
+	<cedule_salle id="40" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="40"/>
+	<cedule_salle id="41" date_cedule="2011-02-01" details="details 1" salle_id="1" statut_cedule_id="2" evenement_id="41"/>
 
 </dataset>
