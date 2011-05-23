@@ -220,7 +220,7 @@ public class CSenderServiceImpl extends CSenderService {
 						+ ">");
 
 				partenaires += "<td><a href=\"" + partenaire.getWebsite()
-						+ "\"><img style= \"width: 150px;\" alt=\""
+						+ "\"><img style= \"width: 50px;\" alt=\""
 						+ "JCertif Logo\" src=\"cid:image_partenaire" + i
 						+ "\"></a></td>";
 
