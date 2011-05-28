@@ -29,15 +29,24 @@ public class Msg {
 		try {
 			// ResourceBundle caches the bundles, so this is not as inefficient
 			// as it seems.
-			return ResourceBundle.getBundle(BUNDLE_NAME, Locale.getDefault()).getString(key);
+			return ResourceBundle.getBundle(BUNDLE_NAME, Locale.getDefault())
+					.getString(key);
 		} catch (MissingResourceException e) {
 			return '«' + key + '»';
 		}
 	}
 
-	public static void initI18n(HttpSession session) {
+	public static void initI18n(HttpSession session, String browserLanguage) {
 
-		ResourceBundle bundle = ResourceBundle.getBundle(BUNDLE_NAME, Locale.getDefault());
+		ResourceBundle bundle = null;
+
+		if (browserLanguage == null || browserLanguage.startsWith("fr")) {
+			// Par défaut c'est le français
+			bundle = ResourceBundle.getBundle(BUNDLE_NAME, Locale.FRENCH);
+		} else {
+			bundle = ResourceBundle.getBundle(BUNDLE_NAME, Locale.ENGLISH);
+		}
+
 		Enumeration<String> enumKeys = bundle.getKeys();
 
 		while (enumKeys.hasMoreElements()) {
@@ -48,7 +57,8 @@ public class Msg {
 
 	public static Map<String, String> getAllProps() {
 		Map<String, String> allProps = new HashMap<String, String>();
-		ResourceBundle bundle = ResourceBundle.getBundle(BUNDLE_NAME, Locale.getDefault());
+		ResourceBundle bundle = ResourceBundle.getBundle(BUNDLE_NAME,
+				Locale.getDefault());
 		Enumeration<String> enumKeys = bundle.getKeys();
 
 		while (enumKeys.hasMoreElements()) {

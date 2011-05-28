@@ -7,7 +7,7 @@
 
 <%
 	if(session.getAttribute("i18n.init") == null){
-		Msg.initI18n(session);
+		Msg.initI18n(session,request.getHeader("Accept-Language"));
 		session.setAttribute("i18n.init",true);
 	}
 %>
