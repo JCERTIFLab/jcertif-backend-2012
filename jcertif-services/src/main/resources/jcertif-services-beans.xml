@@ -24,18 +24,6 @@
     <context:component-scan base-package="com.jcertif.service" />
 
     <bean id="cSenderService" class="com.jcertif.service.mail.CSenderServiceImpl">
-        <property name="userName" value="info@jcertif.com"/>
-        <property name="password" value="shamashama4046"/>
-        <property name="host" value="smtpout.secureserver.net"/>
-        <property name="socketFactoryPort" value="465"/>
-        <property name="socketFactoryClass" value="javax.net.ssl.SSLSocketFactory"/>
-        <property name="auth" value="true"/>
-        <property name="smtpPort" value="465"/>
-        <property name="photoURI" value="/com/jcertif/service/mail/logo_jcertif2011.png"/>
-    </bean>
-
-
-<!--
         <property name="userName" value="JCertif2011Test@gmail.com"/>
         <property name="password" value="JCertif2011Test@1"/>
         <property name="host" value="smtp.gmail.com"/>
@@ -44,7 +32,6 @@
         <property name="auth" value="true"/>
         <property name="smtpPort" value="465"/>
         <property name="photoURI" value="/com/jcertif/service/mail/logo_jcertif2011.png"/>
-
--->
+    </bean>
 
 </beans>
