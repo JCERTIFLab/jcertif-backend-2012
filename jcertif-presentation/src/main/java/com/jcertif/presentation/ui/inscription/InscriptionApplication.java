@@ -17,6 +17,7 @@ import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
 import com.jcertif.presentation.data.bo.participant.RoleParticipant;
 import com.jcertif.presentation.internationalisation.Msg;
+import com.jcertif.presentation.ui.JCertifApplication;
 import com.jcertif.presentation.ui.inscription.adresse.AdresseForm;
 import com.jcertif.presentation.ui.inscription.complement.ComplementForm;
 import com.jcertif.presentation.ui.inscription.participant.ParticipantForm;
@@ -27,7 +28,6 @@ import com.jcertif.presentation.ui.util.UIConst;
 import com.jcertif.presentation.wsClient.ParticipantClient;
 import com.jcertif.presentation.wsClient.pics.ParticipantPicsClient;
 import com.sun.jersey.api.client.UniformInterfaceException;
-import com.vaadin.Application;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.terminal.ExternalResource;
 import com.vaadin.terminal.UserError;
@@ -47,11 +47,12 @@ import com.vaadin.ui.Window.CloseListener;
  * @author rossi
  * 
  */
-public class InscriptionApplication extends Application implements ClickListener,
-		HttpServletRequestListener, CloseListener {
+public class InscriptionApplication extends JCertifApplication implements
+		ClickListener, HttpServletRequestListener, CloseListener {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger LOGGER = LoggerFactory.getLogger(InscriptionApplication.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(InscriptionApplication.class);
 
 	private ProfilUtilisateurForm profilForm;
 
@@ -83,7 +84,8 @@ public class InscriptionApplication extends Application implements ClickListener
 		HorizontalLayout hLayout = new HorizontalLayout();
 
 		hLayout.addComponent(getParticipantForm());
-		hLayout.addComponent(new Label("                                             "));
+		hLayout.addComponent(new Label(
+				"                                             "));
 		hLayout.addComponent(getAddressForm());
 		getMainWindow().getContent().addComponent(hLayout);
 		getMainWindow().getContent().addComponent(getCommitButton());
@@ -97,7 +99,8 @@ public class InscriptionApplication extends Application implements ClickListener
 				commitAndSaveParticipant(true);
 			} else {
 				getComplementForm().setComponentError(
-						new UserError(Msg.get("ui.inscription.complement.invalid")));
+						new UserError(Msg
+								.get("ui.inscription.complement.invalid")));
 			}
 		} else {
 			commitAndSaveParticipant(false);
@@ -136,8 +139,8 @@ public class InscriptionApplication extends Application implements ClickListener
 	 * @param participant
 	 */
 	private void saveParticipant() {
-		Participant participant = ((BeanItem<Participant>) getParticipantForm().getItemDataSource())
-				.getBean();
+		Participant participant = ((BeanItem<Participant>) getParticipantForm()
+				.getItemDataSource()).getBean();
 		ProfilUtilisateur profilUtilisateur = ((BeanItem<ProfilUtilisateurBean>) getProfilForm()
 				.getItemDataSource()).getBean();
 
@@ -148,7 +151,8 @@ public class InscriptionApplication extends Application implements ClickListener
 		participant.setDetails(bio);
 		File photo = getComplementForm().getFile();
 
-		Adresse adresse = ((BeanItem<Adresse>) getAddressForm().getItemDataSource()).getBean();
+		Adresse adresse = ((BeanItem<Adresse>) getAddressForm()
+				.getItemDataSource()).getBean();
 
 		// Update pays
 		if (adresse.getPays() != null) {
@@ -156,7 +160,8 @@ public class InscriptionApplication extends Application implements ClickListener
 		}
 
 		participant.setAdresse(adresse);
-		Participant parti = ParticipantClient.getInstance().create_XML(participant);
+		Participant parti = ParticipantClient.getInstance().create_XML(
+				participant);
 
 		if (photo != null) {
 			try {
@@ -164,11 +169,16 @@ public class InscriptionApplication extends Application implements ClickListener
 				String ext = extensionTab[extensionTab.length - 1];
 
 				ParticipantPicsClient.getInstance().store(photo,
-						participant.getRoleparticipant().getCode(), parti.getId(), ext);
+						participant.getRoleparticipant().getCode(),
+						parti.getId(), ext);
 			} catch (UniformInterfaceException e) {
-				LOGGER.error("Erreur lors de la sauvegarde de la photo du participant", e);
+				LOGGER.error(
+						"Erreur lors de la sauvegarde de la photo du participant",
+						e);
 			} catch (FileNotFoundException e) {
-				LOGGER.error("Erreur lors de la sauvegarde de la photo du participant", e);
+				LOGGER.error(
+						"Erreur lors de la sauvegarde de la photo du participant",
+						e);
 			}
 		}
 
@@ -176,7 +186,8 @@ public class InscriptionApplication extends Application implements ClickListener
 		getProfilForm().reinitProfilBean();
 		getAddressForm().reinitAdresseBean();
 		getComplementForm().reinitComplementBean();
-		ExternalResource res = new ExternalResource(contextPath + UIConst.CONFIRMATION_VIEW);
+		ExternalResource res = new ExternalResource(contextPath
+				+ UIConst.CONFIRMATION_VIEW);
 		this.getMainWindow().open(res);
 	}
 
@@ -184,10 +195,12 @@ public class InscriptionApplication extends Application implements ClickListener
 		boolean result = true;
 		getParticipantForm().commit();
 		ParticipantClient client = ParticipantClient.getInstance();
-		if (client.isEmailExist(((BeanItem<Participant>) getParticipantForm().getItemDataSource())
-				.getBean().getEmail())) {
-			getParticipantForm().setComponentError(
-					new UserError(Msg.get("ui.inscription.profilutilisateur.email.used")));
+		if (client.isEmailExist(((BeanItem<Participant>) getParticipantForm()
+				.getItemDataSource()).getBean().getEmail())) {
+			getParticipantForm()
+					.setComponentError(
+							new UserError(
+									Msg.get("ui.inscription.profilutilisateur.email.used")));
 			result = false;
 		}
 		return result;
@@ -198,15 +211,17 @@ public class InscriptionApplication extends Application implements ClickListener
 		getProfilForm().commit();
 		if (!getProfilForm().getField("confirmEmail").getValue()
 				.equals(getProfilForm().getField("email").getValue())) {
-			getProfilForm().setComponentError(
-					new UserError(Msg.get("ui.inscription.profilutilisateur.email.equals.error")));
+			getProfilForm()
+					.setComponentError(
+							new UserError(
+									Msg.get("ui.inscription.profilutilisateur.email.equals.error")));
 			result = false;
 		} else if (!getProfilForm().getField("confirmPassword").getValue()
 				.equals(getProfilForm().getField("password").getValue())) {
 			getProfilForm()
 					.setComponentError(
-							new UserError(Msg
-									.get("ui.inscription.profilutilisateur.password.equals.error")));
+							new UserError(
+									Msg.get("ui.inscription.profilutilisateur.password.equals.error")));
 			result = false;
 		}
 		return result;
@@ -266,12 +281,15 @@ public class InscriptionApplication extends Application implements ClickListener
 	}
 
 	@Override
-	public void onRequestStart(HttpServletRequest request, HttpServletResponse response) {
+	public void onRequestStart(HttpServletRequest request,
+			HttpServletResponse response) {
+		super.onRequestStart(request, response);
 		contextPath = request.getContextPath();
 	}
 
 	@Override
-	public void onRequestEnd(HttpServletRequest request, HttpServletResponse response) {
+	public void onRequestEnd(HttpServletRequest request,
+			HttpServletResponse response) {
 		// TODO Auto-generated method stub
 
 	}

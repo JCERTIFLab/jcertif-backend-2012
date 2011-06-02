@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 public class Msg {
 	private static final String BUNDLE_NAME = "i18n.messages"; //$NON-NLS-1$
 
+	private static ThreadLocal<Boolean> ISFRENCH = new ThreadLocal<Boolean>();
+
 	private Msg() {
 	}
 
@@ -27,10 +29,13 @@ public class Msg {
 
 	public static String get(String key) {
 		try {
-			// ResourceBundle caches the bundles, so this is not as inefficient
-			// as it seems.
-			return ResourceBundle.getBundle(BUNDLE_NAME, Locale.getDefault())
+			if (ISFRENCH.get()) {
+				return ResourceBundle.getBundle(BUNDLE_NAME, Locale.FRENCH)
+						.getString(key);
+			}
+			return ResourceBundle.getBundle(BUNDLE_NAME, Locale.ENGLISH)
 					.getString(key);
+
 		} catch (MissingResourceException e) {
 			return '«' + key + '»';
 		}
@@ -66,5 +71,15 @@ public class Msg {
 			allProps.put(key, bundle.getString(key));
 		}
 		return allProps;
+	}
+
+	public static void updateLocale(String browserLanguage) {
+		if (browserLanguage == null || browserLanguage.startsWith("fr")) {
+			// Par défaut c'est le français
+			ISFRENCH.set(true);
+		} else {
+			ISFRENCH.set(false);
+		}
+
 	}
 }

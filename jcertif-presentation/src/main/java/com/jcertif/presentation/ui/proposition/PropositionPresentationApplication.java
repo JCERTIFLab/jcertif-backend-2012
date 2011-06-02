@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.jcertif.presentation.ui.JCertifApplication;
 import com.jcertif.presentation.ui.util.UIConst;
-import com.vaadin.Application;
 import com.vaadin.terminal.gwt.server.HttpServletRequestListener;
 import com.vaadin.ui.Window;
 
@@ -20,8 +20,8 @@ import com.vaadin.ui.Window;
  * @author max
  * 
  */
-public class PropositionPresentationApplication extends Application implements
-		HttpServletRequestListener {
+public class PropositionPresentationApplication extends JCertifApplication
+		implements HttpServletRequestListener {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = LoggerFactory
@@ -50,14 +50,19 @@ public class PropositionPresentationApplication extends Application implements
 	}
 
 	@Override
-	public void onRequestStart(HttpServletRequest request, HttpServletResponse response) {
+	public void onRequestStart(HttpServletRequest request,
+			HttpServletResponse response) {
+		super.onRequestStart(request, response);
 		getPropForm().setContextPath(request.getContextPath());
-		getPropForm().setEmailParticipant(
-				(String) request.getSession().getAttribute(UIConst.PARAM_EMAIL));
+		getPropForm()
+				.setEmailParticipant(
+						(String) request.getSession().getAttribute(
+								UIConst.PARAM_EMAIL));
 	}
 
 	@Override
-	public void onRequestEnd(HttpServletRequest request, HttpServletResponse response) {
+	public void onRequestEnd(HttpServletRequest request,
+			HttpServletResponse response) {
 
 	}
 

@@ -19,12 +19,12 @@ import com.jcertif.presentation.data.bo.cedule.CeduleParticipant;
 import com.jcertif.presentation.data.bo.cedule.Evenement;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.internationalisation.Msg;
+import com.jcertif.presentation.ui.JCertifApplication;
 import com.jcertif.presentation.ui.login.LoginForm;
 import com.jcertif.presentation.ui.util.UIConst;
 import com.jcertif.presentation.ui.util.UIStyle;
 import com.jcertif.presentation.wsClient.CeduleParticipantClient;
 import com.jcertif.presentation.wsClient.ParticipantClient;
-import com.vaadin.Application;
 import com.vaadin.addon.calendar.event.CalendarEvent;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClick;
 import com.vaadin.addon.calendar.ui.CalendarComponentEvents.EventClickHandler;
@@ -41,7 +41,7 @@ import com.vaadin.ui.Window;
  * @author rossi
  * 
  */
-public class CalendarApplication extends Application implements
+public class CalendarApplication extends JCertifApplication implements
 		EventClickHandler, ClickListener, HttpServletRequestListener {
 
 	private static final long serialVersionUID = 1L;
@@ -481,7 +481,7 @@ public class CalendarApplication extends Application implements
 	@Override
 	public void onRequestStart(HttpServletRequest request,
 			HttpServletResponse response) {
-
+		super.onRequestStart(request, response);
 		contextPath = request.getContextPath();
 		// If user is already connected and connectPart is null, load of user
 		// profil

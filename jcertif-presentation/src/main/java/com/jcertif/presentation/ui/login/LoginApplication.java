@@ -8,8 +8,8 @@ import org.slf4j.LoggerFactory;
 
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.internationalisation.Msg;
+import com.jcertif.presentation.ui.JCertifApplication;
 import com.jcertif.presentation.ui.util.UIConst;
-import com.vaadin.Application;
 import com.vaadin.terminal.ExternalResource;
 import com.vaadin.terminal.gwt.server.HttpServletRequestListener;
 import com.vaadin.ui.Button.ClickEvent;
@@ -22,8 +22,8 @@ import com.vaadin.ui.Window;
  * @author rossi
  * 
  */
-public class LoginApplication extends Application implements ClickListener,
-		HttpServletRequestListener {
+public class LoginApplication extends JCertifApplication implements
+		ClickListener, HttpServletRequestListener {
 
 	private static final long serialVersionUID = 1L;
 
@@ -90,6 +90,7 @@ public class LoginApplication extends Application implements ClickListener,
 	@Override
 	public void onRequestStart(HttpServletRequest request,
 			HttpServletResponse response) {
+		super.onRequestStart(request, response);
 		urlRedirect = (String) request.getSession().getAttribute("url");
 		contextPath = request.getContextPath();
 		Object propo = request.getSession().getAttribute(

@@ -3,8 +3,8 @@ package com.jcertif.presentation.ui.logout;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jcertif.presentation.ui.JCertifApplication;
 import com.jcertif.presentation.ui.util.UIConst;
-import com.vaadin.Application;
 import com.vaadin.terminal.ExternalResource;
 import com.vaadin.terminal.gwt.server.HttpServletRequestListener;
 import com.vaadin.ui.Window;
@@ -13,7 +13,8 @@ import com.vaadin.ui.Window;
  * @author rossi
  * 
  */
-public class LogoutApplication extends Application implements HttpServletRequestListener {
+public class LogoutApplication extends JCertifApplication implements
+		HttpServletRequestListener {
 
 	private static final long serialVersionUID = 1L;
 
@@ -23,14 +24,17 @@ public class LogoutApplication extends Application implements HttpServletRequest
 	}
 
 	@Override
-	public void onRequestStart(HttpServletRequest request, HttpServletResponse response) {
+	public void onRequestStart(HttpServletRequest request,
+			HttpServletResponse response) {
 
 	}
 
 	@Override
-	public void onRequestEnd(HttpServletRequest request, HttpServletResponse response) {
+	public void onRequestEnd(HttpServletRequest request,
+			HttpServletResponse response) {
 		if (request.getSession().getAttribute(UIConst.PARAM_CONNECTED) != null
-				&& request.getSession().getAttribute(UIConst.PARAM_CONNECTED).equals(Boolean.TRUE)) {
+				&& request.getSession().getAttribute(UIConst.PARAM_CONNECTED)
+						.equals(Boolean.TRUE)) {
 
 			request.getSession().setAttribute(UIConst.PARAM_CONNECTED, null);
 			request.getSession().setAttribute(UIConst.PARAM_LASTNAME, null);
@@ -38,7 +42,8 @@ public class LogoutApplication extends Application implements HttpServletRequest
 			request.getSession().setAttribute(UIConst.PARAM_EMAIL, null);
 			request.getSession().setAttribute(UIConst.PARAM_LOGOUT, true);
 
-			String urlRedirect = (String) request.getSession().getAttribute("url");
+			String urlRedirect = (String) request.getSession().getAttribute(
+					"url");
 			ExternalResource res = new ExternalResource(urlRedirect);
 			getMainWindow().open(res);
 

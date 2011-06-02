@@ -6,7 +6,7 @@ package com.jcertif.presentation.ui.organisateur;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.vaadin.Application;
+import com.jcertif.presentation.ui.JCertifApplication;
 import com.vaadin.ui.Window;
 
 /**
@@ -15,10 +15,11 @@ import com.vaadin.ui.Window;
  * @author max
  * 
  */
-public class OrganisateurApplication extends Application {
+public class OrganisateurApplication extends JCertifApplication {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger LOGGER = LoggerFactory.getLogger(OrganisateurApplication.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(OrganisateurApplication.class);
 
 	@Override
 	public void init() {

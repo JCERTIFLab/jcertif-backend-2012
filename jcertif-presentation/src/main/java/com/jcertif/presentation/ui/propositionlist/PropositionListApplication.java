@@ -3,15 +3,15 @@ package com.jcertif.presentation.ui.propositionlist;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.jcertif.presentation.ui.JCertifApplication;
 import com.jcertif.presentation.ui.presentateur.PresentateurApplication;
-import com.vaadin.Application;
 import com.vaadin.ui.Window;
 
 /**
  * @author rossi.oddet
  * 
  */
-public class PropositionListApplication extends Application {
+public class PropositionListApplication extends JCertifApplication {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = LoggerFactory

@@ -6,7 +6,7 @@ package com.jcertif.presentation.ui.communityGroups;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.vaadin.Application;
+import com.jcertif.presentation.ui.JCertifApplication;
 import com.vaadin.ui.Window;
 
 /**
@@ -15,10 +15,11 @@ import com.vaadin.ui.Window;
  * @author max
  * 
  */
-public class CommunityGroupsApplication extends Application {
+public class CommunityGroupsApplication extends JCertifApplication {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger LOGGER = LoggerFactory.getLogger(CommunityGroupsApplication.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(CommunityGroupsApplication.class);
 
 	@Override
 	public void init() {
@@ -27,7 +28,8 @@ public class CommunityGroupsApplication extends Application {
 		}
 		setTheme("jcertifruno");
 		final Window mainWindow = new Window();
-		mainWindow.getContent().addComponent(new CommunityGroupsDetailComponent());
+		mainWindow.getContent().addComponent(
+				new CommunityGroupsDetailComponent());
 		setMainWindow(mainWindow);
 	}
 
