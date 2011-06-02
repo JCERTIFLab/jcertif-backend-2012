@@ -29,7 +29,7 @@ public class Msg {
 
 	public static String get(String key) {
 		try {
-			if (ISFRENCH.get()) {
+			if (ISFRENCH.get() == null || ISFRENCH.get()) {
 				return ResourceBundle.getBundle(BUNDLE_NAME, Locale.FRENCH)
 						.getString(key);
 			}
