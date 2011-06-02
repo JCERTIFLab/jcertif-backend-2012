@@ -62,8 +62,13 @@ public class Msg {
 
 	public static Map<String, String> getAllProps() {
 		Map<String, String> allProps = new HashMap<String, String>();
-		ResourceBundle bundle = ResourceBundle.getBundle(BUNDLE_NAME,
-				Locale.getDefault());
+		ResourceBundle bundle = null;
+
+		if (ISFRENCH.get() == null || ISFRENCH.get()) {
+			bundle = ResourceBundle.getBundle(BUNDLE_NAME, Locale.FRENCH);
+		} else {
+			bundle = ResourceBundle.getBundle(BUNDLE_NAME, Locale.ENGLISH);
+		}
 		Enumeration<String> enumKeys = bundle.getKeys();
 
 		while (enumKeys.hasMoreElements()) {
