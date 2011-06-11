@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
@@ -27,7 +25,7 @@
 
 		<vaadin-widgets-dir>src/main/webapp/VAADIN/widgetsets</vaadin-widgets-dir>
 
-		<!-- DÃ©fault jdbc connexion -->
+		<!-- Défault jdbc connexion -->
 		<jdbc.driver.classname>com.mysql.jdbc.Driver</jdbc.driver.classname>
 		<jdbc.url>jdbc:mysql://localhost:3306/jcertifinteg?createDatabaseIfNotExist=true</jdbc.url>
 		<jdbc.username>jcertif</jdbc.username>
@@ -37,18 +35,18 @@
 		<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
 		<hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
 		<hibernate.generate_statistics>false</hibernate.generate_statistics>
-		<hibernate.cache.use_second_level_cache>false</hibernate.cache.use_second_level_cache>
+		<hibernate.cache.use_second_level_cache>true</hibernate.cache.use_second_level_cache>
 		<hibernate.cache.provider_class>net.sf.ehcache.hibernate.EhCacheProvider</hibernate.cache.provider_class>
 		<hibernate.show_sql>false</hibernate.show_sql>
-		<hibernate.cache.use_query_cache>false</hibernate.cache.use_query_cache>
+		<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
 		
 		<facade.url>http://localhost:8080/jcertif-facade</facade.url>
-		<!-- Ne pas mettre le "/" avec la fin du rÃ©pertoire -->
+		<!-- Ne pas mettre le "/" avec la fin du répertoire -->
 		<pics.participant.dir>./src/main/webapp</pics.participant.dir>
 		<pics.url>http://localhost:8082/jcertif-pics</pics.url>
-		<!-- Ne pas mettre le "/" avec la fin du rÃ©pertoire -->
+		<!-- Ne pas mettre le "/" avec la fin du répertoire -->
 		<tmp.photo.dir>./tmp/photo</tmp.photo.dir>
-		<presentation.cache.enabled>false</presentation.cache.enabled>
+		<presentation.cache.enabled>true</presentation.cache.enabled>
 	</properties>
 
 	<modules>
@@ -58,9 +56,8 @@
 		<module>../jcertif-facade</module>
 		<module>../jcertif-presentation</module>
 		<module>../jcertif-pics</module>
-
-
-	</modules>
+		<module>../jcertif-admin</module>
+  </modules>
 
 	<repositories>
 		<repository>
@@ -224,7 +221,7 @@
 							<rules>
 								<bannedDependencies>
 									<excludes>
-										<!-- Lister ici les dÃ©pendances Ã  exclure sur l'ensemble du projet -->
+										<!-- Lister ici les dépendances à exclure sur l'ensemble du projet -->
 										<exclude>commons-logging:commons-logging</exclude>
 									</excludes>
 								</bannedDependencies>
@@ -670,6 +667,66 @@
 			</dependency>
 			
 			<dependency>
+			<groupId>com.sun.facelets</groupId>
+			<artifactId>jsf-facelets</artifactId>
+			<version>1.1.14</version>
+		</dependency>
+		
+		<dependency>
+    <groupId>commons-digester</groupId>
+    <artifactId>commons-digester</artifactId>
+    <version>2.1</version>
+	<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+</dependency>
+		
+		<dependency>
+        <groupId>org.apache.myfaces.core</groupId>
+        <artifactId>myfaces-api</artifactId>
+        <version>2.1.0</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.myfaces.core</groupId>
+        <artifactId>myfaces-impl</artifactId>
+        <version>2.1.0</version>
+		<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+    </dependency>
+	
+	<dependency>
+    <groupId>org.apache.myfaces.tomahawk</groupId>
+    <artifactId>tomahawk</artifactId>
+    <version>1.1.10</version>
+	<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+</dependency>
+		
+		<dependency>
+      <groupId>javax.el</groupId>
+<artifactId>el-api</artifactId>
+<version>1.0</version>
+<scope>provided</scope>
+    </dependency>
+<dependency>
+      <groupId>com.sun.el</groupId>
+<artifactId>el-ri</artifactId>
+<version>1.0</version>
+    </dependency>
+			
+			<dependency>
 				<groupId>javax.jcr</groupId>
 				<artifactId>jcr</artifactId>
 				<version>2.0</version>
@@ -741,11 +798,11 @@
 				<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
 				
 				<facade.url>http://jcertif.baamtu.com/jcertif-facade</facade.url>
-				<!-- Ne pas mettre le "/" avec la fin du rÃ©pertoire -->
+				<!-- Ne pas mettre le "/" avec la fin du répertoire -->
 				<pics.participant.dir>catalina.base/webapps/jcertif-pics</pics.participant.dir>
 				<pics.url>http://jcertif.baamtu.com/jcertif-pics</pics.url>
 				
-				<!-- Ne pas mettre le "/" avec la fin du rÃ©pertoire, mettre catalina.base pour utiliser cette variable de tomcat -->
+				<!-- Ne pas mettre le "/" avec la fin du répertoire, mettre catalina.base pour utiliser cette variable de tomcat -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
 				
 				<presentation.cache.enabled>true</presentation.cache.enabled>
@@ -778,10 +835,10 @@
 				<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
 				
 				<facade.url>http://jcertif.baamtu.com/jcertif-facade</facade.url>
-				<!-- Ne pas mettre le "/" avec la fin du rÃ©pertoire -->
+				<!-- Ne pas mettre le "/" avec la fin du répertoire -->
 				<pics.participant.dir>catalina.base/webapps/jcertif-pics</pics.participant.dir>
 				<pics.url>http://localhost:8082/jcertif-pics</pics.url>
-				<!-- Ne pas mettre le "/" avec la fin du rÃ©pertoire, mettre catalina.base pour utiliser cette variable de tomcat  -->
+				<!-- Ne pas mettre le "/" avec la fin du répertoire, mettre catalina.base pour utiliser cette variable de tomcat  -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
 				
 				<presentation.cache.enabled>true</presentation.cache.enabled>
@@ -805,10 +862,10 @@
 				<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
 				
 				<facade.url>http://localhost:8080/jcertif-facade</facade.url>
-				<!-- Ne pas mettre le "/" avec la fin du rÃ©pertoire -->
+				<!-- Ne pas mettre le "/" avec la fin du répertoire -->
 				<pics.participant.dir>catalina.base/webapps/jcertif-pics</pics.participant.dir>
 				<pics.url>http://localhost:8080/jcertif-pics</pics.url>
-				<!-- Ne pas mettre le "/" avec la fin du rÃ©pertoire, mettre catalina.base pour utiliser cette variable de tomcat  -->
+				<!-- Ne pas mettre le "/" avec la fin du répertoire, mettre catalina.base pour utiliser cette variable de tomcat  -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
 				<presentation.cache.enabled>true</presentation.cache.enabled>
 			</properties>

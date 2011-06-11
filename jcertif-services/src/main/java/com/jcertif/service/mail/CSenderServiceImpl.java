@@ -10,6 +10,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -328,5 +329,47 @@ public class CSenderServiceImpl extends CSenderService {
 					}
 				});
 		return session;
+	}
+
+	@Override
+	public void sendEmail(List<String> roles, String subject,
+			String emailContent) {
+		Set<Participant> participantList = new HashSet<Participant>(
+				participantService.findAll());
+		String diffusionList = getDiffusionList();
+
+		for (Participant particpant : participantList) {
+			if (particpant.getRoleparticipant() != null
+					&& roles.contains(particpant.getRoleparticipant().getCode())
+					&& particpant.getEmail() != null) {
+				diffusionList += "," + particpant.getEmail();
+			}
+		}
+
+		try {
+			Message message = new MimeMessage(initSession());
+			message.setFrom(new InternetAddress(getUserName()));
+			message.setRecipients(Message.RecipientType.TO,
+					InternetAddress.parse(diffusionList));
+			message.setSubject(subject);
+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Message " + emailContent);
+			}
+			// Add html content
+			Multipart mp = new MimeMultipart();
+			// Ajout des photos des partenaires
+
+			MimeBodyPart htmlPart = new MimeBodyPart();
+			htmlPart.setContent(emailContent, "text/html");
+			mp.addBodyPart(htmlPart);
+			message.setContent(mp);
+			Transport.send(message);
+
+		} catch (MessagingException e) {
+			LOGGER.error("", e);
+			throw new RuntimeException(e);
+		}
+
 	}
 }
