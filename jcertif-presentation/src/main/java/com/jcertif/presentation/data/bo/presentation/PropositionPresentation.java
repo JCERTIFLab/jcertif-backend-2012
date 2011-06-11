@@ -6,14 +6,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import com.jcertif.presentation.data.bo.AbstractBO;
-import com.jcertif.presentation.data.bo.comite.ComiteRevisionPresentation;
 import com.jcertif.presentation.data.bo.conference.Conference;
 import com.jcertif.presentation.data.bo.participant.Participant;
 
@@ -26,106 +24,101 @@ import com.jcertif.presentation.data.bo.participant.Participant;
 @XmlRootElement
 public class PropositionPresentation extends AbstractBO {
 
-    private static final long serialVersionUID = 1L;
-    /**
-     * Identifiant d'une présentation.
-     */
-    private Long id;
-    /**
-     * Le titre de la présentation.
-     */
-    private String titre;
-    /**
-     * La description de la présentation.
-     */
-    private String description;
-    /**
-     * Les détails de la présentation.
-     */
-    private String details;
-    /**
-     * Un sommaire.
-     */
-    private String sommaire;
-    /**
-     * Les besoins spécifiques.
-     */
-    private String besoinsSpecifiques;
-    /**
-     * Mot clé de la présentation.
-     */
-    private MotCle motCle;
-    /**
-     * Conférence d'une présentation.
-     */
-    private Conference conference;
-    /**
-     * Statut de l'approbation de la présentation.
-     */
-    private StatutApprobation statutApprobation;
-    
-    private Set<Participant> participants;
-    /**
-     * Liste des sujets de la présentation.
-     */
-    private List<Sujet> sujetsInternal;
-    /**
-     * Liste appréciations.
-     */
-    private List<Appreciation> appreciationsInternal;
-    /**
-     * Liste comité révision présentation.
-     */
-    private Set<ComiteRevisionPresentation> comiteRevisionPresentationsInternal;
-    /**
-     * Liste des auteurs.
-     */
-    private Set<Auteur> auteursInternal;
+	private static final long serialVersionUID = 1L;
+	/**
+	 * Identifiant d'une présentation.
+	 */
+	private Long id;
+	/**
+	 * Le titre de la présentation.
+	 */
+	private String titre;
+	/**
+	 * La description de la présentation.
+	 */
+	private String description;
+	/**
+	 * Les détails de la présentation.
+	 */
+	private String details;
+	/**
+	 * Un sommaire.
+	 */
+	private String sommaire;
+	/**
+	 * Les besoins spécifiques.
+	 */
+	private String besoinsSpecifiques;
+	/**
+	 * Mot clé de la présentation.
+	 */
+	private MotCle motCle;
+	/**
+	 * Conférence d'une présentation.
+	 */
+	private Conference conference;
+	/**
+	 * Statut de l'approbation de la présentation.
+	 */
+	private StatutApprobation statutApprobation;
 
-    /**
-     * @return l'identifiant d'une présentation
-     */
-    public Long getId() {
-        return id;
-    }
+	private Set<Participant> participants;
+	/**
+	 * Liste des sujets de la présentation.
+	 */
+	private List<Sujet> sujetsInternal;
+	/**
+	 * Liste appréciations.
+	 */
+	private List<Appreciation> appreciationsInternal;
 
-    /**
-     * Définit l'identifiant.
-     *
-     * @param id
-     *            un identifiant
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
+	/**
+	 * Liste des auteurs.
+	 */
+	private Set<Auteur> auteursInternal;
 
-    /**
-     * @return le titre.
-     */
-    public String getTitre() {
-        return titre;
-    }
+	/**
+	 * @return l'identifiant d'une présentation
+	 */
+	public Long getId() {
+		return id;
+	}
 
-    /**
-     * Définit un titre.
-     *
-     * @param titre
-     *            un titre
-     */
-    public void setTitre(String titre) {
-        this.titre = titre;
-    }
+	/**
+	 * Définit l'identifiant.
+	 * 
+	 * @param id
+	 *            un identifiant
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    /**
-     * @return la description
-     */
-    public String getDescription() {
-        return description;
-    }
+	/**
+	 * @return le titre.
+	 */
+	public String getTitre() {
+		return titre;
+	}
 
-    
+	/**
+	 * Définit un titre.
+	 * 
+	 * @param titre
+	 *            un titre
+	 */
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
 
-    /**
+	/**
+	 * @return la description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
 	 * @return the participants
 	 */
 	public Set<Participant> getParticipants() {
@@ -133,328 +126,294 @@ public class PropositionPresentation extends AbstractBO {
 	}
 
 	/**
-	 * @param participants the participants to set
+	 * @param participants
+	 *            the participants to set
 	 */
 	public void setParticipants(Set<Participant> participants) {
 		this.participants = participants;
 	}
 
 	/**
-     * Définit une description.
-     *
-     * @param description
-     *            une description
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	 * Définit une description.
+	 * 
+	 * @param description
+	 *            une description
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    /**
-     * @return les détails
-     */
-    public String getDetails() {
-        return details;
-    }
+	/**
+	 * @return les détails
+	 */
+	public String getDetails() {
+		return details;
+	}
 
-    /**
-     * Définit les détails d'une présentation.
-     *
-     * @param details
-     *            des détails
-     */
-    public void setDetails(String details) {
-        this.details = details;
-    }
+	/**
+	 * Définit les détails d'une présentation.
+	 * 
+	 * @param details
+	 *            des détails
+	 */
+	public void setDetails(String details) {
+		this.details = details;
+	}
 
-    /**
-     * @return the sommaire
-     */
-    public String getSommaire() {
-        return sommaire;
-    }
+	/**
+	 * @return the sommaire
+	 */
+	public String getSommaire() {
+		return sommaire;
+	}
 
-    /**
-     * @param sommaire the sommaire to set
-     */
-    public void setSommaire(String sommaire) {
-        this.sommaire = sommaire;
-    }
+	/**
+	 * @param sommaire
+	 *            the sommaire to set
+	 */
+	public void setSommaire(String sommaire) {
+		this.sommaire = sommaire;
+	}
 
-    /**
-     * @return the besoinsSpecifiques
-     */
-    public String getBesoinsSpecifiques() {
-        return besoinsSpecifiques;
-    }
+	/**
+	 * @return the besoinsSpecifiques
+	 */
+	public String getBesoinsSpecifiques() {
+		return besoinsSpecifiques;
+	}
 
-    /**
-     * @param besoinsSpecifiques the besoinsSpecifiques to set
-     */
-    public void setBesoinsSpecifiques(String besoinsSpecifiques) {
-        this.besoinsSpecifiques = besoinsSpecifiques;
-    }
+	/**
+	 * @param besoinsSpecifiques
+	 *            the besoinsSpecifiques to set
+	 */
+	public void setBesoinsSpecifiques(String besoinsSpecifiques) {
+		this.besoinsSpecifiques = besoinsSpecifiques;
+	}
 
-    /**
-     * @return le mot clé de la présentation
-     */
-    public MotCle getMotCle() {
-        return motCle;
-    }
+	/**
+	 * @return le mot clé de la présentation
+	 */
+	public MotCle getMotCle() {
+		return motCle;
+	}
 
-    /**
-     * Définit le mot clé de la présentation.
-     *
-     * @param motCle
-     *            un mot clé
-     */
-    public void setMotCle(MotCle motCle) {
-        this.motCle = motCle;
-    }
+	/**
+	 * Définit le mot clé de la présentation.
+	 * 
+	 * @param motCle
+	 *            un mot clé
+	 */
+	public void setMotCle(MotCle motCle) {
+		this.motCle = motCle;
+	}
 
-    /**
-     * @return le statut d'approbation
-     */
-    public StatutApprobation getStatutApprobation() {
-        return statutApprobation;
-    }
+	/**
+	 * @return le statut d'approbation
+	 */
+	public StatutApprobation getStatutApprobation() {
+		return statutApprobation;
+	}
 
-    /**
-     * @return la conférence de la présentation
-     */
-    public Conference getConference() {
-        return conference;
-    }
+	/**
+	 * @return la conférence de la présentation
+	 */
+	public Conference getConference() {
+		return conference;
+	}
 
-    /**
-     * Définit la conférence de la présentation.
-     *
-     * @param conference
-     *            une conférence
-     */
-    public void setConference(Conference conference) {
-        this.conference = conference;
-    }
+	/**
+	 * Définit la conférence de la présentation.
+	 * 
+	 * @param conference
+	 *            une conférence
+	 */
+	public void setConference(Conference conference) {
+		this.conference = conference;
+	}
 
-    /**
-     * Définit un statut d'approbation.
-     *
-     * @param statutApprobation
-     *            un statut d'approbation
-     */
-    public void setStatutApprobation(StatutApprobation statutApprobation) {
-        this.statutApprobation = statutApprobation;
-    }
+	/**
+	 * Définit un statut d'approbation.
+	 * 
+	 * @param statutApprobation
+	 *            un statut d'approbation
+	 */
+	public void setStatutApprobation(StatutApprobation statutApprobation) {
+		this.statutApprobation = statutApprobation;
+	}
 
-    /**
-     * @return la liste de sujets.
-     */
-    public List<Sujet> getSujetsInternal() {
-        if (sujetsInternal == null) {
-            sujetsInternal = new ArrayList<Sujet>();
-        }
-        return sujetsInternal;
-    }
+	/**
+	 * @return la liste de sujets.
+	 */
+	public List<Sujet> getSujetsInternal() {
+		if (sujetsInternal == null) {
+			sujetsInternal = new ArrayList<Sujet>();
+		}
+		return sujetsInternal;
+	}
 
-    /**
-     * Définit une liste de sujet.
-     *
-     * @param sujetsInternal
-     *            une liste de sujet
-     */
-    public void setSujetsInternal(List<Sujet> sujetsInternal) {
-        this.sujetsInternal = sujetsInternal;
-    }
+	/**
+	 * Définit une liste de sujet.
+	 * 
+	 * @param sujetsInternal
+	 *            une liste de sujet
+	 */
+	public void setSujetsInternal(List<Sujet> sujetsInternal) {
+		this.sujetsInternal = sujetsInternal;
+	}
 
-    /**
-     * @return la liste non modifiable de sujets.
-     */
-    public List<Sujet> getSujets() {
-        return Collections.unmodifiableList(this.getSujetsInternal());
-    }
+	/**
+	 * @return la liste non modifiable de sujets.
+	 */
+	public List<Sujet> getSujets() {
+		return Collections.unmodifiableList(this.getSujetsInternal());
+	}
 
-    /**
-     * Ajoute un sujet.
-     *
-     * @param sujet
-     *            un sujet
-     * @return le résultat de l'ajout
-     */
-    public boolean addSujet(final Sujet sujet) {
-        return this.getSujetsInternal().add(sujet);
-    }
+	/**
+	 * Ajoute un sujet.
+	 * 
+	 * @param sujet
+	 *            un sujet
+	 * @return le résultat de l'ajout
+	 */
+	public boolean addSujet(final Sujet sujet) {
+		return this.getSujetsInternal().add(sujet);
+	}
 
-    /**
-     * Supprimes un sujet.
-     *
-     * @param sujet
-     *            un sujet
-     * @return le résultat de la suppression
-     */
-    public boolean removeSujet(final Sujet sujet) {
-        return this.getSujetsInternal().remove(sujet);
-    }
+	/**
+	 * Supprimes un sujet.
+	 * 
+	 * @param sujet
+	 *            un sujet
+	 * @return le résultat de la suppression
+	 */
+	public boolean removeSujet(final Sujet sujet) {
+		return this.getSujetsInternal().remove(sujet);
+	}
 
-    /**
-     * @return la liste d'appréciation
-     */
-    protected List<Appreciation> getAppreciationsInternal() {
-        if (appreciationsInternal == null) {
-            appreciationsInternal = new ArrayList<Appreciation>();
-        }
-        return appreciationsInternal;
-    }
+	/**
+	 * @return la liste d'appréciation
+	 */
+	protected List<Appreciation> getAppreciationsInternal() {
+		if (appreciationsInternal == null) {
+			appreciationsInternal = new ArrayList<Appreciation>();
+		}
+		return appreciationsInternal;
+	}
 
-    /**
-     * Définit la liste d'appréciation.
-     *
-     * @param appreciationsInternal
-     *            une liste d'appréciation
-     */
-    protected void setAppreciationsInternal(
-            List<Appreciation> appreciationsInternal) {
-        this.appreciationsInternal = appreciationsInternal;
-    }
+	/**
+	 * Définit la liste d'appréciation.
+	 * 
+	 * @param appreciationsInternal
+	 *            une liste d'appréciation
+	 */
+	protected void setAppreciationsInternal(
+			List<Appreciation> appreciationsInternal) {
+		this.appreciationsInternal = appreciationsInternal;
+	}
 
-    /**
-     * @return la liste d'appréciation non modifiable
-     */
-    public List<Appreciation> getAppreciations() {
-        return Collections.unmodifiableList(getAppreciationsInternal());
-    }
+	/**
+	 * @return la liste d'appréciation non modifiable
+	 */
+	public List<Appreciation> getAppreciations() {
+		return Collections.unmodifiableList(getAppreciationsInternal());
+	}
 
-    /**
-     * Ajoute une appréciation.
-     *
-     * @param appreciation
-     *            une appréciation
-     * @return le résultat de l'ajout d'une appréciation.
-     */
-    public boolean addAppreciation(final Appreciation appreciation) {
-        return getAppreciationsInternal().add(appreciation);
-    }
+	/**
+	 * Ajoute une appréciation.
+	 * 
+	 * @param appreciation
+	 *            une appréciation
+	 * @return le résultat de l'ajout d'une appréciation.
+	 */
+	public boolean addAppreciation(final Appreciation appreciation) {
+		return getAppreciationsInternal().add(appreciation);
+	}
 
-    /**
-     * Supprime une appréciation.
-     *
-     * @param appreciation
-     *            une appréciation
-     * @return le résultat de la suppression d'une appréciation.
-     */
-    public boolean removeAppreciation(final Appreciation appreciation) {
-        return getAppreciationsInternal().remove(appreciation);
-    }
+	/**
+	 * Supprime une appréciation.
+	 * 
+	 * @param appreciation
+	 *            une appréciation
+	 * @return le résultat de la suppression d'une appréciation.
+	 */
+	public boolean removeAppreciation(final Appreciation appreciation) {
+		return getAppreciationsInternal().remove(appreciation);
+	}
 
-    /**
-     * @return the comiteRevisionPresentationsInternal
-     */
-    protected Set<ComiteRevisionPresentation> getComiteRevisionPresentationsInternal() {
-        return comiteRevisionPresentationsInternal;
-    }
+	/**
+	 * @return the auteursInternal
+	 */
+	protected Set<Auteur> getAuteursInternal() {
+		if (auteursInternal == null) {
+			auteursInternal = new HashSet<Auteur>();
+		}
+		return auteursInternal;
+	}
 
-    /**
-     * @param comiteRevisionPresentationsInternal
-     *            the comiteRevisionPresentationsInternal to set
-     */
-    protected void setComiteRevisionPresentationsInternal(
-            Set<ComiteRevisionPresentation> comiteRevisionPresentationsInternal) {
-        this.comiteRevisionPresentationsInternal = comiteRevisionPresentationsInternal;
-    }
+	/**
+	 * @param auteursInternal
+	 *            the auteursInternal to set
+	 */
+	protected void setAuteursInternal(Set<Auteur> auteursInternal) {
+		this.auteursInternal = auteursInternal;
+	}
 
-    /**
-     * Ajoute un comité de révision.
-     *
-     * @param comite
-     *            un comité de révision
-     * @return le résultat de la suppression.
-     */
-    public boolean addComiteRevisionPresentation(
-            ComiteRevisionPresentation comite) {
-        return getComiteRevisionPresentationsInternal().add(comite);
-    }
+	/**
+	 * @return the auteursInternal
+	 */
+	public Set<Auteur> getAuteurs() {
+		return auteursInternal;
+	}
 
-    /**
-     * Supprime un comité de révision.
-     *
-     * @param comite
-     * @return le résultat de la suppression
-     */
-    public boolean removeComiteRevisionPresentation(
-            ComiteRevisionPresentation comite) {
-        return getComiteRevisionPresentationsInternal().remove(comite);
-    }
+	/**
+	 * Ajout d'un auteur.
+	 * 
+	 * @param auteur
+	 *            un auteur
+	 * @return le résultat de l'ajout
+	 */
+	public boolean addAuteur(final Auteur auteur) {
+		return getAuteursInternal().add(auteur);
+	}
 
-    /**
-     * @return the auteursInternal
-     */
-    protected Set<Auteur> getAuteursInternal() {
-        if (auteursInternal == null) {
-            auteursInternal = new HashSet<Auteur>();
-        }
-        return auteursInternal;
-    }
+	/**
+	 * Suppression d'un auteur.
+	 * 
+	 * @param auteur
+	 *            un auteur
+	 * @return le résultat de la suppression
+	 */
+	public boolean removeAuteur(final Auteur auteur) {
+		return getAuteursInternal().remove(auteur);
+	}
 
-    /**
-     * @param auteursInternal
-     *            the auteursInternal to set
-     */
-    protected void setAuteursInternal(Set<Auteur> auteursInternal) {
-        this.auteursInternal = auteursInternal;
-    }
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(titre).append(description)
+				.toHashCode();
+	}
 
-    /**
-     * @return the auteursInternal
-     */
-    public Set<Auteur> getAuteurs() {
-        return auteursInternal;
-    }
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
 
-    /**
-     * Ajout d'un auteur.
-     *
-     * @param auteur
-     *            un auteur
-     * @return le résultat de l'ajout
-     */
-    public boolean addAuteur(final Auteur auteur) {
-        return getAuteursInternal().add(auteur);
-    }
+		if (this == obj) {
+			return true;
+		}
 
-    /**
-     * Suppression d'un auteur.
-     *
-     * @param auteur
-     *            un auteur
-     * @return le résultat de la suppression
-     */
-    public boolean removeAuteur(final Auteur auteur) {
-        return getAuteursInternal().remove(auteur);
-    }
+		if (!(obj instanceof PropositionPresentation)) {
+			return false;
+		}
 
-    /**
-     * @see java.lang.Object#hashCode()
-     */
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder().append(titre).append(description).toHashCode();
-    }
+		final PropositionPresentation other = (PropositionPresentation) obj;
 
-    /**
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    @Override
-    public boolean equals(Object obj) {
+		return new EqualsBuilder().append(titre, other.getTitre())
+				.append(description, other.getDescription()).isEquals();
+	}
 
-        if (this == obj) {
-            return true;
-        }
-
-        if (!(obj instanceof PropositionPresentation)) {
-            return false;
-        }
-
-        final PropositionPresentation other = (PropositionPresentation) obj;
-
-        return new EqualsBuilder().append(titre, other.getTitre()).append(description, other.getDescription()).isEquals();
-    }
-    
 }
