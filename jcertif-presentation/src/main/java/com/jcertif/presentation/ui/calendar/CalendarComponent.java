@@ -3,18 +3,13 @@ package com.jcertif.presentation.ui.calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
-import com.jcertif.presentation.data.domain.MyScheduleUser;
-import com.jcertif.presentation.data.domain.MyScheduleUser.UserFavouritesChangedListener;
-import com.vaadin.Application.UserChangeEvent;
-import com.vaadin.Application.UserChangeListener;
 import com.vaadin.addon.calendar.ui.Calendar;
 
 /**
  * JCertifCalendar is a Calendar UI component for displaying the JCertif
  * conference schedule.
  */
-public class CalendarComponent extends Calendar implements UserChangeListener,
-		UserFavouritesChangedListener {
+public class CalendarComponent extends Calendar {
 
 	/**
 	 * Heure de fin de la journée.
@@ -69,19 +64,6 @@ public class CalendarComponent extends Calendar implements UserChangeListener,
 
 		setEndDate(dateFin.getTime());
 		setVisibleHoursOfDay(START_HOUR, END_HOUR);
-	}
-
-
-	@Override
-	public void favouritesChanged(MyScheduleUser user) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void applicationUserChanged(UserChangeEvent event) {
-		// TODO Auto-generated method stub
-
 	}
 
 }
