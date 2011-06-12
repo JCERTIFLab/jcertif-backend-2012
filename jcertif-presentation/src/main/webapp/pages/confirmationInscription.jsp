@@ -12,7 +12,7 @@
 
 	<div id="main_container">
 		<jsp:include page="headertemplate.jsp" />
-		<h2><%=session.getAttribute("confirmationInscription.jsp.text")%></h2>
+		<h2><%=session.getAttribute("confirmationInscription.jsp.text")%> <a href="<%=request.getContextPath()%>/pages/calendrier.jsp"><%=session.getAttribute("confirmationInscription.jsp.calendarlink")%></a></h2>
 		<jsp:include page="footer.jsp" />
 	</div>
 </body>
