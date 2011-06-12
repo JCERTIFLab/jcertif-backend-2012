@@ -28,7 +28,8 @@ public class FaqDetailComponent extends Panel {
 	/**
 	 * A Logger for class.
 	 */
-	private static final Logger LOGGER = LoggerFactory.getLogger(FaqDetailComponent.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(FaqDetailComponent.class);
 
 	/**
 	 * A constructor.
@@ -56,20 +57,25 @@ public class FaqDetailComponent extends Panel {
 
 		for (Faq faq : getFaqList()) {
 
-			CustomLayout htmlLayout = new CustomLayout(UIConst.COMMUN_DETAIL_LAYOUT);
+			CustomLayout htmlLayout = new CustomLayout(
+					UIConst.COMMUN_DETAIL_LAYOUT);
 			htmlLayout.addStyleName(UIStyle.DETAILS_COMMON_LAYOUT);
 
 			// Sujet
 			if (isFirsTime) {
-				htmlLayout.addComponent(new Label(Msg.get("ui.faq.title")), "caption");
-				htmlLayout.addComponent(new Label(Msg.get("ui.faq.description")),
+				htmlLayout.addComponent(new Label(Msg.get("ui.faq.title")),
+						"caption");
+				htmlLayout.addComponent(
+						new Label(Msg.get("ui.faq.description")),
 						"captionDetail");
 			}
 
 			// Lastname + firstname
-			htmlLayout.addComponent(new Label(faq.getQuestion()), "presentateur");
+			htmlLayout.addComponent(new Label(faq.getQuestion(),
+					Label.CONTENT_XHTML), "presentateur");
 			// Participant Bio
-			htmlLayout.addComponent(new Label(faq.getReponse()), "details");
+			htmlLayout.addComponent(new Label(faq.getReponse(),
+					Label.CONTENT_XHTML), "details");
 
 			// Use it as the layout of the Panel.
 			this.addComponent(htmlLayout);
