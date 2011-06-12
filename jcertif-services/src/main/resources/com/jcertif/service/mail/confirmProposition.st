@@ -38,7 +38,7 @@ p {line-height:18px;}
    R&egrave;gles g&eacute;n&eacute;rales de JCertif :<br />
    -------------------------------------<br />
    <ul>
-   		<li>Les badges d&#39;acc&egrave;s VIP gratuits accord&eacute;s aux pr&eacute;sentateurs sont limit&eacute;s à 1 badge par pr&eacute;sentateur et ne peuvent être transf&eacute;r&eacute;s ou prêt&eacute;s à un tiers.</li> 
+   		<li>Les badges d&#39;acc&egrave;s VIP gratuits accord&eacute;s aux pr&eacute;sentateurs sont limit&eacute;s &agrave; 1 badge par pr&eacute;sentateur et ne peuvent &ecirc;tre transf&eacute;r&eacute;s ou pr&ecirc;t&eacute;s &agrave; un tiers.</li> 
 		<li>L'organisation JCertif ne rembourse pas les frais de voyage ni toutes autres d&eacute;penses occasionn&eacute;es par le d&eacute;placement des pr&eacute;sentateurs.</li> 
 		<li>En acceptant l&#39;invitation de pr&eacute;senter &agrave; JCertif 2011, vous autorisez JCertif &agrave; promouvoir, publier ou utiliser le contenu de votre pr&eacute;sentation pour les besoins de la conf&eacute;rence.</li>
 	</ul>
