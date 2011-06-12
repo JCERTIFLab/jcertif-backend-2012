@@ -40,7 +40,7 @@ p {line-height:18px;}
    &nbsp;1 - Contactez rapidement le collecteur de votre secteur. Consultez notre <a href="http://www.jcertif.com/">foire aux questions (FAQ)</a> pour trouver le collecteur le plus pr&ecirc;t de chez vous.<br />
    &nbsp;2 - Payez les frais de participation et recevez votre carte d&#39;invitation officielle et un num&eacute;ro de confirmation.<br />
    <br />
-   Créer votre agenda personalis&eacute;! Vous pouvez d&egrave;s &agrave; pr&eacute;sent r&eacute;server vos places pour les s&eacute;ances et ateliers qui vous interessent &agrave; l&#39;aide du calendrier interactif de <a href="http://www.jcertif.com/">www.jcertif.com</a><br />
+   Cr&eacute;er votre agenda personalis&eacute;! Vous pouvez d&egrave;s &agrave; pr&eacute;sent r&eacute;server vos places pour les s&eacute;ances et ateliers qui vous interessent &agrave; l&#39;aide du calendrier interactif de <a href="http://www.jcertif.com/">www.jcertif.com</a><br />
    <br />
    <br />
    Devenez vous aussi collecteur de votre secteur et et rejoingnez l&#39;&eacute;quipe d&#39;organisation !<br />
