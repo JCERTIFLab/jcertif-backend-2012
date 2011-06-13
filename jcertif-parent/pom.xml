@@ -35,10 +35,10 @@
 		<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
 		<hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
 		<hibernate.generate_statistics>false</hibernate.generate_statistics>
-		<hibernate.cache.use_second_level_cache>true</hibernate.cache.use_second_level_cache>
+		<hibernate.cache.use_second_level_cache>false</hibernate.cache.use_second_level_cache>
 		<hibernate.cache.provider_class>net.sf.ehcache.hibernate.EhCacheProvider</hibernate.cache.provider_class>
 		<hibernate.show_sql>false</hibernate.show_sql>
-		<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
+		<hibernate.cache.use_query_cache>false</hibernate.cache.use_query_cache>
 		
 		<facade.url>http://localhost:8080/jcertif-facade</facade.url>
 		<!-- Ne pas mettre le "/" avec la fin du répertoire -->
@@ -46,7 +46,7 @@
 		<pics.url>http://localhost:8082/jcertif-pics</pics.url>
 		<!-- Ne pas mettre le "/" avec la fin du répertoire -->
 		<tmp.photo.dir>./tmp/photo</tmp.photo.dir>
-		<presentation.cache.enabled>true</presentation.cache.enabled>
+		<presentation.cache.enabled>false</presentation.cache.enabled>
 	</properties>
 
 	<modules>
