@@ -5,7 +5,7 @@
 package com.jcertif.facade.participant;
 
 import com.jcertif.bo.participant.Participant;
-import com.jcertif.facade.participant.model.Speaker;
+import com.jcertif.facade.model.participant.Speaker;
 import com.jcertif.service.api.participant.SpeakerService;
 import com.sun.jersey.api.spring.Autowire;
 import java.util.ArrayList;
