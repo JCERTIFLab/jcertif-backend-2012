@@ -83,5 +83,10 @@ public interface GenericDAO<T, PK extends Serializable> extends DAO {
 	 * Vide la session.
 	 */
 	void clear();
+        
+        /**
+	 * @return la liste des entités filtrées
+	 */
+	List<T> findByProperty(String propertyName,Object propertyValue);
 
 }

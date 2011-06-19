@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.jcertif.bo.Adresse;
 import com.jcertif.bo.participant.Participant;
+import com.jcertif.bo.participant.RoleParticipant;
 import com.jcertif.dao.api.participant.ParticipantDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
@@ -148,5 +149,15 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 		partList = participantDAO.findByEmail("rossi@bon.com");
 		assertEquals(0, partList.size());
 	}
+        
+        @Test
+        public void testFindByProperty() {
+            RoleParticipant rolePartenaire = new RoleParticipant(4l, "partenaire", "partenaire");
+            List<Participant> partList = participantDAO.findByProperty("roleparticipant", rolePartenaire);
+            assertEquals(2, partList.size());
+            RoleParticipant roleSpeaker = new RoleParticipant(1l, "speaker", "speaker");
+            partList = participantDAO.findByProperty("roleparticipant", roleSpeaker);
+            assertEquals(0, partList.size());
+        }
 	
 }

@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Required;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;
 
 import com.jcertif.dao.api.GenericDAO;
+import org.hibernate.criterion.Restrictions;
 
 /**
  * Implementation of GenericDAO with Hibernate.
@@ -155,6 +156,12 @@ public abstract class AbstractHibernateGenericDAO<T, PK extends Serializable> im
 			this.getCurrentSession().delete(entity);
 		}
 	}
+        
+        @Override
+        public List<T> findByProperty(String propertyName,Object propertyValue) {
+            return this.getCurrentSession().createCriteria(this.persistentClass)
+				.add(Restrictions.eq(propertyName, propertyValue)).list();
+        }
 
 	/**
 	 * Modifie sessionFactory.
