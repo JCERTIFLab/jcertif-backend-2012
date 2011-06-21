@@ -60,12 +60,9 @@ public class CeduleParticipant extends AbstractBO {
 	/**
 	 * Constructor
 	 */
-	public CeduleParticipant(Long id, Calendar dateCedule, String details, Participant participant,
-			Evenement event, StatutCedule statutCedule) {
-		this.id = id;
-		this.dateCedule = dateCedule;
-		this.details = details;
-		this.statutCedule = statutCedule;
+	public CeduleParticipant(Long participantId, Long evenementId) {
+		this.participantId = participantId;
+                this.evenementId = evenementId;
 	}
 
 	/**
@@ -163,7 +160,7 @@ public class CeduleParticipant extends AbstractBO {
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(id).append(details).toHashCode();
+		return new HashCodeBuilder().append(participantId).toHashCode();
 	}
 
 	/**
@@ -182,7 +179,7 @@ public class CeduleParticipant extends AbstractBO {
 
 		final CeduleParticipant other = (CeduleParticipant) obj;
 
-		return new EqualsBuilder().append(id, other.getId()).append(details, other.getDetails())
+		return new EqualsBuilder().append(evenementId, other.getEvenementId()).append(participantId, other.getParticipantId())
 				.isEquals();
 	}
 }

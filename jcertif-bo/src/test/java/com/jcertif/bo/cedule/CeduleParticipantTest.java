@@ -22,7 +22,7 @@ public class CeduleParticipantTest {
 	 */
 	@Test
 	public void testAllAccessors() {
-		final CeduleParticipant cc =new CeduleParticipant(new Long(1), null,"details", null,null, null);
+		final CeduleParticipant cc =new CeduleParticipant(new Long(1), new Long(2));
 		final JCertifAccessorTesterImpl accessorTester = new JCertifAccessorTesterImpl(cc);
 		accessorTester.testAllAccessors();
 	}
@@ -32,13 +32,13 @@ public class CeduleParticipantTest {
 	 */
 	@Test
 	public void testEqualsAndHashCode() {
-		final CeduleParticipant a= new CeduleParticipant(new Long(1), null,"details", null,null, null);
+		final CeduleParticipant a= new CeduleParticipant(new Long(1),new Long(2));
 		
-		final CeduleParticipant b = new CeduleParticipant(new Long(1), null,"details", null,null, null);
+		final CeduleParticipant b = new CeduleParticipant(new Long(1),new Long(2));
 		
-		final CeduleParticipant c =  new CeduleParticipant(new Long(2), null,"le vide", null,null, null);
+		final CeduleParticipant c =  new CeduleParticipant(new Long(1),new Long(3));
 		
-		final CeduleParticipant d = new CeduleParticipant(new Long(1), null,"details", null,null, null){
+		final CeduleParticipant d = new CeduleParticipant(new Long(1),new Long(2)){
 			
 		};
 

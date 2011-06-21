@@ -2,6 +2,7 @@ package com.jcertif.facade.rest.evenement;
 
 import com.jcertif.bo.cedule.Evenement;
 import com.jcertif.facade.Facade;
+import com.jcertif.facade.model.IdList;
 import com.jcertif.facade.model.evenement.Event;
 import com.jcertif.service.api.cedule.EvenementService;
 import com.sun.jersey.api.spring.Autowire;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Set;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Autowire
 public class EventFacade extends Facade {
-    
+
     /**
      * Event service.
      */
@@ -47,5 +49,18 @@ public class EventFacade extends Facade {
         }
 
         return eventList;
+    }
+
+    /**
+     * 
+     * @param idEvent
+     * @param email
+     * @return 
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("/addevent/{idevent}/{email}")
+    public IdList addUserToEvent(@PathParam("idevent") Long idEvent, @PathParam("email") String email) {
+        return new IdList(eventService.addUserToEvent(idEvent, email));
     }
 }
