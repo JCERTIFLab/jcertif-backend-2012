@@ -17,4 +17,6 @@ public interface EvenementService extends
     Set<Long> addUserToEvent(Long idEvent, String email);
     
     Set<Long> removeUserToEvent(Long idEvent, String email);
+    
+    Set<Long> findEventForUser(String email);
 }

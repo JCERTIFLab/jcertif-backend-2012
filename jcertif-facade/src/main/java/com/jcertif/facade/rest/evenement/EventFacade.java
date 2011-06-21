@@ -52,10 +52,10 @@ public class EventFacade extends Facade {
     }
 
     /**
-     * 
-     * @param idEvent
-     * @param email
-     * @return 
+     * subscribe user to event.
+     * @param idEvent id event
+     * @param email user's email
+     * @return list of id event
      */
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -65,15 +65,26 @@ public class EventFacade extends Facade {
     }
     
     /**
-     * 
-     * @param idEvent
-     * @param email
-     * @return 
+     * remove subscription of user to a session.
+     * @param idEvent id event
+     * @param email user's email
+     * @return list of id event
      */
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("/removeevent/{idevent}/{email}")
     public IdList removeUserToEvent(@PathParam("idevent") Long idEvent, @PathParam("email") String email) {
         return new IdList(eventService.removeUserToEvent(idEvent, email));
+    }
+    
+    /**
+     * @param email user's email
+     * @return list of id event
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("/user/{email}")
+    public IdList findEventForUser(@PathParam("email") String email) {
+        return new IdList(eventService.findEventForUser(email));
     }
 }

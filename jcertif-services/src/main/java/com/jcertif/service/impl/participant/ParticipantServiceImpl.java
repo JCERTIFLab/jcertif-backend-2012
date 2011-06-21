@@ -26,6 +26,8 @@ import com.jcertif.dao.api.participant.ProfilUtilisateurDAO;
 import com.jcertif.exception.ExistingEmailException;
 import com.jcertif.service.AbstractService;
 import com.jcertif.service.api.participant.ParticipantService;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Implementation of the {@link ParticipantService}.
@@ -35,128 +37,142 @@ import com.jcertif.service.api.participant.ParticipantService;
  */
 @Service
 public class ParticipantServiceImpl extends AbstractService<Participant, Long, ParticipantDAO>
-		implements ParticipantService {
+        implements ParticipantService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ParticipantServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ParticipantServiceImpl.class);
+    @Autowired
+    private ParticipantDAO participantDAO;
+    @Autowired
+    private ProfilUtilisateurDAO profilUtilisateurDAO;
 
-	@Autowired
-	private ParticipantDAO participantDAO;
+    @Override
+    public ParticipantDAO getDAO() {
+        return participantDAO;
+    }
 
-	@Autowired
-	private ProfilUtilisateurDAO profilUtilisateurDAO;
+    @Override
+    public void setDAO(ParticipantDAO participantDAO) {
+        this.participantDAO = participantDAO;
+    }
 
-	@Override
-	public ParticipantDAO getDAO() {
-		return participantDAO;
-	}
+    @Override
+    @Transactional
+    public Participant save(Participant entite) {
+        List<Participant> partList = participantDAO.findByEmail(entite.getEmail());
+        if (partList.size() != 0) {
+            throw new ExistingEmailException();
+        }
 
-	@Override
-	public void setDAO(ParticipantDAO participantDAO) {
-		this.participantDAO = participantDAO;
-	}
+        // Setting default inscription date
+        entite.setDateInscription(Calendar.getInstance());
 
-	@Override
-	@Transactional
-	public Participant save(Participant entite) {
-		List<Participant> partList = participantDAO.findByEmail(entite.getEmail());
-		if (partList.size() != 0) {
-			throw new ExistingEmailException();
-		}
+        if (entite.getProfilUtilisateur() != null) {
 
-		// Setting default inscription date
-		entite.setDateInscription(Calendar.getInstance());
+            // Synchronisation de l'adresse email
+            if (entite.getProfilUtilisateur().getEmail() != null) {
+                entite.setEmail(entite.getProfilUtilisateur().getEmail());
+            }
 
-		if (entite.getProfilUtilisateur() != null) {
+            // Cryptage du mot de passe en MD5
+            String key = entite.getProfilUtilisateur().getPassword();
+            if (key != null) {
+                entite.getProfilUtilisateur().setPassword(getEncodedPassword(key));
+            }
 
-			// Synchronisation de l'adresse email
-			if (entite.getProfilUtilisateur().getEmail() != null) {
-				entite.setEmail(entite.getProfilUtilisateur().getEmail());
-			}
+            profilUtilisateurDAO.persist(entite.getProfilUtilisateur());
+        }
+        return super.save(entite);
 
-			// Cryptage du mot de passe en MD5
-			String key = entite.getProfilUtilisateur().getPassword();
-			if (key != null) {
-				entite.getProfilUtilisateur().setPassword(getEncodedPassword(key));
-			}
+    }
 
-			profilUtilisateurDAO.persist(entite.getProfilUtilisateur());
-		}
-		return super.save(entite);
+    public String getEncodedPassword(String key) {
+        byte[] uniqueKey = key.getBytes();
+        byte[] hash = null;
+        try {
+            hash = MessageDigest.getInstance("MD5").digest(uniqueKey);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+        StringBuilder hashString = new StringBuilder();
+        for (int i = 0; i < hash.length; ++i) {
+            hashString.append(hash[i]);
+        }
+        return hashString.toString();
+    }
 
-	}
+    @Override
+    public Participant update(Participant entite) {
+        return super.update(entite);
+    }
 
-	public String getEncodedPassword(String key) {
-		byte[] uniqueKey = key.getBytes();
-		byte[] hash = null;
-		try {
-			hash = MessageDigest.getInstance("MD5").digest(uniqueKey);
-		} catch (NoSuchAlgorithmException e) {
-			throw new RuntimeException(e);
-		}
-		StringBuilder hashString = new StringBuilder();
-		for (int i = 0; i < hash.length; ++i) {
-			hashString.append(hash[i]);
-		}
-		return hashString.toString();
-	}
+    @Override
+    public List<Participant> findByEmail(String email) {
+        return participantDAO.findByEmail(email);
+    }
 
-	@Override
-	public Participant update(Participant entite) {
-		return super.update(entite);
-	}
+    @Override
+    public List<Participant> findAllWithProposition() {
+        List<Participant> participants = participantDAO.findAll();
 
-	@Override
-	public List<Participant> findByEmail(String email) {
-		return participantDAO.findByEmail(email);
-	}
+        if (participants != null && !participants.isEmpty()) {
+            for (Participant participant : participants) {
 
-	@Override
-	public List<Participant> findAllWithProposition() {
-		List<Participant> participants = participantDAO.findAll();
+                if (participant.getPropositionPresentations() != null
+                        && !participant.getPropositionPresentations().isEmpty()) {
+                    participant.getPropositionPresentations().iterator().next();
+                }
+            }
+        }
+        return participants;
+    }
 
-		if (participants != null && !participants.isEmpty()) {
-			for (Participant participant : participants) {
+    /**
+     * @param fileStream
+     * @param idParticipant
+     * @param codeRole
+     * @param ext
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    @Override
+    public void saveInFile(final InputStream fileStream, Long idParticipant, String codeRole,
+            String ext) throws IOException {
+        File dir = new File("./" + codeRole);
+        if (!dir.exists()) {
+            dir.mkdir();
+        }
 
-				if (participant.getPropositionPresentations() != null
-						&& !participant.getPropositionPresentations().isEmpty()) {
-					participant.getPropositionPresentations().iterator().next();
-				}
-			}
-		}
-		return participants;
-	}
+        File outputFile = new File(dir, idParticipant + "." + ext);
 
-	/**
-	 * @param fileStream
-	 * @param idParticipant
-	 * @param codeRole
-	 * @param ext
-	 * @throws FileNotFoundException
-	 * @throws IOException
-	 */
-	@Override
-	public void saveInFile(final InputStream fileStream, Long idParticipant, String codeRole,
-			String ext) throws IOException {
-		File dir = new File("./" + codeRole);
-		if (!dir.exists()) {
-			dir.mkdir();
-		}
+        OutputStream out;
 
-		File outputFile = new File(dir, idParticipant + "." + ext);
+        out = new FileOutputStream(outputFile);
 
-		OutputStream out;
+        byte buf[] = new byte[1024];
+        int len;
 
-		out = new FileOutputStream(outputFile);
+        while ((len = fileStream.read(buf)) > 0) {
+            out.write(buf, 0, len);
+        }
+        out.close();
+        fileStream.close();
 
-		byte buf[] = new byte[1024];
-		int len;
+        LOGGER.info("File {} saved for idParticipant={}", outputFile.getAbsolutePath(),
+                idParticipant);
+    }
 
-		while ((len = fileStream.read(buf)) > 0)
-			out.write(buf, 0, len);
-		out.close();
-		fileStream.close();
-
-		LOGGER.info("File {} saved for idParticipant={}", outputFile.getAbsolutePath(),
-				idParticipant);
-	}
+  
+    @Override
+    public Participant findUniqueByEmail(String email) {
+        Set<Participant> participantList = new HashSet<Participant>(participantDAO.findByEmail(email));
+        // Ces cas d'erreurs ne devraient fonctionnellement jamais arrivés
+        if (participantList.isEmpty()) {
+            throw new RuntimeException("Adresse email non trouvé");
+        }
+        if (participantList.size() > 1) {
+            throw new RuntimeException("Plusieurs adresses email existent en base");
+        }
+        Participant participant = participantList.iterator().next();
+        return participant;
+    }
 }

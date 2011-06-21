@@ -14,9 +14,9 @@ import com.jcertif.bo.participant.Participant;
 import com.jcertif.bo.presentation.PropositionPresentation;
 import com.jcertif.dao.api.cedule.CeduleParticipantDAO;
 import com.jcertif.dao.api.cedule.EvenementDAO;
-import com.jcertif.dao.api.participant.ParticipantDAO;
 import com.jcertif.service.AbstractService;
 import com.jcertif.service.api.cedule.EvenementService;
+import com.jcertif.service.api.participant.ParticipantService;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
@@ -35,7 +35,7 @@ public class EvenementServiceImpl extends AbstractService<Evenement, Long, Evene
     @Autowired
     private EvenementDAO evenementDAO;
     @Autowired
-    private ParticipantDAO participantDAO;
+    private ParticipantService participantService;
     @Autowired
     private CeduleParticipantDAO ceduleParticipantDAO;
 
@@ -76,7 +76,7 @@ public class EvenementServiceImpl extends AbstractService<Evenement, Long, Evene
     public Set<Long> addUserToEvent(Long idEvent, String email) {
         Set<Long> idEvents = new HashSet<Long>();
 
-        Participant participant = findParticipant(email);
+        Participant participant = participantService.findUniqueByEmail(email);
 
         CeduleParticipant cedule = new CeduleParticipant();
         cedule.setDateCedule(Calendar.getInstance());
@@ -98,26 +98,13 @@ public class EvenementServiceImpl extends AbstractService<Evenement, Long, Evene
         return idEvents;
     }
 
-    private Participant findParticipant(String email) throws RuntimeException {
-        Set<Participant> participantList = new HashSet<Participant>(participantDAO.findByEmail(email));
-        // Ces cas d'erreurs ne devraient fonctionnellement jamais arrivés
-        if (participantList.isEmpty()) {
-            throw new RuntimeException("Adresse email non trouvé");
-        }
-        if (participantList.size() > 1) {
-            throw new RuntimeException("Plusieurs adresses email existent en base");
-        }
-        Participant participant = participantList.iterator().next();
-        return participant;
-    }
-
     @Override
     @Transactional
     public Set<Long> removeUserToEvent(Long idEvent, String email) {
         Set<Long> idEvents = new HashSet<Long>();
         List<CeduleParticipant> cedules = ceduleParticipantDAO.findByProperty("evenementId", idEvent);
-        Participant participant = findParticipant(email);
-         for (CeduleParticipant cedulePart : participant.getCeduleParticipants()) {
+        Participant participant = participantService.findUniqueByEmail(email);
+        for (CeduleParticipant cedulePart : participant.getCeduleParticipants()) {
             idEvents.add(cedulePart.getEvenementId());
         }
 
@@ -127,9 +114,18 @@ public class EvenementServiceImpl extends AbstractService<Evenement, Long, Evene
                 idEvents.remove(idEvent);
             }
         }
-       
-       
-        
+
+        return idEvents;
+    }
+
+    
+    @Override
+    public Set<Long> findEventForUser(String email) {
+        Set<Long> idEvents = new HashSet<Long>();
+        Participant participant = participantService.findUniqueByEmail(email);
+        for (CeduleParticipant cedulePart : participant.getCeduleParticipants()) {
+            idEvents.add(cedulePart.getEvenementId());
+        }
         return idEvents;
     }
 }
