@@ -3,13 +3,13 @@
  */
 package com.jcertif.facade.model.participant;
 
-import com.jcertif.bo.participant.User;
+import com.jcertif.bo.participant.Participant;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
  * @author mamadou
- *
+ * 
  */
 @XmlRootElement
 public class User {
@@ -27,27 +27,26 @@ public class User {
 	private String telFixe;
 	private String telMobile;
 	private String ville;
-	private String pays ;
+	private String pays;
 
-	public User(){
+	public User() {
 		super();
 	}
 
-	public User(User user) {
-		this.id = user.id;
-		this.civilite = user.civilite;
-		this.nom = user.nom;
-		this.prenom = user.prenom;
-		this.email = user.email;
-		this.passwd = user.passwd;
-		this.role = user.role;
-		this.typeUser = user.typeUser;
-		this.compagnie = user.compagnie;
-		this.siteWeb = user.siteWeb;
-		this.telFixe = user.telFixe;
-		this.telMobile = user.telMobile;
-		this.ville = user.ville;
-		this.pays = user.pays;
+	public User(Participant part) {
+		this.id 		= part.id;
+		this.civilite 	= part.getSalutation();
+		this.prenom 	= part.getPrenom();
+		this.nom 		= part.getNom();
+		this.siteWeb 	= part.getWebsite();
+		this.compagnie 	= part.getCompagnie();
+		this.passwd 	= part.getProfilUtilisateur().getPassword();
+		this.role 		= part.getRoleparticipant().getCode();
+		this.typeUser 	= part.getTypeParticipant();
+		this.telFixe 	= part.getAdresse().getTelephoneFixe();
+		this.telMobile 	= part.getAdresse().getTelephoneMobile();
+		this.ville 		= part.getAdresse().getVille();
+		this.pays 		= part.getAdresse().getPays();
 	}
 
 	public Long getId() {
