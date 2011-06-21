@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author rossi.oddet
  */
-@XmlRootElement
+@XmlRootElement(name="list")
 public class IdList {
 
     private String value = "";

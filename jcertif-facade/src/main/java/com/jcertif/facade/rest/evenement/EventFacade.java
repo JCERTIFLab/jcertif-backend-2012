@@ -63,4 +63,17 @@ public class EventFacade extends Facade {
     public IdList addUserToEvent(@PathParam("idevent") Long idEvent, @PathParam("email") String email) {
         return new IdList(eventService.addUserToEvent(idEvent, email));
     }
+    
+    /**
+     * 
+     * @param idEvent
+     * @param email
+     * @return 
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("/removeevent/{idevent}/{email}")
+    public IdList removeUserToEvent(@PathParam("idevent") Long idEvent, @PathParam("email") String email) {
+        return new IdList(eventService.removeUserToEvent(idEvent, email));
+    }
 }

@@ -15,4 +15,6 @@ public interface EvenementService extends
 		GenericService<Evenement, Long, EvenementDAO> {
     
     Set<Long> addUserToEvent(Long idEvent, String email);
+    
+    Set<Long> removeUserToEvent(Long idEvent, String email);
 }

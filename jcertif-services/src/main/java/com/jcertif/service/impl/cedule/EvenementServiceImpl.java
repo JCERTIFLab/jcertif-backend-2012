@@ -74,18 +74,9 @@ public class EvenementServiceImpl extends AbstractService<Evenement, Long, Evene
     @Override
     @Transactional
     public Set<Long> addUserToEvent(Long idEvent, String email) {
-        Set<Participant> participantList = new HashSet<Participant>(participantDAO.findByEmail(email));
         Set<Long> idEvents = new HashSet<Long>();
 
-        // Ces cas d'erreurs ne devraient fonctionnellement jamais arrivés
-        if (participantList.isEmpty()) {
-            throw new RuntimeException("Adresse email non trouvé");
-        }
-        if (participantList.size() > 1) {
-            throw new RuntimeException("Plusieurs adresses email existent en base");
-        }
-
-        Participant participant = participantList.iterator().next();
+        Participant participant = findParticipant(email);
 
         CeduleParticipant cedule = new CeduleParticipant();
         cedule.setDateCedule(Calendar.getInstance());
@@ -99,11 +90,46 @@ public class EvenementServiceImpl extends AbstractService<Evenement, Long, Evene
             ceduleParticipantDAO.persist(cedule);
             idEvents.add(idEvent);
         }
-        
+
         for (CeduleParticipant cedulePart : participant.getCeduleParticipants()) {
             idEvents.add(cedulePart.getEvenementId());
         }
 
+        return idEvents;
+    }
+
+    private Participant findParticipant(String email) throws RuntimeException {
+        Set<Participant> participantList = new HashSet<Participant>(participantDAO.findByEmail(email));
+        // Ces cas d'erreurs ne devraient fonctionnellement jamais arrivés
+        if (participantList.isEmpty()) {
+            throw new RuntimeException("Adresse email non trouvé");
+        }
+        if (participantList.size() > 1) {
+            throw new RuntimeException("Plusieurs adresses email existent en base");
+        }
+        Participant participant = participantList.iterator().next();
+        return participant;
+    }
+
+    @Override
+    @Transactional
+    public Set<Long> removeUserToEvent(Long idEvent, String email) {
+        Set<Long> idEvents = new HashSet<Long>();
+        List<CeduleParticipant> cedules = ceduleParticipantDAO.findByProperty("evenementId", idEvent);
+        Participant participant = findParticipant(email);
+         for (CeduleParticipant cedulePart : participant.getCeduleParticipants()) {
+            idEvents.add(cedulePart.getEvenementId());
+        }
+
+        for (CeduleParticipant ced : cedules) {
+            if (ced.getEvenementId().equals(idEvent) && ced.getParticipantId().equals(participant.getId())) {
+                ceduleParticipantDAO.remove(ced);
+                idEvents.remove(idEvent);
+            }
+        }
+       
+       
+        
         return idEvents;
     }
 }
