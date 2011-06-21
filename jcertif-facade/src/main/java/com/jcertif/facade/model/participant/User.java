@@ -34,7 +34,7 @@ public class User {
 	}
 
 	public User(Participant part) {
-		this.id 		= part.id;
+		this.id 		= part.getId();
 		this.civilite 	= part.getSalutation();
 		this.prenom 	= part.getPrenom();
 		this.nom 		= part.getNom();
