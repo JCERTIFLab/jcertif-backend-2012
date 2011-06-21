@@ -3,6 +3,7 @@
  */
 package com.jcertif.facade.model.participant;
 
+import com.jcertif.bo.participant.User;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -12,157 +13,153 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class User {
-	
-	 private Long id;
-	 private String civilite;
-	 private String nom;
-	 private String prenom;
-	 private String email;
-	 private String passwd;
-	 private String role;
-	 private String typeUser;
-	 private String compagnie;
-	 private String siteWeb;
-	 private String telFixe;
-	 private String telMobile;
-	 private String ville;
-	 private String pays ;
-	    
-	    public User(){
-	        super();
-	    }
 
-	    public User(Long id, String civilite, String nom, String prenom,
-				String email, String passwd, String role, String typeUser,
-				String compagnie, String siteWeb, String telFixe, String telMobile,
-				String ville, String pays) {
-			super();
-			this.id = id;
-			this.civilite = civilite;
-			this.nom = nom;
-			this.prenom = prenom;
-			this.email = email;
-			this.passwd = passwd;
-			this.role = role;
-			this.typeUser = typeUser;
-			this.compagnie = compagnie;
-			this.siteWeb = siteWeb;
-			this.telFixe = telFixe;
-			this.telMobile = telMobile;
-			this.ville = ville;
-			this.pays = pays;
-		}
+	private Long id;
+	private String civilite;
+	private String nom;
+	private String prenom;
+	private String email;
+	private String passwd;
+	private String role;
+	private String typeUser;
+	private String compagnie;
+	private String siteWeb;
+	private String telFixe;
+	private String telMobile;
+	private String ville;
+	private String pays ;
 
-		public Long getId() {
-			return id;
-		}
+	public User(){
+		super();
+	}
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+	public User(User user) {
+		this.id = user.id;
+		this.civilite = user.civilite;
+		this.nom = user.nom;
+		this.prenom = user.prenom;
+		this.email = user.email;
+		this.passwd = user.passwd;
+		this.role = user.role;
+		this.typeUser = user.typeUser;
+		this.compagnie = user.compagnie;
+		this.siteWeb = user.siteWeb;
+		this.telFixe = user.telFixe;
+		this.telMobile = user.telMobile;
+		this.ville = user.ville;
+		this.pays = user.pays;
+	}
 
-		public String getCivilite() {
-			return civilite;
-		}
+	public Long getId() {
+		return id;
+	}
 
-		public void setCivilite(String civilite) {
-			this.civilite = civilite;
-		}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-		public String getNom() {
-			return nom;
-		}
+	public String getCivilite() {
+		return civilite;
+	}
 
-		public void setNom(String nom) {
-			this.nom = nom;
-		}
+	public void setCivilite(String civilite) {
+		this.civilite = civilite;
+	}
 
-		public String getPrenom() {
-			return prenom;
-		}
+	public String getNom() {
+		return nom;
+	}
 
-		public void setPrenom(String prenom) {
-			this.prenom = prenom;
-		}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
-		public String getEmail() {
-			return email;
-		}
+	public String getPrenom() {
+		return prenom;
+	}
 
-		public void setEmail(String email) {
-			this.email = email;
-		}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
 
-		public String getPasswd() {
-			return passwd;
-		}
+	public String getEmail() {
+		return email;
+	}
 
-		public void setPasswd(String passwd) {
-			this.passwd = passwd;
-		}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-		public String getRole() {
-			return role;
-		}
+	public String getPasswd() {
+		return passwd;
+	}
 
-		public void setRole(String role) {
-			this.role = role;
-		}
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
 
-		public String getTypeUser() {
-			return typeUser;
-		}
+	public String getRole() {
+		return role;
+	}
 
-		public void setTypeUser(String typeUser) {
-			this.typeUser = typeUser;
-		}
+	public void setRole(String role) {
+		this.role = role;
+	}
 
-		public String getCompagnie() {
-			return compagnie;
-		}
+	public String getTypeUser() {
+		return typeUser;
+	}
 
-		public void setCompagnie(String compagnie) {
-			this.compagnie = compagnie;
-		}
+	public void setTypeUser(String typeUser) {
+		this.typeUser = typeUser;
+	}
 
-		public String getSiteWeb() {
-			return siteWeb;
-		}
+	public String getCompagnie() {
+		return compagnie;
+	}
 
-		public void setSiteWeb(String siteWeb) {
-			this.siteWeb = siteWeb;
-		}
+	public void setCompagnie(String compagnie) {
+		this.compagnie = compagnie;
+	}
 
-		public String getTelFixe() {
-			return telFixe;
-		}
+	public String getSiteWeb() {
+		return siteWeb;
+	}
 
-		public void setTelFixe(String telFixe) {
-			this.telFixe = telFixe;
-		}
+	public void setSiteWeb(String siteWeb) {
+		this.siteWeb = siteWeb;
+	}
 
-		public String getTelMobile() {
-			return telMobile;
-		}
+	public String getTelFixe() {
+		return telFixe;
+	}
 
-		public void setTelMobile(String telMobile) {
-			this.telMobile = telMobile;
-		}
+	public void setTelFixe(String telFixe) {
+		this.telFixe = telFixe;
+	}
 
-		public String getVille() {
-			return ville;
-		}
+	public String getTelMobile() {
+		return telMobile;
+	}
 
-		public void setVille(String ville) {
-			this.ville = ville;
-		}
+	public void setTelMobile(String telMobile) {
+		this.telMobile = telMobile;
+	}
 
-		public String getPays() {
-			return pays;
-		}
+	public String getVille() {
+		return ville;
+	}
 
-		public void setPays(String pays) {
-			this.pays = pays;
-		}
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
+	public String getPays() {
+		return pays;
+	}
+
+	public void setPays(String pays) {
+		this.pays = pays;
+	}
 
 }
