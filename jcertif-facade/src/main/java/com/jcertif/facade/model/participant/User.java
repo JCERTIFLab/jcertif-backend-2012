@@ -42,7 +42,7 @@ public class User {
 		this.compagnie 	= part.getCompagnie();
 		this.passwd 	= part.getProfilUtilisateur().getPassword();
 		this.role 		= part.getRoleparticipant().getCode();
-		this.typeUser 	= part.getTypeParticipant();
+		this.typeUser 	= part.getTypeParticipant().getCode();
 		this.telFixe 	= part.getAdresse().getTelephoneFixe();
 		this.telMobile 	= part.getAdresse().getTelephoneMobile();
 		this.ville 		= part.getAdresse().getVille();
