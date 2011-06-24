@@ -16,6 +16,14 @@ import com.jcertif.facade.model.participant.User;
 import com.jcertif.service.api.participant.ParticipantService;
 import com.jcertif.service.mail.CSenderService;
 
+import com.sun.jersey.api.spring.Autowire;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 /**
  * 
  * @author Mamadou
