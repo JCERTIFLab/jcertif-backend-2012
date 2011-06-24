@@ -4,7 +4,6 @@
  */
 package com.jcertif.facade.rest.participant;
 
-import java.awt.PageAttributes.MediaType;
 import java.util.Calendar;
 
 import com.jcertif.bo.Adresse;
@@ -15,6 +14,12 @@ import com.jcertif.facade.Facade;
 import com.jcertif.facade.model.participant.User;
 import com.jcertif.service.api.participant.ParticipantService;
 import com.jcertif.service.mail.CSenderService;
+import com.sun.jersey.api.spring.Autowire;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 
 import com.sun.jersey.api.spring.Autowire;
 import javax.ws.rs.Consumes;
@@ -59,24 +64,24 @@ public class UserFacade extends Facade {
 
 	}
 
-	public Participant getParticipant(User user){
+    @GET
+    @Produces(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("/{email}")
+    public User findByEmail(@PathParam("email") String email) {
+        Participant participant = participantService.findUniqueByEmail(email);
+        return new User(participant);
+    }
 
+	public Participant getParticipant(User user){
 		Participant part = new Participant();
-		part.setId(null);
 		part.setDateInscription(Calendar.getInstance());
 		part.setSalutation(user.getCivilite());
-		part.setSpecialite(null);
 		part.setPrenom(user.getPrenom());
 		part.setNom(user.getNom());
-		part.setSexe(null);
 		part.setEmail(user.getEmail());
-		part.setCvSoumis(null);
-		part.setDetails(null);
 		part.setRoleparticipant( new RoleParticipant( null, user.getRole(), null ) );
-		part.setConference(null);
 		part.setTypeParticipant( new TypeParticipant(user.getTypeUser(), null ));
 		part.setAdresse(new Adresse(null, null, null,null, user.getVille(), null, user.getPays(), null, user.getTelFixe(), user.getTelMobile() , null )) ;
-
 		return part;
 	}
 }

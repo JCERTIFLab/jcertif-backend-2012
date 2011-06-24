@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.jcertif.service.impl.participant;
 
@@ -14,6 +14,10 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.util.List;
 
+import com.jcertif.bo.participant.RoleParticipant;
+import com.jcertif.bo.participant.TypeParticipant;
+import com.jcertif.dao.api.participant.RoleParticipantDAO;
+import com.jcertif.dao.api.participant.TypeParticipantDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +30,14 @@ import com.jcertif.dao.api.participant.ProfilUtilisateurDAO;
 import com.jcertif.exception.ExistingEmailException;
 import com.jcertif.service.AbstractService;
 import com.jcertif.service.api.participant.ParticipantService;
+
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Implementation of the {@link ParticipantService}.
- * 
+ *
  * @author Bernard Adanlessossi
- * 
  */
 @Service
 public class ParticipantServiceImpl extends AbstractService<Participant, Long, ParticipantDAO>
@@ -42,6 +46,10 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
     private static final Logger LOGGER = LoggerFactory.getLogger(ParticipantServiceImpl.class);
     @Autowired
     private ParticipantDAO participantDAO;
+    @Autowired
+    private RoleParticipantDAO roleParticipantDAO;
+    @Autowired
+    private TypeParticipantDAO typeParticipantDAO;
     @Autowired
     private ProfilUtilisateurDAO profilUtilisateurDAO;
 
@@ -66,6 +74,9 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
         // Setting default inscription date
         entite.setDateInscription(Calendar.getInstance());
 
+        updateRoleParticipantIfNeeded(entite);
+        updateTypeParticipantIfNeeded(entite);
+
         if (entite.getProfilUtilisateur() != null) {
 
             // Synchronisation de l'adresse email
@@ -82,6 +93,31 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
             profilUtilisateurDAO.persist(entite.getProfilUtilisateur());
         }
         return super.save(entite);
+
+    }
+
+    private void updateTypeParticipantIfNeeded(Participant entity) {
+        if (entity.getTypeParticipant() != null && entity.getTypeParticipant().getId() == null) {
+            List<TypeParticipant> types = typeParticipantDAO.findByProperty("code", entity.getTypeParticipant().getCode());
+            if (types.size() > 1) {
+                LOGGER.warn("Il y a plusieurs TypeParticipant avec le code {}", entity.getTypeParticipant().getCode());
+            }
+            if (!types.isEmpty()) {
+                entity.setTypeParticipant(types.iterator().next());
+            }
+        }
+    }
+
+    private void updateRoleParticipantIfNeeded(Participant entity) {
+        if (entity.getTypeParticipant() != null && entity.getTypeParticipant().getId() == null) {
+            List<RoleParticipant> roles = roleParticipantDAO.findByProperty("code", entity.getRoleparticipant().getCode());
+            if (roles.size() > 1) {
+                LOGGER.warn("Il y a plusieurs RoleParticipant avec le code {}", entity.getRoleparticipant().getCode());
+            }
+            if (!roles.isEmpty()) {
+                entity.setRoleparticipant(roles.iterator().next());
+            }
+        }
 
     }
 
@@ -136,7 +172,7 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
      */
     @Override
     public void saveInFile(final InputStream fileStream, Long idParticipant, String codeRole,
-            String ext) throws IOException {
+                           String ext) throws IOException {
         File dir = new File("./" + codeRole);
         if (!dir.exists()) {
             dir.mkdir();
@@ -161,13 +197,13 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
                 idParticipant);
     }
 
-  
+
     @Override
     public Participant findUniqueByEmail(String email) {
         Set<Participant> participantList = new HashSet<Participant>(participantDAO.findByEmail(email));
-        // Ces cas d'erreurs ne devraient fonctionnellement jamais arrivés
+        // Ces cas d'erreurs ne devraient fonctionnellement jamais arrivï¿½s
         if (participantList.isEmpty()) {
-            throw new RuntimeException("Adresse email non trouvé");
+            throw new RuntimeException("Adresse email non trouvï¿½");
         }
         if (participantList.size() > 1) {
             throw new RuntimeException("Plusieurs adresses email existent en base");
