@@ -20,6 +20,7 @@ public class User {
 	private String prenom;
 	private String email;
 	private String passwd;
+	private String photo;
 	private String role;
 	private String typeUser;
 	private String compagnie;
@@ -47,10 +48,25 @@ public class User {
 		this.telMobile 	= part.getAdresse().getTelephoneMobile();
 		this.ville 		= part.getAdresse().getVille();
 		this.pays 		= part.getAdresse().getPays();
+		this.photo		= part.getProfilUtilisateur().getPhoto();
 	}
 
 	public Long getId() {
 		return id;
+	}
+
+	/**
+	 * @return the photo
+	 */
+	public String getPhoto() {
+		return photo;
+	}
+
+	/**
+	 * @param photo the photo to set
+	 */
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 	public void setId(Long id) {
