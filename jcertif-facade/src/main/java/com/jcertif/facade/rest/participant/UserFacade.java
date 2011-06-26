@@ -8,6 +8,7 @@ import java.util.Calendar;
 
 import com.jcertif.bo.Adresse;
 import com.jcertif.bo.participant.Participant;
+import com.jcertif.bo.participant.ProfilUtilisateur;
 import com.jcertif.bo.participant.RoleParticipant;
 import com.jcertif.bo.participant.TypeParticipant;
 import com.jcertif.facade.Facade;
@@ -82,6 +83,7 @@ public class UserFacade extends Facade {
 		part.setRoleparticipant( new RoleParticipant( null, user.getRole(), null ) );
 		part.setTypeParticipant( new TypeParticipant(user.getTypeUser(), null ));
 		part.setAdresse(new Adresse(null, null, null,null, user.getVille(), null, user.getPays(), null, user.getTelFixe(), user.getTelMobile() , null )) ;
+		part.setProfilUtilisateur(new ProfilUtilisateur(null, "", "", user.getPasswd(), user.getPhoto(), "", ""));
 		return part;
 	}
 }
