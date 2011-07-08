@@ -14,167 +14,171 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class User {
 
-	private Long id;
-	private String civilite;
-	private String nom;
-	private String prenom;
-	private String email;
-	private String passwd;
-	private String photo;
-	private String role;
-	private String typeUser;
-	private String compagnie;
-	private String siteWeb;
-	private String telFixe;
-	private String telMobile;
-	private String ville;
-	private String pays;
+    private Long id;
+    private String civilite;
+    private String nom;
+    private String prenom;
+    private String email;
+    private String passwd;
+    private String photo;
+    private String role;
+    private String typeUser;
+    private String compagnie;
+    private String siteWeb;
+    private String telFixe;
+    private String telMobile;
+    private String ville;
+    private String pays;
 
-	public User() {
-		super();
-	}
+    public User() {
+        super();
+    }
 
-	public User(Participant part) {
-		this.id 		= part.getId();
-		this.civilite 	= part.getSalutation();
-		this.prenom 	= part.getPrenom();
-		this.nom 		= part.getNom();
-		this.siteWeb 	= part.getWebsite();
-		this.compagnie 	= part.getCompagnie();
-		this.passwd 	= part.getProfilUtilisateur().getPassword();
-		this.role 		= part.getRoleparticipant().getCode();
-		this.typeUser 	= part.getTypeParticipant().getCode();
-		this.telFixe 	= part.getAdresse().getTelephoneFixe();
-		this.telMobile 	= part.getAdresse().getTelephoneMobile();
-		this.ville 		= part.getAdresse().getVille();
-		this.pays 		= part.getAdresse().getPays();
-		this.photo		= part.getProfilUtilisateur().getPhoto();
-	}
+    public User(Participant part) {
+        this.id = part.getId();
+        this.civilite = part.getSalutation();
+        this.prenom = part.getPrenom();
+        this.nom = part.getNom();
+        this.siteWeb = part.getWebsite();
+        this.compagnie = part.getCompagnie();
+        this.role = part.getRoleparticipant().getCode();
+        this.typeUser = part.getTypeParticipant().getCode();
+        this.telFixe = part.getAdresse().getTelephoneFixe();
+        this.telMobile = part.getAdresse().getTelephoneMobile();
+        this.ville = part.getAdresse().getVille();
+        this.pays = part.getAdresse().getPays();
+        if (part.getProfilUtilisateur() != null) {
+            this.photo = part.getProfilUtilisateur().getPhoto();
+            this.email = part.getProfilUtilisateur().getEmail();
+            this.passwd = part.getProfilUtilisateur().getPassword();
+        }
 
-	public Long getId() {
-		return id;
-	}
 
-	/**
-	 * @return the photo
-	 */
-	public String getPhoto() {
-		return photo;
-	}
+    }
 
-	/**
-	 * @param photo the photo to set
-	 */
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    /**
+     * @return the photo
+     */
+    public String getPhoto() {
+        return photo;
+    }
 
-	public String getCivilite() {
-		return civilite;
-	}
+    /**
+     * @param photo the photo to set
+     */
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 
-	public void setCivilite(String civilite) {
-		this.civilite = civilite;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getNom() {
-		return nom;
-	}
+    public String getCivilite() {
+        return civilite;
+    }
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    public void setCivilite(String civilite) {
+        this.civilite = civilite;
+    }
 
-	public String getPrenom() {
-		return prenom;
-	}
+    public String getNom() {
+        return nom;
+    }
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getPrenom() {
+        return prenom;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
 
-	public String getPasswd() {
-		return passwd;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getRole() {
-		return role;
-	}
+    public String getPasswd() {
+        return passwd;
+    }
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+    public void setPasswd(String passwd) {
+        this.passwd = passwd;
+    }
 
-	public String getTypeUser() {
-		return typeUser;
-	}
+    public String getRole() {
+        return role;
+    }
 
-	public void setTypeUser(String typeUser) {
-		this.typeUser = typeUser;
-	}
+    public void setRole(String role) {
+        this.role = role;
+    }
 
-	public String getCompagnie() {
-		return compagnie;
-	}
+    public String getTypeUser() {
+        return typeUser;
+    }
 
-	public void setCompagnie(String compagnie) {
-		this.compagnie = compagnie;
-	}
+    public void setTypeUser(String typeUser) {
+        this.typeUser = typeUser;
+    }
 
-	public String getSiteWeb() {
-		return siteWeb;
-	}
+    public String getCompagnie() {
+        return compagnie;
+    }
 
-	public void setSiteWeb(String siteWeb) {
-		this.siteWeb = siteWeb;
-	}
+    public void setCompagnie(String compagnie) {
+        this.compagnie = compagnie;
+    }
 
-	public String getTelFixe() {
-		return telFixe;
-	}
+    public String getSiteWeb() {
+        return siteWeb;
+    }
 
-	public void setTelFixe(String telFixe) {
-		this.telFixe = telFixe;
-	}
+    public void setSiteWeb(String siteWeb) {
+        this.siteWeb = siteWeb;
+    }
 
-	public String getTelMobile() {
-		return telMobile;
-	}
+    public String getTelFixe() {
+        return telFixe;
+    }
 
-	public void setTelMobile(String telMobile) {
-		this.telMobile = telMobile;
-	}
+    public void setTelFixe(String telFixe) {
+        this.telFixe = telFixe;
+    }
 
-	public String getVille() {
-		return ville;
-	}
+    public String getTelMobile() {
+        return telMobile;
+    }
 
-	public void setVille(String ville) {
-		this.ville = ville;
-	}
+    public void setTelMobile(String telMobile) {
+        this.telMobile = telMobile;
+    }
 
-	public String getPays() {
-		return pays;
-	}
+    public String getVille() {
+        return ville;
+    }
 
-	public void setPays(String pays) {
-		this.pays = pays;
-	}
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
 
+    public String getPays() {
+        return pays;
+    }
+
+    public void setPays(String pays) {
+        this.pays = pays;
+    }
 }

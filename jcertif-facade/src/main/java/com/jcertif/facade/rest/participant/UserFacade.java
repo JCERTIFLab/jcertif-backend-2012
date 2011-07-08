@@ -88,7 +88,7 @@ public class UserFacade extends Facade {
         part.setRoleparticipant(new RoleParticipant(null, user.getRole(), null));
         part.setTypeParticipant(new TypeParticipant(user.getTypeUser(), null));
         part.setAdresse(new Adresse(null, null, null, null, user.getVille(), null, user.getPays(), null, user.getTelFixe(), user.getTelMobile(), null));
-        part.setProfilUtilisateur(new ProfilUtilisateur(null, "", "", user.getPasswd(), user.getPhoto(), "", ""));
+        part.setProfilUtilisateur(new ProfilUtilisateur(null, "", user.getEmail(), user.getPasswd(), user.getPhoto(), "", ""));
         return part;
     }
 }

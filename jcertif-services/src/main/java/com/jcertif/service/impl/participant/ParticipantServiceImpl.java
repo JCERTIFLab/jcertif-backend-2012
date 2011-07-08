@@ -218,11 +218,16 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
             throw new RuntimeException("Plusieurs personnes avec la même adresse email " + email);
         }
 
-        Participant participant = partList.iterator().next();
+        Participant participant = null;
 
-        if (!getEncodedPassword(password).equals(participant.getProfilUtilisateur().getPassword())) {
-            participant = null;
+        if (!partList.isEmpty()) {
+            Participant participantBase = partList.iterator().next();
+
+            if (getEncodedPassword(password).equals(participantBase.getProfilUtilisateur().getPassword())) {
+                participant = participantBase;
+            }
         }
+
 
         return participant;
     }
