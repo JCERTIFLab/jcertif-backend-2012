@@ -41,5 +41,13 @@ public interface ParticipantService extends GenericService<Participant, Long, Pa
 
 	void saveInFile(InputStream fileStream, Long idParticipant, String codeRole, String ext)
 			throws IOException;
+        
+        /**
+         * 
+         * @param email
+         * @param password
+         * @return null if password is wrong
+         */
+        Participant connect(String email, String password);
 
 }

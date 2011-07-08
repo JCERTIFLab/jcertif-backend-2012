@@ -172,7 +172,7 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
      */
     @Override
     public void saveInFile(final InputStream fileStream, Long idParticipant, String codeRole,
-                           String ext) throws IOException {
+            String ext) throws IOException {
         File dir = new File("./" + codeRole);
         if (!dir.exists()) {
             dir.mkdir();
@@ -197,7 +197,6 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
                 idParticipant);
     }
 
-
     @Override
     public Participant findUniqueByEmail(String email) {
         Set<Participant> participantList = new HashSet<Participant>(participantDAO.findByEmail(email));
@@ -209,6 +208,22 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
             throw new RuntimeException("Plusieurs adresses email existent en base");
         }
         Participant participant = participantList.iterator().next();
+        return participant;
+    }
+
+    @Override
+    public Participant connect(String email, String password) {
+        Set<Participant> partList = new HashSet(participantDAO.findByEmail(email));
+        if (partList.size() > 1) {
+            throw new RuntimeException("Plusieurs personnes avec la même adresse email " + email);
+        }
+
+        Participant participant = partList.iterator().next();
+
+        if (!getEncodedPassword(password).equals(participant.getProfilUtilisateur().getPassword())) {
+            participant = null;
+        }
+
         return participant;
     }
 }

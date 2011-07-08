@@ -38,25 +38,24 @@ import com.sun.jersey.api.spring.Autowire;
 @Autowire
 public class UserFacade extends Facade {
 
-	@Autowired
-	private CSenderService cSenderService;
+    @Autowired
+    private CSenderService cSenderService;
+    @Autowired
+    private ParticipantService participantService;
 
-	@Autowired
-	private ParticipantService participantService;
+    @POST
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path(CREATE_SUFFIX)
+    public User create(User user) {
 
+        Participant entity = getParticipant(user);
+        Participant part = participantService.save(entity);
+        User userSaved = new User(part);
+        cSenderService.sendAddParticipantConfirmation(entity);
+        return userSaved;
 
-	@POST
-	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Path(CREATE_SUFFIX)
-	public Participant create(User user) {
-
-		Participant entity = getParticipant(user);
-		Participant part = participantService.save(entity);
-		cSenderService.sendAddParticipantConfirmation(entity);
-		return part;
-
-	}
+    }
 
     @GET
     @Produces(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -66,17 +65,30 @@ public class UserFacade extends Facade {
         return new User(participant);
     }
 
-	public Participant getParticipant(User user){
-		Participant part = new Participant();
-		part.setDateInscription(Calendar.getInstance());
-		part.setSalutation(user.getCivilite());
-		part.setPrenom(user.getPrenom());
-		part.setNom(user.getNom());
-		part.setEmail(user.getEmail());
-		part.setRoleparticipant( new RoleParticipant( null, user.getRole(), null ) );
-		part.setTypeParticipant( new TypeParticipant(user.getTypeUser(), null ));
-		part.setAdresse(new Adresse(null, null, null,null, user.getVille(), null, user.getPays(), null, user.getTelFixe(), user.getTelMobile() , null )) ;
-		part.setProfilUtilisateur(new ProfilUtilisateur(null, "", "", user.getPasswd(), user.getPhoto(), "", ""));
-		return part;
-	}
+    @GET
+    @Produces(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("/connect/{email}/{password}")
+    public User connect(@PathParam("email") String email, @PathParam("password") String password) {
+        Participant participant = participantService.connect(email, password);
+
+        if (participant == null) {
+            return new User();
+        }
+
+        return new User(participant);
+    }
+
+    public Participant getParticipant(User user) {
+        Participant part = new Participant();
+        part.setDateInscription(Calendar.getInstance());
+        part.setSalutation(user.getCivilite());
+        part.setPrenom(user.getPrenom());
+        part.setNom(user.getNom());
+        part.setEmail(user.getEmail());
+        part.setRoleparticipant(new RoleParticipant(null, user.getRole(), null));
+        part.setTypeParticipant(new TypeParticipant(user.getTypeUser(), null));
+        part.setAdresse(new Adresse(null, null, null, null, user.getVille(), null, user.getPays(), null, user.getTelFixe(), user.getTelMobile(), null));
+        part.setProfilUtilisateur(new ProfilUtilisateur(null, "", "", user.getPasswd(), user.getPhoto(), "", ""));
+        return part;
+    }
 }
