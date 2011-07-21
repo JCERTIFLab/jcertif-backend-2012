@@ -51,6 +51,6 @@
     <li><a href="<%=request.getContextPath()%>/pages/inscription.jsp">Inscrivez-vous!</a></li>
     <li><a href="<%=request.getContextPath()%>/pages/faq.jsp">Trouvez dans la FAQ l'ensemble des collecteurs pour vous acquitter de vos frais de participations</a></li>
     <li><a href="<%=request.getContextPath()%>/pages/calendrier.jsp">Créer votre agenda personnalisé grâce au calendrier interactif</a></li>
-    <li><a href="https://www.facebook.com/event.php?eid=191343324246785">Parlez de cet évènement autour de vous</a></li>
+    <li><a href="https://www.facebook.com/event.php?eid=191343324246785" target="_blank">Parlez de cet évènement autour de vous</a></li>
 </ul>
 	</div>
