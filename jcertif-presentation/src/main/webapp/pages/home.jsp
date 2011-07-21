@@ -14,8 +14,11 @@
 <title><%=session.getAttribute("home.jsp.title")%></title>
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 <link type="text/css" href="css/simple.css" rel="stylesheet" />
+<link type="text/css" href="css/li-scroller.css" rel="stylesheet" />
+
 <script type="text/javascript" src="js/jcertif.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.li-scroller.1.0.js"></script>
 <script type="text/javascript" src="js/jquery.pikachoose.js"></script>
 <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
 <script type="text/javascript">            $(document).ready(

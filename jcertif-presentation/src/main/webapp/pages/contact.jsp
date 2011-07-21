@@ -14,7 +14,11 @@
 	<script type="text/javascript"
     src="http://maps.google.com/maps/api/js?sensor=true">
 </script>
- <script type="text/javascript" src="js/jquery.js"></script>
+<link type="text/css" href="css/li-scroller.css" rel="stylesheet" />
+
+<script type="text/javascript" src="js/jcertif.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.li-scroller.1.0.js"></script>
 <script type="text/javascript">
   function init() {
     var latlng = new google.maps.LatLng(-4.28030000, 15.258900);

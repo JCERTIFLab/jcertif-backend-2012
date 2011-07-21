@@ -10,6 +10,11 @@
 <script type="text/javascript" src="js/jcertif.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 <link type="text/css" href="css/bottom.css" rel="stylesheet" />
+<link type="text/css" href="css/li-scroller.css" rel="stylesheet" />
+
+<script type="text/javascript" src="js/jcertif.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.li-scroller.1.0.js"></script>
 <link type="text/css" href="../VAADIN/themes/jcertifruno/styles.css"
 	rel="stylesheet" />
 <script type="text/javascript">

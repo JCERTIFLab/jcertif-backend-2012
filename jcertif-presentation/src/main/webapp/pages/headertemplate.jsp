@@ -2,7 +2,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 
+
 <jsp:include page="header.jsp" />
+<script type="text/javascript">
+         $(document).ready(function()
+        {
+           JCERTIF.menu.initAnim();
+        });
+    </script>
 
 <div class="green_box">
 	
@@ -39,5 +46,10 @@
 				</td>
 			</tr>
 		</table>
+                                                        </div>
+   <ul id="msg_animation">
+    <li><a href="<%=request.getContextPath()%>/pages/faq.jsp">Trouvez dans la FAQ l'ensemble des collecteurs pour vous acquitter de vos frais de participations</a></li>
+    <li><a href="<%=request.getContextPath()%>/pages/inscription.jsp">Inscrivez-vous à la conférence!!!!</a></li>
+    <li><a href="<%=request.getContextPath()%>/pages/calendrier.jsp">Créer votre agenda personnalisé grâce au calendrier interactif</a></li>
+</ul>
 	</div>
-</div>
