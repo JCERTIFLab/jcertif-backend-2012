@@ -89,7 +89,7 @@ public class PartenaireDetailComponent extends Panel {
 				htmlLayout.addComponent(embedded, "photo");
 			}
 			// Participant Bio
-			htmlLayout.addComponent(new Label(participant.getDetails()),
+			htmlLayout.addComponent(new Label(participant.getDetails(), Label.CONTENT_XHTML),
 					"details");
 
 			// Use it as the layout of the Panel.
