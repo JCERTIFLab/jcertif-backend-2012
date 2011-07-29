@@ -617,6 +617,7 @@ textarea.contact_textarea {
 
 .photo_sponsor img {
 	width: 200px;
+        height: auto;
 }
 
 .photo_organisateur img {
