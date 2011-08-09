@@ -100,4 +100,8 @@ public abstract class CSenderService {
 
 	public abstract void sendEmail(final List<String> roles, String subject,
 			String emailContent);
+	
+	public abstract Boolean sendNewPassword(
+			final Participant participant, final String newPassword);
+	
 }

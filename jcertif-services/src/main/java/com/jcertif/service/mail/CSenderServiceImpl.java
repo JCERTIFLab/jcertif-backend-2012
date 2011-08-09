@@ -372,4 +372,61 @@ public class CSenderServiceImpl extends CSenderService {
 		}
 
 	}
+
+    @Override
+    public Boolean sendNewPassword(Participant participant,final String newPassword) {
+	Session session = initSession();
+		String recipients = getDiffusionList();
+
+		recipients += "," + participant.getEmail();
+		
+
+		try {
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(getUserName()));
+			message.setRecipients(Message.RecipientType.TO,
+					InternetAddress.parse(recipients));
+			message.setSubject("Votre nouveau mot de passe");
+			// Add html content
+			Multipart mp = new MimeMultipart();
+			// Specify the cid of the image to include in the email
+			StringTemplateGroup group = new StringTemplateGroup("mailTemplate");
+			StringTemplate st = group.getInstanceOf("com/jcertif/service/mail/newPassword");
+			st.setAttribute("participant", participant);
+			st.setAttribute("password", newPassword);
+
+			// Ajout des photos des partenaires
+			String partenaires = ajoutImagesPartenaire(mp);
+			st.setAttribute("partenaires", partenaires);
+
+			String html = st.toString();
+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Message " + html);
+			}
+
+			MimeBodyPart htmlPart = new MimeBodyPart();
+			htmlPart.setContent(html, "text/html");
+			mp.addBodyPart(htmlPart);
+			MimeBodyPart imagePart = new MimeBodyPart();
+			URL url = getClass().getResource(getPhotoURI());
+			DataSource fds = new URLDataSource(url);
+			imagePart.setDataHandler(new DataHandler(fds));
+
+			// assign a cid to the image
+
+			imagePart.setHeader("Content-ID", "<image>");
+			mp.addBodyPart(imagePart);
+			message.setContent(mp);
+			Transport.send(message);
+
+		} catch (MessagingException e) {
+			LOGGER.error("", e);
+			throw new RuntimeException(e);
+		} catch (MalformedURLException e) {
+			LOGGER.error("", e);
+			throw new RuntimeException(e);
+		}
+		return Boolean.TRUE;
+    }
 }

@@ -49,5 +49,7 @@ public interface ParticipantService extends GenericService<Participant, Long, Pa
          * @return null if password is wrong
          */
         Participant connect(String email, String password);
+	
+	Participant generateNewPassword(String email);
 
 }

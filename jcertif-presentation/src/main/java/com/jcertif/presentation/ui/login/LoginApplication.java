@@ -59,6 +59,7 @@ public class LoginApplication extends JCertifApplication implements
 		final Window mainWindow = new Window();
 		mainWindow.getContent().addComponent(getLoginForm());
 		getLoginForm().getLoginButton().addListener(this);
+		getLoginForm().getForgetPasswordLink().addListener(this);
 		setMainWindow(mainWindow);
 	}
 
@@ -77,14 +78,23 @@ public class LoginApplication extends JCertifApplication implements
 	 */
 	@Override
 	public void buttonClick(ClickEvent event) {
+	    getLoginForm().setComponentError(null);
+	    if(event.getButton().equals(getLoginForm().getLoginButton())){
 		connectedPart = getLoginForm().commitAndGetParticipant();
 		if (connectedPart != null) {
 			if (urlRedirect == null) {
 				urlRedirect = contextPath + UIConst.HOME_VIEW;
 			}
+			getLoginForm().clearForm();
 			ExternalResource res = new ExternalResource(urlRedirect);
 			this.getMainWindow().open(res);
 		}
+	    }
+	    
+	    else {
+		getLoginForm().generateNewPassword();
+	    }
+		
 	}
 
 	@Override

@@ -93,6 +93,12 @@ public class ParticipantFacade extends AbstractFacade<ParticipantService, Partic
 		removeCycle(participants);
 		return participants;
 	}
+	
+	@POST
+	@Path("/generateNewPassword/{email}")
+	public void generateNewPassword(@PathParam(value = "email") String email) {
+	    participantService.generateNewPassword(email);
+	}
 
 	@GET
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
@@ -110,15 +116,18 @@ public class ParticipantFacade extends AbstractFacade<ParticipantService, Partic
 	private void removeCycle(List<Participant> participants) {
 		if (participants != null && !participants.isEmpty()) {
 			for (Participant participant : participants) {
-
-				if (participant.getPropositionPresentations() != null
-						&& !participant.getPropositionPresentations().isEmpty()) {
-					for (PropositionPresentation prop : participant.getPropositionPresentations()) {
-						prop.setParticipants(null);
-					}
-				}
+		removeCycle(participant);
 			}
 		}
 	}
+
+    private void removeCycle(Participant participant) {
+	if (participant.getPropositionPresentations() != null
+			&& !participant.getPropositionPresentations().isEmpty()) {
+		for (PropositionPresentation prop : participant.getPropositionPresentations()) {
+			prop.setParticipants(null);
+		}
+	}
+    }
 
 }

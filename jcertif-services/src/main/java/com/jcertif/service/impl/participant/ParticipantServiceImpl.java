@@ -31,8 +31,11 @@ import com.jcertif.exception.ExistingEmailException;
 import com.jcertif.service.AbstractService;
 import com.jcertif.service.api.participant.ParticipantService;
 
+import com.jcertif.service.mail.CSenderService;
+import com.jcertif.service.mail.CSenderServiceImpl;
 import java.util.HashSet;
 import java.util.Set;
+import org.apache.commons.lang.RandomStringUtils;
 
 /**
  * Implementation of the {@link ParticipantService}.
@@ -52,6 +55,8 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
     private TypeParticipantDAO typeParticipantDAO;
     @Autowired
     private ProfilUtilisateurDAO profilUtilisateurDAO;
+    @Autowired
+    private CSenderService cSenderService;
 
     @Override
     public ParticipantDAO getDAO() {
@@ -230,5 +235,16 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
 
 
         return participant;
+    }
+
+    @Override
+    @Transactional
+    public Participant generateNewPassword(String email) {
+	Participant participant = findUniqueByEmail(email);
+	String newPassword = RandomStringUtils.random(12, true, false);
+	participant.getProfilUtilisateur().setPassword(getEncodedPassword(newPassword));
+	participant = participantDAO.merge(participant);
+	cSenderService.sendNewPassword(participant, newPassword);
+	return participant;
     }
 }

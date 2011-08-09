@@ -237,6 +237,11 @@ public class ParticipantClient extends
 		}
 		return participant;
 	}
+	
+	public void generateNewPassword(String email) {
+	 getWebResource().path(
+				"/generateNewPassword/" + email).post();
+	}
 
 	public void store(File file, String role, Long idParticipant, String ext)
 			throws UniformInterfaceException, FileNotFoundException {
