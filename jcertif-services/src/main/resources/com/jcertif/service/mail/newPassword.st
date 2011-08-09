@@ -28,7 +28,8 @@ p {line-height:18px;}
 </div>
 
 <div class="container2">
-<div class="pagetitlesuccess">Votre nouveau mot de passe !</div>
+<br/>
+<br/>
 <p>
    Bonjour $participant.salutation$ $participant.prenom$ $participant.nom$,<br/><br/>
    
