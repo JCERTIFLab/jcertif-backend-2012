@@ -38,7 +38,7 @@
 <div id="main_container">
     <jsp:include page="headertemplate.jsp"/>
      <%
-     session.setAttribute("url", request.getContextPath() +"/pages/organisateurs.jsp");
+     session.setAttribute("url", request.getContextPath() +"/pages/communities.jsp");
      %>
     
     <div id="vaadin_div"></div>

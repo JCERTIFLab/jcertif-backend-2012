@@ -9,6 +9,10 @@
         {
            JCERTIF.menu.initAnim();
         });
+	
+	function goToFormations(){
+	    window.location = "<%=request.getContextPath()%>/pages/formations.jsp";
+	}
     </script>
 
 <div class="green_box">
@@ -31,6 +35,9 @@
 							}
 						%>
 					</div>
+				</td>
+				<td>
+				    <img src="images/JCertif_University2011.jpg" onclick="goToFormations();" alt="Logo JCertif 2011" title="" border="0" align="left"/>
 				</td>
 				<td>
 					<div id="right_nav">
