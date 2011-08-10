@@ -611,7 +611,7 @@ textarea.contact_textarea {
 
 .photo_speaker img {
 	width: 100px;
-	height:100px;
+	height:auto;
 	margin: 10px;
 }
 
