@@ -34,7 +34,7 @@
      <%
      session.setAttribute("url", request.getContextPath() +"/pages/formations.jsp");
      %>
-     <div style="font-size: 12px">
+     <div style="font-size: 14px; padding-left: 5px">
      <p>
     <br/>
 	 
@@ -42,7 +42,7 @@
 	 
 	 <br/>
 	 <br/>
-	 <div style="color: red; font-size: 12px">Ces formations sont gratuites, les inscrits à la conférence sont prioritaires.</div>
+	 <div style="color: red; font-size: 14px">Ces formations sont gratuites, les inscrits à la conférence sont prioritaires.</div>
 	 
 	 <br/>
 	 
