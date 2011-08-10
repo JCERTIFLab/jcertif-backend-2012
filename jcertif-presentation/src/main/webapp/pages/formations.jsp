@@ -19,7 +19,7 @@
      
      function subscribe(){
 	 $("#subscribe_form").css('visibility', 'visible');
-	
+	 $("#subscribe").css('visibility', 'hidden');
 	 
      }
      
@@ -89,7 +89,7 @@
 	}
 	%>
 	<br/>
-	<iframe src="http://www.google.fr" id="subscribe_form" width="890" style="visibility: hidden">
+	<iframe src="http://eepurl.com/fa4hg" id="subscribe_form" width="885" height="800" style="visibility: hidden">
 	    
 	</iframe>
    
