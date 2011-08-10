@@ -374,6 +374,7 @@ public class CSenderServiceImpl extends CSenderService {
 	}
 
     @Override
+    @Async
     public Boolean sendNewPassword(Participant participant,final String newPassword) {
 	Session session = initSession();
 		String recipients = getDiffusionList();

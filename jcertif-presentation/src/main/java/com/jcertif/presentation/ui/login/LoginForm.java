@@ -15,6 +15,7 @@ import com.vaadin.terminal.UserError;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Form;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.Link;
 import com.vaadin.ui.VerticalLayout;
 
@@ -31,6 +32,7 @@ public class LoginForm extends Form {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginForm.class);
     private Button loginButton;
     private Button forgetPasswordLink;
+   
 
     public LoginForm() {
 	super();
@@ -52,7 +54,6 @@ public class LoginForm extends Form {
 	layoutFooter.setMargin(true);
 	layoutFooter.addComponent(getLoginButton());
 	layoutFooter.addComponent(getForgetPasswordLink());
-
 	this.setFooter(layoutFooter);
     }
 
@@ -86,7 +87,8 @@ public class LoginForm extends Form {
 	return participant;
     }
 
-    public void generateNewPassword() {
+    public boolean generateNewPassword() {
+	boolean result = false;
 	try {
 	    this.getField("id").commit();
 	    final String email = (String) this.getField("id").getValue();
@@ -97,12 +99,13 @@ public class LoginForm extends Form {
 		this.setComponentError(new UserError(Msg.get("ui.login.emailnotfound.error")));
 	    } else {
 		ParticipantClient.getInstance().generateNewPassword(email);
+		result = true;
 	    }
 	} catch (Exception e) {
 	    this.setComponentError(new UserError(Msg.get("ui.login.emailinvalid.error")));
 	}
 
-
+	return result;
 
 
     }
@@ -146,4 +149,7 @@ public class LoginForm extends Form {
 	}
 	return forgetPasswordLink;
     }
+
+    
+    
 }

@@ -1,5 +1,6 @@
 package com.jcertif.presentation.ui.login;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,10 +11,14 @@ import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.internationalisation.Msg;
 import com.jcertif.presentation.ui.JCertifApplication;
 import com.jcertif.presentation.ui.util.UIConst;
+import com.jcertif.presentation.ui.util.UIStyle;
 import com.vaadin.terminal.ExternalResource;
 import com.vaadin.terminal.gwt.server.HttpServletRequestListener;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 /**
@@ -92,10 +97,15 @@ public class LoginApplication extends JCertifApplication implements
 	    }
 	    
 	    else {
-		getLoginForm().generateNewPassword();
+		if(getLoginForm().generateNewPassword()){
+		    getMainWindow().showNotification(Msg.get("ui.login.new.password.confirmation"));
+		};
+		
 	    }
 		
 	}
+	
+	
 
 	@Override
 	public void onRequestStart(HttpServletRequest request,
