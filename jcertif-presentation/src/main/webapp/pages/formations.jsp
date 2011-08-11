@@ -20,7 +20,9 @@
  <script language="javascript">
      
      function subscribe(){
+	 $("#subscribe_form").css('height', '800px');
 	 $("#subscribe_form").css('visibility', 'visible');
+	 
 	 $("#subscribe").css('visibility', 'hidden');
 	 
      }
@@ -49,12 +51,12 @@
 	 <br/>
 	 
 	 
-	 Voici le planning prévisionnel :
+	 <center><span style="font-size: 18px; font-weight: bold">PLANNING</span></center>
 	 <br/>
 	 <br/>
 	 <center>
-	     <table border="2" cellspacing="0">
-	     <thead align="center">
+	     <table border="1" cellspacing="0" width="800px" style="border-color: darkorange">
+	     <thead align="center" style="background-color: darkorange">
 		 <tr>
 		     <td><b>Jour 1</b></td>
 		     <td><b>Jour 2</b></td>
@@ -77,9 +79,28 @@
 	     
 	 </table>
 </center>
+	  <br/>
+	 <br/>
+	 <div style="color: red; font-size: 14px">Ces formations sont gratuites, les inscrits à la conférence sont prioritaires.</div>
+	 
+	 <br/>
+	 
+	<%
+	if (session.getAttribute("connected") == null || session.getAttribute("connected").equals(Boolean.FALSE)) {
+	%>
+	Veuillez vous connecter pour vous inscrire aux formations.
+	<%
+	} else {
+	 
+	
+	%>
+	    <button id="subscribe" onclick="subscribe()"><%=session.getAttribute("formations.jsp.subscribe")%></button>
+	<%
+	}
+	%>
 	 <br/>
 	 <br/>
-	 Les formateurs :
+	 <center><span style="font-size: 18px;font-weight: bold">FORMATEURS</span></center>
 	 <br/>
 	 <br/>
 	 <table style="font-size: 13px;padding-left: 40px;padding-right: 40px;" cellspacing="10">
@@ -101,28 +122,7 @@
 	     </tr>
 	 </table>
 
-	     
-	 <br/>
-	 <br/>
-	 <div style="color: red; font-size: 14px">Ces formations sont gratuites, les inscrits à la conférence sont prioritaires.</div>
-	 
-	 <br/>
-	 
-	<%
-	if (session.getAttribute("connected") == null || session.getAttribute("connected").equals(Boolean.FALSE)) {
-	%>
-	Veuillez vous connecter pour vous inscrire aux formations.
-	<%
-	} else {
-	 
-	
-	%>
-	    <button id="subscribe" onclick="subscribe()"><%=session.getAttribute("formations.jsp.subscribe")%></button>
-	<%
-	}
-	%>
-	<br/>
-	<iframe src="http://eepurl.com/fa4hg" id="subscribe_form" width="885" height="800" style="visibility: hidden">
+	<iframe src="http://eepurl.com/fa4hg" id="subscribe_form" width="885" style="visibility: hidden">
 	    
 	</iframe>
    
