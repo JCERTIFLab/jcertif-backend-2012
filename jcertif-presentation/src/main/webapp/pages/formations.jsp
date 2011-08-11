@@ -41,17 +41,18 @@
 	String partenaire = UIConst.URL_PARTNER_IMG;
 	String speaker = UIConst.URL_SPEAKER_IMG;
      %>
-     <div style="font-size: 14px; padding-left: 5px">
+     <div style="font-size: 14px; padding-left: 50px;padding-right: 100px">
      <p>
     <br/>
 	 
-    <center>JCertif University vous propose 3 jours de formations JAVA qui se dérouleront <b>du 31/08/2011 au 02/09/2011</b>.</center>
+    JCertif University vous propose 3 jours de formations JAVA qui se dérouleront <b>du 31/08/2011 au 02/09/2011</b>.
 	 
 	
 	 <br/>
+	 <br/>
 	 
 	 
-	 <center><span style="font-size: 18px; font-weight: bold">PLANNING</span></center>
+	 <span style="font-size: 18px; font-weight: bold">PLANNING</span>
 	 <br/>
 	 <br/>
 	 <center>
@@ -100,11 +101,11 @@
 	%>
 	 <br/>
 	 <br/>
-	 <center><span style="font-size: 18px;font-weight: bold">FORMATEURS</span></center>
+	 <span style="font-size: 18px;font-weight: bold">FORMATEURS</span>
 	 <br/>
 	 <br/>
-	 <table style="font-size: 13px;padding-left: 40px;padding-right: 40px;" cellspacing="10">
-	     <tr valign="top">
+	 <table style="font-size: 13px;" cellspacing="10" width="800px" border="0">
+	     <tr valign="top" align="left">
 		 <td><img  alt="" src="<%=picsURL + speaker %>arun.png" height="auto" width="100px" border="0"/></td>
 		 <td><div style="font-size: 18px;font-weight: bold">Arun Gupta</div> est un évangéliste des technologies Java EE et GlassFish chez Oracle. Avec plus de 14 ans d'expérience dans l'industrie du logiciel, Arun a travaillé sur la Java (TM) et sur plusieurs autres technologies liées au Web. Son rôle est de créer et promouvoir une grande communauté autour de Java EE 6 et de GlassFish. Arun a travaillé dans l'équipe dédiée à la plateforme Java EE chez Sun Microsystems et a contribué à toutes les évolutions de Java EE jusqu'à ce jour. Arun parcourt le monde aujourd'hui pour présenter à des conférences et donner des formations en développement d'application avec Java EE 6. Avec plus de 1000 posts et 25.0000 visites par jour sur son blog, Arun est un blogueur prolifique et très influent : http://blogs.sun.com/arungupta. Vous pouvez le suivre via Twitter à : @ arungupta.</td>
 	     </tr>
