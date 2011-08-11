@@ -10,9 +10,6 @@
            JCERTIF.menu.initAnim();
         });
 	
-	function goToFormations(){
-	    window.location = "<%=request.getContextPath()%>/pages/formations.jsp";
-	}
     </script>
 
 <div class="green_box">
@@ -20,7 +17,7 @@
 	<div>
 		<table width="100%" border="0">
 			<tr>
-				<td width="70%">
+				<td width="45%">
 					<div class="text_content">
 						<h1><%=session.getAttribute("headertemplate.jsp.title") %></h1>
 						<p class="green"><%=session.getAttribute("headertemplate.jsp.summary") %></p>
@@ -37,7 +34,7 @@
 					</div>
 				</td>
 				<td>
-				    <img src="images/JCertif_University2011.jpg" onclick="goToFormations();" alt="Logo JCertif 2011" title="" border="0" align="left"/>
+				    <a href="<%=request.getContextPath()%>/pages/formations.jsp"><img width="170px"height="180px" src="images/jcertif_university_with_border_orange.gif" alt="Logo JCertif 2011" title="" border="0" align="left"/></a>
 				</td>
 				<td>
 					<div id="right_nav">
