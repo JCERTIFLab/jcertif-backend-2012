@@ -48,7 +48,7 @@
 	 <br/>
 	 <br/>
 	 <center>
-	     <table border="1">
+	     <table border="2" cellspacing="0">
 	     <thead align="center">
 		 <tr>
 		     <td><b>Jour 1</b></td>
