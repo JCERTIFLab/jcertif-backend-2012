@@ -624,3 +624,7 @@ textarea.contact_textarea {
 	width: 100px;
 	height:100px;
 }
+
+.jcertif_link v-button-caption{
+    font-size: 10px;
+}

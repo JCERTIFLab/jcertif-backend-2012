@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import com.jcertif.presentation.data.bo.participant.Participant;
 import com.jcertif.presentation.data.bo.participant.ProfilUtilisateur;
 import com.jcertif.presentation.internationalisation.Msg;
+import com.jcertif.presentation.ui.util.UIStyle;
 import com.jcertif.presentation.wsClient.ParticipantClient;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.terminal.UserError;
@@ -50,7 +51,7 @@ public class LoginForm extends Form {
 	this.setCaption(Msg.get("ui.login.title"));
 
 	// Login Button
-	HorizontalLayout layoutFooter = new HorizontalLayout();
+	VerticalLayout layoutFooter = new VerticalLayout();
 	layoutFooter.setMargin(true);
 	layoutFooter.addComponent(getLoginButton());
 	layoutFooter.addComponent(getForgetPasswordLink());
@@ -145,7 +146,8 @@ public class LoginForm extends Form {
     public Button getForgetPasswordLink() {
 	if (forgetPasswordLink == null) {
 	    forgetPasswordLink = new Button(Msg.get("ui.login.forgetpassword"));
-	    forgetPasswordLink.setStyleName("link");
+	    forgetPasswordLink.addStyleName("link");
+	     forgetPasswordLink.addStyleName(UIStyle.JCERTIF_LINK);
 	}
 	return forgetPasswordLink;
     }

@@ -38,20 +38,17 @@
      <p>
     <br/>
 	 
-	 JCertif University vous propose 3 jours de formations JAVA qui se dérouleront <b>du 31/08/2011 au 02/09/2011</b>. 
+    <center>JCertif University vous propose 3 jours de formations JAVA qui se dérouleront <b>du 31/08/2011 au 02/09/2011</b>.</center>
 	 
-	 <br/>
-	 <br/>
-	 <div style="color: red; font-size: 14px">Ces formations sont gratuites, les inscrits à la conférence sont prioritaires.</div>
-	 
+	
 	 <br/>
 	 
 	 
 	 Voici le planning prévisionnel :
 	 <br/>
 	 <br/>
-	 
-	 <table>
+	 <center>
+	     <table border="1">
 	     <thead align="center">
 		 <tr>
 		     <td><b>Jour 1</b></td>
@@ -74,6 +71,11 @@
 	     </tbody>
 	     
 	 </table>
+</center>
+	 <br/>
+	 <div style="color: red; font-size: 14px">Ces formations sont gratuites, les inscrits à la conférence sont prioritaires.</div>
+	 
+	 <br/>
 	 
 	<%
 	if (session.getAttribute("connected") == null || session.getAttribute("connected").equals(Boolean.FALSE)) {

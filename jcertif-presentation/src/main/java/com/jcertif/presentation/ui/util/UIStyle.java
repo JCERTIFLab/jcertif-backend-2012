@@ -44,5 +44,7 @@ public interface UIStyle {
 	String COMMON_DETAILS_PANEL = "commun_details_panel";
 
 	String DETAILS_COMMON_LAYOUT = "details_commun_layout";
+	
+	String JCERTIF_LINK = "jcertif_link";
 
 }
