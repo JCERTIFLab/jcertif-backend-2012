@@ -20,10 +20,24 @@
  <script language="javascript">
      
      function subscribe(){
+	 $("#formations_details").css('visibility', 'hidden');
+	  $("#formations_details").css('height', '0px');
 	 $("#subscribe_form").css('height', '800px');
-	 $("#subscribe_form").css('visibility', 'visible');
+	 $("#subscribe_part").css('visibility', 'visible');
 	 
 	 $("#subscribe").css('visibility', 'hidden');
+	 
+	 
+     }
+     
+     function retour(){
+	 $("#formations_details").css('visibility', 'visible');
+	 $("#formations_details").css('height', 'auto');
+	 $("#subscribe_form").css('height', '0px');
+	 $("#subscribe_part").css('visibility', 'hidden');
+	 
+	 $("#subscribe").css('visibility', 'visible');
+	
 	 
      }
      
@@ -41,7 +55,8 @@
 	String partenaire = UIConst.URL_PARTNER_IMG;
 	String speaker = UIConst.URL_SPEAKER_IMG;
      %>
-     <div style="font-size: 14px; padding-left: 50px;padding-right: 100px">
+     <div  style="font-size: 14px; padding-left: 50px;padding-right: 100px">
+     <div id="formations_details">
      <p>
     <br/>
 	 
@@ -99,6 +114,7 @@
 	<%
 	}
 	%>
+	
 	 <br/>
 	 <br/>
 	 <span style="font-size: 18px;font-weight: bold">FORMATEURS</span>
@@ -123,14 +139,19 @@
 	     </tr>
 	 </table>
 
-	<iframe src="http://eepurl.com/fa4hg" id="subscribe_form" width="885" style="visibility: hidden">
-	    
-	</iframe>
+	
    
      </p>
 	 
-   </div>
-    
+   </div> 
+		 <div id="subscribe_part" style="visibility: hidden" height="0px">
+		     <br/>
+		     
+    <button id="retour" onclick="retour()">Retour aux détails des formations</button>  <br/>  <br/>
+    <iframe src="http://eepurl.com/fa4hg" id="subscribe_form" width="800" height="0px"></iframe>
+  
+    </div>
+		 </div>
     <jsp:include page="footer.jsp" />
     </div>
 </body>
