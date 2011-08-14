@@ -34,7 +34,7 @@
 					</div>
 				</td>
 				<td>
-				    <a href="<%=request.getContextPath()%>/pages/formations.jsp"><img width="170px"height="180px" src="images/jcertif_university_with_border_orange.gif" alt="Logo JCertif 2011" title="" border="0" align="left"/></a>
+				    <a href="<%=request.getContextPath()%>/pages/formations.jsp" title="Ateliers de formation gratuite"><img width="170px"height="180px" src="images/jcertif_university_with_border_orange.gif" alt="Logo JCertif 2011" title="" border="0" align="left"/></a>
 				</td>
 				<td>
 					<div id="right_nav">
