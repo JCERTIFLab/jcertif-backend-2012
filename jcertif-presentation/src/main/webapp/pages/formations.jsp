@@ -104,7 +104,7 @@
 	<%
 	if (session.getAttribute("connected") == null || session.getAttribute("connected").equals(Boolean.FALSE)) {
 	%>
-	Veuillez vous connecter pour vous inscrire aux formations.
+	<a style="color: red;" href="<%=request.getContextPath()%>/pages/login.jsp">Veuillez vous connecter pour vous inscrire aux formations.</a>
 	<%
 	} else {
 	 
