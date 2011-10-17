@@ -21,16 +21,7 @@
 					<div class="text_content">
 						<h1><%=session.getAttribute("headertemplate.jsp.title") %></h1>
 						<p class="green"><%=session.getAttribute("headertemplate.jsp.summary") %></p>
-						<%
-							if (session.getAttribute("connected") == null
-									|| session.getAttribute("connected").equals(Boolean.FALSE)) {
-						%>
-						<div class="read_more">
-							<a href="login.jsp"><%=session.getAttribute("headertemplate.jsp.connection") %></a>
-						</div>
-						<%
-							}
-						%>
+						
 					</div>
 				</td>
 				<td>
@@ -52,10 +43,7 @@
 		</table>
                                                         </div>
    <ul id="msg_animation">
-    <li><a href="<%=request.getContextPath()%>/pages/inscription.jsp">Inscrivez-vous!</a></li>
-    <li><a style="color: gold" href="http://www.pearsoned.co.uk/Bookshop/subject.asp?item=9707&affid=899" target="_blank">PROMOTION EXCEPTIONNELLE PEARSON JCERTIF : REDUCTION SUR DE NOMBREUX LIVRES!!!</a></li>
-    <li><a href="<%=request.getContextPath()%>/pages/faq.jsp">Trouvez dans la FAQ l'ensemble des collecteurs pour vous acquitter de vos frais de participations</a></li>
-    <li><a href="<%=request.getContextPath()%>/pages/calendrier.jsp">Créer votre agenda personnalisé grâce au calendrier interactif</a></li>
-    <li><a href="https://www.facebook.com/event.php?eid=191343324246785" target="_blank">Parlez de cet évènement autour de vous</a></li>
+   <li><a style="color: gold" href="http://www.pearsoned.co.uk/Bookshop/subject.asp?item=9707&affid=899" target="_blank">PROMOTION EXCEPTIONNELLE PEARSON JCERTIF : REDUCTION SUR DE NOMBREUX LIVRES!!!</a></li>
+   <li><a href="https://www.facebook.com/event.php?eid=191343324246785" target="_blank">Parlez de cet évènement autour de vous</a></li>
 </ul>
 	</div>

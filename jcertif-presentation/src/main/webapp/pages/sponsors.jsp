@@ -12,32 +12,44 @@
 
 <div align="right">
 <table>
-
+    <tr>
 <%
 	
 	String picsURL = JCertifProps.getInstance().getPicsUrl();
 	String partenaire = UIConst.URL_PARTNER_IMG;
 	List<Participant> participants = ParticipantClient.getInstance().getSponsorsSortedByNiveauForHomePage();
 	int i = 1;
-	double s = participants.size()/2;
+	double s = participants.size()/2 +1;
 	for(Participant participant:participants){
 		
 	if(participant.getNiveauPartenariat() != null){
 		
-		if(i%2==0){
+		if(i < s){
 %>
 
-	<td>
+<td>
 	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="125" border="0"></a>
 	<br/>
 	</td>
-	</tr>
-	<tr>
+	
 	<%
-		} else {
+		} 
+		
+		if(i==s){
+		    
+		    %>
+    </tr>
+    <tr>
+		    
+		    <%
+		    
+		}
+		
+		
+		if(i >=s) {
 	
 	%>
-	<tr>
+	
 	<td>
 	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="125" border="0"></a>
 	</td>
