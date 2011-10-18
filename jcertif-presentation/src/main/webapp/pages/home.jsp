@@ -38,18 +38,29 @@
 
 		<div id="main_content">
 			<table border="0">
-				<tr>
+				<tr id="left_content">
 					<td>
-						<div id="left_content">
+						<div>
 							<h2>JCertif Conférence 2011</h2>
-							<embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="855" height="450" flashvars="host=picasaweb.google.com&hl=en_US&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fbonbhel%2Falbumid%2F5652497525273051649%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
+							<embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="455" height="350" flashvars="host=picasaweb.google.com&hl=en_US&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fbonbhel%2Falbumid%2F5652497525273051649%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
 						</div>
 					</td>
 				    
+				    <td class="stat_content">
+					JCertif is the biggest Java Community Conference in Central Africa. JCertif allows attendees to collaborate and share the latest news and best practices in the fields of Java technology, Web 2.0 and Mobile Apps.
+					<br/>
+					JCertif en chiffres 
+					<ul>
+					    <li>400 participants</li>
+					    <li>15 sessions</li>
+					    <li>2 robotcodes (Max et Stan)</li>
+					</ul>
 					
-					<td rowspan="3">
-                    
-					</td>
+					
+					
+				    </td>
+					
+					
 							
 						</div>
 						<!--end of right content-->
@@ -59,13 +70,16 @@
                 -->
 					
 				</tr>
-			    <tr>
+			    <tr  id="left_content">
 				<td>
-						<div id="left_content">
+						<div>
 							<h2>JCertif University 2011</h2>
-							<embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="855" height="450" flashvars="host=picasaweb.google.com&hl=en_US&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fbonbhel%2Falbumid%2F5653206719099806001%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
+							<embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="455" height="350" flashvars="host=picasaweb.google.com&hl=en_US&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fbonbhel%2Falbumid%2F5653206719099806001%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
 							</div>
 					</td>
+				<td class="stat_content">
+				    Vous pouvez télécharger les ressources <a href="#">ici</a>
+				    </td>
 			    </tr>
 				<tr>
 					<td><jsp:include page="sponsors.jsp" /></td>

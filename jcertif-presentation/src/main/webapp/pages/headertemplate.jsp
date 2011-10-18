@@ -42,8 +42,4 @@
 			</tr>
 		</table>
                                                         </div>
-   <ul id="msg_animation">
-   <li><a style="color: gold" href="http://www.pearsoned.co.uk/Bookshop/subject.asp?item=9707&affid=899" target="_blank">PROMOTION EXCEPTIONNELLE PEARSON JCERTIF : REDUCTION SUR DE NOMBREUX LIVRES!!!</a></li>
-   <li><a href="https://www.facebook.com/event.php?eid=191343324246785" target="_blank">Parlez de cet évènement autour de vous</a></li>
-</ul>
 	</div>
