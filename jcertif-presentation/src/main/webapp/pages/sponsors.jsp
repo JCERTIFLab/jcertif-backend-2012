@@ -10,7 +10,7 @@
 <%@taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<div align="right">
+<div>
 <table>
     <tr>
 <%
@@ -20,6 +20,8 @@
 	List<Participant> participants = ParticipantClient.getInstance().getSponsorsSortedByNiveauForHomePage();
 	int i = 1;
 	double s = participants.size()/2 +1;
+	
+	
 	for(Participant participant:participants){
 		
 	if(participant.getNiveauPartenariat() != null){
@@ -28,7 +30,7 @@
 %>
 
 <td>
-	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="125" border="0"></a>
+	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="100" border="0"></a>
 	<br/>
 	</td>
 	
@@ -51,7 +53,7 @@
 	%>
 	
 	<td>
-	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="125" border="0"></a>
+	<a href="<%= participant.getWebsite() %>"  target="_blank"><img alt="" src="<%=picsURL + partenaire + participant.getProfilUtilisateur().getPhoto()%>" width="100" border="0"></a>
 	</td>
 	<%} 
 	i++;	
