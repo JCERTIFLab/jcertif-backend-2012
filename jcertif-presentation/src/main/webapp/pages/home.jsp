@@ -78,7 +78,7 @@
 							</div>
 					</td>
 				<td class="stat_content">
-				    Vous pouvez télécharger les ressources <a href="#">ici</a>
+				    Vous pouvez télécharger les ressources <a href="kit_jcertif_university_2011.zip">ici</a>
 				    </td>
 			    </tr>
 				<tr>
