@@ -25,7 +25,7 @@
 
 		<vaadin-widgets-dir>src/main/webapp/VAADIN/widgetsets</vaadin-widgets-dir>
 
-		<!-- Défault jdbc connexion -->
+		<!-- Dï¿½fault jdbc connexion -->
 		<jdbc.driver.classname>com.mysql.jdbc.Driver</jdbc.driver.classname>
 		<jdbc.url>jdbc:mysql://localhost:3306/jcertifinteg?createDatabaseIfNotExist=true</jdbc.url>
 		<jdbc.username>jcertif</jdbc.username>
@@ -41,10 +41,10 @@
 		<hibernate.cache.use_query_cache>false</hibernate.cache.use_query_cache>
 		
 		<facade.url>http://localhost:8080/jcertif-facade</facade.url>
-		<!-- Ne pas mettre le "/" avec la fin du répertoire -->
+		<!-- Ne pas mettre le "/" avec la fin du rï¿½pertoire -->
 		<pics.participant.dir>./src/main/webapp</pics.participant.dir>
 		<pics.url>http://localhost:8082/jcertif-pics</pics.url>
-		<!-- Ne pas mettre le "/" avec la fin du répertoire -->
+		<!-- Ne pas mettre le "/" avec la fin du rï¿½pertoire -->
 		<tmp.photo.dir>./tmp/photo</tmp.photo.dir>
 		<presentation.cache.enabled>false</presentation.cache.enabled>
 	</properties>
@@ -221,7 +221,7 @@
 							<rules>
 								<bannedDependencies>
 									<excludes>
-										<!-- Lister ici les dépendances à exclure sur l'ensemble du projet -->
+										<!-- Lister ici les dï¿½pendances ï¿½ exclure sur l'ensemble du projet -->
 										<exclude>commons-logging:commons-logging</exclude>
 									</excludes>
 								</bannedDependencies>
@@ -798,11 +798,11 @@
 				<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
 				
 				<facade.url>http://jcertif.baamtu.com/jcertif-facade</facade.url>
-				<!-- Ne pas mettre le "/" avec la fin du répertoire -->
+				<!-- Ne pas mettre le "/" avec la fin du rï¿½pertoire -->
 				<pics.participant.dir>catalina.base/webapps/jcertif-pics</pics.participant.dir>
 				<pics.url>http://jcertif.baamtu.com/jcertif-pics</pics.url>
 				
-				<!-- Ne pas mettre le "/" avec la fin du répertoire, mettre catalina.base pour utiliser cette variable de tomcat -->
+				<!-- Ne pas mettre le "/" avec la fin du rï¿½pertoire, mettre catalina.base pour utiliser cette variable de tomcat -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
 				
 				<presentation.cache.enabled>true</presentation.cache.enabled>
@@ -822,23 +822,23 @@
 			<id>prod</id>
 			<properties>
 				<jdbc.driver.classname>com.mysql.jdbc.Driver</jdbc.driver.classname>
-				<jdbc.url>jdbc:mysql://localhost:3306/jcertifpreprod</jdbc.url>
-				<jdbc.username>jcertif</jdbc.username>
-				<jdbc.password>forAfrica</jdbc.password>
+				<jdbc.url>${JDBC_URL}</jdbc.url>
+				<jdbc.username>{JDBC_USER}</jdbc.username>
+				<jdbc.password>${JDBC_PASS}</jdbc.password>
 				
 				<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
 				<hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
 				<hibernate.generate_statistics>false</hibernate.generate_statistics>
 				<hibernate.cache.use_second_level_cache>true</hibernate.cache.use_second_level_cache>
 				<hibernate.cache.provider_class>net.sf.ehcache.hibernate.EhCacheProvider</hibernate.cache.provider_class>
-				<hibernate.show_sql>true</hibernate.show_sql>
+				<hibernate.show_sql>false</hibernate.show_sql>
 				<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
 				
-				<facade.url>http://jcertif.baamtu.com/jcertif-facade</facade.url>
-				<!-- Ne pas mettre le "/" avec la fin du répertoire -->
+				<facade.url>${FACADE_URL}</facade.url>
+				<!-- Ne pas mettre le "/" avec la fin du rï¿½pertoire -->
 				<pics.participant.dir>catalina.base/webapps/jcertif-pics</pics.participant.dir>
-				<pics.url>http://localhost:8082/jcertif-pics</pics.url>
-				<!-- Ne pas mettre le "/" avec la fin du répertoire, mettre catalina.base pour utiliser cette variable de tomcat  -->
+				<pics.url>${PICS_URL}</pics.url>
+				<!-- Ne pas mettre le "/" avec la fin du rï¿½pertoire, mettre catalina.base pour utiliser cette variable de tomcat  -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
 				
 				<presentation.cache.enabled>true</presentation.cache.enabled>
@@ -862,10 +862,10 @@
 				<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
 				
 				<facade.url>http://localhost:8080/jcertif-facade</facade.url>
-				<!-- Ne pas mettre le "/" avec la fin du répertoire -->
+				<!-- Ne pas mettre le "/" avec la fin du rï¿½pertoire -->
 				<pics.participant.dir>catalina.base/webapps/jcertif-pics</pics.participant.dir>
 				<pics.url>http://localhost:8080/jcertif-pics</pics.url>
-				<!-- Ne pas mettre le "/" avec la fin du répertoire, mettre catalina.base pour utiliser cette variable de tomcat  -->
+				<!-- Ne pas mettre le "/" avec la fin du rï¿½pertoire, mettre catalina.base pour utiliser cette variable de tomcat  -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
 				<presentation.cache.enabled>true</presentation.cache.enabled>
 			</properties>
