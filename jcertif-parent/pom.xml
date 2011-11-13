@@ -834,10 +834,10 @@
 				<hibernate.show_sql>false</hibernate.show_sql>
 				<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
 				
-				<facade.url>http://localhost:8080/jcertif-facade</facade.url>
+				<facade.url>${URL_FACADE}</facade.url>
 				<!-- Ne pas mettre le "/" avec la fin du r�pertoire -->
 				<pics.participant.dir>catalina.base/webapps/jcertif-pics</pics.participant.dir>
-				<pics.url>http://localhost:8080/jcertif-pics</pics.url>
+				<pics.url>${URL_PICS}</pics.url>
 				<!-- Ne pas mettre le "/" avec la fin du r�pertoire, mettre catalina.base pour utiliser cette variable de tomcat  -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
 				
