@@ -823,7 +823,7 @@
 			<properties>
 				<jdbc.driver.classname>com.mysql.jdbc.Driver</jdbc.driver.classname>
 				<jdbc.url>${JDBC_URL}</jdbc.url>
-				<jdbc.username>{JDBC_USER}</jdbc.username>
+				<jdbc.username>${JDBC_USER}</jdbc.username>
 				<jdbc.password>${JDBC_PASS}</jdbc.password>
 				
 				<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
