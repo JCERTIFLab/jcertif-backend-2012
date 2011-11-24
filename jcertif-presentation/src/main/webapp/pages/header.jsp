@@ -26,6 +26,10 @@
         					}
         				%>
         			</div>
+        			<div class="hostedby">
+        			<a href="http://www.eapps.com/applications/java-hosting.php" target="_blank"><img src="images/eapps_hosted_trans.gif" alt="" /></a>
+        			</div>
+        			
         	</td>
         </tr>
 	</table>

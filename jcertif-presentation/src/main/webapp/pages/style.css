@@ -264,7 +264,6 @@ img.box_img {
 }
 
 #left_content {
-	width: 855px;
 	height: auto;
 	margin: 10px;
 	float: left;
@@ -634,4 +633,8 @@ textarea.contact_textarea {
     padding-left: 20px;
     font-size: 16px;
     color: #F7951E;
+}
+
+.hostedby {
+	padding-left: 80%;
 }

@@ -62,7 +62,7 @@
 					
 					
 							
-						</div>
+						
 						<!--end of right content-->
 						<!--
 
@@ -82,7 +82,7 @@
 				    </td>
 			    </tr>
 				<tr>
-					<td><jsp:include page="sponsors.jsp" /></td>
+					<td colspan="2"><jsp:include page="sponsors.jsp" /></td>
 				</tr>
 				
 			</table>
