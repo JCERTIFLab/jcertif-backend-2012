@@ -78,7 +78,12 @@
 							</div>
 					</td>
 				<td class="stat_content">
-				    Vous pouvez télécharger les ressources <a href="kit_jcertif_university_2011.zip">ici</a>
+					Plusieurs cours ont été dispensés :
+					<ul>
+					    <li>Des cours d'initiation à Java <a style="color:red" href="kit_java_debutant_jcertif_2011.zip">télécharger</a></li>
+					    <li>Des cours d'initiation à Android <a style="color:red" href="kit_java_debutant_jcertif_2011.zip">télécharger</a></li>
+					</ul>
+				  
 				    </td>
 			    </tr>
 				<tr>

@@ -101,19 +101,6 @@
 	 
 	 <br/>
 	 
-	<%
-	if (session.getAttribute("connected") == null || session.getAttribute("connected").equals(Boolean.FALSE)) {
-	%>
-	<a style="color: red;" href="<%=request.getContextPath()%>/pages/login.jsp">Veuillez vous connecter pour vous inscrire aux formations.</a>
-	<%
-	} else {
-	 
-	
-	%>
-	    <button id="subscribe" onclick="subscribe()"><%=session.getAttribute("formations.jsp.subscribe")%></button>
-	<%
-	}
-	%>
 	
 	 <br/>
 	 <br/>
