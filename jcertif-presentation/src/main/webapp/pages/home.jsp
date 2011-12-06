@@ -47,12 +47,10 @@
 					</td>
 				    
 				    <td class="stat_content">
-					JCertif is the biggest Java Community Conference in Central Africa. JCertif allows attendees to collaborate and share the latest news and best practices in the fields of Java technology, Web 2.0 and Mobile Apps.
-					<br/>
-					JCertif en chiffres 
+					JCertif Conférence en quelques chiffres 
 					<ul>
-					    <li>400 participants</li>
-					    <li>15 sessions</li>
+					    <li>Jour 1 : 550 personnes</li>
+					    <li>Jour 2 : 400 personnes</li>
 					    <li>2 robotcodes (Max et Stan)</li>
 					</ul>
 					
@@ -78,10 +76,22 @@
 							</div>
 					</td>
 				<td class="stat_content">
-					Plusieurs cours ont été dispensés :
+					JCertif University en quelques chiffres :
 					<ul>
-					    <li>Des cours d'initiation à Java <a style="color:red" href="kit_java_debutant_jcertif_2011.zip">télécharger</a></li>
-					    <li>Des cours d'initiation à Android <a style="color:red" href="kit_java_debutant_jcertif_2011.zip">télécharger</a></li>
+					    <li>Jour 1 : 180 participants</li>
+					    <li>Jour 2 : 235 participants</li>
+					    <li>Jour 3 : 200 participants</li>
+					</ul>
+					Un cours d'initiation à Java <a style="color:red;font-size: 13px;" href="kit_debutant.zip">télécharger</a>
+					<br/>
+					<br/>
+					Des cours d'initiation au développement Android :
+					<ul>
+					    <li>Activités, Services <a style="color:red; font-size: 13px;" href="part_1_activity_services.zip">télécharger</a></li>
+					    <li>Contenu, Géolocalisation <a style="color:red; font-size: 13px;" href="part_2_contenu_geoloc.zip">télécharger</a></li>
+					    <li>Stockage, Widgets <a style="color:red; font-size: 13px;" href="part_3_stockage_widgets.zip">télécharger</a></li>
+					    <li>Interfaces graphiques <a style="color:red; font-size: 13px;" href="part_4_5_6_interface.zip">télécharger</a></li>
+					    <li>Graphiques 2D, 3D <a style="color:red;font-size: 13px;" href="part_7_graphiques2Det3D.zip">télécharger</a></li>
 					</ul>
 				  
 				    </td>
