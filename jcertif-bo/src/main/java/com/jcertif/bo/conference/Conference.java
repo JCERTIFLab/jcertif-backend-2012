@@ -180,7 +180,7 @@ public class Conference extends AbstractBO {
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(nom).toHashCode();
+		return new HashCodeBuilder().append(id).toHashCode();
 	}
 
 	/**
@@ -199,8 +199,7 @@ public class Conference extends AbstractBO {
 
 		final Conference other = (Conference) obj;
 
-		return new EqualsBuilder().append(nom, other.getNom()).append(details, other.getDetails())
-				.isEquals();
+		return new EqualsBuilder().append(id, other.getId()).isEquals();
 	}
 
 }

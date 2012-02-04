@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import com.evasion.framework.test.EqualsTester;
 import com.jcertif.bo.JCertifAccessorTesterImpl;
-import com.jcertif.bo.conference.Conference;
 
 /**
  * Test BO {@link Conference}.
@@ -30,16 +29,16 @@ public class ConferenceTest {
 	@Test
 	public void testtestEqualsAndHashCode() {
 		final Conference conf1 = new Conference();
-		conf1.setNom("aa");
+		conf1.setId(1l);
 		final Conference equivalentConference1 = new Conference();
-		equivalentConference1.setNom("aa");
+		equivalentConference1.setId(1l);
 		final Conference differentConference1 = new Conference();
-		differentConference1.setNom("bb");
+		differentConference1.setId(2l);
 		final Conference deriveConference1 = new Conference() {
 		};
-		deriveConference1.setNom("aa");
+		deriveConference1.setId(1l);
 		final EqualsTester vEqualTester = new EqualsTester();
-		vEqualTester.testEqualsAndHashCode(conf1, equivalentConference1,
-				differentConference1, deriveConference1);
+		vEqualTester.testEqualsAndHashCode(conf1, equivalentConference1, differentConference1,
+				deriveConference1);
 	}
 }

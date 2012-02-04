@@ -210,7 +210,7 @@
 							<instanceRoot>${basedir}/target/glassfish-deploy</instanceRoot>
 							<app>${basedir}/target/jcertif-facade-${version}.war</app>
 							<autoDelete>true</autoDelete>
-							<port>8080</port>
+							<port>9080</port>
 							<contextRoot>jcertif-facade</contextRoot>
 						</configuration>
 					</plugin>
@@ -220,6 +220,7 @@
 						<artifactId>tomcat-maven-plugin</artifactId>
 						<configuration>
 							<warFile>${basedir}/target/jcertif-facade-${version}.war</warFile>
+							<port>9080</port>
 						</configuration>
 					</plugin>
 				</plugins>
