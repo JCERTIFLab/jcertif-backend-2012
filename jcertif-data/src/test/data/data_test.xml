@@ -40,7 +40,7 @@
 	<salle_particularite_salle  particularite_salle_id="4" salle_id="4"/>
 	
 	<conference id="1" name="JCertif 2011" date_debut="2011-08-03" date_fin="2011-08-04" website="www.jcertif.com" />
-	<conference id="2" name="JCertif 2012" date_debut="2012-08-03" date_fin="2012-08-04" website="www.jcertif.com"/>
+	<conference id="2" name="JCertif 2012" date_debut="2012-09-10" date_fin="2012-09-17" website="www.jcertif.com"/>
 	<conference id="3" name="JCertif 2013" date_debut="2013-08-03" date_fin="2013-08-04" website="www.jcertif.com"/>
 	
 	
