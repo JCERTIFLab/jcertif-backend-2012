@@ -14,6 +14,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +41,8 @@ import com.sun.jersey.api.spring.Autowire;
 @Autowire
 public class UserFacade extends Facade {
 
+	private Logger logger = LoggerFactory.getLogger(UserFacade.class);
+
 	@Autowired
 	private CSenderService cSenderService;
 	@Autowired
@@ -62,8 +66,14 @@ public class UserFacade extends Facade {
 	@Produces(value = { MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Path("/{email}")
 	public User findByEmail(@PathParam("email") String email) {
-		Participant participant = participantService.findUniqueByEmail(email);
-		return new User(participant);
+		try {
+			Participant participant = participantService.findUniqueByEmail(email);
+			return new User(participant);
+		} catch (RuntimeException e) {
+			logger.error("UserFacade.findByEmail : ", e);
+			return new User();
+		}
+
 	}
 
 	@GET
