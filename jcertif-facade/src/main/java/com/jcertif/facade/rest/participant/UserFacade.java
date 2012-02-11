@@ -107,4 +107,10 @@ public class UserFacade extends Facade {
 		part.setConference(conf);
 		return part;
 	}
+
+	@POST
+	@Path("/resetPassword/{email}")
+	public void resetPassword(@PathParam(value = "email") String email) {
+		participantService.generateNewPassword(email);
+	}
 }
