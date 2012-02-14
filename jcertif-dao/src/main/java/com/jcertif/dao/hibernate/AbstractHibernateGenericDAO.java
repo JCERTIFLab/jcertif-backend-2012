@@ -3,11 +3,13 @@ package com.jcertif.dao.hibernate;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,6 @@ import org.springframework.beans.factory.annotation.Required;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;
 
 import com.jcertif.dao.api.GenericDAO;
-import org.hibernate.criterion.Restrictions;
 
 /**
  * Implementation of GenericDAO with Hibernate.
@@ -156,12 +157,22 @@ public abstract class AbstractHibernateGenericDAO<T, PK extends Serializable> im
 			this.getCurrentSession().delete(entity);
 		}
 	}
-        
-        @Override
-        public List<T> findByProperty(String propertyName,Object propertyValue) {
-            return this.getCurrentSession().createCriteria(this.persistentClass)
+
+	@Override
+	public List<T> findByProperty(String propertyName, Object propertyValue) {
+		return this.getCurrentSession().createCriteria(this.persistentClass)
 				.add(Restrictions.eq(propertyName, propertyValue)).list();
-        }
+	}
+
+	@Override
+	public List<T> findByProperties(Map<String, Object> propertyList) {
+		Criteria crit = this.getCurrentSession().createCriteria(this.persistentClass);
+
+		for (String key : propertyList.keySet()) {
+			crit.add(Restrictions.eq(key, propertyList.get(key)));
+		}
+		return crit.list();
+	}
 
 	/**
 	 * Modifie sessionFactory.

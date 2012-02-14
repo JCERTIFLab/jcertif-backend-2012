@@ -21,8 +21,9 @@ import com.jcertif.bo.CodeDescription;
 public class RoleParticipant extends CodeDescription {
 
 	private static final long serialVersionUID = 1L;
-        
-        public static final String CODE_SPEAKER = "Speaker";
+
+	public static final String CODE_SPEAKER = "Speaker";
+	public static final String CODE_SPONSOR = "Partenaire";
 
 	/**
 	 * Constructor

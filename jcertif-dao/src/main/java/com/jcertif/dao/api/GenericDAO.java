@@ -2,6 +2,7 @@ package com.jcertif.dao.api;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Generic DAO Interface.
@@ -83,10 +84,15 @@ public interface GenericDAO<T, PK extends Serializable> extends DAO {
 	 * Vide la session.
 	 */
 	void clear();
-        
-        /**
+
+	/**
 	 * @return la liste des entités filtrées
 	 */
-	List<T> findByProperty(String propertyName,Object propertyValue);
+	List<T> findByProperty(String propertyName, Object propertyValue);
+
+	/**
+	 * @return la liste des entités filtrées
+	 */
+	List<T> findByProperties(Map<String, Object> propertyList);
 
 }
