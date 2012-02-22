@@ -7,7 +7,6 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-		<mapping class="com.jcertif.bo.article.Article" />
 		<mapping class="com.jcertif.bo.Adresse" />
 		<mapping class="com.jcertif.bo.presentation.Sujet" />
 		<mapping class="com.jcertif.bo.presentation.MotCle" />

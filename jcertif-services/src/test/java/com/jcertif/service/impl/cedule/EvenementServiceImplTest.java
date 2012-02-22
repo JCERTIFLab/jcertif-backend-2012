@@ -13,8 +13,6 @@ import org.mockito.MockitoAnnotations;
 
 import com.jcertif.bo.cedule.Evenement;
 import com.jcertif.dao.api.cedule.EvenementDAO;
-import com.jcertif.service.article.ArticleServiceImpl;
-import com.jcertif.service.impl.cedule.EvenementServiceImpl;
 
 /**
  * Test unitaire de la classe {@link ArticleServiceImpl}.
