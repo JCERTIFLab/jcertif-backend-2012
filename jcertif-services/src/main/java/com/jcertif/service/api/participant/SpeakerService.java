@@ -4,16 +4,16 @@
  */
 package com.jcertif.service.api.participant;
 
-import com.jcertif.bo.participant.Participant;
 import java.util.Set;
 
+import com.jcertif.bo.participant.Participant;
 
 /**
- *
+ * 
  * @author rossi.oddet
  */
 public interface SpeakerService {
-    
-    Set<Participant> findAll();
-    
+
+	Set<Participant> findAll(Long idConference);
+
 }
