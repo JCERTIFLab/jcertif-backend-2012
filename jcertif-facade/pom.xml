@@ -12,7 +12,6 @@
 		<relativePath>../jcertif-parent</relativePath>
 	</parent>
 
-	<groupId>com.jcertif</groupId>
 	<artifactId>jcertif-facade</artifactId>
 	<packaging>war</packaging>
 
@@ -126,13 +125,27 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- DERBY just for demonstration -->
+		<!-- JSF -->
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-impl</artifactId>
+		</dependency>
 
 		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derby</artifactId>
-			<scope>runtime</scope>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
 		</dependency>
+		
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		
 		
 	</dependencies>
 
