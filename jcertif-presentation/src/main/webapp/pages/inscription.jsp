@@ -19,7 +19,7 @@
 	var vaadin = {
 		vaadinConfigurations : {
 			'vaadin_div' : {
-				appUri : '/jcertif-presentation/vaadin/inscription',
+				appUri : '<%=request.getContextPath()%>/vaadin/inscription',
 				pathInfo : '/',
 				themeUri : '',
 				versionInfo : {
