@@ -42,6 +42,9 @@ public class Suggest extends AbstractBO {
 	private List<Long> sujetIds;
 	private List<Long> participantIds;
 
+	public Suggest() {
+	}
+
 	public Suggest(final PropositionPresentation proposition) {
 		id = proposition.getId();
 		title = proposition.getTitre();
@@ -55,18 +58,6 @@ public class Suggest extends AbstractBO {
 
 		if (proposition.getStatutApprobation() != null) {
 			codeStatut = proposition.getStatutApprobation().getCodeStatut();
-		}
-
-		if (proposition.getSujets() != null) {
-			sujetIds = new ArrayList<Long>();
-			for (Sujet sujet : proposition.getSujets()) {
-				sujetIds.add(sujet.getId());
-			}
-		}
-
-		participantIds = new ArrayList<Long>();
-		for (Participant participant : proposition.getParticipants()) {
-			participantIds.add(participant.getId());
 		}
 
 	}

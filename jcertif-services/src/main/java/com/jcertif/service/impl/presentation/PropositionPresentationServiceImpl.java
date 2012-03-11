@@ -13,10 +13,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jcertif.bo.participant.Participant;
+import com.jcertif.bo.presentation.MotCle;
 import com.jcertif.bo.presentation.PropositionPresentation;
 import com.jcertif.bo.presentation.StatutApprobation;
 import com.jcertif.bo.presentation.Sujet;
+import com.jcertif.dao.api.conference.ConferenceDAO;
 import com.jcertif.dao.api.participant.ParticipantDAO;
+import com.jcertif.dao.api.presentation.MotCleDAO;
 import com.jcertif.dao.api.presentation.PropositionPresentationDAO;
 import com.jcertif.dao.api.presentation.StatutApprobationDAO;
 import com.jcertif.dao.api.presentation.SujetDAO;
@@ -46,6 +49,12 @@ public class PropositionPresentationServiceImpl extends
 	@Autowired
 	private ParticipantDAO participantDAO;
 
+	@Autowired
+	private ConferenceDAO conferenceDAO;
+
+	@Autowired
+	private MotCleDAO motCleDAO;
+
 	@Override
 	public PropositionPresentationDAO getDAO() {
 		return propositionPresentationDAO;
@@ -74,6 +83,17 @@ public class PropositionPresentationServiceImpl extends
 			proposition.setSujetsInternal(sujets);
 		}
 
+		proposition.setConference(conferenceDAO.findById(proposition.getConference().getId()));
+
+		if (proposition.getMotCle() != null) {
+			List<MotCle> motsCle = motCleDAO.findByProperty("motCle", proposition.getMotCle()
+					.getMotCle());
+			if (motsCle != null && !motsCle.isEmpty()) {
+				proposition.setMotCle(motsCle.iterator().next());
+			}
+
+		}
+
 		if (proposition.getParticipants() != null) {
 			Set<Participant> participants = new HashSet<Participant>();
 			for (Participant participant : proposition.getParticipants()) {
@@ -84,7 +104,7 @@ public class PropositionPresentationServiceImpl extends
 		}
 
 		proposition.setStatutApprobation(statut);
+
 		return propositionPresentationDAO.merge(proposition);
 	}
-
 }

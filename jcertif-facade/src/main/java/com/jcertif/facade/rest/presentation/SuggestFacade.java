@@ -9,9 +9,11 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jcertif.bo.presentation.PropositionPresentation;
 import com.jcertif.facade.Facade;
 import com.jcertif.facade.model.participant.Suggest;
 import com.jcertif.service.api.presentation.PropositionPresentationService;
+import com.jcertif.service.mail.CSenderService;
 import com.sun.jersey.api.spring.Autowire;
 
 /**
@@ -26,12 +28,17 @@ public class SuggestFacade extends Facade {
 	@Autowired
 	private PropositionPresentationService service;
 
+	@Autowired
+	private CSenderService cSenderService;
+
 	@POST
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Path(CREATE_SUFFIX)
 	public Suggest create(Suggest suggest) {
-		return new Suggest(service.save(suggest.toProposition()));
+		PropositionPresentation proposition = service.save(suggest.toProposition());
+		cSenderService.sendAddPropositionConfirmation(proposition);
+		return new Suggest(proposition);
 
 	}
 
