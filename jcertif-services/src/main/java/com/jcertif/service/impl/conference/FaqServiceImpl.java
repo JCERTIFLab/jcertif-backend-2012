@@ -1,7 +1,6 @@
-/**
- * 
- */
 package com.jcertif.service.impl.conference;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,15 +12,14 @@ import com.jcertif.service.api.conference.FaqService;
 
 /**
  * @author rossi
- *
+ * 
  */
 @Service
 public class FaqServiceImpl extends AbstractService<Faq, Long, FaqDAO> implements FaqService {
 
-	  @Autowired
-	    private FaqDAO faqDAO;
+	@Autowired
+	private FaqDAO faqDAO;
 
-	
 	@Override
 	public FaqDAO getDAO() {
 		return faqDAO;
@@ -29,7 +27,12 @@ public class FaqServiceImpl extends AbstractService<Faq, Long, FaqDAO> implement
 
 	@Override
 	public void setDAO(FaqDAO dao) {
-		this.faqDAO = dao;		
+		this.faqDAO = dao;
+	}
+
+	@Override
+	public List<Faq> findByConferenceId(Long idConference) {
+		return faqDAO.findByProperty("conferenceId", idConference);
 	}
 
 }
