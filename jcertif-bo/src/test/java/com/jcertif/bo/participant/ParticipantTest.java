@@ -9,7 +9,6 @@ import org.junit.Test;
 import com.evasion.framework.test.EqualsTester;
 import com.jcertif.bo.JCertifAccessorTesterImpl;
 import com.jcertif.bo.conference.CentreConference;
-import com.jcertif.bo.participant.Participant;
 
 /**
  * @author chrisbel
@@ -20,7 +19,7 @@ public class ParticipantTest {
 	 */
 	@Test
 	public void testAllAccessors() {
-		final Participant cc =new Participant(new Long(1), null,null, null,"Malonga",null,null,null,null,null,null,null,null,null);
+		final Participant cc = new Participant(new Long(1), "malonga@yahoo.fr", null);
 		final JCertifAccessorTesterImpl accessorTester = new JCertifAccessorTesterImpl(cc);
 		accessorTester.testAllAccessors();
 	}
@@ -30,19 +29,15 @@ public class ParticipantTest {
 	 */
 	@Test
 	public void testEqualsAndHashCode() {
-		final Participant a= new Participant(new Long(1), null,null, null,"Malonga",null,null,null,null,null,null,null,null,null);
-		
-		final Participant b =  new Participant(new Long(1), null,null, null,"Malonga",null,null,null,null,null,null,null,null,null);
-		
-		final Participant c =  new Participant(new Long(2), null,null, null,"Silya",null,null,null,null,null,null,null,null,null);
-		
-		final Participant d = new Participant(new Long(1), null,null, null,"Malonga",null,null,null,null,null,null,null,null,null){
+		final Participant a = new Participant(new Long(1), "malonga@yahoo.fr", null);
+		final Participant b = new Participant(new Long(1), "malonga@yahoo.fr", null);
+		final Participant c = new Participant(new Long(1), "malonga2008@yahoo.fr", null);
+		final Participant d = new Participant(new Long(1), "malonga@yahoo.fr", null) {
 			private static final long serialVersionUID = 1L;
 		};
 
 		final EqualsTester equalsTester = new EqualsTester();
-        equalsTester.testEqualsAndHashCode(a, b, c,d);
-		
+		equalsTester.testEqualsAndHashCode(a, b, c, d);
 
 	}
 }

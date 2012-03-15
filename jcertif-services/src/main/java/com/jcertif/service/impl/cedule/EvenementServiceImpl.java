@@ -18,9 +18,9 @@ import com.jcertif.bo.participant.Participant;
 import com.jcertif.bo.presentation.PropositionPresentation;
 import com.jcertif.dao.api.cedule.CeduleParticipantDAO;
 import com.jcertif.dao.api.cedule.EvenementDAO;
+import com.jcertif.dao.api.participant.ParticipantDAO;
 import com.jcertif.service.AbstractService;
 import com.jcertif.service.api.cedule.EvenementService;
-import com.jcertif.service.api.participant.ParticipantService;
 
 /**
  * service de gestion des évènements
@@ -35,7 +35,7 @@ public class EvenementServiceImpl extends AbstractService<Evenement, Long, Evene
 	@Autowired
 	private EvenementDAO evenementDAO;
 	@Autowired
-	private ParticipantService participantService;
+	private ParticipantDAO participantDAO;
 	@Autowired
 	private CeduleParticipantDAO ceduleParticipantDAO;
 
@@ -90,10 +90,10 @@ public class EvenementServiceImpl extends AbstractService<Evenement, Long, Evene
 
 	@Override
 	@Transactional
-	public Set<Long> addUserToEvent(Long idEvent, String email) {
+	public Set<Long> addUserToEvent(Long idEvent, String email, Long conferenceId) {
 		Set<Long> idEvents = new HashSet<Long>();
 
-		Participant participant = participantService.findUniqueByEmail(email);
+		Participant participant = participantDAO.find(email, conferenceId).iterator().next();
 
 		CeduleParticipant cedule = new CeduleParticipant();
 		cedule.setDateCedule(Calendar.getInstance());
@@ -116,11 +116,11 @@ public class EvenementServiceImpl extends AbstractService<Evenement, Long, Evene
 
 	@Override
 	@Transactional
-	public Set<Long> removeUserToEvent(Long idEvent, String email) {
+	public Set<Long> removeUserToEvent(Long idEvent, String email, Long conferenceId) {
 		Set<Long> idEvents = new HashSet<Long>();
 		List<CeduleParticipant> cedules = ceduleParticipantDAO.findByProperty("evenementId",
 				idEvent);
-		Participant participant = participantService.findUniqueByEmail(email);
+		Participant participant = participantDAO.find(email, conferenceId).iterator().next();
 		for (CeduleParticipant cedulePart : participant.getCeduleParticipants()) {
 			idEvents.add(cedulePart.getEvenementId());
 		}
@@ -137,9 +137,9 @@ public class EvenementServiceImpl extends AbstractService<Evenement, Long, Evene
 	}
 
 	@Override
-	public Set<Long> findEventForUser(String email) {
+	public Set<Long> findEventForUser(String email, Long conferenceId) {
 		Set<Long> idEvents = new HashSet<Long>();
-		Participant participant = participantService.findUniqueByEmail(email);
+		Participant participant = participantDAO.find(email, conferenceId).iterator().next();
 		for (CeduleParticipant cedulePart : participant.getCeduleParticipants()) {
 			idEvents.add(cedulePart.getEvenementId());
 		}

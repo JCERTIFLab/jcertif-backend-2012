@@ -66,10 +66,10 @@ public class EventFacade extends Facade {
 	 */
 	@GET
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Path("/addevent/{idevent}/{email}")
+	@Path("/addevent/{idevent}/{email}/{conferenceId}")
 	public IdList addUserToEvent(@PathParam("idevent") Long idEvent,
-			@PathParam("email") String email) {
-		return new IdList(eventService.addUserToEvent(idEvent, email));
+			@PathParam("email") String email, @PathParam("conferenceId") Long conferenceId) {
+		return new IdList(eventService.addUserToEvent(idEvent, email, conferenceId));
 	}
 
 	/**
@@ -83,10 +83,10 @@ public class EventFacade extends Facade {
 	 */
 	@GET
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Path("/removeevent/{idevent}/{email}")
+	@Path("/removeevent/{idevent}/{email}/{conferenceId}")
 	public IdList removeUserToEvent(@PathParam("idevent") Long idEvent,
-			@PathParam("email") String email) {
-		return new IdList(eventService.removeUserToEvent(idEvent, email));
+			@PathParam("email") String email, @PathParam("conferenceId") Long conferenceId) {
+		return new IdList(eventService.removeUserToEvent(idEvent, email, conferenceId));
 	}
 
 	/**
@@ -96,8 +96,9 @@ public class EventFacade extends Facade {
 	 */
 	@GET
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Path("/user/{email}")
-	public IdList findEventForUser(@PathParam("email") String email) {
-		return new IdList(eventService.findEventForUser(email));
+	@Path("/user/{email}/{conferenceId}")
+	public IdList findEventForUser(@PathParam("email") String email,
+			@PathParam("conferenceId") Long conferenceId) {
+		return new IdList(eventService.findEventForUser(email, conferenceId));
 	}
 }

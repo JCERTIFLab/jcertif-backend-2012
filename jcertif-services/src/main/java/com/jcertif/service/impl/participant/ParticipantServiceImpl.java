@@ -69,7 +69,8 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
 	@Override
 	@Transactional
 	public Participant save(Participant entite) {
-		List<Participant> partList = participantDAO.findByEmail(entite.getEmail());
+		List<Participant> partList = participantDAO.find(entite.getEmail(), entite.getConference()
+				.getId());
 		if (partList.size() != 0) {
 			throw new ExistingEmailException();
 		}
@@ -149,11 +150,6 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
 	}
 
 	@Override
-	public List<Participant> findByEmail(String email) {
-		return participantDAO.findByEmail(email);
-	}
-
-	@Override
 	public List<Participant> findAllWithProposition() {
 		List<Participant> participants = participantDAO.findAll();
 
@@ -205,25 +201,12 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
 	}
 
 	@Override
-	public Participant findUniqueByEmail(String email) {
-		Set<Participant> participantList = new HashSet<Participant>(
-				participantDAO.findByEmail(email));
-		// Ces cas d'erreurs ne devraient fonctionnellement jamais arrivï¿½s
-		if (participantList.isEmpty()) {
-			throw new RuntimeException("Adresse email non trouvï¿½");
-		}
-		if (participantList.size() > 1) {
-			throw new RuntimeException("Plusieurs adresses email existent en base");
-		}
-		Participant participant = participantList.iterator().next();
-		return participant;
-	}
-
-	@Override
-	public Participant connect(String email, String password) {
-		Set<Participant> partList = new HashSet(participantDAO.findByEmail(email));
+	public Participant connect(String email, String password, Long conferenceid) {
+		Set<Participant> partList = new HashSet<Participant>(participantDAO.find(email,
+				conferenceid));
 		if (partList.size() > 1) {
-			throw new RuntimeException("Plusieurs personnes avec la même adresse email " + email);
+			throw new RuntimeException(
+					"Plusieurs personnes avec la même adresse email à la même conference " + email);
 		}
 
 		Participant participant = null;
@@ -242,12 +225,28 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
 
 	@Override
 	@Transactional
-	public Participant generateNewPassword(String email) {
-		Participant participant = findUniqueByEmail(email);
-		String newPassword = RandomStringUtils.random(12, true, false);
-		participant.getProfilUtilisateur().setPassword(getEncodedPassword(newPassword));
+	public Participant generateNewPassword(String email, Long conferenceId) {
+		List<Participant> participants = participantDAO.find(email, conferenceId);
+
+		Participant participant = new Participant();
+		if (!participants.isEmpty()) {
+			participant = participants.iterator().next();
+			String newPassword = RandomStringUtils.random(12, true, false);
+			participant.getProfilUtilisateur().setPassword(getEncodedPassword(newPassword));
+			participant = participantDAO.merge(participant);
+			cSenderService.sendNewPassword(participant, newPassword);
+		}
+
+		return participant;
+	}
+
+	@Override
+	@Transactional
+	public Participant updateBio(String bio, String email, Long conferenceId) {
+		List<Participant> participants = participantDAO.find(email, conferenceId);
+		Participant participant = participants.iterator().next();
+		participant.setDetails(bio);
 		participant = participantDAO.merge(participant);
-		cSenderService.sendNewPassword(participant, newPassword);
 		return participant;
 	}
 }

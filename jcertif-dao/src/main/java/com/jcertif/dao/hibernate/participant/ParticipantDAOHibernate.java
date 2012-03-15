@@ -2,7 +2,6 @@ package com.jcertif.dao.hibernate.participant;
 
 import java.util.List;
 
-import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.jcertif.bo.participant.Participant;
@@ -20,9 +19,12 @@ public class ParticipantDAOHibernate extends AbstractHibernateGenericDAO<Partici
 		implements ParticipantDAO {
 
 	@Override
-	public List<Participant> findByEmail(String email) {
-		return this.getCurrentSession().createCriteria(Participant.class)
-				.add(Restrictions.eq("email", email)).list();
+	public List<Participant> find(String email, Long conferenceId) {
+		return this
+				.getCurrentSession()
+				.createQuery(
+						"select p from Participant p where p.email=:email and p.conference.id=:conferenceId")
+				.setString("email", email).setLong("conferenceId", conferenceId).list();
 	}
 
 }

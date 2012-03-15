@@ -53,7 +53,6 @@ public class UserFacade extends Facade {
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Path(CREATE_SUFFIX)
 	public User create(User user) {
-
 		Participant entity = getParticipant(user);
 		Participant part = participantService.save(entity);
 		User userSaved = new User(part);
@@ -62,25 +61,20 @@ public class UserFacade extends Facade {
 
 	}
 
-	@GET
-	@Produces(value = { MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Path("/{email}")
-	public User findByEmail(@PathParam("email") String email) {
-		try {
-			Participant participant = participantService.findUniqueByEmail(email);
-			return new User(participant);
-		} catch (RuntimeException e) {
-			logger.error("UserFacade.findByEmail : ", e);
-			return new User();
-		}
-
+	@POST
+	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN })
+	@Path("/update/bio/{email}/{conferenceId}")
+	public void updateBio(String bio, @PathParam("email") String email,
+			@PathParam("conferenceId") Long conferenceId) {
+		participantService.updateBio(bio, email, conferenceId);
 	}
 
 	@GET
 	@Produces(value = { MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Path("/connect/{email}/{password}")
-	public User connect(@PathParam("email") String email, @PathParam("password") String password) {
-		Participant participant = participantService.connect(email, password);
+	@Path("/connect/{email}/{password}/{conferenceId}")
+	public User connect(@PathParam("email") String email, @PathParam("password") String password,
+			@PathParam("conferenceId") Long conferenceId) {
+		Participant participant = participantService.connect(email, password, conferenceId);
 
 		if (participant == null) {
 			return new User();
@@ -109,8 +103,9 @@ public class UserFacade extends Facade {
 	}
 
 	@POST
-	@Path("/resetPassword/{email}")
-	public void resetPassword(@PathParam(value = "email") String email) {
-		participantService.generateNewPassword(email);
+	@Path("/resetPassword/{email}/{conferenceId}")
+	public void resetPassword(@PathParam("email") String email,
+			@PathParam("conferenceId") Long conferenceId) {
+		participantService.generateNewPassword(email, conferenceId);
 	}
 }

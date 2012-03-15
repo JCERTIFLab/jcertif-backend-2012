@@ -19,26 +19,6 @@ import com.jcertif.service.GenericService;
  */
 public interface ParticipantService extends GenericService<Participant, Long, ParticipantDAO> {
 
-	/**
-	 * Return true if email adress is already used, false otherwise.
-	 * 
-	 * @param email
-	 *            a email adress
-	 * @return true if email exist
-	 */
-	List<Participant> findByEmail(String email);
-
-	/**
-	 * return one participant with the email. WARNING : if the participant is
-	 * not found => RuntimeException WARNING : if many participant have this
-	 * email => RuntimeException
-	 * 
-	 * @param email
-	 *            the email
-	 * @return the unique participant
-	 */
-	Participant findUniqueByEmail(String email);
-
 	List<Participant> findAllWithProposition();
 
 	void saveInFile(InputStream fileStream, Long idParticipant, String codeRole, String ext)
@@ -48,10 +28,13 @@ public interface ParticipantService extends GenericService<Participant, Long, Pa
 	 * 
 	 * @param email
 	 * @param password
+	 * @param conferenceId
 	 * @return null if password is wrong
 	 */
-	Participant connect(String email, String password);
+	Participant connect(String email, String password, Long conferenceId);
 
-	Participant generateNewPassword(String email);
+	Participant generateNewPassword(String email, Long conferenceId);
+
+	Participant updateBio(String bio, String email, Long conferenceId);
 
 }

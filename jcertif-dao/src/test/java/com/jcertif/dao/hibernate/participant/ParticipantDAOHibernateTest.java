@@ -1,6 +1,8 @@
 package com.jcertif.dao.hibernate.participant;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
@@ -15,14 +17,14 @@ import com.jcertif.dao.api.participant.ParticipantDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
 @ContextConfiguration(locations = { "classpath:jcertif-dao-test-beans.xml" })
-public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
+public class ParticipantDAOHibernateTest extends AbstractDAOTestCase {
 
 	@Autowired
 	private ParticipantDAO participantDAO;
-	
+
 	/**
 	 * Test de la méthode getReference().
-	 */	
+	 */
 	@Test
 	public void testGetReference() {
 		Participant participant1 = participantDAO.getReference(1L);
@@ -30,7 +32,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 		assertEquals("partenaire", participant1.getRoleparticipant().getCode());
 		assertEquals("entreprise", participant1.getTypeParticipant().getCode());
 		assertNull(participant1.getProfilUtilisateur());
-		
+
 		Participant participant3 = participantDAO.findById(3L);
 		assertEquals("Max", participant3.getPrenom());
 		assertEquals("Bonbhel", participant3.getNom());
@@ -43,10 +45,10 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 		assertEquals("fr", participant3.getProfilUtilisateur().getLangueCorrespondance());
 		assertEquals("maxb", participant3.getProfilUtilisateur().getNomProfil());
 	}
-	
+
 	/**
 	 * Test de la méthode find().
-	 */	
+	 */
 	@Test
 	public void testFind() {
 		Participant participant1 = participantDAO.findById(1L);
@@ -54,7 +56,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 		assertEquals("partenaire", participant1.getRoleparticipant().getCode());
 		assertEquals("entreprise", participant1.getTypeParticipant().getCode());
 		assertNull(participant1.getProfilUtilisateur());
-		
+
 		Participant participant3 = participantDAO.findById(3L);
 		assertEquals("Max", participant3.getPrenom());
 		assertEquals("Bonbhel", participant3.getNom());
@@ -66,7 +68,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 		assertEquals("fr", participant3.getProfilUtilisateur().getLangueCorrespondance());
 		assertEquals("maxb", participant3.getProfilUtilisateur().getNomProfil());
 	}
-	
+
 	/**
 	 * Test de la méthode findAll().
 	 */
@@ -77,11 +79,11 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 
 	/**
 	 * Test de la méthode findAllWithSort().
-	 */	
+	 */
 	@Test
 	public void testFindAllWithSort() {
-		assertEquals("Eric", participantDAO.findAllWithSort("prenom", true)
-				.iterator().next().getPrenom());
+		assertEquals("Eric", participantDAO.findAllWithSort("prenom", true).iterator().next()
+				.getPrenom());
 	}
 
 	/**
@@ -95,7 +97,6 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 		adresse.setLigne2("ligne2 1000");
 		adresse.setDetails("details 1000");
 
-		
 		Participant participant = new Participant();
 		participant.setPrenom("Fred");
 		participant.setNom("Close");
@@ -107,7 +108,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 		Participant participantV = participantDAO.findById(participant.getId());
 		assertEquals("Fred", participantV.getPrenom());
 		assertEquals("ligne1 1000", participantV.getAdresse().getLigne1());
-		
+
 	}
 
 	/**
@@ -121,7 +122,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 		participant.setNom("Close");
 		participant.setDetails("details 345");
 		participantDAO.persist(participant);
-		
+
 		participant.setPrenom("Coco");
 		Participant savedParticipant = participantDAO.merge(participant);
 
@@ -129,7 +130,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 		Participant participantV = participantDAO.findById(savedParticipant.getId());
 		assertEquals("Coco", participantV.getPrenom());
 		assertEquals("Close", participantV.getNom());
-		
+
 	}
 
 	/**
@@ -140,24 +141,25 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase{
 		Participant entity = participantDAO.findById(Long.valueOf(3L));
 		participantDAO.remove(entity);
 		assertEquals(2, participantDAO.findAll().size());
-	}	
-	
+	}
+
 	@Test
-	public void testFindByEmail(){
-		List<Participant> partList = participantDAO.findByEmail("max@bon.com");
+	public void testFindEmailConference() {
+		List<Participant> partList = participantDAO.find("max@bon.com", Long.valueOf(5));
 		assertEquals(1, partList.size());
-		partList = participantDAO.findByEmail("rossi@bon.com");
+		partList = participantDAO.find("max@bon.com", Long.valueOf(4));
 		assertEquals(0, partList.size());
 	}
-        
-        @Test
-        public void testFindByProperty() {
-            RoleParticipant rolePartenaire = new RoleParticipant(4l, "partenaire", "partenaire");
-            List<Participant> partList = participantDAO.findByProperty("roleparticipant", rolePartenaire);
-            assertEquals(2, partList.size());
-            RoleParticipant roleSpeaker = new RoleParticipant(1l, "speaker", "speaker");
-            partList = participantDAO.findByProperty("roleparticipant", roleSpeaker);
-            assertEquals(0, partList.size());
-        }
-	
+
+	@Test
+	public void testFindByProperty() {
+		RoleParticipant rolePartenaire = new RoleParticipant(4l, "partenaire", "partenaire");
+		List<Participant> partList = participantDAO.findByProperty("roleparticipant",
+				rolePartenaire);
+		assertEquals(2, partList.size());
+		RoleParticipant roleSpeaker = new RoleParticipant(1l, "speaker", "speaker");
+		partList = participantDAO.findByProperty("roleparticipant", roleSpeaker);
+		assertEquals(0, partList.size());
+	}
+
 }

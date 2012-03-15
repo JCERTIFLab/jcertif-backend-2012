@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
+	<conference id="7" name="JCertif 2011" date_debut="2011-02-12" date_fin="2011-12-02" website="www.jcertif.com" />
+	<conference id="5" name="JCertif 2012" date_debut="2011-02-12" date_fin="2011-11-08" website="www.jcertif.com"/>
+	<conference id="6" name="JCertif 2013" date_debut="2011-02-12" date_fin="2011-02-12" website="www.jcertif.com"/>
+	
 	<adresse id="1" ligne1="ligne1 1" ligne2="ligne2 1" code_postal="code_postal 1" ville="Kinshasa 1" province="Kinshasa 1" pays="RDC" details="details 1" telephone_fixe="telephone_fixe 1" telephone_mobile="telephone_mobile 1" fax="fax"/>
 	
 	<role_participant id="1" code="speaker" description="speaker" />	
@@ -16,7 +20,7 @@
 
 	<proposition_presentation id="1" titre="titre 1" sommaire="sommaire 1" besoins_specifiques="besoins 1" description="description 1" details="details 1"/>	
 	
-	<participant id="3" salutation="Monsieur" specialite="specialite1" prenom="Max" nom="Bonbhel" sexe_MF="m" email="max@bon.com" compagnie="Max and co"  cv_soumis="" details="detailsorganisateurs 1" role_participant_id="2" type_participant_id="1" profil_utilisateur_id="1" adresse_id="1" />
+	<participant id="3" conference_id="5" salutation="Monsieur" specialite="specialite1" prenom="Max" nom="Bonbhel" sexe_MF="m" email="max@bon.com" compagnie="Max and co"  cv_soumis="" details="detailsorganisateurs 1" role_participant_id="2" type_participant_id="1" profil_utilisateur_id="1" adresse_id="1" />
 	<participant id="1" salutation="Monsieur" specialite="specialite1" prenom="Larry" nom="Ellison" sexe_MF="m" email="larry@orcl.com" compagnie="Oracle"  cv_soumis="" details="detailsorganisateurs 1" role_participant_id="4" type_participant_id="2"/>
 	<participant id="2" salutation="Monsieur" specialite="specialite1" prenom="Eric" nom="Schmidt" sexe_MF="m" email="larry@orcl.com" compagnie="Google"  cv_soumis="" details="detailsorganisateurs 1" role_participant_id="4" type_participant_id="2"/>
 

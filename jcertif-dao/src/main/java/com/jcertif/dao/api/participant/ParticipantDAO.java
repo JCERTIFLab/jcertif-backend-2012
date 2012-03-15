@@ -14,11 +14,13 @@ import com.jcertif.dao.api.GenericDAO;
 public interface ParticipantDAO extends GenericDAO<Participant, Long> {
 
 	/**
-	 * Find Participant by Email.
+	 * Find Participant by Email and conferenceId
 	 * 
 	 * @param email
 	 *            email criteria
-	 * @return the participant 
+	 * @param conferenceId
+	 *            conference id criteria
+	 * @return the participant
 	 */
-	List<Participant> findByEmail(String email);
+	List<Participant> find(String email, Long conferenceId);
 }

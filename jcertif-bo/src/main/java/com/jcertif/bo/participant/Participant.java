@@ -78,23 +78,10 @@ public class Participant extends Person {
 	/**
 	 * Constructor
 	 */
-	public Participant(Long id, Calendar dateinscription, String salutation,
-			String specialite, String prenom, String nom, Character sexe,
-			String email, PropositionPresentation presentationsoumise,
-			String cvsoumis, String details, RoleParticipant roleparticipant,
-			Conference conference, Set<CeduleParticipant> ceduleparticipants) {
+	public Participant(Long id, String email, Conference conference) {
 		super();
 		this.setId(id);
-		this.dateInscription = dateinscription;
-		this.setSalutation(salutation);
-		this.setSpecialite(specialite);
-		this.setPrenom(prenom);
-		this.setNom(nom);
-		this.setSexe(sexe);
 		this.setEmail(email);
-		this.cvSoumis = cvsoumis;
-		this.setDetails(details);
-		this.roleparticipant = roleparticipant;
 		this.conference = conference;
 	}
 
@@ -113,9 +100,8 @@ public class Participant extends Person {
 	 * @param cvsoumis
 	 * @param details
 	 */
-	public Participant(Long id, String salutation, String prenom, String nom,
-			Character sexe_MF, String email,
-			PropositionPresentation presentationsoumise, String cvsoumis,
+	public Participant(Long id, String salutation, String prenom, String nom, Character sexe_MF,
+			String email, PropositionPresentation presentationsoumise, String cvsoumis,
 			String details) {
 		super();
 		this.setId(id);
@@ -278,8 +264,7 @@ public class Participant extends Person {
 	 * @param propositionPresentations
 	 *            the propositionPresentations to set
 	 */
-	public void setPropositionPresentations(
-			Set<PropositionPresentation> propositionPresentations) {
+	public void setPropositionPresentations(Set<PropositionPresentation> propositionPresentations) {
 		this.propositionPresentations = propositionPresentations;
 	}
 
@@ -303,8 +288,7 @@ public class Participant extends Person {
 	 */
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(this.getId())
-				.append(this.getPrenom()).toHashCode();
+		return new HashCodeBuilder().append(this.getConference()).toHashCode();
 	}
 
 	/**
@@ -323,7 +307,7 @@ public class Participant extends Person {
 
 		final Participant other = (Participant) obj;
 
-		return new EqualsBuilder().append(this.getId(), other.getId())
-				.append(this.getPrenom(), other.getPrenom()).isEquals();
+		return new EqualsBuilder().append(this.getEmail(), other.getEmail())
+				.append(this.getConference(), other.getConference()).isEquals();
 	}
 }

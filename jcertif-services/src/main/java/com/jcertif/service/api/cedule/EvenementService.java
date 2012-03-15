@@ -15,11 +15,11 @@ import com.jcertif.service.GenericService;
  */
 public interface EvenementService extends GenericService<Evenement, Long, EvenementDAO> {
 
-	Set<Long> addUserToEvent(Long idEvent, String email);
+	Set<Long> addUserToEvent(Long idEvent, String email, Long conferenceId);
 
-	Set<Long> removeUserToEvent(Long idEvent, String email);
+	Set<Long> removeUserToEvent(Long idEvent, String email, Long conferenceId);
 
-	Set<Long> findEventForUser(String email);
+	Set<Long> findEventForUser(String email, Long conferenceId);
 
 	List<Evenement> findAll(Long idConference);
 }
