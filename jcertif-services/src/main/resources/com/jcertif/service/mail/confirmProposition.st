@@ -30,8 +30,8 @@ p {line-height:18px;}
 <div class="container2">
 <div class="pagetitlesuccess">Merci pour votre proposition de pr&eacute;sentation!</div>
 <p>
-   Merci $participant.salutation$ $participant.prenom$ $participant.nom$!<br />
-   Votre proposition de pr&eacute;sentation &agrave; la conf&eacute;rence JCertif 2011 a bien &eacute;t&eacute; enregistr&eacute;e.<br />
+   Merci $participant.prenom$ $participant.nom$!<br />
+   Votre proposition de pr&eacute;sentation &agrave; la conf&eacute;rence JCertif 2012 a bien &eacute;t&eacute; enregistr&eacute;e.<br />
    <br />
    L&#39;&eacute;quipe d&#39;approbation vous notifiera par email de la suite accord&eacute;e &agrave; votre proposition (accept&eacute;e ou refus&eacute;e).<br />
    <br />
@@ -40,7 +40,7 @@ p {line-height:18px;}
    <ul>
    		<li>Les badges d&#39;acc&egrave;s VIP gratuits accord&eacute;s aux pr&eacute;sentateurs sont limit&eacute;s &agrave; 1 badge par pr&eacute;sentateur et ne peuvent &ecirc;tre transf&eacute;r&eacute;s ou pr&ecirc;t&eacute;s &agrave; un tiers.</li> 
 		<li>L'organisation JCertif ne rembourse pas les frais de voyage ni toutes autres d&eacute;penses occasionn&eacute;es par le d&eacute;placement des pr&eacute;sentateurs.</li> 
-		<li>En acceptant l&#39;invitation de pr&eacute;senter &agrave; JCertif 2011, vous autorisez JCertif &agrave; promouvoir, publier ou utiliser le contenu de votre pr&eacute;sentation pour les besoins de la conf&eacute;rence.</li>
+		<li>En acceptant l&#39;invitation de pr&eacute;senter &agrave; JCertif 2012, vous autorisez JCertif &agrave; promouvoir, publier ou utiliser le contenu de votre pr&eacute;sentation pour les besoins de la conf&eacute;rence.</li>
 	</ul>
    
    <br />
@@ -49,7 +49,7 @@ p {line-height:18px;}
    <a href="mailto:info@jcertif.com?subject=Je%20souhaite%20devenir%20collecteur%20de%20mon%20secteur">info@jcertif.com</a><br />
    <br />
    ================================================<br />
-   &Eacute;quipe JCertif 2011 - <a href="http://www.jcertif.com/" target="_blank" style="color: rgb(0, 0, 204);">http://www.jcertif.com</a><br />
+   &Eacute;quipe JCertif 2012 - <a href="http://www.jcertif.com/" target="_blank" style="color: rgb(0, 0, 204);">http://www.jcertif.com</a><br />
    info@jcertif.com
 </p>
 </div>

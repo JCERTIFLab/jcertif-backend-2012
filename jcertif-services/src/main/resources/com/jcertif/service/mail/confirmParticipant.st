@@ -30,17 +30,15 @@ p {line-height:18px;}
 <div class="container2">
 <div class="pagetitlesuccess">Merci pour votre inscription !</div>
 <p>
-   Merci $participant.salutation$ $participant.prenom$ $participant.nom$!<br />
-   Votre inscription &agrave; la conf&eacute;rence JCertif 2011 a bien &eacute;t&eacute; enregistr&eacute;e.<br />
+   Merci $participant.prenom$ $participant.nom$!<br />
+   Votre inscription &agrave; la conf&eacute;rence JCertif 2012 a bien &eacute;t&eacute; enregistr&eacute;e.<br />
    <br />
    Il ne vous reste plus que 2 petites &eacute;tapes pour compl&eacute;ter la proc&eacute;dure.<br />
    <br />
    &Eacute;tapes &agrave; suivre :<br />
    ------------------- <br />
-   &nbsp;1 - Contactez rapidement le collecteur de votre secteur. Consultez notre <a href="http://www.jcertif.com/">foire aux questions (FAQ)</a> pour trouver le collecteur le plus pr&ecirc;t de chez vous.<br />
+   &nbsp;1 - Contactez rapidement le collecteur de votre secteur. Consultez notre <a href="http://www.jcertif.com/">page de contact</a> pour trouver le collecteur le plus pr&ecirc;t de chez vous.<br />
    &nbsp;2 - Payez les frais de participation et recevez votre carte d&#39;invitation officielle et un num&eacute;ro de confirmation.<br />
-   <br />
-   Cr&eacute;er votre agenda personnalis&eacute;! Vous pouvez d&egrave;s &agrave; pr&eacute;sent r&eacute;server vos places pour les s&eacute;ances et ateliers qui vous interessent &agrave; l&#39;aide du calendrier interactif de <a href="http://www.jcertif.com/">www.jcertif.com</a><br />
    <br />
    <br />
    Devenez vous aussi collecteur de votre secteur et et rejoingnez l&#39;&eacute;quipe d&#39;organisation !<br />
@@ -48,7 +46,7 @@ p {line-height:18px;}
    <a href="mailto:info@jcertif.com?subject=Je%20souhaite%20devenir%20collecteur%20de%20mon%20secteur">info@jcertif.com</a><br />
    <br />
    ================================================<br />
-   &Eacute;quipe JCertif 2011 - <a href="http://www.jcertif.com/" target="_blank" style="color: rgb(0, 0, 204);">http://www.jcertif.com</a><br />
+   &Eacute;quipe JCertif 2012 - <a href="http://www.jcertif.com/" target="_blank" style="color: rgb(0, 0, 204);">http://www.jcertif.com</a><br />
    info@jcertif.com
 </p>
 </div>

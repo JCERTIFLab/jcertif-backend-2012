@@ -52,16 +52,14 @@ public class CSenderServiceImpl extends CSenderService {
 
 	private static final int NOMBRE_MAX_PARTENAIRES = 8;
 
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(CSenderServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CSenderServiceImpl.class);
 
 	@Autowired
 	private ParticipantService participantService;
 
 	@Override
 	@Async
-	public Boolean sendConfirmation(final ProfilUtilisateur profilUtilisateur,
-			final String from) {
+	public Boolean sendConfirmation(final ProfilUtilisateur profilUtilisateur, final String from) {
 		Properties props = new Properties();
 		props.put("mail.smtp.host", getHost());
 		props.put("mail.smtp.socketFactory.port", getSocketFactoryPort());
@@ -69,30 +67,25 @@ public class CSenderServiceImpl extends CSenderService {
 		props.put("mail.smtp.auth", getAuth());
 		props.put("mail.smtp.port", getSmtpPort());
 
-		Session session = Session.getDefaultInstance(props,
-				new javax.mail.Authenticator() {
+		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 
-					@Override
-					protected PasswordAuthentication getPasswordAuthentication() {
-						return new PasswordAuthentication(getUserName(),
-								getPassword());
-					}
-				});
+			@Override
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(getUserName(), getPassword());
+			}
+		});
 
-		String recipients = getDiffusionList() + ","
-				+ profilUtilisateur.getEmail();
+		String recipients = getDiffusionList() + "," + profilUtilisateur.getEmail();
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
-			message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse(recipients));
-			message.setSubject("Confirmation Enregistrement Participation JCertif 2011");
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
+			message.setSubject("Confirmation Enregistrement Participation JCertif 2012");
 			// Add html content
 
 			// Specify the cid of the image to include in the email
 			StringTemplateGroup group = new StringTemplateGroup("mailTemplate");
-			StringTemplate st = group
-					.getInstanceOf("com/jcertif/service/mail/confirmParticipant");
+			StringTemplate st = group.getInstanceOf("com/jcertif/service/mail/confirmParticipant");
 			st.setAttribute(from, st);
 			String html = st.toString();
 			Multipart mp = new MimeMultipart();
@@ -100,8 +93,7 @@ public class CSenderServiceImpl extends CSenderService {
 			htmlPart.setContent(html, "text/html");
 			mp.addBodyPart(htmlPart);
 			MimeBodyPart imagePart = new MimeBodyPart();
-			DataSource fds = new FileDataSource(
-					new File(new URI(getPhotoURI())));
+			DataSource fds = new FileDataSource(new File(new URI(getPhotoURI())));
 			imagePart.setDataHandler(new DataHandler(fds));
 
 			// assign a cid to the image
@@ -131,23 +123,20 @@ public class CSenderServiceImpl extends CSenderService {
 		props.put("mail.smtp.auth", getAuth());
 		props.put("mail.smtp.port", getSmtpPort());
 
-		Session session = Session.getDefaultInstance(props,
-				new javax.mail.Authenticator() {
+		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 
-					@Override
-					protected PasswordAuthentication getPasswordAuthentication() {
-						return new PasswordAuthentication(getUserName(),
-								getPassword());
-					}
-				});
+			@Override
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(getUserName(), getPassword());
+			}
+		});
 
 		String recipients = getDiffusionList() + "," + participant.getEmail();
 
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
-			message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse(recipients));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
 			message.setSubject("Confirmation Enregistrement Participation JCertif 2011");
 			// Add html content
 
@@ -155,12 +144,11 @@ public class CSenderServiceImpl extends CSenderService {
 
 			// Specify the cid of the image to include in the email
 			StringTemplateGroup group = new StringTemplateGroup("mailTemplate");
-			StringTemplate st = group
-					.getInstanceOf("com/jcertif/service/mail/confirmParticipant");
+			StringTemplate st = group.getInstanceOf("com/jcertif/service/mail/confirmParticipant");
 			st.setAttribute("participant", participant);
 
 			// Ajout des photos des partenaires
-			String partenaires = ajoutImagesPartenaire(mp);
+			String partenaires = ajoutImagesPartenaire(mp, participant.getConference().getId());
 			st.setAttribute("partenaires", partenaires);
 
 			String html = st.toString();
@@ -192,23 +180,21 @@ public class CSenderServiceImpl extends CSenderService {
 		return Boolean.TRUE;
 	}
 
-	private String ajoutImagesPartenaire(Multipart mp)
+	private String ajoutImagesPartenaire(Multipart mp, Long conferenceId)
 			throws MalformedURLException, MessagingException {
 		String partenaires = "";
 
-		Set<Participant> participants = new HashSet(
-				participantService.findAll());
+		Set<Participant> participants = new HashSet<Participant>(participantService.findAll());
 
 		int i = 0;
 		for (Participant partenaire : participants) {
 			if (partenaire.getRoleparticipant() != null
-					&& "Partenaire".equalsIgnoreCase(partenaire
-							.getRoleparticipant().getCode())
+					&& "Partenaire".equalsIgnoreCase(partenaire.getRoleparticipant().getCode())
 					&& partenaire.getNiveauPartenariat() != null
-					&& ("Titanium".equalsIgnoreCase(partenaire
-							.getNiveauPartenariat().getCode()) || "Platine"
-							.equalsIgnoreCase(partenaire.getNiveauPartenariat()
-									.getCode())) && i < NOMBRE_MAX_PARTENAIRES) {
+					&& ("Titanium".equalsIgnoreCase(partenaire.getNiveauPartenariat().getCode()) || "Platine"
+							.equalsIgnoreCase(partenaire.getNiveauPartenariat().getCode()))
+					&& i < NOMBRE_MAX_PARTENAIRES
+					&& partenaire.getConference().getId().equals(conferenceId)) {
 				MimeBodyPart imagePartenaire = new MimeBodyPart();
 				URL urlpart = new URL(getPicsUrl() + "/Partenaire/"
 						+ partenaire.getProfilUtilisateur().getPhoto());
@@ -217,13 +203,11 @@ public class CSenderServiceImpl extends CSenderService {
 
 				// assign a cid to the image
 
-				imagePartenaire.setHeader("Content-ID", "<image_partenaire" + i
-						+ ">");
+				imagePartenaire.setHeader("Content-ID", "<image_partenaire" + i + ">");
 
 				partenaires += "<td><a href=\"" + partenaire.getWebsite()
 						+ "\"><img style= \"width: 50px;\" alt=\""
-						+ "JCertif Logo\" src=\"cid:image_partenaire" + i
-						+ "\"></a></td>";
+						+ "JCertif Logo\" src=\"cid:image_partenaire" + i + "\"></a></td>";
 
 				mp.addBodyPart(imagePartenaire);
 				i++;
@@ -239,28 +223,25 @@ public class CSenderServiceImpl extends CSenderService {
 		Session session = initSession();
 		String recipients = getDiffusionList();
 
-		if (propo.getParticipants() != null
-				&& !propo.getParticipants().isEmpty()) {
-			recipients += ","
-					+ propo.getParticipants().iterator().next().getEmail();
+		if (propo.getParticipants() != null && !propo.getParticipants().isEmpty()) {
+			recipients += "," + propo.getParticipants().iterator().next().getEmail();
 		}
 
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
-			message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse(recipients));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
 			message.setSubject("Confirmation Proposition Présentation JCertif 2011");
 			// Add html content
 			Multipart mp = new MimeMultipart();
 			// Specify the cid of the image to include in the email
 			StringTemplateGroup group = new StringTemplateGroup("mailTemplate");
-			StringTemplate st = group
-					.getInstanceOf("com/jcertif/service/mail/confirmProposition");
+			StringTemplate st = group.getInstanceOf("com/jcertif/service/mail/confirmProposition");
 			st.setAttribute("proposition", propo);
 
 			// Ajout des photos des partenaires
-			String partenaires = ajoutImagesPartenaire(mp);
+			Long conferenceId = propo.getParticipants().iterator().next().getConference().getId();
+			String partenaires = ajoutImagesPartenaire(mp, conferenceId);
 			st.setAttribute("partenaires", partenaires);
 
 			String html = st.toString();
@@ -319,23 +300,19 @@ public class CSenderServiceImpl extends CSenderService {
 		props.put("mail.smtp.auth", getAuth());
 		props.put("mail.smtp.port", getSmtpPort());
 
-		Session session = Session.getDefaultInstance(props,
-				new javax.mail.Authenticator() {
+		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 
-					@Override
-					protected PasswordAuthentication getPasswordAuthentication() {
-						return new PasswordAuthentication(getUserName(),
-								getPassword());
-					}
-				});
+			@Override
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(getUserName(), getPassword());
+			}
+		});
 		return session;
 	}
 
 	@Override
-	public void sendEmail(List<String> roles, String subject,
-			String emailContent) {
-		Set<Participant> participantList = new HashSet<Participant>(
-				participantService.findAll());
+	public void sendEmail(List<String> roles, String subject, String emailContent) {
+		Set<Participant> participantList = new HashSet<Participant>(participantService.findAll());
 		String diffusionList = getDiffusionList();
 
 		for (Participant particpant : participantList) {
@@ -349,8 +326,7 @@ public class CSenderServiceImpl extends CSenderService {
 		try {
 			Message message = new MimeMessage(initSession());
 			message.setFrom(new InternetAddress(getUserName()));
-			message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse(diffusionList));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(diffusionList));
 			message.setSubject(subject);
 
 			if (LOGGER.isDebugEnabled()) {
@@ -373,20 +349,18 @@ public class CSenderServiceImpl extends CSenderService {
 
 	}
 
-    @Override
-    @Async
-    public Boolean sendNewPassword(Participant participant,final String newPassword) {
-	Session session = initSession();
+	@Override
+	@Async
+	public Boolean sendNewPassword(Participant participant, final String newPassword) {
+		Session session = initSession();
 		String recipients = getDiffusionList();
 
 		recipients += "," + participant.getEmail();
-		
 
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
-			message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse(recipients));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
 			message.setSubject("Votre nouveau mot de passe");
 			// Add html content
 			Multipart mp = new MimeMultipart();
@@ -397,7 +371,7 @@ public class CSenderServiceImpl extends CSenderService {
 			st.setAttribute("password", newPassword);
 
 			// Ajout des photos des partenaires
-			String partenaires = ajoutImagesPartenaire(mp);
+			String partenaires = ajoutImagesPartenaire(mp, participant.getConference().getId());
 			st.setAttribute("partenaires", partenaires);
 
 			String html = st.toString();
@@ -429,5 +403,5 @@ public class CSenderServiceImpl extends CSenderService {
 			throw new RuntimeException(e);
 		}
 		return Boolean.TRUE;
-    }
+	}
 }
