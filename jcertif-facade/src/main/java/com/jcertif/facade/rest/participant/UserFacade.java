@@ -53,6 +53,7 @@ public class UserFacade extends Facade {
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Path(CREATE_SUFFIX)
 	public User create(User user) {
+		logger.info("Creating new user " + user.getEmail());
 		Participant entity = getParticipant(user);
 		Participant part = participantService.save(entity);
 		User userSaved = new User(part);
@@ -89,11 +90,9 @@ public class UserFacade extends Facade {
 	public User findByEmail(@PathParam("email") String email,
 			@PathParam("conferenceId") Long conferenceId) {
 		Participant participant = participantService.findByEmail(email, conferenceId);
-
 		if (participant == null) {
 			return new User();
 		}
-
 		return new User(participant);
 	}
 
