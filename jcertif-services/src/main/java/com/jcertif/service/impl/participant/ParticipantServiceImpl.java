@@ -253,6 +253,9 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
 	@Override
 	public Participant findByEmail(String email, Long conferenceId) {
 		List<Participant> participants = participantDAO.find(email, conferenceId);
+		if (participants.isEmpty()) {
+			return null;
+		}
 		return participants.iterator().next();
 	}
 }
