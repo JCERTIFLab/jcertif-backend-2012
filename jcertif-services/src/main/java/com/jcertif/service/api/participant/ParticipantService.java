@@ -37,4 +37,6 @@ public interface ParticipantService extends GenericService<Participant, Long, Pa
 
 	Participant updateBio(String bio, String email, Long conferenceId);
 
+	Participant findByEmail(String email, Long conferenceId);
+
 }

@@ -249,4 +249,10 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
 		participant = participantDAO.merge(participant);
 		return participant;
 	}
+
+	@Override
+	public Participant findByEmail(String email, Long conferenceId) {
+		List<Participant> participants = participantDAO.find(email, conferenceId);
+		return participants.iterator().next();
+	}
 }

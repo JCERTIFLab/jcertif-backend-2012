@@ -83,6 +83,20 @@ public class UserFacade extends Facade {
 		return new User(participant);
 	}
 
+	@GET
+	@Produces(value = { MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Path("/{email}/{conferenceId}")
+	public User findByEmail(@PathParam("email") String email,
+			@PathParam("conferenceId") Long conferenceId) {
+		Participant participant = participantService.findByEmail(email, conferenceId);
+
+		if (participant == null) {
+			return new User();
+		}
+
+		return new User(participant);
+	}
+
 	public Participant getParticipant(User user) {
 		Participant part = new Participant();
 		part.setDateInscription(Calendar.getInstance());
