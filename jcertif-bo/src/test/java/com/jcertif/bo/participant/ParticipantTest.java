@@ -31,7 +31,7 @@ public class ParticipantTest {
 	public void testEqualsAndHashCode() {
 		final Participant a = new Participant(new Long(1), "malonga@yahoo.fr", null);
 		final Participant b = new Participant(new Long(1), "malonga@yahoo.fr", null);
-		final Participant c = new Participant(new Long(1), "malonga2008@yahoo.fr", null);
+		final Participant c = new Participant(new Long(2), "malonga2008@yahoo.fr", null);
 		final Participant d = new Participant(new Long(1), "malonga@yahoo.fr", null) {
 			private static final long serialVersionUID = 1L;
 		};

@@ -307,7 +307,6 @@ public class Participant extends Person {
 
 		final Participant other = (Participant) obj;
 
-		return new EqualsBuilder().append(this.getEmail(), other.getEmail())
-				.append(this.getConference(), other.getConference()).isEquals();
+		return new EqualsBuilder().append(this.getId(), other.getId()).isEquals();
 	}
 }
