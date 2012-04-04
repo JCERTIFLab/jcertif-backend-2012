@@ -54,6 +54,33 @@ p {line-height:18px;}
 </p>
 </div>
 <hr />
+<br/>
+<br/>
+<div class="container2">
+<div class="pagetitlesuccess">Thanks for your proposal!</div>
+<p>
+   Hi $participant.prenom$ $participant.nom$!<br />
+   Your submission has been registered and is currently under review..<br />
+   <br />
+   The content team will notify submitters via e-mail by May 15 of whether their paper was accepted or declined.<br />
+   <br />
+   General policies for JCertif 2011 :<br />
+   -----------------------------------<br />
+   <ul>
+   		<li>The complimentary pass is limited to one pass per speaker and is not transferable except as allowed by written agreement.</li> 
+		<li>JCertif does not reimburse speakers for their travel and expense costs, and speakers are responsible for any applicable taxes, custom duties or other expenses related to acceptance of the complimentary pass.</li> 
+		<li>By accepting the speaking invitation, you authorize CongoJug to promote, publish, and disseminate content submitted for use at the conference.</li>
+	</ul>
+   
+   <br />
+   Do not hesitate tu contact us if you need more detailed information!<br />
+   <a href="mailto:info@jcertif.com?subject=More information">info@jcertif.com</a><br />
+   <br />
+   ================================================<br />
+   Team JCertif 2012 - <a href="http://www.jcertif.com/" target="_blank" style="color: rgb(0, 0, 204);">http://www.jcertif.com</a><br />
+   info@jcertif.com
+</p>
+</div>
 
 <div align="center">
 <b>Sponsors</b>

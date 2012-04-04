@@ -50,6 +50,31 @@ p {line-height:18px;}
    info@jcertif.com
 </p>
 </div>
+<br/>
+<br/>
+
+<div class="container2">
+<div class="pagetitlesuccess">Thanks for your participation !</div>
+<p>
+   Hi $participant.prenom$ $participant.nom$!<br />
+   Your subscription for  JCertif Conference 2012 has been registered.<br />
+   <br />
+   There are two small steps to complete the procedure.<br />
+   <br />
+   next steps :<br />
+   ------------------- <br />
+   &nbsp;1 - Contact the JCertif fundraiser in your area <a href="http://www.jcertif.com/">page de contact</a><br />
+   &nbsp;2 - Pay the fee and receive your card.<br />
+   <br />
+   <br />
+   Do not hesitate tu contact us if you need more detailed information!<br />
+   <a href="mailto:info@jcertif.com?subject=More information">info@jcertif.com</a><br />
+   <br />
+   ================================================<br />
+   Team JCertif 2012 - <a href="http://www.jcertif.com/" target="_blank" style="color: rgb(0, 0, 204);">http://www.jcertif.com</a><br />
+   info@jcertif.com
+</p>
+</div>
 <hr />
 
 <div align="center">
