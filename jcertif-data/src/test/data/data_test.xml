@@ -155,9 +155,10 @@
 	<sujet id="13" libelle="Community Leader" description="Community Leader"/>
 	<sujet id="14" libelle="Concepts et Architecture" description="Concepts, architectures et méthodologie"/>
 	<sujet id="15" libelle="Gestion de contenu" description="Outils de gestion de contenu : ERP,CRM etc..."/>
-	<sujet id="16" libelle="Sujets génériques" description="Esemble de sujets d'ordre général"/>
-	<sujet id="17" libelle="Web 2.0, 3.0" description="Esemble de sujets associés à la structure du Web"/>
-	<sujet id="18" libelle="Outils de developpement" description="Esemble de sujets associés aux outils de developpement"/>
+	<sujet id="16" libelle="Sujets génériques" description="Ensemble de sujets d'ordre général"/>
+	<sujet id="17" libelle="Web 2.0, 3.0" description="Ensemble de sujets associés à la structure du Web"/>
+	<sujet id="18" libelle="Outils de developpement" description="Ensemble de sujets associés aux outils de developpement"/>
+	<sujet id="19" libelle="Other" description="«Autres sujets"/>
 
 
 
@@ -411,7 +412,7 @@
 
 
 	<participant conference_id="2" id="7" compagnie="Oracle" role_participant_id="1" type_participant_id="2" website="http://www.oracle.com/" adresse_id="8" nom="Brinkley" email="roger.brinkley@oracle.com" prenom="Roger " profil_utilisateur_id="8" details="Roger Brinkley is the Community Leader for the Mobile and Embedded Community at Oracle. He is responsible for community development related to Java ME technologies. He is part of the Evangelism and Blueprints team in the Java Platform Group, was a member of Sun's Open Source Group, the Java.Net Management Board, and serves as a Track Lead for the JavaOne Program Committee. Roger has more than 30 years of industry experience with over 14 years at Sun. He is a frequent speaker at technical conferences around the world and cohosts the weekly Java Mobility Podcast with Terrence Barr. Prior to becoming the Mobile and Embedded Community Leader he was the specification lead for JSR 97 JavaHelp 2.0 Specification and was the community leader for both the JDK and JavaDesktop communities. He has a Bachelors Degree in Computer Science and Quantitative Analysis and a Masters Degree in Business Administration." />
-	<participant conference_id="2" id="9" compagnie="Oracle" role_participant_id="1" type_participant_id="4" website="http://www.android2ee.com/" adresse_id="57" nom="Seguy" email="mathias.seguy.it@gmail.com" prenom="Peter" profil_utilisateur_id="30" details="Docteur en Mathématiques Fondamentales et Expert Java/J2EE/Android, Mathias est le fondateur de la société Android2EE spécialisée dans la formation et le consulting pour Android. Il est aussi Expert Technique de l'Agence Nationale de la Recherche en France." />
+	<participant conference_id="2" id="9" compagnie="Android2EE" role_participant_id="1" type_participant_id="4" website="http://www.android2ee.com/" adresse_id="57" nom="Seguy" email="mathias.seguy.it@gmail.com" prenom="Mathias" profil_utilisateur_id="30" details="Docteur en Mathématiques Fondamentales et Expert Java/J2EE/Android, Mathias est le fondateur de la société Android2EE spécialisée dans la formation et le consulting pour Android. Il est aussi Expert Technique de l'Agence Nationale de la Recherche en France." />
 	
 	
 	
