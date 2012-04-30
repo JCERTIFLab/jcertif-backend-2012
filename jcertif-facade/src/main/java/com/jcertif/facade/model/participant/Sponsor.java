@@ -16,7 +16,7 @@ public class Sponsor {
 	private String nom;
 	private String codeType;
 	private String codeRole;
-	private String codeNiveauPartenariat;
+	private Long idNiveauPartenariat;
 	private String presentation;
 	private String siteWeb;
 	private Long idConference;
@@ -37,7 +37,7 @@ public class Sponsor {
 		this.nom = part.getNom();
 		this.codeType = part.getTypeParticipant().getCode();
 		this.codeRole = part.getRoleparticipant().getCode();
-		this.codeNiveauPartenariat = part.getNiveauPartenariat().getCode();
+		this.idNiveauPartenariat = part.getNiveauPartenariat().getId();
 		this.presentation = part.getDetails();
 		this.siteWeb = part.getWebsite();
 		if (part.getConference() != null) {
@@ -110,18 +110,17 @@ public class Sponsor {
 	}
 
 	/**
-	 * @return the codeNiveauPartenariat
+	 * @return the idNiveauPartenariat
 	 */
-	public String getCodeNiveauPartenariat() {
-		return codeNiveauPartenariat;
+	public Long getIdNiveauPartenariat() {
+		return idNiveauPartenariat;
 	}
 
 	/**
-	 * @param codeNiveauPartenariat
-	 *            the codeNiveauPartenariat to set
+	 * @param idNiveauPartenariat the idNiveauPartenariat to set
 	 */
-	public void setCodeNiveauPartenariat(String codeNiveauPartenariat) {
-		this.codeNiveauPartenariat = codeNiveauPartenariat;
+	public void setIdNiveauPartenariat(Long idNiveauPartenariat) {
+		this.idNiveauPartenariat = idNiveauPartenariat;
 	}
 
 	/**
