@@ -306,7 +306,7 @@
 	<profil_utilisateur id="58" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="eni.jpg" />
 	<profil_utilisateur id="59" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="oreilly.png" />
 	<profil_utilisateur id="600" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="gi.jpg" />
-	
+	<profil_utilisateur id="602" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="gp.png" />
 	
 	
 	
@@ -400,6 +400,7 @@
 	<participant conference_id="2" id="58" niveau_partenariat_id="4" compagnie="Eni" role_participant_id="4" type_participant_id="5" code_participant="Valide" website="http://www.editions-eni.fr/" adresse_id="56" nom="Eni" email="" prenom="" profil_utilisateur_id="58" details="Eni" />
 	<participant conference_id="2" id="59" niveau_partenariat_id="4" compagnie="O REILLY" role_participant_id="4" type_participant_id="5" code_participant="Valide" website="http://oreilly.com/" adresse_id="56" nom="Eni" email="" prenom="" profil_utilisateur_id="59" details="O REILLY" />
 	<participant niveau_partenariat_id="4" conference_id="2" id="600" compagnie="Groupement informatique" role_participant_id="4" type_participant_id="5" code_participant="Valide" website="http://www.ginformatique.com/" adresse_id="56" nom="Eni" email="" prenom="" profil_utilisateur_id="600" details="Groupement informatique" />
+	<participant niveau_partenariat_id="3" conference_id="2" id="602" compagnie="General Partner" role_participant_id="4" type_participant_id="5" code_participant="Valide" website="http://general-partner.com/" adresse_id="56" nom="General Partner" email="" prenom="" profil_utilisateur_id="602" details="General Partner" />
 	
 	
 	<!-- Participants Présentateurs-->		
