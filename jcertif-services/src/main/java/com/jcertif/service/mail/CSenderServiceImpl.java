@@ -196,7 +196,7 @@ public class CSenderServiceImpl extends CSenderService {
 					&& i < NOMBRE_MAX_PARTENAIRES
 					&& partenaire.getConference().getId().equals(conferenceId)) {
 				MimeBodyPart imagePartenaire = new MimeBodyPart();
-				URL urlpart = new URL(getPicsUrl() + "/Partenaire/"
+				URL urlpart = new URL(getPicsUrl() + "/img/2012/"
 						+ partenaire.getProfilUtilisateur().getPhoto());
 				DataSource fdsPart = new URLDataSource(urlpart);
 				imagePartenaire.setDataHandler(new DataHandler(fdsPart));
