@@ -137,7 +137,7 @@ public class CSenderServiceImpl extends CSenderService {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
-			message.setSubject("Confirmation Enregistrement Participation JCertif 2011");
+			message.setSubject("Confirmation Enregistrement Participation JCertif 2012");
 			// Add html content
 
 			Multipart mp = new MimeMultipart();
@@ -231,7 +231,7 @@ public class CSenderServiceImpl extends CSenderService {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(getUserName()));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
-			message.setSubject("Confirmation Proposition Présentation JCertif 2011");
+			message.setSubject("Confirmation Proposition Présentation JCertif 2012");
 			// Add html content
 			Multipart mp = new MimeMultipart();
 			// Specify the cid of the image to include in the email
