@@ -7,7 +7,6 @@ package com.jcertif.service.mail;
 import java.util.List;
 
 import com.jcertif.bo.participant.Participant;
-import com.jcertif.bo.participant.ProfilUtilisateur;
 import com.jcertif.bo.presentation.PropositionPresentation;
 
 /**
@@ -88,18 +87,12 @@ public abstract class CSenderService {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
-	public abstract Boolean sendConfirmation(
-			ProfilUtilisateur profilUtilisateur, String from);
-
+	
 	public abstract Boolean sendAddParticipantConfirmation(
 			final Participant participant);
 
 	public abstract Boolean sendAddPropositionConfirmation(
 			final PropositionPresentation propo);
-
-	public abstract void sendEmail(final List<String> roles, String subject,
-			String emailContent);
 	
 	public abstract Boolean sendNewPassword(
 			final Participant participant, final String newPassword);

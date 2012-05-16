@@ -24,9 +24,9 @@
     <context:component-scan base-package="com.jcertif.service" />
 
     <bean id="cSenderService" class="com.jcertif.service.mail.CSenderServiceImpl">
-        <property name="userName" value="JCertif2011Test@gmail.com"/>
-        <property name="password" value="JCertif2011Test@1"/>
-        <property name="host" value="smtp.gmail.com"/>
+        <property name="userName" value="${mail.user}"/>
+        <property name="password" value="${mail.pass}"/>
+        <property name="host" value="${mail.host}"/>
         <property name="socketFactoryPort" value="465"/>
         <property name="socketFactoryClass" value="javax.net.ssl.SSLSocketFactory"/>
         <property name="auth" value="true"/>

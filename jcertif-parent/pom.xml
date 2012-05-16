@@ -48,6 +48,10 @@
 		<!-- Ne pas mettre le "/" avec la fin du r�pertoire -->
 		<tmp.photo.dir>./tmp/photo</tmp.photo.dir>
 		<presentation.cache.enabled>false</presentation.cache.enabled>
+		<mail.user>JCertif2011Test@gmail.com</mail.user>
+		<mail.pass>JCertif2011Test@1</mail.pass>
+		<mail.host>smtp.gmail.com</mail.host>
+		<mail.diffusion>rossi.oddet@jcertif.fr</mail.diffusion>
 	</properties>
 
 	<modules>
@@ -817,6 +821,10 @@
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
 
 				<presentation.cache.enabled>true</presentation.cache.enabled>
+				<mail.user>JCertif2011Test@gmail.com</mail.user>
+				<mail.pass>JCertif2011Test@1</mail.pass>
+				<mail.host>smtp.gmail.com</mail.host>
+				<mail.diffusion>rossi.oddet@jcertif.fr</mail.diffusion>
 			</properties>
 		</profile>
 
@@ -854,6 +862,10 @@
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
 
 				<presentation.cache.enabled>true</presentation.cache.enabled>
+				<mail.user>${MAIL_USER}</mail.user>
+				<mail.pass>${MAIL_PASS}</mail.pass>
+				<mail.host>${MAIL_HOST}</mail.host>
+				<mail.diffusion>${MAIL_DIF}</mail.diffusion>
 			</properties>
 		</profile>
 
@@ -881,6 +893,10 @@
 					pour utiliser cette variable de tomcat -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
 				<presentation.cache.enabled>true</presentation.cache.enabled>
+				<mail.user>JCertif2011Test@gmail.com</mail.user>
+				<mail.pass>JCertif2011Test@1</mail.pass>
+				<mail.host>smtp.gmail.com</mail.host>
+				<mail.diffusion>rossi.oddet@jcertif.fr</mail.diffusion>
 			</properties>
 		</profile>
 	</profiles>
