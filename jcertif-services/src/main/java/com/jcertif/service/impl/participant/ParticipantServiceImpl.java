@@ -142,7 +142,10 @@ public class ParticipantServiceImpl extends AbstractService<Participant, Long, P
     @Override
     @Transactional
     public Participant update(Participant entite) {
-        return super.update(copyProperties(entite));
+        Participant participant = super.update(copyProperties(entite));
+        // Getting Adresse to prevent LazyLoading problems
+        participant.getAdresse().getId();
+        return participant;
     }
 
     private Participant copyProperties(Participant lightParticipant) {
