@@ -3,7 +3,7 @@ package com.jcertif.dao.api;
 import com.jcertif.bo.Adresse;
 
 /**
- * Interface d'accès aux données Adresse.
+ * Interface d'accÃ¨s aux donnÃ©es Adresse.
  * 
  * @author Douneg
  * 

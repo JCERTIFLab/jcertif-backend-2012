@@ -25,7 +25,7 @@ public class ComiteOrganisationTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link ComiteOrganisation}.
+	 * Test des mÃ©thodes Equals et Hashcode du Bo {@link ComiteOrganisation}.
 	 */
 	@Test
 	public void testEqualsAndHashCode() {

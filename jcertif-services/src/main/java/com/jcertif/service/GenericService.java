@@ -20,7 +20,7 @@ public interface GenericService<T, PK extends Serializable, S extends GenericDAO
     /**
      *
      * @param key
-     * @return une Conférence
+     * @return une Conference
      */
     T findById(PK key);
 

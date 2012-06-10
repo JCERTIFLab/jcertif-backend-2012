@@ -6,7 +6,7 @@ import com.jcertif.bo.Adresse;
 import com.jcertif.dao.api.AdresseDAO;
 
 /**
- * Implémentation Hibernate de l'accès aux données Adresse.
+ * Implementation Hibernate de l'acces aux donnees Adresse.
  * 
  * @author Douneg
  * 

@@ -11,7 +11,7 @@ import com.jcertif.dao.api.presentation.StatutApprobationDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
 /**
- * Test de l'implémentation Hibernate de l'accès aux données statut
+ * Test de l'implementation Hibernate de l'acces aux donnees statut
  * d'approbation.
  * 
  * @author rossi.oddet
@@ -27,7 +27,7 @@ public class StatutApprobationDAOHibernateTest extends AbstractDAOTestCase {
 	private StatutApprobationDAO statutApprobationDAO;
 
 	/**
-	 * Test de la méthode getReference().
+	 * Test de la methode getReference().
 	 */
 	@Test
 	public void testGetReference() {
@@ -37,7 +37,7 @@ public class StatutApprobationDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {
@@ -47,7 +47,7 @@ public class StatutApprobationDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAll().
+	 * Test de la methode findAll().
 	 */
 	@Test
 	public void testFindAll() {
@@ -55,7 +55,7 @@ public class StatutApprobationDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAllWithSort().
+	 * Test de la methode findAllWithSort().
 	 */
 	@Test
 	public void testFindAllWithSort() {
@@ -64,7 +64,7 @@ public class StatutApprobationDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode persist().
+	 * Test de la methode persist().
 	 */
 	@Test
 	public void testPersist() {
@@ -80,7 +80,7 @@ public class StatutApprobationDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode merge().
+	 * Test de la methode merge().
 	 */
 	@Test
 	public void testMerge() {
@@ -96,7 +96,7 @@ public class StatutApprobationDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode remove().
+	 * Test de la methode remove().
 	 */
 	@Test
 	public void testRemove() {
@@ -106,7 +106,7 @@ public class StatutApprobationDAOHibernateTest extends AbstractDAOTestCase {
 	}
 	
 	/**
-	 * Test de la méthode findByCode().
+	 * Test de la methode findByCode().
 	 */
 	@Test
 	public void testFindByCode() {

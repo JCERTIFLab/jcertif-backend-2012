@@ -25,7 +25,7 @@ public class SalleTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link Salle}.
+	 * Test des mÃ©hodes Equals et Hashcode du Bo {@link Salle}.
 	 */
 	@Test
 	public void testEqualsAndHashCode() {

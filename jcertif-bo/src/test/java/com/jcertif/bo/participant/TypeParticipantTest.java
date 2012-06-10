@@ -26,7 +26,7 @@ public class TypeParticipantTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link TypeParticipant}.
+	 * Test des mÃ©thodes Equals et Hashcode du Bo {@link TypeParticipant}.
 	 */
 	@Test
 	public void testtestEqualsAndHashCode() {

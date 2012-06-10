@@ -3,7 +3,7 @@ package com.jcertif.bo;
 import java.io.Serializable;
 
 /**
- * Classe mère de tous les BO. Le but est de créer des contraintes sur les BO.
+ * Classe more de tous les BO. Le but est de crÃ©er des contraintes sur les BO.
  * 
  * @author rossi.oddet
  * 

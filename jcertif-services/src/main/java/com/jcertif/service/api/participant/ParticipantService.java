@@ -24,13 +24,6 @@ public interface ParticipantService extends GenericService<Participant, Long, Pa
 	void saveInFile(InputStream fileStream, Long idParticipant, String codeRole, String ext)
 			throws IOException;
 
-	/**
-	 * 
-	 * @param email
-	 * @param password
-	 * @param conferenceId
-	 * @return null if password is wrong
-	 */
 	Participant connect(String email, String password, Long conferenceId);
 
 	Participant generateNewPassword(String email, Long conferenceId);
@@ -38,5 +31,7 @@ public interface ParticipantService extends GenericService<Participant, Long, Pa
 	Participant updateBio(String bio, String email, Long conferenceId);
 
 	Participant findByEmail(String email, Long conferenceId);
+
+    void modifyPassword(String email, String oldPassword, String newPassword, Long conferenceId);
 
 }

@@ -71,7 +71,7 @@ public class StatutApprobation extends AbstractBO {
 	}
 
 	/**
-	 * Définit l'identifiant d'un statut d'approbation
+	 * DÃ©finit l'identifiant d'un statut d'approbation
 	 * 
 	 * @param id
 	 *            un identifiant
@@ -88,7 +88,7 @@ public class StatutApprobation extends AbstractBO {
 	}
 
 	/**
-	 * Définit le code statut.
+	 * DÃ©finit le code statut.
 	 * 
 	 * @param codeStatut
 	 *            un code statut
@@ -105,7 +105,7 @@ public class StatutApprobation extends AbstractBO {
 	}
 
 	/**
-	 * Définit une description.
+	 * DÃ©finit une description.
 	 * 
 	 * @param description
 	 *            une description

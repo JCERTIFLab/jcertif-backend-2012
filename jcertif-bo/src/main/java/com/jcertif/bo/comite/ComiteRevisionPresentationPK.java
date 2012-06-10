@@ -9,7 +9,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 /**
- * Clé composite pour {@link ComiteRevisionPresentation}.
+ * ClÃ© composite pour {@link ComiteRevisionPresentation}.
  * 
  * @author rossi.oddet
  * 
@@ -20,13 +20,13 @@ public class ComiteRevisionPresentationPK implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Identifiant comité organisation.
+	 * Identifiant comitÃ© organisation.
 	 */
 	@Column(name = "commite_organisation_id")
 	private Long comiteOrganisationId;
 
 	/**
-	 * Identifiant présentation.
+	 * Identifiant prÃ©sentation.
 	 */
 	@Column(name = "presentation_id")
 	private Long presentationId;

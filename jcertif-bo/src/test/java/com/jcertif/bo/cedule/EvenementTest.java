@@ -27,7 +27,7 @@ public class EvenementTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link Evenement}.
+	 * Test des mÃ©thodes Equals et Hashcode du Bo {@link Evenement}.
 	 */
 	@Test
 	public void testEqualsAndHashCode() {

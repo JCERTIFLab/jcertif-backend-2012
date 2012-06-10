@@ -28,7 +28,7 @@ public class RoleParticipantDAOHibernateTest extends AbstractDAOTestCase{
 	private RoleParticipantDAO roleParticipantDAO;
 
 	/**
-	 * Test de la méthode getReference().
+	 * Test de la methode getReference().
 	 */
 	@Test
 	public void testGetReference() {

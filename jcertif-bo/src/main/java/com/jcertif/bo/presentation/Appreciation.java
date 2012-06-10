@@ -39,7 +39,7 @@ public class Appreciation extends AbstractBO {
 	private Long id;
 
 	/**
-	 * Le code de l'appréciation.
+	 * Le code de l'appreciation.
 	 */
 	@Column(nullable = false)
 	private String codeAppreciation;
@@ -51,14 +51,14 @@ public class Appreciation extends AbstractBO {
 	private String description;
 
 	/**
-	 * Liste de présentations.
+	 * Liste de prÃ©sentations.
 	 */
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "appreciation_presentation", joinColumns = @JoinColumn(name = "appreciation_id"), inverseJoinColumns = @JoinColumn(name = "proposition_presentation_id"))
 	private List<PropositionPresentation> presentationsInternal;
 
 	/**
-	 * Constructeur par défaut.
+	 * Constructeur par dÃ©faut.
 	 */
 	public Appreciation() {
 		super();
@@ -68,7 +68,7 @@ public class Appreciation extends AbstractBO {
 	 * Un constructeur.
 	 * 
 	 * @param codeAppreciation
-	 *            un code appréciation
+	 *            un code apprÃ©ciation
 	 * @param description
 	 *            une description
 	 */
@@ -79,14 +79,14 @@ public class Appreciation extends AbstractBO {
 	}
 
 	/**
-	 * @return l'identifiant de l'appréciation.
+	 * @return l'identifiant de l'apprÃ©ciation.
 	 */
 	public Long getId() {
 		return id;
 	}
 
 	/**
-	 * Définit l'identifiant de l'appréciation.
+	 * Definit l'identifiant de l'apprÃ©ciation.
 	 * 
 	 * @param id
 	 *            un identifiant
@@ -96,14 +96,14 @@ public class Appreciation extends AbstractBO {
 	}
 
 	/**
-	 * @return la description de l'appréciation.
+	 * @return la description de l'apprÃ©ciation.
 	 */
 	public String getDescription() {
 		return description;
 	}
 
 	/**
-	 * Définit une description de l'appréciation.
+	 * Definit une description de l'apprÃ©ciation.
 	 * 
 	 * @param description
 	 *            une description
@@ -113,24 +113,24 @@ public class Appreciation extends AbstractBO {
 	}
 
 	/**
-	 * @return le code de l'appréciation
+	 * @return le code de l'apprÃ©ciation
 	 */
 	public String getCodeAppreciation() {
 		return codeAppreciation;
 	}
 
 	/**
-	 * Définit le code de l'appréciation.
+	 * Definit le code de l'apprÃ©ciation.
 	 * 
 	 * @param codeAppreciation
-	 *            un code d'appréciation
+	 *            un code d'apprÃ©ciation
 	 */
 	public void setCodeAppreciation(String codeAppreciation) {
 		this.codeAppreciation = codeAppreciation;
 	}
 
 	/**
-	 * @return la liste des présentations.
+	 * @return la liste des prÃ©sentations.
 	 */
 	protected List<PropositionPresentation> getPresentationsInternal() {
 		if (this.presentationsInternal == null) {
@@ -140,10 +140,10 @@ public class Appreciation extends AbstractBO {
 	}
 
 	/**
-	 * Définit la liste des présentations.
+	 * Definit la liste des prÃ©sentations.
 	 * 
 	 * @param presentationsInternal
-	 *            une liste de présentations.
+	 *            une liste de prÃ©sentations.
 	 */
 	protected void setPresentationsInternal(
 			List<PropositionPresentation> presentationsInternal) {
@@ -151,29 +151,29 @@ public class Appreciation extends AbstractBO {
 	}
 
 	/**
-	 * @return la liste des présentations.
+	 * @return la liste des prÃ©sentations.
 	 */
 	public List<PropositionPresentation> getPresentations() {
 		return Collections.unmodifiableList(getPresentationsInternal());
 	}
 
 	/**
-	 * Ajoute une présentation.
+	 * Ajoute une prÃ©sentation.
 	 * 
 	 * @param presentation
-	 *            une présentation
-	 * @return le résultat de l'ajout
+	 *            une prÃ©sentation
+	 * @return le rÃ©sultat de l'ajout
 	 */
 	public boolean addPresentation(final PropositionPresentation presentation) {
 		return this.getPresentationsInternal().add(presentation);
 	}
 
 	/**
-	 * Suppression d'une présentation.
+	 * Suppression d'une prÃ©sentation.
 	 * 
 	 * @param presentation
-	 *            une présentation
-	 * @return le résultat de la suppression d'une présentation
+	 *            une prÃ©sentation
+	 * @return le rÃ©sultat de la suppression d'une presentation
 	 */
 	public boolean removePresentation(final PropositionPresentation presentation) {
 		return this.getPresentationsInternal().remove(presentation);

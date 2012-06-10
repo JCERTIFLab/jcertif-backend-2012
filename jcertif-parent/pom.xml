@@ -17,7 +17,7 @@
 		<eclipse.workspace.directory>E:\JCertif2011\Workspace</eclipse.workspace.directory>
 
 		<!-- SOURCES PROPERTIES -->
-		<file.encoding>ISO-8859-1</file.encoding>
+		<file.encoding>UTF-8</file.encoding>
 		<source.version>1.6</source.version>
 		<project.build.sourceEncoding>${file.encoding}</project.build.sourceEncoding>
 
@@ -26,7 +26,7 @@
 
 		<vaadin-widgets-dir>src/main/webapp/VAADIN/widgetsets</vaadin-widgets-dir>
 
-		<!-- D�fault jdbc connexion -->
+		<!-- Default jdbc connexion -->
 		<jdbc.driver.classname>com.mysql.jdbc.Driver</jdbc.driver.classname>
 		<jdbc.url>jdbc:mysql://localhost:3306/jcertifinteg?createDatabaseIfNotExist=true</jdbc.url>
 		<jdbc.username>jcertif</jdbc.username>
@@ -42,10 +42,10 @@
 		<hibernate.cache.use_query_cache>false</hibernate.cache.use_query_cache>
 
 		<facade.url>http://localhost:8080/jcertif-facade</facade.url>
-		<!-- Ne pas mettre le "/" avec la fin du r�pertoire -->
+		<!-- Ne pas mettre le "/" avec la fin du repertoire -->
 		<pics.participant.dir>./src/main/webapp</pics.participant.dir>
 		<pics.url>http://localhost:8082/jcertif-pics</pics.url>
-		<!-- Ne pas mettre le "/" avec la fin du r�pertoire -->
+		<!-- Ne pas mettre le "/" avec la fin du repertoire -->
 		<tmp.photo.dir>./tmp/photo</tmp.photo.dir>
 		<presentation.cache.enabled>false</presentation.cache.enabled>
 		<mail.user>JCertif2011Test@gmail.com</mail.user>
@@ -229,7 +229,7 @@
 							<rules>
 								<bannedDependencies>
 									<excludes>
-										<!-- Lister ici les d�pendances � exclure sur l'ensemble du projet -->
+										<!-- Lister ici les dependances e exclure sur l'ensemble du projet -->
 										<exclude>commons-logging:commons-logging</exclude>
 									</excludes>
 								</bannedDependencies>
@@ -812,11 +812,11 @@
 				<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
 
 				<facade.url>http://jcertif.baamtu.com/jcertif-facade</facade.url>
-				<!-- Ne pas mettre le "/" avec la fin du r�pertoire -->
+				<!-- Ne pas mettre le "/" avec la fin du repertoire -->
 				<pics.participant.dir>catalina.base/webapps/jcertif-pics</pics.participant.dir>
 				<pics.url>http://jcertif.baamtu.com/jcertif-pics</pics.url>
 
-				<!-- Ne pas mettre le "/" avec la fin du r�pertoire, mettre catalina.base 
+				<!-- Ne pas mettre le "/" avec la fin du repertoire, mettre catalina.base
 					pour utiliser cette variable de tomcat -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
 
@@ -854,10 +854,10 @@
 				<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
 
 				<facade.url>${URL_FACADE}</facade.url>
-				<!-- Ne pas mettre le "/" avec la fin du r�pertoire -->
+				<!-- Ne pas mettre le "/" avec la fin du repertoire -->
 				<pics.participant.dir>catalina.base/webapps/jcertif-pics</pics.participant.dir>
 				<pics.url>${URL_PICS}</pics.url>
-				<!-- Ne pas mettre le "/" avec la fin du r�pertoire, mettre catalina.base 
+				<!-- Ne pas mettre le "/" avec la fin du repertoire, mettre catalina.base
 					pour utiliser cette variable de tomcat -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
 
@@ -886,10 +886,10 @@
 				<hibernate.cache.use_query_cache>true</hibernate.cache.use_query_cache>
 
 				<facade.url>http://localhost:8080/jcertif-facade</facade.url>
-				<!-- Ne pas mettre le "/" avec la fin du r�pertoire -->
+				<!-- Ne pas mettre le "/" avec la fin du repertoire -->
 				<pics.participant.dir>catalina.base/webapps/jcertif-pics</pics.participant.dir>
 				<pics.url>http://localhost:8080/jcertif-pics</pics.url>
-				<!-- Ne pas mettre le "/" avec la fin du r�pertoire, mettre catalina.base 
+				<!-- Ne pas mettre le "/" avec la fin du repertoire, mettre catalina.base
 					pour utiliser cette variable de tomcat -->
 				<tmp.photo.dir>catalina.base/webapps/jcertif-presentation/tmp</tmp.photo.dir>
 				<presentation.cache.enabled>true</presentation.cache.enabled>

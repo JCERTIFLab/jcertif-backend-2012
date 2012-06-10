@@ -11,7 +11,7 @@ import com.jcertif.dao.api.presentation.AppreciationDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
 /**
- * Test de l'implémentation Hibernate de l'accès aux données Appreciation.
+ * Test de l'implementation Hibernate de l'acces aux donnees Appreciation.
  * 
  * @author rossi.oddet
  * 
@@ -26,7 +26,7 @@ public class AppreciationDAOHibernateTest extends AbstractDAOTestCase {
 	private AppreciationDAO appreciationDAO;
 
 	/**
-	 * Test de la méthode getReference().
+	 * Test de la methode getReference().
 	 */
 	@Test
 	public void testGetReference() {
@@ -37,7 +37,7 @@ public class AppreciationDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {
@@ -47,7 +47,7 @@ public class AppreciationDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAll().
+	 * Test de la methode findAll().
 	 */
 	@Test
 	public void testFindAll() {
@@ -55,7 +55,7 @@ public class AppreciationDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAllWithSort().
+	 * Test de la methode findAllWithSort().
 	 */
 	@Test
 	public void testFindAllWithSort() {
@@ -64,7 +64,7 @@ public class AppreciationDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode persist().
+	 * Test de la methode persist().
 	 */
 	@Test
 	public void testPersist() {
@@ -74,14 +74,14 @@ public class AppreciationDAOHibernateTest extends AbstractDAOTestCase {
 		appreciation.setDescription("description 100");
 		appreciationDAO.persist(appreciation);
 
-		// Vérification
+		// Verification
 		Appreciation appreciation1 = appreciationDAO.findById(appreciation.getId());
 		assertEquals("code 100", appreciation1.getCodeAppreciation());
 		assertEquals("description 100", appreciation1.getDescription());
 	}
 
 	/**
-	 * Test de la méthode merge().
+	 * Test de la methode merge().
 	 */
 	@Test
 	public void testMerge() {
@@ -91,14 +91,14 @@ public class AppreciationDAOHibernateTest extends AbstractDAOTestCase {
 		appreciation.setDescription("description 1000");
 		Appreciation savedAppreciation = appreciationDAO.merge(appreciation);
 
-		// Vérification
+		// Verification
 		Appreciation appreciation1 = appreciationDAO.findById(savedAppreciation.getId());
 		assertEquals("code 1000", appreciation1.getCodeAppreciation());
 		assertEquals("description 1000", appreciation1.getDescription());
 	}
 
 	/**
-	 * Test de la méthode remove().
+	 * Test de la methode remove().
 	 */
 	@Test
 	public void testRemove() {

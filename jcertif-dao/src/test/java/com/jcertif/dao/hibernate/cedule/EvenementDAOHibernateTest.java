@@ -11,7 +11,7 @@ import com.jcertif.dao.api.cedule.EvenementDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
 /**
- * Test de l'implémentation Hibernate de l'accès aux données Evenement.
+ * Test de l'implementation Hibernate de l'acces aux donnees Evenement.
  * 
  * @author Douneg
  * 
@@ -27,7 +27,7 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
 
 
     /**
-     * Test de la méthode getReference().
+     * Test de la methode getReference().
      */
     @Test
     public void testGetReference() {
@@ -39,7 +39,7 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
     }
 
     /**
-     * Test de la méthode findById().
+     * Test de la methode findById().
      */
     @Test
     public void testFindById() {
@@ -51,7 +51,7 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
     }
 
     /**
-     * Test de la méthode findAll().
+     * Test de la methode findAll().
      */
     @Test
     public void testFindAll() {
@@ -59,7 +59,7 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
     }
 
     /**
-     * Test de la méthode findAllWithSort().
+     * Test de la methode findAllWithSort().
      */
     @Test
     public void testFindAllWithSort() {
@@ -68,7 +68,7 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
     }
 
     /**
-     * Test de la méthode persist().
+     * Test de la methode persist().
      */
     @Test
     public void testPersist() {
@@ -78,7 +78,7 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
         evenement1.setDetails("details 345");
         evenementDAO.persist(evenement1);
 
-        // Vérification
+        // Verification
         Evenement evenementV = evenementDAO.findById(evenement1.getId());
         assertEquals("evenement 345", evenementV.getNomEvenement());
         assertEquals("details 345", evenementV.getDetails());
@@ -86,7 +86,7 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
     }
 
     /**
-     * Test de la méthode merge().
+     * Test de la methode merge().
      */
     @Test
     public void testMerge() {
@@ -97,14 +97,14 @@ public class EvenementDAOHibernateTest extends AbstractDAOTestCase {
         evenementDAO.persist(evenement);
         Evenement savedEvenement = evenementDAO.merge(evenement);
 
-        // Vérification
+        // Verification
         Evenement evenement1 = evenementDAO.findById(savedEvenement.getId());
         assertEquals("evenement 1000", evenement1.getNomEvenement());
         assertEquals("details 1000", evenement1.getDetails());
     }
 
     /**
-     * Test de la méthode remove().
+     * Test de la methode remove().
      */
     @Test
     public void testRemove() {

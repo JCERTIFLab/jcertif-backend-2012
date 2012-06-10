@@ -46,7 +46,7 @@ import com.jcertif.service.api.participant.ParticipantService;
 public class CSenderServiceImpl extends CSenderService {
 
 	private static final String NEW_PASS_TITLE = "Votre nouveau mot de passe";
-	private static final String SAVE_PROPOSITION_TITLE = "Confirmation Proposition Présentation JCertif 2012";
+	private static final String SAVE_PROPOSITION_TITLE = "Confirmation Proposition Presentation JCertif 2012";
 	private static final String SAVE_PARTICIPANT_TITLE = "Confirmation Enregistrement Participation JCertif 2012";
 	private static final int NOMBRE_MAX_PARTENAIRES = 8;
 	private static final Logger LOGGER = LoggerFactory.getLogger(CSenderServiceImpl.class);

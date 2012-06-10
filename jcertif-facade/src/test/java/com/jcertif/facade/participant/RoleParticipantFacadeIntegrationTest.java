@@ -31,7 +31,7 @@ public class RoleParticipantFacadeIntegrationTest extends AbstractFacadeIntegrat
 
         // TEST FINDBYID
         RoleParticipant roleById = getWebResource().path("api").path("roleparticipant").path("/" + createdRole.getId()).accept(MediaType.APPLICATION_JSON).get(RoleParticipant.class);
-        // Vérification que c'est bien le profil 2 qui est récupéré
+        // Verification que c'est bien le profil 2 qui est recupere
         assertEquals(createdRole.getId(), roleById.getId());
         assertEquals(createdRole, roleById);
     }
@@ -39,26 +39,26 @@ public class RoleParticipantFacadeIntegrationTest extends AbstractFacadeIntegrat
     @Test
     public void testUpdate() {
         // TEST UPDATE
-        // Création d'un profil 2 utilisateur dans la base de données
+        // Creation d'un profil 2 utilisateur dans la base de donnees
         RoleParticipant role = new RoleParticipant(null, "code", "desc");
         RoleParticipant createdRole = getWebResource().path("api").path("roleparticipant").path("create").accept(MediaType.APPLICATION_JSON).post(RoleParticipant.class, role);
         verifierSauvegarde(role, createdRole);
 
         createdRole.setCode("code updated");
         RoleParticipant updatedRole = getWebResource().path("api").path("roleparticipant").path("update").accept(MediaType.APPLICATION_JSON).post(RoleParticipant.class, createdRole);
-        // Vérification que l'ID est le même
+        // Verification que l'ID est le meme
         assertEquals(createdRole.getId(), updatedRole.getId());
-        // Vérification que le changement a bien eu lieu
+        // Verification que le changement a bien eu lieu
         assertEquals("code updated", updatedRole.getCode());
     }
 
     private void verifierSauvegarde(RoleParticipant newRole,
             RoleParticipant createdRole) {
-        // Le profil créé ne doit pas être null et doit avoir son Id renseigné
+        // Le profil cree ne doit pas etre null et doit avoir son Id renseigne
         assertNotNull(createdRole);
         assertNotNull(createdRole.getId());
 
-        // Vérification des infos
+        // Verification des infos
         assertEquals(newRole.getCode(), createdRole.getCode());
         assertEquals(newRole.getDescription(), createdRole.getDescription());
     }

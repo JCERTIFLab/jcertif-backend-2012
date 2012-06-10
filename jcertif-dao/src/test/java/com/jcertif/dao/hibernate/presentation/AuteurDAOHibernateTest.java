@@ -12,7 +12,7 @@ import com.jcertif.dao.api.presentation.AuteurDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
 /**
- * Test de l'implémentation Hibernate de l'accès aux données Auteur.
+ * Test de l'implementation Hibernate de l'acces aux donnees Auteur.
  * 
  * @author rossi.oddet
  * 
@@ -28,7 +28,7 @@ public class AuteurDAOHibernateTest extends AbstractDAOTestCase {
 	private AuteurDAO auteurDAO;
 
 	/**
-	 * Test de la méthode getReference().
+	 * Test de la methode getReference().
 	 */
 	@Test
 	public void testGetReference() {
@@ -43,7 +43,7 @@ public class AuteurDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {
@@ -58,7 +58,7 @@ public class AuteurDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAll().
+	 * Test de la methode findAll().
 	 */
 	@Test
 	public void testFindAll() {
@@ -66,7 +66,7 @@ public class AuteurDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAllWithSort().
+	 * Test de la methode findAllWithSort().
 	 */
 	@Test
 	public void testFindAllWithSort() {
@@ -75,7 +75,7 @@ public class AuteurDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode persist().
+	 * Test de la methode persist().
 	 */
 	@Test
 	public void testPersist() {
@@ -86,7 +86,7 @@ public class AuteurDAOHibernateTest extends AbstractDAOTestCase {
 		auteur.setDetails("details 100");
 		auteurDAO.persist(auteur);
 
-		// Vérification
+		// Verification
 		Auteur auteur1 = auteurDAO.findById(auteur.getId());
 		assertEquals("nom 100", auteur1.getNom());
 		assertEquals("prenom 100", auteur1.getPrenom());
@@ -94,7 +94,7 @@ public class AuteurDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode merge().
+	 * Test de la methode merge().
 	 */
 	@Test
 	public void testMerge() {
@@ -106,7 +106,7 @@ public class AuteurDAOHibernateTest extends AbstractDAOTestCase {
 		auteurDAO.persist(auteur);
 		Auteur savedAuteur = auteurDAO.merge(auteur);
 
-		// Vérification
+		// Verification
 		Auteur auteur1 = auteurDAO.findById(savedAuteur.getId());
 		assertEquals("nom 1000", auteur1.getNom());
 		assertEquals("prenom 1000", auteur1.getPrenom());
@@ -114,7 +114,7 @@ public class AuteurDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode remove().
+	 * Test de la methode remove().
 	 */
 	@Test
 	public void testRemove() {

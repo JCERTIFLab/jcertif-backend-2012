@@ -12,7 +12,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import com.jcertif.bo.AbstractBO;
 
 /**
- * BO Mot clé.
+ * BO Mot clÃ©.
  * 
  * @author rossi.oddet
  * 
@@ -24,7 +24,7 @@ public class MotCle extends AbstractBO {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Identifiant du mot clé.
+	 * Identifiant du mot clÃ©.
 	 */
 	@Id
 	@GeneratedValue
@@ -32,19 +32,19 @@ public class MotCle extends AbstractBO {
 	private Long id;
 
 	/**
-	 * Un mot clé.
+	 * Un mot clÃ©.
 	 */
 	@Column
 	private String motCle;
 
 	/**
-	 * Description d'un mot clé.
+	 * Description d'un mot clÃ©.
 	 */
 	@Column
 	private String description;
 
 	/**
-	 * Le constructeur par défaut.
+	 * Le constructeur par defaut.
 	 */
 	public MotCle() {
 		super();
@@ -54,7 +54,7 @@ public class MotCle extends AbstractBO {
 	 * Un constructeur.
 	 * 
 	 * @param motCle
-	 *            un mot clé
+	 *            un mot clÃ©
 	 * @param description
 	 *            une description
 	 */
@@ -65,14 +65,14 @@ public class MotCle extends AbstractBO {
 	}
 
 	/**
-	 * @return l'identifiant d'un mot clé.
+	 * @return l'identifiant d'un mot clÃ©.
 	 */
 	public Long getId() {
 		return id;
 	}
 
 	/**
-	 * Définit un identifiant.
+	 * Definit un identifiant.
 	 * 
 	 * @param id
 	 *            un identifiant
@@ -82,31 +82,31 @@ public class MotCle extends AbstractBO {
 	}
 
 	/**
-	 * @return un mot clé.
+	 * @return un mot clÃ©.
 	 */
 	public String getMotCle() {
 		return motCle;
 	}
 
 	/**
-	 * Définit un mot clé.
+	 * Definit un mot clÃ©.
 	 * 
 	 * @param motCle
-	 *            un mot clé
+	 *            un mot clÃ©
 	 */
 	public void setMotCle(String motCle) {
 		this.motCle = motCle;
 	}
 
 	/**
-	 * @return une description du mot clé.
+	 * @return une description du mot clÃ©.
 	 */
 	public String getDescription() {
 		return description;
 	}
 
 	/**
-	 * Définit la description du mot clé.
+	 * Definit la description du mot clÃ©.
 	 * 
 	 * @param description
 	 *            une description

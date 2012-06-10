@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 
 /**
- * Implémentation Hibernate du DAO pour ProfilUtilisateur.
+ * Implementation Hibernate du DAO pour ProfilUtilisateur.
  * 
  * @author Douneg
  * 

@@ -7,7 +7,7 @@ import com.jcertif.bo.JCertifAccessorTesterImpl;
 import com.jcertif.bo.presentation.PropositionPresentation;
 
 /**
- * Test du BO présentation.
+ * Test du BO prÃ©sentation.
  * 
  * @author rossi.oddet
  * 
@@ -26,7 +26,7 @@ public class PropositionPresentationTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link PropositionPresentation}.
+	 * Test des mÃ©hodes Equals et Hashcode du Bo {@link PropositionPresentation}.
 	 */
 	@Test
 	public void testtestEqualsAndHashCode() {
@@ -53,8 +53,8 @@ public class PropositionPresentationTest {
 	 * @param desc
 	 *            une description
 	 * @param details
-	 *            les détails
-	 * @return un objet présentation.
+	 *            les dÃ©tails
+	 * @return un objet prÃ©sentation.
 	 */
 	private PropositionPresentation getPresentation(final String titre, final String desc,
 			final String details) {

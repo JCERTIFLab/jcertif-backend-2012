@@ -27,7 +27,7 @@ public class ParticulariteSalleDAOHibernateTest extends AbstractDAOTestCase {
 	private ParticulariteSalleDAO particularitesalleDAO;
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {

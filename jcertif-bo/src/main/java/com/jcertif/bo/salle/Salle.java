@@ -62,13 +62,13 @@ public class Salle extends AbstractBO {
 	private Integer nombrePlace;
 
 	/**
-	 * Détails d'une salle.
+	 * DÃ©tails d'une salle.
 	 */
 	@Column
 	private String details;
 
 	/**
-	 * Centre de conférence auquel appartient la salle.
+	 * Centre de confÃ©rence auquel appartient la salle.
 	 */
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "centre_conference_id")
@@ -79,7 +79,7 @@ public class Salle extends AbstractBO {
 	private Set<ParticulariteSalle> particularitesalles = new HashSet<ParticulariteSalle>();
 
 	/**
-	 * Contructeur par défaut.
+	 * Contructeur par dÃ©faut.
 	 */
 	public Salle() {
 		super();
@@ -89,7 +89,7 @@ public class Salle extends AbstractBO {
 	 * Un constructeur.
 	 * 
 	 * @param libelle
-	 *            un libellé
+	 *            un libellÃ©
 	 * @param description
 	 *            une description
 	 */

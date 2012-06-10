@@ -7,7 +7,7 @@ import com.jcertif.dao.api.salle.SalleDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation Hibernate de l'accès aux données salle.
+ * ImplÃ©mentation Hibernate de l'accÃ¨s aux donnÃ©es salle.
  * 
  * @author rossi.oddet
  * 

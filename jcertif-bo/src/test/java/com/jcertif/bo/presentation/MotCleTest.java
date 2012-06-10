@@ -25,7 +25,7 @@ public class MotCleTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link MotCle}.
+	 * Test des mÃ©thodes Equals et Hashcode du Bo {@link MotCle}.
 	 */
 	@Test
 	public void testtestEqualsAndHashCode() {

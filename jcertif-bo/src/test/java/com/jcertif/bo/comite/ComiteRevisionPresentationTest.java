@@ -23,7 +23,7 @@ public class ComiteRevisionPresentationTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link ComiteRevisionPresentation}.
+	 * Test des mÃ©thodes Equals et Hashcode du Bo {@link ComiteRevisionPresentation}.
 	 */
 	@Test
 	public void testEqualsAndHashCode() {

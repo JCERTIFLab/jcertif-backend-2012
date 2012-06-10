@@ -25,7 +25,7 @@ public class RappelEnvoye extends AbstractBO {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Clé composite de rappel envoyé.
+	 * ClÃ© composite de rappel envoyÃ©.
 	 */
 	@EmbeddedId
 	private RappelEnvoyePK rappelEnvoyePK;

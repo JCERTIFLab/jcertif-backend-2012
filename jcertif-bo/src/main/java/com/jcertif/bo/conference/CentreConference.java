@@ -44,7 +44,7 @@ public class CentreConference extends AbstractBO {
 	private Long id;
 
 	/**
-	 * Nom du centre conférence.
+	 * Nom du centre confÃ©rence.
 	 */
 	@Column(name = "nom1")
 	private String nom;
@@ -63,7 +63,7 @@ public class CentreConference extends AbstractBO {
 	private Adresse adresse;
 
 	/**
-	 * Téléphone.
+	 * TÃ©lÃ©phone.
 	 */
 	@Column
 	private String telephone;
@@ -87,13 +87,13 @@ public class CentreConference extends AbstractBO {
 	private String nomContact;
 
 	/**
-	 * Prénom contact.
+	 * PrÃ©nom contact.
 	 */
 	@Column
 	private String prenomContact;
 
 	/**
-	 * Téléphone contact.
+	 * TÃ©lÃ©phone contact.
 	 */
 	@Column
 	private String telephoneContact;
@@ -105,7 +105,7 @@ public class CentreConference extends AbstractBO {
 	private String emailContact;
 
 	/**
-	 * Détails.
+	 * DÃ©tails.
 	 */
 	@Column
 	private String details;

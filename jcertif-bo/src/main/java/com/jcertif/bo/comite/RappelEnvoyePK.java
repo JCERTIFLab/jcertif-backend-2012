@@ -10,7 +10,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 /**
- * Clé composite pour RappelEnvoye.
+ * ClÃ© composite pour RappelEnvoye.
  * 
  * @author rossi.oddet
  * 

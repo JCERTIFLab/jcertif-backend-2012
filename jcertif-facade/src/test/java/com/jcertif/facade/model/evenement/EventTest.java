@@ -44,7 +44,7 @@ public class EventTest {
 	}
 
 	/**
-	 * @return un objet évènement exemple.
+	 * @return un objet evenement exemple.
 	 */
 	private Evenement getEvenement() {
 		Evenement evt = new Evenement();
@@ -70,7 +70,7 @@ public class EventTest {
 		auteur2.setId(Long.valueOf(13));
 		auteur2.setEmail("email2@jcertif.com");
 		participantList.add(auteur2);
-		propo.setMotCle(new MotCle("code", "libellé"));
+		propo.setMotCle(new MotCle("code", "libelle"));
 		propo.addSujet(new Sujet("sujet1", "sujet desc 1"));
 		propo.addSujet(new Sujet("sujet2", "sujet desc 1"));
 		propo.addSujet(new Sujet("sujet3", "sujet desc 1"));

@@ -9,7 +9,7 @@ import com.jcertif.dao.api.participant.ParticipantDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation Hibernate du DAO pour Participant.
+ * Implementation Hibernate du DAO pour Participant.
  * 
  * @author Douneg
  * 

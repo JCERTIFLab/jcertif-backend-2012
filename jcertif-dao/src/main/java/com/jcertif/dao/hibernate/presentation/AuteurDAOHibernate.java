@@ -7,7 +7,7 @@ import com.jcertif.dao.api.presentation.AuteurDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation Hibernate du DAO pour Auteur.
+ * Implementation Hibernate du DAO pour Auteur.
  * 
  * @author Douneg
  * 

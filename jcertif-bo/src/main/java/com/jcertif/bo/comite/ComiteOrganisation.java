@@ -18,7 +18,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import com.jcertif.bo.AbstractBO;
 
 /**
- * Un comité d'organisation.
+ * Un comitÃ© d'organisation.
  * 
  * @author rossi.oddet
  * 
@@ -30,7 +30,7 @@ public class ComiteOrganisation  extends AbstractBO {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Identifiant d'un comité d'organisation.
+	 * Identifiant d'un comitÃ© d'organisation.
 	 */
 	@Id
 	@GeneratedValue
@@ -43,7 +43,7 @@ public class ComiteOrganisation  extends AbstractBO {
 	private String nom;
 
 	/**
-	 * Le prénom.
+	 * Le prÃ©nom.
 	 */
 	@Column
 	private String prenom;
@@ -61,13 +61,13 @@ public class ComiteOrganisation  extends AbstractBO {
 	private String email;
 
 	/**
-	 * Le téléphone.
+	 * Le tÃ©lÃ©phone.
 	 */
 	@Column
 	private String telephone;
 
 	/**
-	 * Les détails.
+	 * Les dÃ©tails.
 	 */
 	@Column
 	private String details;
@@ -201,18 +201,18 @@ public class ComiteOrganisation  extends AbstractBO {
 	}
 
 	/**
-	 * @return la liste des comités révision.
+	 * @return la liste des comitÃ©s rÃ©vision.
 	 */
 	public Set<ComiteRevisionPresentation> getComiteRevisionPresentations() {
 		return comiteRevisionPresentationsInternal;
 	}
 
 	/**
-	 * Ajoute un comité de révision.
+	 * Ajoute un comitÃ© de rÃ©vision.
 	 * 
 	 * @param comite
-	 *            un comité de révision
-	 * @return le résultat de la suppression.
+	 *            un comitÃ© de rÃ©vision
+	 * @return le rÃ©sultat de la suppression.
 	 */
 	public boolean addComiteRevisionPresentation(
 			ComiteRevisionPresentation comite) {
@@ -220,10 +220,10 @@ public class ComiteOrganisation  extends AbstractBO {
 	}
 
 	/**
-	 * Supprime un comité de révision.
+	 * Supprime un comitÃ© de rÃ©vision.
 	 * 
 	 * @param comite
-	 * @return le résultat de la suppression
+	 * @return le rÃ©sultat de la suppression
 	 */
 	public boolean removeComiteRevisionPresentation(
 			ComiteRevisionPresentation comite) {

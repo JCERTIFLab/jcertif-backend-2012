@@ -24,7 +24,7 @@ public class ConferenceTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link Conference}.
+	 * Test des mÃ©thodes Equals et Hashcode du Bo {@link Conference}.
 	 */
 	@Test
 	public void testtestEqualsAndHashCode() {

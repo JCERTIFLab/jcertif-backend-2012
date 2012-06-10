@@ -10,7 +10,7 @@ import com.jcertif.dao.api.presentation.StatutApprobationDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation Hibernate de l'accès aux données statut d'approbation.
+ * Implementation Hibernate de l'acces aux donnees statut d'approbation.
  * 
  * @author rossi.oddet
  * 

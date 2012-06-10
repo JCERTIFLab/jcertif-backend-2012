@@ -44,7 +44,7 @@ public abstract class CodeDescription extends AbstractBO {
 	}
 
 	/**
-	 * Définit un identifiant du statut cedule.
+	 * DÃ©finit un identifiant du statut cedule.
 	 * 
 	 * @param id
 	 *            un identifiant
@@ -62,7 +62,7 @@ public abstract class CodeDescription extends AbstractBO {
 	}
 
 	/**
-	 * Définit le code de statut cedule.
+	 * DÃ©finit le code de statut cedule.
 	 * 
 	 * @param code
 	 *            un code de statut cedule
@@ -80,7 +80,7 @@ public abstract class CodeDescription extends AbstractBO {
 	}
 
 	/**
-	 * Définit la description du statut cedule.
+	 * DÃ©finit la description du statut cedule.
 	 * 
 	 * @param description
 	 *            une description du statut cedule.

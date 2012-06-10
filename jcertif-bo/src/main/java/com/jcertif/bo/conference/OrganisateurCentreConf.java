@@ -25,11 +25,9 @@ public class OrganisateurCentreConf extends Person {
 
 	private static final long serialVersionUID = 1L;
 
+
 	/**
-	 * Mot clé de la présentation.
-	 */
-	/**
-	 * Liste comité révision présentation.
+	 * Liste comitÃ© rÃ©vision prÃ©sentation.
 	 */
 	@OneToMany(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "organisateur_centre_conf_id")

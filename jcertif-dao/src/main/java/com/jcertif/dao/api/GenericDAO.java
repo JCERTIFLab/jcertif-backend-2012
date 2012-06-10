@@ -17,61 +17,61 @@ import java.util.Map;
 public interface GenericDAO<T, PK extends Serializable> extends DAO {
 
 	/**
-	 * Cette méthode est susceptible de lancer l'exception
-	 * ObjectNotFoundException de type Runtime si l'objet n'est pas trouvé. Si
-	 * l'on n'est pas sûr de trouver un objet il faut utiliser la méthode
+	 * Cette mÃ©thode est susceptible de lancer l'exception
+	 * ObjectNotFoundException de type Runtime si l'objet n'est pas trouvÃ©. Si
+	 * l'on n'est pas sÃ»r de trouver un objet il faut utiliser la mÃ©thode
 	 * findById.
 	 * 
 	 * @param id
-	 *            identifiant d'une entité
-	 * @return une entité
+	 *            identifiant d'une entitÃ©
+	 * @return une entitÃ©
 	 */
 	T getReference(PK id);
 
 	/**
 	 * @param id
-	 *            identifiant d'une entité
-	 * @return une entité
+	 *            identifiant d'une entitÃ©
+	 * @return une entitÃ©
 	 */
 	T findById(PK id);
 
 	/**
-	 * @return la liste de toutes les entités
+	 * @return la liste de toutes les entitÃ©s
 	 */
 	List<T> findAll();
 
 	/**
 	 * @param sortedPropertyName
-	 *            le nom de la propriété à utiliser pour le tri
+	 *            le nom de la propriÃ©tÃ© Ã  utiliser pour le tri
 	 * @param ascending
 	 *            true si trie ascendant
-	 * @return la liste de toutes les entités
+	 * @return la liste de toutes les entitÃ©s
 	 */
 	List<T> findAllWithSort(String sortedPropertyName, boolean ascending);
 
 	/**
-	 * Persiste une entité.
+	 * Persiste une entitÃ©.
 	 * 
 	 * @param entity
-	 *            entité à persister
+	 *            entitÃ© Ã  persister
 	 */
 	void persist(T entity);
 
 	/**
-	 * Sauvegarde une entité. L'objet persisté est celui obtenu par retour de
-	 * méthode.
+	 * Sauvegarde une entitÃ©. L'objet persistÃ© est celui obtenu par retour de
+	 * mÃ©thode.
 	 * 
 	 * @param entity
-	 *            une entité
-	 * @return une entité persisté
+	 *            une entitÃ©
+	 * @return une entitÃ© persistÃ©
 	 */
 	T merge(T entity);
 
 	/**
-	 * Supprimes une entité.
+	 * Supprimes une entitÃ©.
 	 * 
 	 * @param entity
-	 *            une entité
+	 *            une entitÃ©
 	 */
 	void remove(T entity);
 
@@ -86,12 +86,12 @@ public interface GenericDAO<T, PK extends Serializable> extends DAO {
 	void clear();
 
 	/**
-	 * @return la liste des entités filtrées
+	 * @return la liste des entitÃ©s filtrÃ©es
 	 */
 	List<T> findByProperty(String propertyName, Object propertyValue);
 
 	/**
-	 * @return la liste des entités filtrées
+	 * @return la liste des entitÃ©s filtrÃ©es
 	 */
 	List<T> findByProperties(Map<String, Object> propertyList);
 

@@ -7,7 +7,7 @@ import com.jcertif.dao.api.presentation.MotCleDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation Hibernate du DAO pour MotCle.
+ * ImplÃ©mentation Hibernate du DAO pour MotCle.
  * 
  * @author rossi.oddet
  * 

@@ -29,20 +29,6 @@
 		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
 
-	<!-- GWT Configuration -->
-	<servlet>
-		<servlet-name>dispatcher</servlet-name>
-		<servlet-class>org.gwtrpcspring.RemoteServiceDispatcher</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>*.rpc</url-pattern>
-	</servlet-mapping>
-	<welcome-file-list>
-		<welcome-file>jcertifAdminGwt.html</welcome-file>
-	</welcome-file-list>
-
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>

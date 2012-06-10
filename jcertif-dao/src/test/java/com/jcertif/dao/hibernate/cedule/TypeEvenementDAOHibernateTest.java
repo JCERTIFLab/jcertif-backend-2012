@@ -24,7 +24,7 @@ public class TypeEvenementDAOHibernateTest extends AbstractDAOTestCase {
 	private TypeEvenementDAO typeEvenementDAO;
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {

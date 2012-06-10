@@ -10,7 +10,7 @@ import com.jcertif.dao.api.cedule.CeduleParticipantDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation Hibernate de {@link CeduleParticipantDAO}.
+ * Implementation Hibernate de {@link CeduleParticipantDAO}.
  * 
  * @author rossi.oddet
  * 

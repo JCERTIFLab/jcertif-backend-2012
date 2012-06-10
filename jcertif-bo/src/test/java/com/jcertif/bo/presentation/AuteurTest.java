@@ -25,7 +25,7 @@ public class AuteurTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link Auteur}.
+	 * Test des mÃ©thodes Equals et Hashcode du Bo {@link Auteur}.
 	 */
 	@Test
 	public void testEqualsAndHashCode() {
@@ -55,7 +55,7 @@ public class AuteurTest {
 	 * @param nom
 	 *            un nom
 	 * @param prenom
-	 *            un prénom
+	 *            un prÃ©nom
 	 * @return un objet auteur
 	 */
 	private Auteur getAuteur(String email, String nom, String prenom) {

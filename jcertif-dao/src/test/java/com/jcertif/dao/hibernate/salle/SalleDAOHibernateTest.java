@@ -13,7 +13,7 @@ import com.jcertif.dao.api.salle.SalleDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
 /**
- * Test de l'implémentation hibernate de l'accès aux données salles.
+ * Test de l'implementation hibernate de l'acces aux donnees salles.
  * 
  * @author rossi.oddet
  * 
@@ -28,11 +28,11 @@ public class SalleDAOHibernateTest extends AbstractDAOTestCase {
 	private SalleDAO salleDAO;
 
 	/**
-	 * Test de la méthode getReference().
+	 * Test de la methode getReference().
 	 */
 	@Test
 	public void testGetReference() {
-		// Test récupération salle dont id=1
+		// Test recuperation salle dont id=1
 		Salle salle1 = salleDAO.getReference(Long.valueOf(1));
 		assertEquals("libelle salle 1", salle1.getLibelle());
 		assertEquals("description salle 1", salle1.getDescription());
@@ -42,11 +42,11 @@ public class SalleDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {
-		// Test récupération salle dont id=2
+		// Test recuperation salle dont id=2
 		Salle salle1 = salleDAO.getReference(Long.valueOf(2));
 		assertEquals("libelle salle 2", salle1.getLibelle());
 		assertEquals("description salle 2", salle1.getDescription());
@@ -55,29 +55,29 @@ public class SalleDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAll().
+	 * Test de la methode findAll().
 	 */
 	@Test
 	public void testFindAll() {
-		// Récupération de tous les salles, 8 éléments soivent être remontés
+		// Recuperation de tous les salles, 8 elements soivent etre remontes
 		List<Salle> salleList = salleDAO.findAll();
 		assertEquals(8, salleList.size());
 	}
 
 	/**
-	 * Test de la méthode findAllWithSort().
+	 * Test de la methode findAllWithSort().
 	 */
 	@Test
 	public void testFindAllWithSort() {
-		// Récupération de tous les éléments en triant par ordre décroissant, le
-		// premier élément aura l'id 8
+		// Recuperation de tous les elements en triant par ordre decroissant, le
+		// premier element aura l'id 8
 		List<Salle> salleList = salleDAO.findAllWithSort("libelle", false);
 		Salle firstSalle = salleList.iterator().next();
 		assertEquals(firstSalle.getId(), Long.valueOf(8));
 	}
 
 	/**
-	 * Test de la méthode persist().
+	 * Test de la methode persist().
 	 */
 	@Test
 	public void testPersist() {
@@ -94,7 +94,7 @@ public class SalleDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode merge().
+	 * Test de la methode merge().
 	 */
 	@Test
 	public void testMerge() {
@@ -120,7 +120,7 @@ public class SalleDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode remove().
+	 * Test de la methode remove().
 	 */
 	@Test
 	public void testRemove() {

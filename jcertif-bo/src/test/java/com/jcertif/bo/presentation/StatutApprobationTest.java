@@ -26,7 +26,7 @@ public class StatutApprobationTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link StatutApprobation}.
+	 * Test des mÃ©hodes Equals et Hashcode du Bo {@link StatutApprobation}.
 	 */
 	@Test
 	public void testtestEqualsAndHashCode() {

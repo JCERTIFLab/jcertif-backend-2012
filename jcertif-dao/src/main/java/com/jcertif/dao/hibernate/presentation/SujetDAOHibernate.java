@@ -11,7 +11,7 @@ import com.jcertif.dao.api.presentation.SujetDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation hibernate pour l'accès aux données Sujet.
+ * ImplÃ©mentation hibernate pour l'accÃ¨s aux donnÃ©es Sujet.
  * 
  * @author rossi.oddet
  * 

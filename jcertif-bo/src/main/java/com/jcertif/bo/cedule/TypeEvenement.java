@@ -9,7 +9,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import com.jcertif.bo.CodeDescription;
 
 /**
- * BO Type évènement.
+ * BO Type Ã©vÃ©nement.
  * 
  * @author rossi.oddet
  * 

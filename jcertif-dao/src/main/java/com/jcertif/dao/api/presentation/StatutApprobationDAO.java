@@ -6,7 +6,7 @@ import com.jcertif.bo.presentation.StatutApprobation;
 import com.jcertif.dao.api.GenericDAO;
 
 /**
- * Interface d'accès aux données Statut d'approbation.
+ * Interface d'acces aux donnees Statut d'approbation.
  * 
  * @author rossi.oddet
  * 

@@ -24,7 +24,7 @@ public class OrganisteurCentreConfDAOHibernateTest extends AbstractDAOTestCase {
 	private OrganisteurCentreConfDAO organisateurCentreConfDAO;
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {

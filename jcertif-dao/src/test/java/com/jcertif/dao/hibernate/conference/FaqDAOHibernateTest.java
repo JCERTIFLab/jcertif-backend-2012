@@ -26,7 +26,7 @@ public class FaqDAOHibernateTest extends AbstractDAOTestCase {
 	
 	
 	/**
-	 * Test de la méthode findAll().
+	 * Test de la methode findAll().
 	 */
 	@Test
 	public void testFindAll() {

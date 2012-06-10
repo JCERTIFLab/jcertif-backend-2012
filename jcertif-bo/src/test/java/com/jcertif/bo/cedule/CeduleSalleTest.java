@@ -26,7 +26,7 @@ public class CeduleSalleTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link CeduleSalle}.
+	 * Test des mÃ©thodes Equals et Hashcode du Bo {@link CeduleSalle}.
 	 */
 	@Test
 	public void testtestEqualsAndHashCode() {

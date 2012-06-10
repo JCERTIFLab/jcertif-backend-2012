@@ -178,7 +178,7 @@ public abstract class AbstractHibernateGenericDAO<T, PK extends Serializable> im
 	 * Modifie sessionFactory.
 	 * 
 	 * @param sessionFactory
-	 *            sessionFactory à modifier
+	 *            sessionFactory e modifier
 	 */
 	@Required
 	@Autowired

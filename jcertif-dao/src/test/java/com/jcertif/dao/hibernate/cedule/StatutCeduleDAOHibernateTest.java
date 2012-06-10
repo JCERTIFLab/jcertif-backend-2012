@@ -11,7 +11,7 @@ import com.jcertif.dao.api.cedule.StatutCeduleDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
 /**
- * Test de l'implémentation Hibernate d'accès aux données du statut cedule.
+ * Test de l'implementation Hibernate d'acces aux donnees du statut cedule.
  * 
  * @author rossi.oddet
  * 
@@ -26,7 +26,7 @@ public class StatutCeduleDAOHibernateTest extends AbstractDAOTestCase {
 	private StatutCeduleDAO statutCeduleDAO;
 
 	/**
-	 * Test de la méthode getReference().
+	 * Test de la methode getReference().
 	 */
 	@Test
 	public void testGetReference() {
@@ -36,7 +36,7 @@ public class StatutCeduleDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {
@@ -46,7 +46,7 @@ public class StatutCeduleDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAll().
+	 * Test de la methode findAll().
 	 */
 	@Test
 	public void testFindAll() {
@@ -54,7 +54,7 @@ public class StatutCeduleDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAllWithSort().
+	 * Test de la methode findAllWithSort().
 	 */
 	@Test
 	public void testFindAllWithSort() {
@@ -63,7 +63,7 @@ public class StatutCeduleDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode persist().
+	 * Test de la methode persist().
 	 */
 	@Test
 	public void testPersist() {
@@ -79,7 +79,7 @@ public class StatutCeduleDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode merge().
+	 * Test de la methode merge().
 	 */
 	@Test
 	public void testMerge() {
@@ -95,7 +95,7 @@ public class StatutCeduleDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode remove().
+	 * Test de la methode remove().
 	 */
 	@Test
 	public void testRemove() {
@@ -105,7 +105,7 @@ public class StatutCeduleDAOHibernateTest extends AbstractDAOTestCase {
 	}
 	
 	/**
-	 * Test de la méthode findByCode();
+	 * Test de la methode findByCode();
 	 */
 	@Test
 	public void testFindByCode(){

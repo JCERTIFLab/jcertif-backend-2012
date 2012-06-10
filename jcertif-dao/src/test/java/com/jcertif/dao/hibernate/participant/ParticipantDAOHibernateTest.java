@@ -23,7 +23,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase {
 	private ParticipantDAO participantDAO;
 
 	/**
-	 * Test de la méthode getReference().
+	 * Test de la methode getReference().
 	 */
 	@Test
 	public void testGetReference() {
@@ -47,7 +47,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode find().
+	 * Test de la methode find().
 	 */
 	@Test
 	public void testFind() {
@@ -70,7 +70,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAll().
+	 * Test de la methode findAll().
 	 */
 	@Test
 	public void testFindAll() {
@@ -78,7 +78,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAllWithSort().
+	 * Test de la methode findAllWithSort().
 	 */
 	@Test
 	public void testFindAllWithSort() {
@@ -87,7 +87,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode persist().
+	 * Test de la methode persist().
 	 */
 	@Test
 	public void testPersist() {
@@ -104,7 +104,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase {
 		participant.setDetails("details 345");
 		participantDAO.persist(participant);
 
-		// Vérification
+		// Verification
 		Participant participantV = participantDAO.findById(participant.getId());
 		assertEquals("Fred", participantV.getPrenom());
 		assertEquals("ligne1 1000", participantV.getAdresse().getLigne1());
@@ -112,7 +112,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode merge().
+	 * Test de la methode merge().
 	 */
 	@Test
 	public void testMerge() {
@@ -126,7 +126,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase {
 		participant.setPrenom("Coco");
 		Participant savedParticipant = participantDAO.merge(participant);
 
-		// Vérification
+		// Verification
 		Participant participantV = participantDAO.findById(savedParticipant.getId());
 		assertEquals("Coco", participantV.getPrenom());
 		assertEquals("Close", participantV.getNom());
@@ -134,7 +134,7 @@ public class ParticipantDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode remove().
+	 * Test de la methode remove().
 	 */
 	@Test
 	public void testRemove() {

@@ -5,7 +5,7 @@ import com.jcertif.bo.comite.RappelEnvoyePK;
 import com.jcertif.dao.api.GenericDAO;
 
 /**
- * Interface DAO d'accès aux données {@link RappelEnvoye}.
+ * Interface DAO d'acces aux donnees {@link RappelEnvoye}.
  * 
  * @author rossi.oddet
  * 

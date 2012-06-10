@@ -4,7 +4,7 @@ import com.jcertif.bo.comite.ComiteOrganisation;
 import com.jcertif.dao.api.GenericDAO;
 
 /**
- * Interface d'accès aux données ComiteOrganisation.
+ * Interface d'acces aux donnees ComiteOrganisation.
  * 
  * @author rossi.oddet
  * 

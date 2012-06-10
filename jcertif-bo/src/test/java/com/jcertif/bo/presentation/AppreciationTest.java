@@ -25,7 +25,7 @@ public class AppreciationTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link Appreciation}.
+	 * Test des mÃ©thodes Equals et Hashcode du Bo {@link Appreciation}.
 	 */
 	@Test
 	public void testtestEqualsAndHashCode() {

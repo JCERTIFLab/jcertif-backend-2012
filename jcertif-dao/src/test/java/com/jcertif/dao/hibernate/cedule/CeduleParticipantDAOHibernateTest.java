@@ -23,7 +23,7 @@ public class CeduleParticipantDAOHibernateTest extends AbstractDAOTestCase {
 	private CeduleParticipantDAO ceduleParticipantDAO;
 
 	/**
-	 * Test de la méthode getReference().
+	 * Test de la methode getReference().
 	 * 
 	 * @throws ParseException
 	 */
@@ -37,7 +37,7 @@ public class CeduleParticipantDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {
@@ -48,7 +48,7 @@ public class CeduleParticipantDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findByParticipant().
+	 * Test de la methode findByParticipant().
 	 */
 	@Test
 	public void testFindByParticipant() {

@@ -8,7 +8,7 @@ import com.jcertif.dao.api.comite.ComiteRevisionPresentationDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation Hibernate pour {@link ComiteRevisionPresentationDAO}.
+ * Implementation Hibernate pour {@link ComiteRevisionPresentationDAO}.
  * 
  * @author rossi.oddet
  * 

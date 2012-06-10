@@ -8,7 +8,7 @@ import com.jcertif.dao.api.comite.RappelEnvoyeDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation Hibernate du BO {@link RappelEnvoye}.
+ * Implementation Hibernate du BO {@link RappelEnvoye}.
  * 
  * @author rossi.oddet
  * 

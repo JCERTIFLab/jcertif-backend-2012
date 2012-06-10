@@ -10,7 +10,7 @@ import com.jcertif.bo.Adresse;
 import com.jcertif.dao.api.AdresseDAO;
 
 /**
- * Test de l'implémentation Hibernate de l'accès aux données Adresse.
+ * Test de l'implementation Hibernate de l'acces aux donnees Adresse.
  * 
  * @author Douneg
  * 
@@ -25,7 +25,7 @@ public class AdresseDAOHibernateTest extends AbstractDAOTestCase {
 	private AdresseDAO adresseDAO;
 
 	/**
-	 * Test de la méthode getReference().
+	 * Test de la methode getReference().
 	 */
 	@Test
 	public void testGetReference() {
@@ -43,7 +43,7 @@ public class AdresseDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {
@@ -60,7 +60,7 @@ public class AdresseDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAll().
+	 * Test de la methode findAll().
 	 */
 	@Test
 	public void testFindAll() {
@@ -68,7 +68,7 @@ public class AdresseDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAllWithSort().
+	 * Test de la methode findAllWithSort().
 	 */
 	@Test
 	public void testFindAllWithSort() {
@@ -77,7 +77,7 @@ public class AdresseDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode persist().
+	 * Test de la methode persist().
 	 */
 	@Test
 	public void testPersist() {
@@ -87,7 +87,7 @@ public class AdresseDAOHibernateTest extends AbstractDAOTestCase {
 		adresse1.setDetails("details 345");
 		adresseDAO.persist(adresse1);
 
-		// Vérification
+		// Verification
 		Adresse adresseV = adresseDAO.findById(adresse1.getId());
 		assertEquals("ligne 345", adresseV.getLigne1());
 		assertEquals("details 345", adresseV.getDetails());
@@ -95,7 +95,7 @@ public class AdresseDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode merge().
+	 * Test de la methode merge().
 	 */
 	@Test
 	public void testMerge() {
@@ -107,7 +107,7 @@ public class AdresseDAOHibernateTest extends AbstractDAOTestCase {
 		adresseDAO.persist(adresse);
 		Adresse savedAdresse = adresseDAO.merge(adresse);
 
-		// Vérification
+		// Verification
 		Adresse adresse1 = adresseDAO.findById(savedAdresse.getId());
 		assertEquals("ligne1 1000", adresse1.getLigne1());
 		assertEquals("ligne2 1000", adresse1.getLigne2());
@@ -115,7 +115,7 @@ public class AdresseDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode remove().
+	 * Test de la methode remove().
 	 */
 	@Test
 	public void testRemove() {

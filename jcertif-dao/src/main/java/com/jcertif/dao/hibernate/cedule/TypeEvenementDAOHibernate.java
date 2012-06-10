@@ -11,7 +11,7 @@ import com.jcertif.dao.api.cedule.TypeEvenementDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation Hibernate pour l'accès aux données {@link TypeEvenement}.
+ * Implementation Hibernate pour l'acces aux donnees {@link TypeEvenement}.
  * 
  * @author rossi.oddet
  * 

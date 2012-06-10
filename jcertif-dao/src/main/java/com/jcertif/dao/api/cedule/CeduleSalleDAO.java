@@ -4,7 +4,7 @@ import com.jcertif.bo.cedule.CeduleSalle;
 import com.jcertif.dao.api.GenericDAO;
 
 /**
- * Interface d'accès aux données cedule salle.
+ * Interface d'accÃ¨s aux donnÃ©es cedule salle.
  * 
  * @author rossi.oddet
  * 

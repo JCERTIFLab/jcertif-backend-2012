@@ -25,7 +25,7 @@ public class AdresseTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link Adresse}.
+	 * Test des mÃ©thodes Equals et Hashcode du Bo {@link Adresse}.
 	 */
 	@Test
 	public void testtestEqualsAndHashCode() {

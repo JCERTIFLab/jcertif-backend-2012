@@ -4,7 +4,7 @@ import com.jcertif.bo.presentation.Appreciation;
 import com.jcertif.dao.api.GenericDAO;
 
 /**
- * Interface d'accès aux données Appréciation.
+ * Interface d'acces aux donnees Appreciation.
  * 
  * @author rossi.oddet
  * 

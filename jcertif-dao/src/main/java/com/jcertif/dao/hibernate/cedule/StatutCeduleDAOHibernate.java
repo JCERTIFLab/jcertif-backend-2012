@@ -8,7 +8,7 @@ import com.jcertif.dao.api.cedule.StatutCeduleDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation Hibernate d'accès aux données du statut cedule.
+ * Implementation Hibernate d'acces aux donnees du statut cedule.
  * 
  * @author rossi.oddet
  * 

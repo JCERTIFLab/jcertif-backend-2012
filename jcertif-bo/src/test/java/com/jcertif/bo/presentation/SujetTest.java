@@ -25,7 +25,7 @@ public class SujetTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link Sujet}.
+	 * Test des mÃ©hodes Equals et Hashcode du Bo {@link Sujet}.
 	 */
 	@Test
 	public void testtestEqualsAndHashCode() {

@@ -14,7 +14,7 @@ import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 import static org.junit.Assert.*;
 
 /**
- * Test de l'implémentation Hibernate SujetDAOHibernate.
+ * Test de l'implÃ©mentation Hibernate SujetDAOHibernate.
  * 
  * @author rossi.oddet
  * 
@@ -29,29 +29,29 @@ public class SujetDAOHibernateTest extends AbstractDAOTestCase {
 	private SujetDAO sujetDAO;
 
 	/**
-	 * Test de la méthode getReference().
+	 * Test de la methode getReference().
 	 */
 	@Test
 	public void testGetReference() {
-		// Test récupération sujet dont id=1
+		// Test recuperation sujet dont id=1
 		Sujet sujet1 = sujetDAO.getReference(Long.valueOf(1));
 		assertEquals("libelle sujet 1", sujet1.getLibelle());
 		assertEquals("description sujet 1", sujet1.getDescription());
 
-		// Test récupération sujet dont id=2
+		// Test recuperation sujet dont id=2
 		Sujet sujet2 = sujetDAO.getReference(Long.valueOf(2));
 		assertEquals("libelle sujet 2", sujet2.getLibelle());
 		assertEquals("description sujet 2", sujet2.getDescription());
 
-		// Test récupération sujet dont id=3
+		// Test recuperation sujet dont id=3
 		Sujet sujet3 = sujetDAO.getReference(Long.valueOf(3));
 		assertEquals("libelle sujet 3", sujet3.getLibelle());
 		assertEquals("description sujet 3", sujet3.getDescription());
 		
-		// Test du cas d'une recherche où l'identifiant n'existe pas en base
+		// Test du cas d'une recherche oe l'identifiant n'existe pas en base
 		try{
 			sujetDAO.getReference(Long.valueOf(100)).getId();
-			fail("L'exception ObjectNotFoundException aurait du être lancé");
+			fail("L'exception ObjectNotFoundException aurait du etre lance");
 		} catch(ObjectNotFoundException ex){
 			// Exception attendue car l'identifiant n'existe pas
 		}
@@ -59,54 +59,54 @@ public class SujetDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {
-		// Test récupération sujet dont id=1
+		// Test recuperation sujet dont id=1
 		Sujet sujet1 = sujetDAO.findById(Long.valueOf(1));
 		assertEquals("libelle sujet 1", sujet1.getLibelle());
 		assertEquals("description sujet 1", sujet1.getDescription());
 
-		// Test récupération sujet dont id=2
+		// Test recuperation sujet dont id=2
 		Sujet sujet2 = sujetDAO.findById(Long.valueOf(2));
 		assertEquals("libelle sujet 2", sujet2.getLibelle());
 		assertEquals("description sujet 2", sujet2.getDescription());
 
-		// Test récupération sujet dont id=3
+		// Test recuperation sujet dont id=3
 		Sujet sujet3 = sujetDAO.findById(Long.valueOf(3));
 		assertEquals("libelle sujet 3", sujet3.getLibelle());
 		assertEquals("description sujet 3", sujet3.getDescription());
 
-		// Test récupération d'un sujet dont l'id n'existe pas, la méthode doit
+		// Test recuperation d'un sujet dont l'id n'existe pas, la methode doit
 		// renvoyer null
 		assertNull(sujetDAO.findById(Long.valueOf(10)));
 	}
 
 	/**
-	 * Test de la méthode findAll().
+	 * Test de la methode findAll().
 	 */
 	@Test
 	public void testFindAll() {
-		// Récupération de tous les sujets, 8 éléments soivent être remontés
+		// Recuperation de tous les sujets, 8 elements soivent etre remontes
 		List<Sujet> sujetList = sujetDAO.findAll();
 		assertEquals(8, sujetList.size());
 	}
 
 	/**
-	 * Test de la méthode findAllWithSort().
+	 * Test de la methode findAllWithSort().
 	 */
 	@Test
 	public void testFindAllWithSort() {
-		// Récupération de tous les éléments en triant par ordre décroissant, le
-		// premier élément aura l'id 8
+		// Recuperation de tous les elements en triant par ordre decroissant, le
+		// premier element aura l'id 8
 		List<Sujet> sujetList = sujetDAO.findAllWithSort("libelle", false);
 		Sujet firstSujet = sujetList.iterator().next();
 		assertEquals(firstSujet.getId(), Long.valueOf(8));
 	}
 
 	/**
-	 * Test de la méthode persist().
+	 * Test de la methode persist().
 	 */
 	@Test
 	public void testPersist() {
@@ -123,7 +123,7 @@ public class SujetDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode merge().
+	 * Test de la methode merge().
 	 */
 	@Test
 	public void testMerge() {
@@ -149,7 +149,7 @@ public class SujetDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode remove().
+	 * Test de la methode remove().
 	 */
 	@Test
 	public void testRemove() {

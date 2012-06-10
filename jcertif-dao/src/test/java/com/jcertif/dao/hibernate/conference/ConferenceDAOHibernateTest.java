@@ -27,7 +27,7 @@ public class ConferenceDAOHibernateTest extends AbstractDAOTestCase{
 	private ConferenceDAO  conferenceDAO;
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {

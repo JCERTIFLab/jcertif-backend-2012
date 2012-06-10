@@ -31,7 +31,7 @@ public class RappelEnvoyeDAOHibernateTest extends AbstractDAOTestCase {
 	private RappelEnvoyeDAO rappelEnvoyeDAO;
 
 	/**
-	 * Test de la méthode getReference().
+	 * Test de la methode getReference().
 	 */
 	@Test
 	public void testGetReference() {
@@ -49,7 +49,7 @@ public class RappelEnvoyeDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {
@@ -66,7 +66,7 @@ public class RappelEnvoyeDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAll().
+	 * Test de la methode findAll().
 	 */
 	@Test
 	public void testFindAll() {
@@ -76,7 +76,7 @@ public class RappelEnvoyeDAOHibernateTest extends AbstractDAOTestCase {
 	
 
 	/**
-	 * Test de la méthode persist().
+	 * Test de la methode persist().
 	 */
 	@Test
 	public void testPersist() {
@@ -100,7 +100,7 @@ public class RappelEnvoyeDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode merge().
+	 * Test de la methode merge().
 	 */
 	@Test
 	public void testMerge() {
@@ -123,7 +123,7 @@ public class RappelEnvoyeDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode remove().
+	 * Test de la methode remove().
 	 */
 	@Test
 	public void testRemove() {

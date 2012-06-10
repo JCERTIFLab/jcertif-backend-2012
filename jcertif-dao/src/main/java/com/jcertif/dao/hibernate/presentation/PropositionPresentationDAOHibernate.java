@@ -7,7 +7,7 @@ import com.jcertif.dao.api.presentation.PropositionPresentationDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation Hibernate pour l'accès aux données Presentation.
+ * ImplÃ©mentation Hibernate pour l'accÃ¨s aux donnÃ©es Presentation.
  * 
  * @author rossi.oddet
  * 

@@ -16,7 +16,7 @@ public class Speaker {
 
     private Long id;
     /**
-     * Prénom d'une personne.
+     * Prenom d'une personne.
      */
     private String prenom;
     /**

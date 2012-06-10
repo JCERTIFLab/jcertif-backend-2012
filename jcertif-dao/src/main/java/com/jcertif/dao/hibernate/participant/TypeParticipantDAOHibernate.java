@@ -11,7 +11,7 @@ import com.jcertif.dao.api.participant.TypeParticipantDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation Hibernate pour l'accès aux données {@link TypeParticipant}.
+ * Implementation Hibernate pour l'acces aux donnees {@link TypeParticipant}.
  * 
  * @author rossi.oddet
  * 

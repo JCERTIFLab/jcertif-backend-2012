@@ -15,7 +15,7 @@ import com.jcertif.dao.api.presentation.PropositionPresentationDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
 /**
- * Test de l'implémentation Hibernate de l'accès aux données
+ * Test de l'implementation Hibernate de l'acces aux donnees
  * {@link PropositionPresentation}.
  * 
  * @author rossi.oddet
@@ -34,7 +34,7 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 	private ParticipantDAO participantDAO;
 
 	/**
-	 * Test de la méthode getReference().
+	 * Test de la methode getReference().
 	 */
 	@Test
 	public void testGetReference() {
@@ -52,7 +52,7 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 	}
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {
@@ -69,7 +69,7 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 	}
 
 	/**
-	 * Test de la méthode findAll().
+	 * Test de la methode findAll().
 	 */
 	@Test
 	public void testFindAll() {
@@ -77,7 +77,7 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 	}
 
 	/**
-	 * Test de la méthode findAllWithSort().
+	 * Test de la methode findAllWithSort().
 	 */
 	@Test
 	public void testFindAllWithSort() {
@@ -86,7 +86,7 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 	}
 
 	/**
-	 * Test de la méthode persist().
+	 * Test de la methode persist().
 	 */
 	@Test
 	public void testPersist() {
@@ -105,7 +105,7 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 		presentation.setStatutApprobation(statut);
 		presentationDAO.persist(presentation);
 
-		// Vérification
+		// Verification
 		PropositionPresentation presentation1 = presentationDAO.findById(presentation.getId());
 		assertEquals("titre 100", presentation1.getTitre());
 		assertEquals("description 100", presentation1.getDescription());
@@ -117,7 +117,7 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 	}
 
 	/**
-	 * Test de la méthode merge().
+	 * Test de la methode merge().
 	 */
 	@Test
 	public void testMerge() {
@@ -141,7 +141,7 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 		participantDAO.persist(part);
 		PropositionPresentation savedPresentation = presentationDAO.merge(presentation);
 
-		// Vérification
+		// Verification
 		PropositionPresentation presentation1 = presentationDAO.findById(savedPresentation.getId());
 		assertEquals("titre 1000", presentation1.getTitre());
 		assertEquals("description 1000", presentation1.getDescription());
@@ -153,7 +153,7 @@ public class PropositionPresentationDAOHibernateTest extends AbstractDAOTestCase
 	}
 
 	/**
-	 * Test de la méthode remove().
+	 * Test de la methode remove().
 	 */
 	@Test
 	public void testRemove() {

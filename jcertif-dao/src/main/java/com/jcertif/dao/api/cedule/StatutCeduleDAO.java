@@ -4,7 +4,7 @@ import com.jcertif.bo.cedule.StatutCedule;
 import com.jcertif.dao.api.GenericDAO;
 
 /**
- * Interface d'accès au statut cedule.
+ * Interface d'accÃ¨s au statut cedule.
  * 
  * @author rossi.oddet
  * 

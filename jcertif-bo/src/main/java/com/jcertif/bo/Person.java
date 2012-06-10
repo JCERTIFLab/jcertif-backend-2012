@@ -34,7 +34,7 @@ public abstract class Person extends AbstractBO {
 	private Long id;
 
 	/**
-	 * Prénom d'une personne.
+	 * PrÃ©nom d'une personne.
 	 */
 	@Column
 	private String prenom;
@@ -58,7 +58,7 @@ public abstract class Person extends AbstractBO {
 	private String salutation;
 
 	/**
-	 * Specialité de la personne.
+	 * SpecialitÃ© de la personne.
 	 */
 	@Column
 	private String specialite;
@@ -71,7 +71,7 @@ public abstract class Person extends AbstractBO {
 	private Adresse adresse;
 
 	/**
-	 * Détails de la personne.
+	 * DÃ©tails de la personne.
 	 */
 	@Column(columnDefinition = "TEXT")
 	private String details;

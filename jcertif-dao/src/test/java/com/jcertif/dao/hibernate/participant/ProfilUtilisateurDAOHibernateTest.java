@@ -11,7 +11,7 @@ import com.jcertif.dao.api.participant.ProfilUtilisateurDAO;
 import com.jcertif.dao.hibernate.AbstractDAOTestCase;
 
 /**
- * Test de l'implémentation Hibernate de l'accès aux données ProfilUtilisateur.
+ * Test de l'implementation Hibernate de l'acces aux donnees ProfilUtilisateur.
  * 
  * @author Douneg
  * 
@@ -26,7 +26,7 @@ public class ProfilUtilisateurDAOHibernateTest extends AbstractDAOTestCase {
 	private ProfilUtilisateurDAO profilUtilisateurDAO;
 
 	/**
-	 * Test de la méthode getReference().
+	 * Test de la methode getReference().
 	 */
 	@Test
 	public void testGetReference() {
@@ -41,7 +41,7 @@ public class ProfilUtilisateurDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findById().
+	 * Test de la methode findById().
 	 */
 	@Test
 	public void testFindById() {
@@ -54,7 +54,7 @@ public class ProfilUtilisateurDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAll().
+	 * Test de la methode findAll().
 	 */
 	@Test
 	public void testFindAll() {
@@ -62,7 +62,7 @@ public class ProfilUtilisateurDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode findAllWithSort().
+	 * Test de la methode findAllWithSort().
 	 */
 	@Test
 	public void testFindAllWithSort() {
@@ -71,7 +71,7 @@ public class ProfilUtilisateurDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode persist().
+	 * Test de la methode persist().
 	 */
 	@Test
 	public void testPersist() {
@@ -81,7 +81,7 @@ public class ProfilUtilisateurDAOHibernateTest extends AbstractDAOTestCase {
 		profilUtilisateur1.setEmail("UNForce@JCertif2001.kin");
 		profilUtilisateurDAO.persist(profilUtilisateur1);
 
-		// Vérification
+		// Verification
 		ProfilUtilisateur profilUtilisateurV = profilUtilisateurDAO.findById(profilUtilisateur1.getId());
 		assertEquals("UNForce", profilUtilisateurV.getNomProfil());
 		assertEquals("UNForce@JCertif2001.kin", profilUtilisateurV.getEmail());
@@ -89,7 +89,7 @@ public class ProfilUtilisateurDAOHibernateTest extends AbstractDAOTestCase {
 	}
 
 	/**
-	 * Test de la méthode merge().
+	 * Test de la methode merge().
 	 */
 	@Test
 	public void testMerge() {
@@ -100,14 +100,14 @@ public class ProfilUtilisateurDAOHibernateTest extends AbstractDAOTestCase {
 		profilUtilisateurDAO.persist(profilUtilisateur);
 		ProfilUtilisateur savedProfilUtilisateur = profilUtilisateurDAO.merge(profilUtilisateur);
 
-		// Vérification
+		// Verification
 		ProfilUtilisateur profilUtilisateur1 = profilUtilisateurDAO.findById(savedProfilUtilisateur.getId());
 		assertEquals("UNForce", profilUtilisateur1.getNomProfil());
 		assertEquals("UNForce@JCertif2001.kin", profilUtilisateur1.getEmail());
 	}
 
 	/**
-	 * Test de la méthode remove().
+	 * Test de la methode remove().
 	 */
 	@Test
 	public void testRemove() {

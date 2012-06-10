@@ -28,7 +28,7 @@ public class RoleParticipantTest {
 	}
 
 	/**
-	 * Test des méhodes Equals et Hashcode du Bo {@link CentreConference}.
+	 * Test des mÃ©thodes Equals et Hashcode du Bo {@link CentreConference}.
 	 */
 	@Test
 	public void testEqualsAndHashCode() {

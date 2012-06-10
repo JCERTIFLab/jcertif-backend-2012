@@ -44,7 +44,7 @@ public class CeduleSalle extends AbstractBO {
 	private Calendar dateCedule;
 
 	/**
-	 * Détails cedule salle.
+	 * DÃ©tails cedule salle.
 	 */
 	@Column
 	private String details;

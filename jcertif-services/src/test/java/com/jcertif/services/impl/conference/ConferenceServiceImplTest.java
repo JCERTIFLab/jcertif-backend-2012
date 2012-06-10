@@ -33,30 +33,30 @@ public class ConferenceServiceImplTest {
     }
 
     /**
-     * Test de la méthode Save().
+     * Test de la methode Save().
      */
     @Test
     public void testSave() {
-        // Conference que l'on désire sauvegarder
+        // Conference que l'on desire sauvegarder
         Conference conf = new Conference();
         conf.setId(Long.valueOf(1));
         conf.setNom("Jcertif");
         conf.setDateFin(Calendar.getInstance());
 
-        // Conference sauvée renvoyé par le DAO
+        // Conference sauvee renvoye par le DAO
         Conference conf2 = new Conference();
         conf.setId(Long.valueOf(1));
         conf.setNom("Jcertif");
         conf.setDateFin(Calendar.getInstance());
 
         /**
-         * Spécification du comportement du DAO. Lorsque le DAO sera appelé avec
-         * la méthode merge(article1), il retournera article2
+         * Specification du comportement du DAO. Lorsque le DAO sera appele avec
+         * la methode merge(article1), il retournera article2
          */
         Mockito.when(conferenceDAO.merge(conf)).thenReturn(conf2);
 
-        // Vérification de la méthode save
-        // Le service doit bien appelé le DAO avec article 1. Si ce n'est pas le
+        // Verification de la methode save
+        // Le service doit bien appele le DAO avec article 1. Si ce n'est pas le
         // cas le test sera en erreur
         conferenceServiceimpl.save(conf);
     }

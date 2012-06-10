@@ -23,7 +23,7 @@ import com.jcertif.service.AbstractService;
 import com.jcertif.service.api.cedule.EvenementService;
 
 /**
- * service de gestion des évènements
+ * service de gestion des evenements
  * 
  * @author thierry.balla
  * 

@@ -31,13 +31,13 @@ public class ComiteRevisionPresentation  extends AbstractBO {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Clé composite.
+	 * ClÃ© composite.
 	 */
 	@EmbeddedId
 	private ComiteRevisionPresentationPK comiteRevisionPresentationPK;
 
 	/**
-	 * La date de révision.
+	 * La date de rÃ©vision.
 	 */
 	@Column
 	private Calendar dateRevision;
@@ -105,22 +105,22 @@ public class ComiteRevisionPresentation  extends AbstractBO {
 	}
 
 	/**
-	 * Ajouter un rappel envoyé.
+	 * Ajouter un rappel envoyÃ©.
 	 * 
 	 * @param rappelEnvoye
-	 *            un rappel envoyé.
-	 * @return le résultat de l'ajout.
+	 *            un rappel envoyÃ©.
+	 * @return le rÃ©sultat de l'ajout.
 	 */
 	public boolean addRappelEnvoye(final RappelEnvoye rappelEnvoye) {
 		return this.getRappelsEnvoyesInternal().add(rappelEnvoye);
 	}
 
 	/**
-	 * Supprime un rappel envoyé.
+	 * Supprime un rappel envoyÃ©.
 	 * 
 	 * @param rappelEnvoye
-	 *            un rappel envoyé
-	 * @return le résultat de la suppression
+	 *            un rappel envoyÃ©
+	 * @return le rÃ©sultat de la suppression
 	 */
 	public boolean removeRappelEnvoye(final RappelEnvoye rappelEnvoye) {
 		return this.getRappelsEnvoyesInternal().remove(rappelEnvoye);

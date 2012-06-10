@@ -31,7 +31,7 @@ import org.springframework.util.ResourceUtils;
 public abstract class AbstractDAOTestCase {
 
 	/**
-	 * Fichier de nettoyage de la base de données.
+	 * Fichier de nettoyage de la base de donnees.
 	 */
 	private static final String CLEAN_FILE = "com/jcertif/dao/hibernate/clean-dataset.xml";
 
@@ -50,13 +50,13 @@ public abstract class AbstractDAOTestCase {
 	private SessionFactory sessionFactory;
 
 	/**
-	 * Datasource utilisé pour les tests.
+	 * Datasource utilise pour les tests.
 	 */
 	@Autowired
 	private DataSource dataSource;
 
 	/**
-	 * Opération effectuée avant chaque test, rechargement du jeux de données.
+	 * Operation effectuee avant chaque test, rechargement du jeux de donnees.
 	 * 
 	 * @throws Exception
 	 */
@@ -65,7 +65,7 @@ public abstract class AbstractDAOTestCase {
 
 		final IDatabaseTester databaseTester = new DataSourceDatabaseTester(this.dataSource);
 
-		// Nettoyage de la base de données.
+		// Nettoyage de la base de donnees.
 		cleanDB();
 
 		final IDataSet dataSet = loadDataSet();
@@ -83,7 +83,7 @@ public abstract class AbstractDAOTestCase {
 	}
 
 	/**
-	 * Nettoyage de la base de données.
+	 * Nettoyage de la base de donnees.
 	 * 
 	 * @throws DataSetException
 	 * @throws DatabaseUnitException

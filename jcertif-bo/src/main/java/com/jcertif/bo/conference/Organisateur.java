@@ -31,7 +31,7 @@ public class Organisateur extends Person {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Liste de conférences.
+	 * Liste de confÃ©rences.
 	 */
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "organisateur_conference", joinColumns = @JoinColumn(name = "organisateur_id"), inverseJoinColumns = @JoinColumn(name = "conference_id"))

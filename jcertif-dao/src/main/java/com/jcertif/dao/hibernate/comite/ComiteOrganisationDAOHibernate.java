@@ -7,7 +7,7 @@ import com.jcertif.dao.api.comite.ComiteOrganisationDAO;
 import com.jcertif.dao.hibernate.AbstractHibernateGenericDAO;
 
 /**
- * Implémentation Hibernate d'accès aux données ComiteOrganisation.
+ * Implementation Hibernate d'acces aux donnees ComiteOrganisation.
  * 
  * @author rossi.oddet
  * 

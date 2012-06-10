@@ -39,26 +39,26 @@ public class PropositionPresentation extends AbstractBO {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Identifiant d'une présentation.
+	 * Identifiant d'une prÃ©sentation.
 	 */
 	@Id
 	@GeneratedValue
 	private Long id;
 
 	/**
-	 * Le titre de la présentation.
+	 * Le titre de la prÃ©sentation.
 	 */
 	@Column
 	private String titre;
 
 	/**
-	 * La description de la présentation.
+	 * La description de la prÃ©sentation.
 	 */
 	@Column(length = 1000)
 	private String description;
 
 	/**
-	 * Les détails de la présentation.
+	 * Les dÃ©tails de la prÃ©sentation.
 	 */
 	@Column
 	private String details;
@@ -70,48 +70,48 @@ public class PropositionPresentation extends AbstractBO {
 	private String sommaire;
 
 	/**
-	 * Les besoins spécifiques.
+	 * Les besoins spÃ©cifiques.
 	 */
 	@Column
 	private String besoinsSpecifiques;
 
 	/**
-	 * Mot clé de la présentation.
+	 * Mot clÃ© de la prÃ©sentation.
 	 */
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "mot_cle_id")
 	private MotCle motCle;
 
 	/**
-	 * Conférence d'une présentation.
+	 * ConfÃ©rence d'une prÃ©sentation.
 	 */
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "conference_id")
 	private Conference conference;
 
 	/**
-	 * Statut de l'approbation de la présentation.
+	 * Statut de l'approbation de la prÃ©sentation.
 	 */
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "statut_approbation_id")
 	private StatutApprobation statutApprobation;
 
 	/**
-	 * Liste des sujets de la présentation.
+	 * Liste des sujets de la prÃ©sentation.
 	 */
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "proposition_presentation_sujet", joinColumns = @JoinColumn(name = "proposition_presentation_id"), inverseJoinColumns = @JoinColumn(name = "sujet_id"))
 	private List<Sujet> sujetsInternal;
 
 	/**
-	 * Liste appréciations.
+	 * Liste apprÃ©ciations.
 	 */
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "appreciation_presentation", joinColumns = @JoinColumn(name = "proposition_presentation_id"), inverseJoinColumns = @JoinColumn(name = "appreciation_id"))
 	private List<Appreciation> appreciationsInternal;
 
 	/**
-	 * Liste comité révision présentation.
+	 * Liste comitÃ© rÃ©vision prÃ©sentation.
 	 */
 	@OneToMany(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "presentation_id")
@@ -125,14 +125,14 @@ public class PropositionPresentation extends AbstractBO {
 	private Set<Participant> participants;
 
 	/**
-	 * @return l'identifiant d'une présentation
+	 * @return l'identifiant d'une prÃ©sentation
 	 */
 	public Long getId() {
 		return id;
 	}
 
 	/**
-	 * Définit l'identifiant.
+	 * DÃ©finit l'identifiant.
 	 * 
 	 * @param id
 	 *            un identifiant
@@ -149,7 +149,7 @@ public class PropositionPresentation extends AbstractBO {
 	}
 
 	/**
-	 * Définit un titre.
+	 * DÃ©finit un titre.
 	 * 
 	 * @param titre
 	 *            un titre
@@ -166,7 +166,7 @@ public class PropositionPresentation extends AbstractBO {
 	}
 
 	/**
-	 * Définit une description.
+	 * DÃ©finit une description.
 	 * 
 	 * @param description
 	 *            une description
@@ -176,17 +176,17 @@ public class PropositionPresentation extends AbstractBO {
 	}
 
 	/**
-	 * @return les détails
+	 * @return les dÃ©tails
 	 */
 	public String getDetails() {
 		return details;
 	}
 
 	/**
-	 * Définit les détails d'une présentation.
+	 * DÃ©finit les dÃ©tails d'une prÃ©sentation.
 	 * 
 	 * @param details
-	 *            des détails
+	 *            des dÃ©tails
 	 */
 	public void setDetails(String details) {
 		this.details = details;
@@ -223,17 +223,17 @@ public class PropositionPresentation extends AbstractBO {
 	}
 
 	/**
-	 * @return le mot clé de la présentation
+	 * @return le mot clÃ© de la prÃ©sentation
 	 */
 	public MotCle getMotCle() {
 		return motCle;
 	}
 
 	/**
-	 * Définit le mot clé de la présentation.
+	 * DÃ©finit le mot clÃ© de la prÃ©sentation.
 	 * 
 	 * @param motCle
-	 *            un mot clé
+	 *            un mot clÃ©
 	 */
 	public void setMotCle(MotCle motCle) {
 		this.motCle = motCle;
@@ -247,24 +247,24 @@ public class PropositionPresentation extends AbstractBO {
 	}
 
 	/**
-	 * @return la conférence de la présentation
+	 * @return la confÃ©rence de la prÃ©sentation
 	 */
 	public Conference getConference() {
 		return conference;
 	}
 
 	/**
-	 * Définit la conférence de la présentation.
+	 * DÃ©finit la confÃ©rence de la prÃ©sentation.
 	 * 
 	 * @param conference
-	 *            une conférence
+	 *            une confÃ©rence
 	 */
 	public void setConference(Conference conference) {
 		this.conference = conference;
 	}
 
 	/**
-	 * Définit un statut d'approbation.
+	 * DÃ©finit un statut d'approbation.
 	 * 
 	 * @param statutApprobation
 	 *            un statut d'approbation
@@ -284,7 +284,7 @@ public class PropositionPresentation extends AbstractBO {
 	}
 
 	/**
-	 * Définit une liste de sujet.
+	 * DÃ©finit une liste de sujet.
 	 * 
 	 * @param sujetsInternal
 	 *            une liste de sujet
@@ -305,7 +305,7 @@ public class PropositionPresentation extends AbstractBO {
 	 * 
 	 * @param sujet
 	 *            un sujet
-	 * @return le résultat de l'ajout
+	 * @return le rÃ©sultat de l'ajout
 	 */
 	public boolean addSujet(final Sujet sujet) {
 		return this.getSujetsInternal().add(sujet);
@@ -316,14 +316,14 @@ public class PropositionPresentation extends AbstractBO {
 	 * 
 	 * @param sujet
 	 *            un sujet
-	 * @return le résultat de la suppression
+	 * @return le rÃ©sultat de la suppression
 	 */
 	public boolean removeSujet(final Sujet sujet) {
 		return this.getSujetsInternal().remove(sujet);
 	}
 
 	/**
-	 * @return la liste d'appréciation
+	 * @return la liste d'apprÃ©ciation
 	 */
 	protected List<Appreciation> getAppreciationsInternal() {
 		if (appreciationsInternal == null) {
@@ -333,39 +333,39 @@ public class PropositionPresentation extends AbstractBO {
 	}
 
 	/**
-	 * Définit la liste d'appréciation.
+	 * DÃ©finit la liste d'apprÃ©ciation.
 	 * 
 	 * @param appreciationsInternal
-	 *            une liste d'appréciation
+	 *            une liste d'apprÃ©ciation
 	 */
 	protected void setAppreciationsInternal(List<Appreciation> appreciationsInternal) {
 		this.appreciationsInternal = appreciationsInternal;
 	}
 
 	/**
-	 * @return la liste d'appréciation non modifiable
+	 * @return la liste d'apprÃ©ciation non modifiable
 	 */
 	public List<Appreciation> getAppreciations() {
 		return Collections.unmodifiableList(getAppreciationsInternal());
 	}
 
 	/**
-	 * Ajoute une appréciation.
+	 * Ajoute une apprÃ©ciation.
 	 * 
 	 * @param appreciation
-	 *            une appréciation
-	 * @return le résultat de l'ajout d'une appréciation.
+	 *            une apprÃ©ciation
+	 * @return le rÃ©sultat de l'ajout d'une apprÃ©ciation.
 	 */
 	public boolean addAppreciation(final Appreciation appreciation) {
 		return getAppreciationsInternal().add(appreciation);
 	}
 
 	/**
-	 * Supprime une appréciation.
+	 * Supprime une apprÃ©ciation.
 	 * 
 	 * @param appreciation
-	 *            une appréciation
-	 * @return le résultat de la suppression d'une appréciation.
+	 *            une apprÃ©ciation
+	 * @return le rÃ©sultat de la suppression d'une apprÃ©ciation.
 	 */
 	public boolean removeAppreciation(final Appreciation appreciation) {
 		return getAppreciationsInternal().remove(appreciation);
@@ -388,21 +388,21 @@ public class PropositionPresentation extends AbstractBO {
 	}
 
 	/**
-	 * Ajoute un comité de révision.
+	 * Ajoute un comitÃ© de rÃ©vision.
 	 * 
 	 * @param comite
-	 *            un comité de révision
-	 * @return le résultat de la suppression.
+	 *            un comitÃ© de rÃ©vision
+	 * @return le rÃ©sultat de la suppression.
 	 */
 	public boolean addComiteRevisionPresentation(ComiteRevisionPresentation comite) {
 		return getComiteRevisionPresentationsInternal().add(comite);
 	}
 
 	/**
-	 * Supprime un comité de révision.
+	 * Supprime un comitÃ© de rÃ©vision.
 	 * 
 	 * @param comite
-	 * @return le résultat de la suppression
+	 * @return le rÃ©sultat de la suppression
 	 */
 	public boolean removeComiteRevisionPresentation(ComiteRevisionPresentation comite) {
 		return getComiteRevisionPresentationsInternal().remove(comite);
