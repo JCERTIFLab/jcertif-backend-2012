@@ -180,9 +180,24 @@
 	<proposition_presentation id="16" titre="Accueil et mot de bienvenu (jour 2)" sommaire="Accueil et mot de bienvenu" besoins_specifiques="Micro sans fil" description="Le président de JCertif présente son équipe et explique le déroulement de la journée" details="" mot_cle_id="1" statut_approbation_id="3" conference_id="2"/>
 	<proposition_presentation id="17" titre="Développement d'applications pour IPhone et IPad" sommaire="Atelier de programmation IPhone et IPad avec Objective-C" besoins_specifiques="Micro sans fil" description="L'objectif premier est de faire découvrir à des programmeurs de tous niveaux(junior, intermédiaire, senior) les rudiments de la programmation en Objective-C, langage utilisé dans le développement d'application sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
 
-	
-		
-	<!-- Présentations et sujets -->		
+    <proposition_presentation id="700" titre="Initiation à l'infographie" sommaire="Présentation générale du métier d'infographe et de web designer" besoins_specifiques="Micro sans fil" description="L'objectif premier est de faire découvrir à tout le monde le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+    <proposition_presentation id="701" titre="Overview des outils de designer" sommaire="Présentation générale des outils d'infographe et de web designer" besoins_specifiques="Micro sans fil" description="L'objectif premier est de faire découvrir à tout le monde les outils, le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+    <proposition_presentation id="702" titre="Lab : Gestion des calques avec photoshop" sommaire="Présentation de photoshop et de la gestion des calques" besoins_specifiques="Micro sans fil" description="L'objectif premier est de faire découvrir à tout le monde photoshop et les calques, le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+    <proposition_presentation id="703" titre="Lab : Gestion des sélections avec photoshop" sommaire="Gestion sélection, présentation générale des outils d'infographe et de web designer" besoins_specifiques="Micro sans fil" description="L'objectif premier est de faire découvrir à tout le monde la gestion des sélections, outils, le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+    <proposition_presentation id="704" titre="Lab : Retouche photos avec photoshop" sommaire="Retouche photo générale des outils d'infographe et de web designer" besoins_specifiques="Micro sans fil" description="L'objectif premier est de retoucher des photos à tout le monde les outils, le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+    <proposition_presentation id="705" titre="Lab : Découper template avec photoshop" sommaire="Découper template photo générale des outils d'infographe et de web designer" besoins_specifiques="Micro sans fil" description="Découper template L'objectif premier est de retoucher des photos à tout le monde les outils, le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+    <proposition_presentation id="706" titre="Lab : Animation avec Flash" sommaire="Animation flash photo générale des outils d'infographe et de web designer" besoins_specifiques="Micro sans fil" description="Anim flash, L'objectif premier est de retoucher des photos à tout le monde les outils, le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+
+    <proposition_presentation id="800" titre="Présentation JEE" sommaire="Présentation générale Java EE" besoins_specifiques="Micro sans fil" description="Présentation Java EE L'objectif premier est de faire découvrir à tout le monde le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+    <proposition_presentation id="801" titre="Installer son environnement de travail java EE" sommaire="Installer son environnement de travail Présentation générale des outils d'infographe et de web designer" besoins_specifiques="Micro sans fil" description="Installer son env... L'objectif premier est de faire découvrir à tout le monde les outils, le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+    <proposition_presentation id="802" titre="Java Course Level 1 : créer votre premier programme" sommaire="Java course level 1 : Présentation de photoshop et de la gestion des calques" besoins_specifiques="Micro sans fil" description="Java course level 1....L'objectif premier est de faire découvrir à tout le monde photoshop et les calques, le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+    <proposition_presentation id="803" titre="Java Course Level 2 : Créer votre première application graphique" sommaire="Java Course level 2 Gestion sélection, présentation générale des outils d'infographe et de web designer" besoins_specifiques="Micro sans fil" description="L'objectif premier est de faire découvrir à tout le monde la gestion des sélections, outils, le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+    <proposition_presentation id="804" titre="Introduction to JavaFX 2.0 PART1" sommaire="Introduction to JavaFX 2.0 PART1 Retouche photo générale des outils d'infographe et de web designer" besoins_specifiques="Micro sans fil" description="Introduction to JavaFX 2.0 PART1 L'objectif premier est de retoucher des photos à tout le monde les outils, le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+    <proposition_presentation id="805" titre="Introduction to JavaFX 2.0 PART2" sommaire="Introduction to JavaFX 2.0 PART2 Découper template photo générale des outils d'infographe et de web designer" besoins_specifiques="Micro sans fil" description="Découper template L'objectif premier est de retoucher des photos à tout le monde les outils, le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+    <proposition_presentation id="806" titre="LAB : Introduction to the JavaFX Scene Builder PART1" sommaire="LAB : Introduction to the JavaFX Scene Builder PART1 Animation flash photo générale des outils d'infographe et de web designer" besoins_specifiques="Micro sans fil" description="LAB : Introduction to the JavaFX Scene Builder PART1 Anim flash, L'objectif premier est de retoucher des photos à tout le monde les outils, le métier d'infographe...sur iOS, MacOS. À la fin de cette session de 5 jours, les participants auront une application qui sera le fruit de leur effort et pourront suggérer des améliorations pour les versions ultérieures de l'application." details="" mot_cle_id="18" statut_approbation_id="3" conference_id="2"/>
+
+
+    <!-- Présentations et sujets -->
 
 	<proposition_presentation_sujet proposition_presentation_id="1" sujet_id="16"/>
 	<proposition_presentation_sujet proposition_presentation_id="2" sujet_id="16"/>
@@ -199,6 +214,20 @@
 	<proposition_presentation_sujet proposition_presentation_id="15" sujet_id="16"/>
 	<proposition_presentation_sujet proposition_presentation_id="16" sujet_id="16"/>
 	<proposition_presentation_sujet proposition_presentation_id="17" sujet_id="18"/>
+    <proposition_presentation_sujet proposition_presentation_id="700" sujet_id="18"/>
+    <proposition_presentation_sujet proposition_presentation_id="701" sujet_id="16"/>
+    <proposition_presentation_sujet proposition_presentation_id="702" sujet_id="3"/>
+    <proposition_presentation_sujet proposition_presentation_id="703" sujet_id="17"/>
+    <proposition_presentation_sujet proposition_presentation_id="704" sujet_id="18"/>
+    <proposition_presentation_sujet proposition_presentation_id="705" sujet_id="18"/>
+    <proposition_presentation_sujet proposition_presentation_id="706" sujet_id="15"/>
+    <proposition_presentation_sujet proposition_presentation_id="800" sujet_id="18"/>
+    <proposition_presentation_sujet proposition_presentation_id="801" sujet_id="16"/>
+    <proposition_presentation_sujet proposition_presentation_id="802" sujet_id="3"/>
+    <proposition_presentation_sujet proposition_presentation_id="803" sujet_id="17"/>
+    <proposition_presentation_sujet proposition_presentation_id="804" sujet_id="18"/>
+    <proposition_presentation_sujet proposition_presentation_id="805" sujet_id="18"/>
+    <proposition_presentation_sujet proposition_presentation_id="806" sujet_id="15"/>
 
 	<!-- Type d'événements -->		
 	
@@ -241,9 +270,29 @@
 	<evenement id="16" nom_evenement="Accueil et mot du président (jour 2)" date_debut_prevue="2012-09-09 09:00:00" date_fin_prevue="2012-09-09 09:30:00" date_debut_effective="2012-09-09 10:00:00" date_fin_effective="2012-09-09 10:00:00" details="Séance de lancement de la deuxièeme journée de JCERTIF 2012" type_evenement_id="2" proposition_presentation_id="16"/>
 	<evenement id="10" nom_evenement="Keynote : Le future du Web (2.0, 3.0 ou le Web sémantique)" date_debut_prevue="2012-09-09 10:30:00" date_fin_prevue="2012-09-09 11:30:00" date_debut_effective="2012-09-09 11:00:00"	date_fin_effective="2012-09-03 11:00:00" details="Keynote : Présenté Mike Levin" type_evenement_id="3" proposition_presentation_id="10" />
 	<evenement id="15" nom_evenement="Au revoir et annonces pour 2013" date_debut_prevue="2012-09-04 17:35:00" date_fin_prevue="2012-09-04 18:00:00" date_debut_effective="2012-09-09 17:35:00" date_fin_effective="2012-09-09 17:35:00" details="Mot d'au revoir et annonce des prochains événement" type_evenement_id="2" proposition_presentation_id="15"/>
-	
-	
-	<!-- Profils Speakers -->		
+
+    <evenement id="700" nom_evenement="Initiation à l'infographie" date_debut_prevue="2012-09-03 10:00:00" date_fin_prevue="2012-09-03 10:45:00" date_debut_effective="2012-09-03 10:00:00" date_fin_effective="2012-09-03 10:45:00" details="Présentation du métier d'infographe, de web designer." type_evenement_id="2" proposition_presentation_id="700"/>
+    <evenement id="701" nom_evenement="Overview des outils de designer" date_debut_prevue="2012-09-03 11:00:00" date_fin_prevue="2012-09-03 13:00:00" date_debut_effective="2012-09-03 11:00:00" date_fin_effective="2012-09-03 13:00:00" details="Présentation du métier d'infographe, de web designer." type_evenement_id="2" proposition_presentation_id="701"/>
+    <evenement id="702" nom_evenement="Lab : Gestion des calques avec photoshop" date_debut_prevue="2012-09-03 14:00:00" date_fin_prevue="2012-09-03 17:00:00" date_debut_effective="2012-09-03 14:00:00" date_fin_effective="2012-09-03 17:00:00" details="Présentation du métier d'infographe, de web designer." type_evenement_id="2" proposition_presentation_id="702"/>
+    <evenement id="703" nom_evenement="Lab : Gestion des sélections avec photoshop" date_debut_prevue="2012-09-03 10:00:00" date_fin_prevue="2012-09-03 14:45:00" date_debut_effective="2012-09-03 10:00:00" date_fin_effective="2012-09-03 14:45:00" details="Présentation du métier d'infographe, de web designer." type_evenement_id="2" proposition_presentation_id="703"/>
+    <evenement id="704" nom_evenement="Lab : Retouche photos avec photoshop" date_debut_prevue="2012-09-03 15:00:00" date_fin_prevue="2012-09-03 16:45:00" date_debut_effective="2012-09-03 15:00:00" date_fin_effective="2012-09-03 16:45:00" details="Présentation du métier d'infographe, de web designer." type_evenement_id="2" proposition_presentation_id="704"/>
+    <evenement id="705" nom_evenement="Lab : Découper template avec photoshop" date_debut_prevue="2012-09-04 10:00:00" date_fin_prevue="2012-09-04 10:45:00" date_debut_effective="2012-09-04 10:00:00" date_fin_effective="2012-09-04 10:45:00" details="Présentation du métier d'infographe, de web designer." type_evenement_id="2" proposition_presentation_id="705"/>
+    <evenement id="706" nom_evenement="Lab : Animation avec Flash" date_debut_prevue="2012-09-04 09:00:00" date_fin_prevue="2012-09-04 11:45:00" date_debut_effective="2012-09-04 09:00:00" date_fin_effective="2012-09-04 11:45:00" details="Présentation du métier d'infographe, de web designer." type_evenement_id="2" proposition_presentation_id="706"/>
+
+    <evenement id="800" nom_evenement="Présentation JEE" date_debut_prevue="2012-09-03 10:00:00" date_fin_prevue="2012-09-03 10:45:00" date_debut_effective="2012-09-03 10:00:00" date_fin_effective="2012-09-03 10:45:00" details="Présentation Java EE bkjbnqfkms  bsqkjbkjfmbvn vkjqnvmvnm" type_evenement_id="2" proposition_presentation_id="800"/>
+    <evenement id="801" nom_evenement="Installer son environnement de travail java EE" date_debut_prevue="2012-09-03 10:45:00" date_fin_prevue="2012-09-03 13:30:00" date_debut_effective="2012-09-03 10:45:00" date_fin_effective="2012-09-03 13:30:00" details="Installer son environnement de travail java EE bkjbnqfkms  bsqkjbkjfmbvn vkjqnvmvnm" type_evenement_id="2" proposition_presentation_id="801"/>
+    <evenement id="802" nom_evenement="Java Course Level 1 : créer votre premier programme" date_debut_prevue="2012-09-03 14:15:00" date_fin_prevue="2012-09-03 16:45:00" date_debut_effective="2012-09-03 14:15:00" date_fin_effective="2012-09-03 16:45:00" details="Java Course Level 1 : créer votre premier programme bkjbnqfkms  bsqkjbkjfmbvn vkjqnvmvnm" type_evenement_id="2" proposition_presentation_id="802"/>
+    <evenement id="803" nom_evenement="Java Course Level 2 : Créer votre première application graphique" date_debut_prevue="2012-09-03 09:00:00" date_fin_prevue="2012-09-03 17:00:00" date_debut_effective="2012-09-03 09:00:00" date_fin_effective="2012-09-03 17:00:00" details="Java Course Level 2 : Créer votre première application graphique bkjbnqfkms  bsqkjbkjfmbvn vkjqnvmvnm" type_evenement_id="2" proposition_presentation_id="803"/>
+    <evenement id="804" nom_evenement="Introduction to JavaFX 2.0 PART1" date_debut_prevue="2012-09-04 14:00:00" date_fin_prevue="2012-09-04 16:45:00" date_debut_effective="2012-09-04 14:00:00" date_fin_effective="2012-09-04 16:45:00" details="Introduction to JavaFX 2.0 PART1 bkjbnqfkms  bsqkjbkjfmbvn vkjqnvmvnm" type_evenement_id="2" proposition_presentation_id="804"/>
+    <evenement id="805" nom_evenement="Introduction to JavaFX 2.0 PART2" date_debut_prevue="2012-09-04 14:30:00" date_fin_prevue="2012-09-04 15:45:00" date_debut_effective="2012-09-04 14:30:00" date_fin_effective="2012-09-03 15:45:00" details="Présentation Java EE bkjbnqfkms  bsqkjbkjfmbvn vkjqnvmvnm" type_evenement_id="2" proposition_presentation_id="805"/>
+    <evenement id="806" nom_evenement="LAB : Introduction to the JavaFX Scene Builder PART1" date_debut_prevue="2012-09-04 09:00:00" date_fin_prevue="2012-09-04 17:45:00" date_debut_effective="2012-09-04 10:00:00" date_fin_effective="2012-09-04 10:45:00" details="Présentation Java EE bkjbnqfkms  bsqkjbkjfmbvn vkjqnvmvnm" type_evenement_id="2" proposition_presentation_id="806"/>
+
+
+
+
+
+
+    <!-- Profils Speakers -->
 		
 	<!-- Spassword=michel-->
 	<profil_utilisateur id="1" email="angela.caicedo@oracle.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />
@@ -307,7 +356,9 @@
 	<profil_utilisateur id="59" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="oreilly.png" />
 	<profil_utilisateur id="600" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="gi.jpg" />
 	<profil_utilisateur id="602" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="gp.png" />
-	
+
+    <profil_utilisateur id="700" email="christian.generalpartner@gmail.com" password="-41-1282447119-793369873-62-80-120-9268-16" photo="dedault.jpg" />
+
 	
 	
 
@@ -449,9 +500,26 @@
 	<propos_presentation_auteur presentation_id="16" auteur_id="5"/>	
 	<propos_presentation_auteur presentation_id="17" auteur_id="16"/>
 
+    <propos_presentation_auteur presentation_id="700" auteur_id="5"/>
+    <propos_presentation_auteur presentation_id="701" auteur_id="1"/>
+    <propos_presentation_auteur presentation_id="702" auteur_id="8"/>
+    <propos_presentation_auteur presentation_id="703" auteur_id="5"/>
+    <propos_presentation_auteur presentation_id="704" auteur_id="5"/>
+    <propos_presentation_auteur presentation_id="705" auteur_id="16"/>
+    <propos_presentation_auteur presentation_id="706" auteur_id="14"/>
+
+    <propos_presentation_auteur presentation_id="800" auteur_id="5"/>
+    <propos_presentation_auteur presentation_id="801" auteur_id="4"/>
+    <propos_presentation_auteur presentation_id="802" auteur_id="3"/>
+    <propos_presentation_auteur presentation_id="803" auteur_id="2"/>
+    <propos_presentation_auteur presentation_id="804" auteur_id="1"/>
+    <propos_presentation_auteur presentation_id="805" auteur_id="1"/>
+    <propos_presentation_auteur presentation_id="806" auteur_id="1"/>
 
 
-		<!-- Statut de la cedule auteurs -->		
+
+
+    <!-- Statut de la cedule auteurs -->
 
 	<statut_cedule id="1" code="VALIDER" description="Participation confirmée"/>
 	<statut_cedule id="2" code="PROVISOIRE" description="Participation provisoire"/>	
@@ -513,8 +581,25 @@
 	<cedule_salle id="30" date_cedule="2012-02-01" details="Keynote : Le future du Web (2.0, 3.0 ou le Web sémantique)" salle_id="1" statut_cedule_id="2" evenement_id="10"/>
 	<cedule_salle id="40" date_cedule="2012-02-01" details="Au revoir et annonces pour 2013" salle_id="3" statut_cedule_id="2" evenement_id="15"/>
 	<cedule_salle id="41" date_cedule="2012-02-01" details="Accueil des participants (jour 2)" salle_id="1" statut_cedule_id="2" evenement_id="16"/>
-	
-	<!-- Participants Sponsors 2011-->		
+
+    <cedule_salle id="700" date_cedule="2012-02-01" details="Accueil des participants (jour 2)" salle_id="1" statut_cedule_id="2" evenement_id="700"/>
+    <cedule_salle id="701" date_cedule="2012-02-02" details="Présentation de JUG-AFRICA et du CongoJUG" salle_id="1" statut_cedule_id="2" evenement_id="701"/>
+    <cedule_salle id="702" date_cedule="2012-02-02" details="Présentation de JUG-AFRICA et du CongoJUG" salle_id="1" statut_cedule_id="2" evenement_id="702"/>
+    <cedule_salle id="703" date_cedule="2012-02-02" details="Keynote : L'état de Java sous Oracle" salle_id="2" statut_cedule_id="2" evenement_id="703"/>
+    <cedule_salle id="704" date_cedule="2012-02-01" details="Keynote : Le future du Web (2.0, 3.0 ou le Web sémantique)" salle_id="2" statut_cedule_id="2" evenement_id="704"/>
+    <cedule_salle id="705" date_cedule="2012-02-01" details="Au revoir et annonces pour 2013" salle_id="2" statut_cedule_id="2" evenement_id="705"/>
+    <cedule_salle id="706" date_cedule="2012-02-01" details="Accueil des participants (jour 2)" salle_id="3" statut_cedule_id="2" evenement_id="706"/>
+
+    <cedule_salle id="800" date_cedule="2012-02-01" details="Accueil des participants (jour 2)" salle_id="4" statut_cedule_id="2" evenement_id="800"/>
+    <cedule_salle id="801" date_cedule="2012-02-02" details="Présentation de JUG-AFRICA et du CongoJUG" salle_id="5" statut_cedule_id="2" evenement_id="801"/>
+    <cedule_salle id="802" date_cedule="2012-02-02" details="Présentation de JUG-AFRICA et du CongoJUG" salle_id="6" statut_cedule_id="2" evenement_id="802"/>
+    <cedule_salle id="803" date_cedule="2012-02-02" details="Keynote : L'état de Java sous Oracle" salle_id="6" statut_cedule_id="2" evenement_id="803"/>
+    <cedule_salle id="804" date_cedule="2012-02-01" details="Keynote : Le future du Web (2.0, 3.0 ou le Web sémantique)" salle_id="4" statut_cedule_id="2" evenement_id="804"/>
+    <cedule_salle id="805" date_cedule="2012-02-01" details="Au revoir et annonces pour 2013" salle_id="5" statut_cedule_id="2" evenement_id="805"/>
+    <cedule_salle id="806" date_cedule="2012-02-01" details="Accueil des participants (jour 2)" salle_id="3" statut_cedule_id="2" evenement_id="806"/>
+
+
+    <!-- Participants Sponsors 2011-->
 	<!-- password=michel -->
 	<profil_utilisateur id="840" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="google.gif" />
 	<profil_utilisateur id="841" email="" password="-41-1282447119-793369873-62-80-120-9268-16" photo="objis.jpg" />
