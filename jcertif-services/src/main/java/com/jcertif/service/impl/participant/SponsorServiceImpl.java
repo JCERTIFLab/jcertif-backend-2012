@@ -4,11 +4,7 @@
  */
 package com.jcertif.service.impl.participant;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,7 +49,17 @@ public class SponsorServiceImpl implements SponsorService {
 		criterias.put("roleparticipant", roleSponsorList.iterator().next());
 		criterias.put("conference", conf);
 
-		return new HashSet<Participant>(participantDAO.findByProperties(criterias));
+        List<Participant> participants = participantDAO.findByProperties(criterias);
+
+        // Removing sponsors without sponsorship level
+        Iterator<Participant> itParticipant = participants.iterator();
+        while(itParticipant.hasNext()){
+            if(itParticipant.next().getNiveauPartenariat() == null) {
+                itParticipant.remove();
+            }
+        }
+
+		return new HashSet<Participant>(participants);
 	}
 
 }
